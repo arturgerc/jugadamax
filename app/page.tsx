@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCasinosByVertical } from "@/lib/content";
+import { getCasinos, getCasinosByVertical } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { Hero } from "@/components/home/Hero";
 import { QuickCategories } from "@/components/home/QuickCategories";
+import { BonusHighlights } from "@/components/home/BonusHighlights";
 import { RankingList } from "@/components/ranking/RankingList";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
   },
 };
 
-// Homepage crypto preview shows the top few operators; the full ranking lives on
-// /casinos-crypto. Renders only real, available entries (no fabricated filler).
-const CRYPTO_PREVIEW_COUNT = 3;
+// Homepage previews show the top few operators per vertical; the full rankings
+// live on the vertical pages. Renders only real, available entries (no filler).
+const PREVIEW_COUNT = 3;
 
 const verticalCtas = [
   { label: "Casinos Crypto", href: "/casinos-crypto" },
@@ -32,7 +33,10 @@ const verticalCtas = [
 ] as const;
 
 export default function Home() {
-  const cryptoCasinos = getCasinosByVertical("crypto-casino").slice(0, CRYPTO_PREVIEW_COUNT);
+  const cryptoCasinos = getCasinosByVertical("crypto-casino").slice(0, PREVIEW_COUNT);
+  const fiatCasinos = getCasinosByVertical("fiat-casino").slice(0, PREVIEW_COUNT);
+  const sportsbooks = getCasinosByVertical("sportsbook").slice(0, PREVIEW_COUNT);
+  const allCasinos = getCasinos();
 
   return (
     <>
@@ -93,6 +97,64 @@ export default function Home() {
           </nav>
         </Container>
       </section>
+
+      <section aria-labelledby="top-fiat-heading" className="py-10">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div className="max-w-2xl space-y-1">
+              <h2
+                id="top-fiat-heading"
+                className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+              >
+                Top Casinos Fiat en México
+              </h2>
+              <p className="text-sm text-muted-foreground sm:text-base">
+                Casinos con métodos de pago locales en México, evaluados por nuestro equipo
+                editorial.
+              </p>
+            </div>
+            <Link
+              href="/casinos-fiat"
+              className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+            >
+              Ver todos los casinos fiat
+            </Link>
+          </div>
+          <div className="mt-6">
+            <RankingList casinos={fiatCasinos} vertical="fiat-casino" />
+          </div>
+        </Container>
+      </section>
+
+      <section aria-labelledby="top-betting-heading" className="py-10">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div className="max-w-2xl space-y-1">
+              <h2
+                id="top-betting-heading"
+                className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+              >
+                Top Casas de Apuestas en México
+              </h2>
+              <p className="text-sm text-muted-foreground sm:text-base">
+                Casas de apuestas deportivas disponibles en México, con nuestra evaluación
+                editorial.
+              </p>
+            </div>
+            <Link
+              href="/apuestas"
+              className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+            >
+              Ver todas las apuestas
+            </Link>
+          </div>
+          <div className="mt-6">
+            <RankingList casinos={sportsbooks} vertical="sportsbook" />
+          </div>
+        </Container>
+      </section>
+
+      <BonusHighlights casinos={allCasinos} />
 
       <section aria-labelledby="metodologia-heading" className="py-10">
         <Container>

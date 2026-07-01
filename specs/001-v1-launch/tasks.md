@@ -147,10 +147,10 @@ their sections plus bonus/payment highlights appear on the homepage.
 **Independent Test**: Load `/casinos-fiat` and `/apuestas` independently; confirm ranked entries
 with key facts, CTAs, and comparison tables consistent with the crypto page.
 
-- [ ] T032 [P] [US3] Create the fiat casinos page `app/(marketing)/casinos-fiat/page.tsx` using `getCasinosByVertical('fiat-casino')` with `RankingList` + `ComparisonTable`, disclosure + 18+ notice, metadata + breadcrumb
-- [ ] T033 [P] [US3] Create the betting sites page `app/(marketing)/apuestas/page.tsx` using `getCasinosByVertical('sportsbook')` with `RankingList` + `ComparisonTable`, disclosure + 18+ notice, metadata + breadcrumb
-- [ ] T034 [P] [US3] Create `components/home/BonusHighlights.tsx` (bonus/payment highlights from bonus records; honest, no urgency)
-- [ ] T035 [US3] Append Top Fiat Casinos, Top Betting Sites, and Bonus/payment highlights sections to `app/page.tsx` (keep crypto most prominent — SC-010)
+- [X] T032 [P] [US3] Create the fiat casinos page `app/(marketing)/casinos-fiat/page.tsx` using `getCasinosByVertical('fiat-casino')` with `RankingList` + `ComparisonTable`, disclosure + 18+ notice, metadata + breadcrumb
+- [X] T033 [P] [US3] Create the betting sites page `app/(marketing)/apuestas/page.tsx` using `getCasinosByVertical('sportsbook')` with `RankingList` + `ComparisonTable`, disclosure + 18+ notice, metadata + breadcrumb
+- [X] T034 [P] [US3] Create `components/home/BonusHighlights.tsx` (bonus/payment highlights from bonus records; honest, no urgency)
+- [X] T035 [US3] Append Top Fiat Casinos, Top Betting Sites, and Bonus/payment highlights sections to `app/page.tsx` (keep crypto most prominent — SC-010)
 
 **Checkpoint**: All three verticals are fully represented on rankings and homepage.
 
