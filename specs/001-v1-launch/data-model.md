@@ -124,10 +124,11 @@ Represents an editorial review of an operator (FR-005, FR-016).
 | `trustSummary` | string | no | Licensing/trust narrative (real) |
 | `publishedAt` | date (ISO) | yes | For display + schema `datePublished` |
 | `updatedAt` | date (ISO) | no | For display + schema `dateModified` |
+| `locale` | Locale | no | `es-MX` in V1; optional for LATAM localization readiness (FR-021/FR-027) — defaults to the site locale when omitted |
 
 **Validation rules**: `casinoId` and `authorId` resolve; `rating` within 0–5; `pros` and `cons`
-non-empty (balanced, honest); `publishedAt` valid ISO date. Rendered as `Article` JSON-LD, never
-`Review`/`AggregateRating` (see seo-schema contract).
+non-empty (balanced, honest); `publishedAt` valid ISO date; `locale` (if present) in the Locale
+enum. Rendered as `Article` JSON-LD, never `Review`/`AggregateRating` (see seo-schema contract).
 
 **Relationships**: belongs to one Casino; written by one Author.
 
@@ -179,7 +180,7 @@ Author 1───* Review *───1 Casino 1───* Bonus
 
 - Adding a **demo slots / tragamonedas** section later can reuse `Casino`/operator references and a
   new `Game` entity without altering existing entities.
-- Adding **LATAM locales** later uses the existing `locale` field plus locale-scoped content; no
-  entity redesign required.
+- Adding **LATAM locales** later uses the existing `locale` field on `Casino`, `Article`, and
+  `Review` plus locale-scoped content; no entity redesign required.
 - Adding **user reviews/ratings** later would introduce a separate `UserReview` entity; the current
   editorial `rating` stays distinct and is never merged into a fake aggregate.

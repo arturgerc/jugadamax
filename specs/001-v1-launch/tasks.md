@@ -50,7 +50,7 @@ every user story depends on.
 
 ### Design system (mobile-first premium dark)
 
-- [ ] T004 Define brand design tokens as CSS variables in `app/globals.css` (navy `#0A1931`, graphite `#111417`, gold `#FFB800`/`#FFC300`, emerald `#00A86B`, off-white `#F5F5F0`, muted `#B8B8B0`) and map them into the Tailwind v4 theme; set dark background + off-white text defaults and a `prefers-reduced-motion` baseline (no 3D/autoplay/particles)
+- [ ] T004 Define brand design tokens as CSS variables in `app/globals.css` (navy `#0A1931`, graphite `#111417`, gold `#FFB800`/`#FFC300`, emerald `#00A86B`, off-white `#F5F5F0`, muted `#B8B8B0`) and map them into the Tailwind v4 theme; set dark background + off-white text defaults and a `prefers-reduced-motion` baseline (no 3D/autoplay/particles). Establish a mobile-first responsive baseline: prevent horizontal page overflow at the root (`overflow-x` confined to intentional inner containers) and reserve sticky-header height so it never covers content (FR-028/029/032)
 
 ### Types & content pipeline
 
@@ -66,7 +66,7 @@ every user story depends on.
 
 ### Layout shell & compliance primitives (used by all stories)
 
-- [ ] T011 [P] Create layout components in `components/layout/`: `SiteHeader.tsx`, `SiteFooter.tsx` (footer links to all trust/legal pages), `MobileNav.tsx`, and a `Container` wrapper — mobile-first
+- [ ] T011 [P] Create layout components in `components/layout/`: `SiteHeader.tsx`, `MobileNav.tsx`, `SiteFooter.tsx`, and a `Container` wrapper — mobile-first. Per the Navigation contract in `contracts/ui-components.md`, `SiteHeader` + `MobileNav` MUST link to Crypto Casinos (`/casinos-crypto`), Fiat Casinos (`/casinos-fiat`), Betting Sites (`/apuestas`), Guides (`/guias`), News (`/noticias`), and provide access to Reviews (`/reviews/[slug]` via ranking/review links); `SiteFooter` MUST include all of those plus Responsible Gambling (`/juego-responsable`), Affiliate Disclosure (`/divulgacion-afiliados`), Contact (`/contacto`), and the methodology (`/como-evaluamos`). Spanish (`es-MX`) labels. If `SiteHeader` is sticky/fixed, it MUST NOT cover page content (reserve its height; `scroll-margin` for in-page anchors) (FR-032)
 - [ ] T012 [P] Create compliance components in `components/trust/`: `AffiliateDisclosure.tsx`, `ResponsibleGamblingNotice.tsx` (states 18+, not de-emphasized), `AffiliateCta.tsx` (applies `rel="sponsored nofollow"` + `target="_blank"`, graceful disabled state when `href` missing), and `TrustBadge.tsx` (emerald, real signals only) per `contracts/ui-components.md`
 
 ### Seed content (real, non-fabricated)
@@ -91,7 +91,7 @@ comparison table ordered by `rankByVertical` with a link to the methodology.
 
 - [ ] T015 [P] [US1] Create ranking display components in `components/ranking/`: `RankBadge.tsx`, `RatingStars.tsx` (renders editorial rating only when present), `PaymentBadges.tsx`
 - [ ] T016 [US1] Create `components/ranking/RankingCard.tsx` (rank, name/logo, rating, headline bonus, payment badges, primary CTA via `AffiliateCta`) and `components/ranking/RankingList.tsx` (preserves rank order; renders only available entries, no filler)
-- [ ] T017 [US1] Create `components/comparison/ComparisonTable.tsx` (side-by-side rating/bonus/payments/CTA; mobile scroll/stack; links to `/como-evaluamos`)
+- [ ] T017 [US1] Create `components/comparison/ComparisonTable.tsx` (side-by-side rating/bonus/payments/CTA; links to `/como-evaluamos`). Horizontal overflow MUST be confined to the table's own scroll container and MUST NOT cause horizontal page overflow (FR-031); cards/rows reflow cleanly on small screens (FR-030)
 - [ ] T018 [US1] Create the crypto ranking page `app/(marketing)/casinos-crypto/page.tsx` using `getCasinosByVertical('crypto-casino')`, `RankingList` + `ComparisonTable`, with `AffiliateDisclosure` + `ResponsibleGamblingNotice`; add per-page metadata + `BreadcrumbList` JSON-LD
 - [ ] T019 [P] [US1] Create homepage section components in `components/home/`: `Hero.tsx` (no autoplay video/particles) and `QuickCategories.tsx` (links to the 3 verticals)
 - [ ] T020 [US1] Create `app/page.tsx` MVP composition: Hero, QuickCategories, Top Crypto Casinos section (RankingList), and the Responsible Gambling / Affiliate Disclosure block; add homepage metadata. (Later stories append their sections.)
@@ -186,6 +186,7 @@ and confirm title, body, author byline, and date.
 - [ ] T046 [P] Design + mobile-first pass: confirm palette usage, gold CTAs, emerald trust badges, lightweight motion only, `prefers-reduced-motion` respected, and no layout breaks at small viewport (FR-018/019/020)
 - [ ] T047 Run Lighthouse (mobile) on `/` and a ranking page; confirm primary content readable ~3s and Performance/SEO ≥ 90 (SC-003); fix regressions
 - [ ] T048 Run `npx tsc --noEmit` and `npm run lint`; then execute the `quickstart.md` validation scenarios end-to-end and record results
+- [ ] T049 [P] Responsive/cross-device validation: verify every page at 360px, 390px, 430px, 768px, 1024px, and 1440px with no horizontal page overflow (FR-029), ranking cards intact on small screens (FR-030), comparison-table scroll contained within its own container (FR-031), sticky header not covering content (FR-032), CTAs visible and tappable (FR-033), and smooth scrolling on mobile/tablet (FR-034); confirms SC-011 (FR-028/035)
 
 ---
 
@@ -227,7 +228,7 @@ and confirm title, body, author byline, and date.
 - US4: T026–T029 in parallel; then T030 → T031.
 - US3: T032, T033, T034 in parallel; then T035.
 - US5: T036 and T037 in parallel; then T038 → T039 → T040.
-- Polish: T042–T046 in parallel; T041 before T047/T048.
+- Polish: T042–T046 and T049 in parallel; T041 before T047/T048; T049 after the pages it validates exist.
 
 ## Implementation Strategy
 

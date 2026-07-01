@@ -238,6 +238,24 @@ confirm it renders with title, body, author byline, and date.
 - **FR-027**: The data structure MUST accommodate future extension (e.g., a demo slots/tragamonedas
   section and additional locales) without breaking existing entities or pages.
 
+**Responsive layout & cross-device**
+
+- **FR-028**: All pages MUST use a mobile-first layout that is also tablet-safe and desktop-safe —
+  laid out and verified across small (mobile), medium (tablet), and large (desktop) viewports.
+- **FR-029**: No page may produce horizontal page overflow (no horizontal scrollbar on the document/
+  body) at any supported viewport width.
+- **FR-030**: Ranking cards MUST NOT break, clip, or overlap on small screens; content reflows or
+  stacks cleanly.
+- **FR-031**: Comparison tables MUST scroll horizontally only inside their own container; the table's
+  overflow MUST NOT cause the whole page to scroll horizontally.
+- **FR-032**: A sticky/fixed header MUST NOT cover or obscure page content (e.g., in-page anchor
+  targets and the top of each page account for the header height).
+- **FR-033**: Primary CTA buttons MUST remain visible and tappable on mobile, with an adequate touch
+  target size and no reliance on hover.
+- **FR-034**: Scrolling MUST remain smooth (no jank/layout thrash) on mobile and tablet.
+- **FR-035**: Layouts MUST be validated at the following viewport widths without breakage:
+  360px, 390px, 430px, 768px, 1024px, and 1440px.
+
 ### Key Entities *(include if feature involves data)*
 
 - **Casino/Operator**: Represents a gambling operator. Key attributes: name, brand/logo reference,
@@ -277,6 +295,10 @@ confirm it renders with title, body, author byline, and date.
   modifying existing page structures or other entities.
 - **SC-010**: Content weighting at launch reflects the brand focus, with crypto casinos as the most
   prominent vertical on the homepage relative to sports betting and fiat casinos.
+- **SC-011**: Every V1 page renders without breakage at 360px, 390px, 430px, 768px, 1024px, and
+  1440px viewport widths: zero horizontal page overflow, ranking cards intact, comparison-table
+  scrolling contained within its own container, sticky header not covering content, and CTA buttons
+  visible and tappable.
 
 ## Assumptions
 

@@ -46,6 +46,9 @@ Lighthouse mobile Performance and SEO ≥ 90 as an internal bar.
 **Constraints**: No heavy 3D, no autoplay hero video, no particle backgrounds (Constitution +
 spec FR-020). Lightweight motion only. Brand palette is authoritative (FR-019). Spanish-first
 content with structure ready for more LATAM locales (FR-021). No fabricated content (FR-017).
+Responsive: mobile-first, tablet-safe, desktop-safe with no horizontal page overflow, contained
+comparison-table scrolling, non-obscuring sticky header, and always-tappable CTAs, validated at
+360/390/430/768/1024/1440px (FR-028–FR-035).
 
 **Scale/Scope**: ~11 homepage sections; 3 ranking pages; 1 review template (N casino instances);
 guides/news index + article template; ~5 trust/legal pages; a handful of shared UI components. A
@@ -161,6 +164,11 @@ from trust/legal pages without affecting URLs.
 - **Motion**: lightweight transitions/hover only (opacity/transform), respecting
   `prefers-reduced-motion`. No parallax, no 3D, no autoplay video, no particles.
 - **Components** built mobile-first with Tailwind, composed from shadcn/ui primitives.
+- **Responsive rules** (FR-028–FR-035): mobile-first breakpoints that stay tablet- and desktop-safe;
+  no horizontal page overflow (`overflow-x` confined to intentional inner scroll containers only);
+  ranking cards stack/reflow cleanly on small screens; `ComparisonTable` scrolls inside its own
+  wrapper; sticky header height reserved via layout padding + `scroll-margin` for anchors; CTAs keep
+  adequate touch targets and no hover-only behavior; validate at 360/390/430/768/1024/1440px.
 
 ## Implementation Phases (for /speckit-tasks — not executed here)
 

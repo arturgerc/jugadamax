@@ -36,6 +36,30 @@ each key component MUST honor. Components are mobile-first, dark-premium, lightw
 10. Responsible Gambling / Affiliate Disclosure block (18+).
 11. Footer.
 
+## Navigation contract (SiteHeader / MobileNav / SiteFooter)
+
+`SiteHeader`, `MobileNav`, and `SiteFooter` MUST expose primary navigation to the following
+destinations so every V1 page is reachable via navigation and footer (SC-002, FR-007):
+
+| Label (es-MX) | Destination route |
+|---------------|-------------------|
+| Crypto Casinos | `/casinos-crypto` |
+| Fiat Casinos | `/casinos-fiat` |
+| Betting Sites | `/apuestas` |
+| Guides | `/guias` |
+| News | `/noticias` |
+| Reviews | reviews entry point (`/reviews/[slug]` targets; via ranking/review links) |
+| Responsible Gambling | `/juego-responsable` |
+| Affiliate Disclosure | `/divulgacion-afiliados` |
+| Contact | `/contacto` |
+
+- `SiteHeader` + `MobileNav` MUST surface the primary content destinations (Crypto Casinos, Fiat
+  Casinos, Betting Sites, Guides, News) and provide access to Reviews (e.g., via the ranking pages
+  and casino cards that link to `/reviews/[slug]`).
+- `SiteFooter` MUST include all of the above, including the trust/legal links (Responsible Gambling,
+  Affiliate Disclosure, Contact) and the evaluation methodology (`/como-evaluamos`).
+- All labels render in Spanish (`es-MX`); the table's English labels are for spec traceability only.
+
 ## Key component contracts
 
 ### `RankingCard`
@@ -82,6 +106,22 @@ each key component MUST honor. Components are mobile-first, dark-premium, lightw
 - Motion lightweight only; respect `prefers-reduced-motion`; no 3D/autoplay/particles (FR-020).
 - All user-facing copy in Spanish (`es-MX`) (FR-021).
 
+## Responsive layout invariants (all pages & components)
+
+- **Mobile-first, tablet-safe, desktop-safe**: layouts MUST be built mobile-first and remain correct
+  at tablet and desktop widths (FR-028).
+- **No horizontal page overflow**: the document/body MUST NOT scroll horizontally at any supported
+  width; contain wide content rather than letting it push the page (FR-029).
+- **Ranking cards**: MUST reflow/stack cleanly on small screens with no clipping or overlap (FR-030).
+- **`ComparisonTable`**: horizontal overflow MUST be confined to the table's own scroll container
+  (e.g., an internal overflow wrapper); it MUST NOT cause the page to scroll horizontally (FR-031).
+- **Sticky/fixed `SiteHeader`**: MUST NOT cover or obscure content; account for header height for the
+  top of pages and in-page anchor targets (e.g., scroll-margin) (FR-032).
+- **`AffiliateCta` / primary CTAs**: MUST stay visible and tappable on mobile with an adequate touch
+  target and no hover-only behavior (FR-033).
+- **Smooth scrolling**: avoid layout thrash / jank on mobile and tablet (FR-034).
+- **Validated viewport widths**: 360px, 390px, 430px, 768px, 1024px, 1440px (FR-035).
+
 ## Acceptance
 
 - [ ] Every route above renders and is reachable via header/footer navigation (SC-002).
@@ -89,3 +129,6 @@ each key component MUST honor. Components are mobile-first, dark-premium, lightw
 - [ ] Every ranking page shows a comparison view + methodology link (SC-005).
 - [ ] Every review/article shows author + date (SC-006).
 - [ ] No prohibited/fabricated UI elements present anywhere (SC-007).
+- [ ] Every page renders without breakage at 360/390/430/768/1024/1440px: no horizontal page
+      overflow, ranking cards intact, comparison-table scroll contained, sticky header not covering
+      content, CTAs visible and tappable (SC-011, FR-028–035).
