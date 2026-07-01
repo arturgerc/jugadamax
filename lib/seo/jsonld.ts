@@ -16,14 +16,16 @@ function absoluteUrl(path: string): string {
   return new URL(path, siteConfig.url).toString();
 }
 
-/** Site-wide Organization node (root layout). */
+/**
+ * Site-wide Organization node (root layout). `logo` is intentionally omitted
+ * until a real brand asset exists (no placeholder/fake asset references).
+ */
 export function organizationJsonLd(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: absoluteUrl("/logo.png"),
   };
 }
 
@@ -90,10 +92,10 @@ export function articleJsonLd(input: ArticleJsonLdInput): JsonLd {
     mainEntityOfPage: absoluteUrl(path),
     inLanguage: siteConfig.locale,
     author: { "@type": "Person", name: authorName },
+    // Publisher logo omitted until a real brand asset exists (no fake asset).
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
-      logo: { "@type": "ImageObject", url: absoluteUrl("/logo.png") },
     },
     datePublished,
     ...(dateModified ? { dateModified } : {}),

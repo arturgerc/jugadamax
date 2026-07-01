@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import {
   getAuthorById,
   getBonusesForCasino,
-  getCasinoBySlug,
+  getCasinoById,
   getReviewBySlug,
   getReviews,
 } from "@/lib/content";
@@ -12,7 +12,7 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
 import { AffiliateCta } from "@/components/trust/AffiliateCta";
-import { TrustBadge } from "@/components/trust/TrustBadge";
+import { LicenseInfo } from "@/components/trust/LicenseInfo";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
@@ -31,7 +31,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const review = getReviewBySlug(slug);
   if (!review) return {};
-  const casino = getCasinoBySlug(review.casinoId);
+  const casino = getCasinoById(review.casinoId);
   const name = casino?.name ?? review.title;
 
   return buildMetadata({
@@ -47,7 +47,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   const review = getReviewBySlug(slug);
   if (!review) notFound();
 
-  const casino = getCasinoBySlug(review.casinoId);
+  const casino = getCasinoById(review.casinoId);
   const author = getAuthorById(review.authorId);
   if (!casino || !author) notFound();
 
@@ -120,9 +120,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </div>
           <div className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-2 text-lg font-semibold text-foreground">Licencia y confianza</h2>
-            {casino.licensing?.licenseName ? (
-              <TrustBadge label={casino.licensing.licenseName} />
-            ) : null}
+            <LicenseInfo licensing={casino.licensing} />
             {trustNote ? (
               <p className="mt-2 text-sm text-muted-foreground">{trustNote}</p>
             ) : null}

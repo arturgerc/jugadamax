@@ -22,8 +22,9 @@ export interface PageMetadataInput {
 export function buildMetadata(input: PageMetadataInput): Metadata {
   const { title, description, path = "/", image, type = "website" } = input;
   const canonical = path;
-  const ogImage = image ?? siteConfig.defaultOgImage;
 
+  // Only reference a social image when a real asset path is provided. There is
+  // no placeholder default (avoids broken/fake asset references).
   return {
     title,
     description,
@@ -35,13 +36,13 @@ export function buildMetadata(input: PageMetadataInput): Metadata {
       siteName: siteConfig.name,
       locale: siteConfig.ogLocale,
       type,
-      images: [{ url: ogImage }],
+      ...(image ? { images: [{ url: image }] } : {}),
     },
     twitter: {
-      card: "summary_large_image",
+      card: image ? "summary_large_image" : "summary",
       title,
       description,
-      images: [ogImage],
+      ...(image ? { images: [image] } : {}),
     },
   };
 }

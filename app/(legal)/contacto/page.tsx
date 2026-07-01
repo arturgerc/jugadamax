@@ -1,0 +1,73 @@
+import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo/metadata";
+import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { Container } from "@/components/layout/Container";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Contacto",
+  description:
+    "Contacta al equipo editorial de JugadaMax para consultas, correcciones de contenido o propuestas de colaboración.",
+  path: "/contacto",
+});
+
+export default function ContactoPage() {
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Inicio", path: "/" },
+    { name: "Contacto", path: "/contacto" },
+  ]);
+
+  return (
+    <Container className="py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+
+      <article className="mx-auto max-w-3xl space-y-6">
+        <header className="space-y-2">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            Contacto
+          </h1>
+          <p className="text-muted-foreground">
+            ¿Tienes una consulta, una corrección de contenido o una propuesta de colaboración?
+          </p>
+        </header>
+
+        <section className="space-y-3 text-sm text-muted-foreground sm:text-base">
+          <p>
+            Escríbenos por correo electrónico a{" "}
+            <a
+              href="mailto:contacto@jugadamax.com"
+              className="font-medium text-primary underline underline-offset-2"
+            >
+              contacto@jugadamax.com
+            </a>
+            . Revisamos los mensajes de forma editorial y damos prioridad a correcciones de
+            información sobre operadores.
+          </p>
+          <p>
+            Para temas de afiliación y transparencia, consulta nuestra{" "}
+            <a
+              href="/divulgacion-afiliados"
+              className="font-medium text-primary underline underline-offset-2"
+            >
+              divulgación de afiliados
+            </a>{" "}
+            y la metodología en{" "}
+            <a
+              href="/como-evaluamos"
+              className="font-medium text-primary underline underline-offset-2"
+            >
+              Cómo evaluamos
+            </a>
+            .
+          </p>
+        </section>
+
+        <p className="text-xs text-muted-foreground">
+          Solo para mayores de 18 años. Juega de forma responsable.
+        </p>
+      </article>
+    </Container>
+  );
+}

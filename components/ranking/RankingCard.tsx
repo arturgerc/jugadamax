@@ -6,14 +6,15 @@ import { RankBadge } from "@/components/ranking/RankBadge";
 import { RatingStars } from "@/components/ranking/RatingStars";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
 import { AffiliateCta } from "@/components/trust/AffiliateCta";
-import { TrustBadge } from "@/components/trust/TrustBadge";
+import { LicenseInfo } from "@/components/trust/LicenseInfo";
 
 /**
  * Ranking card for a single operator (FR-009/FR-012).
  *
  * Renders rank, name, editorial rating (only when present), headline bonus,
- * a real trust/license badge (when present), payment badges, and a compliant
- * affiliate CTA. Mobile-first: stacks on small screens, row layout on >=sm.
+ * a cautious license note (verified styling only when a source reference
+ * exists), payment badges, and a compliant affiliate CTA. Mobile-first: stacks
+ * on small screens, row layout on >=sm.
  */
 export function RankingCard({
   casino,
@@ -47,7 +48,7 @@ export function RankingCard({
 
       <div className="min-w-0 flex-1 space-y-2">
         {headlineBonus && <p className="text-sm text-foreground">{headlineBonus}</p>}
-        {casino.licensing?.licenseName && <TrustBadge label={casino.licensing.licenseName} />}
+        <LicenseInfo licensing={casino.licensing} />
         <PaymentBadges payments={casino.payments} max={4} />
         {review && (
           <Link

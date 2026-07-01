@@ -40,6 +40,19 @@ export default function Home() {
 
       <QuickCategories />
 
+      {/* Disclosure + 18+ notice appear BEFORE the first affiliate CTA (ranking). */}
+      <section aria-labelledby="trust-heading" className="pt-4">
+        <Container>
+          <h2 id="trust-heading" className="sr-only">
+            Transparencia y juego responsable
+          </h2>
+          <div className="space-y-3">
+            <AffiliateDisclosure />
+            <ResponsibleGamblingNotice />
+          </div>
+        </Container>
+      </section>
+
       <section aria-labelledby="top-crypto-heading" className="py-10">
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-3">
@@ -78,18 +91,6 @@ export default function Home() {
               </Link>
             ))}
           </nav>
-        </Container>
-      </section>
-
-      <section aria-labelledby="trust-heading" className="py-10">
-        <Container>
-          <h2 id="trust-heading" className="mb-4 text-xl font-semibold text-foreground">
-            Transparencia y juego responsable
-          </h2>
-          <div className="space-y-3">
-            <AffiliateDisclosure />
-            <ResponsibleGamblingNotice />
-          </div>
         </Container>
       </section>
     </>

@@ -51,6 +51,35 @@ function assertUniqueSlugs(items: { slug: string }[], collection: string): void 
   }
 }
 
+/**
+ * Ranking integrity (Constitution Principle III): within a given vertical, no
+ * two casinos may claim the same `rankByVertical` position. A collision would
+ * make the ranking order non-deterministic and misleading, so fail loudly.
+ */
+function assertUniqueRanksPerVertical(items: Casino[]): void {
+  const seenByVertical = new Map<Vertical, Map<number, string>>();
+  for (const casino of items) {
+    for (const [vertical, rank] of Object.entries(casino.rankByVertical) as [
+      Vertical,
+      number | undefined,
+    ][]) {
+      if (rank === undefined) continue;
+      let ranks = seenByVertical.get(vertical);
+      if (!ranks) {
+        ranks = new Map<number, string>();
+        seenByVertical.set(vertical, ranks);
+      }
+      const existing = ranks.get(rank);
+      if (existing) {
+        throw new ContentValidationError(
+          `casinos: duplicate rank ${rank} for vertical "${vertical}" ("${existing}" and "${casino.id}")`,
+        );
+      }
+      ranks.set(rank, casino.id);
+    }
+  }
+}
+
 // --- Validate collections at load time ---
 
 const authors: Author[] = rawAuthors.map(validateAuthor);
@@ -59,12 +88,14 @@ assertUniqueIds(authors, "authors");
 const casinos: Casino[] = rawCasinos.map(validateCasino);
 assertUniqueIds(casinos, "casinos");
 assertUniqueSlugs(casinos, "casinos");
+assertUniqueRanksPerVertical(casinos);
 
 const bonuses: Bonus[] = rawBonuses.map(validateBonus);
 assertUniqueIds(bonuses, "bonuses");
 
 const reviews: Review[] = rawReviews.map(validateReview);
 assertUniqueIds(reviews, "reviews");
+assertUniqueSlugs(reviews, "reviews");
 
 const articles: Article[] = [...rawGuides, ...rawNews].map(validateArticle);
 assertUniqueIds(articles, "articles");
@@ -122,6 +153,10 @@ export function getCasinos(): Casino[] {
 
 export function getCasinoBySlug(slug: string): Casino | undefined {
   return casinos.find((c) => c.slug === slug);
+}
+
+export function getCasinoById(id: string): Casino | undefined {
+  return casinos.find((c) => c.id === id);
 }
 
 /** Casinos in `vertical`, ordered deterministically by rank. */
