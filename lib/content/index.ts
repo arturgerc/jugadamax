@@ -145,6 +145,11 @@ export function getReviewBySlug(slug: string): Review | undefined {
   return reviews.find((r) => r.slug === slug);
 }
 
+/** The editorial review for a given casino, if one has been published. */
+export function getReviewForCasino(casinoId: string): Review | undefined {
+  return reviews.find((r) => r.casinoId === casinoId);
+}
+
 /** Articles, optionally filtered by type, newest first. */
 export function getArticles(type?: ArticleType): Article[] {
   const list = type ? articles.filter((a) => a.type === type) : articles;

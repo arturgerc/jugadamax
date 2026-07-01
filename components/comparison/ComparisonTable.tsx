@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Casino, Vertical } from "@/types/content";
-import { getBonusesForCasino } from "@/lib/content";
+import { getBonusesForCasino, getReviewForCasino } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { RatingStars } from "@/components/ranking/RatingStars";
 import { AffiliateCta } from "@/components/trust/AffiliateCta";
@@ -42,11 +42,22 @@ export function ComparisonTable({
               const rank = casino.rankByVertical[vertical] ?? index + 1;
               const headlineBonus = getBonusesForCasino(casino.id).find((b) => b.active)?.title;
               const payments = (casino.payments ?? []).map((p) => p.name).join(", ");
+              const review = getReviewForCasino(casino.id);
 
               return (
                 <tr key={casino.id} className="border-b border-border/40 last:border-0">
                   <td className="px-3 py-3 font-semibold text-foreground">{rank}</td>
-                  <td className="px-3 py-3 font-medium text-foreground">{casino.name}</td>
+                  <td className="px-3 py-3 font-medium text-foreground">
+                    {casino.name}
+                    {review && (
+                      <Link
+                        href={`/reviews/${review.slug}`}
+                        className="mt-0.5 block text-xs font-normal text-primary underline underline-offset-2"
+                      >
+                        Leer reseña
+                      </Link>
+                    )}
+                  </td>
                   <td className="px-3 py-3">
                     {casino.rating !== undefined ? (
                       <RatingStars rating={casino.rating} />

@@ -1,5 +1,6 @@
+import Link from "next/link";
 import type { Casino, Vertical } from "@/types/content";
-import { getBonusesForCasino } from "@/lib/content";
+import { getBonusesForCasino, getReviewForCasino } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { RankBadge } from "@/components/ranking/RankBadge";
 import { RatingStars } from "@/components/ranking/RatingStars";
@@ -26,6 +27,7 @@ export function RankingCard({
   className?: string;
 }) {
   const headlineBonus = getBonusesForCasino(casino.id).find((b) => b.active)?.title;
+  const review = getReviewForCasino(casino.id);
 
   return (
     <article
@@ -47,6 +49,14 @@ export function RankingCard({
         {headlineBonus && <p className="text-sm text-foreground">{headlineBonus}</p>}
         {casino.licensing?.licenseName && <TrustBadge label={casino.licensing.licenseName} />}
         <PaymentBadges payments={casino.payments} max={4} />
+        {review && (
+          <Link
+            href={`/reviews/${review.slug}`}
+            className="inline-block text-sm font-medium text-primary underline underline-offset-2"
+          >
+            Leer reseña
+          </Link>
+        )}
       </div>
 
       <div className="sm:shrink-0">

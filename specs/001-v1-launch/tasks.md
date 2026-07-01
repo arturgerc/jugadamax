@@ -109,11 +109,11 @@ balanced pros/cons, bonus, payments, trust/licensing, author byline, and a compl
 **Independent Test**: Open a `/reviews/[slug]` page and confirm all structured sections render from
 the `Review` record, including author byline and publish/update date, with disclosure + 18+ notice.
 
-- [ ] T021 [P] [US2] Create review components in `components/review/`: `VerdictBox.tsx`, `ProsCons.tsx` (requires both pros and cons), `ReviewHeader.tsx`, `AuthorByline.tsx` (author name + publish/updated dates)
-- [ ] T022 [P] [US2] Add seed review record(s) in `content/reviews/` linked to a seeded casino + author (balanced, honest pros/cons)
-- [ ] T023 [US2] Create the review template page `app/(marketing)/reviews/[slug]/page.tsx` with `generateStaticParams` from reviews, rendering verdict/rating/pros-cons/bonus/payments/trust/byline + `AffiliateCta`, `AffiliateDisclosure`, `ResponsibleGamblingNotice`
-- [ ] T024 [US2] Add per-review SEO: `generateMetadata` (unique title/description/canonical/OG) and `Article` JSON-LD with real author + `datePublished`/`dateModified` (NO `AggregateRating`/review-star markup) per `contracts/seo-schema.md`
-- [ ] T025 [US2] Link ranking cards/comparison rows to their review page (`/reviews/[slug]`) where a review exists
+- [X] T021 [P] [US2] Create review components in `components/review/`: `VerdictBox.tsx`, `ProsCons.tsx` (requires both pros and cons), `ReviewHeader.tsx`, `AuthorByline.tsx` (author name + publish/updated dates)
+- [X] T022 [P] [US2] Add seed review record(s) in `content/reviews/` linked to a seeded casino + author (balanced, honest pros/cons)
+- [X] T023 [US2] Create the review template page `app/(marketing)/reviews/[slug]/page.tsx` with `generateStaticParams` from reviews, rendering verdict/rating/pros-cons/bonus/payments/trust/byline + `AffiliateCta`, `AffiliateDisclosure`, `ResponsibleGamblingNotice`
+- [X] T024 [US2] Add per-review SEO: `generateMetadata` (unique title/description/canonical/OG) and `Article` JSON-LD with real author + `datePublished`/`dateModified` (NO `AggregateRating`/review-star markup) per `contracts/seo-schema.md`
+- [X] T025 [US2] Link ranking cards/comparison rows to their review page (`/reviews/[slug]`) where a review exists
 
 **Checkpoint**: Casino reviews render independently with E-E-A-T byline and compliant CTAs.
 
