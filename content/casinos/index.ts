@@ -46,12 +46,13 @@ export const casinos: Casino[] = [
     ],
     licensing: {
       licenseName: "SEGOB (México)",
-      notes: "Operador con permiso vigente de la Secretaría de Gobernación en México.",
+      notes:
+        "Según información declarada por el operador, cuenta con permiso de la Secretaría de Gobernación (SEGOB) en México; pendiente de verificación editorial.",
     },
     bonusIds: ["caliente-welcome"],
     affiliateUrl: "https://www.caliente.mx",
     summary:
-      "Casa de casino y apuestas con licencia en México y métodos de pago locales.",
+      "Casa de casino y apuestas con métodos de pago locales en México; licencia informada por el operador.",
     locale: "es-MX",
   },
   {
@@ -68,12 +69,13 @@ export const casinos: Casino[] = [
     ],
     licensing: {
       licenseName: "SEGOB (México)",
-      notes: "Operador de apuestas deportivas con permiso vigente en México.",
+      notes:
+        "Según información declarada por el operador, cuenta con permiso para apuestas deportivas en México; pendiente de verificación editorial.",
     },
     bonusIds: ["codere-welcome"],
     affiliateUrl: "https://www.codere.mx",
     summary:
-      "Apuestas deportivas con presencia establecida en México y pagos locales.",
+      "Apuestas deportivas con métodos de pago locales en México; información declarada por el operador.",
     locale: "es-MX",
   },
 ];

@@ -26,7 +26,7 @@ export const reviews: Review[] = [
     ],
     cons: [
       "La disponibilidad y los métodos de pago pueden variar según la región.",
-      "Opera bajo licencia de Curazao; conviene revisar las condiciones para México.",
+      "Según el operador, opera bajo licencia de Curazao; conviene revisar las condiciones para México.",
       "Los términos de bonos cambian con frecuencia y deben verificarse en el sitio oficial.",
     ],
     body:
@@ -34,7 +34,7 @@ export const reviews: Review[] = [
     paymentsSummary:
       "Depósitos y retiros en criptomonedas (Bitcoin, Ethereum, USDT, Litecoin). Verifica límites y tiempos en el sitio oficial.",
     trustSummary:
-      "Licencia de Curazao. Revisa las condiciones aplicables a tu región antes de registrarte.",
+      "Licencia de Curazao informada por el operador (pendiente de verificación editorial). Revisa las condiciones aplicables a tu región antes de registrarte.",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
     locale: "es-MX",
