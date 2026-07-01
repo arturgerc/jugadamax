@@ -1,0 +1,58 @@
+﻿---
+description: JugadaMax premium iGaming design rules
+globs: **/*
+alwaysApply: true
+---
+
+JugadaMax must use a fast premium iGaming affiliate design.
+
+Brand:
+- JugadaMax
+- Mexico first
+- Spanish-speaking LATAM later
+- Crypto-first iGaming affiliate/media site
+- Main verticals: Crypto Casinos, Fiat Online Casinos, Sports Betting
+
+Design direction:
+- premium dark crypto iGaming media
+- mobile-first
+- speed-first
+- clear rankings
+- strong CTA buttons
+- serious affiliate/media brand
+- lightweight motion only
+
+Visual palette:
+- deep navy background: #0A1931
+- graphite background: #111417
+- gold CTA: #FFB800 / #FFC300
+- emerald trust badges: #00A86B
+- warm off-white text: #F5F5F0
+- muted text: #B8B8B0
+
+Avoid:
+- generic AI landing page layout
+- heavy 3D scenes
+- autoplay hero video
+- particles.js backgrounds
+- fake winner widgets
+- fake social proof
+- fake payout screenshots
+- fake countdown timers
+- fake urgency
+- “dinero fácil”
+- “sin riesgo”
+- “100% gana”
+
+Homepage must include:
+1. Hero
+2. Quick categories
+3. Top Crypto Casinos in Mexico
+4. Top Fiat Casinos in Mexico
+5. Top Betting Sites in Mexico
+6. Bonus/payment highlights
+7. Cómo evaluamos los casinos
+8. Guides preview
+9. News preview
+10. Responsible Gambling / Affiliate Disclosure
+11. Footer
