@@ -24,17 +24,22 @@ export function ComparisonTable({
   if (casinos.length === 0) return null;
 
   return (
-    <div className={cn("space-y-3", className)}>
-      <div className="w-full overflow-x-auto rounded-lg border border-border/60">
-        <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+    <div className={cn("min-w-0 w-full space-y-3", className)}>
+      <div
+        className="w-full max-w-full overflow-x-auto overscroll-x-contain rounded-lg border border-border/60 [-webkit-overflow-scrolling:touch]"
+        tabIndex={0}
+        role="region"
+        aria-label="Tabla comparativa — desliza horizontalmente para ver todas las columnas"
+      >
+        <table className="w-max min-w-[42rem] border-collapse text-left text-sm md:min-w-0 md:w-full">
           <thead>
             <tr className="border-b border-border/60 bg-card/60 text-muted-foreground">
-              <th scope="col" className="px-3 py-2 font-medium">#</th>
-              <th scope="col" className="px-3 py-2 font-medium">Operador</th>
-              <th scope="col" className="px-3 py-2 font-medium">Calificación</th>
-              <th scope="col" className="px-3 py-2 font-medium">Bono</th>
-              <th scope="col" className="px-3 py-2 font-medium">Pagos</th>
-              <th scope="col" className="px-3 py-2 font-medium">Acción</th>
+              <th scope="col" className="whitespace-nowrap px-3 py-2.5 font-medium">#</th>
+              <th scope="col" className="whitespace-nowrap px-3 py-2.5 font-medium">Operador</th>
+              <th scope="col" className="whitespace-nowrap px-3 py-2.5 font-medium">Calificación</th>
+              <th scope="col" className="min-w-[11rem] px-3 py-2.5 font-medium">Bono</th>
+              <th scope="col" className="min-w-[9rem] px-3 py-2.5 font-medium">Pagos</th>
+              <th scope="col" className="whitespace-nowrap px-3 py-2.5 font-medium">Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -45,9 +50,9 @@ export function ComparisonTable({
               const review = getReviewForCasino(casino.id);
 
               return (
-                <tr key={casino.id} className="border-b border-border/40 last:border-0">
-                  <td className="px-3 py-3 font-semibold text-foreground">{rank}</td>
-                  <td className="px-3 py-3 font-medium text-foreground">
+                <tr key={casino.id} className="border-b border-border/40 align-top last:border-0">
+                  <td className="whitespace-nowrap px-3 py-3 font-semibold text-foreground">{rank}</td>
+                  <td className="min-w-[6.5rem] px-3 py-3 font-medium text-foreground">
                     {casino.name}
                     {review && (
                       <Link
@@ -58,16 +63,16 @@ export function ComparisonTable({
                       </Link>
                     )}
                   </td>
-                  <td className="px-3 py-3">
+                  <td className="whitespace-nowrap px-3 py-3">
                     {casino.rating !== undefined ? (
                       <RatingStars rating={casino.rating} />
                     ) : (
                       <span className="text-muted-foreground">—</span>
                     )}
                   </td>
-                  <td className="px-3 py-3 text-muted-foreground">{headlineBonus ?? "—"}</td>
-                  <td className="px-3 py-3 text-muted-foreground">{payments || "—"}</td>
-                  <td className="px-3 py-3">
+                  <td className="min-w-[11rem] px-3 py-3 text-muted-foreground">{headlineBonus ?? "—"}</td>
+                  <td className="min-w-[9rem] px-3 py-3 text-muted-foreground">{payments || "—"}</td>
+                  <td className="whitespace-nowrap px-3 py-3">
                     <AffiliateCta href={casino.affiliateUrl} label="Visitar" />
                   </td>
                 </tr>
