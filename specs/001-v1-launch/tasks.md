@@ -164,11 +164,11 @@ news previews.
 **Independent Test**: Open `/guias` and `/noticias`, confirm article lists; open one article of each
 and confirm title, body, author byline, and date.
 
-- [ ] T036 [P] [US5] Create content components in `components/content/`: `ArticleCard.tsx`, `ArticleList.tsx`, `GuidesPreview.tsx`, `NewsPreview.tsx`
-- [ ] T037 [P] [US5] Add seed guide article(s) in `content/guides/` and news article(s) in `content/news/` (real, author-attributed)
-- [ ] T038 [US5] Create guides index `app/(marketing)/guias/page.tsx` and news index `app/(marketing)/noticias/page.tsx` (ArticleList) + metadata + breadcrumb
-- [ ] T039 [US5] Create article templates `app/(marketing)/guias/[slug]/page.tsx` and `app/(marketing)/noticias/[slug]/page.tsx` with `generateStaticParams`, author byline + dates, `generateMetadata`, and `Article`/`NewsArticle` JSON-LD (real author + dates)
-- [ ] T040 [US5] Append Guides preview and News preview sections to `app/page.tsx`
+- [X] T036 [P] [US5] Create content components in `components/content/`: `ArticleCard.tsx`, `ArticleList.tsx`, `GuidesPreview.tsx`, `NewsPreview.tsx`
+- [X] T037 [P] [US5] Add seed guide article(s) in `content/guides/` and news article(s) in `content/news/` (real, author-attributed)
+- [X] T038 [US5] Create guides index `app/(marketing)/guias/page.tsx` and news index `app/(marketing)/noticias/page.tsx` (ArticleList) + metadata + breadcrumb
+- [X] T039 [US5] Create article templates `app/(marketing)/guias/[slug]/page.tsx` and `app/(marketing)/noticias/[slug]/page.tsx` with `generateStaticParams`, author byline + dates, `generateMetadata`, and `Article`/`NewsArticle` JSON-LD (real author + dates)
+- [X] T040 [US5] Append Guides preview and News preview sections to `app/page.tsx`
 
 **Checkpoint**: All 11 homepage sections present; content structure complete.
 

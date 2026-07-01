@@ -1,0 +1,38 @@
+import Link from "next/link";
+import { getArticles } from "@/lib/content";
+import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/Container";
+import { ArticleList } from "@/components/content/ArticleList";
+
+/**
+ * Homepage guides preview (FR-006, homepage section 8). Shows the latest guides
+ * and links to the full index. Renders nothing when there are no guides.
+ */
+const PREVIEW_COUNT = 2;
+
+export function GuidesPreview({ className }: { className?: string }) {
+  const guides = getArticles("guide").slice(0, PREVIEW_COUNT);
+  if (guides.length === 0) return null;
+
+  return (
+    <section aria-labelledby="guias-heading" className={cn("py-10", className)}>
+      <Container>
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <h2
+            id="guias-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            Guías
+          </h2>
+          <Link
+            href="/guias"
+            className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Ver todas las guías
+          </Link>
+        </div>
+        <ArticleList articles={guides} className="mt-6" />
+      </Container>
+    </section>
+  );
+}

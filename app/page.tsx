@@ -6,6 +6,8 @@ import { Container } from "@/components/layout/Container";
 import { Hero } from "@/components/home/Hero";
 import { QuickCategories } from "@/components/home/QuickCategories";
 import { BonusHighlights } from "@/components/home/BonusHighlights";
+import { GuidesPreview } from "@/components/content/GuidesPreview";
+import { NewsPreview } from "@/components/content/NewsPreview";
 import { RankingList } from "@/components/ranking/RankingList";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
@@ -185,6 +187,10 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <GuidesPreview />
+
+      <NewsPreview />
     </>
   );
 }
