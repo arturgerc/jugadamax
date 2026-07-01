@@ -93,6 +93,36 @@ export default function Home() {
           </nav>
         </Container>
       </section>
+
+      <section aria-labelledby="metodologia-heading" className="py-10">
+        <Container>
+          <div className="rounded-lg border border-border/60 bg-card p-5 sm:p-6">
+            <h2
+              id="metodologia-heading"
+              className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
+            >
+              Cómo evaluamos los casinos
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">
+              Nuestros rankings reflejan una evaluación editorial, no un hecho neutral. Analizamos
+              cada operador con criterios claros y publicamos nuestra metodología para que sepas cómo
+              ordenamos las listas.
+            </p>
+            <ul className="mt-4 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
+              <li>Seguridad y licencias informadas por el operador.</li>
+              <li>Métodos de pago (criptomonedas o métodos locales en México).</li>
+              <li>Experiencia de usuario, catálogo y soporte.</li>
+              <li>Claridad de bonos y condiciones, sin urgencia falsa.</li>
+            </ul>
+            <Link
+              href="/como-evaluamos"
+              className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+            >
+              Ver metodología completa
+            </Link>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

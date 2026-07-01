@@ -132,8 +132,8 @@ on mobile.
 - [X] T027 [P] [US4] Create `app/(legal)/divulgacion-afiliados/page.tsx` (affiliate disclosure) + metadata + breadcrumb
 - [X] T028 [P] [US4] Create `app/(legal)/juego-responsable/page.tsx` (responsible gambling, states 18+ and responsible-play guidance) + metadata + breadcrumb
 - [X] T029 [P] [US4] Create `app/(legal)/acerca-de/page.tsx` and `app/(legal)/contacto/page.tsx` (about + contact) + metadata + breadcrumb
-- [ ] T030 [US4] Add the "Cómo evaluamos los casinos" preview section to `app/page.tsx` linking to `/como-evaluamos`
-- [ ] T031 [US4] Verify `SiteFooter` links resolve to all five trust/legal routes (SC-002)
+- [X] T030 [US4] Add the "Cómo evaluamos los casinos" preview section to `app/page.tsx` linking to `/como-evaluamos`
+- [X] T031 [US4] Verify `SiteFooter` links resolve to all five trust/legal routes (SC-002)
 
 **Checkpoint**: Compliance/trust surface is complete and reachable site-wide.
 
