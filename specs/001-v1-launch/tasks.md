@@ -35,7 +35,7 @@ independently implementable, testable increment.
 
 - [X] T001 Create content directory tree: `content/casinos/`, `content/bonuses/`, `content/authors/`, `content/reviews/`, `content/guides/`, `content/news/` (collections tracked via `index.ts` per collection)
 - [X] T002 [P] Create source folders: `types/`, `lib/content/`, `lib/seo/`, `lib/ranking/`, and component folders `components/layout/`, `components/ranking/`, `components/comparison/`, `components/review/`, `components/trust/`, `components/content/`, `components/home/`
-- [ ] T003 [P] Confirm base tooling runs: `npm run lint` and `npx tsc --noEmit` execute cleanly on the current tree (record any baseline issues; do not run `npm audit fix --force`) — BLOCKED: shell unavailable in this environment and `node_modules` not installed; must be run manually (see completion notes)
+- [X] T003 [P] Confirm base tooling runs: `npm run lint` and `npx tsc --noEmit` execute cleanly on the current tree (record any baseline issues; do not run `npm audit fix --force`) — VALIDATED locally: `npx tsc --noEmit` passed, `npm run lint` passed, and `npm run build` passed
 
 **Checkpoint**: Folder structure exists; tooling verified.
 
