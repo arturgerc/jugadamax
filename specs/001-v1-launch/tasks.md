@@ -89,11 +89,11 @@ comparison table and methodology link.
 casinos list with per-entry key facts and working CTAs; navigate to `/casinos-crypto` and confirm a
 comparison table ordered by `rankByVertical` with a link to the methodology.
 
-- [ ] T015 [P] [US1] Create ranking display components in `components/ranking/`: `RankBadge.tsx`, `RatingStars.tsx` (renders editorial rating only when present), `PaymentBadges.tsx`
-- [ ] T016 [US1] Create `components/ranking/RankingCard.tsx` (rank, name/logo, rating, headline bonus, payment badges, primary CTA via `AffiliateCta`) and `components/ranking/RankingList.tsx` (preserves rank order; renders only available entries, no filler)
-- [ ] T017 [US1] Create `components/comparison/ComparisonTable.tsx` (side-by-side rating/bonus/payments/CTA; links to `/como-evaluamos`). Horizontal overflow MUST be confined to the table's own scroll container and MUST NOT cause horizontal page overflow (FR-031); cards/rows reflow cleanly on small screens (FR-030)
-- [ ] T018 [US1] Create the crypto ranking page `app/(marketing)/casinos-crypto/page.tsx` using `getCasinosByVertical('crypto-casino')`, `RankingList` + `ComparisonTable`, with `AffiliateDisclosure` + `ResponsibleGamblingNotice`; add per-page metadata + `BreadcrumbList` JSON-LD
-- [ ] T019 [P] [US1] Create homepage section components in `components/home/`: `Hero.tsx` (no autoplay video/particles) and `QuickCategories.tsx` (links to the 3 verticals)
+- [X] T015 [P] [US1] Create ranking display components in `components/ranking/`: `RankBadge.tsx`, `RatingStars.tsx` (renders editorial rating only when present), `PaymentBadges.tsx`
+- [X] T016 [US1] Create `components/ranking/RankingCard.tsx` (rank, name/logo, rating, headline bonus, payment badges, primary CTA via `AffiliateCta`) and `components/ranking/RankingList.tsx` (preserves rank order; renders only available entries, no filler)
+- [X] T017 [US1] Create `components/comparison/ComparisonTable.tsx` (side-by-side rating/bonus/payments/CTA; links to `/como-evaluamos`). Horizontal overflow MUST be confined to the table's own scroll container and MUST NOT cause horizontal page overflow (FR-031); cards/rows reflow cleanly on small screens (FR-030)
+- [X] T018 [US1] Create the crypto ranking page `app/(marketing)/casinos-crypto/page.tsx` using `getCasinosByVertical('crypto-casino')`, `RankingList` + `ComparisonTable`, with `AffiliateDisclosure` + `ResponsibleGamblingNotice`; add per-page metadata + `BreadcrumbList` JSON-LD
+- [X] T019 [P] [US1] Create homepage section components in `components/home/`: `Hero.tsx` (no autoplay video/particles) and `QuickCategories.tsx` (links to the 3 verticals)
 - [ ] T020 [US1] Create `app/page.tsx` MVP composition: Hero, QuickCategories, Top Crypto Casinos section (RankingList), and the Responsible Gambling / Affiliate Disclosure block; add homepage metadata. (Later stories append their sections.)
 
 **Checkpoint**: MVP is live — crypto discovery flow works end-to-end on mobile, independently
