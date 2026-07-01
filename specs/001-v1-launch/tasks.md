@@ -33,9 +33,9 @@ independently implementable, testable increment.
 
 **Purpose**: Create the project skeleton and confirm tooling. No feature behavior yet.
 
-- [ ] T001 Create content directory tree: `content/casinos/`, `content/bonuses/`, `content/authors/`, `content/reviews/`, `content/guides/`, `content/news/` (add a `.gitkeep` in each)
-- [ ] T002 [P] Create source folders: `types/`, `lib/content/`, `lib/seo/`, `lib/ranking/`, and component folders `components/layout/`, `components/ranking/`, `components/comparison/`, `components/review/`, `components/trust/`, `components/content/`, `components/home/`
-- [ ] T003 [P] Confirm base tooling runs: `npm run lint` and `npx tsc --noEmit` execute cleanly on the current tree (record any baseline issues; do not run `npm audit fix --force`)
+- [X] T001 Create content directory tree: `content/casinos/`, `content/bonuses/`, `content/authors/`, `content/reviews/`, `content/guides/`, `content/news/` (collections tracked via `index.ts` per collection)
+- [X] T002 [P] Create source folders: `types/`, `lib/content/`, `lib/seo/`, `lib/ranking/`, and component folders `components/layout/`, `components/ranking/`, `components/comparison/`, `components/review/`, `components/trust/`, `components/content/`, `components/home/`
+- [ ] T003 [P] Confirm base tooling runs: `npm run lint` and `npx tsc --noEmit` execute cleanly on the current tree (record any baseline issues; do not run `npm audit fix --force`) — BLOCKED: shell unavailable in this environment and `node_modules` not installed; must be run manually (see completion notes)
 
 **Checkpoint**: Folder structure exists; tooling verified.
 
@@ -50,29 +50,29 @@ every user story depends on.
 
 ### Design system (mobile-first premium dark)
 
-- [ ] T004 Define brand design tokens as CSS variables in `app/globals.css` (navy `#0A1931`, graphite `#111417`, gold `#FFB800`/`#FFC300`, emerald `#00A86B`, off-white `#F5F5F0`, muted `#B8B8B0`) and map them into the Tailwind v4 theme; set dark background + off-white text defaults and a `prefers-reduced-motion` baseline (no 3D/autoplay/particles). Establish a mobile-first responsive baseline: prevent horizontal page overflow at the root (`overflow-x` confined to intentional inner containers) and reserve sticky-header height so it never covers content (FR-028/029/032)
+- [X] T004 Define brand design tokens as CSS variables in `app/globals.css` (navy `#0A1931`, graphite `#111417`, gold `#FFB800`/`#FFC300`, emerald `#00A86B`, off-white `#F5F5F0`, muted `#B8B8B0`) and map them into the Tailwind v4 theme; set dark background + off-white text defaults and a `prefers-reduced-motion` baseline (no 3D/autoplay/particles). Establish a mobile-first responsive baseline: prevent horizontal page overflow at the root (`overflow-x` confined to intentional inner containers) and reserve sticky-header height so it never covers content (FR-028/029/032)
 
 ### Types & content pipeline
 
-- [ ] T005 [P] Define shared entity types in `types/content.ts` (Vertical, Locale, BonusType, PaymentKind, ArticleType enums; Casino, PaymentMethod, TrustInfo, Bonus, Author, Review, Article, ImageRef) per `data-model.md`
-- [ ] T006 Implement content validation schemas in `lib/content/schema.ts` (validate enums, required fields, `rating` 0–5, ISO dates, non-empty `verticals`, `rankByVertical ⊆ verticals`, non-empty pros/cons) per `contracts/content-model.md`
-- [ ] T007 Implement content loaders in `lib/content/index.ts` (`getCasinos`, `getCasinoBySlug`, `getCasinosByVertical`, `getBonusesForCasino`, `getAuthorById`, `getReviews`, `getReviewBySlug`, `getArticles`, `getArticleBySlug`) that validate at build time and FAIL loudly on invalid records or unresolved references
-- [ ] T008 [P] Implement ranking/sort helpers in `lib/ranking/index.ts` (deterministic ordering by `rankByVertical`) per `research.md` §3
+- [X] T005 [P] Define shared entity types in `types/content.ts` (Vertical, Locale, BonusType, PaymentKind, ArticleType enums; Casino, PaymentMethod, TrustInfo, Bonus, Author, Review, Article, ImageRef) per `data-model.md`
+- [X] T006 Implement content validation schemas in `lib/content/schema.ts` (validate enums, required fields, `rating` 0–5, ISO dates, non-empty `verticals`, `rankByVertical ⊆ verticals`, non-empty pros/cons) per `contracts/content-model.md`
+- [X] T007 Implement content loaders in `lib/content/index.ts` (`getCasinos`, `getCasinoBySlug`, `getCasinosByVertical`, `getBonusesForCasino`, `getAuthorById`, `getReviews`, `getReviewBySlug`, `getArticles`, `getArticleBySlug`) that validate at build time and FAIL loudly on invalid records or unresolved references
+- [X] T008 [P] Implement ranking/sort helpers in `lib/ranking/index.ts` (deterministic ordering by `rankByVertical`) per `research.md` §3
 
 ### SEO foundation
 
-- [ ] T009 [P] Implement metadata + JSON-LD helpers in `lib/seo/metadata.ts` and `lib/seo/jsonld.ts` (per-page metadata builder; `Organization`, `WebSite`, `BreadcrumbList`, `Article` generators) — explicitly NO `AggregateRating` and NO casino `Review`/`Product` star markup, per `contracts/seo-schema.md`
-- [ ] T010 Update `app/layout.tsx`: set `<html lang="es-MX">`, `metadataBase`, brand default metadata + Open Graph/Twitter fallbacks, and inject site-wide `Organization` + `WebSite` JSON-LD; wire header/footer slots
+- [X] T009 [P] Implement metadata + JSON-LD helpers in `lib/seo/metadata.ts` and `lib/seo/jsonld.ts` (per-page metadata builder; `Organization`, `WebSite`, `BreadcrumbList`, `Article` generators) — explicitly NO `AggregateRating` and NO casino `Review`/`Product` star markup, per `contracts/seo-schema.md`
+- [X] T010 Update `app/layout.tsx`: set `<html lang="es-MX">`, `metadataBase`, brand default metadata + Open Graph/Twitter fallbacks, and inject site-wide `Organization` + `WebSite` JSON-LD; wire header/footer slots
 
 ### Layout shell & compliance primitives (used by all stories)
 
-- [ ] T011 [P] Create layout components in `components/layout/`: `SiteHeader.tsx`, `MobileNav.tsx`, `SiteFooter.tsx`, and a `Container` wrapper — mobile-first. Per the Navigation contract in `contracts/ui-components.md`, `SiteHeader` + `MobileNav` MUST link to Crypto Casinos (`/casinos-crypto`), Fiat Casinos (`/casinos-fiat`), Betting Sites (`/apuestas`), Guides (`/guias`), News (`/noticias`), and provide access to Reviews (`/reviews/[slug]` via ranking/review links); `SiteFooter` MUST include all of those plus Responsible Gambling (`/juego-responsable`), Affiliate Disclosure (`/divulgacion-afiliados`), Contact (`/contacto`), and the methodology (`/como-evaluamos`). Spanish (`es-MX`) labels. If `SiteHeader` is sticky/fixed, it MUST NOT cover page content (reserve its height; `scroll-margin` for in-page anchors) (FR-032)
-- [ ] T012 [P] Create compliance components in `components/trust/`: `AffiliateDisclosure.tsx`, `ResponsibleGamblingNotice.tsx` (states 18+, not de-emphasized), `AffiliateCta.tsx` (applies `rel="sponsored nofollow"` + `target="_blank"`, graceful disabled state when `href` missing), and `TrustBadge.tsx` (emerald, real signals only) per `contracts/ui-components.md`
+- [X] T011 [P] Create layout components in `components/layout/`: `SiteHeader.tsx`, `MobileNav.tsx`, `SiteFooter.tsx`, and a `Container` wrapper — mobile-first. Per the Navigation contract in `contracts/ui-components.md`, `SiteHeader` + `MobileNav` MUST link to Crypto Casinos (`/casinos-crypto`), Fiat Casinos (`/casinos-fiat`), Betting Sites (`/apuestas`), Guides (`/guias`), News (`/noticias`), and provide access to Reviews (`/reviews/[slug]` via ranking/review links); `SiteFooter` MUST include all of those plus Responsible Gambling (`/juego-responsable`), Affiliate Disclosure (`/divulgacion-afiliados`), Contact (`/contacto`), and the methodology (`/como-evaluamos`). Spanish (`es-MX`) labels. If `SiteHeader` is sticky/fixed, it MUST NOT cover page content (reserve its height; `scroll-margin` for in-page anchors) (FR-032)
+- [X] T012 [P] Create compliance components in `components/trust/`: `AffiliateDisclosure.tsx`, `ResponsibleGamblingNotice.tsx` (states 18+, not de-emphasized), `AffiliateCta.tsx` (applies `rel="sponsored nofollow"` + `target="_blank"`, graceful disabled state when `href` missing), and `TrustBadge.tsx` (emerald, real signals only) per `contracts/ui-components.md`
 
 ### Seed content (real, non-fabricated)
 
-- [ ] T013 [P] Add seed author record(s) in `content/authors/` (real editor name/role/bio)
-- [ ] T014 [P] Add at least one real casino record per vertical in `content/casinos/` (crypto-casino, fiat-casino, sportsbook) with `verticals`, `rankByVertical`, payments, `affiliateUrl`; add related bonus records in `content/bonuses/` — no fabricated data
+- [X] T013 [P] Add seed author record(s) in `content/authors/` (real editor name/role/bio)
+- [X] T014 [P] Add at least one real casino record per vertical in `content/casinos/` (crypto-casino, fiat-casino, sportsbook) with `verticals`, `rankByVertical`, payments, `affiliateUrl`; add related bonus records in `content/bonuses/` — no fabricated data
 
 **Checkpoint**: Design tokens, types, validated content pipeline, SEO helpers, layout shell, and
 compliance components are ready. User stories can now proceed.
