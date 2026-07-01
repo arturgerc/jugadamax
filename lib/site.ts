@@ -6,7 +6,7 @@
 export const siteConfig = {
   name: "JugadaMax",
   /** Production domain; used as metadataBase and for canonical/JSON-LD URLs. */
-  url: "https://jugadamax.com",
+  url: "https://www.jugadamax.com",
   locale: "es-MX",
   ogLocale: "es_MX",
   description:
