@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { primaryNav, legalNav } from "@/components/layout/nav-links";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
+import { Logo } from "@/components/brand/Logo";
 
 /**
  * Site footer. Includes primary content links plus all trust/legal links
@@ -14,6 +16,10 @@ export function SiteFooter() {
     <footer className="mt-16 border-t border-border/60 bg-[var(--jm-graphite)]">
       <Container className="py-10">
         <ResponsibleGamblingNotice className="mb-8" />
+
+        <Link href="/" aria-label="JugadaMax — Inicio" className="mb-8 inline-flex">
+          <Logo size="sm" decorative />
+        </Link>
 
         <div className="grid gap-8 sm:grid-cols-2">
           <nav aria-label="Secciones">

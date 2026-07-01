@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `${siteConfig.name} — Casinos Crypto, Casinos Fiat y Apuestas en México`,
     description: siteConfig.description,
   },
