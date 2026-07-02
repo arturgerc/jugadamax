@@ -39,6 +39,17 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/reviews"
+                  className={cn(
+                    "rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground",
+                    focusRing,
+                  )}
+                >
+                  Reseñas
+                </Link>
+              </li>
             </ul>
           </nav>
 
