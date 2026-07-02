@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Casino, Vertical } from "@/types/content";
 import { getBonusesForCasino, getReviewForCasino } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { cn, focusRing } from "@/lib/utils";
 import { OperatorLogo } from "@/components/brand/OperatorLogo";
 import { RankBadge } from "@/components/ranking/RankBadge";
 import { RatingStars } from "@/components/ranking/RatingStars";
@@ -118,7 +118,10 @@ export function RankingCard({
         {review ? (
           <Link
             href={`/reviews/${review.slug}`}
-            className="inline-flex min-h-11 items-center text-sm font-medium text-primary underline underline-offset-2 transition-colors hover:text-[var(--jm-gold-strong)] lg:min-h-0 lg:py-1"
+            className={cn(
+              "inline-flex min-h-11 items-center rounded-sm text-sm font-medium text-primary underline underline-offset-2 transition-colors hover:text-[var(--jm-gold-strong)] lg:min-h-0 lg:py-1",
+              focusRing,
+            )}
           >
             Leer reseña
           </Link>

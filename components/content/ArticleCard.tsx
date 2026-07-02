@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Article } from "@/types/content";
 import { getAuthorById } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { cn, focusRing } from "@/lib/utils";
 import { AuthorByline } from "@/components/review/AuthorByline";
 
 /** Route for an article based on its type (guides vs news). */
@@ -26,7 +26,7 @@ export function ArticleCard({
   return (
     <article className={cn("flex flex-col rounded-lg border border-border/60 bg-card p-5", className)}>
       <h3 className="text-lg font-semibold text-foreground">
-        <Link href={href} className="transition-colors hover:text-primary">
+        <Link href={href} className={cn("rounded-sm transition-colors hover:text-primary", focusRing)}>
           {article.title}
         </Link>
       </h3>
@@ -41,7 +41,10 @@ export function ArticleCard({
       ) : null}
       <Link
         href={href}
-        className="mt-3 inline-block text-sm font-medium text-primary underline underline-offset-2"
+        className={cn(
+          "mt-3 inline-block rounded-sm text-sm font-medium text-primary underline underline-offset-2",
+          focusRing,
+        )}
       >
         Leer más
       </Link>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { primaryNav, legalNav } from "@/components/layout/nav-links";
+import { focusRing, cn } from "@/lib/utils";
 
 /**
  * Mobile navigation (client component).
@@ -35,7 +36,10 @@ export function MobileNav() {
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-11 w-11 items-center justify-center rounded-md text-2xl leading-none text-foreground"
+        className={cn(
+          "inline-flex h-11 w-11 items-center justify-center rounded-md text-2xl leading-none text-foreground",
+          focusRing,
+        )}
       >
         <span aria-hidden="true">{open ? "✕" : "☰"}</span>
       </button>
@@ -58,7 +62,10 @@ export function MobileNav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="flex min-h-11 items-center border-b border-border/30 px-2 text-base font-medium text-foreground last:border-b-0"
+                className={cn(
+                  "flex min-h-11 items-center rounded-sm border-b border-border/30 px-2 text-base font-medium text-foreground last:border-b-0",
+                  focusRing,
+                )}
               >
                 {link.label}
               </a>

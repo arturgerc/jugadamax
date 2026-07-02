@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getArticles } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { cn, focusRing } from "@/lib/utils";
 import { Container } from "@/components/layout/Container";
 import { ArticleCard } from "@/components/content/ArticleCard";
 
@@ -27,7 +27,10 @@ export function NewsPreview({ className }: { className?: string }) {
             </h2>
             <Link
               href="/noticias"
-              className="inline-flex min-h-11 w-fit items-center justify-center self-start rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+              className={cn(
+                "inline-flex min-h-11 w-fit items-center justify-center self-start rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60",
+                focusRing,
+              )}
             >
               Ver todas las noticias
             </Link>

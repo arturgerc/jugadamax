@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, focusRing } from "@/lib/utils";
 
 /**
  * Affiliate call-to-action (FR-012/FR-013/FR-014).
@@ -19,6 +19,7 @@ export function AffiliateCta({ href, label = "Visitar sitio", className }: Affil
   const base = cn(
     "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
     "bg-primary text-primary-foreground transition-colors",
+    focusRing,
     className,
   );
 

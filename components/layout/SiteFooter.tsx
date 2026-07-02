@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { primaryNav, legalNav } from "@/components/layout/nav-links";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { Logo } from "@/components/brand/Logo";
+import { focusRing, cn } from "@/lib/utils";
 
 /**
  * Site footer. Includes primary content links plus all trust/legal links
@@ -17,7 +18,7 @@ export function SiteFooter() {
       <Container className="py-10">
         <ResponsibleGamblingNotice className="mb-8" />
 
-        <Link href="/" aria-label="JugadaMax — Inicio" className="mb-8 inline-flex">
+        <Link href="/" aria-label="JugadaMax — Inicio" className={cn("mb-8 inline-flex rounded-md", focusRing)}>
           <Logo size="sm" decorative />
         </Link>
 
@@ -29,7 +30,10 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className={cn(
+                      "rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground",
+                      focusRing,
+                    )}
                   >
                     {link.label}
                   </a>
@@ -45,7 +49,10 @@ export function SiteFooter() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className={cn(
+                      "rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground",
+                      focusRing,
+                    )}
                   >
                     {link.label}
                   </a>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { cn } from "@/lib/utils";
+import { cn, focusRing } from "@/lib/utils";
 
 /**
  * Quick category navigation to the three verticals (FR-001). Mobile-first grid
@@ -33,7 +33,10 @@ export function QuickCategories({ className }: { className?: string }) {
             <Link
               key={cat.href}
               href={cat.href}
-              className="rounded-lg border border-border/60 bg-card p-5 transition-colors hover:border-primary/60"
+              className={cn(
+                "rounded-lg border border-border/60 bg-card p-5 transition-colors hover:border-primary/60",
+                focusRing,
+              )}
             >
               <h2 className="text-lg font-semibold text-foreground">{cat.label}</h2>
               <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
