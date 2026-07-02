@@ -102,6 +102,71 @@ export const casinos: Casino[] = [
     locale: "es-MX",
   },
   {
+    id: "ethcasino",
+    slug: "ethcasino",
+    name: "ETH Casino",
+    logo: {
+      src: "/operators/ethcasino.jpg",
+      alt: "ETH Casino",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 4 },
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "Solana", kind: "crypto" },
+      { name: "BNB", kind: "crypto" },
+      { name: "Dogecoin", kind: "crypto" },
+      { name: "Cardano", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "TRX", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Licencia, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial.",
+    },
+    bonusIds: ["ethcasino-welcome"],
+    affiliateUrl: "https://www.ethcasino.io/",
+    summary:
+      "ETH Casino es un casino crypto enfocado en Ethereum y pagos con criptomonedas. El operador promociona una experiencia orientada a privacidad y registro sencillo, pero JugadaMax recomienda verificar disponibilidad para México, requisitos de verificación, límites, comisiones y tiempos de retiro antes de registrarse.",
+    locale: "es-MX",
+  },
+  {
+    id: "ltccasino",
+    slug: "ltccasino",
+    name: "LTC Casino",
+    logo: {
+      src: "/operators/ltccasino.jpg",
+      alt: "LTC Casino",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 5 },
+    payments: [
+      { name: "Litecoin", kind: "crypto" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Licencia, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial.",
+    },
+    bonusIds: ["ltccasino-welcome"],
+    affiliateUrl: "https://www.ltccasino.io/",
+    summary:
+      "LTC Casino es un casino crypto con enfoque en Litecoin y pagos con criptomonedas. JugadaMax lo presenta como candidato de privacidad dentro del segmento crypto, pero recomienda revisar disponibilidad para México, requisitos de verificación, límites, comisiones y tiempos de retiro antes de registrarse.",
+    locale: "es-MX",
+  },
+  {
     id: "caliente",
     slug: "caliente",
     name: "Caliente",
