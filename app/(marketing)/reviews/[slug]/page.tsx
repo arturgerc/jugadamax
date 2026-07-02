@@ -131,7 +131,10 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         </section>
 
         <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
-          <AffiliateCta href={casino.affiliateUrl} label={`Visitar ${casino.name}`} />
+          <AffiliateCta
+            href={casino.affiliateUrl}
+            label={casino.id === "stake" ? "Visitar Stake México" : `Visitar ${casino.name}`}
+          />
         </div>
       </article>
     </Container>

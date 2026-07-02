@@ -29,13 +29,43 @@ export const casinos: Casino[] = [
       { name: "Litecoin", kind: "crypto" },
     ],
     licensing: {
-      licenseName: "Curazao",
-      notes: "Casino crypto internacional con soporte para múltiples criptomonedas.",
+      licenseName: "Dominio local para México: stake.mx",
+      notes:
+        "Licencia y disponibilidad informadas por el operador para el dominio local de México; pendiente de verificación editorial.",
     },
     bonusIds: ["stake-welcome"],
-    affiliateUrl: "https://stake.com",
+    affiliateUrl: "https://stake.mx",
     summary:
-      "Casino crypto internacional con amplia variedad de juegos y pagos en criptomonedas.",
+      "Stake México combina casino online y apuestas deportivas para jugadores en México. La disponibilidad, pagos, límites y verificaciones dependen del dominio local y de las condiciones vigentes del operador.",
+    locale: "es-MX",
+  },
+  {
+    id: "bitcasino",
+    slug: "bitcasino",
+    name: "Bitcasino.io",
+    logo: {
+      src: "/operators/bitcasino.svg",
+      alt: "Bitcasino.io",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 2 },
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao / CGA",
+      notes:
+        "Licencia informada por el operador: Curaçao / CGA; pendiente de verificación editorial.",
+    },
+    bonusIds: ["bitcasino-welcome"],
+    affiliateUrl: "https://bitcasino.io/",
+    summary:
+      "Casino crypto internacional con enfoque en Bitcoin y otras criptomonedas; disponibilidad, bonos y condiciones deben verificarse en el sitio oficial.",
     locale: "es-MX",
   },
   {

@@ -53,13 +53,21 @@ export function StakeHighRollerSection() {
         </h2>
 
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Stake destaca especialmente para jugadores crypto con mayor volumen de juego. Su
+          Stake destaca especialmente para jugadores crypto con mayor volumen de juego en México. Su
           combinación de casino, sportsbook, múltiples criptomonedas, programa VIP y límites
           elevados en juegos propios lo convierte en una de las opciones más fuertes de JugadaMax
           para perfiles high roller y apuestas de alto volumen en un casino crypto para high
           rollers. Aun así, los límites, tiempos de retiro y verificaciones pueden variar según
-          moneda, juego, red, región y políticas internas del operador.
+          moneda, juego, red, región y políticas internas del operador en stake.mx.
         </p>
+
+        <div className="rounded-lg border border-white/10 bg-[#16233f]/60 p-4 sm:p-5">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            <span className="font-semibold text-foreground">Nota de disponibilidad:</span> esta
+            reseña se enfoca en Stake para jugadores en México mediante el dominio local stake.mx.
+            No recomendamos usar dominios globales si tu región aparece restringida.
+          </p>
+        </div>
 
         <div className="rounded-xl border border-primary/25 bg-primary/10 p-4 sm:p-5">
           <p className="text-lg font-bold tracking-tight text-primary sm:text-xl">

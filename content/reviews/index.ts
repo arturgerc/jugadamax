@@ -17,7 +17,7 @@ export const reviews: Review[] = [
     slug: "stake",
     title: "Reseña de Stake: casino crypto para jugadores en México",
     verdict:
-      "Stake es una opción sólida para quienes buscan un casino crypto con amplia variedad de juegos y pagos en criptomonedas. Recomendamos revisar la disponibilidad y los términos vigentes desde México antes de registrarte.",
+      "Stake México es una opción sólida para quienes buscan casino crypto y apuestas deportivas desde el dominio local stake.mx. Recomendamos revisar disponibilidad, pagos y términos vigentes antes de registrarte.",
     rating: 4.8,
     pros: [
       "Amplio catálogo de juegos y proveedores.",
@@ -25,16 +25,16 @@ export const reviews: Review[] = [
       "Interfaz clara y experiencia de usuario cuidada.",
     ],
     cons: [
-      "La disponibilidad y los métodos de pago pueden variar según la región.",
-      "Según el operador, opera bajo licencia de Curazao; conviene revisar las condiciones para México.",
+      "La disponibilidad, pagos y límites pueden variar según el dominio local y las políticas del operador.",
+      "Licencia y condiciones deben verificarse en stake.mx; no recomendamos dominios globales si tu región aparece restringida.",
       "Los términos de bonos cambian con frecuencia y deben verificarse en el sitio oficial.",
     ],
     body:
-      "En esta reseña editorial evaluamos Stake según nuestra metodología pública: seguridad, métodos de pago, licencias y experiencia de usuario. Stake es un casino crypto internacional con un catálogo extenso y soporte para múltiples criptomonedas. Como con cualquier operador, recomendamos verificar la disponibilidad desde México, leer los términos y condiciones vigentes y jugar de forma responsable. La información de bonos y promociones debe confirmarse siempre en el sitio oficial del operador.",
+      "En esta reseña editorial evaluamos Stake para jugadores en México según nuestra metodología pública: seguridad, métodos de pago, licencias y experiencia de usuario. Nos enfocamos en el dominio local stake.mx, no en dominios globales que pueden mostrar restricciones regionales. Stake combina casino crypto y apuestas deportivas con soporte para múltiples criptomonedas. Como con cualquier operador, recomendamos verificar la disponibilidad, leer los términos y condiciones vigentes y jugar de forma responsable. La información de bonos y promociones debe confirmarse siempre en stake.mx.",
     paymentsSummary:
-      "Depósitos y retiros en criptomonedas (Bitcoin, Ethereum, USDT, Litecoin). Verifica límites y tiempos en el sitio oficial.",
+      "Depósitos y retiros en criptomonedas (Bitcoin, Ethereum, USDT, Litecoin) según las condiciones publicadas en stake.mx. Verifica límites y tiempos en el sitio oficial.",
     trustSummary:
-      "Licencia de Curazao informada por el operador (pendiente de verificación editorial). Revisa las condiciones aplicables a tu región antes de registrarte.",
+      "Licencia y disponibilidad informadas por el operador para el dominio local de México (pendiente de verificación editorial). Revisa las condiciones vigentes en stake.mx antes de registrarte.",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
     locale: "es-MX",

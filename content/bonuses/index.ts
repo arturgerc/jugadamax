@@ -17,6 +17,14 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
+    id: "bitcasino-welcome",
+    casinoId: "bitcasino",
+    title: "Consulta la promoción de bienvenida vigente",
+    type: "welcome",
+    terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
+    active: true,
+  },
+  {
     id: "caliente-welcome",
     casinoId: "caliente",
     title: "Consulta el bono de bienvenida vigente",
