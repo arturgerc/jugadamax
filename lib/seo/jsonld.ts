@@ -16,9 +16,21 @@ function absoluteUrl(path: string): string {
   return new URL(path, siteConfig.url).toString();
 }
 
+/** Publisher Organization node with logo (Article / NewsArticle). */
+function publisherOrganization(): JsonLd {
+  return {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl(siteConfig.logoUrl),
+    },
+  };
+}
+
 /**
- * Site-wide Organization node (root layout). `logo` is intentionally omitted
- * until a real brand asset exists (no placeholder/fake asset references).
+ * Site-wide Organization node (root layout).
  */
 export function organizationJsonLd(): JsonLd {
   return {
@@ -26,6 +38,7 @@ export function organizationJsonLd(): JsonLd {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
+    logo: absoluteUrl(siteConfig.logoUrl),
   };
 }
 
@@ -92,11 +105,7 @@ export function articleJsonLd(input: ArticleJsonLdInput): JsonLd {
     mainEntityOfPage: absoluteUrl(path),
     inLanguage: siteConfig.locale,
     author: { "@type": "Person", name: authorName },
-    // Publisher logo omitted until a real brand asset exists (no fake asset).
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-    },
+    publisher: publisherOrganization(),
     datePublished,
     ...(dateModified ? { dateModified } : {}),
     ...(image ? { image: absoluteUrl(image) } : {}),
