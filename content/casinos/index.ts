@@ -96,4 +96,27 @@ export const casinos: Casino[] = [
       "Apuestas deportivas con métodos de pago locales en México; información declarada por el operador.",
     locale: "es-MX",
   },
+  {
+    id: "betsson",
+    slug: "betsson",
+    name: "Betsson",
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: { "fiat-casino": 2, sportsbook: 3 },
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "OXXO", kind: "fiat" },
+      { name: "SPEI", kind: "fiat" },
+    ],
+    licensing: {
+      licenseName: "SEGOB (México)",
+      notes:
+        "Licencia informada por el operador: SEGOB (México); pendiente de verificación editorial.",
+    },
+    bonusIds: ["betsson-welcome"],
+    affiliateUrl: "https://www.betsson.mx/",
+    summary:
+      "Casino y casa de apuestas con presencia en México, métodos de pago locales y productos de casino y apuestas deportivas.",
+    locale: "es-MX",
+  },
 ];

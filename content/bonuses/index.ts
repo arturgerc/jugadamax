@@ -32,4 +32,12 @@ export const bonuses: Bonus[] = [
     terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
     active: true,
   },
+  {
+    id: "betsson-welcome",
+    casinoId: "betsson",
+    title: "Consulta la promoción de bienvenida vigente",
+    type: "welcome",
+    terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
+    active: true,
+  },
 ];
