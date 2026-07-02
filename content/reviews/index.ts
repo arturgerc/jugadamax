@@ -18,7 +18,7 @@ export const reviews: Review[] = [
     title: "Reseña de Stake: casino crypto para jugadores en México",
     verdict:
       "Stake es una opción sólida para quienes buscan un casino crypto con amplia variedad de juegos y pagos en criptomonedas. Recomendamos revisar la disponibilidad y los términos vigentes desde México antes de registrarte.",
-    rating: 4.2,
+    rating: 4.8,
     pros: [
       "Amplio catálogo de juegos y proveedores.",
       "Soporte para varias criptomonedas (Bitcoin, Ethereum, USDT, Litecoin).",

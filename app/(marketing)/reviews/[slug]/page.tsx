@@ -18,6 +18,7 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
+import { StakeHighRollerSection } from "@/components/review/StakeHighRollerSection";
 
 export function generateStaticParams() {
   return getReviews().map((review) => ({ slug: review.slug }));
@@ -99,6 +100,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
           <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{review.body}</p>
         </section>
+
+        {review.slug === "stake" ? <StakeHighRollerSection /> : null}
 
         {headlineBonus ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
