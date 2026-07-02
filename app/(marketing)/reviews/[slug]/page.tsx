@@ -56,7 +56,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
-    { name: "Reseñas", path: `/reviews/${review.slug}` },
+    { name: "Reseñas", path: "/reviews" },
     { name: casino.name, path: `/reviews/${review.slug}` },
   ]);
 

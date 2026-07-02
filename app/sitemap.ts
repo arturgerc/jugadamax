@@ -17,6 +17,7 @@ const STATIC_PATHS = [
   "/apuestas",
   "/guias",
   "/noticias",
+  "/reviews",
   "/como-evaluamos",
   "/divulgacion-afiliados",
   "/juego-responsable",
