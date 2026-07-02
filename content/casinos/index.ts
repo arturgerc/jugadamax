@@ -42,6 +42,12 @@ export const casinos: Casino[] = [
     id: "caliente",
     slug: "caliente",
     name: "Caliente",
+    logo: {
+      src: "/operators/caliente.png",
+      alt: "Caliente",
+      width: 80,
+      height: 40,
+    },
     verticals: ["fiat-casino", "sportsbook"],
     rankByVertical: { "fiat-casino": 1, sportsbook: 2 },
     payments: [
@@ -65,6 +71,12 @@ export const casinos: Casino[] = [
     id: "codere",
     slug: "codere",
     name: "Codere",
+    logo: {
+      src: "/operators/codere.png",
+      alt: "Codere",
+      width: 80,
+      height: 40,
+    },
     verticals: ["sportsbook"],
     rankByVertical: { sportsbook: 1 },
     payments: [

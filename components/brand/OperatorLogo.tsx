@@ -1,7 +1,7 @@
 import type { ImageRef } from "@/types/content";
 import { cn } from "@/lib/utils";
 
-const LOGO_SIZE = 48;
+const LOGO_HEIGHT = 48;
 
 function monogramFromName(name: string): string {
   const words = name.trim().split(/\s+/).filter(Boolean);
@@ -11,14 +11,28 @@ function monogramFromName(name: string): string {
   return name.slice(0, 2).toUpperCase();
 }
 
-const logoTileBase =
-  "inline-flex size-12 shrink-0 items-center justify-center rounded-xl p-1.5 ring-1 bg-[#16233f]";
+function logoTileAccent(operatorId?: string): string {
+  if (operatorId === "stake") {
+    return "ring-accent/25 shadow-[0_0_14px_-6px_rgba(0,168,107,0.35)]";
+  }
+  if (operatorId === "caliente" || operatorId === "codere") {
+    return "ring-primary/15";
+  }
+  return "ring-white/10";
+}
+
+function logoTileBackground(operatorId?: string): string {
+  if (operatorId === "caliente" || operatorId === "codere") {
+    return "bg-[#f5f5f0]";
+  }
+  return "bg-[#16233f]";
+}
 
 /**
  * Operator logo with monogram fallback.
  *
- * Renders a real logo when provided; otherwise a monogram tile. Decorative when
- * the operator name is visible on the same card.
+ * Real logos use a wider 72–80×48 tile; monograms stay square 48×48. Decorative
+ * when the operator name is visible on the same card.
  */
 export function OperatorLogo({
   name,
@@ -31,26 +45,23 @@ export function OperatorLogo({
   operatorId?: string;
   className?: string;
 }) {
-  const isStake = operatorId === "stake";
-
   if (logo?.src) {
     return (
       <span
         className={cn(
-          logoTileBase,
-          isStake
-            ? "ring-accent/25 shadow-[0_0_14px_-6px_rgba(0,168,107,0.35)]"
-            : "ring-white/10",
+          "inline-flex h-12 w-[4.5rem] shrink-0 items-center justify-center rounded-xl px-1 py-1 ring-1 sm:w-20",
+          logoTileBackground(operatorId),
+          logoTileAccent(operatorId),
           className,
         )}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element -- local SVG; avoids Image SVG config */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- local operator asset */}
         <img
           src={logo.src}
           alt=""
           aria-hidden="true"
-          width={logo.width ?? LOGO_SIZE}
-          height={logo.height ?? LOGO_SIZE}
+          width={logo.width ?? 80}
+          height={logo.height ?? LOGO_HEIGHT}
           className="max-h-full max-w-full object-contain"
         />
       </span>
