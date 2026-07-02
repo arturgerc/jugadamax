@@ -13,7 +13,7 @@ export interface PageMetadataInput {
   description: string;
   /** Path relative to the site root, e.g. "/casinos-crypto". Used for canonical. */
   path?: string;
-  /** Absolute or root-relative image path; falls back to the site default. */
+  /** Absolute or root-relative image path; falls back to the site default OG image. */
   image?: string;
   /** Open Graph type; defaults to "website". */
   type?: "website" | "article";
@@ -22,9 +22,8 @@ export interface PageMetadataInput {
 export function buildMetadata(input: PageMetadataInput): Metadata {
   const { title, description, path = "/", image, type = "website" } = input;
   const canonical = path;
+  const ogImage = image ?? siteConfig.ogImage;
 
-  // Only reference a social image when a real asset path is provided. There is
-  // no placeholder default (avoids broken/fake asset references).
   return {
     title,
     description,
@@ -36,13 +35,13 @@ export function buildMetadata(input: PageMetadataInput): Metadata {
       siteName: siteConfig.name,
       locale: siteConfig.ogLocale,
       type,
-      ...(image ? { images: [{ url: image }] } : {}),
+      images: [{ url: ogImage }],
     },
     twitter: {
-      card: image ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title,
       description,
-      ...(image ? { images: [image] } : {}),
+      images: [ogImage],
     },
   };
 }

@@ -31,11 +31,13 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     title: `${siteConfig.name} — Casinos Crypto, Casinos Fiat y Apuestas en México`,
     description: siteConfig.description,
+    images: [{ url: siteConfig.ogImage }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — Casinos Crypto, Casinos Fiat y Apuestas en México`,
     description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
 };
 

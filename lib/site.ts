@@ -11,9 +11,8 @@ export const siteConfig = {
   ogLocale: "es_MX",
   description:
     "JugadaMax: rankings y reseñas de casinos crypto, casinos fiat y apuestas deportivas en México. Información clara, con divulgación de afiliados y juego responsable +18.",
-  // NOTE: no default social image or logo asset is referenced until a real brand
-  // asset exists. Do not point metadata/JSON-LD at placeholder paths (authenticity;
-  // avoids broken/fake asset references).
+  /** Default social preview image (app/opengraph-image.tsx). */
+  ogImage: "/opengraph-image",
 } as const;
 
 export type SiteConfig = typeof siteConfig;
