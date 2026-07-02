@@ -100,6 +100,12 @@ export const casinos: Casino[] = [
     id: "betsson",
     slug: "betsson",
     name: "Betsson",
+    logo: {
+      src: "/operators/betsson.svg",
+      alt: "Betsson",
+      width: 80,
+      height: 40,
+    },
     verticals: ["fiat-casino", "sportsbook"],
     rankByVertical: { "fiat-casino": 2, sportsbook: 3 },
     payments: [
