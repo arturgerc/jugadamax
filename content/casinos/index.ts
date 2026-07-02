@@ -69,6 +69,39 @@ export const casinos: Casino[] = [
     locale: "es-MX",
   },
   {
+    id: "cryptocasino",
+    slug: "cryptocasino",
+    name: "CryptoCasino.CC",
+    logo: {
+      src: "/operators/cryptocasino.svg",
+      alt: "CryptoCasino.CC",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 3 },
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "Solana", kind: "crypto" },
+      { name: "Dogecoin", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Licencia, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial.",
+    },
+    bonusIds: ["cryptocasino-welcome"],
+    affiliateUrl: "https://www.cryptocasino.cc/",
+    summary:
+      "CryptoCasino.CC es un casino crypto orientado a jugadores que priorizan privacidad y pagos con criptomonedas como Bitcoin, Ethereum, USDT, Solana, Dogecoin, USDC, XRP y Litecoin. JugadaMax recomienda verificar disponibilidad para México, requisitos de verificación, límites, comisiones y tiempos de retiro antes de registrarse.",
+    locale: "es-MX",
+  },
+  {
     id: "caliente",
     slug: "caliente",
     name: "Caliente",
