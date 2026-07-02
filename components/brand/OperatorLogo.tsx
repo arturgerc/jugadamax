@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { ImageRef } from "@/types/content";
 import { cn } from "@/lib/utils";
 
@@ -12,32 +11,49 @@ function monogramFromName(name: string): string {
   return name.slice(0, 2).toUpperCase();
 }
 
+const logoTileBase =
+  "inline-flex size-12 shrink-0 items-center justify-center rounded-xl p-1.5 ring-1 bg-[#16233f]";
+
 /**
  * Operator logo with monogram fallback.
  *
- * Decorative when the operator name is visible elsewhere on the card.
+ * Renders a real logo when provided; otherwise a monogram tile. Decorative when
+ * the operator name is visible on the same card.
  */
 export function OperatorLogo({
   name,
   logo,
+  operatorId,
   className,
 }: {
   name: string;
   logo?: ImageRef;
+  operatorId?: string;
   className?: string;
 }) {
+  const isStake = operatorId === "stake";
+
   if (logo?.src) {
     return (
-      <Image
-        src={logo.src}
-        alt={logo.alt || name}
-        width={logo.width ?? LOGO_SIZE}
-        height={logo.height ?? LOGO_SIZE}
+      <span
         className={cn(
-          "size-12 shrink-0 rounded-xl object-contain ring-1 ring-white/10 bg-[#16233f]",
+          logoTileBase,
+          isStake
+            ? "ring-accent/25 shadow-[0_0_14px_-6px_rgba(0,168,107,0.35)]"
+            : "ring-white/10",
           className,
         )}
-      />
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element -- local SVG; avoids Image SVG config */}
+        <img
+          src={logo.src}
+          alt=""
+          aria-hidden="true"
+          width={logo.width ?? LOGO_SIZE}
+          height={logo.height ?? LOGO_SIZE}
+          className="max-h-full max-w-full object-contain"
+        />
+      </span>
     );
   }
 

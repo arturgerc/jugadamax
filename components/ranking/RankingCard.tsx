@@ -55,7 +55,7 @@ export function RankingCard({
               "h-9 w-9 bg-gradient-to-br from-[var(--jm-gold)] to-[var(--jm-gold-strong)] text-[var(--jm-navy)] shadow-[0_2px_8px_-2px_rgba(255,184,0,0.35)] ring-1 ring-primary/25",
           )}
         />
-        <OperatorLogo name={casino.name} logo={casino.logo} />
+        <OperatorLogo name={casino.name} logo={casino.logo} operatorId={casino.id} />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="text-base font-semibold leading-snug text-foreground">{casino.name}</h3>
@@ -78,7 +78,7 @@ export function RankingCard({
               "h-10 w-10 text-base bg-gradient-to-br from-[var(--jm-gold)] to-[var(--jm-gold-strong)] text-[var(--jm-navy)] shadow-[0_2px_8px_-2px_rgba(255,184,0,0.35)] ring-1 ring-primary/25",
           )}
         />
-        <OperatorLogo name={casino.name} logo={casino.logo} />
+        <OperatorLogo name={casino.name} logo={casino.logo} operatorId={casino.id} />
       </div>
 
       {/* Center zone: name, editorial, summary, bonus, trust, payments */}

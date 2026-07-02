@@ -32,7 +32,7 @@ export function HeroRecommendationCard({
         </p>
 
         <div className="mt-4 flex items-start gap-3">
-          <OperatorLogo name={casino.name} logo={casino.logo} />
+          <OperatorLogo name={casino.name} logo={casino.logo} operatorId={casino.id} />
           <div className="min-w-0 flex-1">
             <p className="text-lg font-semibold text-foreground">{casino.name}</p>
             {casino.summary ? (

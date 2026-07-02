@@ -14,6 +14,12 @@ export const casinos: Casino[] = [
     id: "stake",
     slug: "stake",
     name: "Stake",
+    logo: {
+      src: "/operators/stake.svg",
+      alt: "Stake",
+      width: 80,
+      height: 40,
+    },
     verticals: ["crypto-casino"],
     rankByVertical: { "crypto-casino": 1 },
     payments: [
