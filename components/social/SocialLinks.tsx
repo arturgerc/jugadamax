@@ -97,19 +97,19 @@ function FloatingSocialLinks() {
   return (
     <aside
       aria-label="Canales oficiales"
-      className="fixed right-3 top-1/2 z-40 hidden -translate-y-1/2 lg:block"
+      className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 lg:block"
     >
-      <div className="flex flex-col gap-1.5 rounded-xl border border-border/60 bg-[var(--jm-graphite)]/95 p-2 shadow-lg backdrop-blur-sm">
+      <div className="flex flex-col gap-2.5 rounded-2xl border border-border/70 bg-[var(--jm-graphite)]/95 p-3 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.55)] backdrop-blur-sm">
         {OFFICIAL_SOCIAL_LINKS.filter((item) => item.kind !== "email").map((item) => (
           <SocialAnchor
             key={item.kind}
             item={item}
             className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-[var(--jm-navy)] hover:text-foreground",
+              "inline-flex h-11 w-11 items-center justify-center rounded-xl border border-transparent text-muted-foreground transition-[transform,colors,border-color,background-color] duration-200 hover:scale-[1.04] hover:border-primary/35 hover:bg-[var(--jm-navy)] hover:text-foreground",
               focusRing,
             )}
           >
-            <SocialIcon kind={item.kind} />
+            <SocialIcon kind={item.kind} className="h-[22px] w-[22px]" />
           </SocialAnchor>
         ))}
       </div>
