@@ -16,6 +16,26 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/reviews/bitcasino", label: "Bitcasino.io" },
     { href: "/casinos-crypto", label: "Ver casinos crypto" },
   ],
+  "casinos-con-usdt-mexico": [
+    { href: "/reviews/bitcasino", label: "Bitcasino.io" },
+    { href: "/reviews/cryptocasino", label: "CryptoCasino.CC" },
+    { href: "/reviews/ethcasino", label: "ETH Casino" },
+    { href: "/reviews/ltccasino", label: "LTC Casino" },
+    { href: "/casinos-crypto", label: "Ver casinos crypto" },
+  ],
+};
+
+const GUIDE_SOURCE_LINKS: Record<string, { label: string; url: string }[]> = {
+  "casinos-con-usdt-mexico": [
+    {
+      label: "Tether Transparency",
+      url: "https://tether.to/en/transparency/",
+    },
+    {
+      label: "Coinbase — What is a stablecoin?",
+      url: "https://www.coinbase.com/learn/crypto-basics/what-is-a-stablecoin",
+    },
+  ],
 };
 
 function renderGuideBlock(paragraph: string, index: number) {
@@ -80,6 +100,7 @@ export default async function GuideArticlePage({
 
   const paragraphs = article.body.split("\n\n").filter(Boolean);
   const relatedReading = GUIDE_RELATED_READING[slug];
+  const sourceLinks = GUIDE_SOURCE_LINKS[slug];
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -122,25 +143,51 @@ export default async function GuideArticlePage({
         </header>
 
         {article.coverImage ? (
-          <div
-            className="overflow-hidden rounded-xl border border-border/60 bg-[var(--jm-graphite)] shadow-sm"
-            style={{
-              aspectRatio: `${article.coverImage.width} / ${article.coverImage.height}`,
-            }}
-          >
+          <div className="aspect-[1200/630] w-full overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={article.coverImage.src}
               alt={article.coverImage.alt}
               width={article.coverImage.width}
               height={article.coverImage.height}
-              className="block h-full w-full object-contain"
+              className="block h-full w-full object-cover object-center"
               decoding="async"
             />
           </div>
         ) : null}
 
         <div className="space-y-5">{paragraphs.map(renderGuideBlock)}</div>
+
+        {sourceLinks ? (
+          <section
+            aria-labelledby="source-links-heading"
+            className="rounded-xl border border-border/60 bg-card p-5 sm:p-6"
+          >
+            <h2
+              id="source-links-heading"
+              className="text-lg font-bold tracking-tight text-foreground"
+            >
+              Fuentes y lecturas
+            </h2>
+            <ul className="mt-4 space-y-2">
+              {sourceLinks.map((item) => (
+                <li key={item.url}>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className={cn(
+                      "inline-flex min-h-11 items-center text-sm font-medium text-primary underline-offset-2 hover:underline",
+                      focusRing,
+                    )}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
 
         {relatedReading ? (
           <section
