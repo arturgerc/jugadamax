@@ -21,7 +21,13 @@ import { ProsCons } from "@/components/review/ProsCons";
 import { StakeHighRollerSection } from "@/components/review/StakeHighRollerSection";
 import type { ReviewRelatedLink } from "@/types/content";
 
-function RelatedLinkBadge({ kind }: { kind?: ReviewRelatedLink["kind"] }) {
+function RelatedLinkBadge({
+  kind,
+  label,
+}: {
+  kind?: ReviewRelatedLink["kind"];
+  label?: string;
+}) {
   if (kind === "blog") {
     return (
       <span
@@ -55,13 +61,17 @@ function RelatedLinkBadge({ kind }: { kind?: ReviewRelatedLink["kind"] }) {
     );
   }
 
+  const websiteToken = label?.toUpperCase().includes("ETH") ? "ETH" : "LTC";
+
   return (
     <span
       aria-hidden="true"
       className="inline-flex h-10 w-10 shrink-0 flex-col items-center justify-center rounded-lg border border-primary/20 bg-[#16233f] ring-1 ring-primary/15"
     >
-      <span className="text-[0.55rem] font-bold leading-none text-primary">LTC</span>
-      <span className="mt-0.5 text-[0.45rem] font-semibold leading-none text-muted-foreground">Casino</span>
+      <span className="text-[0.55rem] font-bold leading-none text-primary">{websiteToken}</span>
+      <span className="mt-0.5 text-[0.45rem] font-semibold leading-none text-muted-foreground">
+        Casino
+      </span>
     </span>
   );
 }
@@ -166,7 +176,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           >
             <h2 className="text-lg font-semibold text-foreground">Enlaces relacionados</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Recursos externos relacionados con LTC Casino y su ecosistema. JugadaMax recomienda
+              Recursos externos relacionados con {casino.name} y su ecosistema. JugadaMax recomienda
               revisar siempre términos, disponibilidad regional y políticas del operador antes de
               registrarte.
             </p>
@@ -179,7 +189,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                   rel="nofollow noopener noreferrer"
                   className="flex min-h-11 items-start gap-3 rounded-xl border border-white/10 bg-[#111417] p-3 transition-colors hover:border-primary/30"
                 >
-                  <RelatedLinkBadge kind={link.kind} />
+                  <RelatedLinkBadge kind={link.kind} label={link.label} />
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-semibold leading-snug text-foreground">{link.label}</p>
                     {link.subtitle ? (

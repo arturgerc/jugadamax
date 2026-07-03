@@ -71,6 +71,57 @@ export const reviews: Review[] = [
     locale: "es-MX",
   },
   {
+    id: "ethcasino-review",
+    casinoId: "ethcasino",
+    authorId: "redaccion-jugadamax",
+    slug: "ethcasino",
+    title: "Reseña de ETH Casino: casino crypto con Ethereum, USDT y juegos en vivo",
+    verdict:
+      "ETH Casino es un casino crypto enfocado en Ethereum y pagos con criptomonedas. Para jugadores de México y LATAM puede ser una opción interesante si buscan una experiencia orientada a wallets, stablecoins, slots, juegos crypto y casino en vivo, pero JugadaMax recomienda revisar disponibilidad regional, requisitos de verificación, límites, comisiones y términos antes de depositar.",
+    rating: 4.2,
+    pros: [
+      "Enfoque claro en Ethereum y pagos crypto, con soporte para BTC, ETH, USDT, SOL, BNB, DOGE, XRP, ADA, USDC, TRX y LTC según el sitio oficial.",
+      "Catálogo con slots, crypto games, juegos en vivo, blackjack, ruleta, baccarat, game shows y formatos rápidos.",
+      "Propuesta crypto-first pensada para usuarios que prefieren wallets y pagos digitales en lugar de banca tradicional.",
+      "Términos publicados con información sobre depósitos, cashouts, límites, anti-fraud policy y responsabilidad del jugador.",
+    ],
+    cons: [
+      "No es un operador con licencia local SEGOB en México; funciona como casino crypto internacional/offshore.",
+      "La disponibilidad para México y LATAM, verificación, límites y tiempos de retiro deben comprobarse en el sitio oficial.",
+      "Los pagos crypto dependen de red, moneda, mínimos, comisiones y revisiones internas del operador.",
+      "No es una opción adecuada para usuarios que buscan depósitos fiat locales como OXXO, SPEI o tarjeta bancaria mexicana.",
+    ],
+    body:
+      "ETH Casino es un casino online orientado al ecosistema Ethereum y al público que ya utiliza criptomonedas para pagos digitales. Su identidad no gira alrededor de pesos mexicanos, tarjetas o métodos bancarios tradicionales, sino de wallets, redes blockchain y monedas como ETH, BTC, USDT, SOL, BNB, DOGE, XRP, ADA, USDC, TRX y LTC.\n\nPara jugadores de México y LATAM, ETH Casino puede funcionar como una alternativa crypto/offshore frente a operadores locales de casino y apuestas. JugadaMax no lo presenta como casino regulado localmente en México, sino como una opción internacional para usuarios que priorizan pagos digitales, acceso desde navegador, catálogo crypto y una experiencia más cercana al ecosistema Web3 que a la banca tradicional.\n\nEl punto diferencial de ETH Casino está en su enfoque Ethereum-first. Aunque el sitio acepta varias criptomonedas, la marca está claramente construida alrededor de ETH y usuarios que ya entienden conceptos como redes, gas fees, wallets, stablecoins y confirmaciones blockchain. Esto puede ser atractivo para jugadores de LATAM que prefieren mantener su actividad de juego separada de métodos fiat locales.\n\nEn juegos, ETH Casino informa categorías como slots, crypto games, live games, blackjack, game shows, ruleta, baccarat, lightning games, crash, plinko, dice, lottery, bingo y scratch. Esta mezcla permite cubrir tanto a usuarios que buscan slots tradicionales como a jugadores crypto que prefieren formatos rápidos o provably fair. Aun así, la disponibilidad de proveedores, juegos y funciones puede variar según región y condiciones del operador.\n\nEn pagos, el sitio y sus términos informan soporte para BTC, ETH, XRP, USDT, SOL, BNB, DOGE, ADA, USDC, TRX y LTC. Los términos también publican mínimos de depósito, mínimos de cashout, límites de retiro y reglas sobre retiros. JugadaMax recomienda revisar esos límites antes de depositar, especialmente si el usuario planea jugar con cantidades altas o mover fondos entre distintas redes.\n\nLa experiencia móvil también es relevante. ETH Casino funciona desde navegador, por lo que puede encajar con usuarios que alternan entre móvil, wallet, exchange y desktop. Esto es útil para LATAM, donde muchos jugadores gestionan pagos y entretenimiento desde el teléfono. Aun así, antes de depositar conviene comprobar compatibilidad, moneda seleccionada, red correcta y condiciones de retiro.\n\nSobre privacidad y verificación, ETH Casino se posiciona como una opción crypto-first y de registro sencillo. JugadaMax lo interpreta con cautela: pueden existir controles, límites, revisiones de riesgo o solicitudes de información según actividad de la cuenta, región, retiros o términos internos. La privacidad debe leerse siempre junto con las políticas oficiales del operador.\n\nEn seguridad y confianza, los términos de ETH Casino incluyen políticas anti-fraud, advertencias sobre responsabilidad del jugador, edad mínima +18 y reglas de depósitos/retiros. Esto no equivale a una licencia mexicana SEGOB. Nuestra evaluación editorial lo posiciona como candidato crypto internacional, no como casino regulado localmente en México.",
+    paymentsSummary:
+      "ETH Casino está orientado a pagos con criptomonedas. JugadaMax destaca Ethereum, Bitcoin, USDT, Solana, BNB, XRP, Dogecoin, USDC, TRX y Litecoin como métodos relevantes, pero recomienda confirmar redes disponibles, mínimos, comisiones, límites y tiempos de retiro en el sitio oficial.",
+    trustSummary:
+      "ETH Casino publica términos con información sobre pagos, cashouts, anti-fraud policy, edad mínima y responsabilidad del jugador. No debe presentarse como operador con licencia mexicana SEGOB. La disponibilidad, verificación, límites, bonos, retiros y condiciones deben revisarse directamente en el sitio oficial.",
+    publishedAt: "2026-07-03",
+    updatedAt: "2026-07-03",
+    locale: "es-MX",
+    relatedLinks: [
+      {
+        label: "ETH Casino",
+        url: "https://www.ethcasino.io/",
+        kind: "website",
+        subtitle: "Sitio relacionado",
+      },
+      {
+        label: "TTR Blog",
+        url: "https://ttrblog.io/",
+        kind: "blog",
+        subtitle: "Blog / noticias",
+      },
+      {
+        label: "Kick: LTCCASINO-COM",
+        url: "https://kick.com/ltccasino-com",
+        kind: "streaming",
+        subtitle: "Canal de streaming",
+      },
+    ],
+  },
+  {
     id: "ltccasino-review",
     casinoId: "ltccasino",
     authorId: "redaccion-jugadamax",
