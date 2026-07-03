@@ -61,7 +61,16 @@ function RelatedLinkBadge({
     );
   }
 
-  const websiteToken = label?.toUpperCase().includes("ETH") ? "ETH" : "LTC";
+  const labelUpper = label?.toUpperCase() ?? "";
+  let websiteToken = "LTC";
+  let websiteSubtitle = "Casino";
+  if (labelUpper.includes("CRYPTOCASINO") || labelUpper.includes(".CC")) {
+    websiteToken = "CC";
+    websiteSubtitle = "Crypto";
+  } else if (labelUpper.includes("ETH")) {
+    websiteToken = "ETH";
+    websiteSubtitle = "Casino";
+  }
 
   return (
     <span
@@ -70,7 +79,7 @@ function RelatedLinkBadge({
     >
       <span className="text-[0.55rem] font-bold leading-none text-primary">{websiteToken}</span>
       <span className="mt-0.5 text-[0.45rem] font-semibold leading-none text-muted-foreground">
-        Casino
+        {websiteSubtitle}
       </span>
     </span>
   );

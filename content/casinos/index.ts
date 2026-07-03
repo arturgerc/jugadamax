@@ -93,12 +93,12 @@ export const casinos: Casino[] = [
     licensing: {
       licenseName: "Licencia no verificada por JugadaMax",
       notes:
-        "Licencia, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial.",
+        "Licencia, entidad operadora, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial. No es licencia local SEGOB México.",
     },
     bonusIds: ["cryptocasino-welcome"],
     affiliateUrl: "https://www.cryptocasino.cc/",
     summary:
-      "CryptoCasino.CC es un casino crypto orientado a jugadores que priorizan privacidad y pagos con criptomonedas como Bitcoin, Ethereum, USDT, Solana, Dogecoin, USDC, XRP y Litecoin. JugadaMax recomienda verificar disponibilidad para México, requisitos de verificación, límites, comisiones y tiempos de retiro antes de registrarse.",
+      "CryptoCasino.CC es un casino crypto con enfoque en Bitcoin, Ethereum, USDT, Solana y pagos desde wallets. Para México y LATAM, JugadaMax lo presenta como candidato crypto/offshore orientado a privacidad y registro sencillo; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
     locale: "es-MX",
   },
   {

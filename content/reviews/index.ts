@@ -71,6 +71,57 @@ export const reviews: Review[] = [
     locale: "es-MX",
   },
   {
+    id: "cryptocasino-review",
+    casinoId: "cryptocasino",
+    authorId: "redaccion-jugadamax",
+    slug: "cryptocasino",
+    title: "Reseña de CryptoCasino.CC: casino crypto con Bitcoin, USDT y registro sencillo",
+    verdict:
+      "CryptoCasino.CC es un casino crypto orientado a pagos con Bitcoin, Ethereum, USDT, Solana, Dogecoin, XRP, USDC y Litecoin. Para jugadores de México y LATAM puede ser una opción interesante si buscan una experiencia crypto-first, registro sencillo y enfoque en privacidad, pero JugadaMax recomienda revisar disponibilidad regional, requisitos de verificación, límites, comisiones y términos antes de depositar.",
+    rating: 4.0,
+    pros: [
+      "Enfoque crypto-first con soporte para Bitcoin, Ethereum, USDT, Solana, Dogecoin, USDC, XRP y Litecoin.",
+      "Propuesta orientada a privacidad y registro sencillo, atractiva para usuarios que prefieren wallets y pagos digitales.",
+      "Puede encajar para jugadores de LATAM que buscan una alternativa crypto/offshore frente a casinos fiat tradicionales.",
+      "Interfaz y posicionamiento centrados en criptomonedas, pagos digitales y experiencia directa desde navegador.",
+    ],
+    cons: [
+      "No es un operador con licencia local SEGOB en México; funciona como casino crypto internacional/offshore.",
+      "La disponibilidad para México y LATAM, verificación, límites y tiempos de retiro deben comprobarse en el sitio oficial.",
+      "No debe interpretarse la privacidad como una garantía absoluta; pueden existir controles, revisiones o límites según términos internos.",
+      "No es una opción adecuada para usuarios que buscan depósitos fiat locales como OXXO, SPEI o tarjeta bancaria mexicana.",
+    ],
+    body:
+      "CryptoCasino.CC es un casino online orientado al usuario crypto que prefiere operar con monedas digitales en lugar de métodos fiat tradicionales. Su propuesta se centra en Bitcoin, Ethereum, USDT, Solana, Dogecoin, USDC, XRP y Litecoin, con una experiencia pensada para usuarios que ya entienden wallets, redes blockchain, comisiones y confirmaciones.\n\nPara jugadores de México y LATAM, CryptoCasino.CC puede funcionar como una alternativa crypto/offshore frente a operadores locales que trabajan con pesos mexicanos. JugadaMax no lo presenta como casino regulado localmente en México, sino como un candidato internacional para usuarios que priorizan pagos digitales, registro sencillo, privacidad operativa y acceso desde navegador móvil o desktop.\n\nEl punto diferencial de CryptoCasino.CC está en su posicionamiento generalista dentro del segmento crypto. Mientras ETH Casino se apoya más en Ethereum y LTC Casino en Litecoin, CryptoCasino.CC funciona como una marca más amplia para usuarios que buscan varias monedas, stablecoins y una experiencia directa de casino crypto. Esto puede ser útil para jugadores de LATAM que no quieren depender de un solo token o red.\n\nEn pagos, el enfoque está claramente en criptomonedas. Bitcoin y Ethereum siguen siendo las monedas más reconocibles, pero USDT y USDC pueden ser relevantes para usuarios que prefieren stablecoins para reducir exposición a volatilidad. Solana, Dogecoin, XRP y Litecoin añaden opciones para quienes buscan redes rápidas o comisiones más bajas, aunque cada usuario debe confirmar redes disponibles, mínimos, comisiones, límites y tiempos de retiro en el sitio oficial.\n\nEn cuanto a experiencia de juego, CryptoCasino.CC debe evaluarse como un casino crypto-first: lo importante no es solo el catálogo, sino cómo se combinan pagos digitales, registro, acceso móvil, bonos y reglas de retiro. Para usuarios de México y LATAM, este tipo de operador puede ser atractivo si ya usan exchanges, wallets o stablecoins. Aun así, antes de depositar conviene revisar proveedores, juegos disponibles, restricciones regionales y términos de promoción.\n\nSobre privacidad y verificación, CryptoCasino.CC se posiciona como una opción orientada a privacidad y registro sencillo. JugadaMax lo interpreta con cautela: pueden existir controles, límites, revisiones de riesgo o solicitudes de información según actividad de la cuenta, región, retiros o términos internos. Por eso no recomendamos leer la privacidad como una garantía absoluta.\n\nEn seguridad y confianza, JugadaMax recomienda revisar directamente en el sitio oficial la licencia, entidad operadora, términos de bonos, políticas de verificación, juego responsable, límites de retiro y reglas de cuenta. CryptoCasino.CC puede ser un candidato interesante dentro del segmento crypto internacional, pero no debe presentarse como operador con licencia mexicana SEGOB.",
+    paymentsSummary:
+      "CryptoCasino.CC está orientado a pagos con criptomonedas. JugadaMax destaca Bitcoin, Ethereum, USDT, Solana, Dogecoin, USDC, XRP y Litecoin como métodos relevantes, pero recomienda confirmar redes disponibles, mínimos, comisiones, límites y tiempos de retiro en el sitio oficial.",
+    trustSummary:
+      "JugadaMax recomienda verificar licencia, entidad operadora, políticas de verificación, juego responsable, bonos, retiros y disponibilidad regional directamente en el sitio oficial. CryptoCasino.CC no debe presentarse como operador con licencia mexicana SEGOB.",
+    publishedAt: "2026-07-03",
+    updatedAt: "2026-07-03",
+    locale: "es-MX",
+    relatedLinks: [
+      {
+        label: "CryptoCasino.CC",
+        url: "https://www.cryptocasino.cc/",
+        kind: "website",
+        subtitle: "Sitio relacionado",
+      },
+      {
+        label: "TTR Blog",
+        url: "https://ttrblog.io/",
+        kind: "blog",
+        subtitle: "Blog / noticias",
+      },
+      {
+        label: "Kick: LTCCASINO-COM",
+        url: "https://kick.com/ltccasino-com",
+        kind: "streaming",
+        subtitle: "Canal de streaming",
+      },
+    ],
+  },
+  {
     id: "ethcasino-review",
     casinoId: "ethcasino",
     authorId: "redaccion-jugadamax",
