@@ -3,7 +3,7 @@ import { cn, focusRing } from "@/lib/utils";
 /**
  * Affiliate call-to-action (FR-012/FR-013/FR-014).
  *
- * - Applies rel="sponsored nofollow" and target="_blank" on outbound links.
+ * - Applies rel="sponsored nofollow noopener noreferrer" and target="_blank" on outbound links.
  * - Degrades gracefully to a disabled state when `href` is missing so a broken
  *   or misleading link is never shown (spec edge case).
  * - Must only be used on pages that also render AffiliateDisclosure +
@@ -38,7 +38,7 @@ export function AffiliateCta({ href, label = "Visitar sitio", className }: Affil
     <a
       href={href}
       target="_blank"
-      rel="sponsored nofollow noopener"
+      rel="sponsored nofollow noopener noreferrer"
       className={cn(base, "hover:bg-[var(--jm-gold-strong)]")}
     >
       {label}

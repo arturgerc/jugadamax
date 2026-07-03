@@ -161,6 +161,7 @@ export const casinos: Casino[] = [
         "Licencia, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial.",
     },
     bonusIds: ["ltccasino-welcome"],
+    // LTC CTA intentionally uses ltccasino.io as the casino destination; ltccasino.com is only a related informational link in the review.
     affiliateUrl: "https://www.ltccasino.io/",
     summary:
       "LTC Casino es un casino crypto con enfoque en Litecoin y pagos con criptomonedas. JugadaMax lo presenta como candidato de privacidad dentro del segmento crypto, pero recomienda revisar disponibilidad para México, requisitos de verificación, límites, comisiones y tiempos de retiro antes de registrarse.",
