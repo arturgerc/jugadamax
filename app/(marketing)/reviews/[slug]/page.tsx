@@ -98,7 +98,19 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
         <section aria-label="Análisis" className="space-y-3">
           <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
-          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{review.body}</p>
+          <div className="space-y-4">
+            {review.body
+              .split(/\n\s*\n/)
+              .filter((paragraph) => paragraph.trim().length > 0)
+              .map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-sm leading-relaxed text-muted-foreground sm:text-base"
+                >
+                  {paragraph.trim()}
+                </p>
+              ))}
+          </div>
         </section>
 
         {review.slug === "stake" ? <StakeHighRollerSection /> : null}

@@ -60,12 +60,12 @@ export const casinos: Casino[] = [
     licensing: {
       licenseName: "Curaçao / CGA",
       notes:
-        "Licencia informada por el operador: Curaçao / CGA; pendiente de verificación editorial.",
+        "Operador internacional con licencia CGA / Curaçao informada por el sitio oficial. No es licencia local SEGOB México; revisa términos y disponibilidad regional.",
     },
     bonusIds: ["bitcasino-welcome"],
     affiliateUrl: "https://bitcasino.io/",
     summary:
-      "Casino crypto internacional con enfoque en Bitcoin y otras criptomonedas; disponibilidad, bonos y condiciones deben verificarse en el sitio oficial.",
+      "Casino crypto internacional con enfoque en Bitcoin, stablecoins y juegos en vivo. Para México y LATAM, JugadaMax lo presenta como alternativa crypto/offshore; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
     locale: "es-MX",
   },
   {
