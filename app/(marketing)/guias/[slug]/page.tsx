@@ -23,6 +23,14 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/reviews/ltccasino", label: "LTC Casino" },
     { href: "/casinos-crypto", label: "Ver casinos crypto" },
   ],
+  "casinos-con-bitcoin-mexico": [
+    { href: "/reviews/bitcasino", label: "Bitcasino.io" },
+    { href: "/reviews/cryptocasino", label: "CryptoCasino.CC" },
+    { href: "/reviews/ethcasino", label: "ETH Casino" },
+    { href: "/reviews/ltccasino", label: "LTC Casino" },
+    { href: "/guias/casinos-con-usdt-mexico", label: "Casinos con USDT" },
+    { href: "/casinos-crypto", label: "Ver casinos crypto" },
+  ],
 };
 
 const GUIDE_SOURCE_LINKS: Record<string, { label: string; url: string }[]> = {
@@ -34,6 +42,20 @@ const GUIDE_SOURCE_LINKS: Record<string, { label: string; url: string }[]> = {
     {
       label: "Coinbase — What is a stablecoin?",
       url: "https://www.coinbase.com/learn/crypto-basics/what-is-a-stablecoin",
+    },
+  ],
+  "casinos-con-bitcoin-mexico": [
+    {
+      label: "Bitcoin.org — FAQ",
+      url: "https://bitcoin.org/en/faq",
+    },
+    {
+      label: "Coinbase — What is Bitcoin?",
+      url: "https://www.coinbase.com/learn/crypto-basics/what-is-bitcoin",
+    },
+    {
+      label: "Bitcoin Whitepaper",
+      url: "https://bitcoin.org/bitcoin.pdf",
     },
   ],
 };
