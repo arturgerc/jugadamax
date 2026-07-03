@@ -163,7 +163,7 @@ export const guides: Article[] = [
     updatedAt: "2026-07-03",
     locale: "es-MX",
     coverImage: {
-      src: "/guides/casinos-con-bitcoin-mexico.svg",
+      src: "/guides/casinos-con-bitcoin-mexico.png",
       alt: "Ilustración editorial sobre casinos con Bitcoin, wallets crypto y juego responsable en México",
       width: 1200,
       height: 630,
