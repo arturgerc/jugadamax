@@ -216,12 +216,12 @@ export const casinos: Casino[] = [
     licensing: {
       licenseName: "SEGOB (México)",
       notes:
-        "Según información declarada por el operador, cuenta con permiso para apuestas deportivas en México; pendiente de verificación editorial.",
+        "Licencia informada por el operador para México; revisa términos y condiciones vigentes en el sitio oficial.",
     },
     bonusIds: ["codere-welcome"],
     affiliateUrl: "https://www.codere.mx",
     summary:
-      "Apuestas deportivas con métodos de pago locales en México; información declarada por el operador.",
+      "Casa de apuestas y casino online con enfoque local para México. Destaca por apuestas deportivas, fútbol, métodos de pago mexicanos y experiencia orientada a usuarios que prefieren pesos mexicanos frente a casinos crypto/offshore.",
     locale: "es-MX",
   },
   {

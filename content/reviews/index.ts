@@ -222,4 +222,35 @@ export const reviews: Review[] = [
       },
     ],
   },
+  {
+    id: "codere-review",
+    casinoId: "codere",
+    authorId: "redaccion-jugadamax",
+    slug: "codere",
+    title: "Reseña de Codere México: casa de apuestas y casino online con enfoque local",
+    verdict:
+      "Codere México es una de las opciones más relevantes para jugadores que buscan una casa de apuestas y casino online con enfoque local, pagos mexicanos y cobertura deportiva. Para JugadaMax destaca por su posicionamiento en México, pero recomendamos revisar siempre términos, bonos, límites, verificación y disponibilidad antes de registrarte.",
+    rating: 4.5,
+    pros: [
+      "Marca con presencia histórica en México y enfoque local para apuestas deportivas y casino online.",
+      "Buena opción para usuarios interesados en fútbol, Liga MX, eventos internacionales y apuestas en vivo.",
+      "Métodos de pago locales como OXXO, SPEI, Visa y Mastercard según la información disponible del operador.",
+      "Mejor encaje para usuarios que prefieren pesos mexicanos y operadores orientados al mercado local frente a casinos crypto/offshore.",
+    ],
+    cons: [
+      "Los bonos, mercados, cuotas y promociones pueden cambiar y deben verificarse en el sitio oficial.",
+      "Los retiros, límites y requisitos de verificación pueden depender del estado de la cuenta y políticas internas.",
+      "No es una opción enfocada en usuarios que buscan pagos crypto como Bitcoin, Ethereum o USDT.",
+      "La experiencia puede variar entre casino, apuestas deportivas, app móvil y versión web.",
+    ],
+    body:
+      "Codere México es una marca relevante dentro del mercado local de apuestas deportivas y casino online. A diferencia de los casinos crypto internacionales, su propuesta está orientada a usuarios que buscan operar en un entorno más cercano al mercado mexicano, con pagos locales, pesos mexicanos, deportes populares y una experiencia pensada para apuestas tradicionales.\n\nPara jugadores de México, Codere puede encajar especialmente bien en el segmento de apuestas deportivas. El fútbol sigue siendo el motor principal del mercado: Liga MX, Champions League, competiciones internacionales, selecciones nacionales y otros eventos de alto volumen suelen concentrar buena parte del interés de los usuarios. En ese contexto, Codere se posiciona como una alternativa local frente a operadores offshore o plataformas puramente crypto.\n\nEl punto fuerte de Codere para JugadaMax está en su combinación de sportsbook y casino. Un usuario puede buscar apuestas deportivas, mercados en vivo, promociones, casino online y métodos de pago locales dentro de una misma marca. Esto lo diferencia de operadores crypto como Bitcasino, ETH Casino, LTC Casino o CryptoCasino.CC, donde el foco principal está en wallets y criptomonedas.\n\nEn pagos, Codere aparece en nuestra selección con Visa, Mastercard, OXXO y SPEI. Para el usuario mexicano esto es importante porque reduce la fricción de entrada: no todos quieren usar exchanges, stablecoins o wallets para jugar. Aun así, JugadaMax recomienda revisar siempre en el sitio oficial qué métodos están activos, cuáles tienen comisiones, cuánto tardan los depósitos y retiros, y qué requisitos de verificación aplican.\n\nEn casino online, Codere puede interesar a usuarios que buscan slots, ruleta, blackjack, casino en vivo y otros juegos clásicos. Sin embargo, la disponibilidad exacta de juegos, proveedores, mesas en vivo y promociones puede cambiar. Por eso nuestra evaluación no se basa en prometer un catálogo fijo, sino en analizar el encaje general de Codere para usuarios que prefieren una marca local frente a casinos crypto internacionales.\n\nEn apuestas deportivas, Codere puede ser atractivo para usuarios que siguen fútbol mexicano, eventos internacionales, tenis, básquetbol, fútbol americano, boxeo o UFC. Las cuotas cambian constantemente y cada mercado tiene reglas propias. Antes de apostar, recomendamos revisar reglas de mercado, límites, cash out si está disponible, criterios de liquidación y políticas de cancelación.\n\nEn confianza y cumplimiento, Codere tiene una presencia conocida en México y se posiciona como operador local dentro del sector de juego. Aun así, JugadaMax mantiene una lectura editorial prudente: cada usuario debe verificar términos vigentes, condiciones de bonos, políticas de identificación, juego responsable, límites de depósito y requisitos de retiro directamente en el sitio oficial.\n\nNuestra conclusión: Codere México puede ser una pieza fuerte dentro de una selección de casas de apuestas para México, especialmente si el usuario prioriza pagos locales, fútbol, apuestas en vivo y casino online tradicional. No es el perfil adecuado para quien busca una experiencia crypto-first, pero sí puede ser una opción relevante para usuarios que prefieren un operador orientado al mercado mexicano.",
+    paymentsSummary:
+      "Codere México aparece en nuestra selección con métodos locales como Visa, Mastercard, OXXO y SPEI. JugadaMax recomienda confirmar métodos activos, mínimos, límites, comisiones, tiempos de retiro y requisitos de verificación directamente en el sitio oficial.",
+    trustSummary:
+      "Codere cuenta con presencia histórica en México y se posiciona como operador local de apuestas y casino. JugadaMax recomienda verificar licencia, términos, condiciones de bonos, límites y políticas de juego responsable directamente en el sitio oficial antes de registrarte.",
+    publishedAt: "2026-07-03",
+    updatedAt: "2026-07-03",
+    locale: "es-MX",
+  },
 ];
