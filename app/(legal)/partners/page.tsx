@@ -6,14 +6,14 @@ import { Container } from "@/components/layout/Container";
 export const metadata: Metadata = buildMetadata({
   title: "Partners / Media Kit",
   description:
-    "JugadaMax es un proyecto editorial de iGaming para México y LATAM con contenido SEO, guías, reseñas y canales sociales enfocados en tráfico responsable para mayores de 18 años.",
+    "Información para socios, afiliados y managers sobre JugadaMax, proyecto editorial de iGaming para México y LATAM con guías, reseñas, canales sociales y estándares de tráfico responsable.",
   path: "/partners",
 });
 
 export default function PartnersPage() {
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
-    { name: "Partners / Media Kit", path: "/partners" },
+    { name: "Socios / Media Kit", path: "/partners" },
   ]);
 
   return (
@@ -24,82 +24,101 @@ export default function PartnersPage() {
       />
 
       <article className="mx-auto max-w-3xl space-y-6">
-        <header className="space-y-2">
+        <header className="space-y-3">
           <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Partners / Media Kit
+            Socios / Media Kit
           </h1>
-          <p className="text-muted-foreground">
-            JugadaMax — Mexico &amp; Spanish LATAM iGaming media project. Editorial-first, 18+,
-            responsible gambling.
+          <p className="text-muted-foreground sm:text-base">
+            JugadaMax es un proyecto editorial de iGaming para México y Spanish LATAM, enfocado en
+            guías, reseñas, métodos de pago, casinos crypto, apuestas y juego responsable para
+            audiencias mayores de 18 años.
+          </p>
+          <p className="text-sm text-muted-foreground sm:text-base">
+            Esta página resume nuestro enfoque editorial, canales de tráfico y estándares para
+            posibles socios, afiliados y managers de iGaming.
           </p>
         </header>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">About JugadaMax</h2>
+          <h2 className="text-xl font-semibold text-foreground">Qué es JugadaMax</h2>
           <p className="text-sm text-muted-foreground sm:text-base">
-            JugadaMax (jugadamax.com) is a new editorial iGaming media project focused on Mexico first
-            and Spanish-speaking LATAM. We publish casino reviews, crypto casino guides, sports
-            betting content, payment-method guides, and responsible gambling information. We do not
-            operate casinos or process bets.
+            JugadaMax (jugadamax.com) es un proyecto editorial y de medios en crecimiento. Publicamos
+            reseñas de casinos, guías de casinos crypto, guías de métodos de pago, contenido de
+            apuestas y información de juego responsable. Nuestro enfoque es México y Spanish LATAM
+            primero.
+          </p>
+          <p className="text-sm text-muted-foreground sm:text-base">
+            No operamos casinos, no procesamos apuestas, depósitos ni retiros. Somos un sitio
+            informativo y editorial.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Audience</h2>
+          <h2 className="text-xl font-semibold text-foreground">Audiencia</h2>
           <p className="text-sm text-muted-foreground sm:text-base">
-            Adults 18+ interested in online casinos, crypto casinos, sports betting, and payment
-            methods in Mexico and LATAM. Content is in Spanish (es-MX) with a crypto-first editorial
-            angle balanced with fiat/local operator coverage.
+            Usuarios hispanohablantes interesados en casinos online, apuestas deportivas, pagos
+            crypto, métodos de pago fiat/locales y juego responsable. Todo el contenido está pensado
+            para personas mayores de 18 años.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Traffic channels</h2>
+          <h2 className="text-xl font-semibold text-foreground">Canales de tráfico</h2>
           <ul className="space-y-2 text-sm text-muted-foreground sm:text-base">
-            <li>SEO — guides, reviews, vertical landing pages</li>
-            <li>TikTok — short-form social content</li>
-            <li>Instagram — visual updates</li>
-            <li>YouTube — video guides and explainers</li>
-            <li>Telegram — official news channel</li>
+            <li>SEO — guías, reseñas y páginas verticales</li>
+            <li>TikTok — contenido social en formato corto</li>
+            <li>Instagram — actualizaciones visuales</li>
+            <li>YouTube — guías y contenido en video</li>
+            <li>Telegram — canal oficial de novedades</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Traffic standards</h2>
+          <h2 className="text-xl font-semibold text-foreground">Estándares de tráfico</h2>
           <ul className="space-y-2 text-sm text-muted-foreground sm:text-base">
-            <li>18+ audiences only</li>
-            <li>Responsible gambling messaging on relevant pages</li>
-            <li>No bots, spam, or incentivized traffic</li>
-            <li>No fake reviews, fake payout claims, or misleading bonus promises</li>
-            <li>No VPN/circumvention or &quot;evade verification&quot; messaging</li>
-            <li>No targeting of prohibited jurisdictions</li>
-            <li>Compliance-first editorial tone</li>
+            <li>Solo mayores de 18 años</li>
+            <li>Juego responsable en páginas relevantes</li>
+            <li>Sin bots</li>
+            <li>Sin spam</li>
+            <li>Sin tráfico incentivado</li>
+            <li>Sin reseñas falsas</li>
+            <li>Sin pruebas falsas de pagos</li>
+            <li>Sin mensajes de VPN o evasión de restricciones</li>
+            <li>Sin targeting de jurisdicciones prohibidas</li>
+            <li>Sin promesas engañosas de bonos o ganancias</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">What we do not do</h2>
+          <h2 className="text-xl font-semibold text-foreground">Qué no hacemos</h2>
           <ul className="space-y-2 text-sm text-muted-foreground sm:text-base">
-            <li>Fake user reviews or fabricated ratings</li>
-            <li>Guaranteed winnings, instant withdrawals, or &quot;no risk&quot; claims</li>
-            <li>Fake licenses, awards, or partner approvals</li>
-            <li>Money laundering, AML bypass, or anonymous/no-KYC promotion</li>
-            <li>Publishing unverified traffic or revenue numbers</li>
+            <li>Reseñas falsas o valoraciones inventadas</li>
+            <li>Capturas falsas de pagos o retiros</li>
+            <li>Ganancias garantizadas o retiros instantáneos prometidos</li>
+            <li>Promesas engañosas de bonos</li>
+            <li>Targeting de GEO prohibidos</li>
+            <li>Contenido de VPN o evasión de controles</li>
+            <li>Contenido dirigido a menores</li>
+            <li>Tráfico de bots o spam</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Partnership opportunities</h2>
+          <h2 className="text-xl font-semibold text-foreground">Oportunidades de colaboración</h2>
           <p className="text-sm text-muted-foreground sm:text-base">
-            We are open to discussing affiliate partnerships, content collaborations, and media
-            placements that align with our editorial standards. All outbound operator links use
-            sponsored/nofollow attributes where applicable. We evaluate operators individually and
-            publish balanced pros and cons.
+            Estamos abiertos a conversar sobre alianzas de afiliación, reseñas editoriales, guías de
+            métodos de pago, guías de casinos crypto, campañas de juego responsable para audiencias
+            18+ y colaboraciones de contenido para México y LATAM.
+          </p>
+          <p className="text-sm text-muted-foreground sm:text-base">
+            Evaluamos operadores de forma individual, publicamos pros y contras equilibrados y
+            aplicamos atributos sponsored/nofollow en enlaces de afiliado cuando corresponda. No
+            afirmamos partnerships aprobados que no existan.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Contact</h2>
+          <h2 className="text-xl font-semibold text-foreground">Contacto</h2>
           <ul className="space-y-2 text-sm text-muted-foreground sm:text-base">
             <li>
               Email:{" "}
@@ -122,10 +141,14 @@ export default function PartnersPage() {
               </a>
             </li>
           </ul>
+          <p className="text-sm text-muted-foreground sm:text-base">
+            También podemos compartir información adicional del proyecto por email o Telegram.
+          </p>
         </section>
 
         <p className="text-xs text-muted-foreground">
-          18+ only. Responsible gambling. JugadaMax is an editorial site — not a casino operator.
+          Solo para mayores de 18 años. Juego responsable. JugadaMax es un sitio editorial — no un
+          operador de casino.
         </p>
       </article>
     </Container>
