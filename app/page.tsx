@@ -11,6 +11,7 @@ import { NewsPreview } from "@/components/content/NewsPreview";
 import { RankingList } from "@/components/ranking/RankingList";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
+import { SocialLinks } from "@/components/social/SocialLinks";
 
 export const metadata: Metadata = {
   ...buildMetadata({
@@ -42,6 +43,7 @@ export default function Home() {
 
   return (
     <>
+      <SocialLinks variant="floating" />
       <Hero />
 
       <QuickCategories />

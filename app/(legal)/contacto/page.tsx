@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
+import { SocialLinks } from "@/components/social/SocialLinks";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contacto",
@@ -37,10 +38,10 @@ export default function ContactoPage() {
           <p>
             Escríbenos por correo electrónico a{" "}
             <a
-              href="mailto:contacto@jugadamax.com"
+              href="mailto:jugadamaxcom@gmail.com"
               className="font-medium text-primary underline underline-offset-2"
             >
-              contacto@jugadamax.com
+              jugadamaxcom@gmail.com
             </a>
             . Revisamos los mensajes de forma editorial y damos prioridad a correcciones de
             información sobre operadores.
@@ -62,6 +63,23 @@ export default function ContactoPage() {
             </a>
             .
           </p>
+        </section>
+
+        <section aria-labelledby="contact-channels-heading" className="space-y-4">
+          <div className="space-y-2">
+            <h2
+              id="contact-channels-heading"
+              className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+            >
+              Contacto y canales oficiales
+            </h2>
+            <p className="text-sm text-muted-foreground sm:text-base">
+              Puedes contactar a JugadaMax por email o seguir nuestros canales oficiales para
+              novedades, guías, reseñas y contenido sobre casinos online, apuestas y juego
+              responsable.
+            </p>
+          </div>
+          <SocialLinks variant="contact" />
         </section>
 
         <p className="text-xs text-muted-foreground">

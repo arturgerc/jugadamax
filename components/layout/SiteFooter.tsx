@@ -3,6 +3,7 @@ import { Container } from "@/components/layout/Container";
 import { primaryNav, legalNav } from "@/components/layout/nav-links";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { Logo } from "@/components/brand/Logo";
+import { SocialLinks } from "@/components/social/SocialLinks";
 import { focusRing, cn } from "@/lib/utils";
 
 /**
@@ -22,7 +23,7 @@ export function SiteFooter() {
           <Logo size="sm" decorative />
         </Link>
 
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <nav aria-label="Secciones">
             <h2 className="mb-3 text-sm font-semibold text-foreground">Secciones</h2>
             <ul className="space-y-2">
@@ -71,6 +72,8 @@ export function SiteFooter() {
               ))}
             </ul>
           </nav>
+
+          <SocialLinks variant="footer" />
         </div>
 
         <p className="mt-10 text-xs text-muted-foreground">
