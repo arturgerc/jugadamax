@@ -113,6 +113,13 @@ export interface Author {
   links?: AuthorLink[];
 }
 
+export interface ReviewRelatedLink {
+  label: string;
+  url: string;
+  kind?: "website" | "blog" | "streaming" | "community";
+  subtitle?: string;
+}
+
 export interface Review {
   id: string;
   casinoId: string;
@@ -133,6 +140,8 @@ export interface Review {
   updatedAt?: string;
   /** Optional locale for LATAM localization readiness (FR-021/FR-027). */
   locale?: Locale;
+  /** Optional neutral external resources; never presented as ownership proof. */
+  relatedLinks?: ReviewRelatedLink[];
 }
 
 export interface Article {

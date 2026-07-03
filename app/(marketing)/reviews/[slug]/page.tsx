@@ -19,6 +19,52 @@ import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
 import { StakeHighRollerSection } from "@/components/review/StakeHighRollerSection";
+import type { ReviewRelatedLink } from "@/types/content";
+
+function RelatedLinkBadge({ kind }: { kind?: ReviewRelatedLink["kind"] }) {
+  if (kind === "blog") {
+    return (
+      <span
+        aria-hidden="true"
+        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#16233f]"
+      >
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="8" width="20" height="24" rx="2" stroke="#B8B8B0" strokeWidth="1.5" />
+          <path d="M14 14h12M14 18h12M14 22h8" stroke="#FFB800" strokeWidth="1.5" strokeLinecap="round" />
+          <text x="20" y="34" textAnchor="middle" fill="#F5F5F0" fontSize="7" fontWeight="700" fontFamily="system-ui, sans-serif">
+            TTR
+          </text>
+        </svg>
+      </span>
+    );
+  }
+
+  if (kind === "streaming") {
+    return (
+      <span
+        aria-hidden="true"
+        className="inline-flex h-10 shrink-0 items-center gap-1 rounded-lg bg-[#53FC18] px-2.5"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="7" y="11" textAnchor="middle" fill="#000" fontSize="11" fontWeight="900" fontFamily="system-ui, sans-serif">
+            K
+          </text>
+        </svg>
+        <span className="text-[0.65rem] font-bold tracking-tight text-black">Kick</span>
+      </span>
+    );
+  }
+
+  return (
+    <span
+      aria-hidden="true"
+      className="inline-flex h-10 w-10 shrink-0 flex-col items-center justify-center rounded-lg border border-primary/20 bg-[#16233f] ring-1 ring-primary/15"
+    >
+      <span className="text-[0.55rem] font-bold leading-none text-primary">LTC</span>
+      <span className="mt-0.5 text-[0.45rem] font-semibold leading-none text-muted-foreground">Casino</span>
+    </span>
+  );
+}
 
 export function generateStaticParams() {
   return getReviews().map((review) => ({ slug: review.slug }));
@@ -112,6 +158,39 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               ))}
           </div>
         </section>
+
+        {review.relatedLinks && review.relatedLinks.length > 0 ? (
+          <section
+            aria-label="Enlaces relacionados"
+            className="rounded-lg border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2 className="text-lg font-semibold text-foreground">Enlaces relacionados</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Recursos externos relacionados con LTC Casino y su ecosistema. JugadaMax recomienda
+              revisar siempre términos, disponibilidad regional y políticas del operador antes de
+              registrarte.
+            </p>
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              {review.relatedLinks.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                  className="flex min-h-11 items-start gap-3 rounded-xl border border-white/10 bg-[#111417] p-3 transition-colors hover:border-primary/30"
+                >
+                  <RelatedLinkBadge kind={link.kind} />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold leading-snug text-foreground">{link.label}</p>
+                    {link.subtitle ? (
+                      <p className="mt-0.5 text-xs text-muted-foreground">{link.subtitle}</p>
+                    ) : null}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {review.slug === "stake" ? <StakeHighRollerSection /> : null}
 

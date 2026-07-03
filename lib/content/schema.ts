@@ -164,6 +164,28 @@ export function validateReview(input: Review): Review {
   if (!Array.isArray(input.cons) || input.cons.length === 0) {
     fail(`${ctx}: "cons" must be a non-empty array (balanced, honest content)`);
   }
+  if (input.relatedLinks !== undefined) {
+    if (!Array.isArray(input.relatedLinks)) {
+      fail(`${ctx}: "relatedLinks" must be an array`);
+    }
+    const kinds = ["website", "blog", "streaming", "community"] as const;
+    for (const [index, link] of input.relatedLinks.entries()) {
+      const linkCtx = `${ctx}: relatedLinks[${index}]`;
+      assertNonEmptyString(link.label, "label", linkCtx);
+      const url = assertNonEmptyString(link.url, "url", linkCtx);
+      try {
+        new URL(url);
+      } catch {
+        fail(`${linkCtx}: "url" must be a valid absolute URL (got "${url}")`);
+      }
+      if (link.kind !== undefined) {
+        assertEnum(link.kind, kinds, "kind", linkCtx);
+      }
+      if (link.subtitle !== undefined) {
+        assertNonEmptyString(link.subtitle, "subtitle", linkCtx);
+      }
+    }
+  }
   return input;
 }
 

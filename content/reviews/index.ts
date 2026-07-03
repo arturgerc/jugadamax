@@ -70,4 +70,54 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-03",
     locale: "es-MX",
   },
+  {
+    id: "ltccasino-review",
+    casinoId: "ltccasino",
+    authorId: "redaccion-jugadamax",
+    slug: "ltccasino",
+    title: "Reseña de LTC Casino: casino crypto con Litecoin y pagos digitales",
+    verdict:
+      "LTC Casino es una opción crypto de nicho para jugadores de México y LATAM que priorizan Litecoin y pagos con criptomonedas. JugadaMax lo presenta como candidato internacional/offshore; revisa disponibilidad regional, verificación, límites, comisiones y términos antes de registrarte.",
+    rating: 4.1,
+    pros: [
+      "Enfoque claro en Litecoin junto con Bitcoin, Ethereum y USDT.",
+      "Propuesta crypto-first para usuarios que ya usan wallets y redes digitales.",
+      "Catálogo orientado a casino crypto con experiencia sencilla para depósitos en monedas digitales.",
+    ],
+    cons: [
+      "No es un operador con licencia local SEGOB en México.",
+      "Licencia, disponibilidad, verificación, límites y tiempos de retiro deben revisarse en el sitio oficial.",
+      "No es la mejor opción para quienes buscan pagos fiat locales como OXXO o SPEI.",
+      "Los bonos y promociones pueden cambiar; verifica siempre la oferta vigente.",
+    ],
+    body:
+      "LTC Casino es un casino online orientado al segmento crypto, con Litecoin como parte central de su identidad de marca. A diferencia de operadores fiat tradicionales, su propuesta gira alrededor de pagos con criptomonedas, una experiencia de registro sencilla y una interfaz pensada para usuarios que ya están familiarizados con wallets, exchanges, redes blockchain y comisiones de red.\n\nPara jugadores de México y LATAM, LTC Casino puede funcionar como una alternativa crypto/offshore frente a casinos locales que operan con pesos mexicanos. JugadaMax no lo presenta como un operador regulado localmente en México, sino como una opción internacional para usuarios que priorizan pagos digitales, velocidad operativa y una biblioteca de juegos enfocada en slots, casino en vivo, juegos de mesa, formatos instantáneos y títulos provably fair. Antes de registrarse, cada usuario debe verificar si el sitio está disponible desde su país y bajo qué condiciones.\n\nUno de los puntos más fuertes de LTC Casino es su cashier crypto-only. El sitio informa soporte para Litecoin, Bitcoin, Ethereum, Dogecoin, XRP, USDT, USDC, TRX, BNB, Solana y otras monedas. Esto puede ser atractivo para usuarios que prefieren mover fondos desde una wallet personal en lugar de usar tarjeta, banco o métodos locales. Aun así, los pagos crypto dependen de la red, la moneda, los mínimos, comisiones, límites y revisiones internas del operador.\n\nEn cuanto a juegos, LTC Casino informa una oferta amplia con slots, blackjack, ruleta, baccarat, casino en vivo, juegos instantáneos y formatos provably fair. Para usuarios crypto de LATAM, esta combinación puede ser interesante porque mezcla la experiencia clásica de casino con pagos digitales y sesiones rápidas desde navegador móvil o desktop. El sitio también menciona promociones como carreras de slots y recompensas para jugadores activos, pero JugadaMax recomienda revisar siempre los términos vigentes antes de participar.\n\nLa experiencia móvil también es importante. LTC Casino funciona desde navegador, por lo que no depende necesariamente de una app pesada para empezar a jugar. Esto encaja con usuarios de LATAM que suelen alternar entre móvil, desktop, wallet y exchange. Aun así, recomendamos comprobar compatibilidad, límites y condiciones desde el sitio oficial antes de depositar.\n\nSobre privacidad y verificación, el operador se posiciona como una opción de registro sencillo y experiencia orientada a usuarios crypto. JugadaMax lo interpreta con cautela: pueden existir controles, límites, revisiones de riesgo o solicitudes de información según actividad de la cuenta, región, retiros o términos internos. Por eso no recomendamos leer la privacidad como una garantía absoluta.\n\nEn seguridad y confianza, LTC Casino informa operar bajo licencia Curaçao eGaming No. 8048/JAZ, además de cifrado SSL, herramientas de seguridad de cuenta y recursos de juego responsable. Esto no equivale a una licencia mexicana SEGOB. Nuestra evaluación editorial lo posiciona como candidato crypto internacional, no como casino regulado localmente en México.",
+    paymentsSummary:
+      "LTC Casino destaca Litecoin, Bitcoin, Ethereum y USDT. Confirma redes disponibles, mínimos, comisiones y tiempos de retiro en el sitio oficial antes de depositar.",
+    trustSummary:
+      "Licencia no verificada por JugadaMax. La disponibilidad, verificación, límites, bonos y condiciones deben revisarse en el sitio oficial; no equivale a licencia mexicana SEGOB.",
+    publishedAt: "2026-07-03",
+    updatedAt: "2026-07-03",
+    locale: "es-MX",
+    relatedLinks: [
+      {
+        label: "LTC Casino",
+        url: "https://ltccasino.com/",
+        kind: "website",
+        subtitle: "Sitio relacionado",
+      },
+      {
+        label: "TTR Blog",
+        url: "https://ttrblog.io/",
+        kind: "blog",
+        subtitle: "Blog / noticias",
+      },
+      {
+        label: "Kick: LTCCASINO-COM",
+        url: "https://kick.com/ltccasino-com",
+        kind: "streaming",
+        subtitle: "Canal de streaming",
+      },
+    ],
+  },
 ];
