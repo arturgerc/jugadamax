@@ -24,7 +24,7 @@ export const legalNav: NavLink[] = [
   { label: "Juego responsable (+18)", href: "/juego-responsable" },
   { label: "Política de privacidad", href: "/politica-de-privacidad" },
   { label: "Términos y condiciones", href: "/terminos-y-condiciones" },
-  { label: "Partners / Media Kit", href: "/partners" },
+  { label: "Socios / Media Kit", href: "/partners" },
   { label: "Acerca de", href: "/acerca-de" },
   { label: "Contacto", href: "/contacto" },
 ];
