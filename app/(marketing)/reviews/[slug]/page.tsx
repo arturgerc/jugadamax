@@ -105,6 +105,18 @@ function RelatedLinkBadge({
     );
   }
 
+  if (labelUpper.includes("BETSSON")) {
+    return (
+      <span
+        aria-hidden="true"
+        className="inline-flex h-10 w-10 shrink-0 flex-col items-center justify-center rounded-lg border border-primary/20 bg-[#16233f] ring-1 ring-primary/15"
+      >
+        <span className="text-[0.55rem] font-bold leading-none text-primary">BE</span>
+        <span className="mt-0.5 text-[0.4rem] font-semibold leading-none text-muted-foreground">Betsson</span>
+      </span>
+    );
+  }
+
   let websiteToken = "LTC";
   let websiteSubtitle = "Casino";
   if (labelUpper.includes("CRYPTOCASINO") || labelUpper.includes(".CC")) {

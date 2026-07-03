@@ -245,12 +245,12 @@ export const casinos: Casino[] = [
     licensing: {
       licenseName: "SEGOB (México)",
       notes:
-        "Licencia informada por el operador: SEGOB (México); pendiente de verificación editorial.",
+        "Licencia informada por el operador para México; revisa términos y condiciones vigentes en el sitio oficial.",
     },
     bonusIds: ["betsson-welcome"],
     affiliateUrl: "https://www.betsson.mx/",
     summary:
-      "Casino y casa de apuestas con presencia en México, métodos de pago locales y productos de casino y apuestas deportivas.",
+      "Casino online y casa de apuestas con marca internacional y enfoque para México. Puede encajar para usuarios que buscan apuestas deportivas, casino, slots, pagos locales y una experiencia fiat frente a casinos crypto/offshore.",
     locale: "es-MX",
   },
 ];
