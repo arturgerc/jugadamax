@@ -105,6 +105,26 @@ export function SocialIcon({
           <circle cx="14.25" cy="5.75" r="0.9" fill="#8134AF" />
         </svg>
       );
+    case "linkedin":
+      return (
+        <svg
+          className={base}
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <rect x="2" y="2" width="16" height="16" rx="3" fill="#0A66C2" />
+          <circle cx="6.75" cy="6.75" r="1" fill="#fff" />
+          <rect x="5.75" y="8.5" width="2" height="6" rx="0.5" fill="#fff" />
+          <path
+            d="M9.5 8.5h1.75v1c.35-.7 1.2-1.2 2.1-1.2 2.25 0 2.65 1.5 2.65 3.45V14.5H13.5v-3.55c0-.85-.02-1.95-1.2-1.95-1.2 0-1.38.95-1.38 1.9V14.5H9.5V8.5Z"
+            fill="#fff"
+          />
+        </svg>
+      );
     default:
       return null;
   }

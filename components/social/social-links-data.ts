@@ -1,4 +1,4 @@
-export type SocialLinkKind = "email" | "telegram" | "tiktok" | "youtube" | "instagram";
+export type SocialLinkKind = "email" | "telegram" | "tiktok" | "youtube" | "instagram" | "linkedin";
 
 export interface SocialLinkItem {
   kind: SocialLinkKind;
@@ -43,5 +43,12 @@ export const OFFICIAL_SOCIAL_LINKS: SocialLinkItem[] = [
     url: "https://www.instagram.com/jugadamax/",
     description: "Actualizaciones y contenido visual",
     ariaLabel: "JugadaMax en Instagram",
+  },
+  {
+    kind: "linkedin",
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/company/jugadamax/",
+    description: "Página oficial de JugadaMax en LinkedIn",
+    ariaLabel: "Visitar LinkedIn de JugadaMax",
   },
 ];
