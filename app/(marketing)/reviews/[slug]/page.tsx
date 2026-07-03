@@ -62,6 +62,49 @@ function RelatedLinkBadge({
   }
 
   const labelUpper = label?.toUpperCase() ?? "";
+
+  if (labelUpper.includes("AYUDA")) {
+    return (
+      <span
+        aria-hidden="true"
+        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#16233f]"
+      >
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="10" stroke="#FFB800" strokeWidth="1.5" />
+          <path d="M16 16.5a4 4 0 0 1 7.2 2c0 2.5-3.2 2.8-3.2 5" stroke="#F5F5F0" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="20" cy="27" r="1" fill="#F5F5F0" />
+        </svg>
+      </span>
+    );
+  }
+
+  if (labelUpper.includes("PAGO") || labelUpper.includes("DEPÓSITO") || labelUpper.includes("DEPOSITO")) {
+    return (
+      <span
+        aria-hidden="true"
+        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#16233f]"
+      >
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="14" width="20" height="14" rx="2" stroke="#B8B8B0" strokeWidth="1.5" />
+          <path d="M10 18h20" stroke="#FFB800" strokeWidth="1.5" />
+          <rect x="14" y="22" width="6" height="2" rx="0.5" fill="#F5F5F0" />
+        </svg>
+      </span>
+    );
+  }
+
+  if (labelUpper.includes("CALIENTE")) {
+    return (
+      <span
+        aria-hidden="true"
+        className="inline-flex h-10 w-10 shrink-0 flex-col items-center justify-center rounded-lg border border-primary/20 bg-[#f5f5f0] ring-1 ring-primary/15"
+      >
+        <span className="text-[0.55rem] font-bold leading-none text-[#c41e3a]">CA</span>
+        <span className="mt-0.5 text-[0.4rem] font-semibold leading-none text-[#111417]">Caliente</span>
+      </span>
+    );
+  }
+
   let websiteToken = "LTC";
   let websiteSubtitle = "Casino";
   if (labelUpper.includes("CRYPTOCASINO") || labelUpper.includes(".CC")) {

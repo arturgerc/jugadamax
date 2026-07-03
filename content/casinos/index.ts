@@ -187,12 +187,12 @@ export const casinos: Casino[] = [
     licensing: {
       licenseName: "SEGOB (México)",
       notes:
-        "Según información declarada por el operador, cuenta con permiso de la Secretaría de Gobernación (SEGOB) en México; pendiente de verificación editorial.",
+        "Licencia informada por el operador para México; revisa términos y condiciones vigentes en el sitio oficial.",
     },
     bonusIds: ["caliente-welcome"],
     affiliateUrl: "https://www.caliente.mx",
     summary:
-      "Casa de casino y apuestas con métodos de pago locales en México; licencia informada por el operador.",
+      "Casino online y casa de apuestas con enfoque local para México. Destaca por apuestas deportivas, casino, slots, pagos mexicanos y métodos como tarjetas, OXXO/OXXOPay y SPEI según la información publicada por el operador.",
     locale: "es-MX",
   },
   {

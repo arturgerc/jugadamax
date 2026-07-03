@@ -253,4 +253,55 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-03",
     locale: "es-MX",
   },
+  {
+    id: "caliente-review",
+    casinoId: "caliente",
+    authorId: "redaccion-jugadamax",
+    slug: "caliente",
+    title: "Reseña de Caliente México: casino online y casa de apuestas con pagos locales",
+    verdict:
+      "Caliente México es una de las marcas más reconocidas del mercado mexicano de apuestas deportivas y casino online. Para JugadaMax destaca por su enfoque local, variedad de productos, métodos de pago mexicanos y presencia regulada en México, aunque recomendamos revisar siempre bonos, límites, verificación, métodos activos y términos antes de registrarte.",
+    rating: 4.6,
+    pros: [
+      "Marca mexicana reconocida con enfoque local para apuestas deportivas, casino online, slots, casino en vivo y otros productos.",
+      "Operador informado como autorizado y regulado en México por SEGOB / Dirección de Juegos y Sorteos.",
+      "Métodos de pago locales y familiares para usuarios mexicanos, incluyendo tarjetas, SPEI, OXXO/OXXOPay, sucursales y Apple Pay según la información publicada por el operador.",
+      "Buena opción para usuarios que priorizan fútbol, Liga MX, apuestas en vivo y pesos mexicanos frente a casinos crypto/offshore.",
+    ],
+    cons: [
+      "Los bonos, promociones, mercados, cuotas y condiciones pueden cambiar y deben verificarse en el sitio oficial.",
+      "Los depósitos, retiros, límites y requisitos de identificación pueden variar según método de pago y políticas internas.",
+      "No es una opción enfocada en usuarios que buscan pagos con Bitcoin, Ethereum o stablecoins.",
+      "La amplitud de productos puede ser positiva, pero también exige revisar reglas específicas de casino, apuestas, promociones y retiros.",
+    ],
+    body:
+      "Caliente México es una de las marcas más conocidas dentro del mercado mexicano de apuestas deportivas y casino online. A diferencia de los casinos crypto internacionales, su propuesta está construida alrededor de usuarios locales: pesos mexicanos, métodos de pago mexicanos, deportes populares, casino online, slots, casino en vivo, bingo y una experiencia pensada para el mercado nacional.\n\nPara jugadores de México, Caliente puede encajar especialmente bien si buscan una plataforma amplia en lugar de un casino especializado. El sitio presenta secciones como Deportes, En Vivo + Streaming, Casino, Vegas, Slots y Bingo, lo que permite combinar apuestas deportivas con entretenimiento de casino en una misma cuenta. Esto lo diferencia de operadores crypto como Bitcasino, ETH Casino, LTC Casino o CryptoCasino.CC, donde el centro de la experiencia son wallets y criptomonedas.\n\nEn apuestas deportivas, Caliente puede ser relevante para usuarios que siguen Liga MX, fútbol internacional, selecciones nacionales, fútbol americano, boxeo, UFC, tenis, básquetbol y otros eventos de alto volumen. Las cuotas y mercados cambian constantemente, por lo que antes de apostar recomendamos revisar reglas de mercado, límites, criterios de liquidación, condiciones de cash out si está disponible y políticas de cancelación.\n\nEn casino online, Caliente puede interesar a usuarios que buscan slots, ruleta, blackjack, casino en vivo, bingo y otros formatos clásicos. La disponibilidad exacta de juegos, proveedores, mesas, jackpots y promociones puede cambiar. Por eso nuestra evaluación no se basa en prometer un catálogo fijo, sino en analizar el encaje general de Caliente para usuarios que prefieren una marca local con varios productos de juego.\n\nLos métodos de pago son una parte importante del atractivo de Caliente para usuarios mexicanos. El operador publica opciones como tarjetas Visa/Mastercard, transferencias SPEI, depósitos en sucursales, OXXOPay, paysafecard, ToditoCash y Apple Pay, entre otros métodos. Esto puede reducir la fricción para usuarios que no quieren usar exchanges, stablecoins o wallets. Aun así, cada método tiene reglas, tiempos, posibles comisiones, mínimos, límites y requisitos de verificación que deben revisarse en el sitio oficial.\n\nSPEI puede ser especialmente relevante para usuarios mexicanos porque permite transferencias desde banca electrónica. Caliente informa que los fondos pueden acreditarse automáticamente y que el monto mínimo de depósito por esta vía es de $20 MXN, aunque el banco del usuario podría cobrar costos propios. También hay opciones en efectivo mediante sucursales o OXXOPay, pero cada una tiene instrucciones, tiempos y comisiones potenciales diferentes.\n\nEn confianza y cumplimiento, Caliente.mx informa que es operado por Tecnología en Entretenimiento Caliplay, S.A.P.I. de C.V., una compañía registrada en México, autorizada y regulada por la Secretaría de Gobernación / Dirección de Juegos y Sorteos. JugadaMax considera esto un punto fuerte frente a operadores internacionales/offshore, pero mantiene una lectura editorial prudente: cada usuario debe verificar términos vigentes, condiciones de bonos, políticas de identificación, límites, retiros y juego responsable directamente en el sitio oficial.\n\nNuestra conclusión: Caliente México puede ser una opción fuerte para usuarios que buscan una marca local, pagos mexicanos, apuestas deportivas, casino online y una experiencia amplia dentro del mercado nacional. No es el perfil adecuado para quien busca una experiencia crypto-first, pero sí puede ser relevante para jugadores que priorizan pesos mexicanos, fútbol, apuestas en vivo y métodos de pago locales.",
+    paymentsSummary:
+      "Caliente México publica opciones de pago como Visa/Mastercard, SPEI, OXXOPay, depósitos en sucursales, paysafecard, ToditoCash y Apple Pay, entre otros métodos. JugadaMax recomienda confirmar métodos activos, mínimos, límites, comisiones, tiempos de depósito/retiro y requisitos de verificación directamente en el sitio oficial.",
+    trustSummary:
+      "Caliente.mx informa operación por Tecnología en Entretenimiento Caliplay, S.A.P.I. de C.V., compañía registrada en México y autorizada/regulada por SEGOB / Dirección de Juegos y Sorteos. JugadaMax recomienda verificar términos, límites, bonos, identificación, retiros y juego responsable directamente en el sitio oficial antes de registrarte.",
+    publishedAt: "2026-07-03",
+    updatedAt: "2026-07-03",
+    locale: "es-MX",
+    relatedLinks: [
+      {
+        label: "Caliente México",
+        url: "https://www.caliente.mx/",
+        kind: "website",
+        subtitle: "Sitio oficial",
+      },
+      {
+        label: "Ayuda Caliente",
+        url: "https://www.caliente.mx/mas/ayuda/servicio-al-cliente/",
+        kind: "website",
+        subtitle: "Soporte / ayuda",
+      },
+      {
+        label: "Opciones de pago",
+        url: "https://www.caliente.mx/mas/ayuda/deposito/",
+        kind: "website",
+        subtitle: "Depósitos y métodos",
+      },
+    ],
+  },
 ];
