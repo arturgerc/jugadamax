@@ -1,10 +1,49 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticleBySlug, getArticles, getAuthorById } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
 import { AuthorByline } from "@/components/review/AuthorByline";
+import { cn, focusRing } from "@/lib/utils";
+
+const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> = {
+  "casinos-no-kyc-mexico": [
+    { href: "/reviews/cryptocasino", label: "CryptoCasino.CC" },
+    { href: "/reviews/ethcasino", label: "ETH Casino" },
+    { href: "/reviews/ltccasino", label: "LTC Casino" },
+    { href: "/reviews/bitcasino", label: "Bitcasino.io" },
+    { href: "/casinos-crypto", label: "Ver casinos crypto" },
+  ],
+};
+
+function renderGuideBlock(paragraph: string, index: number) {
+  if (paragraph.startsWith("## ")) {
+    return (
+      <h2
+        key={index}
+        className="border-l-2 border-primary/60 pl-3 text-lg font-bold tracking-tight text-foreground sm:text-xl"
+      >
+        {paragraph.slice(3)}
+      </h2>
+    );
+  }
+
+  if (paragraph.startsWith("### ")) {
+    return (
+      <h3 key={index} className="text-base font-semibold text-foreground sm:text-lg">
+        {paragraph.slice(4)}
+      </h3>
+    );
+  }
+
+  return (
+    <p key={index} className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+      {paragraph}
+    </p>
+  );
+}
 
 export function generateStaticParams() {
   return getArticles("guide").map((article) => ({ slug: article.slug }));
@@ -40,6 +79,7 @@ export default async function GuideArticlePage({
   if (!author) notFound();
 
   const paragraphs = article.body.split("\n\n").filter(Boolean);
+  const relatedReading = GUIDE_RELATED_READING[slug];
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -81,11 +121,55 @@ export default async function GuideArticlePage({
           />
         </header>
 
-        <div className="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          {paragraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
+        {article.coverImage ? (
+          <div
+            className="overflow-hidden rounded-xl border border-border/60 bg-[var(--jm-graphite)] shadow-sm"
+            style={{
+              aspectRatio: `${article.coverImage.width} / ${article.coverImage.height}`,
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={article.coverImage.src}
+              alt={article.coverImage.alt}
+              width={article.coverImage.width}
+              height={article.coverImage.height}
+              className="block h-full w-full object-contain"
+              decoding="async"
+            />
+          </div>
+        ) : null}
+
+        <div className="space-y-5">{paragraphs.map(renderGuideBlock)}</div>
+
+        {relatedReading ? (
+          <section
+            aria-labelledby="related-reading-heading"
+            className="rounded-xl border border-border/60 bg-card p-5 sm:p-6"
+          >
+            <h2
+              id="related-reading-heading"
+              className="text-lg font-bold tracking-tight text-foreground"
+            >
+              Lecturas relacionadas
+            </h2>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {relatedReading.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "flex min-h-11 items-center rounded-lg border border-border/60 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary",
+                      focusRing,
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
 
         <p className="border-t border-border/60 pt-6 text-xs text-muted-foreground">
           Solo para mayores de 18 años. Juega de forma responsable.
