@@ -23,6 +23,9 @@ const STATIC_PATHS = [
   "/juego-responsable",
   "/acerca-de",
   "/contacto",
+  "/politica-de-privacidad",
+  "/terminos-y-condiciones",
+  "/partners",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

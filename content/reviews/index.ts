@@ -5,7 +5,7 @@
  *
  * Authenticity (Constitution Principle IV/V): reviews are honest editorial
  * assessments authored by the JugadaMax editorial desk. The `rating` is an
- * author-attributed editorial opinion вЂ” never an aggregated user score, and it
+ * author-attributed editorial opinion — never an aggregated user score, and it
  * is never encoded as AggregateRating/review-star schema. Pros AND cons are
  * balanced. No fabricated winners, payouts, or user comments.
  */
@@ -15,26 +15,26 @@ export const reviews: Review[] = [
     casinoId: "stake",
     authorId: "redaccion-jugadamax",
     slug: "stake",
-    title: "ReseГ±a de Stake: casino crypto para jugadores en MГ©xico",
+    title: "Reseña de Stake: casino crypto para jugadores en México",
     verdict:
-      "Stake MГ©xico es una opciГіn sГіlida para quienes buscan casino crypto y apuestas deportivas desde el dominio local stake.mx. Recomendamos revisar disponibilidad, pagos y tГ©rminos vigentes antes de registrarte.",
+      "Stake México es una opción sólida para quienes buscan casino crypto y apuestas deportivas desde el dominio local stake.mx. Recomendamos revisar disponibilidad, pagos y términos vigentes antes de registrarte.",
     rating: 4.8,
     pros: [
-      "Amplio catГЎlogo de juegos y proveedores.",
+      "Amplio catálogo de juegos y proveedores.",
       "Soporte para varias criptomonedas (Bitcoin, Ethereum, USDT, Litecoin).",
       "Interfaz clara y experiencia de usuario cuidada.",
     ],
     cons: [
-      "La disponibilidad, pagos y lГ­mites pueden variar segГєn el dominio local y las polГ­ticas del operador.",
-      "Licencia y condiciones deben verificarse en stake.mx; no recomendamos dominios globales si tu regiГіn aparece restringida.",
-      "Los tГ©rminos de bonos cambian con frecuencia y deben verificarse en el sitio oficial.",
+      "La disponibilidad, pagos y límites pueden variar según el dominio local y las políticas del operador.",
+      "Licencia y condiciones deben verificarse en stake.mx; no recomendamos dominios globales si tu región aparece restringida.",
+      "Los términos de bonos cambian con frecuencia y deben verificarse en el sitio oficial.",
     ],
     body:
-      "En esta reseГ±a editorial evaluamos Stake para jugadores en MГ©xico segГєn nuestra metodologГ­a pГєblica: seguridad, mГ©todos de pago, licencias y experiencia de usuario. Nos enfocamos en el dominio local stake.mx, no en dominios globales que pueden mostrar restricciones regionales. Stake combina casino crypto y apuestas deportivas con soporte para mГєltiples criptomonedas. Como con cualquier operador, recomendamos verificar la disponibilidad, leer los tГ©rminos y condiciones vigentes y jugar de forma responsable. La informaciГіn de bonos y promociones debe confirmarse siempre en stake.mx.",
+      "En esta reseña editorial evaluamos Stake para jugadores en México según nuestra metodología pública: seguridad, métodos de pago, licencias y experiencia de usuario. Nos enfocamos en el dominio local stake.mx, no en dominios globales que pueden mostrar restricciones regionales. Stake combina casino crypto y apuestas deportivas con soporte para múltiples criptomonedas. Como con cualquier operador, recomendamos verificar la disponibilidad, leer los términos y condiciones vigentes y jugar de forma responsable. La información de bonos y promociones debe confirmarse siempre en stake.mx.",
     paymentsSummary:
-      "DepГіsitos y retiros en criptomonedas (Bitcoin, Ethereum, USDT, Litecoin) segГєn las condiciones publicadas en stake.mx. Verifica lГ­mites y tiempos en el sitio oficial.",
+      "Depósitos y retiros en criptomonedas (Bitcoin, Ethereum, USDT, Litecoin) según las condiciones publicadas en stake.mx. Verifica límites y tiempos en el sitio oficial.",
     trustSummary:
-      "Licencia y disponibilidad informadas por el operador para el dominio local de MГ©xico (pendiente de verificaciГіn editorial). Revisa las condiciones vigentes en stake.mx antes de registrarte.",
+      "Licencia y disponibilidad informadas por el operador para el dominio local de México (pendiente de verificación editorial). Revisa las condiciones vigentes en stake.mx antes de registrarte.",
     publishedAt: "2026-07-01",
     updatedAt: "2026-07-01",
     locale: "es-MX",
@@ -44,28 +44,28 @@ export const reviews: Review[] = [
     casinoId: "bitcasino",
     authorId: "redaccion-jugadamax",
     slug: "bitcasino",
-    title: "ReseГ±a de Bitcasino.io: casino crypto con Bitcoin, USDT y juegos en vivo",
+    title: "Reseña de Bitcasino.io: casino crypto con Bitcoin, USDT y juegos en vivo",
     verdict:
-      "Bitcasino.io es una opciГіn crypto relevante para jugadores de MГ©xico y LATAM que buscan pagos con criptomonedas, juegos en vivo, slots y una experiencia internacional. No es un operador con licencia mexicana SEGOB, por lo que JugadaMax recomienda revisar disponibilidad regional, requisitos de verificaciГіn, lГ­mites, comisiones y tГ©rminos antes de registrarse.",
+      "Bitcasino.io es una opción crypto relevante para jugadores de México y LATAM que buscan pagos con criptomonedas, juegos en vivo, slots y una experiencia internacional. No es un operador con licencia mexicana SEGOB, por lo que JugadaMax recomienda revisar disponibilidad regional, requisitos de verificación, límites, comisiones y términos antes de registrarse.",
     rating: 4.4,
     pros: [
       "Marca crypto con trayectoria larga dentro del segmento de casinos con Bitcoin.",
-      "CatГЎlogo amplio con slots, juegos en vivo, blackjack, ruleta, baccarat, game shows y juegos instantГЎneos.",
+      "Catálogo amplio con slots, juegos en vivo, blackjack, ruleta, baccarat, game shows y juegos instantáneos.",
       "Enfoque claro en pagos con criptomonedas como Bitcoin, Ethereum, USDT y Litecoin.",
-      "Licencia informada por el operador bajo CGA / CuraГ§ao y polГ­ticas publicadas de juego responsable, AML y KYC.",
+      "Licencia informada por el operador bajo CGA / Curazao y políticas publicadas de juego responsable, AML y KYC.",
     ],
     cons: [
-      "No es un casino con licencia local SEGOB en MГ©xico; funciona como operador internacional/offshore.",
-      "La disponibilidad, verificaciГіn, mГ©todos de pago, lГ­mites y tiempos de retiro pueden variar segГєn regiГіn, cuenta y tГ©rminos vigentes.",
+      "No es un casino con licencia local SEGOB en México; funciona como operador internacional/offshore.",
+      "La disponibilidad, verificación, métodos de pago, límites y tiempos de retiro pueden variar según región, cuenta y términos vigentes.",
       "Los bonos y promociones pueden cambiar; siempre deben verificarse directamente en el sitio oficial.",
-      "No es la mejor opciГіn para usuarios que buscan pagos fiat locales como OXXO o SPEI.",
+      "No es la mejor opción para usuarios que buscan pagos fiat locales como OXXO o SPEI.",
     ],
     body:
-      "Bitcasino.io es uno de los nombres mГЎs reconocidos dentro del segmento de casinos crypto internacionales. Para JugadaMax, su principal valor estГЎ en que no intenta parecer un casino fiat tradicional: su propuesta gira alrededor de Bitcoin, stablecoins y otros mГ©todos crypto, con una experiencia pensada para usuarios que ya entienden wallets, redes, comisiones y volatilidad.\n\nPara jugadores de MГ©xico y LATAM, Bitcasino.io puede encajar como una alternativa crypto frente a operadores locales de peso mexicano. La ventaja está en ofrecer una experiencia orientada a pagos digitales, catГЎlogo internacional y acceso a juegos de casino en vivo, slots, blackjack, ruleta, baccarat, game shows, jackpots y formatos rГЎpidos como crash o instant win. Aun asГ­, cada jugador debe revisar si el sitio estГЎ disponible desde su paГ­s y bajo quГ© condiciones.\n\nEl punto fuerte de Bitcasino.io es su ecosistema de juegos. El sitio organiza la oferta en categorГ­as como Live Games, Slots, Bitcasino Exclusives, Jackpots, Crash & Instant Win, Table Games y Virtual Sports. Eso lo hace mГЎs completo que muchos casinos crypto pequeГ±os que solo ofrecen slots bГЎsicos o una selecciГіn limitada de proveedores. Para usuarios jГіvenes de LATAM que buscan una experiencia mГЎs digital, esta variedad puede ser atractiva.\n\nEn pagos, el enfoque crypto es claro. JugadaMax lo considera especialmente relevante para usuarios que buscan Bitcoin, Ethereum, USDT o Litecoin en lugar de depГіsitos locales con tarjeta, OXXO o SPEI. Sin embargo, los pagos crypto no eliminan la necesidad de leer tГ©rminos: las redes disponibles, comisiones, mГ­nimos, tiempos de retiro y posibles revisiones de cuenta pueden cambiar segГєn el operador, la moneda y el estado de la cuenta.\n\nEn seguridad y confianza, Bitcasino.io informa que opera bajo Moon Technologies B.V. y licencia CGA / CuraГ§ao. Eso no equivale a una licencia mexicana SEGOB. Por eso nuestra lectura editorial es equilibrada: Bitcasino.io puede ser una opciГіn fuerte dentro del segmento crypto internacional, pero no debe presentarse como casino regulado localmente en MГ©xico. Antes de jugar, recomendamos revisar tГ©rminos, polГ­ticas de KYC/AML, juego responsable, lГ­mites de retiro y disponibilidad regional.",
+      "Bitcasino.io es uno de los nombres más reconocidos dentro del segmento de casinos crypto internacionales. Para JugadaMax, su principal valor está en que no intenta parecer un casino fiat tradicional: su propuesta gira alrededor de Bitcoin, stablecoins y otros métodos crypto, con una experiencia pensada para usuarios que ya entienden wallets, redes, comisiones y volatilidad.\n\nPara jugadores de México y LATAM, Bitcasino.io puede encajar como una alternativa crypto frente a operadores locales de peso mexicano. La ventaja está en ofrecer una experiencia orientada a pagos digitales, catálogo internacional y acceso a juegos de casino en vivo, slots, blackjack, ruleta, baccarat, game shows, jackpots y formatos rápidos como crash o instant win. Aun así, cada jugador debe revisar si el sitio está disponible desde su país y bajo qué condiciones.\n\nEl punto fuerte de Bitcasino.io es su ecosistema de juegos. El sitio organiza la oferta en categorías como Live Games, Slots, Bitcasino Exclusives, Jackpots, Crash & Instant Win, Table Games y Virtual Sports. Eso lo hace más completo que muchos casinos crypto pequeños que solo ofrecen slots básicos o una selección limitada de proveedores. Para usuarios jóvenes de LATAM que buscan una experiencia más digital, esta variedad puede ser atractiva.\n\nEn pagos, el enfoque crypto es claro. JugadaMax lo considera especialmente relevante para usuarios que buscan Bitcoin, Ethereum, USDT o Litecoin en lugar de depósitos locales con tarjeta, OXXO o SPEI. Sin embargo, los pagos crypto no eliminan la necesidad de leer términos: las redes disponibles, comisiones, mínimos, tiempos de retiro y posibles revisiones de cuenta pueden cambiar según el operador, la moneda y el estado de la cuenta.\n\nEn seguridad y confianza, Bitcasino.io informa que opera bajo Moon Technologies B.V. y licencia CGA / Curazao. Eso no equivale a una licencia mexicana SEGOB. Por eso nuestra lectura editorial es equilibrada: Bitcasino.io puede ser una opción fuerte dentro del segmento crypto internacional, pero no debe presentarse como casino regulado localmente en México. Antes de jugar, recomendamos revisar términos, políticas de KYC/AML, juego responsable, límites de retiro y disponibilidad regional.",
     paymentsSummary:
-      "Bitcasino.io estГЎ orientado a pagos con criptomonedas. JugadaMax destaca Bitcoin, Ethereum, USDT y Litecoin como mГ©todos relevantes para usuarios crypto, pero recomienda confirmar redes disponibles, mГ­nimos, comisiones y tiempos de retiro en el sitio oficial antes de depositar.",
+      "Bitcasino.io está orientado a pagos con criptomonedas. JugadaMax destaca Bitcoin, Ethereum, USDT y Litecoin como métodos relevantes para usuarios crypto, pero recomienda confirmar redes disponibles, mínimos, comisiones y tiempos de retiro en el sitio oficial antes de depositar.",
     trustSummary:
-      "Bitcasino.io informa operaciГіn bajo Moon Technologies B.V. y licencia CGA / CuraГ§ao. No debe presentarse como operador con licencia mexicana SEGOB. La disponibilidad, verificaciГіn, lГ­mites, bonos y condiciones deben revisarse directamente en el sitio oficial.",
+      "Bitcasino.io informa operación bajo Moon Technologies B.V. y licencia CGA / Curazao. No debe presentarse como operador con licencia mexicana SEGOB. La disponibilidad, verificación, límites, bonos y condiciones deben revisarse directamente en el sitio oficial.",
     publishedAt: "2026-07-03",
     updatedAt: "2026-07-03",
     locale: "es-MX",
