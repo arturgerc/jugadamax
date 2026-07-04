@@ -17,23 +17,38 @@ export interface PageMetadataInput {
   image?: string;
   /** Open Graph type; defaults to "website". */
   type?: "website" | "article";
+  /** Open Graph locale; defaults to es-MX site config. */
+  ogLocale?: string;
+  /** hreflang alternates, e.g. { "es-MX": "/reviews/stake", en: "/en/reviews/stake" } */
+  languageAlternates?: Record<string, string>;
 }
 
 export function buildMetadata(input: PageMetadataInput): Metadata {
-  const { title, description, path = "/", image, type = "website" } = input;
+  const {
+    title,
+    description,
+    path = "/",
+    image,
+    type = "website",
+    ogLocale = siteConfig.ogLocale,
+    languageAlternates,
+  } = input;
   const canonical = path;
   const ogImage = image ?? siteConfig.ogImage;
 
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      ...(languageAlternates ? { languages: languageAlternates } : {}),
+    },
     openGraph: {
       title,
       description,
       url: canonical,
       siteName: siteConfig.name,
-      locale: siteConfig.ogLocale,
+      locale: ogLocale,
       type,
       images: [{ url: ogImage }],
     },
@@ -44,4 +59,11 @@ export function buildMetadata(input: PageMetadataInput): Metadata {
       images: [ogImage],
     },
   };
+}
+
+/** English/global page metadata with en Open Graph locale. */
+export function buildEnMetadata(
+  input: Omit<PageMetadataInput, "ogLocale">,
+): Metadata {
+  return buildMetadata({ ...input, ogLocale: "en_US" });
 }

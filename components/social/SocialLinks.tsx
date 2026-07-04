@@ -5,8 +5,39 @@ import {
   OFFICIAL_SOCIAL_LINKS,
   type SocialLinkItem,
 } from "@/components/social/social-links-data";
+import type { UiLocale } from "@/lib/i18n/ui-labels";
 
 export type SocialLinksVariant = "footer" | "contact" | "floating";
+
+function contactDescription(item: SocialLinkItem, locale: UiLocale): string {
+  if (locale === "en") {
+    const en: Partial<Record<SocialLinkItem["kind"], string>> = {
+      email: "Editorial inquiries and partnerships",
+      telegram: "Official news channel",
+      tiktok: "Short-form social content",
+      youtube: "Guides and video content",
+      instagram: "Visual updates",
+      linkedin: "JugadaMax company page",
+    };
+    return en[item.kind] ?? item.description;
+  }
+  return item.description;
+}
+
+function contactAriaLabel(item: SocialLinkItem, locale: UiLocale): string {
+  if (locale === "en") {
+    const en: Partial<Record<SocialLinkItem["kind"], string>> = {
+      email: "Email JugadaMax",
+      telegram: "JugadaMax on Telegram",
+      tiktok: "JugadaMax on TikTok",
+      youtube: "JugadaMax on YouTube",
+      instagram: "JugadaMax on Instagram",
+      linkedin: "JugadaMax on LinkedIn",
+    };
+    return en[item.kind] ?? item.ariaLabel;
+  }
+  return item.ariaLabel;
+}
 
 function SocialAnchor({
   item,
@@ -36,10 +67,13 @@ function SocialAnchor({
   );
 }
 
-function FooterSocialLinks() {
+function FooterSocialLinks({ locale }: { locale: UiLocale }) {
+  const heading = locale === "en" ? "Follow us" : "Síguenos";
+  const aria = locale === "en" ? "Official social channels" : "Redes sociales oficiales";
+
   return (
-    <nav aria-label="Redes sociales oficiales">
-      <h2 className="mb-3 text-sm font-semibold text-foreground">Síguenos</h2>
+    <nav aria-label={aria}>
+      <h2 className="mb-3 text-sm font-semibold text-foreground">{heading}</h2>
       <ul className="flex flex-wrap gap-2">
         {OFFICIAL_SOCIAL_LINKS.map((item) => (
           <li key={item.kind}>
@@ -60,13 +94,13 @@ function FooterSocialLinks() {
   );
 }
 
-function ContactSocialLinks() {
+function ContactSocialLinks({ locale }: { locale: UiLocale }) {
   return (
     <ul className="space-y-3">
       {OFFICIAL_SOCIAL_LINKS.map((item) => (
         <li key={item.kind}>
           <SocialAnchor
-            item={item}
+            item={{ ...item, ariaLabel: contactAriaLabel(item, locale) }}
             className={cn(
               "group flex gap-4 rounded-lg border border-border/60 bg-card p-4 transition-colors hover:border-primary/40",
               focusRing,
@@ -80,7 +114,7 @@ function ContactSocialLinks() {
                 {item.label}
               </span>
               <span className="mt-0.5 block text-sm text-muted-foreground">
-                {item.description}
+                {contactDescription(item, locale)}
               </span>
               <span className="mt-1 block truncate text-xs text-primary/90 underline-offset-2 group-hover:underline">
                 {item.kind === "email" ? "jugadamaxcom@gmail.com" : item.url.replace(/^https?:\/\//, "")}
@@ -117,12 +151,18 @@ function FloatingSocialLinks() {
   );
 }
 
-export function SocialLinks({ variant }: { variant: SocialLinksVariant }) {
+export function SocialLinks({
+  variant,
+  locale = "es",
+}: {
+  variant: SocialLinksVariant;
+  locale?: UiLocale;
+}) {
   switch (variant) {
     case "footer":
-      return <FooterSocialLinks />;
+      return <FooterSocialLinks locale={locale} />;
     case "contact":
-      return <ContactSocialLinks />;
+      return <ContactSocialLinks locale={locale} />;
     case "floating":
       return <FloatingSocialLinks />;
     default:

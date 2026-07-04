@@ -1,12 +1,15 @@
 import Link from "next/link";
 import type { Casino, Vertical } from "@/types/content";
+import type { Market } from "@/types/operator-links";
 import { getBonusesForCasino, getReviewForCasino } from "@/lib/content";
+import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
 import { cn, focusRing } from "@/lib/utils";
 import { OperatorLogo } from "@/components/brand/OperatorLogo";
 import { RankBadge } from "@/components/ranking/RankBadge";
 import { RatingStars } from "@/components/ranking/RatingStars";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
-import { AffiliateCta } from "@/components/trust/AffiliateCta";
+import { OperatorCta } from "@/components/trust/OperatorCta";
+import { featuredBonusLabel, type UiLocale } from "@/lib/i18n/ui-labels";
 import { LicenseInfo } from "@/components/trust/LicenseInfo";
 
 const cardSurface =
@@ -24,14 +27,30 @@ export function RankingCard({
   vertical,
   rank,
   className,
+  market = "mx",
+  locale = "es",
+  reviewHref,
+  reviewLabel = "Leer reseña",
+  topRankLabel = "Selección editorial",
 }: {
   casino: Casino;
   vertical: Vertical;
   rank: number;
   className?: string;
+  market?: Market;
+  locale?: UiLocale;
+  /** Override review link when using global content loaders. */
+  reviewHref?: string;
+  reviewLabel?: string;
+  topRankLabel?: string;
 }) {
-  const headlineBonus = getBonusesForCasino(casino.id).find((b) => b.active)?.title;
+  const headlineBonus =
+    market === "mx"
+      ? getBonusesForCasino(casino.id).find((b) => b.active)?.title
+      : undefined;
   const review = getReviewForCasino(casino.id);
+  const resolvedReviewHref = reviewHref ?? (review ? `/reviews/${review.slug}` : undefined);
+  const outboundLink = getCasinoOutboundLink(casino, market);
   const isTopRank = rank === 1;
 
   return (
@@ -61,7 +80,7 @@ export function RankingCard({
             <h3 className="text-base font-semibold leading-snug text-foreground">{casino.name}</h3>
             {isTopRank ? (
               <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-primary">
-                Selección editorial
+                {topRankLabel}
               </span>
             ) : null}
           </div>
@@ -88,7 +107,7 @@ export function RankingCard({
             <h3 className="text-lg font-semibold leading-snug text-foreground">{casino.name}</h3>
             {isTopRank ? (
               <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-primary">
-                Selección editorial
+                {topRankLabel}
               </span>
             ) : null}
           </div>
@@ -104,7 +123,7 @@ export function RankingCard({
         {headlineBonus ? (
           <div className="rounded-lg border border-white/8 bg-[#16233f]/60 px-3 py-2.5">
             <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-muted-foreground">
-              Bono destacado
+              {featuredBonusLabel(locale)}
             </p>
             <p className="mt-1 text-sm leading-snug text-foreground">{headlineBonus}</p>
           </div>
@@ -112,27 +131,26 @@ export function RankingCard({
 
         <div className="flex flex-col gap-2">
           <PaymentBadges payments={casino.payments} max={4} />
-          <LicenseInfo licensing={casino.licensing} />
+          <LicenseInfo licensing={casino.licensing} locale={locale} />
         </div>
 
-        {review ? (
+        {resolvedReviewHref ? (
           <Link
-            href={`/reviews/${review.slug}`}
+            href={resolvedReviewHref}
             className={cn(
               "inline-flex min-h-11 items-center rounded-sm text-sm font-medium text-primary underline underline-offset-2 transition-colors hover:text-[var(--jm-gold-strong)] lg:min-h-0 lg:py-1",
               focusRing,
             )}
           >
-            Leer reseña
+            {reviewLabel}
           </Link>
         ) : null}
       </div>
 
       {/* Right zone: CTA */}
       <div className="border-t border-white/8 pt-4 lg:flex lg:flex-col lg:justify-center lg:border-t-0 lg:border-l lg:border-white/8 lg:pl-5 lg:pt-0">
-        <AffiliateCta
-          href={casino.affiliateUrl}
-          label="Visitar sitio"
+        <OperatorCta
+          link={outboundLink}
           className="w-full shadow-[0_2px_12px_-4px_rgba(255,184,0,0.3)] lg:w-full"
         />
       </div>

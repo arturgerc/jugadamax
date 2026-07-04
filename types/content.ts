@@ -13,10 +13,10 @@ export const VERTICALS: readonly Vertical[] = [
   "sportsbook",
 ] as const;
 
-/** Only `es-MX` in V1; the field exists for Spanish-LATAM readiness (FR-021/FR-027). */
-export type Locale = "es-MX";
+/** `es-MX` for Mexico-first Spanish; `en` for English/global editorial pages. */
+export type Locale = "es-MX" | "en";
 
-export const LOCALES: readonly Locale[] = ["es-MX"] as const;
+export const LOCALES: readonly Locale[] = ["es-MX", "en"] as const;
 
 export type BonusType =
   | "welcome"

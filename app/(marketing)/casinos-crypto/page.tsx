@@ -15,6 +15,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Ranking de los mejores casinos crypto en México: bonos, métodos de pago en criptomonedas y evaluación editorial. Con divulgación de afiliados y juego responsable +18.",
   path: "/casinos-crypto",
+  languageAlternates: {
+    "es-MX": "/casinos-crypto",
+    en: "/en/casinos-crypto",
+  },
 });
 
 function uniqueCryptoPayments(casinos: ReturnType<typeof getCasinosByVertical>) {

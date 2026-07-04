@@ -8,7 +8,19 @@ export interface NavLink {
   href: string;
 }
 
-/** Primary content destinations for SiteHeader + MobileNav. */
+/** Desktop header destinations (SiteHeader only). */
+export const desktopNav: NavLink[] = [
+  { label: "Casinos Crypto", href: "/casinos-crypto" },
+  { label: "Casinos Fiat", href: "/casinos-fiat" },
+  { label: "Apuestas", href: "/apuestas" },
+  { label: "Reseñas", href: "/reviews" },
+  { label: "Guías", href: "/guias" },
+  { label: "Noticias", href: "/noticias" },
+  { label: "Socios", href: "/partners" },
+  { label: "Contacto", href: "/contacto" },
+];
+
+/** Primary content destinations for MobileNav + footer Secciones. */
 export const primaryNav: NavLink[] = [
   { label: "Casinos Crypto", href: "/casinos-crypto" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
@@ -17,7 +29,7 @@ export const primaryNav: NavLink[] = [
   { label: "Noticias", href: "/noticias" },
 ];
 
-/** Trust / legal destinations (footer). */
+/** Trust / legal destinations (footer + mobile). */
 export const legalNav: NavLink[] = [
   { label: "Cómo evaluamos", href: "/como-evaluamos" },
   { label: "Divulgación de afiliados", href: "/divulgacion-afiliados" },

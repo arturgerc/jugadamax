@@ -1,6 +1,11 @@
 import type { TrustInfo } from "@/types/content";
 import { cn } from "@/lib/utils";
 import { TrustBadge } from "@/components/trust/TrustBadge";
+import {
+  licenseBadgeLabel,
+  licenseReportedPrefix,
+  type UiLocale,
+} from "@/lib/i18n/ui-labels";
 
 /**
  * License / trust display with honest sourcing (Constitution Principle IV/V).
@@ -13,9 +18,11 @@ import { TrustBadge } from "@/components/trust/TrustBadge";
 export function LicenseInfo({
   licensing,
   className,
+  locale = "es",
 }: {
   licensing?: TrustInfo;
   className?: string;
+  locale?: UiLocale;
 }) {
   const name = licensing?.licenseName;
   if (!name) return null;
@@ -28,7 +35,7 @@ export function LicenseInfo({
         rel="noopener nofollow"
         className={cn("inline-flex", className)}
       >
-        <TrustBadge label={`Licencia: ${name}`} />
+        <TrustBadge label={licenseBadgeLabel(locale, name)} />
       </a>
     );
   }
@@ -40,7 +47,7 @@ export function LicenseInfo({
         className,
       )}
     >
-      Licencia informada por el operador: {name}
+      {licenseReportedPrefix(locale)} {name}
     </span>
   );
 }

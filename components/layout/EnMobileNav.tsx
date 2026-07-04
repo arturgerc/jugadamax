@@ -1,24 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { primaryNav, legalNav } from "@/components/layout/nav-links";
+import { enMobileNav } from "@/components/layout/en-nav-links";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { focusRing, cn } from "@/lib/utils";
 
-/**
- * Mobile navigation (client component).
- *
- * Plain button + plain links, no Radix/shadcn Sheet, no animation. The panel is
- * a FIXED overlay with a very high z-index so it can never be clipped or trapped
- * by the sticky / backdrop-blurred header's stacking context. The button glyph
- * toggles ☰ -> ✕ so the open state is always visible. No horizontal overflow
- * (inset-x-4 + internal vertical scroll only). Closes on link click, outside
- * click (scrim), or Escape.
- */
-export function MobileNav() {
+export function EnMobileNav({ currentPath = "/en" }: { currentPath?: string }) {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname() ?? "/";
 
   useEffect(() => {
     if (!open) return;
@@ -29,15 +17,13 @@ export function MobileNav() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const links = [...primaryNav, ...legalNav];
-
   return (
     <div className="md:hidden">
       <button
         type="button"
-        aria-label={open ? "Cerrar menú" : "Abrir menú"}
+        aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
-        aria-controls="mobile-nav-panel"
+        aria-controls="en-mobile-nav-panel"
         onClick={() => setOpen((v) => !v)}
         className={cn(
           "inline-flex h-11 w-11 items-center justify-center rounded-md text-2xl leading-none text-foreground",
@@ -51,19 +37,19 @@ export function MobileNav() {
         <>
           <button
             type="button"
-            aria-label="Cerrar menú"
+            aria-label="Close menu"
             onClick={() => setOpen(false)}
             className="fixed inset-0 z-[9998] w-full cursor-default bg-black/50"
           />
           <nav
-            id="mobile-nav-panel"
-            aria-label="Navegación móvil"
+            id="en-mobile-nav-panel"
+            aria-label="Mobile navigation"
             className="fixed inset-x-4 top-20 z-[9999] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-lg border border-border bg-[var(--jm-navy)] p-2 shadow-2xl"
           >
             <div className="mb-2 border-b border-border/30 px-2 pb-2">
-              <LanguageSwitcher currentPath={pathname} />
+              <LanguageSwitcher currentPath={currentPath} />
             </div>
-            {links.map((link) => (
+            {enMobileNav.map((link) => (
               <a
                 key={link.href}
                 href={link.href}

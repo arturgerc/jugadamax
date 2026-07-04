@@ -1,15 +1,9 @@
 import type { Author } from "@/types/content";
 import { cn, focusRing } from "@/lib/utils";
+import type { UiLocale } from "@/lib/i18n/ui-labels";
 
-/**
- * Author byline for E-E-A-T attribution (FR-016).
- *
- * Shows the (real) author name/role plus publish and, when present, updated
- * dates. Dates use a machine-readable <time dateTime> with an es-MX display
- * label. No fabricated authors or credentials (Constitution Principle IV/V).
- */
-function formatEsMx(iso: string): string {
-  return new Intl.DateTimeFormat("es-MX", {
+function formatDate(iso: string, locale: UiLocale): string {
+  return new Intl.DateTimeFormat(locale === "en" ? "en-US" : "es-MX", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -21,28 +15,42 @@ export function AuthorByline({
   publishedAt,
   updatedAt,
   className,
+  locale = "es",
 }: {
   author: Author;
   publishedAt: string;
   updatedAt?: string;
   className?: string;
+  locale?: UiLocale;
 }) {
+  const byPrefix = locale === "en" ? "By" : "Por";
+  const publishedLabel = locale === "en" ? "Published" : "Publicado el";
+  const updatedLabel = locale === "en" ? "Updated" : "Actualizado el";
+  const displayName =
+    locale === "en" && author.id === "redaccion-jugadamax"
+      ? "JugadaMax Editorial"
+      : author.name;
+  const showRole = locale === "es" && author.role;
+  const showCredentials = locale === "es" && author.credentials;
+
   return (
     <div className={cn("space-y-1", className)}>
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
         <span className="text-foreground">
-          Por <span className="font-semibold">{author.name}</span>
-          {author.role ? <span className="text-muted-foreground"> · {author.role}</span> : null}
+          {byPrefix} <span className="font-semibold">{displayName}</span>
+          {showRole ? <span className="text-muted-foreground"> · {author.role}</span> : null}
         </span>
         <span aria-hidden="true">·</span>
         <span>
-          Publicado el <time dateTime={publishedAt}>{formatEsMx(publishedAt)}</time>
+          {publishedLabel}{" "}
+          <time dateTime={publishedAt}>{formatDate(publishedAt, locale)}</time>
         </span>
         {updatedAt ? (
           <>
             <span aria-hidden="true">·</span>
             <span>
-              Actualizado el <time dateTime={updatedAt}>{formatEsMx(updatedAt)}</time>
+              {updatedLabel}{" "}
+              <time dateTime={updatedAt}>{formatDate(updatedAt, locale)}</time>
             </span>
           </>
         ) : null}
@@ -63,7 +71,7 @@ export function AuthorByline({
           </span>
         ))}
       </div>
-      {author.credentials ? (
+      {showCredentials ? (
         <p className="text-xs leading-relaxed text-muted-foreground">{author.credentials}</p>
       ) : null}
     </div>

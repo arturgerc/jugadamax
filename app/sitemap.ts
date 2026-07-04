@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { getArticles, getReviews } from "@/lib/content";
+import { getGlobalReviews } from "@/lib/content/global";
 
 /**
  * Dynamic sitemap (FR-023).
@@ -26,6 +27,12 @@ const STATIC_PATHS = [
   "/politica-de-privacidad",
   "/terminos-y-condiciones",
   "/partners",
+  "/en",
+  "/en/casinos-crypto",
+  "/en/reviews",
+  "/en/contact",
+  "/en/partners",
+  "/en/guides/best-crypto-casinos",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -50,5 +57,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(article.updatedAt ?? article.publishedAt),
   }));
 
-  return [...staticEntries, ...reviewEntries, ...guideEntries, ...newsEntries];
+  const enReviewEntries: MetadataRoute.Sitemap = getGlobalReviews().map((review) => ({
+    url: abs(`/en/reviews/${review.slug}`),
+    lastModified: new Date(review.updatedAt ?? review.publishedAt),
+  }));
+
+  return [...staticEntries, ...reviewEntries, ...guideEntries, ...newsEntries, ...enReviewEntries];
 }

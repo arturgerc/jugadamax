@@ -11,10 +11,11 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
-import { AffiliateCta } from "@/components/trust/AffiliateCta";
-import { LicenseInfo } from "@/components/trust/LicenseInfo";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
+import { OperatorCta } from "@/components/trust/OperatorCta";
+import { LicenseInfo } from "@/components/trust/LicenseInfo";
+import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
@@ -160,6 +161,14 @@ export async function generateMetadata({
     description: `Reseña editorial de ${name}: veredicto, pros y contras, pagos y licencia. Con divulgación de afiliados y juego responsable +18.`,
     path: `/reviews/${review.slug}`,
     type: "article",
+    ...(review.slug === "stake"
+      ? {
+          languageAlternates: {
+            "es-MX": `/reviews/${review.slug}`,
+            en: `/en/reviews/${review.slug}`,
+          },
+        }
+      : {}),
   });
 }
 
@@ -174,6 +183,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
   const headlineBonus = getBonusesForCasino(casino.id).find((b) => b.active)?.title;
   const trustNote = review.trustSummary ?? casino.licensing?.notes;
+  const outboundLink = getCasinoOutboundLink(casino, "mx");
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -296,10 +306,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         </section>
 
         <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
-          <AffiliateCta
-            href={casino.affiliateUrl}
-            label={casino.id === "stake" ? "Visitar Stake México" : `Visitar ${casino.name}`}
-          />
+          <OperatorCta link={outboundLink} />
         </div>
       </article>
     </Container>

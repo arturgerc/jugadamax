@@ -2,6 +2,7 @@ import type { Author, Casino, Review } from "@/types/content";
 import { cn } from "@/lib/utils";
 import { RatingStars } from "@/components/ranking/RatingStars";
 import { AuthorByline } from "@/components/review/AuthorByline";
+import type { UiLocale } from "@/lib/i18n/ui-labels";
 
 /**
  * Review header (FR-005/FR-016).
@@ -15,28 +16,36 @@ export function ReviewHeader({
   casino,
   author,
   className,
+  locale = "es",
 }: {
   review: Review;
   casino: Casino;
   author: Author;
   className?: string;
+  locale?: UiLocale;
 }) {
+  const kicker =
+    locale === "en" ? `${casino.name} review` : `Reseña de ${casino.name}`;
+  const ratingNote =
+    locale === "en"
+      ? "JugadaMax editorial rating"
+      : "Calificación editorial de JugadaMax";
+
   return (
     <header className={cn("space-y-3", className)}>
-      <p className="text-sm font-medium uppercase tracking-wide text-accent">
-        Reseña de {casino.name}
-      </p>
+      <p className="text-sm font-medium uppercase tracking-wide text-accent">{kicker}</p>
       <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {review.title}
       </h1>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <RatingStars rating={review.rating} />
-        <span className="text-xs text-muted-foreground">Calificación editorial de JugadaMax</span>
+        <span className="text-xs text-muted-foreground">{ratingNote}</span>
       </div>
       <AuthorByline
         author={author}
         publishedAt={review.publishedAt}
         updatedAt={review.updatedAt}
+        locale={locale}
       />
     </header>
   );
