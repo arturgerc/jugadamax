@@ -81,6 +81,8 @@ export interface ArticleJsonLdInput {
   image?: string;
   /** "Article" (default) or "NewsArticle". Never "Review" for casinos. */
   type?: "Article" | "NewsArticle";
+  /** BCP 47 language tag; defaults to site locale (es-MX). */
+  inLanguage?: string;
 }
 
 /**
@@ -96,6 +98,7 @@ export function articleJsonLd(input: ArticleJsonLdInput): JsonLd {
     dateModified,
     image,
     type = "Article",
+    inLanguage = siteConfig.locale,
   } = input;
 
   return {
@@ -103,7 +106,7 @@ export function articleJsonLd(input: ArticleJsonLdInput): JsonLd {
     "@type": type,
     headline,
     mainEntityOfPage: absoluteUrl(path),
-    inLanguage: siteConfig.locale,
+    inLanguage,
     author: { "@type": "Person", name: authorName },
     publisher: publisherOrganization(),
     datePublished,

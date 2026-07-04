@@ -33,6 +33,9 @@ const STATIC_PATHS = [
   "/en/contact",
   "/en/partners",
   "/en/guides/best-crypto-casinos",
+  "/en/affiliate-disclosure",
+  "/en/responsible-gambling",
+  "/en/how-we-review",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

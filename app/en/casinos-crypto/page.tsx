@@ -103,8 +103,8 @@ export default function EnCryptoCasinosPage() {
             reviewSlugByCasinoId={reviewSlugByCasinoId}
             reviewLabel="Read review"
             visitLabel="Visit"
-            methodologyHref="/como-evaluamos"
-            methodologyLabel="Editorial methodology (Spanish)"
+            methodologyHref="/en/how-we-review"
+            methodologyLabel="How we review"
           />
         </div>
       </section>

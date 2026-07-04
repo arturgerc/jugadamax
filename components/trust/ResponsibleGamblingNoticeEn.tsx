@@ -18,7 +18,7 @@ export function ResponsibleGamblingNoticeEn({ className }: { className?: string 
       <span>
         Gambling involves risk. Play responsibly. Adults 18+ only. Check local laws and operator
         terms before registering.{" "}
-        <a href="/juego-responsable" className="font-medium text-primary underline underline-offset-2">
+        <a href="/en/responsible-gambling" className="font-medium text-primary underline underline-offset-2">
           Responsible gambling
         </a>
         .

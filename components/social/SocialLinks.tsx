@@ -24,15 +24,15 @@ function contactDescription(item: SocialLinkItem, locale: UiLocale): string {
   return item.description;
 }
 
-function contactAriaLabel(item: SocialLinkItem, locale: UiLocale): string {
+function socialAriaLabel(item: SocialLinkItem, locale: UiLocale): string {
   if (locale === "en") {
     const en: Partial<Record<SocialLinkItem["kind"], string>> = {
-      email: "Email JugadaMax",
-      telegram: "JugadaMax on Telegram",
-      tiktok: "JugadaMax on TikTok",
-      youtube: "JugadaMax on YouTube",
-      instagram: "JugadaMax on Instagram",
-      linkedin: "JugadaMax on LinkedIn",
+      email: "Send email to JugadaMax",
+      telegram: "Visit JugadaMax on Telegram",
+      tiktok: "Visit JugadaMax on TikTok",
+      youtube: "Visit JugadaMax on YouTube",
+      instagram: "Visit JugadaMax on Instagram",
+      linkedin: "Visit JugadaMax on LinkedIn",
     };
     return en[item.kind] ?? item.ariaLabel;
   }
@@ -78,7 +78,7 @@ function FooterSocialLinks({ locale }: { locale: UiLocale }) {
         {OFFICIAL_SOCIAL_LINKS.map((item) => (
           <li key={item.kind}>
             <SocialAnchor
-              item={item}
+              item={{ ...item, ariaLabel: socialAriaLabel(item, locale) }}
               className={cn(
                 "inline-flex min-h-10 items-center gap-2 rounded-lg border border-border/60 bg-[var(--jm-navy)] px-2.5 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground",
                 focusRing,
@@ -100,7 +100,7 @@ function ContactSocialLinks({ locale }: { locale: UiLocale }) {
       {OFFICIAL_SOCIAL_LINKS.map((item) => (
         <li key={item.kind}>
           <SocialAnchor
-            item={{ ...item, ariaLabel: contactAriaLabel(item, locale) }}
+            item={{ ...item, ariaLabel: socialAriaLabel(item, locale) }}
             className={cn(
               "group flex gap-4 rounded-lg border border-border/60 bg-card p-4 transition-colors hover:border-primary/40",
               focusRing,

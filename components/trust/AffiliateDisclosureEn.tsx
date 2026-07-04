@@ -13,7 +13,7 @@ export function AffiliateDisclosureEn({ className }: { className?: string }) {
       earn a commission if you register with an operator through our links. This does not cost you
       extra and does not influence our editorial assessments.{" "}
       <a
-        href="/divulgacion-afiliados"
+        href="/en/affiliate-disclosure"
         className="font-medium text-primary underline underline-offset-2"
       >
         Learn more

@@ -24,15 +24,16 @@ export const enFooterSections: NavLink[] = [
   { label: "Reviews", href: "/en/reviews" },
 ];
 
-/** Footer — Information column. Spanish trust pages labeled clearly when linked. */
+/** Footer — Information column. */
 export const enFooterInfo: NavLink[] = [
   { label: "Partners", href: "/en/partners" },
   { label: "Contact", href: "/en/contact" },
-  { label: "Affiliate Disclosure (Spanish)", href: "/divulgacion-afiliados" },
-  { label: "Responsible Gambling (Spanish)", href: "/juego-responsable" },
+  { label: "How We Review", href: "/en/how-we-review" },
+  { label: "Affiliate Disclosure", href: "/en/affiliate-disclosure" },
+  { label: "Responsible Gambling", href: "/en/responsible-gambling" },
 ];
 
-/** Paths with Spanish ↔ English equivalents for the language switcher. */
+/** Paths with exact Spanish ↔ English equivalents for the language switcher. */
 export const PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/": "/en",
   "/en": "/",
@@ -42,12 +43,16 @@ export const PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/en/reviews": "/reviews",
   "/reviews/stake": "/en/reviews/stake",
   "/en/reviews/stake": "/reviews/stake",
-  "/en/reviews/bcgame": "/reviews",
-  "/en/guides/best-crypto-casinos": "/guias",
   "/contacto": "/en/contact",
   "/en/contact": "/contacto",
   "/partners": "/en/partners",
   "/en/partners": "/partners",
+  "/como-evaluamos": "/en/how-we-review",
+  "/en/how-we-review": "/como-evaluamos",
+  "/divulgacion-afiliados": "/en/affiliate-disclosure",
+  "/en/affiliate-disclosure": "/divulgacion-afiliados",
+  "/juego-responsable": "/en/responsible-gambling",
+  "/en/responsible-gambling": "/juego-responsable",
 };
 
 export function getLanguageAlternate(path: string): string | undefined {

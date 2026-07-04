@@ -4,6 +4,7 @@ import { getAuthorById } from "@/lib/content";
 import { getGlobalCasinoById, getGlobalReviews } from "@/lib/content/global";
 import { buildEnMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
+import { AuthorByline } from "@/components/review/AuthorByline";
 
 export const metadata: Metadata = buildEnMetadata({
   title: "Crypto Casino Reviews — Global Editorial Coverage",
@@ -50,10 +51,13 @@ export default function EnReviewsIndexPage() {
                   {review.verdict}
                 </p>
                 {author ? (
-                  <p className="mt-3 text-xs text-muted-foreground">
-                    {author.name}
-                    {review.updatedAt ? ` · Updated ${review.updatedAt}` : null}
-                  </p>
+                  <AuthorByline
+                    author={author}
+                    publishedAt={review.publishedAt}
+                    updatedAt={review.updatedAt}
+                    locale="en"
+                    className="mt-3"
+                  />
                 ) : null}
                 <Link
                   href={href}

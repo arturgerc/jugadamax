@@ -72,10 +72,12 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
   const article = articleJsonLd({
     headline: review.title,
     path: `/en/reviews/${review.slug}`,
-    authorName: author.name,
+    authorName:
+      author.id === "redaccion-jugadamax" ? "JugadaMax Editorial" : author.name,
     datePublished: review.publishedAt,
     dateModified: review.updatedAt,
     type: "Article",
+    inLanguage: "en",
   });
 
   return (
