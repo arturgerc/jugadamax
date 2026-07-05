@@ -3,16 +3,22 @@ import Link from "next/link";
 import { buildEnMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 
-export const metadata: Metadata = buildEnMetadata({
-  title: "News & Updates",
-  description:
-    "JugadaMax English news and updates on crypto casinos, payments and iGaming editorial coverage.",
-  path: "/en/news",
-  languageAlternates: {
-    "es-MX": "/noticias",
-    en: "/en/news",
+export const metadata: Metadata = {
+  ...buildEnMetadata({
+    title: "News & Updates",
+    description:
+      "JugadaMax English news and updates on crypto casinos, payments and iGaming editorial coverage.",
+    path: "/en/news",
+    languageAlternates: {
+      "es-MX": "/noticias",
+      en: "/en/news",
+    },
+  }),
+  robots: {
+    index: false,
+    follow: true,
   },
-});
+};
 
 export default function EnNewsIndexPage() {
   return (

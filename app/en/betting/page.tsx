@@ -6,16 +6,22 @@ import { AffiliateDisclosureEn } from "@/components/trust/AffiliateDisclosureEn"
 import { ResponsibleGamblingNoticeEn } from "@/components/trust/ResponsibleGamblingNoticeEn";
 import { JurisdictionWarning } from "@/components/trust/JurisdictionWarning";
 
-export const metadata: Metadata = buildEnMetadata({
-  title: "Sports Betting — Global Editorial Overview",
-  description:
-    "Sports betting and sportsbook editorial overview for global readers. Responsible gambling, jurisdiction notes and coverage expansion. Adults 18+.",
-  path: "/en/betting",
-  languageAlternates: {
-    "es-MX": "/apuestas",
-    en: "/en/betting",
+export const metadata: Metadata = {
+  ...buildEnMetadata({
+    title: "Sports Betting — Global Editorial Overview",
+    description:
+      "Sports betting and sportsbook editorial overview for global readers. Responsible gambling, jurisdiction notes and coverage expansion. Adults 18+.",
+    path: "/en/betting",
+    languageAlternates: {
+      "es-MX": "/apuestas",
+      en: "/en/betting",
+    },
+  }),
+  robots: {
+    index: false,
+    follow: true,
   },
-});
+};
 
 export default function EnBettingPage() {
   return (
