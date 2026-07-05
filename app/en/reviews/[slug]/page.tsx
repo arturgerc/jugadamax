@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getAuthorById,
@@ -21,6 +22,62 @@ import { LicenseInfo } from "@/components/trust/LicenseInfo";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
+
+type BodyBlock =
+  | { type: "h2"; text: string }
+  | { type: "h3"; text: string }
+  | { type: "p"; text: string };
+
+function parseBodyBlocks(body: string): BodyBlock[] {
+  return body
+    .split(/\n\s*\n/)
+    .map((block) => block.trim())
+    .filter((block) => block.length > 0)
+    .map((block) => {
+      if (block.startsWith("## ")) return { type: "h2" as const, text: block.slice(3) };
+      if (block.startsWith("### ")) return { type: "h3" as const, text: block.slice(4) };
+      return { type: "p" as const, text: block };
+    });
+}
+
+function splitBodyAndFaq(body: string) {
+  const blocks = parseBodyBlocks(body);
+  const faqIndex = blocks.findIndex(
+    (block) => block.type === "h2" && block.text === "Frequently asked questions",
+  );
+  if (faqIndex === -1) {
+    return { mainBlocks: blocks, faqItems: [] as { question: string; answer: string }[] };
+  }
+
+  const mainBlocks = blocks.slice(0, faqIndex);
+  const faqBlocks = blocks.slice(faqIndex + 1);
+  const faqItems: { question: string; answer: string }[] = [];
+
+  for (let i = 0; i < faqBlocks.length; i++) {
+    const block = faqBlocks[i];
+    if (block.type === "h3" && faqBlocks[i + 1]?.type === "p") {
+      faqItems.push({ question: block.text, answer: faqBlocks[i + 1].text });
+      i += 1;
+    }
+  }
+
+  return { mainBlocks, faqItems };
+}
+
+function getEnReviewRelatedLinks(slug: string) {
+  const otherReview =
+    slug === "stake"
+      ? { href: "/en/reviews/bcgame", label: "BC.Game review" }
+      : { href: "/en/reviews/stake", label: "Stake review" };
+
+  return [
+    { href: "/en/casinos-crypto", label: "Crypto casinos ranking" },
+    otherReview,
+    { href: "/en/guides/best-crypto-casinos", label: "Best crypto casinos guide" },
+    { href: "/en/how-we-review", label: "How we review" },
+    { href: "/en/responsible-gambling", label: "Responsible gambling" },
+  ];
+}
 
 export function generateStaticParams() {
   return getGlobalReviews().map((review) => ({ slug: review.slug }));
@@ -62,6 +119,8 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
 
   const trustNote = review.trustSummary ?? casino.licensing?.notes;
   const outboundLink = getCasinoOutboundLink(casino, "global");
+  const { mainBlocks, faqItems } = splitBodyAndFaq(review.body);
+  const relatedLinks = getEnReviewRelatedLinks(slug);
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", path: "/en" },
@@ -110,22 +169,52 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
           <ProsCons pros={review.pros} cons={review.cons} locale="en" />
         </section>
 
-        <section aria-label="Analysis" className="space-y-3">
+        <section aria-label="Analysis" className="space-y-6">
           <h2 className="text-xl font-semibold text-foreground">Analysis</h2>
-          <div className="space-y-4">
-            {review.body
-              .split(/\n\s*\n/)
-              .filter((paragraph) => paragraph.trim().length > 0)
-              .map((paragraph, index) => (
+          <div className="space-y-5">
+            {mainBlocks.map((block, index) => {
+              if (block.type === "h2") {
+                return (
+                  <h3
+                    key={index}
+                    className="pt-2 text-lg font-semibold text-foreground sm:text-xl"
+                  >
+                    {block.text}
+                  </h3>
+                );
+              }
+              return (
                 <p
                   key={index}
                   className="text-sm leading-relaxed text-muted-foreground sm:text-base"
                 >
-                  {paragraph.trim()}
+                  {block.text}
                 </p>
-              ))}
+              );
+            })}
           </div>
         </section>
+
+        {faqItems.length > 0 ? (
+          <section aria-labelledby="en-review-faq-heading">
+            <h2 id="en-review-faq-heading" className="text-xl font-semibold text-foreground">
+              Frequently asked questions
+            </h2>
+            <dl className="mt-4 space-y-4">
+              {faqItems.map((item) => (
+                <div
+                  key={item.question}
+                  className="rounded-lg border border-border/60 bg-card p-4 sm:p-5"
+                >
+                  <dt className="font-semibold text-foreground">{item.question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {item.answer}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ) : null}
 
         <section
           aria-label="Payments and licensing"
@@ -145,6 +234,26 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
               <p className="mt-2 text-sm text-muted-foreground">{trustNote}</p>
             ) : null}
           </div>
+        </section>
+
+        <section aria-labelledby="en-review-related-heading">
+          <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
+            Continue reading
+          </h2>
+          <nav aria-label="Related guides and reviews" className="mt-4">
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {relatedLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </section>
 
         {outboundLink ? (
