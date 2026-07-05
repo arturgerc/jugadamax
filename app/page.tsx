@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     description:
       "Rankings claros y reseñas honestas de casinos crypto, casinos fiat y casas de apuestas en México. Evaluamos seguridad, pagos, licencias y experiencia de usuario. +18 juego responsable.",
     path: "/",
+    languageAlternates: {
+      "es-MX": "/",
+      en: "/en",
+    },
   }),
   title: {
     absolute: "JugadaMax — Casinos Crypto, Casinos Fiat y Apuestas en México",
