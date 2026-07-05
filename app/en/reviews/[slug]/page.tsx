@@ -94,12 +94,6 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
       <article className="mx-auto max-w-3xl space-y-8">
         <ReviewHeader review={review} casino={casino} author={author} locale="en" />
 
-        {outboundLink ? (
-          <div className="flex flex-wrap gap-3 border-y border-border/60 py-4">
-            <OperatorCta link={outboundLink} className="w-full sm:w-auto" />
-          </div>
-        ) : null}
-
         <div className="space-y-3">
           <AffiliateDisclosureEn />
           <ResponsibleGamblingNoticeEn />
