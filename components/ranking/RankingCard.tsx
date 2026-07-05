@@ -148,11 +148,20 @@ export function RankingCard({
       </div>
 
       {/* Right zone: CTA */}
-      <div className="border-t border-white/8 pt-4 lg:flex lg:flex-col lg:justify-center lg:border-t-0 lg:border-l lg:border-white/8 lg:pl-5 lg:pt-0">
-        <OperatorCta
-          link={outboundLink}
-          className="w-full shadow-[0_2px_12px_-4px_rgba(255,184,0,0.3)] lg:w-full"
-        />
+      <div
+        className={cn(
+          "border-t border-white/8 pt-4 lg:flex lg:flex-col lg:justify-center lg:border-t-0 lg:border-l lg:border-white/8 lg:pl-5 lg:pt-0",
+          market === "global" &&
+            outboundLink &&
+            "rounded-lg border border-primary/20 bg-primary/8 p-3 lg:rounded-none lg:border-y-0 lg:border-r-0 lg:bg-transparent lg:p-0 lg:pl-5",
+        )}
+      >
+        {outboundLink ? (
+          <OperatorCta
+            link={outboundLink}
+            className="w-full whitespace-nowrap shadow-[0_2px_12px_-4px_rgba(255,184,0,0.3)] lg:w-full"
+          />
+        ) : null}
       </div>
     </article>
   );
