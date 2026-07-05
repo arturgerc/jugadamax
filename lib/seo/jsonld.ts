@@ -43,13 +43,13 @@ export function organizationJsonLd(): JsonLd {
 }
 
 /** Site-wide WebSite node (root layout). */
-export function websiteJsonLd(): JsonLd {
+export function websiteJsonLd(locale: string = siteConfig.locale): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
-    inLanguage: siteConfig.locale,
+    inLanguage: locale,
   };
 }
 
