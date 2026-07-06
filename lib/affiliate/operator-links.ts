@@ -3,6 +3,10 @@ import type { Market, OperatorLink } from "@/types/operator-links";
 import {
   BCGAME_GLOBAL_AFFILIATE_URL,
   BCGAME_MX_OFFICIAL_URL,
+  FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  GAMDOM_GLOBAL_AFFILIATE_URL,
+  MELLSTROY_GLOBAL_AFFILIATE_URL,
+  ROOBET_GLOBAL_AFFILIATE_URL,
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
 } from "@/lib/affiliate/constants";
@@ -53,6 +57,54 @@ function bcgameGlobalLink(): OperatorLink | undefined {
   };
 }
 
+function fiveHundredCasinoGlobalLink(): OperatorLink | undefined {
+  if (!FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+    label: "Visit 500 Casino",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: "Availability depends on your jurisdiction and official operator terms.",
+  };
+}
+
+function roobetGlobalLink(): OperatorLink | undefined {
+  if (!ROOBET_GLOBAL_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: ROOBET_GLOBAL_AFFILIATE_URL,
+    label: "Visit Roobet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: "Availability depends on your jurisdiction and official operator terms.",
+  };
+}
+
+function gamdomGlobalLink(): OperatorLink | undefined {
+  if (!GAMDOM_GLOBAL_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: GAMDOM_GLOBAL_AFFILIATE_URL,
+    label: "Visit Gamdom",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: "Availability depends on your jurisdiction and official operator terms.",
+  };
+}
+
+function mellstroyGlobalLink(): OperatorLink | undefined {
+  if (!MELLSTROY_GLOBAL_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: MELLSTROY_GLOBAL_AFFILIATE_URL,
+    label: "Visit Mellstroy",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: "Availability depends on your jurisdiction and official operator terms.",
+  };
+}
+
 const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLink | undefined>>>> = {
   stake: {
     mx: stakeMxLink(),
@@ -61,6 +113,18 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   bcgame: {
     mx: bcgameMxLink(),
     global: bcgameGlobalLink(),
+  },
+  "500-casino": {
+    global: fiveHundredCasinoGlobalLink(),
+  },
+  roobet: {
+    global: roobetGlobalLink(),
+  },
+  gamdom: {
+    global: gamdomGlobalLink(),
+  },
+  mellstroy: {
+    global: mellstroyGlobalLink(),
   },
 };
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { Casino } from "@/types/content";
 import { getGlobalCasinosByVertical, getGlobalReviews } from "@/lib/content/global";
 import { buildEnMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
@@ -24,7 +25,82 @@ export const metadata: Metadata = buildEnMetadata({
   },
 });
 
-function uniqueCryptoPayments(casinos: ReturnType<typeof getGlobalCasinosByVertical>) {
+const ENGLISH_CRYPTO_RANKING_ORDER = [
+  "stake",
+  "bcgame",
+  "500-casino",
+  "roobet",
+  "gamdom",
+  "mellstroy",
+] as const;
+
+function rankEnglishCryptoCasinos(casinos: Casino[]): Casino[] {
+  return casinos
+    .map((casino) => {
+      const rankIndex = ENGLISH_CRYPTO_RANKING_ORDER.indexOf(
+        casino.id as (typeof ENGLISH_CRYPTO_RANKING_ORDER)[number],
+      );
+      const rank = rankIndex === -1 ? casino.rankByVertical["crypto-casino"] : rankIndex + 1;
+
+      return {
+        ...casino,
+        rankByVertical: {
+          ...casino.rankByVertical,
+          "crypto-casino": rank,
+        },
+      };
+    })
+    .sort(
+      (a, b) =>
+        (a.rankByVertical["crypto-casino"] ?? 999) -
+        (b.rankByVertical["crypto-casino"] ?? 999),
+    );
+}
+
+const globalAffiliateCryptoCasinos: Casino[] = [
+  {
+    id: "500-casino",
+    slug: "500-casino",
+    name: "500 Casino",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 3 },
+    summary:
+      "International crypto casino candidate with an active referral link. Availability, payments, bonuses, verification and withdrawals depend on your jurisdiction and official operator terms.",
+    locale: "en",
+  },
+  {
+    id: "roobet",
+    slug: "roobet",
+    name: "Roobet",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 4 },
+    summary:
+      "International crypto casino candidate with an active referral link and affiliate approval pending. Check regional availability, payment methods, bonuses, verification and official terms before registering.",
+    locale: "en",
+  },
+  {
+    id: "gamdom",
+    slug: "gamdom",
+    name: "Gamdom",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 5 },
+    summary:
+      "International crypto operator included as an editorial candidate. Review official terms, availability, payment methods, account rules, bonuses and verification requirements before registering.",
+    locale: "en",
+  },
+  {
+    id: "mellstroy",
+    slug: "mellstroy",
+    name: "Mellstroy / MellAff",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 6 },
+    summary:
+      "Higher-risk crypto operator candidate. JugadaMax places it lower and recommends checking availability, terms, payments, bonuses and verification carefully before registering.",
+    locale: "en",
+  },
+];
+
+function uniqueCryptoPayments(casinos: Casino[]) {
   const names = new Set<string>();
   for (const casino of casinos) {
     for (const p of casino.payments ?? []) {
@@ -51,7 +127,11 @@ const cryptoCasinoSourceReferences: SourceReference[] = [
 ];
 
 export default function EnCryptoCasinosPage() {
-  const casinos = getGlobalCasinosByVertical("crypto-casino");
+  const editorialCasinos = getGlobalCasinosByVertical("crypto-casino");
+  const casinos = rankEnglishCryptoCasinos([
+    ...editorialCasinos,
+    ...globalAffiliateCryptoCasinos,
+  ]);
   const reviews = getGlobalReviews();
   const reviewSlugByCasinoId = Object.fromEntries(reviews.map((r) => [r.casinoId, r.slug]));
   const cryptoPayments = uniqueCryptoPayments(casinos);
@@ -99,7 +179,8 @@ export default function EnCryptoCasinosPage() {
         <AffiliateDisclosureEn />
         <ResponsibleGamblingNoticeEn />
         <JurisdictionWarning>
-          Availability varies by jurisdiction. Check local laws and official operator terms before
+          Availability varies by jurisdiction and official operator terms. Payment methods, bonuses,
+          verification and withdrawals can change without notice. Check local laws before
           registering. Do not use VPNs or false location data to access restricted services.
         </JurisdictionWarning>
       </div>
