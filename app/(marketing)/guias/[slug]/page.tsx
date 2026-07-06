@@ -49,6 +49,13 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/guias/casinos-no-kyc-mexico", label: "Casinos no KYC" },
     { href: "/como-evaluamos", label: "Cómo evaluamos" },
   ],
+  "500-casino-mexico": [
+    { href: "/casinos-crypto", label: "Ver ranking de casinos crypto" },
+    { href: "/guias/roobet-mexico-crypto", label: "Roobet en México" },
+    { href: "/guias/gamdom-mexico-crypto", label: "Gamdom en México" },
+    { href: "/guias/casinos-con-usdt-mexico", label: "Casinos con USDT" },
+    { href: "/como-evaluamos", label: "Cómo evaluamos" },
+  ],
 };
 
 const BASE_SPANISH_SOURCE_REFERENCES: SourceReference[] = [
