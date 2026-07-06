@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { Casino } from "@/types/content";
 import { getCasinosByVertical } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
@@ -21,7 +22,89 @@ export const metadata: Metadata = buildMetadata({
   },
 });
 
-function uniqueCryptoPayments(casinos: ReturnType<typeof getCasinosByVertical>) {
+const SPANISH_CRYPTO_RANKING_ORDER = [
+  "stake",
+  "bitcasino",
+  "500-casino",
+  "roobet",
+  "cryptocasino",
+  "gamdom",
+  "ethcasino",
+  "ltccasino",
+  "mellstroy",
+] as const;
+
+function rankSpanishCryptoCasinos(casinos: Casino[]): Casino[] {
+  return casinos
+    .map((casino) => {
+      const rankIndex = SPANISH_CRYPTO_RANKING_ORDER.indexOf(
+        casino.id as (typeof SPANISH_CRYPTO_RANKING_ORDER)[number],
+      );
+      const rank = rankIndex === -1 ? casino.rankByVertical["crypto-casino"] : rankIndex + 1;
+
+      return {
+        ...casino,
+        rankByVertical: {
+          ...casino.rankByVertical,
+          "crypto-casino": rank,
+        },
+      };
+    })
+    .sort(
+      (a, b) =>
+        (a.rankByVertical["crypto-casino"] ?? 999) -
+        (b.rankByVertical["crypto-casino"] ?? 999),
+    );
+}
+
+const affiliateCryptoCasinos: Casino[] = [
+  {
+    id: "500-casino",
+    slug: "500-casino",
+    name: "500 Casino",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 3 },
+    affiliateUrl: "https://500.casino/r/ARTURGERC",
+    summary:
+      "Casino crypto internacional con programa de referidos activo. La disponibilidad, métodos de pago, bonos, verificación y retiros dependen de tu jurisdicción y de los términos oficiales del operador.",
+    locale: "es-MX",
+  },
+  {
+    id: "roobet",
+    slug: "roobet",
+    name: "Roobet",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 4 },
+    affiliateUrl: "https://roobet.com/?ref=arturgerc",
+    summary:
+      "Casino crypto internacional con registro por referido activo y aprobación de afiliado pendiente. Revisa disponibilidad regional, métodos de pago, bonos, verificación y condiciones oficiales antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "gamdom",
+    slug: "gamdom",
+    name: "Gamdom",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 6 },
+    affiliateUrl: "https://gamdom.com/r/arturgerc",
+    summary:
+      "Operador crypto internacional incluido como candidato editorial. Antes de usarlo, revisa términos oficiales, disponibilidad, métodos de pago, reglas de cuenta, bonos y requisitos de verificación.",
+    locale: "es-MX",
+  },
+  {
+    id: "mellstroy",
+    slug: "mellstroy",
+    name: "Mellstroy / MellAff",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 9 },
+    affiliateUrl: "https://mell9382.live/?p=etp3",
+    summary:
+      "Operador crypto de mayor riesgo editorial. JugadaMax lo coloca en posición baja y recomienda revisar con cuidado disponibilidad, términos, pagos, bonos y verificación antes de registrarte.",
+    locale: "es-MX",
+  },
+];
+
+function uniqueCryptoPayments(casinos: Casino[]) {
   const names = new Set<string>();
   for (const casino of casinos) {
     for (const p of casino.payments ?? []) {
@@ -32,7 +115,8 @@ function uniqueCryptoPayments(casinos: ReturnType<typeof getCasinosByVertical>) 
 }
 
 export default function CryptoCasinosPage() {
-  const casinos = getCasinosByVertical("crypto-casino");
+  const editorialCasinos = getCasinosByVertical("crypto-casino");
+  const casinos = rankSpanishCryptoCasinos([...editorialCasinos, ...affiliateCryptoCasinos]);
   const cryptoPayments = uniqueCryptoPayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -77,6 +161,11 @@ export default function CryptoCasinosPage() {
       <div className="mb-8 space-y-3">
         <AffiliateDisclosure />
         <ResponsibleGamblingNotice />
+        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+          La disponibilidad varía según tu jurisdicción y los términos oficiales del operador.
+          Métodos de pago, bonos, verificación y retiros pueden cambiar sin aviso. Revisa las leyes
+          locales y las condiciones vigentes antes de registrarte.
+        </p>
       </div>
 
       <section aria-label="Ranking de casinos crypto" className="mb-6">
