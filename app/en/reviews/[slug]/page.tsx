@@ -22,6 +22,10 @@ import { LicenseInfo } from "@/components/trust/LicenseInfo";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
+import {
+  SourceReferenceBlock,
+  type SourceReference,
+} from "@/components/trust/SourceReferenceBlock";
 
 type BodyBlock =
   | { type: "h2"; text: string }
@@ -79,6 +83,24 @@ function getEnReviewRelatedLinks(slug: string) {
   ];
 }
 
+function getEnReviewSourceReferences(casinoName: string): SourceReference[] {
+  return [
+    { label: "JugadaMax editorial methodology", href: "/en/how-we-review" },
+    { label: "Affiliate disclosure", href: "/en/affiliate-disclosure" },
+    { label: "Responsible gambling", href: "/en/responsible-gambling" },
+    {
+      label: `${casinoName} official terms, restricted-jurisdiction information and payment/cashier pages`,
+      note:
+        "operator-published information used where relevant; verify live terms before registering.",
+    },
+    {
+      label: "Author profile: Arturs Stoliks on LinkedIn",
+      href: "https://www.linkedin.com/in/arturs-stoliks-953555280",
+      note: "author/profile proof, not a factual source.",
+    },
+  ];
+}
+
 export function generateStaticParams() {
   return getGlobalReviews().map((review) => ({ slug: review.slug }));
 }
@@ -121,6 +143,7 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
   const outboundLink = getCasinoOutboundLink(casino, "global");
   const { mainBlocks, faqItems } = splitBodyAndFaq(review.body);
   const relatedLinks = getEnReviewRelatedLinks(slug);
+  const sourceReferences = getEnReviewSourceReferences(casino.name);
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", path: "/en" },
@@ -235,6 +258,12 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
             ) : null}
           </div>
         </section>
+
+        <SourceReferenceBlock
+          title="Sources & references"
+          description="Written by Arturs Stoliks and reviewed by JugadaMax Editorial. LinkedIn is author/profile proof, not a factual source. Operator terms, payments and verification rules can change without notice."
+          items={sourceReferences}
+        />
 
         <section aria-labelledby="en-review-related-heading">
           <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">

@@ -68,10 +68,10 @@ export const globalGuides: Article[] = [
       "### Do bonuses make crypto casinos safer?",
       "No. Bonuses are marketing offers with conditions. They do not reduce gambling risk, guarantee profit or indicate that an operator is safer than alternatives.",
     ].join("\n\n"),
-    authorId: "redaccion-jugadamax",
+    authorId: "arturs-stoliks",
     tags: ["crypto casinos", "guide"],
     publishedAt: "2026-07-04",
-    updatedAt: "2026-07-05",
+    updatedAt: "2026-07-06",
     locale: "en",
   },
 ];

@@ -10,7 +10,7 @@ export const globalReviews: Review[] = [
   {
     id: "stake-review-en",
     casinoId: "stake",
-    authorId: "redaccion-jugadamax",
+    authorId: "arturs-stoliks",
     slug: "stake",
     title: "Stake Review — Global Crypto Casino & Sportsbook Overview",
     verdict:
@@ -72,13 +72,13 @@ export const globalReviews: Review[] = [
     trustSummary:
       "Stake.com operates under terms and licensing that vary by jurisdiction. Restricted countries apply. Check official terms before registering. Do not use VPNs or false location data to access restricted services.",
     publishedAt: "2026-07-04",
-    updatedAt: "2026-07-05",
+    updatedAt: "2026-07-06",
     locale: "en",
   },
   {
     id: "bcgame-review-en",
     casinoId: "bcgame",
-    authorId: "redaccion-jugadamax",
+    authorId: "arturs-stoliks",
     slug: "bcgame",
     title: "BC.Game Review — Global Crypto Casino Overview",
     verdict:
@@ -140,7 +140,7 @@ export const globalReviews: Review[] = [
     trustSummary:
       "BC.Game publishes licensing and terms on its official site. Availability depends on your jurisdiction. JugadaMax has not verified Mexico availability. Check official terms before registering.",
     publishedAt: "2026-07-04",
-    updatedAt: "2026-07-05",
+    updatedAt: "2026-07-06",
     locale: "en",
   },
 ];
