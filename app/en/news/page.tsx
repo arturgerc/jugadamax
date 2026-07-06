@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { buildEnMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
-import {
-  SourceReferenceBlock,
-  type SourceReference,
-} from "@/components/trust/SourceReferenceBlock";
 
 export const metadata: Metadata = {
   ...buildEnMetadata({
@@ -24,17 +20,6 @@ export const metadata: Metadata = {
   },
 };
 
-const newsSourceReferences: SourceReference[] = [
-  { label: "JugadaMax editorial methodology", href: "/en/how-we-review" },
-  { label: "Affiliate disclosure", href: "/en/affiliate-disclosure" },
-  { label: "Responsible gambling", href: "/en/responsible-gambling" },
-  {
-    label: "Author profile: Arturs Stoliks on LinkedIn",
-    href: "https://www.linkedin.com/in/arturs-stoliks-953555280",
-    note: "author/profile proof, not a factual source.",
-  },
-];
-
 export default function EnNewsIndexPage() {
   return (
     <Container className="py-8 sm:py-10">
@@ -50,18 +35,6 @@ export default function EnNewsIndexPage() {
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             Editorial updates on crypto casinos, payments and iGaming coverage from JugadaMax.
           </p>
-          <p className="max-w-3xl text-xs leading-relaxed text-muted-foreground">
-            <span className="font-medium text-foreground">By JugadaMax Editorial</span> · Reviewed
-            by JugadaMax Editorial · Last updated July 6, 2026 ·{" "}
-            <a
-              href="https://www.linkedin.com/in/arturs-stoliks-953555280"
-              target="_blank"
-              rel="me noopener noreferrer"
-              className="font-medium text-primary underline underline-offset-2"
-            >
-              Author profile: Arturs Stoliks on LinkedIn
-            </a>
-          </p>
         </div>
       </header>
 
@@ -76,12 +49,6 @@ export default function EnNewsIndexPage() {
         <p className="mt-4 text-sm text-muted-foreground">
           Adults 18+ only. Gambling involves risk. Availability varies by jurisdiction.
         </p>
-        <SourceReferenceBlock
-          title="Sources & references"
-          description="This placeholder is noindex while English news coverage is being prepared. LinkedIn is author/profile proof, not a factual source."
-          items={newsSourceReferences}
-          className="mt-6"
-        />
       </div>
     </Container>
   );

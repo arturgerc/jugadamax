@@ -8,10 +8,6 @@ import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosureEn } from "@/components/trust/AffiliateDisclosureEn";
 import { ResponsibleGamblingNoticeEn } from "@/components/trust/ResponsibleGamblingNoticeEn";
 import { JurisdictionWarning } from "@/components/trust/JurisdictionWarning";
-import {
-  SourceReferenceBlock,
-  type SourceReference,
-} from "@/components/trust/SourceReferenceBlock";
 
 export const metadata: Metadata = buildEnMetadata({
   title: "Best Crypto Casinos — Global Reviews & Payment Guides",
@@ -33,22 +29,6 @@ function uniqueCryptoPayments(casinos: ReturnType<typeof getGlobalCasinosByVerti
   }
   return [...names];
 }
-
-const cryptoCasinoSourceReferences: SourceReference[] = [
-  { label: "JugadaMax editorial methodology", href: "/en/how-we-review" },
-  { label: "Affiliate disclosure", href: "/en/affiliate-disclosure" },
-  { label: "Responsible gambling", href: "/en/responsible-gambling" },
-  {
-    label: "Operator-published terms, restricted-jurisdiction information and payment/cashier pages",
-    note:
-      "used where relevant; readers should verify live operator terms before registering.",
-  },
-  {
-    label: "Author profile: Arturs Stoliks on LinkedIn",
-    href: "https://www.linkedin.com/in/arturs-stoliks-953555280",
-    note: "author/profile proof, not a factual source.",
-  },
-];
 
 export default function EnCryptoCasinosPage() {
   const casinos = getGlobalCasinosByVertical("crypto-casino");
@@ -80,18 +60,6 @@ export default function EnCryptoCasinosPage() {
               Editorial review
             </li>
           </ul>
-          <p className="max-w-3xl text-xs leading-relaxed text-muted-foreground">
-            <span className="font-medium text-foreground">Editorial note:</span> Reviewed by
-            JugadaMax Editorial. Last updated July 6, 2026. Sources include operator-published terms,
-            payment/cashier pages and{" "}
-            <Link
-              href="/en/how-we-review"
-              className="font-medium text-primary underline underline-offset-2"
-            >
-              JugadaMax methodology
-            </Link>
-            .
-          </p>
         </div>
       </header>
 
@@ -429,12 +397,6 @@ export default function EnCryptoCasinosPage() {
             </div>
           </dl>
         </section>
-
-        <SourceReferenceBlock
-          title="Sources & references"
-          description="Reviewed by JugadaMax Editorial. LinkedIn is author/profile proof, not a factual source. Operator availability, payment options and account rules can change without notice."
-          items={cryptoCasinoSourceReferences}
-        />
 
         <section aria-labelledby="en-related-heading">
           <h2

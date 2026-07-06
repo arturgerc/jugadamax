@@ -8,10 +8,6 @@ import { Container } from "@/components/layout/Container";
 import { AuthorByline } from "@/components/review/AuthorByline";
 import { ResponsibleGamblingNoticeEn } from "@/components/trust/ResponsibleGamblingNoticeEn";
 import { JurisdictionWarning } from "@/components/trust/JurisdictionWarning";
-import {
-  SourceReferenceBlock,
-  type SourceReference,
-} from "@/components/trust/SourceReferenceBlock";
 
 export const metadata: Metadata = buildEnMetadata({
   title: "Best Crypto Casinos — What to Check Before You Register",
@@ -70,22 +66,6 @@ const relatedLinks = [
   { href: "/en/affiliate-disclosure", label: "Affiliate disclosure" },
 ] as const;
 
-const guideSourceReferences: SourceReference[] = [
-  { label: "JugadaMax editorial methodology", href: "/en/how-we-review" },
-  { label: "Affiliate disclosure", href: "/en/affiliate-disclosure" },
-  { label: "Responsible gambling", href: "/en/responsible-gambling" },
-  {
-    label: "Operator-published terms, restricted-jurisdiction information and payment/cashier pages",
-    note:
-      "used where relevant; readers should verify live operator terms before registering.",
-  },
-  {
-    label: "Author profile: Arturs Stoliks on LinkedIn",
-    href: "https://www.linkedin.com/in/arturs-stoliks-953555280",
-    note: "author/profile proof, not a factual source.",
-  },
-];
-
 export default function EnBestCryptoCasinosGuidePage() {
   const guide = getGlobalGuideBySlug("best-crypto-casinos");
   if (!guide) notFound();
@@ -114,9 +94,6 @@ export default function EnBestCryptoCasinosGuidePage() {
                 locale="en"
               />
             ) : null}
-            <p className="text-xs leading-relaxed text-muted-foreground">
-              Reviewed by <span className="font-medium text-foreground">JugadaMax Editorial</span>.
-            </p>
           </div>
         </header>
 
@@ -196,12 +173,6 @@ export default function EnBestCryptoCasinosGuidePage() {
             </dl>
           </section>
         ) : null}
-
-        <SourceReferenceBlock
-          title="Sources & references"
-          description="Written by Arturs Stoliks and reviewed by JugadaMax Editorial. LinkedIn is author/profile proof, not a factual source. Operator rules can change, so verify live terms before registering."
-          items={guideSourceReferences}
-        />
 
         <section aria-labelledby="en-guide-related-heading">
           <h2
