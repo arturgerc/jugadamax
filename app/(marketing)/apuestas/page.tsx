@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { Casino } from "@/types/content";
 import { getCasinosByVertical } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
@@ -17,7 +18,32 @@ export const metadata: Metadata = buildMetadata({
   path: "/apuestas",
 });
 
-function uniquePayments(casinos: ReturnType<typeof getCasinosByVertical>) {
+const affiliateSportsbooks: Casino[] = [
+  {
+    id: "1xbet",
+    slug: "1xbet",
+    name: "1xBet",
+    verticals: ["sportsbook"],
+    rankByVertical: { sportsbook: 4 },
+    affiliateUrl: "https://reffpa.com/L?tag=d_5806070m_97c_&site=5806070&ad=97",
+    summary:
+      "Casa de apuestas internacional orientada a LATAM. La disponibilidad, métodos de pago, bonos y verificación dependen de tu jurisdicción y de los términos oficiales del operador.",
+    locale: "es-MX",
+  },
+  {
+    id: "melbet",
+    slug: "melbet",
+    name: "Melbet",
+    verticals: ["sportsbook"],
+    rankByVertical: { sportsbook: 5 },
+    affiliateUrl: "https://refpa3665.com/L?tag=d_5806065m_2170c_&site=5806065&ad=2170",
+    summary:
+      "Operador internacional de apuestas deportivas con enfoque LATAM. Antes de registrarte, revisa disponibilidad, métodos de pago, bonos, verificación y condiciones vigentes en el sitio oficial.",
+    locale: "es-MX",
+  },
+];
+
+function uniquePayments(casinos: Casino[]) {
   const names = new Set<string>();
   for (const casino of casinos) {
     for (const p of casino.payments ?? []) {
@@ -28,7 +54,8 @@ function uniquePayments(casinos: ReturnType<typeof getCasinosByVertical>) {
 }
 
 export default function BettingSitesPage() {
-  const casinos = getCasinosByVertical("sportsbook");
+  const editorialSportsbooks = getCasinosByVertical("sportsbook");
+  const casinos = [...editorialSportsbooks, ...affiliateSportsbooks];
   const payments = uniquePayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -74,6 +101,11 @@ export default function BettingSitesPage() {
       <div className="mb-8 space-y-3">
         <AffiliateDisclosure />
         <ResponsibleGamblingNotice />
+        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+          La disponibilidad depende de tu jurisdicción y de los términos oficiales del operador.
+          Métodos de pago, bonos y verificación pueden cambiar sin aviso. Revisa las leyes locales
+          y los términos vigentes antes de registrarte.
+        </p>
       </div>
 
       <section aria-label="Ranking de casas de apuestas" className="mb-6">
