@@ -47,6 +47,11 @@ export function ReviewHeader({
         updatedAt={review.updatedAt}
         locale={locale}
       />
+      {locale === "en" ? (
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          Reviewed by <span className="font-medium text-foreground">JugadaMax Editorial</span>.
+        </p>
+      ) : null}
     </header>
   );
 }

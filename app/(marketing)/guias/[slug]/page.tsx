@@ -7,6 +7,10 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
 import { AuthorByline } from "@/components/review/AuthorByline";
 import { cn, focusRing } from "@/lib/utils";
+import {
+  SourceReferenceBlock,
+  type SourceReference,
+} from "@/components/trust/SourceReferenceBlock";
 
 const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> = {
   "casinos-no-kyc-mexico": [
@@ -33,29 +37,40 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
   ],
 };
 
-const GUIDE_SOURCE_LINKS: Record<string, { label: string; url: string }[]> = {
+const BASE_SPANISH_SOURCE_REFERENCES: SourceReference[] = [
+  { label: "Metodología editorial de JugadaMax", href: "/como-evaluamos" },
+  { label: "Divulgación de afiliados", href: "/divulgacion-afiliados" },
+  { label: "Juego responsable", href: "/juego-responsable" },
+  {
+    label: "Términos oficiales del operador cuando aplica",
+    note:
+      "las reglas de disponibilidad, pagos, verificación y bonos pueden cambiar sin aviso.",
+  },
+];
+
+const GUIDE_SOURCE_LINKS: Record<string, SourceReference[]> = {
   "casinos-con-usdt-mexico": [
     {
       label: "Tether Transparency",
-      url: "https://tether.to/en/transparency/",
+      href: "https://tether.to/en/transparency/",
     },
     {
       label: "Coinbase — What is a stablecoin?",
-      url: "https://www.coinbase.com/learn/crypto-basics/what-is-a-stablecoin",
+      href: "https://www.coinbase.com/learn/crypto-basics/what-is-a-stablecoin",
     },
   ],
   "casinos-con-bitcoin-mexico": [
     {
       label: "Bitcoin.org — FAQ",
-      url: "https://bitcoin.org/en/faq",
+      href: "https://bitcoin.org/en/faq",
     },
     {
       label: "Coinbase — What is Bitcoin?",
-      url: "https://www.coinbase.com/learn/crypto-basics/what-is-bitcoin",
+      href: "https://www.coinbase.com/learn/crypto-basics/what-is-bitcoin",
     },
     {
       label: "Bitcoin Whitepaper",
-      url: "https://bitcoin.org/bitcoin.pdf",
+      href: "https://bitcoin.org/bitcoin.pdf",
     },
   ],
 };
@@ -122,7 +137,13 @@ export default async function GuideArticlePage({
 
   const paragraphs = article.body.split("\n\n").filter(Boolean);
   const relatedReading = GUIDE_RELATED_READING[slug];
-  const sourceLinks = GUIDE_SOURCE_LINKS[slug];
+  const authorProfileSources: SourceReference[] =
+    author.links?.map((link) => ({
+      label: `Perfil del autor en ${link.label}`,
+      href: link.url,
+      note: "prueba de perfil del autor; no es una fuente factual.",
+    })) ?? [];
+  const sourceLinks = [...BASE_SPANISH_SOURCE_REFERENCES, ...authorProfileSources, ...(GUIDE_SOURCE_LINKS[slug] ?? [])];
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -180,36 +201,11 @@ export default async function GuideArticlePage({
 
         <div className="space-y-5">{paragraphs.map(renderGuideBlock)}</div>
 
-        {sourceLinks ? (
-          <section
-            aria-labelledby="source-links-heading"
-            className="rounded-xl border border-border/60 bg-card p-5 sm:p-6"
-          >
-            <h2
-              id="source-links-heading"
-              className="text-lg font-bold tracking-tight text-foreground"
-            >
-              Fuentes y lecturas
-            </h2>
-            <ul className="mt-4 space-y-2">
-              {sourceLinks.map((item) => (
-                <li key={item.url}>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    className={cn(
-                      "inline-flex min-h-11 items-center text-sm font-medium text-primary underline-offset-2 hover:underline",
-                      focusRing,
-                    )}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
+        <SourceReferenceBlock
+          title="Fuentes y lecturas"
+          description="Fuentes reales: metodología editorial, divulgación, juego responsable y referencias externas cuando aplican. LinkedIn se usa como prueba de perfil del autor, no como fuente factual."
+          items={sourceLinks}
+        />
 
         {relatedReading ? (
           <section
