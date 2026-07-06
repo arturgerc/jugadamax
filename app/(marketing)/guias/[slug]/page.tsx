@@ -21,11 +21,12 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/casinos-crypto", label: "Ver casinos crypto" },
   ],
   "casinos-con-usdt-mexico": [
-    { href: "/reviews/bitcasino", label: "Bitcasino.io" },
-    { href: "/reviews/cryptocasino", label: "CryptoCasino.CC" },
-    { href: "/reviews/ethcasino", label: "ETH Casino" },
-    { href: "/reviews/ltccasino", label: "LTC Casino" },
-    { href: "/casinos-crypto", label: "Ver casinos crypto" },
+    { href: "/casinos-crypto", label: "Ver ranking de casinos crypto" },
+    { href: "/guias/500-casino-mexico", label: "500 Casino en México" },
+    { href: "/guias/roobet-mexico-crypto", label: "Roobet en México" },
+    { href: "/guias/gamdom-mexico-crypto", label: "Gamdom en México" },
+    { href: "/guias/casinos-no-kyc-mexico", label: "Casinos no KYC" },
+    { href: "/guias/casinos-con-bitcoin-mexico", label: "Casinos con Bitcoin" },
   ],
   "casinos-con-bitcoin-mexico": [
     { href: "/reviews/bitcasino", label: "Bitcasino.io" },
