@@ -246,6 +246,46 @@ export default function FiatCasinosPage() {
         </div>
       </section>
 
+      <section aria-labelledby="fiat-rutas-relacionadas-heading" className="mb-12">
+        <h2
+          id="fiat-rutas-relacionadas-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          Rutas relacionadas
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Algunos usuarios comparan primero el casino fiat, mientras que otros prefieren el casino
+          crypto o las guías de bonos. Las apuestas deportivas son una sección secundaria dentro de
+          un sitio con enfoque principal en casino.
+        </p>
+        <nav aria-label="Enlaces relacionados" className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href="/bonos"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Bonos de casino
+          </Link>
+          <Link
+            href="/casinos-crypto"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Casinos crypto
+          </Link>
+          <Link
+            href="/guias/casinos-con-usdt-mexico"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Casinos con USDT en México
+          </Link>
+          <Link
+            href="/apuestas"
+            className="inline-flex min-h-11 items-center rounded-lg border border-dashed border-border/60 bg-card/40 px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+          >
+            Apuestas deportivas (sección adicional)
+          </Link>
+        </nav>
+      </section>
+
       <FiatCasinoInfoSections paymentMethods={fiatPayments} />
     </Container>
   );

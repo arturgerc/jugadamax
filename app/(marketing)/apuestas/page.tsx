@@ -215,6 +215,40 @@ export default function BettingSitesPage() {
         </div>
       </section>
 
+      <section aria-labelledby="apuestas-comparar-casinos-heading" className="mb-12">
+        <h2
+          id="apuestas-comparar-casinos-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          También puedes comparar casinos
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          JugadaMax tiene un enfoque principal en casino; esta página es para apuestas deportivas,
+          pero muchos operadores mixtos también pueden incluir secciones de casino y live casino
+          según sus términos oficiales.
+        </p>
+        <nav aria-label="Enlaces relacionados" className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href="/casinos-fiat"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Casinos fiat
+          </Link>
+          <Link
+            href="/casinos-crypto"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Casinos crypto
+          </Link>
+          <Link
+            href="/bonos"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Bonos de casino
+          </Link>
+        </nav>
+      </section>
+
       <BettingInfoSections paymentMethods={payments} />
     </Container>
   );

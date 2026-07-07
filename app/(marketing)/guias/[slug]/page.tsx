@@ -25,8 +25,8 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/guias/500-casino-mexico", label: "500 Casino en México" },
     { href: "/guias/roobet-mexico-crypto", label: "Roobet en México" },
     { href: "/guias/gamdom-mexico-crypto", label: "Gamdom en México" },
-    { href: "/guias/casinos-no-kyc-mexico", label: "Casinos no KYC" },
     { href: "/guias/casinos-con-bitcoin-mexico", label: "Casinos con Bitcoin" },
+    { href: "/bonos", label: "Bonos de casino" },
   ],
   "casinos-con-bitcoin-mexico": [
     { href: "/reviews/bitcasino", label: "Bitcasino.io" },
@@ -39,15 +39,15 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
   "roobet-mexico-crypto": [
     { href: "/casinos-crypto", label: "Ver ranking de casinos crypto" },
     { href: "/guias/casinos-con-usdt-mexico", label: "Casinos con USDT" },
-    { href: "/guias/casinos-no-kyc-mexico", label: "Casinos no KYC" },
     { href: "/guias/casinos-con-bitcoin-mexico", label: "Casinos con Bitcoin" },
+    { href: "/bonos", label: "Bonos de casino" },
     { href: "/como-evaluamos", label: "Cómo evaluamos" },
   ],
   "gamdom-mexico-crypto": [
     { href: "/casinos-crypto", label: "Ver ranking de casinos crypto" },
     { href: "/guias/roobet-mexico-crypto", label: "Roobet en México" },
     { href: "/guias/casinos-con-usdt-mexico", label: "Casinos con USDT" },
-    { href: "/guias/casinos-no-kyc-mexico", label: "Casinos no KYC" },
+    { href: "/bonos", label: "Bonos de casino" },
     { href: "/como-evaluamos", label: "Cómo evaluamos" },
   ],
   "500-casino-mexico": [
@@ -55,6 +55,7 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/guias/roobet-mexico-crypto", label: "Roobet en México" },
     { href: "/guias/gamdom-mexico-crypto", label: "Gamdom en México" },
     { href: "/guias/casinos-con-usdt-mexico", label: "Casinos con USDT" },
+    { href: "/bonos", label: "Bonos de casino" },
     { href: "/como-evaluamos", label: "Cómo evaluamos" },
   ],
 };

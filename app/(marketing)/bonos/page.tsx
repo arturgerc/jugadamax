@@ -311,6 +311,46 @@ export default function BonosPage() {
           </div>
         </section>
 
+        <section aria-labelledby="bonos-antes-elegir-heading">
+          <h2
+            id="bonos-antes-elegir-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            Antes de elegir un bono
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Las condiciones de los bonos cambian según el operador, el producto y tu jurisdicción.
+            Compara el tipo de casino, los métodos de pago, las reglas de verificación y las
+            condiciones de retiro antes de depositar.
+          </p>
+          <nav aria-label="Enlaces relacionados" className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/casinos-crypto"
+              className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+            >
+              Casinos crypto
+            </Link>
+            <Link
+              href="/casinos-fiat"
+              className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+            >
+              Casinos fiat
+            </Link>
+            <Link
+              href="/guias/casinos-con-usdt-mexico"
+              className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+            >
+              Casinos con USDT en México
+            </Link>
+            <Link
+              href="/apuestas"
+              className="inline-flex min-h-11 items-center rounded-lg border border-dashed border-border/60 bg-card/40 px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+            >
+              Apuestas deportivas (sección adicional)
+            </Link>
+          </nav>
+        </section>
+
         <section aria-labelledby="bonos-alertas-heading">
           <h2
             id="bonos-alertas-heading"

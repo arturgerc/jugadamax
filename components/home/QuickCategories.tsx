@@ -25,9 +25,9 @@ const categories = [
     description: "Bonos de casino, requisitos de apuesta y términos, con juego responsable.",
   },
   {
-    label: "Guías crypto / USDT",
-    href: "/guias",
-    description: "Guías de USDT, Bitcoin, slots y live casino para jugadores en México.",
+    label: "Guía de casinos con USDT",
+    href: "/guias/casinos-con-usdt-mexico",
+    description: "Redes, riesgos de stablecoins y qué revisar antes de depositar en México y LATAM.",
   },
 ] as const;
 

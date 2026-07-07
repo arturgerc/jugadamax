@@ -356,6 +356,57 @@ export default function CryptoCasinosPage() {
         </div>
       </section>
 
+      <section aria-labelledby="crypto-tambien-revisar-heading" className="mb-12">
+        <h2
+          id="crypto-tambien-revisar-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          También puedes revisar
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Guías y rutas relacionadas para comparar métodos de pago, operadores y bonos antes de
+          registrarte.
+        </p>
+        <nav aria-label="Enlaces relacionados" className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href="/guias/casinos-con-usdt-mexico"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Casinos con USDT en México
+          </Link>
+          <Link
+            href="/guias/500-casino-mexico"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Guía de 500 Casino
+          </Link>
+          <Link
+            href="/guias/roobet-mexico-crypto"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Guía de Roobet
+          </Link>
+          <Link
+            href="/guias/gamdom-mexico-crypto"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Guía de Gamdom
+          </Link>
+          <Link
+            href="/bonos"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Bonos de casino
+          </Link>
+          <Link
+            href="/casinos-fiat"
+            className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+          >
+            Casinos fiat
+          </Link>
+        </nav>
+      </section>
+
       <CryptoCasinoInfoSections paymentMethods={cryptoPayments} />
     </Container>
   );
