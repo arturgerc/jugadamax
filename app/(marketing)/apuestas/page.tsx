@@ -11,7 +11,11 @@ import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { OperatorCta } from "@/components/trust/OperatorCta";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
-import { BETSSON_MX_APUESTAS_URL } from "@/lib/affiliate/constants";
+import {
+  BETSSON_MX_APUESTAS_URL,
+  MELBET_AFFILIATE_URL,
+  ONE_XBET_AFFILIATE_URL,
+} from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mejores Casas de Apuestas en México",
@@ -35,9 +39,9 @@ const affiliateSportsbooks: Casino[] = [
     name: "1xBet",
     verticals: ["sportsbook"],
     rankByVertical: { sportsbook: 4 },
-    affiliateUrl: "https://reffpa.com/L?tag=d_5806070m_97c_&site=5806070&ad=97",
+    affiliateUrl: ONE_XBET_AFFILIATE_URL,
     summary:
-      "Casa de apuestas internacional orientada a LATAM. La disponibilidad, métodos de pago, bonos y verificación dependen de tu jurisdicción y de los términos oficiales del operador.",
+      "Operador mixto con enfoque en apuestas deportivas y también casino online / live casino según los términos oficiales y el mercado. La disponibilidad, métodos de pago, bonos y verificación dependen de tu jurisdicción y de las condiciones vigentes del operador.",
     locale: "es-MX",
   },
   {
@@ -46,9 +50,9 @@ const affiliateSportsbooks: Casino[] = [
     name: "Melbet",
     verticals: ["sportsbook"],
     rankByVertical: { sportsbook: 5 },
-    affiliateUrl: "https://refpa3665.com/L?tag=d_5806065m_2170c_&site=5806065&ad=2170",
+    affiliateUrl: MELBET_AFFILIATE_URL,
     summary:
-      "Operador internacional de apuestas deportivas con enfoque LATAM. Antes de registrarte, revisa disponibilidad, métodos de pago, bonos, verificación y condiciones vigentes en el sitio oficial.",
+      "Operador mixto con secciones de apuestas deportivas y también casino online / live casino según los términos oficiales. Antes de registrarte, revisa disponibilidad, métodos de pago, bonos, verificación y condiciones vigentes en el sitio oficial.",
     locale: "es-MX",
   },
 ];
@@ -161,6 +165,28 @@ export default function BettingSitesPage() {
       <section aria-label="Ranking de casas de apuestas" className="mb-6">
         <RankingList casinos={casinos} vertical="sportsbook" />
       </section>
+
+      <div className="mb-10 rounded-lg border border-border/60 bg-card p-4 sm:p-5">
+        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Algunos operadores de apuestas también pueden incluir casino, slots o live casino, pero
+          JugadaMax mantiene esta página enfocada en apuestas deportivas. Para casino, revisa también
+          las secciones de{" "}
+          <Link
+            href="/casinos-fiat"
+            className="font-medium text-primary underline underline-offset-2 hover:text-[var(--jm-gold-strong)]"
+          >
+            casinos fiat
+          </Link>{" "}
+          y{" "}
+          <Link
+            href="/casinos-crypto"
+            className="font-medium text-primary underline underline-offset-2 hover:text-[var(--jm-gold-strong)]"
+          >
+            casinos crypto
+          </Link>
+          .
+        </p>
+      </div>
 
       <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted-foreground">
         El orden se basa en nuestra{" "}

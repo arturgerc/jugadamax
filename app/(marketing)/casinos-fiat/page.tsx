@@ -13,6 +13,8 @@ import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSec
 import {
   BETSSON_MX_CASINO_WELCOME_URL,
   BETSSON_MX_HOME_URL,
+  MELBET_AFFILIATE_URL,
+  ONE_XBET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
@@ -37,6 +39,35 @@ const betssonWelcomeLink = {
   isAffiliate: true,
   rel: "sponsored nofollow noopener noreferrer",
 } as const;
+
+const mixedOperators = [
+  {
+    id: "1xbet",
+    name: "1xBet",
+    link: {
+      market: "mx",
+      url: ONE_XBET_AFFILIATE_URL,
+      label: "Ver 1xBet",
+      isAffiliate: true,
+      rel: "sponsored nofollow noopener noreferrer",
+    },
+    description:
+      "1xBet es un operador mixto que puede combinar apuestas deportivas, casino online, slots y live casino según el mercado y los términos oficiales. Antes de registrarte, revisa bonos, métodos de pago, verificación, límites y disponibilidad para tu jurisdicción.",
+  },
+  {
+    id: "melbet",
+    name: "Melbet",
+    link: {
+      market: "mx",
+      url: MELBET_AFFILIATE_URL,
+      label: "Ver Melbet",
+      isAffiliate: true,
+      rel: "sponsored nofollow noopener noreferrer",
+    },
+    description:
+      "Melbet es un operador mixto con secciones de apuestas deportivas y casino online. La disponibilidad de juegos, bonos, pagos, verificación y límites depende de los términos oficiales del operador y de tu jurisdicción.",
+  },
+] as const;
 
 function uniqueFiatPayments(casinos: ReturnType<typeof getCasinosByVertical>) {
   const names = new Set<string>();
@@ -141,6 +172,47 @@ export default function FiatCasinosPage() {
             </div>
           </div>
         </article>
+      </section>
+
+      <section aria-labelledby="operadores-mixtos-heading" className="mb-8">
+        <h2
+          id="operadores-mixtos-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          Operadores mixtos: casino + apuestas
+        </h2>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Algunos operadores de México/LATAM combinan casino fiat, slots, live casino y apuestas
+          deportivas en una sola cuenta. Betsson MX es nuestro partner fiat principal para México;
+          1xBet y Melbet se presentan como operadores mixtos de casino y apuestas. Estos operadores
+          pueden incluir secciones de casino, slots, live casino y apuestas deportivas según el
+          mercado. Revisa siempre términos oficiales, disponibilidad, bonos, métodos de pago,
+          verificación y límites antes de registrarte.
+        </p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          {mixedOperators.map((operator) => (
+            <article
+              key={operator.id}
+              className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6"
+            >
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-semibold text-foreground">{operator.name}</h3>
+                <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
+                  Operador mixto
+                </span>
+              </div>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                {operator.description}
+              </p>
+              <p className="inline-flex w-fit items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
+                18+ | Juega con responsabilidad
+              </p>
+              <div className="mt-auto">
+                <OperatorCta link={operator.link} className="w-full sm:w-auto" />
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section aria-label="Ranking de casinos fiat" className="mb-6">

@@ -26,6 +26,20 @@ export const MELLSTROY_GLOBAL_AFFILIATE_URL = "https://mell9382.live/?p=etp3";
 /** BetFury active tracking link (crypto/LATAM direction). */
 export const BETFURY_AFFILIATE_URL = "https://betfury.bet/dilyl6y3r";
 
+/**
+ * 1xBet active affiliate link. Mixed operator (sportsbook + casino/live casino
+ * depending on market and official terms); redirects by GEO/IP.
+ */
+export const ONE_XBET_AFFILIATE_URL =
+  "https://reffpa.com/L?tag=d_5806070m_97c_&site=5806070&ad=97";
+
+/**
+ * Melbet active affiliate link. Mixed operator (sportsbook + casino depending on
+ * market and official terms); redirects by GEO/IP.
+ */
+export const MELBET_AFFILIATE_URL =
+  "https://refpa3665.com/L?tag=d_5806065m_2170c_&site=5806065&ad=2170";
+
 /** Betsson MX approved affiliate links (Mexico fiat/casino/sportsbook direction). */
 export const BETSSON_MX_HOME_URL =
   "https://record.betsson.mx/_okP3zhMdNKxKqZDsJd1BOWNd7ZgqdRLk/1/";
