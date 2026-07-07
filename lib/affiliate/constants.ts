@@ -22,3 +22,9 @@ export const ROOBET_GLOBAL_AFFILIATE_URL = "https://roobet.com/?ref=arturgerc";
 export const GAMDOM_GLOBAL_AFFILIATE_URL = "https://gamdom.com/r/arturgerc";
 
 export const MELLSTROY_GLOBAL_AFFILIATE_URL = "https://mell9382.live/?p=etp3";
+
+/** BetFury active tracking link (crypto/LATAM direction). */
+export const BETFURY_AFFILIATE_URL = "https://betfury.bet/dilyl6y3r";
+
+/** Rainbet built-in referral link only (no separate affiliate approval). */
+export const RAINBET_REFERRAL_URL = "https://rainbet.com?r=arturgerc";

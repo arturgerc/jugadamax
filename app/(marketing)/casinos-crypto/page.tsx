@@ -10,6 +10,14 @@ import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { CryptoCasinoInfoSections } from "@/components/verticals/CryptoCasinoInfoSections";
+import {
+  BETFURY_AFFILIATE_URL,
+  FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  GAMDOM_GLOBAL_AFFILIATE_URL,
+  MELLSTROY_GLOBAL_AFFILIATE_URL,
+  RAINBET_REFERRAL_URL,
+  ROOBET_GLOBAL_AFFILIATE_URL,
+} from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mejores Casinos Crypto en México",
@@ -23,15 +31,12 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const SPANISH_CRYPTO_RANKING_ORDER = [
-  "stake",
-  "bitcasino",
   "500-casino",
-  "roobet",
-  "cryptocasino",
   "gamdom",
-  "ethcasino",
-  "ltccasino",
+  "betfury",
+  "roobet",
   "mellstroy",
+  "rainbet",
 ] as const;
 
 function rankSpanishCryptoCasinos(casinos: Casino[]): Casino[] {
@@ -63,10 +68,32 @@ const affiliateCryptoCasinos: Casino[] = [
     slug: "500-casino",
     name: "500 Casino",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 3 },
-    affiliateUrl: "https://500.casino/r/ARTURGERC",
+    rankByVertical: { "crypto-casino": 1 },
+    affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
     summary:
-      "Casino crypto internacional con programa de referidos activo. La disponibilidad, métodos de pago, bonos, verificación y retiros dependen de tu jurisdicción y de los términos oficiales del operador.",
+      "Candidato de casino crypto para México/LATAM. Revisa términos, disponibilidad, verificación y métodos de pago antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "gamdom",
+    slug: "gamdom",
+    name: "Gamdom",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 2 },
+    affiliateUrl: GAMDOM_GLOBAL_AFFILIATE_URL,
+    summary:
+      "Candidato de casino crypto internacional. Revisa disponibilidad, métodos de pago, límites y verificación antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "betfury",
+    slug: "betfury",
+    name: "BetFury",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 3 },
+    affiliateUrl: BETFURY_AFFILIATE_URL,
+    summary:
+      "Candidato de casino crypto y casino gamificado. Revisa promociones, términos, requisitos de apuesta, verificación y jurisdicción antes de registrarte.",
     locale: "es-MX",
   },
   {
@@ -75,20 +102,9 @@ const affiliateCryptoCasinos: Casino[] = [
     name: "Roobet",
     verticals: ["crypto-casino"],
     rankByVertical: { "crypto-casino": 4 },
-    affiliateUrl: "https://roobet.com/?ref=arturgerc",
+    affiliateUrl: ROOBET_GLOBAL_AFFILIATE_URL,
     summary:
-      "Casino crypto internacional con registro por referido activo y aprobación de afiliado pendiente. Revisa disponibilidad regional, métodos de pago, bonos, verificación y condiciones oficiales antes de registrarte.",
-    locale: "es-MX",
-  },
-  {
-    id: "gamdom",
-    slug: "gamdom",
-    name: "Gamdom",
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 6 },
-    affiliateUrl: "https://gamdom.com/r/arturgerc",
-    summary:
-      "Operador crypto internacional incluido como candidato editorial. Antes de usarlo, revisa términos oficiales, disponibilidad, métodos de pago, reglas de cuenta, bonos y requisitos de verificación.",
+      "Candidato de casino crypto internacional. El enlace de referido está disponible mientras la campaña de afiliado sigue pendiente; revisa términos y disponibilidad antes de registrarte.",
     locale: "es-MX",
   },
   {
@@ -96,13 +112,35 @@ const affiliateCryptoCasinos: Casino[] = [
     slug: "mellstroy",
     name: "Mellstroy / MellAff",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 9 },
-    affiliateUrl: "https://mell9382.live/?p=etp3",
+    rankByVertical: { "crypto-casino": 5 },
+    affiliateUrl: MELLSTROY_GLOBAL_AFFILIATE_URL,
     summary:
-      "Operador crypto de mayor riesgo editorial. JugadaMax lo coloca en posición baja y recomienda revisar con cuidado disponibilidad, términos, pagos, bonos y verificación antes de registrarte.",
+      "Candidato de casino crypto/social casino internacional para tráfico LATAM. Revisa términos oficiales y disponibilidad antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "rainbet",
+    slug: "rainbet",
+    name: "Rainbet",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 6 },
+    affiliateUrl: RAINBET_REFERRAL_URL,
+    summary:
+      "Candidato referral. Revisa términos y disponibilidad antes de registrarte.",
     locale: "es-MX",
   },
 ];
+
+/**
+ * Otros operadores internacionales que puedes comparar de forma editorial.
+ * No son posiciones monetizadas ni CTAs promocionados en esta página.
+ */
+const OTHER_INTERNATIONAL_OPERATORS = [
+  "Bitcasino.io",
+  "CryptoCasino.CC",
+  "ETH Casino",
+  "LTC Casino",
+] as const;
 
 function uniqueCryptoPayments(casinos: Casino[]) {
   const names = new Set<string>();
@@ -115,9 +153,11 @@ function uniqueCryptoPayments(casinos: Casino[]) {
 }
 
 export default function CryptoCasinosPage() {
+  // Monetized ranking = active affiliate/referral partners only.
+  const casinos = rankSpanishCryptoCasinos(affiliateCryptoCasinos);
+  // Editorial catalogue is still used for the educational payment-method section.
   const editorialCasinos = getCasinosByVertical("crypto-casino");
-  const casinos = rankSpanishCryptoCasinos([...editorialCasinos, ...affiliateCryptoCasinos]);
-  const cryptoPayments = uniqueCryptoPayments(casinos);
+  const cryptoPayments = uniqueCryptoPayments(editorialCasinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
     { name: "Casinos Crypto", path: "/casinos-crypto" },
@@ -154,6 +194,9 @@ export default function CryptoCasinosPage() {
             <li className="inline-flex items-center rounded-full border border-accent/30 bg-accent/8 px-2.5 py-1 text-xs font-medium text-accent">
               Evaluación editorial
             </li>
+            <li className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
+              18+ | Juega con responsabilidad
+            </li>
           </ul>
           <nav aria-label="Navegación rápida" className="flex flex-wrap gap-2 pt-1">
             <Link
@@ -188,9 +231,9 @@ export default function CryptoCasinosPage() {
         <AffiliateDisclosure />
         <ResponsibleGamblingNotice />
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          La disponibilidad varía según tu jurisdicción y los términos oficiales del operador.
-          Métodos de pago, bonos, verificación y retiros pueden cambiar sin aviso. Revisa las leyes
-          locales y las condiciones vigentes antes de registrarte.
+          La disponibilidad, bonos, métodos de pago, verificación y retiros dependen de los términos
+          oficiales del operador y de tu jurisdicción. Revisa las leyes locales y las condiciones
+          vigentes antes de registrarte.
         </p>
       </div>
 
@@ -203,19 +246,21 @@ export default function CryptoCasinosPage() {
         </h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <article className="rounded-lg border border-border/60 bg-card p-5">
-            <h3 className="font-semibold text-foreground">Dominio local / informativo</h3>
+            <h3 className="font-semibold text-foreground">Partners crypto activos</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Stake aparece como referencia de marca con dominio local para México. JugadaMax no debe
-              mezclar enlaces globales con páginas orientadas a México; revisa siempre el dominio,
-              términos y disponibilidad oficial.
+              500 Casino, Gamdom, BetFury, Roobet y Mellstroy se presentan como candidatos
+              internacionales del segmento crypto con enlaces activos. Rainbet aparece más abajo como
+              candidato referral. La disponibilidad, pagos, verificación, bonos y retiros dependen de
+              cada operador y de tu jurisdicción.
             </p>
           </article>
           <article className="rounded-lg border border-border/60 bg-card p-5">
-            <h3 className="font-semibold text-foreground">Operadores internacionales crypto</h3>
+            <h3 className="font-semibold text-foreground">Otros operadores para comparar</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              500 Casino, Roobet, Gamdom, CryptoCasino.CC, ETH Casino, LTC Casino y Mellstroy se
-              presentan como candidatos internacionales del segmento crypto. La disponibilidad,
-              pagos, verificación, bonos y retiros dependen de cada operador y jurisdicción.
+              De forma editorial y no monetizada puedes comparar también otros operadores
+              internacionales como {OTHER_INTERNATIONAL_OPERATORS.join(", ")}. Aparecen solo como
+              referencia para comparar términos, pagos y disponibilidad; no son posiciones
+              promocionadas en esta página.
             </p>
           </article>
         </div>
