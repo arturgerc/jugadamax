@@ -15,9 +15,9 @@ import { SocialLinks } from "@/components/social/SocialLinks";
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: "JugadaMax — Casinos Crypto, Casinos Fiat y Apuestas en México",
+    title: "JugadaMax — Casinos online, bonos y crypto casinos en México",
     description:
-      "Rankings claros y reseñas honestas de casinos crypto, casinos fiat y casas de apuestas en México. Evaluamos seguridad, pagos, licencias y experiencia de usuario. +18 juego responsable.",
+      "Compara casinos crypto, casinos fiat, bonos, slots y live casino para México y LATAM. Información editorial para mayores de 18 años con juego responsable.",
     path: "/",
     languageAlternates: {
       "es-MX": "/",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
   }),
   title: {
-    absolute: "JugadaMax — Casinos Crypto, Casinos Fiat y Apuestas en México",
+    absolute: "JugadaMax — Casinos online, bonos y crypto casinos en México",
   },
 };
 
@@ -138,15 +138,20 @@ export default function Home() {
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div className="max-w-2xl space-y-1">
-              <h2
-                id="top-betting-heading"
-                className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-              >
-                Top Casas de Apuestas en México
-              </h2>
+              <div className="flex flex-wrap items-center gap-2">
+                <h2
+                  id="top-betting-heading"
+                  className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+                >
+                  Top Casas de Apuestas en México
+                </h2>
+                <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
+                  Sección adicional
+                </span>
+              </div>
               <p className="text-sm text-muted-foreground sm:text-base">
-                Casas de apuestas deportivas disponibles en México, con nuestra evaluación
-                editorial.
+                Sección adicional para comparar operadores con sportsbook. JugadaMax mantiene su
+                enfoque principal en casino; para casino revisa casinos crypto y casinos fiat.
               </p>
             </div>
             <Link

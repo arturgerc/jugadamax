@@ -39,16 +39,17 @@ export function Hero({ className }: { className?: string }) {
           {/* Left: editorial intro */}
           <div className="max-w-xl space-y-4 lg:max-w-none">
             <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-              México · Crypto-first · Rankings editoriales
+              México · LATAM · Casino-first
             </span>
 
             <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.5rem] lg:leading-tight">
-              Casinos crypto, casinos fiat y apuestas en México
+              Casinos online, bonos y crypto casinos para México
             </h1>
 
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Rankings claros y reseñas honestas para elegir operadores con confianza. Evaluamos
-              seguridad, pagos, licencias y experiencia de usuario.
+              JugadaMax compara casinos crypto, casinos fiat, bonos, slots y live casino para
+              jugadores adultos en México y LATAM. Las apuestas deportivas existen como una sección
+              adicional, pero el foco principal del sitio es casino.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
@@ -59,15 +60,19 @@ export function Hero({ className }: { className?: string }) {
                 Ver casinos crypto
               </Link>
               <Link
-                href="/como-evaluamos"
+                href="/bonos"
                 className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
-                Cómo evaluamos
+                Ver bonos de casino
               </Link>
             </div>
 
-            <p className="text-xs text-muted-foreground">
-              Solo para mayores de 18 años. Juega de forma responsable.
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              Disponibilidad, bonos, métodos de pago, verificación y retiros dependen de los términos
+              oficiales del operador y de tu jurisdicción.
+            </p>
+            <p className="text-xs font-medium text-emerald-400">
+              18+ | Juega con responsabilidad
             </p>
           </div>
 

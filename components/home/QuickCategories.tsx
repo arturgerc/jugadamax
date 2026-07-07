@@ -3,32 +3,46 @@ import { Container } from "@/components/layout/Container";
 import { cn, focusRing } from "@/lib/utils";
 
 /**
- * Quick category navigation to the three verticals (FR-001). Mobile-first grid
- * that reflows from 1 to 3 columns without horizontal overflow.
+ * Quick category navigation (FR-001). Casino-first ordering: crypto casinos, fiat
+ * casinos, bonuses and guides come first; the sportsbook section is marked as a
+ * secondary/additional section. Mobile-first grid that reflows from 1 to 3
+ * columns without horizontal overflow.
  */
 const categories = [
   {
     label: "Casinos Crypto",
     href: "/casinos-crypto",
-    description: "Los mejores casinos con criptomonedas para México.",
+    description: "Bitcoin, USDT y guías de casino crypto para México y LATAM.",
   },
   {
     label: "Casinos Fiat",
     href: "/casinos-fiat",
-    description: "Casinos con métodos de pago locales en México.",
+    description: "Casino online con operadores fiat y métodos de pago locales en México.",
   },
   {
-    label: "Apuestas Deportivas",
-    href: "/apuestas",
-    description: "Casas de apuestas deportivas disponibles en México.",
+    label: "Bonos de casino",
+    href: "/bonos",
+    description: "Bonos de casino, requisitos de apuesta y términos, con juego responsable.",
+  },
+  {
+    label: "Guías crypto / USDT",
+    href: "/guias",
+    description: "Guías de USDT, Bitcoin, slots y live casino para jugadores en México.",
   },
 ] as const;
+
+const secondaryCategory = {
+  label: "Apuestas deportivas",
+  href: "/apuestas",
+  description:
+    "Sección adicional para comparar operadores con sportsbook. JugadaMax sigue siendo casino-first.",
+} as const;
 
 export function QuickCategories({ className }: { className?: string }) {
   return (
     <section aria-label="Categorías" className={cn("py-10", className)}>
       <Container>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((cat) => (
             <Link
               key={cat.href}
@@ -43,6 +57,25 @@ export function QuickCategories({ className }: { className?: string }) {
             </Link>
           ))}
         </div>
+
+        <Link
+          href={secondaryCategory.href}
+          className={cn(
+            "mt-4 flex flex-col gap-1 rounded-lg border border-dashed border-border/60 bg-card/40 p-5 transition-colors hover:border-primary/40 sm:flex-row sm:items-center sm:justify-between sm:gap-4",
+            focusRing,
+          )}
+        >
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-base font-semibold text-foreground">{secondaryCategory.label}</h2>
+              <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
+                Sección adicional
+              </span>
+            </div>
+            <p className="mt-1 text-sm text-muted-foreground">{secondaryCategory.description}</p>
+          </div>
+          <span className="text-sm font-medium text-primary">Ver apuestas →</span>
+        </Link>
       </Container>
     </section>
   );
