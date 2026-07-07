@@ -20,9 +20,9 @@ import {
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Mejores Casinos Crypto en México",
+  title: "Mejores casinos crypto en México",
   description:
-    "Ranking de los mejores casinos crypto en México: bonos, métodos de pago en criptomonedas y evaluación editorial. Con divulgación de afiliados y juego responsable +18.",
+    "Compara casinos crypto, Bitcoin, USDT, bonos, métodos de pago y términos oficiales para México y LATAM. 18+ | Juega con responsabilidad.",
   path: "/casinos-crypto",
   languageAlternates: {
     "es-MX": "/casinos-crypto",

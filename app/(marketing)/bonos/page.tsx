@@ -12,9 +12,9 @@ import {
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Bonos de casino en México: cómo leer promociones y requisitos | JugadaMax",
+  title: "Bonos de casino en México",
   description:
-    "Guía editorial de JugadaMax sobre bonos de casino en México: requisitos de apuesta, límites, juegos excluidos, bonos crypto, promociones fiat y señales de alerta.",
+    "Guía editorial de bonos de casino, requisitos de apuesta, condiciones, límites y términos oficiales para México y LATAM. 18+ | Juega con responsabilidad.",
   path: "/bonos",
 });
 

@@ -18,9 +18,9 @@ import {
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Mejores Casinos Fiat en México",
+  title: "Casinos fiat en México",
   description:
-    "Ranking de casinos fiat en México: bonos, métodos de pago locales (OXXO, SPEI, tarjetas) y evaluación editorial. Con divulgación de afiliados y juego responsable +18.",
+    "Compara casinos online fiat, slots, live casino, bonos y operadores mixtos para México. Revisa términos oficiales, pagos, verificación y límites.",
   path: "/casinos-fiat",
 });
 

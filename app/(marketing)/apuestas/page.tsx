@@ -18,9 +18,9 @@ import {
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Mejores Casas de Apuestas en México",
+  title: "Apuestas deportivas en México",
   description:
-    "Ranking de casas de apuestas deportivas en México: mercados, métodos de pago locales y evaluación editorial. Con divulgación de afiliados y juego responsable +18.",
+    "Sección secundaria de JugadaMax para comparar apuestas deportivas y operadores mixtos. El foco principal del sitio sigue siendo casino online.",
   path: "/apuestas",
 });
 

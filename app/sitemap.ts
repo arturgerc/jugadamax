@@ -15,6 +15,7 @@ const STATIC_PATHS = [
   "/",
   "/casinos-crypto",
   "/casinos-fiat",
+  "/bonos",
   "/apuestas",
   "/guias",
   "/noticias",
