@@ -9,7 +9,9 @@ import { RankingList } from "@/components/ranking/RankingList";
 import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
+import { OperatorCta } from "@/components/trust/OperatorCta";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
+import { BETSSON_MX_APUESTAS_URL } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mejores Casas de Apuestas en México",
@@ -17,6 +19,14 @@ export const metadata: Metadata = buildMetadata({
     "Ranking de casas de apuestas deportivas en México: mercados, métodos de pago locales y evaluación editorial. Con divulgación de afiliados y juego responsable +18.",
   path: "/apuestas",
 });
+
+const betssonApuestasLink = {
+  market: "mx",
+  url: BETSSON_MX_APUESTAS_URL,
+  label: "Ver apuestas en Betsson MX",
+  isAffiliate: true,
+  rel: "sponsored nofollow noopener noreferrer",
+} as const;
 
 const affiliateSportsbooks: Casino[] = [
   {
@@ -54,7 +64,11 @@ function uniquePayments(casinos: Casino[]) {
 }
 
 export default function BettingSitesPage() {
-  const editorialSportsbooks = getCasinosByVertical("sportsbook");
+  // Betsson is featured as the primary Mexico sportsbook partner above; exclude
+  // the placeholder editorial entry from the ranking to avoid duplication.
+  const editorialSportsbooks = getCasinosByVertical("sportsbook").filter(
+    (c) => c.id !== "betsson",
+  );
   const casinos = [...editorialSportsbooks, ...affiliateSportsbooks];
   const payments = uniquePayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
@@ -107,6 +121,42 @@ export default function BettingSitesPage() {
           y los términos vigentes antes de registrarte.
         </p>
       </div>
+
+      <section aria-labelledby="betsson-apuestas-heading" className="mb-8">
+        <h2
+          id="betsson-apuestas-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          Partner destacado para México
+        </h2>
+        <article className="mt-4 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="min-w-0 space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-semibold text-foreground">Betsson MX</h3>
+                <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-primary">
+                  Apuestas deportivas
+                </span>
+              </div>
+              <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Betsson MX es un operador fiat/sportsbook para usuarios de México. Revisa términos
+                oficiales, disponibilidad, bonos, métodos de pago, verificación y límites antes de
+                registrarte.
+              </p>
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                Bonos, disponibilidad, métodos de pago, verificación y retiros dependen de los
+                términos oficiales de Betsson MX y de tu jurisdicción.
+              </p>
+              <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
+                18+ | Juega con responsabilidad
+              </p>
+            </div>
+            <div className="shrink-0 lg:w-56">
+              <OperatorCta link={betssonApuestasLink} className="w-full" />
+            </div>
+          </div>
+        </article>
+      </section>
 
       <section aria-label="Ranking de casas de apuestas" className="mb-6">
         <RankingList casinos={casinos} vertical="sportsbook" />

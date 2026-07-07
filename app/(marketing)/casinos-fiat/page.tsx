@@ -8,7 +8,12 @@ import { RankingList } from "@/components/ranking/RankingList";
 import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
+import { OperatorCta } from "@/components/trust/OperatorCta";
 import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSections";
+import {
+  BETSSON_MX_CASINO_WELCOME_URL,
+  BETSSON_MX_HOME_URL,
+} from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mejores Casinos Fiat en México",
@@ -16,6 +21,22 @@ export const metadata: Metadata = buildMetadata({
     "Ranking de casinos fiat en México: bonos, métodos de pago locales (OXXO, SPEI, tarjetas) y evaluación editorial. Con divulgación de afiliados y juego responsable +18.",
   path: "/casinos-fiat",
 });
+
+const betssonHomeLink = {
+  market: "mx",
+  url: BETSSON_MX_HOME_URL,
+  label: "Ver Betsson MX",
+  isAffiliate: true,
+  rel: "sponsored nofollow noopener noreferrer",
+} as const;
+
+const betssonWelcomeLink = {
+  market: "mx",
+  url: BETSSON_MX_CASINO_WELCOME_URL,
+  label: "Ver promoción en Betsson MX",
+  isAffiliate: true,
+  rel: "sponsored nofollow noopener noreferrer",
+} as const;
 
 function uniqueFiatPayments(casinos: ReturnType<typeof getCasinosByVertical>) {
   const names = new Set<string>();
@@ -28,7 +49,9 @@ function uniqueFiatPayments(casinos: ReturnType<typeof getCasinosByVertical>) {
 }
 
 export default function FiatCasinosPage() {
-  const casinos = getCasinosByVertical("fiat-casino");
+  // Betsson is featured as the primary Mexico fiat partner above; exclude the
+  // placeholder editorial entry from the ranking to avoid duplication.
+  const casinos = getCasinosByVertical("fiat-casino").filter((c) => c.id !== "betsson");
   const fiatPayments = uniqueFiatPayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -75,6 +98,50 @@ export default function FiatCasinosPage() {
         <AffiliateDisclosure />
         <ResponsibleGamblingNotice />
       </div>
+
+      <section aria-labelledby="betsson-fiat-heading" className="mb-8">
+        <h2
+          id="betsson-fiat-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          Partner destacado para México
+        </h2>
+        <article className="mt-4 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="min-w-0 space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-semibold text-foreground">Betsson MX</h3>
+                <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-primary">
+                  Casino fiat
+                </span>
+              </div>
+              <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Betsson MX es un operador fiat/sportsbook para usuarios de México. Revisa términos
+                oficiales, disponibilidad, bonos, métodos de pago, verificación y límites antes de
+                registrarte.
+              </p>
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                Bonos, disponibilidad, métodos de pago, verificación y retiros dependen de los
+                términos oficiales de Betsson MX y de tu jurisdicción.
+              </p>
+              <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
+                18+ | Juega con responsabilidad
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-2 lg:w-56">
+              <OperatorCta link={betssonHomeLink} className="w-full" />
+              <a
+                href={betssonWelcomeLink.url}
+                target="_blank"
+                rel={betssonWelcomeLink.rel}
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+              >
+                {betssonWelcomeLink.label}
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
 
       <section aria-label="Ranking de casinos fiat" className="mb-6">
         <RankingList casinos={casinos} vertical="fiat-casino" />
