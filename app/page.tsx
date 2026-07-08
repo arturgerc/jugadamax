@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { Casino } from "@/types/content";
 import { getCasinos, getCasinosByVertical } from "@/lib/content";
+import {
+  BETFURY_AFFILIATE_URL,
+  FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  GAMDOM_GLOBAL_AFFILIATE_URL,
+} from "@/lib/affiliate/constants";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { Hero } from "@/components/home/Hero";
@@ -33,6 +39,43 @@ export const metadata: Metadata = {
 // live on the vertical pages. Renders only real, available entries (no filler).
 const PREVIEW_COUNT = 3;
 
+/** Active Mexico/LATAM crypto partners for homepage preview (not stale seed registry). */
+const HOMEPAGE_CRYPTO_PREVIEW: Casino[] = [
+  {
+    id: "500-casino",
+    slug: "500-casino",
+    name: "500 Casino",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 1 },
+    affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+    summary:
+      "Candidato de casino crypto para México/LATAM. Revisa términos, disponibilidad, verificación y métodos de pago antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "gamdom",
+    slug: "gamdom",
+    name: "Gamdom",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 2 },
+    affiliateUrl: GAMDOM_GLOBAL_AFFILIATE_URL,
+    summary:
+      "Candidato de casino crypto internacional. Revisa disponibilidad, métodos de pago, límites y verificación antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "betfury",
+    slug: "betfury",
+    name: "BetFury",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 3 },
+    affiliateUrl: BETFURY_AFFILIATE_URL,
+    summary:
+      "Candidato de casino crypto y casino gamificado. Revisa promociones, términos, requisitos de apuesta, verificación y jurisdicción antes de registrarte.",
+    locale: "es-MX",
+  },
+];
+
 const verticalCtas = [
   { label: "Casinos Crypto", href: "/casinos-crypto" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
@@ -40,7 +83,7 @@ const verticalCtas = [
 ] as const;
 
 export default function Home() {
-  const cryptoCasinos = getCasinosByVertical("crypto-casino").slice(0, PREVIEW_COUNT);
+  const cryptoCasinos = HOMEPAGE_CRYPTO_PREVIEW.slice(0, PREVIEW_COUNT);
   const fiatCasinos = getCasinosByVertical("fiat-casino").slice(0, PREVIEW_COUNT);
   const sportsbooks = getCasinosByVertical("sportsbook").slice(0, PREVIEW_COUNT);
   const allCasinos = getCasinos();

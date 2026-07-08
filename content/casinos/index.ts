@@ -6,8 +6,8 @@ import type { Casino } from "@/types/content";
  * Authenticity (Constitution Principle V): no fabricated ratings, winners, or
  * proof. Editorial `rating` is intentionally omitted here — it is only shown
  * once a named, authored Review exists. Summaries and licensing notes are
- * neutral and factual; `affiliateUrl` points to the operator's official site as
- * a placeholder until real affiliate destinations are configured.
+ * neutral and factual. `affiliateUrl` is only set when an approved tracking link
+ * exists; editorial/pending operators omit it so fallback CTAs cannot fire.
  */
 export const casinos: Casino[] = [
   {
@@ -34,7 +34,7 @@ export const casinos: Casino[] = [
         "Licencia y disponibilidad informadas por el operador para el dominio local de México; pendiente de verificación editorial.",
     },
     bonusIds: ["stake-welcome"],
-    affiliateUrl: "https://stake.mx",
+    // Outbound link resolved via operator-links (STAKE_MX_OFFICIAL_URL).
     summary:
       "Stake México combina casino online y apuestas deportivas para jugadores en México. La disponibilidad, pagos, límites y verificaciones dependen del dominio local y de las condiciones vigentes del operador.",
     locale: "es-MX",
@@ -63,7 +63,7 @@ export const casinos: Casino[] = [
         "Operador internacional con licencia CGA / Curaçao informada por el sitio oficial. No es licencia local SEGOB México; revisa términos y disponibilidad regional.",
     },
     bonusIds: ["bitcasino-welcome"],
-    affiliateUrl: "https://bitcasino.io/",
+    // Editorial only — affiliate rejected; no outbound CTA.
     summary:
       "Casino crypto internacional con enfoque en Bitcoin, stablecoins y juegos en vivo. Para México y LATAM, JugadaMax lo presenta como alternativa crypto/offshore; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
     locale: "es-MX",
@@ -96,7 +96,7 @@ export const casinos: Casino[] = [
         "Licencia, entidad operadora, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial. No es licencia local SEGOB México.",
     },
     bonusIds: ["cryptocasino-welcome"],
-    affiliateUrl: "https://www.cryptocasino.cc/",
+    // Editorial only — no approved tracking link.
     summary:
       "CryptoCasino.CC es un casino crypto con enfoque en Bitcoin, Ethereum, USDT, Solana y pagos desde wallets. Para México y LATAM, JugadaMax lo presenta como candidato crypto/offshore orientado a privacidad y registro sencillo; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
     locale: "es-MX",
@@ -132,7 +132,7 @@ export const casinos: Casino[] = [
         "El sitio publica términos sobre pagos, cashouts, anti-fraud policy y responsabilidad del jugador. No es licencia local SEGOB México; revisa términos y disponibilidad regional.",
     },
     bonusIds: ["ethcasino-welcome"],
-    affiliateUrl: "https://www.ethcasino.io/",
+    // Editorial only — no approved tracking link.
     summary:
       "ETH Casino es un casino crypto con enfoque en Ethereum, stablecoins y juegos en vivo. Para México y LATAM, JugadaMax lo presenta como candidato crypto/offshore; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
     locale: "es-MX",
@@ -161,8 +161,7 @@ export const casinos: Casino[] = [
         "Licencia, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial.",
     },
     bonusIds: ["ltccasino-welcome"],
-    // LTC CTA intentionally uses ltccasino.io as the casino destination; ltccasino.com is only a related informational link in the review.
-    affiliateUrl: "https://www.ltccasino.io/",
+    // Editorial only — no approved tracking link.
     summary:
       "LTC Casino es un casino crypto con enfoque en Litecoin y pagos con criptomonedas. JugadaMax lo presenta como candidato de privacidad dentro del segmento crypto, pero recomienda revisar disponibilidad para México, requisitos de verificación, límites, comisiones y tiempos de retiro antes de registrarse.",
     locale: "es-MX",
@@ -191,7 +190,7 @@ export const casinos: Casino[] = [
         "Licencia informada por el operador para México; revisa términos y condiciones vigentes en el sitio oficial.",
     },
     bonusIds: ["caliente-welcome"],
-    affiliateUrl: "https://www.caliente.mx",
+    // Editorial only — no approved affiliate link yet.
     summary:
       "Casino online y casa de apuestas con enfoque local para México. Destaca por apuestas deportivas, casino, slots, pagos mexicanos y métodos como tarjetas, OXXO/OXXOPay y SPEI según la información publicada por el operador.",
     locale: "es-MX",
@@ -220,7 +219,7 @@ export const casinos: Casino[] = [
         "Licencia informada por el operador para México; revisa términos y condiciones vigentes en el sitio oficial.",
     },
     bonusIds: ["codere-welcome"],
-    affiliateUrl: "https://www.codere.mx",
+    // Editorial only — partner pending; internal review at /reviews/codere.
     summary:
       "Casa de apuestas y casino online con enfoque local para México. Destaca por apuestas deportivas, fútbol, métodos de pago mexicanos y experiencia orientada a usuarios que prefieren pesos mexicanos frente a casinos crypto/offshore.",
     locale: "es-MX",
@@ -249,7 +248,7 @@ export const casinos: Casino[] = [
         "Licencia informada por el operador para México; revisa términos y condiciones vigentes en el sitio oficial.",
     },
     bonusIds: ["betsson-welcome"],
-    affiliateUrl: "https://www.betsson.mx/",
+    // Outbound links resolved on vertical pages via BETSSON_MX_* constants.
     summary:
       "Casino online y casa de apuestas con marca internacional y enfoque para México. Puede encajar para usuarios que buscan apuestas deportivas, casino, slots, pagos locales y una experiencia fiat frente a casinos crypto/offshore.",
     locale: "es-MX",

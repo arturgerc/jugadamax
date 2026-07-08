@@ -34,6 +34,7 @@ export const primaryNav: NavLink[] = [
   { label: "Bonos", href: "/bonos" },
   { label: "Guías", href: "/guias" },
   { label: "Apuestas", href: "/apuestas" },
+  { label: "Reseñas", href: "/reviews" },
   { label: "Noticias", href: "/noticias" },
 ];
 

@@ -1,8 +1,22 @@
 import Link from "next/link";
-import { getCasinosByVertical } from "@/lib/content";
+import type { Casino } from "@/types/content";
 import { Container } from "@/components/layout/Container";
 import { HeroRecommendationCard } from "@/components/home/HeroRecommendationCard";
+import { FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL } from "@/lib/affiliate/constants";
 import { cn } from "@/lib/utils";
+
+/** Active Mexico/LATAM crypto partner for homepage hero (editorial card, no affiliate CTA). */
+const HOMEPAGE_FEATURED_CRYPTO: Casino = {
+  id: "500-casino",
+  slug: "500-casino",
+  name: "500 Casino",
+  verticals: ["crypto-casino"],
+  rankByVertical: { "crypto-casino": 1 },
+  affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  summary:
+    "Candidato de casino crypto para México/LATAM. Revisa términos, disponibilidad, verificación y métodos de pago antes de registrarte.",
+  locale: "es-MX",
+};
 
 /**
  * Homepage hero v2 (FR-001).
@@ -11,7 +25,7 @@ import { cn } from "@/lib/utils";
  * hero. Static, lightweight, mobile-first. No autoplay video or particles.
  */
 export function Hero({ className }: { className?: string }) {
-  const featuredCasino = getCasinosByVertical("crypto-casino")[0];
+  const featuredCasino = HOMEPAGE_FEATURED_CRYPTO;
 
   return (
     <section

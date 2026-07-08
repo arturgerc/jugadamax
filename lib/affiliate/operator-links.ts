@@ -128,6 +128,17 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
 };
 
+/** Seed/editorial operators that must never receive MX affiliateUrl fallback CTAs. */
+const DISABLE_FALLBACK_OPERATOR_IDS = new Set([
+  "bitcasino",
+  "codere",
+  "caliente",
+  "cryptocasino",
+  "ethcasino",
+  "ltccasino",
+  "betsson",
+]);
+
 /** Returns a market-specific operator link when configured; undefined otherwise. */
 export function resolveOperatorLink(operatorId: string, market: Market): OperatorLink | undefined {
   return CONFIGURED_LINKS[operatorId]?.[market];
@@ -137,11 +148,13 @@ export function resolveOperatorLink(operatorId: string, market: Market): Operato
  * Outbound link for a casino card or review CTA.
  *
  * Prefers configured market links for Stake/BC.Game. Falls back to `affiliateUrl`
- * on Mexico pages only for other operators — never overwrites existing values.
+ * on Mexico pages only for approved operators — never for editorial/pending IDs.
  */
 export function getCasinoOutboundLink(casino: Casino, market: Market): OperatorLink | undefined {
   const configured = resolveOperatorLink(casino.id, market);
   if (configured) return configured;
+
+  if (DISABLE_FALLBACK_OPERATOR_IDS.has(casino.id)) return undefined;
 
   if (market === "mx" && casino.affiliateUrl) {
     return {
