@@ -7,6 +7,7 @@ import {
   getReviewBySlug,
   getReviews,
 } from "@/lib/content";
+import { filterReviewsForSurface, isOperatorAllowedOnSurface } from "@/content/operators/status";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -142,7 +143,9 @@ function RelatedLinkBadge({
 }
 
 export function generateStaticParams() {
-  return getReviews().map((review) => ({ slug: review.slug }));
+  return filterReviewsForSurface(getReviews(), "reviews").map((review) => ({
+    slug: review.slug,
+  }));
 }
 
 export async function generateMetadata({
@@ -175,7 +178,7 @@ export async function generateMetadata({
 export default async function ReviewPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const review = getReviewBySlug(slug);
-  if (!review) notFound();
+  if (!review || !isOperatorAllowedOnSurface(review.casinoId, "reviews")) notFound();
 
   const casino = getCasinoById(review.casinoId);
   const author = getAuthorById(review.authorId);

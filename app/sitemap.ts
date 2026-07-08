@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { getArticles, getReviews } from "@/lib/content";
 import { getGlobalReviews } from "@/lib/content/global";
+import { filterReviewsForSurface } from "@/content/operators/status";
 
 /**
  * Dynamic sitemap (FR-023).
@@ -47,7 +48,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: abs(path),
   }));
 
-  const reviewEntries: MetadataRoute.Sitemap = getReviews().map((review) => ({
+  const reviewEntries: MetadataRoute.Sitemap = filterReviewsForSurface(
+    getReviews(),
+    "sitemap",
+  ).map((review) => ({
     url: abs(`/reviews/${review.slug}`),
     lastModified: new Date(review.updatedAt ?? review.publishedAt),
   }));

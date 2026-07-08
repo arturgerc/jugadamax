@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Casino } from "@/types/content";
 import { getCasinos, getCasinosByVertical } from "@/lib/content";
+import { filterCasinosForSurface } from "@/content/operators/status";
 import {
   BETFURY_AFFILIATE_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
@@ -38,13 +39,6 @@ export const metadata: Metadata = {
 // Homepage previews show the top few operators per vertical; the full rankings
 // live on the vertical pages. Renders only real, available entries (no filler).
 const PREVIEW_COUNT = 3;
-
-/** Editorial/rejected/hold operators excluded from homepage surfaces only. */
-const HOMEPAGE_EXCLUDED_OPERATOR_IDS = new Set([
-  "cryptocasino",
-  "ethcasino",
-  "ltccasino",
-]);
 
 /** Active Mexico/LATAM crypto partners for homepage preview (not stale seed registry). */
 const HOMEPAGE_CRYPTO_PREVIEW: Casino[] = [
@@ -91,15 +85,15 @@ const verticalCtas = [
 
 export default function Home() {
   const cryptoCasinos = HOMEPAGE_CRYPTO_PREVIEW.slice(0, PREVIEW_COUNT);
-  const fiatCasinos = getCasinosByVertical("fiat-casino")
-    .filter((casino) => !HOMEPAGE_EXCLUDED_OPERATOR_IDS.has(casino.id))
-    .slice(0, PREVIEW_COUNT);
-  const sportsbooks = getCasinosByVertical("sportsbook")
-    .filter((casino) => !HOMEPAGE_EXCLUDED_OPERATOR_IDS.has(casino.id))
-    .slice(0, PREVIEW_COUNT);
-  const allCasinos = getCasinos().filter(
-    (casino) => !HOMEPAGE_EXCLUDED_OPERATOR_IDS.has(casino.id),
-  );
+  const fiatCasinos = filterCasinosForSurface(
+    getCasinosByVertical("fiat-casino"),
+    "homepage",
+  ).slice(0, PREVIEW_COUNT);
+  const sportsbooks = filterCasinosForSurface(
+    getCasinosByVertical("sportsbook"),
+    "homepage",
+  ).slice(0, PREVIEW_COUNT);
+  const allCasinos = filterCasinosForSurface(getCasinos(), "homepage");
 
   return (
     <>

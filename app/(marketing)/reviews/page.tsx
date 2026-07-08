@@ -5,6 +5,7 @@ import {
   getCasinoById,
   getReviews,
 } from "@/lib/content";
+import { filterReviewsForSurface } from "@/content/operators/status";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -18,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function ReviewsIndexPage() {
-  const reviews = getReviews();
+  const reviews = filterReviewsForSurface(getReviews(), "reviews");
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
     { name: "Reseñas", path: "/reviews" },

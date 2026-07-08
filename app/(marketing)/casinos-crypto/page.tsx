@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Casino } from "@/types/content";
 import { getCasinosByVertical } from "@/lib/content";
+import { filterCasinosForSurface } from "@/content/operators/status";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -153,16 +154,6 @@ const affiliateCryptoCasinos: Casino[] = [
   },
 ];
 
-/**
- * Otros operadores internacionales que puedes comparar de forma editorial.
- * No son posiciones monetizadas ni CTAs promocionados en esta página.
- */
-const OTHER_INTERNATIONAL_OPERATORS = [
-  "CryptoCasino.CC",
-  "ETH Casino",
-  "LTC Casino",
-] as const;
-
 function uniqueCryptoPayments(casinos: Casino[]) {
   const names = new Set<string>();
   for (const casino of casinos) {
@@ -177,7 +168,10 @@ export default function CryptoCasinosPage() {
   // Monetized ranking = active affiliate/referral partners only.
   const casinos = rankSpanishCryptoCasinos(affiliateCryptoCasinos);
   // Editorial catalogue is still used for the educational payment-method section.
-  const editorialCasinos = getCasinosByVertical("crypto-casino");
+  const editorialCasinos = filterCasinosForSurface(
+    getCasinosByVertical("crypto-casino"),
+    "casinos-crypto",
+  );
   const cryptoPayments = uniqueCryptoPayments(editorialCasinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -274,15 +268,6 @@ export default function CryptoCasinosPage() {
               como candidato referral. BC.Game aparece más abajo como comparación editorial no
               monetizada con enlace al sitio oficial de México. La disponibilidad, pagos, verificación, bonos y retiros dependen de cada operador y
               de tu jurisdicción.
-            </p>
-          </article>
-          <article className="rounded-lg border border-border/60 bg-card p-5">
-            <h3 className="font-semibold text-foreground">Otros operadores para comparar</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              De forma editorial y no monetizada puedes comparar también otros operadores
-              internacionales como {OTHER_INTERNATIONAL_OPERATORS.join(", ")}. Aparecen solo como
-              referencia para comparar términos, pagos y disponibilidad; no son posiciones
-              promocionadas en esta página.
             </p>
           </article>
         </div>

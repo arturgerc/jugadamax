@@ -36,6 +36,7 @@ function stakeGlobalLink(): OperatorLink | undefined {
 
 function bcgameMxLink(): OperatorLink | undefined {
   if (!BCGAME_MX_OFFICIAL_URL) return undefined;
+  // BC.Game MX uses official non-affiliate domain (bcgame.mx).
   return {
     market: "mx",
     url: BCGAME_MX_OFFICIAL_URL,
@@ -130,8 +131,8 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
 
 /** Seed/editorial operators that must never receive MX affiliateUrl fallback CTAs. */
 const DISABLE_FALLBACK_OPERATOR_IDS = new Set([
-  "codere",
-  "caliente",
+  "codere", // Codere pending partner — no external CTA.
+  "caliente", // Caliente pending partner — no external CTA.
   "cryptocasino",
   "ethcasino",
   "ltccasino",
