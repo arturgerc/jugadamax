@@ -7,7 +7,7 @@ import {
   getReviewBySlug,
   getReviews,
 } from "@/lib/content";
-import { filterReviewsForSurface, isOperatorAllowedOnSurface } from "@/content/operators/status";
+import { filterReviewsForSurface, isOperatorAllowedOnSurface, isOperatorCtaAllowed } from "@/content/operators/status";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -186,7 +186,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
   const headlineBonus = getBonusesForCasino(casino.id).find((b) => b.active)?.title;
   const trustNote = review.trustSummary ?? casino.licensing?.notes;
-  const outboundLink = getCasinoOutboundLink(casino, "mx");
+  const outboundLink = isOperatorCtaAllowed(casino.id)
+    ? getCasinoOutboundLink(casino, "mx")
+    : undefined;
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -246,7 +248,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </div>
         </section>
 
-        {review.relatedLinks && review.relatedLinks.length > 0 ? (
+        {review.relatedLinks &&
+        isOperatorCtaAllowed(casino.id) &&
+        review.relatedLinks.length > 0 ? (
           <section
             aria-label="Enlaces relacionados"
             className="rounded-lg border border-border/60 bg-card p-4 sm:p-5"

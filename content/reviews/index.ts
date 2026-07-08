@@ -252,26 +252,7 @@ export const reviews: Review[] = [
     publishedAt: "2026-07-03",
     updatedAt: "2026-07-03",
     locale: "es-MX",
-    relatedLinks: [
-      {
-        label: "Caliente México",
-        url: "https://www.caliente.mx/",
-        kind: "website",
-        subtitle: "Sitio oficial",
-      },
-      {
-        label: "Ayuda Caliente",
-        url: "https://www.caliente.mx/mas/ayuda/servicio-al-cliente/",
-        kind: "website",
-        subtitle: "Soporte / ayuda",
-      },
-      {
-        label: "Opciones de pago",
-        url: "https://www.caliente.mx/mas/ayuda/deposito/",
-        kind: "website",
-        subtitle: "Depósitos y métodos",
-      },
-    ],
+    // Caliente pending partner — no external related links; editorial review only.
   },
   {
     id: "betsson-review",
