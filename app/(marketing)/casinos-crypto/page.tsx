@@ -35,8 +35,10 @@ const SPANISH_CRYPTO_RANKING_ORDER = [
   "gamdom",
   "betfury",
   "roobet",
+  "stake",
   "mellstroy",
   "rainbet",
+  "bcgame",
 ] as const;
 
 function rankSpanishCryptoCasinos(casinos: Casino[]): Casino[] {
@@ -108,11 +110,21 @@ const affiliateCryptoCasinos: Casino[] = [
     locale: "es-MX",
   },
   {
+    id: "stake",
+    slug: "stake",
+    name: "Stake",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 5 },
+    summary:
+      "Stake se muestra como operador crypto/global para comparar. Disponibilidad, bonos, pagos y verificación dependen de los términos oficiales y de tu jurisdicción.",
+    locale: "es-MX",
+  },
+  {
     id: "mellstroy",
     slug: "mellstroy",
     name: "Mellstroy / MellAff",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 5 },
+    rankByVertical: { "crypto-casino": 6 },
     affiliateUrl: MELLSTROY_GLOBAL_AFFILIATE_URL,
     summary:
       "Candidato de casino crypto/social casino internacional para tráfico LATAM. Revisa términos oficiales y disponibilidad antes de registrarte.",
@@ -123,10 +135,20 @@ const affiliateCryptoCasinos: Casino[] = [
     slug: "rainbet",
     name: "Rainbet",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 6 },
+    rankByVertical: { "crypto-casino": 7 },
     affiliateUrl: RAINBET_REFERRAL_URL,
     summary:
       "Candidato referral. Revisa términos y disponibilidad antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "bcgame",
+    slug: "bcgame",
+    name: "BC.Game",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 8 },
+    summary:
+      "BC.Game se incluye como comparación editorial para usuarios que revisan operadores crypto. JugadaMax no tiene una campaña afiliada confirmada para México; revisa términos oficiales, jurisdicción, verificación, pagos y límites antes de registrarte.",
     locale: "es-MX",
   },
 ];
@@ -248,10 +270,11 @@ export default function CryptoCasinosPage() {
           <article className="rounded-lg border border-border/60 bg-card p-5">
             <h3 className="font-semibold text-foreground">Partners crypto activos</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              500 Casino, Gamdom, BetFury, Roobet y Mellstroy se presentan como candidatos
-              internacionales del segmento crypto con enlaces activos. Rainbet aparece más abajo como
-              candidato referral. La disponibilidad, pagos, verificación, bonos y retiros dependen de
-              cada operador y de tu jurisdicción.
+              500 Casino, Gamdom, BetFury, Roobet, Stake y Mellstroy se presentan como candidatos
+              del segmento crypto con enlaces activos o enlaces oficiales. Rainbet aparece más abajo
+              como candidato referral. BC.Game aparece más abajo como comparación editorial no
+              monetizada con enlace al sitio oficial de México. La disponibilidad, pagos, verificación, bonos y retiros dependen de cada operador y
+              de tu jurisdicción.
             </p>
           </article>
           <article className="rounded-lg border border-border/60 bg-card p-5">

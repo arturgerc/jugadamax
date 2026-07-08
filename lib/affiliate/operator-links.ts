@@ -39,7 +39,7 @@ function bcgameMxLink(): OperatorLink | undefined {
   return {
     market: "mx",
     url: BCGAME_MX_OFFICIAL_URL,
-    label: "Ver sitio oficial",
+    label: "Ver sitio oficial BC.Game MX",
     isAffiliate: false,
     rel: "nofollow noopener noreferrer",
   };

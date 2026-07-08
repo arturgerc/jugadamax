@@ -68,10 +68,10 @@ function uniquePayments(casinos: Casino[]) {
 }
 
 export default function BettingSitesPage() {
-  // Betsson is featured as the primary Mexico sportsbook partner above; exclude
-  // the placeholder editorial entry from the ranking to avoid duplication.
+  // Betsson and Codere are featured above; exclude placeholder editorial entries
+  // from the ranking to avoid duplication and unapproved affiliate CTAs.
   const editorialSportsbooks = getCasinosByVertical("sportsbook").filter(
-    (c) => c.id !== "betsson",
+    (c) => c.id !== "betsson" && c.id !== "codere",
   );
   const casinos = [...editorialSportsbooks, ...affiliateSportsbooks];
   const payments = uniquePayments(casinos);
@@ -157,6 +157,46 @@ export default function BettingSitesPage() {
             </div>
             <div className="shrink-0 lg:w-56">
               <OperatorCta link={betssonApuestasLink} className="w-full" />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section aria-labelledby="codere-apuestas-heading" className="mb-8">
+        <h2
+          id="codere-apuestas-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          Operador local para México
+        </h2>
+        <article className="mt-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="min-w-0 space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-semibold text-foreground">Codere</h3>
+                <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
+                  Operador mixto local
+                </span>
+                <span className="inline-flex items-center rounded-full border border-amber-500/30 bg-amber-500/8 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-amber-400">
+                  Partner pendiente
+                </span>
+              </div>
+              <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Codere es un operador con enfoque local para México que puede combinar apuestas
+                deportivas y casino online. JugadaMax está esperando condiciones/tracking de partner;
+                antes de registrarte revisa términos oficiales, bonos, pagos, verificación y límites.
+              </p>
+              <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
+                18+ | Juega con responsabilidad
+              </p>
+            </div>
+            <div className="shrink-0 lg:w-56">
+              <Link
+                href="/reviews/codere"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/60"
+              >
+                Leer reseña
+              </Link>
             </div>
           </div>
         </article>
