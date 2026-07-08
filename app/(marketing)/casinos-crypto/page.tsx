@@ -158,7 +158,6 @@ const affiliateCryptoCasinos: Casino[] = [
  * No son posiciones monetizadas ni CTAs promocionados en esta página.
  */
 const OTHER_INTERNATIONAL_OPERATORS = [
-  "Bitcasino.io",
   "CryptoCasino.CC",
   "ETH Casino",
   "LTC Casino",

@@ -39,6 +39,13 @@ export const metadata: Metadata = {
 // live on the vertical pages. Renders only real, available entries (no filler).
 const PREVIEW_COUNT = 3;
 
+/** Editorial/rejected/hold operators excluded from homepage surfaces only. */
+const HOMEPAGE_EXCLUDED_OPERATOR_IDS = new Set([
+  "cryptocasino",
+  "ethcasino",
+  "ltccasino",
+]);
+
 /** Active Mexico/LATAM crypto partners for homepage preview (not stale seed registry). */
 const HOMEPAGE_CRYPTO_PREVIEW: Casino[] = [
   {
@@ -84,9 +91,15 @@ const verticalCtas = [
 
 export default function Home() {
   const cryptoCasinos = HOMEPAGE_CRYPTO_PREVIEW.slice(0, PREVIEW_COUNT);
-  const fiatCasinos = getCasinosByVertical("fiat-casino").slice(0, PREVIEW_COUNT);
-  const sportsbooks = getCasinosByVertical("sportsbook").slice(0, PREVIEW_COUNT);
-  const allCasinos = getCasinos();
+  const fiatCasinos = getCasinosByVertical("fiat-casino")
+    .filter((casino) => !HOMEPAGE_EXCLUDED_OPERATOR_IDS.has(casino.id))
+    .slice(0, PREVIEW_COUNT);
+  const sportsbooks = getCasinosByVertical("sportsbook")
+    .filter((casino) => !HOMEPAGE_EXCLUDED_OPERATOR_IDS.has(casino.id))
+    .slice(0, PREVIEW_COUNT);
+  const allCasinos = getCasinos().filter(
+    (casino) => !HOMEPAGE_EXCLUDED_OPERATOR_IDS.has(casino.id),
+  );
 
   return (
     <>

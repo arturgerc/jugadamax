@@ -17,7 +17,6 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/reviews/cryptocasino", label: "CryptoCasino.CC" },
     { href: "/reviews/ethcasino", label: "ETH Casino" },
     { href: "/reviews/ltccasino", label: "LTC Casino" },
-    { href: "/reviews/bitcasino", label: "Bitcasino.io" },
     { href: "/casinos-crypto", label: "Ver casinos crypto" },
   ],
   "casinos-con-usdt-mexico": [
@@ -29,7 +28,6 @@ const GUIDE_RELATED_READING: Record<string, { href: string; label: string }[]> =
     { href: "/bonos", label: "Bonos de casino" },
   ],
   "casinos-con-bitcoin-mexico": [
-    { href: "/reviews/bitcasino", label: "Bitcasino.io" },
     { href: "/reviews/cryptocasino", label: "CryptoCasino.CC" },
     { href: "/reviews/ethcasino", label: "ETH Casino" },
     { href: "/reviews/ltccasino", label: "LTC Casino" },

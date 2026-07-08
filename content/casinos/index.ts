@@ -40,35 +40,6 @@ export const casinos: Casino[] = [
     locale: "es-MX",
   },
   {
-    id: "bitcasino",
-    slug: "bitcasino",
-    name: "Bitcasino.io",
-    logo: {
-      src: "/operators/bitcasino.svg",
-      alt: "Bitcasino.io",
-      width: 80,
-      height: 40,
-    },
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 2 },
-    payments: [
-      { name: "Bitcoin", kind: "crypto" },
-      { name: "Ethereum", kind: "crypto" },
-      { name: "USDT", kind: "crypto" },
-      { name: "Litecoin", kind: "crypto" },
-    ],
-    licensing: {
-      licenseName: "Curaçao / CGA",
-      notes:
-        "Operador internacional con licencia CGA / Curaçao informada por el sitio oficial. No es licencia local SEGOB México; revisa términos y disponibilidad regional.",
-    },
-    bonusIds: ["bitcasino-welcome"],
-    // Editorial only — affiliate rejected; no outbound CTA.
-    summary:
-      "Casino crypto internacional con enfoque en Bitcoin, stablecoins y juegos en vivo. Para México y LATAM, JugadaMax lo presenta como alternativa crypto/offshore; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
-    locale: "es-MX",
-  },
-  {
     id: "cryptocasino",
     slug: "cryptocasino",
     name: "CryptoCasino.CC",

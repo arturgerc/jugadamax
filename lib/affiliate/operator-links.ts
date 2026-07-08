@@ -130,7 +130,6 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
 
 /** Seed/editorial operators that must never receive MX affiliateUrl fallback CTAs. */
 const DISABLE_FALLBACK_OPERATOR_IDS = new Set([
-  "bitcasino",
   "codere",
   "caliente",
   "cryptocasino",

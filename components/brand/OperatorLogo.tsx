@@ -15,14 +15,14 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "stake") {
     return "ring-accent/25 shadow-[0_0_14px_-6px_rgba(0,168,107,0.35)]";
   }
-  if (operatorId === "caliente" || operatorId === "codere" || operatorId === "bitcasino") {
+  if (operatorId === "caliente" || operatorId === "codere") {
     return "ring-primary/15";
   }
   return "ring-white/10";
 }
 
 function logoTileBackground(operatorId?: string): string {
-  if (operatorId === "caliente" || operatorId === "codere" || operatorId === "bitcasino") {
+  if (operatorId === "caliente" || operatorId === "codere") {
     return "bg-[#f5f5f0]";
   }
   return "bg-[#16233f]";
