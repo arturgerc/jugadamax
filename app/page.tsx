@@ -166,6 +166,7 @@ export default function Home() {
                 termsNote="Promociones, pagos, retiros y disponibilidad dependen de términos oficiales y jurisdicción."
                 responsibleNote="18+ | Juega con responsabilidad"
                 visualVariant="crypto"
+                emphasis="comparison-primary"
                 visual={{
                   eyebrow: "Crypto casino",
                   title: "500 Casino",
@@ -195,15 +196,8 @@ export default function Home() {
                 secondaryCtaHref="/casinos-crypto"
                 termsNote="Disponibilidad, bonos, pagos y retiros dependen de términos oficiales y jurisdicción."
                 responsibleNote="18+ | Juega con responsabilidad"
-                visualVariant="crypto"
-                visual={{
-                  eyebrow: "Crypto casino",
-                  title: "Gamdom",
-                  subtitle: "Casino crypto internacional",
-                  chips: ["Crypto", "Casino", "Promos"],
-                  variant: "crypto",
-                  compact: true,
-                }}
+                visualVariant="dark"
+                emphasis="comparison-secondary"
                 mobileMaxBullets={2}
               />
             </div>

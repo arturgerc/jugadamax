@@ -578,8 +578,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               variant: "fivehundred",
             }}
             visualVariant="crypto"
+            emphasis="comparison-primary"
             mobileMaxBullets={3}
-            logo={casino.logo}
           />
         ) : null}
 

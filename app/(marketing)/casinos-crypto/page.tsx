@@ -350,8 +350,9 @@ export default function CryptoCasinosPage() {
             compact: true,
           }}
           visualVariant="crypto"
+          emphasis="comparison-primary"
           mobileMaxBullets={3}
-          className="mt-4 border-white/10"
+          className="mt-4"
         />
       </section>
 

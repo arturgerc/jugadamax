@@ -14,6 +14,8 @@ export type OfferCardVisual = {
   compact?: boolean;
 };
 
+export type OfferCardEmphasis = "standard" | "comparison-primary" | "comparison-secondary";
+
 export type OfferCardProps = {
   operatorName: string;
   operatorId: string;
@@ -33,6 +35,7 @@ export type OfferCardProps = {
   visual?: OfferCardVisual;
   visualVariant?: OfferCardVisualVariant;
   mobileMaxBullets?: number;
+  emphasis?: OfferCardEmphasis;
   logo?: ImageRef;
   className?: string;
 };
@@ -100,6 +103,25 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
   dark: "bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.05),transparent_55%)]",
 };
 
+const emphasisShell: Record<OfferCardEmphasis, string> = {
+  standard: "",
+  "comparison-primary":
+    "border-pink-500/30 ring-1 ring-pink-500/10 shadow-[0_4px_24px_-10px_rgba(236,72,153,0.18)]",
+  "comparison-secondary": "border-white/8 bg-[#111417]/95 shadow-none ring-0",
+};
+
+const emphasisGlow: Record<OfferCardEmphasis, string | null> = {
+  standard: null,
+  "comparison-primary":
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(127,29,29,0.06),transparent_50%)]",
+  "comparison-secondary": "",
+};
+
+const emphasisBadge: Partial<Record<OfferCardEmphasis, string>> = {
+  "comparison-primary": "border-pink-500/30 bg-pink-500/10 text-pink-200",
+  "comparison-secondary": "border-white/12 bg-white/5 text-muted-foreground",
+};
+
 function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
   const panelVariant = visual.variant ?? "dark";
   const compact = visual.compact === true;
@@ -109,6 +131,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
       className={cn(
         "relative overflow-hidden rounded-xl border",
         compact ? "p-2.5" : "p-2 max-md:p-2.5 md:p-3 lg:p-4",
+        panelVariant === "fivehundred" && compact && "p-3",
         visualPanelShell[panelVariant],
       )}
     >
@@ -290,23 +313,35 @@ export function OfferCard({
   visual,
   visualVariant = "dark",
   mobileMaxBullets,
+  emphasis = "standard",
   logo,
   className,
 }: OfferCardProps) {
-  const variant = visualVariant;
+  const variant = visualVariant === "crypto" && emphasis === "comparison-secondary" ? "dark" : visualVariant;
   const showInlineOfferText = !visual;
   const hidePaymentBadgesOnMobile = Boolean(visual?.chips && visual.chips.length > 0);
+  const emphasisOverlay = emphasisGlow[emphasis];
+  const showVariantGlow = emphasis === "standard";
 
   return (
     <article
       className={cn(
         "relative overflow-hidden rounded-2xl border p-3 sm:p-5 lg:p-6",
+        emphasis === "comparison-secondary" && "sm:p-4",
         variantShell[variant],
+        emphasisShell[emphasis],
         className,
       )}
       aria-label={`Oferta de ${operatorName}`}
     >
-      <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0", variantGlow[variant])} />
+      <div
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute inset-0",
+          showVariantGlow && variantGlow[variant],
+          emphasisOverlay,
+        )}
+      />
 
       <div className="relative flex flex-col gap-3 lg:flex-row lg:items-stretch lg:justify-between lg:gap-5">
         <div className="min-w-0 flex-1 space-y-2.5 sm:space-y-3 lg:space-y-4">
@@ -317,7 +352,7 @@ export function OfferCard({
                 <span
                   className={cn(
                     "inline-flex items-center rounded-full border px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide",
-                    variantBadge[variant],
+                    emphasisBadge[emphasis] ?? variantBadge[variant],
                   )}
                 >
                   {badge}
