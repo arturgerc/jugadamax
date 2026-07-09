@@ -43,49 +43,6 @@ export const metadata: Metadata = {
 // live on the vertical pages. Renders only real, available entries (no filler).
 const PREVIEW_COUNT = 3;
 
-/** Active Mexico/LATAM crypto partners for homepage preview (not stale seed registry). */
-const HOMEPAGE_CRYPTO_PREVIEW: Casino[] = [
-  {
-    id: "betfury",
-    slug: "betfury",
-    name: "BetFury",
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 1 },
-    affiliateUrl: BETFURY_AFFILIATE_URL,
-    logo: {
-      src: "/operators/betfury.svg",
-      alt: "BetFury",
-      width: 80,
-      height: 40,
-    },
-    summary:
-      "Candidato de casino crypto y casino gamificado. Revisa promociones, términos, requisitos de apuesta, verificación y jurisdicción antes de registrarte.",
-    locale: "es-MX",
-  },
-  {
-    id: "500-casino",
-    slug: "500-casino",
-    name: "500 Casino",
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 2 },
-    affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
-    summary:
-      "Casino crypto para comparar: slots, live casino, sportsbook y promociones visibles según términos oficiales.",
-    locale: "es-MX",
-  },
-  {
-    id: "gamdom",
-    slug: "gamdom",
-    name: "Gamdom",
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 3 },
-    affiliateUrl: GAMDOM_GLOBAL_AFFILIATE_URL,
-    summary:
-      "Candidato de casino crypto internacional. Revisa disponibilidad, métodos de pago, límites y verificación antes de registrarte.",
-    locale: "es-MX",
-  },
-];
-
 const verticalCtas = [
   { label: "Casinos Crypto", href: "/casinos-crypto" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
@@ -93,10 +50,6 @@ const verticalCtas = [
 ] as const;
 
 export default function Home() {
-  const cryptoRankingPreview = HOMEPAGE_CRYPTO_PREVIEW.filter((c) => c.id !== "betfury").slice(
-    0,
-    PREVIEW_COUNT - 1,
-  );
   const homepageCasinos = (casinos: Casino[]) =>
     filterCasinosForSurface(casinos, "homepage").filter((c) => c.id !== "betsson");
   const fiatCasinos = homepageCasinos(getCasinosByVertical("fiat-casino")).slice(0, PREVIEW_COUNT);
@@ -188,8 +141,72 @@ export default function Home() {
             className="mt-6"
           />
 
-          <div className="mt-6">
-            <RankingList casinos={cryptoRankingPreview} vertical="crypto-casino" />
+          <div className="mt-8 space-y-4">
+            <h3 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+              También puedes comparar
+            </h3>
+            <div className="grid gap-4 md:grid-cols-2">
+              <OfferCard
+                operatorName="500 Casino"
+                operatorId="500-casino"
+                badge="Crypto candidato"
+                headline="500 Casino"
+                subheadline="Casino crypto, slots y sportsbook"
+                offerText="Promociones visibles según términos oficiales"
+                paymentBadges={["Crypto", "Slots", "Sportsbook"]}
+                featureBullets={[
+                  "Casino crypto para comparar",
+                  "Slots, live casino y sportsbook",
+                  "Revisa términos, pagos y verificación",
+                ]}
+                primaryCtaLabel="Visitar 500 Casino"
+                primaryCtaHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
+                secondaryCtaLabel="Leer reseña"
+                secondaryCtaHref="/reviews/500-casino"
+                termsNote="Promociones, pagos, retiros y disponibilidad dependen de términos oficiales y jurisdicción."
+                responsibleNote="18+ | Juega con responsabilidad"
+                visualVariant="crypto"
+                visual={{
+                  eyebrow: "Crypto casino",
+                  title: "500 Casino",
+                  subtitle: "Slots y sportsbook",
+                  chips: ["Crypto", "Slots", "Sportsbook"],
+                  variant: "fivehundred",
+                  compact: true,
+                }}
+                mobileMaxBullets={2}
+              />
+              <OfferCard
+                operatorName="Gamdom"
+                operatorId="gamdom"
+                badge="Crypto candidato"
+                headline="Gamdom"
+                subheadline="Casino crypto internacional para comparar"
+                offerText="Disponibilidad y promociones según términos oficiales"
+                paymentBadges={["Crypto", "Casino", "Promos"]}
+                featureBullets={[
+                  "Casino crypto internacional",
+                  "Revisa límites, pagos y verificación",
+                  "Comparar antes de registrarte",
+                ]}
+                primaryCtaLabel="Visitar Gamdom"
+                primaryCtaHref={GAMDOM_GLOBAL_AFFILIATE_URL}
+                secondaryCtaLabel="Ver ranking crypto"
+                secondaryCtaHref="/casinos-crypto"
+                termsNote="Disponibilidad, bonos, pagos y retiros dependen de términos oficiales y jurisdicción."
+                responsibleNote="18+ | Juega con responsabilidad"
+                visualVariant="crypto"
+                visual={{
+                  eyebrow: "Crypto casino",
+                  title: "Gamdom",
+                  subtitle: "Casino crypto internacional",
+                  chips: ["Crypto", "Casino", "Promos"],
+                  variant: "crypto",
+                  compact: true,
+                }}
+                mobileMaxBullets={2}
+              />
+            </div>
           </div>
 
           <nav aria-label="Explorar categorías" className="mt-6 flex flex-wrap gap-3">
