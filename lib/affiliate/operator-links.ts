@@ -10,6 +10,7 @@ import {
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   GAMDOM_GLOBAL_AFFILIATE_URL,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
+  RAINBET_REFERRAL_URL,
   ROOBET_GLOBAL_AFFILIATE_URL,
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
@@ -110,6 +111,18 @@ function mellstroyGlobalLink(): OperatorLink | undefined {
   };
 }
 
+function rainbetGlobalLink(): OperatorLink | undefined {
+  if (!RAINBET_REFERRAL_URL) return undefined;
+  return {
+    market: "global",
+    url: RAINBET_REFERRAL_URL,
+    label: "Visit Rainbet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: "Availability depends on your jurisdiction and official operator terms.",
+  };
+}
+
 const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLink | undefined>>>> = {
   stake: {
     mx: stakeMxLink(),
@@ -130,6 +143,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   mellstroy: {
     global: mellstroyGlobalLink(),
+  },
+  rainbet: {
+    global: rainbetGlobalLink(),
   },
 };
 

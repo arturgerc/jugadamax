@@ -360,7 +360,7 @@ export const reviews: Review[] = [
     casinoId: "rainbet",
     authorId: "redaccion-jugadamax",
     slug: "rainbet",
-    title: "Reseña de Rainbet México: casino crypto, sportsbook y Originals",
+    title: "Reseña de Rainbet México: casino crypto, sportsbook y rewards",
     verdict:
       "Rainbet puede servir como alternativa crypto sólida para comparar casino, sportsbook, Originals y un sistema de rewards activo, pero JugadaMax lo mantiene por debajo de BetFury, 500 Casino y Gamdom en prioridad editorial. Antes de registrarte, revisa promociones, pagos, retiros, verificación y jurisdicción según términos oficiales.",
     rating: 4.1,
