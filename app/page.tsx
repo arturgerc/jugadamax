@@ -43,6 +43,35 @@ export const metadata: Metadata = {
 // live on the vertical pages. Renders only real, available entries (no filler).
 const PREVIEW_COUNT = 3;
 
+/** Editorial hero recommendation — BetFury as #1 crypto partner (internal links only). */
+const HOMEPAGE_HERO_FEATURED_CRYPTO: Casino = {
+  id: "betfury",
+  slug: "betfury",
+  name: "BetFury",
+  verticals: ["crypto-casino"],
+  rankByVertical: { "crypto-casino": 1 },
+  affiliateUrl: BETFURY_AFFILIATE_URL,
+  logo: {
+    src: "/operators/betfury.svg",
+    alt: "BetFury",
+    width: 80,
+    height: 40,
+  },
+  payments: [
+    { name: "BFG", kind: "crypto" },
+    { name: "Bitcoin", kind: "crypto" },
+    { name: "USDT", kind: "crypto" },
+  ],
+  licensing: {
+    licenseName: "Licencia no verificada por JugadaMax",
+    notes:
+      "Licencia, disponibilidad, verificación, límites, bonos y retiros deben revisarse en los términos oficiales del operador.",
+  },
+  summary:
+    "Partner crypto destacado con Bonus Cabinet, Free Spins, cashback y promociones por nivel. Revisa términos, disponibilidad, verificación y métodos de pago antes de registrarte.",
+  locale: "es-MX",
+};
+
 const verticalCtas = [
   { label: "Casinos Crypto", href: "/casinos-crypto" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
@@ -62,7 +91,7 @@ export default function Home() {
   return (
     <>
       <SocialLinks variant="floating" />
-      <Hero />
+      <Hero featuredCasino={HOMEPAGE_HERO_FEATURED_CRYPTO} featuredEyebrow="Crypto destacado" />
 
       <QuickCategories />
 
@@ -180,15 +209,14 @@ export default function Home() {
               <OfferCard
                 operatorName="Gamdom"
                 operatorId="gamdom"
-                badge="Crypto candidato"
+                badge="Comparar"
                 headline="Gamdom"
-                subheadline="Casino crypto internacional para comparar"
+                subheadline="Alternativa crypto internacional"
                 offerText="Disponibilidad y promociones según términos oficiales"
-                paymentBadges={["Crypto", "Casino", "Promos"]}
+                paymentBadges={["Crypto"]}
                 featureBullets={[
-                  "Casino crypto internacional",
-                  "Revisa límites, pagos y verificación",
-                  "Comparar antes de registrarte",
+                  "Casino crypto internacional para comparar",
+                  "Revisa límites, pagos y verificación antes de registrarte",
                 ]}
                 primaryCtaLabel="Visitar Gamdom"
                 primaryCtaHref={GAMDOM_GLOBAL_AFFILIATE_URL}
@@ -199,6 +227,7 @@ export default function Home() {
                 visualVariant="dark"
                 emphasis="comparison-secondary"
                 mobileMaxBullets={2}
+                className="lg:p-4"
               />
             </div>
           </div>
