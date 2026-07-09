@@ -174,7 +174,9 @@ function uniqueCryptoPayments(casinos: Casino[]) {
 export default function CryptoCasinosPage() {
   // Monetized ranking = active affiliate/referral partners only.
   const casinos = rankSpanishCryptoCasinos(affiliateCryptoCasinos);
-  const rankingCasinos = casinos.filter((casino) => casino.id !== "betfury");
+  const rankingCasinos = casinos.filter(
+    (casino) => casino.id !== "betfury" && casino.id !== "500-casino",
+  );
   // Editorial catalogue is still used for the educational payment-method section.
   const editorialCasinos = filterCasinosForSurface(
     getCasinosByVertical("crypto-casino"),
@@ -308,6 +310,51 @@ export default function CryptoCasinosPage() {
         />
       </section>
 
+      <section aria-labelledby="otros-crypto-heading" className="mb-8">
+        <h2
+          id="otros-crypto-heading"
+          className="text-lg font-bold tracking-tight text-foreground sm:text-xl"
+        >
+          Otros casinos crypto para comparar
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          BetFury sigue como oferta destacada. 500 Casino aparece aquí como alternativa crypto de
+          comparación con prioridad editorial más baja.
+        </p>
+        <OfferCard
+          operatorName="500 Casino"
+          operatorId="500-casino"
+          badge="Crypto candidato"
+          headline="500 Casino: casino crypto, slots y sportsbook"
+          subheadline="Operador crypto para revisar junto a BetFury, Gamdom y otros"
+          offerText="Promociones, juegos y pagos según términos oficiales"
+          paymentBadges={["Crypto", "Slots", "Live", "Sportsbook"]}
+          featureBullets={[
+            "Casino crypto con slots, live casino y sportsbook",
+            "Promociones visibles en el operador según términos oficiales",
+            "Código/referido disponible para seguimiento de campaña",
+            "Revisa disponibilidad, verificación, límites y jurisdicción",
+          ]}
+          primaryCtaLabel="Visitar 500 Casino"
+          primaryCtaHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
+          secondaryCtaLabel="Leer reseña"
+          secondaryCtaHref="/reviews/500-casino"
+          termsNote="Promociones, juegos, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de 500 Casino y de tu jurisdicción."
+          responsibleNote="18+ | Juega con responsabilidad"
+          visual={{
+            eyebrow: "Crypto casino",
+            title: "500 Casino",
+            subtitle: "Casino crypto, slots y sportsbook",
+            chips: ["Crypto", "Slots", "Sportsbook"],
+            variant: "fivehundred",
+            compact: true,
+          }}
+          visualVariant="crypto"
+          mobileMaxBullets={3}
+          className="mt-4 border-white/10"
+        />
+      </section>
+
       <section aria-labelledby="como-leer-ranking-heading" className="mb-8">
         <h2
           id="como-leer-ranking-heading"
@@ -336,8 +383,8 @@ export default function CryptoCasinosPage() {
         className="mb-6"
       >
         <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          BetFury aparece como oferta destacada arriba. Abajo puedes comparar otros operadores
-          crypto.
+          BetFury y 500 Casino aparecen como ofertas destacadas arriba. Abajo puedes comparar Gamdom,
+          Roobet, Stake y otros operadores crypto.
         </p>
         <RankingList casinos={rankingCasinos} vertical="crypto-casino" />
       </section>

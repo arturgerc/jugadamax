@@ -70,7 +70,7 @@ const HOMEPAGE_CRYPTO_PREVIEW: Casino[] = [
     rankByVertical: { "crypto-casino": 2 },
     affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
     summary:
-      "Candidato de casino crypto para México/LATAM. Revisa términos, disponibilidad, verificación y métodos de pago antes de registrarte.",
+      "Casino crypto para comparar: slots, live casino, sportsbook y promociones visibles según términos oficiales.",
     locale: "es-MX",
   },
   {

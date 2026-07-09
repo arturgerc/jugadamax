@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -77,6 +77,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-orange-500/25 bg-gradient-to-br from-[#0A1931] via-[#111a2e] to-[#0d1424] shadow-[inset_0_1px_0_rgba(255,184,0,0.12)]",
   betfury:
     "border-fuchsia-500/25 bg-gradient-to-br from-[#0A0A12] via-[#111127] to-[#0A1931] shadow-[inset_0_1px_0_rgba(236,72,153,0.12)]",
+  fivehundred:
+    "border-pink-500/20 bg-gradient-to-br from-[#120818] via-[#16121f] to-[#0A1931] shadow-[inset_0_1px_0_rgba(236,72,153,0.08)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -89,6 +91,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,107,0,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(147,51,234,0.14),transparent_50%)]",
   betfury:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.16),transparent_50%),radial-gradient(ellipse_at_center,rgba(239,68,68,0.08),transparent_60%)]",
+  fivehundred:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(127,29,29,0.12),transparent_50%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -130,6 +134,14 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "fivehundred" ? (
+        <>
+          <div className="pointer-events-none absolute -right-2 -top-2 h-8 w-8 rounded-full border border-pink-400/20 bg-pink-500/10 md:h-10 md:w-10" />
+          <div className="pointer-events-none absolute -bottom-2 -left-1 h-5 w-5 rounded-full border border-red-500/15 bg-red-500/8 md:h-7 md:w-7" />
+          <div className="pointer-events-none absolute bottom-4 right-6 h-3.5 w-3.5 rounded-full bg-gradient-to-br from-[#EC4899] to-[#BE123C] opacity-75 shadow-[0_0_8px_rgba(236,72,153,0.3)] md:h-4 md:w-4" />
+        </>
+      ) : null}
+
       <div className={cn("relative", compact ? "space-y-1.5" : "space-y-1 md:space-y-2")}>
         {visual.eyebrow ? (
           <p
@@ -138,8 +150,10 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               compact ? "text-[0.6rem]" : "text-[0.6rem] md:text-[0.65rem]",
               panelVariant === "betsson" && "text-orange-300/90",
               panelVariant === "betfury" && "text-fuchsia-300/90",
+              panelVariant === "fivehundred" && "text-pink-300/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
+                panelVariant !== "fivehundred" &&
                 "text-muted-foreground",
             )}
           >
@@ -154,6 +168,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FF8C00] bg-clip-text text-transparent",
             panelVariant === "betfury" &&
               "bg-gradient-to-r from-[#F472B6] via-[#EF4444] to-[#60A5FA] bg-clip-text text-transparent",
+            panelVariant === "fivehundred" &&
+              "bg-gradient-to-r from-[#F472B6] via-[#E11D48] to-[#FB7185] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -180,7 +196,9 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                     ? "border-orange-500/25 bg-orange-500/10 text-orange-200/90"
                     : panelVariant === "betfury"
                       ? "border-fuchsia-500/25 bg-fuchsia-500/10 text-fuchsia-200/90"
-                      : "border-white/15 bg-white/5 text-muted-foreground",
+                      : panelVariant === "fivehundred"
+                        ? "border-pink-500/25 bg-pink-500/10 text-pink-200/90"
+                        : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
                 {chip}

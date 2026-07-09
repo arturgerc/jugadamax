@@ -21,6 +21,7 @@ import {
   BETFURY_AFFILIATE_URL,
   BETSSON_MX_CASINO_WELCOME_URL,
   BETSSON_MX_HOME_URL,
+  FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
@@ -204,6 +205,67 @@ const BETFURY_FAQ = [
     question: "¿BetFury es mejor para casino o sportsbook?",
     answer:
       "BetFury combina casino, posibles apuestas deportivas y gamificación. Encaja mejor para usuarios que buscan una experiencia crypto con promociones y recompensas por nivel.",
+  },
+] as const;
+
+const FIVEHUNDRED_PRODUCT_CARDS = [
+  {
+    title: "Slots",
+    text: "Catálogo de slots y juegos destacados según disponibilidad.",
+  },
+  {
+    title: "Live casino",
+    text: "Mesas y juegos en vivo pueden variar por proveedor.",
+  },
+  {
+    title: "Sportsbook",
+    text: "Apuestas deportivas disponibles según mercado y jurisdicción.",
+  },
+  {
+    title: "Originals / cases",
+    text: "Funciones gaming adicionales sujetas a reglas del operador.",
+  },
+] as const;
+
+const FIVEHUNDRED_PAYMENTS_CARDS = [
+  {
+    title: "Crypto focus",
+    text: "500 Casino se orienta a usuarios crypto.",
+  },
+  {
+    title: "Depósitos",
+    text: "Métodos, redes y mínimos dependen del operador.",
+  },
+  {
+    title: "Retiros",
+    text: "Tiempos y límites dependen de verificación, red y políticas internas.",
+  },
+  {
+    title: "KYC",
+    text: "El operador puede solicitar verificación antes de retiros o promociones.",
+  },
+] as const;
+
+const FIVEHUNDRED_FAQ = [
+  {
+    question: "¿500 Casino tiene promociones?",
+    answer:
+      "Sí, el operador muestra promociones visibles, pero JugadaMax recomienda revisar siempre términos, requisitos y disponibilidad antes de depositar.",
+  },
+  {
+    question: "¿500 Casino es crypto o fiat?",
+    answer:
+      "JugadaMax lo trata como casino crypto. Si buscas pagos locales como OXXO o SPEI, revisa operadores fiat como Betsson MX.",
+  },
+  {
+    question: "¿Por qué 500 Casino está debajo de BetFury?",
+    answer:
+      "Porque BetFury tiene una campaña y propuesta de Bonus Cabinet más clara para el ranking actual. 500 Casino queda como alternativa crypto para comparar.",
+  },
+  {
+    question: "¿JugadaMax garantiza retiros en 500 Casino?",
+    answer:
+      "No. Los retiros dependen del método, verificación, límites y políticas internas del operador.",
   },
 ] as const;
 
@@ -393,7 +455,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     <>
     <Container
       className={cn(
-        review.slug === "betsson" || review.slug === "betfury"
+        review.slug === "betsson" ||
+          review.slug === "betfury" ||
+          review.slug === "500-casino"
           ? "pt-8 pb-24 md:pt-8 md:pb-8"
           : "py-8",
       )}
@@ -478,6 +542,40 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               chips: ["BFG", "Free Spins", "Cashback"],
               variant: "betfury",
               compact: true,
+            }}
+            visualVariant="crypto"
+            mobileMaxBullets={3}
+            logo={casino.logo}
+          />
+        ) : null}
+
+        {review.slug === "500-casino" ? (
+          <OfferCard
+            operatorName="500 Casino"
+            operatorId="500-casino"
+            badge="Crypto candidato"
+            headline="500 Casino: casino crypto, slots y sportsbook"
+            subheadline="Promociones visibles, casino y apuestas según términos oficiales"
+            offerText="Promociones, juegos y pagos según términos oficiales"
+            paymentBadges={["Crypto", "Slots", "Live", "Sportsbook"]}
+            featureBullets={[
+              "Casino crypto con slots, live casino y sportsbook",
+              "Promociones visibles en el operador según términos oficiales",
+              "Interfaz gaming con juegos destacados y categorías múltiples",
+              "Revisa pagos, retiros, verificación y disponibilidad regional",
+            ]}
+            primaryCtaLabel="Visitar 500 Casino"
+            primaryCtaHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
+            secondaryCtaLabel="Comparar casinos crypto"
+            secondaryCtaHref="/casinos-crypto"
+            termsNote="Promociones, juegos, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de 500 Casino y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto casino",
+              title: "500 Casino",
+              subtitle: "Slots, sportsbook y promociones visibles",
+              chips: ["Crypto", "Slots", "Live", "Sportsbook"],
+              variant: "fivehundred",
             }}
             visualVariant="crypto"
             mobileMaxBullets={3}
@@ -743,6 +841,113 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "500-casino" ? (
+          <section
+            aria-labelledby="500-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="500-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido de 500 Casino
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Casino crypto con slots y sportsbook
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Promos</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Promociones visibles según términos oficiales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Ideal para
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Usuarios que comparan alternativas crypto frente a BetFury y Gamdom
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Bonos, pagos, retiros, KYC y disponibilidad
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "500-casino" ? (
+          <section aria-labelledby="500-juegos-producto-heading">
+            <h2
+              id="500-juegos-producto-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Juegos y producto
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {FIVEHUNDRED_PRODUCT_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "500-casino" ? (
+          <section aria-labelledby="500-pagos-retiros-heading">
+            <h2
+              id="500-pagos-retiros-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos y retiros
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {FIVEHUNDRED_PAYMENTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "500-casino" ? (
+          <section
+            aria-labelledby="500-posicion-editorial-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="500-posicion-editorial-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Por qué aparece debajo de BetFury
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              JugadaMax muestra 500 Casino como alternativa crypto, pero BetFury recibe prioridad
+              por la campaña activa y la propuesta de Bonus Cabinet. La posición puede cambiar si
+              mejoran términos, tracking, ofertas o confirmación de partner.
+            </p>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -851,6 +1056,47 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "500-casino" ? (
+          <section
+            aria-labelledby="500-post-analisis-cta-heading"
+            className="rounded-xl border border-pink-500/20 bg-gradient-to-br from-pink-500/8 via-card to-[#0A1931] p-4 sm:p-5"
+          >
+            <h2
+              id="500-post-analisis-cta-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Revisar 500 Casino
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Antes de registrarte, confirma promociones vigentes, métodos de pago, verificación y
+              reglas de retiro directamente en 500 Casino.
+            </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <a
+                href={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
+                  "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
+                  focusRing,
+                )}
+              >
+                Visitar 500 Casino
+              </a>
+              <a
+                href="/casinos-crypto"
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+                  focusRing,
+                )}
+              >
+                Volver al ranking crypto
+              </a>
+            </div>
+          </section>
+        ) : null}
+
         {review.slug === "betsson" ? (
           <section aria-labelledby="betsson-faq-heading">
             <h2 id="betsson-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
@@ -882,6 +1128,30 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             </h2>
             <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
               {BETFURY_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "500-casino" ? (
+          <section aria-labelledby="500-faq-heading">
+            <h2 id="500-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre 500 Casino
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {FIVEHUNDRED_FAQ.map((item) => (
                 <details key={item.question} className="group px-4 py-1 sm:px-5">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
                     {item.question}
@@ -936,7 +1206,10 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
         {review.slug === "stake" ? <StakeHighRollerSection /> : null}
 
-        {headlineBonus && review.slug !== "betsson" && review.slug !== "betfury" ? (
+        {headlineBonus &&
+        review.slug !== "betsson" &&
+        review.slug !== "betfury" &&
+        review.slug !== "500-casino" ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-1 text-lg font-semibold text-foreground">Bono</h2>
             <p className="text-sm text-muted-foreground">{headlineBonus}</p>
@@ -963,7 +1236,10 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </div>
         </section>
 
-        {outboundLink && review.slug !== "betsson" && review.slug !== "betfury" ? (
+        {outboundLink &&
+        review.slug !== "betsson" &&
+        review.slug !== "betfury" &&
+        review.slug !== "500-casino" ? (
           <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
             <OperatorCta link={outboundLink} />
           </div>
@@ -983,6 +1259,14 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         primaryLabel="Ver bonos BetFury"
         primaryHref={BETFURY_AFFILIATE_URL}
         secondaryLabel="Comparar casinos crypto"
+        secondaryHref="/casinos-crypto"
+      />
+    ) : null}
+    {review.slug === "500-casino" ? (
+      <MobileStickyOfferCta
+        primaryLabel="Visitar 500 Casino"
+        primaryHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
+        secondaryLabel="Ranking crypto"
         secondaryHref="/casinos-crypto"
       />
     ) : null}

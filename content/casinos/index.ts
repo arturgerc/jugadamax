@@ -1,5 +1,8 @@
 import type { Casino } from "@/types/content";
-import { BETFURY_AFFILIATE_URL } from "@/lib/affiliate/constants";
+import {
+  BETFURY_AFFILIATE_URL,
+  FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+} from "@/lib/affiliate/constants";
 
 /**
  * Seed casino/operator records (FR-025/FR-026).
@@ -223,6 +226,28 @@ export const casinos: Casino[] = [
     // Outbound links resolved on vertical pages via BETSSON_MX_* constants.
     summary:
       "Casino online y casa de apuestas con marca internacional y enfoque para México. Puede encajar para usuarios que buscan apuestas deportivas, casino, slots, pagos locales y una experiencia fiat frente a casinos crypto/offshore.",
+    locale: "es-MX",
+  },
+  {
+    id: "500-casino",
+    slug: "500-casino",
+    name: "500 Casino",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 6 },
+    affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Licencia, disponibilidad, verificación, límites, bonos y retiros deben revisarse en los términos oficiales del operador.",
+    },
+    bonusIds: ["500-casino-welcome"],
+    summary:
+      "500 Casino es un candidato crypto internacional con slots, live casino, sportsbook y promociones visibles. JugadaMax lo presenta como alternativa de comparación por debajo de BetFury; revisa términos, pagos, verificación y jurisdicción antes de registrarte.",
     locale: "es-MX",
   },
   {

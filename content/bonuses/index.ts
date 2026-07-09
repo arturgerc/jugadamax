@@ -65,6 +65,15 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
+    id: "500-casino-welcome",
+    casinoId: "500-casino",
+    title: "Promociones visibles según términos oficiales",
+    type: "welcome",
+    terms:
+      "Verifica promociones, requisitos de apuesta, disponibilidad, pagos y retiros directamente en 500 Casino.",
+    active: true,
+  },
+  {
     id: "betfury-welcome",
     casinoId: "betfury",
     title: "Hasta 590% + Free Spins según términos oficiales",

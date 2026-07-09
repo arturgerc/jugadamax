@@ -324,4 +324,35 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-09",
     locale: "es-MX",
   },
+  {
+    id: "500-casino-review",
+    casinoId: "500-casino",
+    authorId: "redaccion-jugadamax",
+    slug: "500-casino",
+    title: "Reseña de 500 Casino México: casino crypto, slots y sportsbook",
+    verdict:
+      "500 Casino puede servir como alternativa crypto para usuarios que quieren comparar slots, sportsbook y promociones visibles, pero JugadaMax lo mantiene por debajo de BetFury en prioridad porque la propuesta de partner y tracking es más limitada. Antes de registrarte, revisa términos, disponibilidad, pagos, verificación y jurisdicción.",
+    rating: 4.0,
+    pros: [
+      "Casino crypto con slots, live casino y sportsbook.",
+      "Interfaz visual fuerte con promociones y juegos destacados.",
+      "Puede funcionar como alternativa de comparación frente a BetFury y Gamdom.",
+      "Enlace/referral disponible para seguimiento.",
+    ],
+    cons: [
+      "Partner/referral setup más limitado que otros acuerdos.",
+      "Bonos y promociones deben verificarse directamente en el operador.",
+      "Disponibilidad, pagos y retiros dependen de jurisdicción y verificación.",
+      "No es una opción fiat local para usuarios que buscan OXXO/SPEI.",
+    ],
+    body:
+      "500 Casino es un operador crypto internacional con estética oscura, acentos neón y una mezcla de casino online, slots, live casino, sportsbook y funciones gaming adicionales como originals o cases. Para JugadaMax funciona como candidato de comparación, no como el partner crypto principal del ranking actual.\n\nLa propuesta visual de 500 Casino recuerda a otros casinos crypto modernos: categorías de juegos, promociones destacadas, banners de campaña y una navegación orientada a descubrir slots, mesas en vivo y apuestas deportivas. Eso puede resultar atractivo para usuarios que ya están familiarizados con el segmento crypto, pero no convierte automáticamente las promociones visibles en beneficios confirmados.\n\nEn promociones, 500 Casino suele mostrar ofertas y campañas en su interfaz. JugadaMax no publica montos fijos ni bonos exclusivos: cada usuario debe revisar requisitos de apuesta, juegos elegibles, vencimiento, límites y reglas de retiro directamente en el operador. Las promociones pueden cambiar sin aviso.\n\nComo casino crypto, 500 Casino encaja para usuarios que comparan alternativas a BetFury, Gamdom o Roobet. Su valor editorial para JugadaMax está en ofrecer otra referencia del segmento internacional, no en prometer la mejor oferta del mercado. El referral ARTURGERC existe para seguimiento de campaña, pero eso no implica condiciones preferenciales garantizadas.\n\nEn pagos, el operador se orienta a usuarios crypto. Métodos, redes, mínimos, comisiones y tiempos deben verificarse en el cajero oficial. JugadaMax no afirma retiros rápidos, retiros garantizados ni disponibilidad universal para México o LATAM.\n\nEn verificación y retiros, 500 Casino puede solicitar KYC o aplicar límites internos según método, actividad, antifraude y políticas del operador. Los tiempos de retiro dependen de red crypto, verificación de cuenta y reglas vigentes. Revisa siempre la información oficial antes de depositar cantidades relevantes.\n\n500 Casino puede encajar para usuarios que buscan otra opción crypto con sportsbook y slots, aceptan revisar términos con detalle y no necesitan pagos fiat locales. Puede ser menos adecuado para quien prioriza OXXO, SPEI o una marca local regulada en México.\n\nNuestra conclusión: 500 Casino es una alternativa crypto razonable para comparar, pero JugadaMax lo coloca por debajo de BetFury porque la campaña activa, el Bonus Cabinet y la propuesta de partner son más claros en BetFury. Usa 500 Casino como segunda referencia del ranking, no como sustituto automático del partner destacado.",
+    paymentsSummary:
+      "500 Casino se orienta a pagos crypto. Métodos, redes, mínimos, comisiones y tiempos deben verificarse directamente en el operador.",
+    trustSummary:
+      "JugadaMax trata 500 Casino como candidato crypto de comparación con referral activo, pero recomienda verificar licencia, jurisdicción, KYC, restricciones regionales y reglas de bonos antes de registrarte.",
+    publishedAt: "2026-07-09",
+    updatedAt: "2026-07-09",
+    locale: "es-MX",
+  },
 ];
