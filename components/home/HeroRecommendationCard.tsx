@@ -16,9 +16,11 @@ const trustPills = [
  */
 export function HeroRecommendationCard({
   casino,
+  eyebrow = "Recomendación editorial",
   className,
 }: {
   casino: Casino;
+  eyebrow?: string;
   className?: string;
 }) {
   const headlineBonus = getBonusesForCasino(casino.id).find((b) => b.active);
@@ -28,7 +30,7 @@ export function HeroRecommendationCard({
     <aside aria-label="Recomendación editorial" className={cn("space-y-4", className)}>
       <div className="rounded-2xl border border-white/10 bg-card/80 p-5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.5)] backdrop-blur-sm sm:p-6">
         <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-primary">
-          Recomendación editorial
+          {eyebrow}
         </p>
 
         <div className="mt-4 flex items-start gap-3">
