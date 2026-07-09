@@ -27,6 +27,82 @@ import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
 import { StakeHighRollerSection } from "@/components/review/StakeHighRollerSection";
 import type { ReviewRelatedLink } from "@/types/content";
+import { cn, focusRing } from "@/lib/utils";
+
+const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
+
+const BETSSON_BONUS_CONDITIONS = [
+  { label: "Bono", value: "Hasta $15,000 MXN + 200 giros gratis" },
+  {
+    label: "Extra app",
+    value: "+25 giros gratis extra si usas la app, según términos oficiales",
+  },
+  { label: "Depósito", value: "Desde $200 según promoción publicada" },
+  { label: "SPEI", value: "Mínimo $100 por SPEI según términos oficiales" },
+  { label: "Juegos elegibles", value: "Revisar juegos participantes y restricciones" },
+  { label: "Requisitos", value: "Revisar requisitos de apuesta, límites y vencimiento" },
+  {
+    label: "Retiro",
+    value: "Sujeto a verificación, método de pago y términos del operador",
+  },
+] as const;
+
+const BETSSON_PAYMENTS_CARDS = [
+  {
+    title: "Métodos visibles",
+    text: "Visa, Mastercard, OXXO y SPEI según disponibilidad.",
+  },
+  {
+    title: "Depósitos",
+    text: "Los mínimos pueden depender de la promoción y del método elegido.",
+  },
+  {
+    title: "Retiros",
+    text: "Los tiempos de retiro dependen del método, verificación de cuenta, límites y términos oficiales.",
+  },
+  {
+    title: "Verificación",
+    text: "El operador puede solicitar validación de identidad antes de permitir retiros o ciertas promociones.",
+  },
+] as const;
+
+const BETSSON_PRODUCT_CARDS = [
+  {
+    title: "Casino online",
+    text: "Slots, casino en vivo y juegos de mesa pueden estar disponibles según catálogo vigente.",
+  },
+  {
+    title: "Apuestas deportivas",
+    text: "Betsson también combina sportsbook para fútbol, Liga MX y otros deportes, sujeto a mercados disponibles.",
+  },
+  {
+    title: "App Betsson",
+    text: "La promoción puede incluir giros extra en app. Revisa requisitos del dispositivo y términos oficiales.",
+  },
+] as const;
+
+const BETSSON_FAQ = [
+  {
+    question: "¿Betsson MX tiene bono de bienvenida?",
+    answer:
+      "Sí, la promoción visible para casino muestra hasta $15,000 MXN + 200 giros gratis, con condiciones oficiales que deben revisarse antes de depositar.",
+  },
+  {
+    question: "¿Qué métodos de pago aparecen en Betsson MX?",
+    answer:
+      "En nuestra revisión aparecen Visa, Mastercard, OXXO y SPEI, pero la disponibilidad puede cambiar según cuenta, método y términos del operador.",
+  },
+  {
+    question: "¿Cuánto tarda un retiro en Betsson?",
+    answer:
+      "Los tiempos de retiro dependen del método de pago, verificación de cuenta, límites y políticas internas del operador. JugadaMax no garantiza tiempos de retiro.",
+  },
+  {
+    question: "¿Betsson MX es más casino o apuestas?",
+    answer:
+      "Betsson combina casino online y apuestas deportivas. Para JugadaMax encaja como operador fiat/mixed para usuarios que buscan pagos locales en México.",
+  },
+] as const;
 
 function RelatedLinkBadge({
   kind,
@@ -306,6 +382,81 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "betsson" ? (
+          <section
+            aria-labelledby="betsson-bonus-condiciones-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="betsson-bonus-condiciones-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Bono y condiciones principales
+            </h2>
+            <dl className="mt-4 grid gap-2 sm:grid-cols-2">
+              {BETSSON_BONUS_CONDITIONS.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-lg border border-white/10 bg-[#111417] px-3 py-2.5"
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {row.label}
+                  </dt>
+                  <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              Los datos reflejan una promoción publicada por Betsson MX y pueden cambiar. Confirma
+              siempre la oferta vigente en el sitio del operador antes de depositar.
+            </p>
+          </section>
+        ) : null}
+
+        {review.slug === "betsson" ? (
+          <section aria-labelledby="betsson-pagos-retiros-heading">
+            <h2
+              id="betsson-pagos-retiros-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos y retiros en Betsson MX
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {BETSSON_PAYMENTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "betsson" ? (
+          <section aria-labelledby="betsson-casino-app-heading">
+            <h2
+              id="betsson-casino-app-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Casino, apuestas y app
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              {BETSSON_PRODUCT_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -329,6 +480,73 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               ))}
           </div>
         </section>
+
+        {review.slug === "betsson" ? (
+          <section
+            aria-labelledby="betsson-post-analisis-cta-heading"
+            className="rounded-xl border border-primary/25 bg-gradient-to-br from-primary/8 via-card to-[#0A1931] p-4 sm:p-5"
+          >
+            <h2
+              id="betsson-post-analisis-cta-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Revisar promoción actual de Betsson MX
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Antes de registrarte, confirma el bono vigente, requisitos de apuesta, métodos de
+              pago y verificación directamente en Betsson MX.
+            </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <a
+                href={BETSSON_MX_CASINO_WELCOME_URL}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
+                  "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
+                  focusRing,
+                )}
+              >
+                Ver bono Betsson
+              </a>
+              <a
+                href={BETSSON_MX_HOME_URL}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+                  focusRing,
+                )}
+              >
+                Entrar a Betsson MX
+              </a>
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "betsson" ? (
+          <section aria-labelledby="betsson-faq-heading">
+            <h2 id="betsson-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre Betsson MX
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {BETSSON_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {review.relatedLinks &&
         isOperatorCtaAllowed(casino.id) &&
