@@ -9,7 +9,7 @@ import { RankingList } from "@/components/ranking/RankingList";
 import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
-import { OperatorCta } from "@/components/trust/OperatorCta";
+import { OfferCard } from "@/components/affiliate/OfferCard";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
 import {
   BETSSON_MX_APUESTAS_URL,
@@ -24,13 +24,9 @@ export const metadata: Metadata = buildMetadata({
   path: "/apuestas",
 });
 
-const betssonApuestasLink = {
-  market: "mx",
-  url: BETSSON_MX_APUESTAS_URL,
-  label: "Ver apuestas en Betsson MX",
-  isAffiliate: true,
-  rel: "sponsored nofollow noopener noreferrer",
-} as const;
+const betssonTermsNote =
+  "Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción.";
+const betssonResponsibleNote = "18+ | Juega con responsabilidad";
 
 const affiliateSportsbooks: Casino[] = [
   {
@@ -133,33 +129,33 @@ export default function BettingSitesPage() {
         >
           Partner destacado para México
         </h2>
-        <article className="mt-4 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="min-w-0 space-y-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-lg font-semibold text-foreground">Betsson MX</h3>
-                <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-primary">
-                  Apuestas deportivas
-                </span>
-              </div>
-              <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Betsson MX es un operador fiat/sportsbook para usuarios de México. Revisa términos
-                oficiales, disponibilidad, bonos, métodos de pago, verificación y límites antes de
-                registrarte.
-              </p>
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                Bonos, disponibilidad, métodos de pago, verificación y retiros dependen de los
-                términos oficiales de Betsson MX y de tu jurisdicción.
-              </p>
-              <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
-                18+ | Juega con responsabilidad
-              </p>
-            </div>
-            <div className="shrink-0 lg:w-56">
-              <OperatorCta link={betssonApuestasLink} className="w-full" />
-            </div>
-          </div>
-        </article>
+        <OfferCard
+          operatorName="Betsson"
+          operatorId="betsson"
+          badge="Sportsbook MX"
+          headline="Betsson MX para apuestas deportivas"
+          subheadline="Casino y sportsbook en una sola cuenta"
+          offerText="Apuestas deportivas y casino en una sola cuenta"
+          paymentBadges={["Liga MX", "Fútbol", "OXXO", "SPEI", "Visa"]}
+          featureBullets={[
+            "Apuestas deportivas y casino online",
+            "Mercados de fútbol y deportes populares",
+            "Métodos de pago locales según términos",
+            "Revisa bonos, límites y verificación",
+          ]}
+          primaryCtaLabel="Ver apuestas en Betsson MX"
+          primaryCtaHref={BETSSON_MX_APUESTAS_URL}
+          termsNote={betssonTermsNote}
+          responsibleNote={betssonResponsibleNote}
+          visualVariant="sportsbook"
+          logo={{
+            src: "/operators/betsson.svg",
+            alt: "Betsson",
+            width: 80,
+            height: 40,
+          }}
+          className="mt-4"
+        />
       </section>
 
       <section aria-labelledby="codere-apuestas-heading" className="mb-8">

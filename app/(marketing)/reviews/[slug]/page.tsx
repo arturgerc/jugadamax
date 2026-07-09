@@ -17,6 +17,11 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { OperatorCta } from "@/components/trust/OperatorCta";
 import { LicenseInfo } from "@/components/trust/LicenseInfo";
 import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
+import {
+  BETSSON_MX_CASINO_WELCOME_URL,
+  BETSSON_MX_HOME_URL,
+} from "@/lib/affiliate/constants";
+import { OfferCard } from "@/components/affiliate/OfferCard";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
@@ -223,6 +228,32 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           <AffiliateDisclosure />
           <ResponsibleGamblingNotice />
         </div>
+
+        {review.slug === "betsson" ? (
+          <OfferCard
+            operatorName="Betsson"
+            operatorId="betsson"
+            badge="Partner aprobado"
+            headline="Betsson MX: casino online y apuestas con pagos locales"
+            subheadline="Partner fiat aprobado para México"
+            offerText="Promoción de bienvenida sujeta a términos oficiales"
+            paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
+            featureBullets={[
+              "Casino online y apuestas deportivas",
+              "Métodos de pago populares en México",
+              "Marca internacional con enfoque LATAM",
+              "Revisa bonos, límites y verificación antes de registrarte",
+            ]}
+            primaryCtaLabel="Entrar a Betsson MX"
+            primaryCtaHref={BETSSON_MX_HOME_URL}
+            secondaryCtaLabel="Ver promoción de casino"
+            secondaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
+            termsNote="Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visualVariant="fiat"
+            logo={casino.logo}
+          />
+        ) : null}
 
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 

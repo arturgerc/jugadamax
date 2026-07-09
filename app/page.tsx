@@ -5,9 +5,11 @@ import { getCasinos, getCasinosByVertical } from "@/lib/content";
 import { filterCasinosForSurface } from "@/content/operators/status";
 import {
   BETFURY_AFFILIATE_URL,
+  BETSSON_MX_HOME_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   GAMDOM_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
+import { OfferCard } from "@/components/affiliate/OfferCard";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { Hero } from "@/components/home/Hero";
@@ -178,6 +180,31 @@ export default function Home() {
               Ver todos los casinos fiat
             </Link>
           </div>
+          <OfferCard
+            operatorName="Betsson"
+            operatorId="betsson"
+            badge="Partner fiat"
+            headline="Betsson MX: casino fiat y apuestas"
+            subheadline="Pagos locales para México"
+            offerText="Promoción sujeta a términos oficiales"
+            paymentBadges={["Visa", "OXXO", "SPEI"]}
+            featureBullets={[
+              "Casino online y apuestas deportivas",
+              "Métodos de pago populares en México",
+            ]}
+            primaryCtaLabel="Ver Betsson MX"
+            primaryCtaHref={BETSSON_MX_HOME_URL}
+            termsNote="Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visualVariant="fiat"
+            logo={{
+              src: "/operators/betsson.svg",
+              alt: "Betsson",
+              width: 80,
+              height: 40,
+            }}
+            className="mb-4 p-4 sm:p-5"
+          />
           <div className="mt-6">
             <RankingList casinos={fiatCasinos} vertical="fiat-casino" />
           </div>

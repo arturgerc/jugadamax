@@ -9,6 +9,7 @@ import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { OperatorCta } from "@/components/trust/OperatorCta";
+import { OfferCard } from "@/components/affiliate/OfferCard";
 import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSections";
 import {
   BETSSON_MX_CASINO_WELCOME_URL,
@@ -24,21 +25,9 @@ export const metadata: Metadata = buildMetadata({
   path: "/casinos-fiat",
 });
 
-const betssonHomeLink = {
-  market: "mx",
-  url: BETSSON_MX_HOME_URL,
-  label: "Ver Betsson MX",
-  isAffiliate: true,
-  rel: "sponsored nofollow noopener noreferrer",
-} as const;
-
-const betssonWelcomeLink = {
-  market: "mx",
-  url: BETSSON_MX_CASINO_WELCOME_URL,
-  label: "Ver promoción en Betsson MX",
-  isAffiliate: true,
-  rel: "sponsored nofollow noopener noreferrer",
-} as const;
+const betssonTermsNote =
+  "Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción.";
+const betssonResponsibleNote = "18+ | Juega con responsabilidad";
 
 const mixedOperators = [
   {
@@ -137,41 +126,35 @@ export default function FiatCasinosPage() {
         >
           Partner destacado para México
         </h2>
-        <article className="mt-4 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="min-w-0 space-y-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-lg font-semibold text-foreground">Betsson MX</h3>
-                <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-primary">
-                  Casino fiat
-                </span>
-              </div>
-              <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Betsson MX es un operador fiat/sportsbook para usuarios de México. Revisa términos
-                oficiales, disponibilidad, bonos, métodos de pago, verificación y límites antes de
-                registrarte.
-              </p>
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                Bonos, disponibilidad, métodos de pago, verificación y retiros dependen de los
-                términos oficiales de Betsson MX y de tu jurisdicción.
-              </p>
-              <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
-                18+ | Juega con responsabilidad
-              </p>
-            </div>
-            <div className="flex shrink-0 flex-col gap-2 lg:w-56">
-              <OperatorCta link={betssonHomeLink} className="w-full" />
-              <a
-                href={betssonWelcomeLink.url}
-                target="_blank"
-                rel={betssonWelcomeLink.rel}
-                className="inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
-              >
-                {betssonWelcomeLink.label}
-              </a>
-            </div>
-          </div>
-        </article>
+        <OfferCard
+          operatorName="Betsson"
+          operatorId="betsson"
+          badge="Partner fiat aprobado"
+          headline="Betsson MX: casino online y apuestas con pagos locales"
+          subheadline="Partner fiat aprobado para México"
+          offerText="Promoción de bienvenida sujeta a términos oficiales"
+          paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
+          featureBullets={[
+            "Casino online y apuestas deportivas",
+            "Métodos de pago populares en México",
+            "Marca internacional con enfoque LATAM",
+            "Revisa bonos, límites y verificación antes de registrarte",
+          ]}
+          primaryCtaLabel="Entrar a Betsson MX"
+          primaryCtaHref={BETSSON_MX_HOME_URL}
+          secondaryCtaLabel="Ver promoción de casino"
+          secondaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
+          termsNote={betssonTermsNote}
+          responsibleNote={betssonResponsibleNote}
+          visualVariant="fiat"
+          logo={{
+            src: "/operators/betsson.svg",
+            alt: "Betsson",
+            width: 80,
+            height: 40,
+          }}
+          className="mt-4"
+        />
       </section>
 
       <section aria-labelledby="operadores-mixtos-heading" className="mb-8">

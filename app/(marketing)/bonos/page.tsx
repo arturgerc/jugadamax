@@ -5,6 +5,7 @@ import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
+import { OfferCard } from "@/components/affiliate/OfferCard";
 import {
   BETSSON_MX_CASINO_WELCOME_URL,
   MELBET_AFFILIATE_URL,
@@ -63,6 +64,10 @@ const mixedBonusOperators = [
       "Melbet es un operador mixto con secciones de apuestas deportivas y casino online. La disponibilidad de juegos, bonos, pagos, verificación y límites depende de los términos oficiales del operador y de tu jurisdicción.",
   },
 ] as const;
+
+const betssonTermsNote =
+  "Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción.";
+const betssonResponsibleNote = "18+ | Juega con responsabilidad";
 
 const ctaLinks = [
   { href: "/casinos-crypto", label: "Ver ranking de casinos crypto" },
@@ -214,41 +219,33 @@ export default function BonosPage() {
             JugadaMax no publica montos ni códigos promocionales en esta página. Revisa siempre la
             oferta vigente, requisitos de apuesta y elegibilidad en el sitio oficial.
           </p>
-          <article className="mt-5 rounded-2xl border border-primary/25 bg-primary/5 p-5 sm:p-6">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div className="min-w-0 space-y-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-foreground">Betsson MX</h3>
-                  <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-primary">
-                    Partner fiat aprobado
-                  </span>
-                </div>
-                <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  Betsson MX puede ofrecer promociones de bienvenida según términos oficiales. Antes
-                  de activar cualquier bono, revisa requisitos de apuesta, límites, juegos elegibles,
-                  verificación y disponibilidad.
-                </p>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  Bonos y disponibilidad dependen de los términos oficiales. Bonos, disponibilidad,
-                  métodos de pago, verificación y retiros dependen de los términos oficiales de
-                  Betsson MX y de tu jurisdicción.
-                </p>
-                <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
-                  18+ | Juega con responsabilidad
-                </p>
-              </div>
-              <div className="shrink-0 lg:w-56">
-                <a
-                  href={BETSSON_MX_CASINO_WELCOME_URL}
-                  target="_blank"
-                  rel="sponsored nofollow noopener noreferrer"
-                  className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]"
-                >
-                  Ver promoción en Betsson MX
-                </a>
-              </div>
-            </div>
-          </article>
+          <OfferCard
+            operatorName="Betsson"
+            operatorId="betsson"
+            badge="Oferta fiat destacada"
+            headline="Promoción de casino Betsson MX"
+            subheadline="Oferta fiat destacada para usuarios de México"
+            offerText="Oferta disponible según términos oficiales"
+            paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
+            featureBullets={[
+              "Promoción de bienvenida según términos oficiales",
+              "Revisa requisitos de apuesta y límites",
+              "Pagos locales disponibles según operador",
+              "Verifica elegibilidad antes de depositar",
+            ]}
+            primaryCtaLabel="Ver promoción en Betsson MX"
+            primaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
+            termsNote={betssonTermsNote}
+            responsibleNote={betssonResponsibleNote}
+            visualVariant="mexico"
+            logo={{
+              src: "/operators/betsson.svg",
+              alt: "Betsson",
+              width: 80,
+              height: 40,
+            }}
+            className="mt-5"
+          />
 
           <nav aria-label="Operadores fiat" className="mt-4 flex flex-wrap gap-3">
             <Link
