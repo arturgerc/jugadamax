@@ -15,9 +15,11 @@ import { PaymentBadges } from "@/components/ranking/PaymentBadges";
 export function BonusHighlights({
   casinos,
   className,
+  minItems = 1,
 }: {
   casinos: Casino[];
   className?: string;
+  minItems?: number;
 }) {
   const items = casinos
     .map((casino) => ({
@@ -26,7 +28,7 @@ export function BonusHighlights({
     }))
     .filter((item): item is { casino: Casino; bonus: Bonus } => item.bonus !== undefined);
 
-  if (items.length === 0) return null;
+  if (items.length < minItems) return null;
 
   return (
     <section aria-labelledby="bonos-heading" className={cn("py-10", className)}>

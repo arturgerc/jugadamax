@@ -122,11 +122,11 @@ export function OfferCard({
 
           <p
             className={cn(
-              "rounded-lg border px-3 py-2.5 text-sm font-medium text-foreground",
+              "rounded-lg border px-3 py-2.5 text-base font-extrabold tracking-tight text-foreground sm:text-lg",
               variant === "mexico" || variant === "fiat"
-                ? "border-primary/25 bg-primary/5"
+                ? "border-primary/30 bg-primary/8 text-primary"
                 : variant === "sportsbook"
-                  ? "border-emerald-500/20 bg-emerald-500/5"
+                  ? "border-emerald-500/25 bg-emerald-500/8 text-emerald-300"
                   : "border-white/10 bg-[#16233f]/60",
             )}
           >

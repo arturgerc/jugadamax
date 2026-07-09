@@ -5,11 +5,12 @@ import { getCasinos, getCasinosByVertical } from "@/lib/content";
 import { filterCasinosForSurface } from "@/content/operators/status";
 import {
   BETFURY_AFFILIATE_URL,
-  BETSSON_MX_HOME_URL,
+  BETSSON_MX_CASINO_WELCOME_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   GAMDOM_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { HomepageActionGrid } from "@/components/home/HomepageActionGrid";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { Hero } from "@/components/home/Hero";
@@ -182,18 +183,22 @@ export default function Home() {
           <OfferCard
             operatorName="Betsson"
             operatorId="betsson"
-            badge="Partner fiat"
-            headline="Betsson MX: casino fiat y apuestas"
-            subheadline="Pagos locales para México"
-            offerText="Promoción sujeta a términos oficiales"
-            paymentBadges={["Visa", "OXXO", "SPEI"]}
+            badge="Oferta fiat destacada"
+            headline="Betsson MX: bono de casino y pagos locales"
+            subheadline="Casino online y apuestas para usuarios de México"
+            offerText="Hasta $15,000 MXN + 200 giros gratis"
+            paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
             featureBullets={[
-              "Casino online y apuestas deportivas",
-              "Métodos de pago populares en México",
+              "Promoción de bienvenida publicada por Betsson MX",
+              "+25 giros gratis extra si usas la app, según términos oficiales",
+              "Pagos locales como OXXO y SPEI según términos",
+              "Revisa requisitos de apuesta, límites y elegibilidad",
             ]}
-            primaryCtaLabel="Entrar a Betsson MX"
-            primaryCtaHref={BETSSON_MX_HOME_URL}
-            termsNote="Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción."
+            primaryCtaLabel="Ver bono Betsson"
+            primaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
+            secondaryCtaLabel="Leer reseña"
+            secondaryCtaHref="/reviews/betsson"
+            termsNote="Promoción publicada por Betsson MX. Bonos, giros, métodos de pago, verificación y retiros dependen de los términos oficiales del operador y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
             visualVariant="fiat"
             logo={{
@@ -204,46 +209,52 @@ export default function Home() {
             }}
             className="mb-4 p-4 sm:p-5"
           />
-          <div className="mt-6">
-            <RankingList casinos={fiatCasinos} vertical="fiat-casino" />
-          </div>
-        </Container>
-      </section>
-
-      <section aria-labelledby="top-betting-heading" className="py-10">
-        <Container>
-          <div className="flex flex-wrap items-end justify-between gap-3">
-            <div className="max-w-2xl space-y-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <h2
-                  id="top-betting-heading"
-                  className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-                >
-                  Top Casas de Apuestas en México
-                </h2>
-                <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
-                  Sección adicional
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground sm:text-base">
-                Sección adicional para comparar operadores con sportsbook. JugadaMax mantiene su
-                enfoque principal en casino; para casino revisa casinos crypto y casinos fiat.
-              </p>
+          {fiatCasinos.length > 0 ? (
+            <div className="mt-6">
+              <RankingList casinos={fiatCasinos} vertical="fiat-casino" />
             </div>
-            <Link
-              href="/apuestas"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
-            >
-              Ver todas las apuestas
-            </Link>
-          </div>
-          <div className="mt-6">
-            <RankingList casinos={sportsbooks} vertical="sportsbook" />
-          </div>
+          ) : null}
         </Container>
       </section>
 
-      <BonusHighlights casinos={bonusHighlightCasinos} />
+      {sportsbooks.length > 0 ? (
+        <section aria-labelledby="top-betting-heading" className="py-10">
+          <Container>
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div className="max-w-2xl space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h2
+                    id="top-betting-heading"
+                    className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+                  >
+                    Top Casas de Apuestas en México
+                  </h2>
+                  <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
+                    Sección adicional
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground sm:text-base">
+                  Sección adicional para comparar operadores con sportsbook. JugadaMax mantiene su
+                  enfoque principal en casino; para casino revisa casinos crypto y casinos fiat.
+                </p>
+              </div>
+              <Link
+                href="/apuestas"
+                className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+              >
+                Ver todas las apuestas
+              </Link>
+            </div>
+            <div className="mt-6">
+              <RankingList casinos={sportsbooks} vertical="sportsbook" />
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
+      <BonusHighlights casinos={bonusHighlightCasinos} minItems={2} />
+
+      <HomepageActionGrid />
 
       <section aria-labelledby="metodologia-heading" className="py-10">
         <Container>

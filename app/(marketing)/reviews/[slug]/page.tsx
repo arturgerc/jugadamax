@@ -255,6 +255,50 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           />
         ) : null}
 
+        {review.slug === "betsson" ? (
+          <section
+            aria-labelledby="betsson-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="betsson-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido de Betsson MX
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Bono</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Hasta $15,000 MXN + 200 giros gratis, según términos oficiales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Pagos</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Visa, Mastercard, OXXO y SPEI según disponibilidad
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Ideal para
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Usuarios que buscan casino fiat, apuestas y pagos locales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Requisitos de apuesta, límites, verificación y juegos elegibles
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">

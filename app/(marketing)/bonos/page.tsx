@@ -169,6 +169,36 @@ export default function BonosPage() {
             }}
             className="mt-5"
           />
+
+          <div className="mt-5 rounded-xl border border-border/60 bg-[#111417] p-4 sm:p-5">
+            <h3 className="text-base font-semibold text-foreground sm:text-lg">
+              Cómo reclamar el bono Betsson
+            </h3>
+            <ol className="mt-4 grid gap-3 sm:grid-cols-3">
+              {[
+                "Entra desde el enlace de JugadaMax",
+                "Crea tu cuenta y revisa la promoción vigente",
+                "Deposita según los términos oficiales y verifica los giros disponibles",
+              ].map((step, index) => (
+                <li
+                  key={step}
+                  className="flex gap-3 rounded-lg border border-white/10 bg-[#16233f]/60 p-3"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex size-7 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-xs font-bold text-primary"
+                  >
+                    {index + 1}
+                  </span>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{step}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              Los montos y giros reflejan una promoción publicada por Betsson MX y pueden cambiar.
+              Confirma siempre la oferta vigente en el sitio del operador.
+            </p>
+          </div>
         </section>
 
         <section aria-labelledby="bonos-mixtos-heading">
