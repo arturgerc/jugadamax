@@ -722,21 +722,20 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             termsNote="Promociones, recompensas, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Rainbet y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{
-              eyebrow: "Crypto casino",
-              title: "Casino + Sportsbook",
-              subtitle: "Originals y rewards según términos",
-              chips: ["Crypto", "Originals", "Sportsbook"],
-              variant: "crypto",
+              eyebrow: "Crypto rewards",
+              title: "Rewards + Sportsbook",
+              subtitle: "Originals, VIP y promos según términos",
+              chips: ["Crypto", "Originals", "Sportsbook", "Rewards"],
+              variant: "rainbet",
               compact: true,
             }}
             visualVariant="crypto"
-            emphasis="comparison-secondary"
             mobileMaxBullets={3}
             logo={{
               src: "/operators/rainbet.png",
               alt: "Rainbet",
-              width: 80,
-              height: 40,
+              width: 96,
+              height: 56,
             }}
           />
         ) : null}
