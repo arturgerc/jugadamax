@@ -160,6 +160,13 @@ export default function BonosPage() {
             secondaryCtaHref="/reviews/betsson"
             termsNote={betssonTermsNote}
             responsibleNote={betssonResponsibleNote}
+            visual={{
+              eyebrow: "Oferta publicada por Betsson MX",
+              title: "Hasta $15,000 MXN + 200 giros gratis",
+              subtitle: "+25 giros extra en la app, según términos",
+              chips: ["OXXO", "SPEI", "Visa", "Mastercard"],
+              variant: "betsson",
+            }}
             visualVariant="mexico"
             logo={{
               src: "/operators/betsson.svg",

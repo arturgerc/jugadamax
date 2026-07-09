@@ -200,6 +200,13 @@ export default function Home() {
             secondaryCtaHref="/reviews/betsson"
             termsNote="Promoción publicada por Betsson MX. Bonos, giros, métodos de pago, verificación y retiros dependen de los términos oficiales del operador y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Casino welcome offer",
+              title: "Hasta $15,000 MXN + 200 giros gratis",
+              subtitle: "+25 giros extra en la app",
+              chips: ["OXXO", "SPEI", "Visa", "Mastercard"],
+              variant: "betsson",
+            }}
             visualVariant="fiat"
             logo={{
               src: "/operators/betsson.svg",

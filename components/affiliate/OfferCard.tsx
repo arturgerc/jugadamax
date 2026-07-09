@@ -5,6 +5,15 @@ import { cn, focusRing } from "@/lib/utils";
 
 export type OfferCardVisualVariant = "mexico" | "crypto" | "fiat" | "sportsbook" | "dark";
 
+export type OfferCardVisual = {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  chips?: string[];
+  variant?: "betsson" | "mexico" | "crypto" | "dark";
+  compact?: boolean;
+};
+
 export type OfferCardProps = {
   operatorName: string;
   operatorId: string;
@@ -21,6 +30,7 @@ export type OfferCardProps = {
   secondaryCtaHref?: string;
   termsNote: string;
   responsibleNote: string;
+  visual?: OfferCardVisual;
   visualVariant?: OfferCardVisualVariant;
   logo?: ImageRef;
   className?: string;
@@ -61,6 +71,100 @@ const variantBadge: Record<OfferCardVisualVariant, string> = {
   dark: "border-white/15 bg-white/5 text-muted-foreground",
 };
 
+const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> = {
+  betsson:
+    "border-orange-500/25 bg-gradient-to-br from-[#0A1931] via-[#111a2e] to-[#0d1424] shadow-[inset_0_1px_0_rgba(255,184,0,0.12)]",
+  mexico:
+    "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
+  crypto:
+    "border-primary/20 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
+  dark: "border-white/10 bg-gradient-to-br from-[#16233f] to-[#0A1931]",
+};
+
+const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> = {
+  betsson:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(255,107,0,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(147,51,234,0.14),transparent_50%)]",
+  mexico:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
+  crypto:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.1),transparent_55%)]",
+  dark: "bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.05),transparent_55%)]",
+};
+
+function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
+  const panelVariant = visual.variant ?? "dark";
+  const compact = visual.compact === true;
+
+  return (
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-xl border",
+        compact ? "p-3" : "p-4",
+        visualPanelShell[panelVariant],
+      )}
+      aria-hidden="true"
+    >
+      <div className={cn("pointer-events-none absolute inset-0", visualPanelGlow[panelVariant])} />
+
+      {panelVariant === "betsson" ? (
+        <>
+          <div className="pointer-events-none absolute -right-3 -top-3 h-14 w-14 rounded-full border border-orange-400/20 bg-orange-500/10" />
+          <div className="pointer-events-none absolute -bottom-4 -left-2 h-10 w-10 rounded-full border border-purple-400/15 bg-purple-500/8" />
+          <div className="pointer-events-none absolute bottom-6 right-8 h-5 w-5 rounded-full bg-gradient-to-br from-[#FFB800] to-[#FF6B00] opacity-70 shadow-[0_0_12px_rgba(255,107,0,0.35)]" />
+          {!compact ? (
+            <div className="pointer-events-none absolute right-14 top-5 h-3 w-3 rounded-full bg-[#FFB800]/50" />
+          ) : null}
+        </>
+      ) : null}
+
+      <div className="relative space-y-2">
+        {visual.eyebrow ? (
+          <p
+            className={cn(
+              "font-semibold uppercase tracking-wide text-orange-300/90",
+              compact ? "text-[0.6rem]" : "text-[0.65rem]",
+            )}
+          >
+            {visual.eyebrow}
+          </p>
+        ) : null}
+        <p
+          className={cn(
+            "font-extrabold leading-tight tracking-tight text-[#F5F5F0]",
+            compact ? "text-base" : "text-lg sm:text-xl",
+            panelVariant === "betsson" && "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FF8C00] bg-clip-text text-transparent",
+          )}
+        >
+          {visual.title}
+        </p>
+        {visual.subtitle ? (
+          <p className={cn("text-muted-foreground", compact ? "text-[0.7rem]" : "text-xs")}>
+            {visual.subtitle}
+          </p>
+        ) : null}
+        {visual.chips && visual.chips.length > 0 ? (
+          <ul className="flex flex-wrap gap-1 pt-0.5">
+            {visual.chips.map((chip) => (
+              <li
+                key={chip}
+                className={cn(
+                  "rounded border font-medium",
+                  compact ? "px-1.5 py-0.5 text-[0.6rem]" : "px-2 py-0.5 text-[0.65rem]",
+                  panelVariant === "betsson"
+                    ? "border-orange-500/25 bg-orange-500/10 text-orange-200/90"
+                    : "border-white/15 bg-white/5 text-muted-foreground",
+                )}
+              >
+                {chip}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 /**
  * Premium affiliate offer card for approved Mexico/LATAM partners.
  * CSS gradients only — no external imagery required beyond optional operator logo.
@@ -81,11 +185,13 @@ export function OfferCard({
   secondaryCtaHref,
   termsNote,
   responsibleNote,
+  visual,
   visualVariant = "dark",
   logo,
   className,
 }: OfferCardProps) {
   const variant = visualVariant;
+  const showInlineOfferText = !visual;
 
   return (
     <article
@@ -120,18 +226,20 @@ export function OfferCard({
             </div>
           </div>
 
-          <p
-            className={cn(
-              "rounded-lg border px-3 py-2.5 text-base font-extrabold tracking-tight text-foreground sm:text-lg",
-              variant === "mexico" || variant === "fiat"
-                ? "border-primary/30 bg-primary/8 text-primary"
-                : variant === "sportsbook"
-                  ? "border-emerald-500/25 bg-emerald-500/8 text-emerald-300"
-                  : "border-white/10 bg-[#16233f]/60",
-            )}
-          >
-            {offerText}
-          </p>
+          {showInlineOfferText ? (
+            <p
+              className={cn(
+                "rounded-lg border px-3 py-2.5 text-base font-extrabold tracking-tight text-foreground sm:text-lg",
+                variant === "mexico" || variant === "fiat"
+                  ? "border-primary/30 bg-primary/8 text-primary"
+                  : variant === "sportsbook"
+                    ? "border-emerald-500/25 bg-emerald-500/8 text-emerald-300"
+                    : "border-white/10 bg-[#16233f]/60",
+              )}
+            >
+              {offerText}
+            </p>
+          ) : null}
 
           {promoCode ? (
             <p className="text-xs text-muted-foreground">
@@ -178,7 +286,8 @@ export function OfferCard({
           </div>
         </div>
 
-        <div className="flex shrink-0 flex-col justify-center gap-2 lg:w-56">
+        <div className="flex shrink-0 flex-col justify-center gap-2.5 lg:w-60">
+          {visual ? <OfferVisualPanel visual={visual} /> : null}
           <a
             href={primaryCtaHref}
             target="_blank"

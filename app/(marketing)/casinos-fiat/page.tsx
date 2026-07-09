@@ -146,6 +146,12 @@ export default function FiatCasinosPage() {
           secondaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
           termsNote={betssonTermsNote}
           responsibleNote={betssonResponsibleNote}
+          visual={{
+            title: "Hasta $15,000 MXN + 200 giros gratis",
+            chips: ["OXXO", "SPEI", "Visa"],
+            variant: "betsson",
+            compact: true,
+          }}
           visualVariant="fiat"
           logo={{
             src: "/operators/betsson.svg",

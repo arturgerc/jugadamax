@@ -250,6 +250,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             secondaryCtaHref={BETSSON_MX_HOME_URL}
             termsNote="Promoción publicada por Betsson MX. Bonos, giros, métodos de pago, verificación y retiros dependen de los términos oficiales del operador y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Oferta publicada por Betsson MX",
+              title: "Hasta $15,000 MXN + 200 giros gratis",
+              subtitle: "+25 giros extra en la app, según términos",
+              chips: ["OXXO", "SPEI", "Visa", "Mastercard"],
+              variant: "betsson",
+            }}
             visualVariant="fiat"
             logo={casino.logo}
           />
