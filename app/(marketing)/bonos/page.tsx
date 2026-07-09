@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import {
   BETSSON_MX_CASINO_WELCOME_URL,
   MELBET_AFFILIATE_URL,
@@ -82,7 +83,8 @@ export default function BonosPage() {
   ]);
 
   return (
-    <Container className="py-8 sm:py-10">
+    <>
+    <Container className="py-8 pb-24 sm:py-10 md:pb-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -168,6 +170,7 @@ export default function BonosPage() {
               variant: "betsson",
             }}
             visualVariant="mexico"
+            mobileMaxBullets={3}
             logo={{
               src: "/operators/betsson.svg",
               alt: "Betsson",
@@ -395,5 +398,12 @@ export default function BonosPage() {
         </section>
       </div>
     </Container>
+    <MobileStickyOfferCta
+      primaryLabel="Ver bono Betsson"
+      primaryHref={BETSSON_MX_CASINO_WELCOME_URL}
+      secondaryLabel="Leer reseña"
+      secondaryHref="/reviews/betsson"
+    />
+    </>
   );
 }

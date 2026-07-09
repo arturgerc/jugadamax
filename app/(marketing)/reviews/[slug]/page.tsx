@@ -22,6 +22,7 @@ import {
   BETSSON_MX_HOME_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
@@ -287,7 +288,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   });
 
   return (
-    <Container className="py-8">
+    <>
+    <Container className={cn("py-8", review.slug === "betsson" ? "pb-24 md:pb-8" : undefined)}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -334,6 +336,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               variant: "betsson",
             }}
             visualVariant="fiat"
+            mobileMaxBullets={3}
             logo={casino.logo}
           />
         ) : null}
@@ -619,5 +622,14 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         ) : null}
       </article>
     </Container>
+    {review.slug === "betsson" ? (
+      <MobileStickyOfferCta
+        primaryLabel="Ver bono Betsson"
+        primaryHref={BETSSON_MX_CASINO_WELCOME_URL}
+        secondaryLabel="Entrar a Betsson MX"
+        secondaryHref={BETSSON_MX_HOME_URL}
+      />
+    ) : null}
+    </>
   );
 }

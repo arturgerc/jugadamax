@@ -208,6 +208,7 @@ export default function Home() {
               variant: "betsson",
             }}
             visualVariant="fiat"
+            mobileMaxBullets={3}
             logo={{
               src: "/operators/betsson.svg",
               alt: "Betsson",

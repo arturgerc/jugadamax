@@ -32,6 +32,7 @@ export type OfferCardProps = {
   responsibleNote: string;
   visual?: OfferCardVisual;
   visualVariant?: OfferCardVisualVariant;
+  mobileMaxBullets?: number;
   logo?: ImageRef;
   className?: string;
 };
@@ -99,30 +100,29 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
     <div
       className={cn(
         "relative overflow-hidden rounded-xl border",
-        compact ? "p-3" : "p-4",
+        compact ? "p-2.5" : "p-2.5 md:p-3 lg:p-4",
         visualPanelShell[panelVariant],
       )}
-      aria-hidden="true"
     >
       <div className={cn("pointer-events-none absolute inset-0", visualPanelGlow[panelVariant])} />
 
       {panelVariant === "betsson" ? (
         <>
-          <div className="pointer-events-none absolute -right-3 -top-3 h-14 w-14 rounded-full border border-orange-400/20 bg-orange-500/10" />
-          <div className="pointer-events-none absolute -bottom-4 -left-2 h-10 w-10 rounded-full border border-purple-400/15 bg-purple-500/8" />
-          <div className="pointer-events-none absolute bottom-6 right-8 h-5 w-5 rounded-full bg-gradient-to-br from-[#FFB800] to-[#FF6B00] opacity-70 shadow-[0_0_12px_rgba(255,107,0,0.35)]" />
+          <div className="pointer-events-none absolute -right-2 -top-2 h-10 w-10 rounded-full border border-orange-400/20 bg-orange-500/10 md:-right-3 md:-top-3 md:h-14 md:w-14" />
+          <div className="pointer-events-none absolute -bottom-3 -left-1 h-7 w-7 rounded-full border border-purple-400/15 bg-purple-500/8 md:-bottom-4 md:-left-2 md:h-10 md:w-10" />
+          <div className="pointer-events-none absolute bottom-4 right-6 h-4 w-4 rounded-full bg-gradient-to-br from-[#FFB800] to-[#FF6B00] opacity-70 shadow-[0_0_12px_rgba(255,107,0,0.35)] md:bottom-6 md:right-8 md:h-5 md:w-5" />
           {!compact ? (
-            <div className="pointer-events-none absolute right-14 top-5 h-3 w-3 rounded-full bg-[#FFB800]/50" />
+            <div className="pointer-events-none absolute right-10 top-4 hidden h-3 w-3 rounded-full bg-[#FFB800]/50 md:block" />
           ) : null}
         </>
       ) : null}
 
-      <div className="relative space-y-2">
+      <div className={cn("relative", compact ? "space-y-1.5" : "space-y-1 md:space-y-2")}>
         {visual.eyebrow ? (
           <p
             className={cn(
               "font-semibold uppercase tracking-wide text-orange-300/90",
-              compact ? "text-[0.6rem]" : "text-[0.65rem]",
+              compact ? "text-[0.6rem]" : "text-[0.6rem] md:text-[0.65rem]",
             )}
           >
             {visual.eyebrow}
@@ -131,25 +131,31 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         <p
           className={cn(
             "font-extrabold leading-tight tracking-tight text-[#F5F5F0]",
-            compact ? "text-base" : "text-lg sm:text-xl",
-            panelVariant === "betsson" && "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FF8C00] bg-clip-text text-transparent",
+            compact ? "text-base" : "text-base md:text-lg lg:text-xl",
+            panelVariant === "betsson" &&
+              "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FF8C00] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
         </p>
         {visual.subtitle ? (
-          <p className={cn("text-muted-foreground", compact ? "text-[0.7rem]" : "text-xs")}>
+          <p
+            className={cn(
+              "text-muted-foreground",
+              compact ? "text-[0.7rem]" : "text-[0.7rem] md:text-xs",
+            )}
+          >
             {visual.subtitle}
           </p>
         ) : null}
         {visual.chips && visual.chips.length > 0 ? (
-          <ul className="flex flex-wrap gap-1 pt-0.5">
+          <ul className="flex flex-wrap gap-1">
             {visual.chips.map((chip) => (
               <li
                 key={chip}
                 className={cn(
                   "rounded border font-medium",
-                  compact ? "px-1.5 py-0.5 text-[0.6rem]" : "px-2 py-0.5 text-[0.65rem]",
+                  compact ? "px-1.5 py-0.5 text-[0.6rem]" : "px-1.5 py-0.5 text-[0.6rem] md:px-2 md:text-[0.65rem]",
                   panelVariant === "betsson"
                     ? "border-orange-500/25 bg-orange-500/10 text-orange-200/90"
                     : "border-white/15 bg-white/5 text-muted-foreground",
@@ -162,6 +168,62 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         ) : null}
       </div>
     </div>
+  );
+}
+
+type OfferCardCtasProps = {
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+};
+
+function OfferCardCtas({
+  primaryCtaLabel,
+  primaryCtaHref,
+  secondaryCtaLabel,
+  secondaryCtaHref,
+}: OfferCardCtasProps) {
+  return (
+    <>
+      <a
+        href={primaryCtaHref}
+        target="_blank"
+        rel={AFFILIATE_REL}
+        className={cn(
+          "inline-flex min-h-11 w-full items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
+          "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
+          focusRing,
+        )}
+      >
+        {primaryCtaLabel}
+      </a>
+      {secondaryCtaLabel && secondaryCtaHref ? (
+        isExternalHref(secondaryCtaHref) ? (
+          <a
+            href={secondaryCtaHref}
+            target="_blank"
+            rel={AFFILIATE_REL}
+            className={cn(
+              "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+              focusRing,
+            )}
+          >
+            {secondaryCtaLabel}
+          </a>
+        ) : (
+          <Link
+            href={secondaryCtaHref}
+            className={cn(
+              "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+              focusRing,
+            )}
+          >
+            {secondaryCtaLabel}
+          </Link>
+        )
+      ) : null}
+    </>
   );
 }
 
@@ -187,6 +249,7 @@ export function OfferCard({
   responsibleNote,
   visual,
   visualVariant = "dark",
+  mobileMaxBullets,
   logo,
   className,
 }: OfferCardProps) {
@@ -196,7 +259,7 @@ export function OfferCard({
   return (
     <article
       className={cn(
-        "relative overflow-hidden rounded-2xl border p-5 sm:p-6",
+        "relative overflow-hidden rounded-2xl border p-4 sm:p-5 lg:p-6",
         variantShell[variant],
         className,
       )}
@@ -204,8 +267,8 @@ export function OfferCard({
     >
       <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0", variantGlow[variant])} />
 
-      <div className="relative flex flex-col gap-5 lg:flex-row lg:items-stretch lg:justify-between">
-        <div className="min-w-0 flex-1 space-y-4">
+      <div className="relative flex flex-col gap-3 lg:flex-row lg:items-stretch lg:justify-between lg:gap-5">
+        <div className="min-w-0 flex-1 space-y-3 lg:space-y-4">
           <div className="flex flex-wrap items-start gap-3">
             <OperatorLogo name={operatorName} logo={logo} operatorId={operatorId} />
             <div className="min-w-0 flex-1 space-y-1.5">
@@ -263,11 +326,16 @@ export function OfferCard({
           ) : null}
 
           {featureBullets.length > 0 ? (
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {featureBullets.map((bullet) => (
+            <ul className="grid gap-1.5 md:grid-cols-2 md:gap-2">
+              {featureBullets.map((bullet, index) => (
                 <li
                   key={bullet}
-                  className="flex gap-2 text-sm leading-snug text-muted-foreground"
+                  className={cn(
+                    "flex gap-2 text-sm leading-snug text-muted-foreground",
+                    mobileMaxBullets != null &&
+                      index >= mobileMaxBullets &&
+                      "max-md:hidden",
+                  )}
                 >
                   <span aria-hidden="true" className="mt-0.5 shrink-0 text-primary">
                     ✓
@@ -278,7 +346,7 @@ export function OfferCard({
             </ul>
           ) : null}
 
-          <div className="space-y-2 border-t border-white/10 pt-3">
+          <div className="space-y-2 border-t border-white/10 pt-2.5 md:pt-3">
             <p className="text-xs leading-relaxed text-muted-foreground">{termsNote}</p>
             <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
               {responsibleNote}
@@ -286,44 +354,19 @@ export function OfferCard({
           </div>
         </div>
 
-        <div className="flex shrink-0 flex-col justify-center gap-2.5 lg:w-60">
-          {visual ? <OfferVisualPanel visual={visual} /> : null}
-          <a
-            href={primaryCtaHref}
-            target="_blank"
-            rel={AFFILIATE_REL}
-            className={cn(
-              "inline-flex min-h-11 w-full items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
-              "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
-              focusRing,
-            )}
-          >
-            {primaryCtaLabel}
-          </a>
-          {secondaryCtaLabel && secondaryCtaHref ? (
-            isExternalHref(secondaryCtaHref) ? (
-              <a
-                href={secondaryCtaHref}
-                target="_blank"
-                rel={AFFILIATE_REL}
-                className={cn(
-                  "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
-                  focusRing,
-                )}
-              >
-                {secondaryCtaLabel}
-              </a>
-            ) : (
-              <Link
-                href={secondaryCtaHref}
-                className={cn(
-                  "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
-                  focusRing,
-                )}
-              >
-                {secondaryCtaLabel}
-              </Link>
-            )
+        <div className="flex shrink-0 flex-col justify-center gap-2 lg:w-60">
+          <div className="order-1 flex flex-col gap-2 lg:order-2">
+            <OfferCardCtas
+              primaryCtaLabel={primaryCtaLabel}
+              primaryCtaHref={primaryCtaHref}
+              secondaryCtaLabel={secondaryCtaLabel}
+              secondaryCtaHref={secondaryCtaHref}
+            />
+          </div>
+          {visual ? (
+            <div className="order-2 lg:order-1">
+              <OfferVisualPanel visual={visual} />
+            </div>
           ) : null}
         </div>
       </div>
