@@ -64,4 +64,13 @@ export const bonuses: Bonus[] = [
     terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
     active: true,
   },
+  {
+    id: "betfury-welcome",
+    casinoId: "betfury",
+    title: "Hasta 590% + Free Spins según términos oficiales",
+    type: "welcome",
+    terms:
+      "Promoción visible en Bonus Cabinet. Bonos, free spins, cashback, retiros y verificación dependen de los términos oficiales de BetFury.",
+    active: true,
+  },
 ];

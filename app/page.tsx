@@ -166,8 +166,8 @@ export default function Home() {
             mobileMaxBullets={3}
             primaryCtaLabel="Ver bonos BetFury"
             primaryCtaHref={BETFURY_AFFILIATE_URL}
-            secondaryCtaLabel="Ver ranking crypto"
-            secondaryCtaHref="/casinos-crypto"
+            secondaryCtaLabel="Leer reseña"
+            secondaryCtaHref="/reviews/betfury"
             termsNote="Promociones, free spins, cashback, retiros y verificación dependen de los términos oficiales de BetFury y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{

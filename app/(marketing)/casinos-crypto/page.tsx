@@ -284,8 +284,8 @@ export default function CryptoCasinosPage() {
           ]}
           primaryCtaLabel="Ver bonos BetFury"
           primaryCtaHref={BETFURY_AFFILIATE_URL}
-          secondaryCtaLabel="Comparar casinos crypto"
-          secondaryCtaHref="#ranking-casinos-crypto"
+          secondaryCtaLabel="Leer reseña"
+          secondaryCtaHref="/reviews/betfury"
           termsNote="Bonos, porcentajes, free spins, cashback, retiros, verificación y disponibilidad dependen de los términos oficiales de BetFury y de tu jurisdicción."
           responsibleNote="18+ | Juega con responsabilidad"
           visual={{

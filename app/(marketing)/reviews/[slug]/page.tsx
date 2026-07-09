@@ -18,6 +18,7 @@ import { OperatorCta } from "@/components/trust/OperatorCta";
 import { LicenseInfo } from "@/components/trust/LicenseInfo";
 import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
 import {
+  BETFURY_AFFILIATE_URL,
   BETSSON_MX_CASINO_WELCOME_URL,
   BETSSON_MX_HOME_URL,
 } from "@/lib/affiliate/constants";
@@ -102,6 +103,107 @@ const BETSSON_FAQ = [
     question: "¿Betsson MX es más casino o apuestas?",
     answer:
       "Betsson combina casino online y apuestas deportivas. Para JugadaMax encaja como operador fiat/mixed para usuarios que buscan pagos locales en México.",
+  },
+] as const;
+
+const BETFURY_BONUS_CABINET = [
+  { label: "Oferta principal", value: "Hasta 590% + Free Spins" },
+  { label: "Valor visible", value: "Hasta $10,500 según promoción del operador" },
+  { label: "1er depósito", value: "150% + 50 Free Spins desde $5" },
+  { label: "2º depósito", value: "180% + 75 Free Spins desde $20" },
+  { label: "3er depósito", value: "200% + 100 Free Spins desde $100" },
+  { label: "Código", value: "dilyl6y3r" },
+  {
+    label: "Condiciones",
+    value: "Revisar wagering, límites, juegos elegibles y vencimiento",
+  },
+] as const;
+
+const BETFURY_REWARDS_CARDS = [
+  {
+    title: "Free Fury Wheel",
+    text: "Giros/recompensas según disponibilidad y nivel.",
+  },
+  {
+    title: "Cashback",
+    text: "Recompensas de devolución según reglas del operador.",
+  },
+  {
+    title: "Rakeback",
+    text: "Bonos vinculados a actividad según términos.",
+  },
+  {
+    title: "Bonos semanales y mensuales",
+    text: "Promociones regulares según nivel y actividad.",
+  },
+  {
+    title: "VIP bonuses",
+    text: "VIP Welcome, Birthday y Personal VIP Bonuses según elegibilidad.",
+  },
+  {
+    title: "Promo codes",
+    text: "Códigos promocionales pueden aparecer en campañas o canales oficiales.",
+  },
+] as const;
+
+const BETFURY_PAYMENTS_CARDS = [
+  {
+    title: "Crypto focus",
+    text: "BetFury se orienta a usuarios crypto y ecosistema BFG.",
+  },
+  {
+    title: "Depósitos",
+    text: "Métodos, redes y mínimos dependen de términos oficiales.",
+  },
+  {
+    title: "Retiros",
+    text: "Tiempos y límites dependen de método, verificación y políticas internas.",
+  },
+  {
+    title: "KYC",
+    text: "El operador puede solicitar verificación antes de retiros o promociones.",
+  },
+] as const;
+
+const BETFURY_PRODUCT_CARDS = [
+  {
+    title: "Casino online",
+    text: "Slots, live casino y juegos pueden variar según catálogo vigente.",
+  },
+  {
+    title: "Sportsbook",
+    text: "BetFury también puede incluir apuestas deportivas según disponibilidad.",
+  },
+  {
+    title: "Gamificación",
+    text: "Bonus Cabinet, niveles, wheel, cashback y recompensas hacen la experiencia más promocional.",
+  },
+  {
+    title: "BFG",
+    text: "El ecosistema BFG puede formar parte de la experiencia, con reglas propias del operador.",
+  },
+] as const;
+
+const BETFURY_FAQ = [
+  {
+    question: "¿BetFury tiene bono de bienvenida?",
+    answer:
+      "En la promoción visible, BetFury muestra hasta 590% + Free Spins dentro de Bonus Cabinet, sujeto a términos oficiales.",
+  },
+  {
+    question: "¿Cuál es el código promocional de BetFury?",
+    answer:
+      "La campaña visible para JugadaMax usa el código dilyl6y3r. Verifica siempre que el código y la promoción estén activos antes de registrarte.",
+  },
+  {
+    question: "¿BetFury paga rápido?",
+    answer:
+      "JugadaMax no garantiza tiempos de retiro. Los retiros dependen del método, red crypto, verificación de cuenta, límites y políticas internas del operador.",
+  },
+  {
+    question: "¿BetFury es mejor para casino o sportsbook?",
+    answer:
+      "BetFury combina casino, posibles apuestas deportivas y gamificación. Encaja mejor para usuarios que buscan una experiencia crypto con promociones y recompensas por nivel.",
   },
 ] as const;
 
@@ -289,7 +391,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
   return (
     <>
-    <Container className={cn("py-8", review.slug === "betsson" ? "pb-24 md:pb-8" : undefined)}>
+    <Container
+      className={cn(
+        "py-8",
+        (review.slug === "betsson" || review.slug === "betfury") && "pb-24 md:pb-8",
+      )}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -336,6 +443,41 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               variant: "betsson",
             }}
             visualVariant="fiat"
+            mobileMaxBullets={3}
+            logo={casino.logo}
+          />
+        ) : null}
+
+        {review.slug === "betfury" ? (
+          <OfferCard
+            operatorName="BetFury"
+            operatorId="betfury"
+            badge="Crypto partner destacado"
+            headline="BetFury: Bonus Cabinet y casino crypto"
+            subheadline="Free Spins, cashback, rakeback y recompensas por nivel"
+            offerText="Hasta 590% + Free Spins según términos oficiales"
+            promoCode="dilyl6y3r"
+            paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
+            featureBullets={[
+              "Bonus Cabinet con depósitos escalonados según términos oficiales",
+              "Hasta $10,500 visible en la promoción del operador",
+              "Free Fury Wheel, cashback, rakeback y bonos regulares",
+              "Código de campaña informado: dilyl6y3r",
+            ]}
+            primaryCtaLabel="Ver bonos BetFury"
+            primaryCtaHref={BETFURY_AFFILIATE_URL}
+            secondaryCtaLabel="Comparar casinos crypto"
+            secondaryCtaHref="/casinos-crypto"
+            termsNote="Bonos, porcentajes, free spins, cashback, retiros, verificación y disponibilidad dependen de los términos oficiales de BetFury y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Bonus Cabinet",
+              title: "Hasta 590% + Free Spins",
+              subtitle: "Hasta $10,500 según términos oficiales",
+              chips: ["BFG", "Crypto", "Free Spins", "Cashback"],
+              variant: "betfury",
+            }}
+            visualVariant="crypto"
             mobileMaxBullets={3}
             logo={casino.logo}
           />
@@ -460,6 +602,145 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "betfury" ? (
+          <section
+            aria-labelledby="betfury-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="betfury-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido de BetFury
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Bono</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Hasta 590% + Free Spins según términos oficiales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Código</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">dilyl6y3r</dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Ideal para
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Usuarios que buscan casino crypto gamificado y recompensas por nivel
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Términos de bonos, límites, verificación y disponibilidad regional
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "betfury" ? (
+          <section
+            aria-labelledby="betfury-bonus-cabinet-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="betfury-bonus-cabinet-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Bonus Cabinet y condiciones principales
+            </h2>
+            <dl className="mt-4 grid gap-2 sm:grid-cols-2">
+              {BETFURY_BONUS_CABINET.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-lg border border-white/10 bg-[#111417] px-3 py-2.5"
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {row.label}
+                  </dt>
+                  <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              Los datos reflejan información visible en BetFury y pueden cambiar. Confirma siempre
+              la promoción vigente en el operador antes de depositar.
+            </p>
+          </section>
+        ) : null}
+
+        {review.slug === "betfury" ? (
+          <section aria-labelledby="betfury-recompensas-heading">
+            <h2
+              id="betfury-recompensas-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Recompensas y promociones BetFury
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {BETFURY_REWARDS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "betfury" ? (
+          <section aria-labelledby="betfury-pagos-retiros-heading">
+            <h2
+              id="betfury-pagos-retiros-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos, retiros y verificación
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {BETFURY_PAYMENTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "betfury" ? (
+          <section aria-labelledby="betfury-producto-heading">
+            <h2
+              id="betfury-producto-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Casino, sportsbook y gamificación
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {BETFURY_PRODUCT_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -527,6 +808,47 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "betfury" ? (
+          <section
+            aria-labelledby="betfury-post-analisis-cta-heading"
+            className="rounded-xl border border-fuchsia-500/20 bg-gradient-to-br from-fuchsia-500/8 via-card to-[#0A1931] p-4 sm:p-5"
+          >
+            <h2
+              id="betfury-post-analisis-cta-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Revisar bonos actuales de BetFury
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Antes de registrarte, confirma Bonus Cabinet, código, free spins, requisitos de
+              apuesta, métodos de pago y verificación directamente en BetFury.
+            </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <a
+                href={BETFURY_AFFILIATE_URL}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
+                  "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
+                  focusRing,
+                )}
+              >
+                Ver bonos BetFury
+              </a>
+              <a
+                href="/casinos-crypto"
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+                  focusRing,
+                )}
+              >
+                Comparar casinos crypto
+              </a>
+            </div>
+          </section>
+        ) : null}
+
         {review.slug === "betsson" ? (
           <section aria-labelledby="betsson-faq-heading">
             <h2 id="betsson-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
@@ -534,6 +856,30 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             </h2>
             <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
               {BETSSON_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "betfury" ? (
+          <section aria-labelledby="betfury-faq-heading">
+            <h2 id="betfury-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre BetFury
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {BETFURY_FAQ.map((item) => (
                 <details key={item.question} className="group px-4 py-1 sm:px-5">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
                     {item.question}
@@ -588,7 +934,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
         {review.slug === "stake" ? <StakeHighRollerSection /> : null}
 
-        {headlineBonus && review.slug !== "betsson" ? (
+        {headlineBonus && review.slug !== "betsson" && review.slug !== "betfury" ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-1 text-lg font-semibold text-foreground">Bono</h2>
             <p className="text-sm text-muted-foreground">{headlineBonus}</p>
@@ -615,7 +961,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </div>
         </section>
 
-        {outboundLink && review.slug !== "betsson" ? (
+        {outboundLink && review.slug !== "betsson" && review.slug !== "betfury" ? (
           <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
             <OperatorCta link={outboundLink} />
           </div>
@@ -628,6 +974,14 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         primaryHref={BETSSON_MX_CASINO_WELCOME_URL}
         secondaryLabel="Entrar a Betsson MX"
         secondaryHref={BETSSON_MX_HOME_URL}
+      />
+    ) : null}
+    {review.slug === "betfury" ? (
+      <MobileStickyOfferCta
+        primaryLabel="Ver bonos BetFury"
+        primaryHref={BETFURY_AFFILIATE_URL}
+        secondaryLabel="Comparar casinos crypto"
+        secondaryHref="/casinos-crypto"
       />
     ) : null}
     </>

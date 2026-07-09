@@ -1,4 +1,5 @@
 import type { Casino } from "@/types/content";
+import { BETFURY_AFFILIATE_URL } from "@/lib/affiliate/constants";
 
 /**
  * Seed casino/operator records (FR-025/FR-026).
@@ -21,7 +22,7 @@ export const casinos: Casino[] = [
       height: 40,
     },
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 1 },
+    rankByVertical: { "crypto-casino": 2 },
     payments: [
       { name: "Bitcoin", kind: "crypto" },
       { name: "Ethereum", kind: "crypto" },
@@ -222,6 +223,35 @@ export const casinos: Casino[] = [
     // Outbound links resolved on vertical pages via BETSSON_MX_* constants.
     summary:
       "Casino online y casa de apuestas con marca internacional y enfoque para México. Puede encajar para usuarios que buscan apuestas deportivas, casino, slots, pagos locales y una experiencia fiat frente a casinos crypto/offshore.",
+    locale: "es-MX",
+  },
+  {
+    id: "betfury",
+    slug: "betfury",
+    name: "BetFury",
+    logo: {
+      src: "/operators/betfury.svg",
+      alt: "BetFury",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 1 },
+    affiliateUrl: BETFURY_AFFILIATE_URL,
+    payments: [
+      { name: "BFG", kind: "crypto" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Licencia, disponibilidad, verificación, límites, bonos y retiros deben revisarse en los términos oficiales del operador.",
+    },
+    bonusIds: ["betfury-welcome"],
+    summary:
+      "BetFury es un casino crypto gamificado con Bonus Cabinet, Free Spins, cashback, rakeback y promociones por nivel. Para usuarios de México/LATAM, JugadaMax lo presenta como partner crypto destacado; bonos, pagos, verificación y disponibilidad dependen de los términos oficiales y de tu jurisdicción.",
     locale: "es-MX",
   },
 ];
