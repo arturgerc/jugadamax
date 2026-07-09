@@ -104,7 +104,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
     <div
       className={cn(
         "relative overflow-hidden rounded-xl border",
-        compact ? "p-2.5" : "p-2.5 md:p-3 lg:p-4",
+        compact ? "p-2.5" : "p-2 max-md:p-2.5 md:p-3 lg:p-4",
         visualPanelShell[panelVariant],
       )}
     >
@@ -277,11 +277,12 @@ export function OfferCard({
 }: OfferCardProps) {
   const variant = visualVariant;
   const showInlineOfferText = !visual;
+  const hidePaymentBadgesOnMobile = Boolean(visual?.chips && visual.chips.length > 0);
 
   return (
     <article
       className={cn(
-        "relative overflow-hidden rounded-2xl border p-4 sm:p-5 lg:p-6",
+        "relative overflow-hidden rounded-2xl border p-3 sm:p-5 lg:p-6",
         variantShell[variant],
         className,
       )}
@@ -290,10 +291,10 @@ export function OfferCard({
       <div aria-hidden="true" className={cn("pointer-events-none absolute inset-0", variantGlow[variant])} />
 
       <div className="relative flex flex-col gap-3 lg:flex-row lg:items-stretch lg:justify-between lg:gap-5">
-        <div className="min-w-0 flex-1 space-y-3 lg:space-y-4">
-          <div className="flex flex-wrap items-start gap-3">
+        <div className="min-w-0 flex-1 space-y-2.5 sm:space-y-3 lg:space-y-4">
+          <div className="flex flex-wrap items-start gap-2.5 sm:gap-3">
             <OperatorLogo name={operatorName} logo={logo} operatorId={operatorId} />
-            <div className="min-w-0 flex-1 space-y-1.5">
+            <div className="min-w-0 flex-1 space-y-1">
               {badge ? (
                 <span
                   className={cn(
@@ -304,17 +305,31 @@ export function OfferCard({
                   {badge}
                 </span>
               ) : null}
-              <h3 className="text-lg font-bold tracking-tight text-foreground sm:text-xl">{headline}</h3>
+              <h3 className="text-base font-bold tracking-tight text-foreground sm:text-lg lg:text-xl">
+                {headline}
+              </h3>
               {subheadline ? (
-                <p className="text-sm font-medium text-muted-foreground">{subheadline}</p>
+                <p className="text-xs font-medium leading-snug text-muted-foreground sm:text-sm">
+                  {subheadline}
+                </p>
               ) : null}
             </div>
+          </div>
+
+          <div className="flex flex-col gap-2 lg:hidden">
+            <OfferCardCtas
+              primaryCtaLabel={primaryCtaLabel}
+              primaryCtaHref={primaryCtaHref}
+              secondaryCtaLabel={secondaryCtaLabel}
+              secondaryCtaHref={secondaryCtaHref}
+            />
+            {visual ? <OfferVisualPanel visual={visual} /> : null}
           </div>
 
           {showInlineOfferText ? (
             <p
               className={cn(
-                "rounded-lg border px-3 py-2.5 text-base font-extrabold tracking-tight text-foreground sm:text-lg",
+                "rounded-lg border px-3 py-2 text-sm font-extrabold tracking-tight text-foreground sm:py-2.5 sm:text-base lg:text-lg",
                 variant === "mexico" || variant === "fiat"
                   ? "border-primary/30 bg-primary/8 text-primary"
                   : variant === "sportsbook"
@@ -327,7 +342,7 @@ export function OfferCard({
           ) : null}
 
           {promoCode ? (
-            <p className="text-xs text-muted-foreground">
+            <p className="text-[0.7rem] leading-snug text-muted-foreground sm:text-xs">
               Código promocional informado por el operador:{" "}
               <span className="font-mono font-semibold text-foreground">{promoCode}</span>. Verifica
               términos oficiales antes de usarlo.
@@ -335,11 +350,17 @@ export function OfferCard({
           ) : null}
 
           {paymentBadges.length > 0 ? (
-            <ul className="flex flex-wrap gap-1.5" aria-label="Métodos de pago o mercados">
+            <ul
+              className={cn(
+                "flex flex-wrap gap-1.5",
+                hidePaymentBadgesOnMobile && "max-md:hidden",
+              )}
+              aria-label="Métodos de pago o mercados"
+            >
               {paymentBadges.map((label) => (
                 <li
                   key={label}
-                  className="inline-flex items-center rounded-md border border-border/60 bg-[#16233f]/80 px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                  className="inline-flex items-center rounded-md border border-border/60 bg-[#16233f]/80 px-2 py-0.5 text-[0.7rem] font-medium text-muted-foreground sm:px-2.5 sm:py-1 sm:text-xs"
                 >
                   {label}
                 </li>
@@ -353,7 +374,7 @@ export function OfferCard({
                 <li
                   key={bullet}
                   className={cn(
-                    "flex gap-2 text-sm leading-snug text-muted-foreground",
+                    "flex gap-2 text-xs leading-snug text-muted-foreground sm:text-sm",
                     mobileMaxBullets != null &&
                       index >= mobileMaxBullets &&
                       "max-md:hidden",
@@ -368,28 +389,24 @@ export function OfferCard({
             </ul>
           ) : null}
 
-          <div className="space-y-2 border-t border-white/10 pt-2.5 md:pt-3">
-            <p className="text-xs leading-relaxed text-muted-foreground">{termsNote}</p>
-            <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
+          <div className="space-y-1.5 border-t border-white/10 pt-2 sm:space-y-2 sm:pt-2.5 md:pt-3">
+            <p className="text-[0.7rem] leading-relaxed text-muted-foreground sm:text-xs">
+              {termsNote}
+            </p>
+            <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2 py-0.5 text-[0.7rem] font-medium text-emerald-400 sm:px-2.5 sm:py-1 sm:text-xs">
               {responsibleNote}
             </p>
           </div>
         </div>
 
-        <div className="flex shrink-0 flex-col justify-center gap-2 lg:w-60">
-          <div className="order-1 flex flex-col gap-2 lg:order-2">
-            <OfferCardCtas
-              primaryCtaLabel={primaryCtaLabel}
-              primaryCtaHref={primaryCtaHref}
-              secondaryCtaLabel={secondaryCtaLabel}
-              secondaryCtaHref={secondaryCtaHref}
-            />
-          </div>
-          {visual ? (
-            <div className="order-2 lg:order-1">
-              <OfferVisualPanel visual={visual} />
-            </div>
-          ) : null}
+        <div className="hidden shrink-0 flex-col justify-center gap-2 lg:flex lg:w-60">
+          {visual ? <OfferVisualPanel visual={visual} /> : null}
+          <OfferCardCtas
+            primaryCtaLabel={primaryCtaLabel}
+            primaryCtaHref={primaryCtaHref}
+            secondaryCtaLabel={secondaryCtaLabel}
+            secondaryCtaHref={secondaryCtaHref}
+          />
         </div>
       </div>
     </article>
