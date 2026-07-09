@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -82,6 +82,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-fuchsia-500/25 bg-gradient-to-br from-[#0A0A12] via-[#111127] to-[#0A1931] shadow-[inset_0_1px_0_rgba(236,72,153,0.12)]",
   fivehundred:
     "border-pink-500/20 bg-gradient-to-br from-[#120818] via-[#16121f] to-[#0A1931] shadow-[inset_0_1px_0_rgba(236,72,153,0.08)]",
+  rainbet:
+    "border-emerald-500/20 bg-gradient-to-br from-[#020617] via-[#071422] to-[#041018] shadow-[inset_0_1px_0_rgba(34,211,238,0.1)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -96,6 +98,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.16),transparent_50%),radial-gradient(ellipse_at_center,rgba(239,68,68,0.08),transparent_60%)]",
   fivehundred:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(127,29,29,0.12),transparent_50%)]",
+  rainbet:
+    "bg-[radial-gradient(ellipse_at_30%_20%,rgba(52,211,153,0.16),transparent_50%),radial-gradient(ellipse_at_80%_80%,rgba(34,211,238,0.12),transparent_45%),radial-gradient(circle_at_50%_100%,rgba(16,185,129,0.08),transparent_55%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -122,6 +126,14 @@ const emphasisBadge: Partial<Record<OfferCardEmphasis, string>> = {
   "comparison-secondary": "border-white/12 bg-white/5 text-muted-foreground",
 };
 
+const rainbetCardShell =
+  "border-emerald-500/20 bg-gradient-to-br from-[#020617] via-[#071422] to-[#041018] ring-1 ring-cyan-400/10 shadow-[0_4px_28px_-12px_rgba(34,211,238,0.18)]";
+
+const rainbetCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(52,211,153,0.1),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(34,211,238,0.06),transparent_50%)]";
+
+const rainbetBadge = "border-emerald-500/30 bg-emerald-500/10 text-emerald-300";
+
 function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
   const panelVariant = visual.variant ?? "dark";
   const compact = visual.compact === true;
@@ -132,6 +144,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         "relative overflow-hidden rounded-xl border",
         compact ? "p-2.5" : "p-2 max-md:p-2.5 md:p-3 lg:p-4",
         panelVariant === "fivehundred" && compact && "p-3",
+        panelVariant === "rainbet" && compact && "p-3",
         visualPanelShell[panelVariant],
       )}
     >
@@ -165,6 +178,34 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "rainbet" ? (
+        <>
+          {/* Reward glow halo */}
+          <div className="pointer-events-none absolute left-[58%] top-[42%] h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/10 blur-2xl md:h-24 md:w-24" />
+          {/* Chain links — interlocking rings */}
+          <div className="pointer-events-none absolute right-2.5 top-2.5 h-[1.125rem] w-[1.125rem] rounded-full border-2 border-cyan-400/35 md:right-3.5 md:top-3.5 md:h-5 md:w-5" />
+          <div className="pointer-events-none absolute right-[1.1rem] top-[1.1rem] h-3.5 w-3.5 rounded-full border-2 border-emerald-400/40 md:right-[1.35rem] md:top-[1.35rem] md:h-4 md:w-4" />
+          {/* Coin stack */}
+          <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-4 w-4 rounded-full border border-emerald-400/45 bg-emerald-500/15 shadow-[0_0_10px_rgba(52,211,153,0.28)] md:bottom-3.5 md:left-3.5 md:h-5 md:w-5">
+            <span className="absolute inset-[3px] rounded-full border border-cyan-300/25" />
+          </div>
+          <div className="pointer-events-none absolute bottom-3.5 left-4 h-3 w-3 rounded-full border border-cyan-400/30 bg-cyan-500/10 md:bottom-4 md:left-5 md:h-3.5 md:w-3.5" />
+          {/* Crypto drop accents */}
+          <div className="pointer-events-none absolute bottom-5 right-6 h-2 w-2 rotate-45 rounded-sm bg-gradient-to-br from-emerald-400/70 to-cyan-400/50 shadow-[0_0_8px_rgba(34,211,238,0.35)] md:bottom-6 md:right-8 md:h-2.5 md:w-2.5" />
+          <div className="pointer-events-none absolute bottom-7 right-9 h-1.5 w-1.5 rounded-full bg-cyan-300/50 blur-[0.5px] md:bottom-8 md:right-11" />
+          {/* VIP tier ticks */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-1.5 left-1/2 flex -translate-x-1/2 gap-0.5 opacity-50"
+          >
+            <span className="h-0.5 w-2 rounded-full bg-emerald-400/60" />
+            <span className="h-0.5 w-3 rounded-full bg-emerald-400/80" />
+            <span className="h-0.5 w-4 rounded-full bg-cyan-400/70" />
+            <span className="h-0.5 w-2.5 rounded-full bg-emerald-300/50" />
+          </div>
+        </>
+      ) : null}
+
       <div className={cn("relative", compact ? "space-y-1.5" : "space-y-1 md:space-y-2")}>
         {visual.eyebrow ? (
           <p
@@ -174,9 +215,11 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "betsson" && "text-orange-300/90",
               panelVariant === "betfury" && "text-fuchsia-300/90",
               panelVariant === "fivehundred" && "text-pink-300/90",
+              panelVariant === "rainbet" && "text-cyan-300/85",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
+                panelVariant !== "rainbet" &&
                 "text-muted-foreground",
             )}
           >
@@ -193,6 +236,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#F472B6] via-[#EF4444] to-[#60A5FA] bg-clip-text text-transparent",
             panelVariant === "fivehundred" &&
               "bg-gradient-to-r from-[#F472B6] via-[#E11D48] to-[#FB7185] bg-clip-text text-transparent",
+            panelVariant === "rainbet" &&
+              "bg-gradient-to-r from-[#6EE7B7] via-[#34D399] to-[#22D3EE] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -221,7 +266,9 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                       ? "border-fuchsia-500/25 bg-fuchsia-500/10 text-fuchsia-200/90"
                       : panelVariant === "fivehundred"
                         ? "border-pink-500/25 bg-pink-500/10 text-pink-200/90"
-                        : "border-white/15 bg-white/5 text-muted-foreground",
+                        : panelVariant === "rainbet"
+                          ? "border-cyan-500/20 bg-emerald-500/8 text-cyan-100/90"
+                          : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
                 {chip}
@@ -317,19 +364,23 @@ export function OfferCard({
   logo,
   className,
 }: OfferCardProps) {
-  const variant = visualVariant === "crypto" && emphasis === "comparison-secondary" ? "dark" : visualVariant;
+  const isRainbetBranded = operatorId === "rainbet" || visual?.variant === "rainbet";
+  const variant =
+    visualVariant === "crypto" && emphasis === "comparison-secondary" && !isRainbetBranded
+      ? "dark"
+      : visualVariant;
   const showInlineOfferText = !visual;
   const hidePaymentBadgesOnMobile = Boolean(visual?.chips && visual.chips.length > 0);
-  const emphasisOverlay = emphasisGlow[emphasis];
-  const showVariantGlow = emphasis === "standard";
+  const emphasisOverlay = isRainbetBranded ? rainbetCardGlow : emphasisGlow[emphasis];
+  const showVariantGlow = emphasis === "standard" && !isRainbetBranded;
 
   return (
     <article
       className={cn(
         "relative overflow-hidden rounded-2xl border p-3 sm:p-5 lg:p-6",
-        emphasis === "comparison-secondary" && "sm:p-4",
-        variantShell[variant],
-        emphasisShell[emphasis],
+        emphasis === "comparison-secondary" && !isRainbetBranded && "sm:p-4",
+        isRainbetBranded ? rainbetCardShell : variantShell[variant],
+        !isRainbetBranded && emphasisShell[emphasis],
         className,
       )}
       aria-label={`Oferta de ${operatorName}`}
@@ -352,7 +403,9 @@ export function OfferCard({
                 <span
                   className={cn(
                     "inline-flex items-center rounded-full border px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide",
-                    emphasisBadge[emphasis] ?? variantBadge[variant],
+                    isRainbetBranded
+                      ? rainbetBadge
+                      : (emphasisBadge[emphasis] ?? variantBadge[variant]),
                   )}
                 >
                   {badge}
@@ -433,7 +486,7 @@ export function OfferCard({
                       "max-md:hidden",
                   )}
                 >
-                  <span aria-hidden="true" className="mt-0.5 shrink-0 text-primary">
+                  <span aria-hidden="true" className={cn("mt-0.5 shrink-0", isRainbetBranded ? "text-emerald-400" : "text-primary")}>
                     ✓
                   </span>
                   {bullet}

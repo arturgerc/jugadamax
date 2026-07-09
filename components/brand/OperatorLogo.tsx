@@ -15,6 +15,9 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "500-casino") {
     return "border-pink-500/25 ring-pink-500/15 shadow-[0_0_16px_-6px_rgba(236,72,153,0.25)]";
   }
+  if (operatorId === "rainbet") {
+    return "border-emerald-500/30 ring-emerald-500/15 shadow-[0_0_18px_-6px_rgba(52,211,153,0.3)]";
+  }
   if (operatorId === "stake") {
     return "ring-accent/25 shadow-[0_0_14px_-6px_rgba(0,168,107,0.35)]";
   }
@@ -30,6 +33,9 @@ function logoTileAccent(operatorId?: string): string {
 function logoTileBackground(operatorId?: string): string {
   if (operatorId === "500-casino") {
     return "bg-gradient-to-br from-[#120818] via-[#16121f] to-[#0A1931]";
+  }
+  if (operatorId === "rainbet") {
+    return "bg-gradient-to-br from-[#030712] via-[#0A1628] to-[#061018]";
   }
   if (operatorId === "caliente" || operatorId === "codere") {
     return "bg-[#f5f5f0]";
@@ -84,12 +90,17 @@ export function OperatorLogo({
   }
 
   if (logo?.src) {
+    const isRainbet = operatorId === "rainbet";
     return (
       <span
         className={cn(
-          "inline-flex h-12 w-[4.5rem] shrink-0 items-center justify-center rounded-xl px-1 py-1 ring-1 sm:w-20",
+          "inline-flex shrink-0 items-center justify-center rounded-xl ring-1",
+          isRainbet
+            ? "h-14 w-[5.75rem] border border-emerald-500/20 px-0.5 py-0.5 sm:w-24"
+            : "h-12 w-[4.5rem] px-1 py-1 sm:w-20",
           logoTileBackground(operatorId),
           logoTileAccent(operatorId),
+          isRainbet && "shadow-[inset_0_1px_0_rgba(52,211,153,0.1)]",
           className,
         )}
       >
@@ -98,9 +109,12 @@ export function OperatorLogo({
           src={logo.src}
           alt=""
           aria-hidden="true"
-          width={logo.width ?? 80}
-          height={logo.height ?? LOGO_HEIGHT}
-          className="max-h-full max-w-full object-contain"
+          width={logo.width ?? (isRainbet ? 96 : 80)}
+          height={logo.height ?? (isRainbet ? 56 : LOGO_HEIGHT)}
+          className={cn(
+            "max-w-full object-contain",
+            isRainbet ? "max-h-[3.25rem] w-full" : "max-h-full",
+          )}
         />
       </span>
     );
