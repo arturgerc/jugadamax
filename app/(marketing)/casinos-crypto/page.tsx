@@ -6,7 +6,6 @@ import { filterCasinosForSurface } from "@/content/operators/status";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
-import { RankingList } from "@/components/ranking/RankingList";
 import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
@@ -14,11 +13,13 @@ import { CryptoCasinoInfoSections } from "@/components/verticals/CryptoCasinoInf
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import {
   BETFURY_AFFILIATE_URL,
+  BCGAME_MX_OFFICIAL_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   GAMDOM_GLOBAL_AFFILIATE_URL,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
   ROOBET_GLOBAL_AFFILIATE_URL,
+  STAKE_MX_OFFICIAL_URL,
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
@@ -180,9 +181,6 @@ function uniqueCryptoPayments(casinos: Casino[]) {
 export default function CryptoCasinosPage() {
   // Monetized ranking = active affiliate/referral partners only.
   const casinos = rankSpanishCryptoCasinos(affiliateCryptoCasinos);
-  const rankingCasinos = casinos.filter(
-    (casino) => casino.id !== "betfury" && casino.id !== "500-casino",
-  );
   // Editorial catalogue is still used for the educational payment-method section.
   const editorialCasinos = filterCasinosForSurface(
     getCasinosByVertical("crypto-casino"),
@@ -321,7 +319,7 @@ export default function CryptoCasinosPage() {
           id="otros-crypto-heading"
           className="text-lg font-bold tracking-tight text-foreground sm:text-xl"
         >
-          Otros casinos crypto para comparar
+          500 Casino — alternativa crypto
         </h2>
         <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           BetFury sigue como oferta destacada. 500 Casino aparece aquí como alternativa crypto de
@@ -385,14 +383,221 @@ export default function CryptoCasinosPage() {
 
       <section
         id="ranking-casinos-crypto"
-        aria-label="Ranking de casinos crypto"
-        className="mb-6"
+        aria-labelledby="comparar-crypto-heading"
+        className="mb-8"
       >
-        <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+        <h2
+          id="comparar-crypto-heading"
+          className="text-lg font-bold tracking-tight text-foreground sm:text-xl"
+        >
+          Otros casinos crypto para comparar
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           BetFury y 500 Casino aparecen como ofertas destacadas arriba. Abajo puedes comparar Gamdom,
           Rainbet, Roobet, Stake y otros operadores crypto.
         </p>
-        <RankingList casinos={rankingCasinos} vertical="crypto-casino" />
+        <div className="mt-4 grid gap-4 md:grid-cols-2" aria-label="Comparar casinos crypto">
+          <OfferCard
+            operatorName="Gamdom"
+            operatorId="gamdom"
+            badge="Crypto candidato"
+            headline="Gamdom"
+            subheadline="Casino crypto internacional para comparar"
+            offerText="Disponibilidad y promociones según términos oficiales"
+            paymentBadges={["Crypto", "Casino", "Promos"]}
+            featureBullets={[
+              "Casino crypto internacional",
+              "Revisa límites, pagos y verificación",
+              "Comparar antes de registrarte",
+            ]}
+            primaryCtaLabel="Visitar Gamdom"
+            primaryCtaHref={GAMDOM_GLOBAL_AFFILIATE_URL}
+            secondaryCtaLabel="Ver ranking crypto"
+            secondaryCtaHref="/casinos-crypto"
+            termsNote="Disponibilidad, bonos, pagos y retiros dependen de términos oficiales y jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto casino",
+              title: "Gamdom",
+              subtitle: "Casino crypto internacional",
+              chips: ["Crypto", "Casino", "Promos"],
+              variant: "crypto",
+              compact: true,
+            }}
+            visualVariant="dark"
+            emphasis="comparison-secondary"
+            mobileMaxBullets={2}
+            className="p-3 sm:p-4"
+          />
+          <OfferCard
+            operatorName="Rainbet"
+            operatorId="rainbet"
+            badge="Crypto candidato"
+            headline="Rainbet"
+            subheadline="Casino crypto, sportsbook y rewards"
+            offerText="Promociones, rewards y free spins según términos oficiales"
+            paymentBadges={["BTC", "ETH", "USDT", "SOL"]}
+            featureBullets={[
+              "Casino crypto con sportsbook y Originals",
+              "Rewards: rakeback, daily, weekly y monthly",
+              "Wager Lock y No Wager Lock según términos",
+              "Revisa KYC, pagos, retiros y disponibilidad",
+            ]}
+            primaryCtaLabel="Visitar Rainbet"
+            primaryCtaHref={RAINBET_REFERRAL_URL}
+            secondaryCtaLabel="Leer reseña"
+            secondaryCtaHref="/reviews/rainbet"
+            termsNote="Promociones, rewards, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Rainbet y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto rewards",
+              title: "Rewards + Sportsbook",
+              subtitle: "Originals, VIP y promos según términos",
+              chips: ["Crypto", "Originals", "Sportsbook", "Rewards"],
+              variant: "rainbet",
+              compact: true,
+            }}
+            visualVariant="crypto"
+            mobileMaxBullets={2}
+            logo={{
+              src: "/operators/rainbet.png",
+              alt: "Rainbet",
+              width: 96,
+              height: 56,
+            }}
+            className="p-3 sm:p-4"
+          />
+          <OfferCard
+            operatorName="Roobet"
+            operatorId="roobet"
+            badge="Comparar"
+            headline="Roobet"
+            subheadline="Casino crypto internacional para comparar"
+            offerText="Revisa términos oficiales antes de registrarte"
+            paymentBadges={["Crypto", "Casino"]}
+            featureBullets={[
+              "Candidato crypto internacional",
+              "Disponibilidad depende de jurisdicción",
+              "Pagos, retiros y verificación dependen del operador",
+            ]}
+            primaryCtaLabel="Visitar Roobet"
+            primaryCtaHref={ROOBET_GLOBAL_AFFILIATE_URL}
+            secondaryCtaLabel="Guía de Roobet"
+            secondaryCtaHref="/guias/roobet-mexico-crypto"
+            termsNote="Promociones, pagos, retiros y elegibilidad dependen de los términos oficiales de Roobet y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto casino",
+              title: "Roobet",
+              subtitle: "Comparar según términos oficiales",
+              chips: ["Crypto", "Casino"],
+              variant: "crypto",
+              compact: true,
+            }}
+            visualVariant="dark"
+            emphasis="comparison-secondary"
+            mobileMaxBullets={2}
+            className="p-3 sm:p-4"
+          />
+          <OfferCard
+            operatorName="Stake"
+            operatorId="stake"
+            badge="Comparar"
+            headline="Stake"
+            subheadline="Operador crypto/global para México"
+            offerText="Revisa términos oficiales en stake.mx"
+            paymentBadges={["BTC", "ETH", "USDT", "LTC"]}
+            featureBullets={[
+              "Casino crypto y sportsbook según dominio local",
+              "Disponibilidad depende de jurisdicción",
+              "Pagos, retiros y verificación dependen del operador",
+            ]}
+            primaryCtaLabel="Ver Stake México"
+            primaryCtaHref={STAKE_MX_OFFICIAL_URL}
+            secondaryCtaLabel="Leer reseña"
+            secondaryCtaHref="/reviews/stake"
+            termsNote="Bonos, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Stake y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto casino",
+              title: "Stake",
+              subtitle: "Sitio oficial México",
+              chips: ["Crypto", "Sportsbook"],
+              variant: "crypto",
+              compact: true,
+            }}
+            visualVariant="dark"
+            emphasis="comparison-secondary"
+            mobileMaxBullets={2}
+            logo={{
+              src: "/operators/stake.svg",
+              alt: "Stake",
+              width: 80,
+              height: 40,
+            }}
+            className="p-3 sm:p-4"
+          />
+          <OfferCard
+            operatorName="Mellstroy / MellAff"
+            operatorId="mellstroy"
+            badge="Comparar"
+            headline="Mellstroy"
+            subheadline="Casino crypto/social para LATAM"
+            offerText="Disponibilidad y promociones según términos oficiales"
+            paymentBadges={["Crypto"]}
+            featureBullets={[
+              "Candidato crypto internacional",
+              "Revisa términos oficiales y disponibilidad",
+              "Pagos, retiros y verificación dependen del operador",
+            ]}
+            primaryCtaLabel="Visitar Mellstroy"
+            primaryCtaHref={MELLSTROY_GLOBAL_AFFILIATE_URL}
+            termsNote="Promociones, pagos, retiros y elegibilidad dependen de los términos oficiales del operador y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto casino",
+              title: "Mellstroy",
+              subtitle: "Comparar según términos",
+              chips: ["Crypto", "LATAM"],
+              variant: "crypto",
+              compact: true,
+            }}
+            visualVariant="dark"
+            emphasis="comparison-secondary"
+            mobileMaxBullets={2}
+            className="p-3 sm:p-4"
+          />
+          <OfferCard
+            operatorName="BC.Game"
+            operatorId="bcgame"
+            badge="Comparar"
+            headline="BC.Game"
+            subheadline="Comparación editorial crypto"
+            offerText="Revisa términos oficiales en BC.Game MX"
+            paymentBadges={["BTC", "ETH", "USDT"]}
+            featureBullets={[
+              "Operador crypto internacional",
+              "Disponibilidad depende de jurisdicción",
+              "Pagos, retiros y verificación dependen del operador",
+            ]}
+            primaryCtaLabel="Ver BC.Game MX"
+            primaryCtaHref={BCGAME_MX_OFFICIAL_URL}
+            termsNote="JugadaMax no tiene campaña afiliada confirmada para México. Bonos, pagos, retiros y verificación dependen de los términos oficiales del operador."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto casino",
+              title: "BC.Game",
+              subtitle: "Sitio oficial México",
+              chips: ["Crypto", "Casino"],
+              variant: "crypto",
+              compact: true,
+            }}
+            visualVariant="dark"
+            emphasis="comparison-secondary"
+            mobileMaxBullets={2}
+            className="p-3 sm:p-4"
+          />
+        </div>
       </section>
 
       <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted-foreground">
