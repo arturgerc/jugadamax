@@ -8,6 +8,7 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import {
+  BETFURY_AFFILIATE_URL,
   BETSSON_MX_CASINO_WELCOME_URL,
   MELBET_AFFILIATE_URL,
   ONE_XBET_AFFILIATE_URL,
@@ -209,6 +210,51 @@ export default function BonosPage() {
               Confirma siempre la oferta vigente en el sitio del operador.
             </p>
           </div>
+
+          <h3
+            id="bonos-crypto-destacados-heading"
+            className="mt-8 text-lg font-bold tracking-tight text-foreground sm:text-xl"
+          >
+            Bonos crypto destacados
+          </h3>
+          <OfferCard
+            operatorName="BetFury"
+            operatorId="betfury"
+            badge="Crypto destacado"
+            headline="BetFury Bonus Cabinet"
+            subheadline="Depósitos escalonados, Free Spins y recompensas por nivel"
+            offerText="Hasta 590% + Free Spins según términos oficiales"
+            promoCode="dilyl6y3r"
+            paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
+            featureBullets={[
+              "Bonus Cabinet con depósitos escalonados según términos oficiales",
+              "Free Fury Wheel, cashback y rakeback según nivel",
+              "Código de campaña informado: dilyl6y3r",
+            ]}
+            mobileMaxBullets={3}
+            primaryCtaLabel="Ver bonos BetFury"
+            primaryCtaHref={BETFURY_AFFILIATE_URL}
+            secondaryCtaLabel="Comparar casinos crypto"
+            secondaryCtaHref="/casinos-crypto"
+            termsNote="Bonos, free spins, cashback, retiros y verificación dependen de los términos oficiales de BetFury y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Bonus Cabinet",
+              title: "Hasta 590% + Free Spins",
+              subtitle: "Hasta $10,500 según términos oficiales",
+              chips: ["BFG", "Free Spins", "Cashback"],
+              variant: "betfury",
+              compact: true,
+            }}
+            visualVariant="crypto"
+            logo={{
+              src: "/operators/betfury.svg",
+              alt: "BetFury",
+              width: 80,
+              height: 40,
+            }}
+            className="mt-4"
+          />
         </section>
 
         <section aria-labelledby="bonos-mixtos-heading">

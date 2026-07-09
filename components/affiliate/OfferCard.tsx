@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -75,6 +75,8 @@ const variantBadge: Record<OfferCardVisualVariant, string> = {
 const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> = {
   betsson:
     "border-orange-500/25 bg-gradient-to-br from-[#0A1931] via-[#111a2e] to-[#0d1424] shadow-[inset_0_1px_0_rgba(255,184,0,0.12)]",
+  betfury:
+    "border-fuchsia-500/25 bg-gradient-to-br from-[#0A0A12] via-[#111127] to-[#0A1931] shadow-[inset_0_1px_0_rgba(236,72,153,0.12)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -85,6 +87,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
 const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> = {
   betsson:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,107,0,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(147,51,234,0.14),transparent_50%)]",
+  betfury:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(236,72,153,0.22),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.16),transparent_50%),radial-gradient(ellipse_at_center,rgba(239,68,68,0.08),transparent_60%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -117,12 +121,26 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "betfury" ? (
+        <>
+          <div className="pointer-events-none absolute -right-2 -top-2 h-9 w-9 rounded-full border border-fuchsia-400/25 bg-fuchsia-500/10 md:h-12 md:w-12" />
+          <div className="pointer-events-none absolute -bottom-3 -left-2 h-6 w-6 rounded-full border border-blue-400/20 bg-blue-500/10 md:h-8 md:w-8" />
+          <div className="pointer-events-none absolute bottom-5 right-7 h-4 w-4 rounded-full bg-gradient-to-br from-[#EC4899] to-[#EF4444] opacity-80 shadow-[0_0_10px_rgba(236,72,153,0.35)] md:h-5 md:w-5" />
+          <div className="pointer-events-none absolute right-12 top-5 hidden h-3 w-3 rotate-45 border border-blue-400/30 bg-blue-500/15 md:block" />
+        </>
+      ) : null}
+
       <div className={cn("relative", compact ? "space-y-1.5" : "space-y-1 md:space-y-2")}>
         {visual.eyebrow ? (
           <p
             className={cn(
-              "font-semibold uppercase tracking-wide text-orange-300/90",
+              "font-semibold uppercase tracking-wide",
               compact ? "text-[0.6rem]" : "text-[0.6rem] md:text-[0.65rem]",
+              panelVariant === "betsson" && "text-orange-300/90",
+              panelVariant === "betfury" && "text-fuchsia-300/90",
+              panelVariant !== "betsson" &&
+                panelVariant !== "betfury" &&
+                "text-muted-foreground",
             )}
           >
             {visual.eyebrow}
@@ -134,6 +152,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
             compact ? "text-base" : "text-base md:text-lg lg:text-xl",
             panelVariant === "betsson" &&
               "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FF8C00] bg-clip-text text-transparent",
+            panelVariant === "betfury" &&
+              "bg-gradient-to-r from-[#F472B6] via-[#EF4444] to-[#60A5FA] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -158,7 +178,9 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                   compact ? "px-1.5 py-0.5 text-[0.6rem]" : "px-1.5 py-0.5 text-[0.6rem] md:px-2 md:text-[0.65rem]",
                   panelVariant === "betsson"
                     ? "border-orange-500/25 bg-orange-500/10 text-orange-200/90"
-                    : "border-white/15 bg-white/5 text-muted-foreground",
+                    : panelVariant === "betfury"
+                      ? "border-fuchsia-500/25 bg-fuchsia-500/10 text-fuchsia-200/90"
+                      : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
                 {chip}

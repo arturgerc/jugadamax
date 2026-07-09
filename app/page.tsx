@@ -46,11 +46,28 @@ const PREVIEW_COUNT = 3;
 /** Active Mexico/LATAM crypto partners for homepage preview (not stale seed registry). */
 const HOMEPAGE_CRYPTO_PREVIEW: Casino[] = [
   {
+    id: "betfury",
+    slug: "betfury",
+    name: "BetFury",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 1 },
+    affiliateUrl: BETFURY_AFFILIATE_URL,
+    logo: {
+      src: "/operators/betfury.svg",
+      alt: "BetFury",
+      width: 80,
+      height: 40,
+    },
+    summary:
+      "Candidato de casino crypto y casino gamificado. Revisa promociones, términos, requisitos de apuesta, verificación y jurisdicción antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
     id: "500-casino",
     slug: "500-casino",
     name: "500 Casino",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 1 },
+    rankByVertical: { "crypto-casino": 2 },
     affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
     summary:
       "Candidato de casino crypto para México/LATAM. Revisa términos, disponibilidad, verificación y métodos de pago antes de registrarte.",
@@ -61,21 +78,10 @@ const HOMEPAGE_CRYPTO_PREVIEW: Casino[] = [
     slug: "gamdom",
     name: "Gamdom",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 2 },
+    rankByVertical: { "crypto-casino": 3 },
     affiliateUrl: GAMDOM_GLOBAL_AFFILIATE_URL,
     summary:
       "Candidato de casino crypto internacional. Revisa disponibilidad, métodos de pago, límites y verificación antes de registrarte.",
-    locale: "es-MX",
-  },
-  {
-    id: "betfury",
-    slug: "betfury",
-    name: "BetFury",
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 3 },
-    affiliateUrl: BETFURY_AFFILIATE_URL,
-    summary:
-      "Candidato de casino crypto y casino gamificado. Revisa promociones, términos, requisitos de apuesta, verificación y jurisdicción antes de registrarte.",
     locale: "es-MX",
   },
 ];
@@ -87,7 +93,10 @@ const verticalCtas = [
 ] as const;
 
 export default function Home() {
-  const cryptoCasinos = HOMEPAGE_CRYPTO_PREVIEW.slice(0, PREVIEW_COUNT);
+  const cryptoRankingPreview = HOMEPAGE_CRYPTO_PREVIEW.filter((c) => c.id !== "betfury").slice(
+    0,
+    PREVIEW_COUNT - 1,
+  );
   const homepageCasinos = (casinos: Casino[]) =>
     filterCasinosForSurface(casinos, "homepage").filter((c) => c.id !== "betsson");
   const fiatCasinos = homepageCasinos(getCasinosByVertical("fiat-casino")).slice(0, PREVIEW_COUNT);
@@ -140,8 +149,47 @@ export default function Home() {
             </Link>
           </div>
 
+          <OfferCard
+            operatorName="BetFury"
+            operatorId="betfury"
+            badge="Crypto destacado"
+            headline="BetFury: casino crypto con Bonus Cabinet"
+            subheadline="Bonos, Free Spins, cashback y promociones por nivel"
+            offerText="Hasta 590% + Free Spins según términos oficiales"
+            promoCode="dilyl6y3r"
+            paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
+            featureBullets={[
+              "Bonus Cabinet con depósitos escalonados",
+              "Free Fury Wheel, cashback y rakeback según nivel",
+              "Promociones semanales y mensuales visibles en el operador",
+            ]}
+            mobileMaxBullets={3}
+            primaryCtaLabel="Ver bonos BetFury"
+            primaryCtaHref={BETFURY_AFFILIATE_URL}
+            secondaryCtaLabel="Ver ranking crypto"
+            secondaryCtaHref="/casinos-crypto"
+            termsNote="Promociones, free spins, cashback, retiros y verificación dependen de los términos oficiales de BetFury y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Bonus Cabinet",
+              title: "Hasta 590% + Free Spins",
+              subtitle: "Hasta $10,500 según términos oficiales",
+              chips: ["BFG", "Free Spins", "Cashback"],
+              variant: "betfury",
+              compact: true,
+            }}
+            visualVariant="crypto"
+            logo={{
+              src: "/operators/betfury.svg",
+              alt: "BetFury",
+              width: 80,
+              height: 40,
+            }}
+            className="mt-6"
+          />
+
           <div className="mt-6">
-            <RankingList casinos={cryptoCasinos} vertical="crypto-casino" />
+            <RankingList casinos={cryptoRankingPreview} vertical="crypto-casino" />
           </div>
 
           <nav aria-label="Explorar categorías" className="mt-6 flex flex-wrap gap-3">

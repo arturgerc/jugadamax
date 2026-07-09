@@ -11,6 +11,7 @@ import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { CryptoCasinoInfoSections } from "@/components/verticals/CryptoCasinoInfoSections";
+import { OfferCard } from "@/components/affiliate/OfferCard";
 import {
   BETFURY_AFFILIATE_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
@@ -32,9 +33,9 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const SPANISH_CRYPTO_RANKING_ORDER = [
+  "betfury",
   "500-casino",
   "gamdom",
-  "betfury",
   "roobet",
   "stake",
   "mellstroy",
@@ -67,11 +68,28 @@ function rankSpanishCryptoCasinos(casinos: Casino[]): Casino[] {
 
 const affiliateCryptoCasinos: Casino[] = [
   {
+    id: "betfury",
+    slug: "betfury",
+    name: "BetFury",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 1 },
+    affiliateUrl: BETFURY_AFFILIATE_URL,
+    logo: {
+      src: "/operators/betfury.svg",
+      alt: "BetFury",
+      width: 80,
+      height: 40,
+    },
+    summary:
+      "Candidato de casino crypto y casino gamificado. Revisa promociones, términos, requisitos de apuesta, verificación y jurisdicción antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
     id: "500-casino",
     slug: "500-casino",
     name: "500 Casino",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 1 },
+    rankByVertical: { "crypto-casino": 2 },
     affiliateUrl: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
     summary:
       "Candidato de casino crypto para México/LATAM. Revisa términos, disponibilidad, verificación y métodos de pago antes de registrarte.",
@@ -82,21 +100,10 @@ const affiliateCryptoCasinos: Casino[] = [
     slug: "gamdom",
     name: "Gamdom",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 2 },
+    rankByVertical: { "crypto-casino": 3 },
     affiliateUrl: GAMDOM_GLOBAL_AFFILIATE_URL,
     summary:
       "Candidato de casino crypto internacional. Revisa disponibilidad, métodos de pago, límites y verificación antes de registrarte.",
-    locale: "es-MX",
-  },
-  {
-    id: "betfury",
-    slug: "betfury",
-    name: "BetFury",
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 3 },
-    affiliateUrl: BETFURY_AFFILIATE_URL,
-    summary:
-      "Candidato de casino crypto y casino gamificado. Revisa promociones, términos, requisitos de apuesta, verificación y jurisdicción antes de registrarte.",
     locale: "es-MX",
   },
   {
@@ -167,6 +174,7 @@ function uniqueCryptoPayments(casinos: Casino[]) {
 export default function CryptoCasinosPage() {
   // Monetized ranking = active affiliate/referral partners only.
   const casinos = rankSpanishCryptoCasinos(affiliateCryptoCasinos);
+  const rankingCasinos = casinos.filter((casino) => casino.id !== "betfury");
   // Editorial catalogue is still used for the educational payment-method section.
   const editorialCasinos = filterCasinosForSurface(
     getCasinosByVertical("crypto-casino"),
@@ -252,6 +260,53 @@ export default function CryptoCasinosPage() {
         </p>
       </div>
 
+      <section aria-labelledby="oferta-crypto-destacada-heading" className="mb-8">
+        <h2
+          id="oferta-crypto-destacada-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          Oferta crypto destacada
+        </h2>
+        <OfferCard
+          operatorName="BetFury"
+          operatorId="betfury"
+          badge="Crypto partner destacado"
+          headline="BetFury: bonus crypto y casino gamificado"
+          subheadline="Bonus Cabinet, Free Spins, cashback y promociones por nivel"
+          offerText="Hasta 590% + Free Spins según términos oficiales"
+          promoCode="dilyl6y3r"
+          paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
+          featureBullets={[
+            "Bonus Cabinet con depósitos escalonados según términos oficiales",
+            "Hasta $10,500 visible en la promoción del operador",
+            "Free Fury Wheel, cashback, rakeback y bonos semanales según nivel",
+            "Código de campaña informado: dilyl6y3r",
+          ]}
+          primaryCtaLabel="Ver bonos BetFury"
+          primaryCtaHref={BETFURY_AFFILIATE_URL}
+          secondaryCtaLabel="Comparar casinos crypto"
+          secondaryCtaHref="#ranking-casinos-crypto"
+          termsNote="Bonos, porcentajes, free spins, cashback, retiros, verificación y disponibilidad dependen de los términos oficiales de BetFury y de tu jurisdicción."
+          responsibleNote="18+ | Juega con responsabilidad"
+          visual={{
+            eyebrow: "Bonus Cabinet",
+            title: "Hasta 590% + Free Spins",
+            subtitle: "Hasta $10,500 según términos oficiales",
+            chips: ["BFG", "Crypto", "Free Spins", "Cashback"],
+            variant: "betfury",
+          }}
+          visualVariant="crypto"
+          mobileMaxBullets={3}
+          logo={{
+            src: "/operators/betfury.svg",
+            alt: "BetFury",
+            width: 80,
+            height: 40,
+          }}
+          className="mt-4"
+        />
+      </section>
+
       <section aria-labelledby="como-leer-ranking-heading" className="mb-8">
         <h2
           id="como-leer-ranking-heading"
@@ -263,11 +318,12 @@ export default function CryptoCasinosPage() {
           <article className="rounded-lg border border-border/60 bg-card p-5">
             <h3 className="font-semibold text-foreground">Partners crypto activos</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              500 Casino, Gamdom, BetFury, Roobet, Stake y Mellstroy se presentan como candidatos
-              del segmento crypto con enlaces activos o enlaces oficiales. Rainbet aparece más abajo
-              como candidato referral. BC.Game aparece más abajo como comparación editorial no
-              monetizada con enlace al sitio oficial de México. La disponibilidad, pagos, verificación, bonos y retiros dependen de cada operador y
-              de tu jurisdicción.
+              BetFury aparece como oferta destacada arriba. 500 Casino, Gamdom, Roobet, Stake y
+              Mellstroy se presentan como candidatos del segmento crypto con enlaces activos o
+              enlaces oficiales. Rainbet aparece más abajo como candidato referral. BC.Game aparece
+              más abajo como comparación editorial no monetizada con enlace al sitio oficial de
+              México. La disponibilidad, pagos, verificación, bonos y retiros dependen de cada
+              operador y de tu jurisdicción.
             </p>
           </article>
         </div>
@@ -278,7 +334,11 @@ export default function CryptoCasinosPage() {
         aria-label="Ranking de casinos crypto"
         className="mb-6"
       >
-        <RankingList casinos={casinos} vertical="crypto-casino" />
+        <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          BetFury aparece como oferta destacada arriba. Abajo puedes comparar otros operadores
+          crypto.
+        </p>
+        <RankingList casinos={rankingCasinos} vertical="crypto-casino" />
       </section>
 
       <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted-foreground">
