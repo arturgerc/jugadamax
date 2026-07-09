@@ -36,10 +36,10 @@ const SPANISH_CRYPTO_RANKING_ORDER = [
   "betfury",
   "500-casino",
   "gamdom",
+  "rainbet",
   "roobet",
   "stake",
   "mellstroy",
-  "rainbet",
   "bcgame",
 ] as const;
 
@@ -107,11 +107,28 @@ const affiliateCryptoCasinos: Casino[] = [
     locale: "es-MX",
   },
   {
+    id: "rainbet",
+    slug: "rainbet",
+    name: "Rainbet",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 4 },
+    affiliateUrl: RAINBET_REFERRAL_URL,
+    logo: {
+      src: "/operators/rainbet.png",
+      alt: "Rainbet",
+      width: 80,
+      height: 40,
+    },
+    summary:
+      "Rainbet es un casino crypto internacional con slots, live casino, sportsbook y Originals. Candidato de comparación por debajo de BetFury, 500 Casino y Gamdom; revisa promociones, pagos, verificación y jurisdicción antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
     id: "roobet",
     slug: "roobet",
     name: "Roobet",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 4 },
+    rankByVertical: { "crypto-casino": 5 },
     affiliateUrl: ROOBET_GLOBAL_AFFILIATE_URL,
     summary:
       "Candidato de casino crypto internacional. El enlace de referido está disponible mientras la campaña de afiliado sigue pendiente; revisa términos y disponibilidad antes de registrarte.",
@@ -122,7 +139,7 @@ const affiliateCryptoCasinos: Casino[] = [
     slug: "stake",
     name: "Stake",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 5 },
+    rankByVertical: { "crypto-casino": 6 },
     summary:
       "Stake se muestra como operador crypto/global para comparar. Disponibilidad, bonos, pagos y verificación dependen de los términos oficiales y de tu jurisdicción.",
     locale: "es-MX",
@@ -132,21 +149,10 @@ const affiliateCryptoCasinos: Casino[] = [
     slug: "mellstroy",
     name: "Mellstroy / MellAff",
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 6 },
+    rankByVertical: { "crypto-casino": 7 },
     affiliateUrl: MELLSTROY_GLOBAL_AFFILIATE_URL,
     summary:
       "Candidato de casino crypto/social casino internacional para tráfico LATAM. Revisa términos oficiales y disponibilidad antes de registrarte.",
-    locale: "es-MX",
-  },
-  {
-    id: "rainbet",
-    slug: "rainbet",
-    name: "Rainbet",
-    verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 7 },
-    affiliateUrl: RAINBET_REFERRAL_URL,
-    summary:
-      "Candidato referral. Revisa términos y disponibilidad antes de registrarte.",
     locale: "es-MX",
   },
   {
@@ -367,10 +373,9 @@ export default function CryptoCasinosPage() {
           <article className="rounded-lg border border-border/60 bg-card p-5">
             <h3 className="font-semibold text-foreground">Partners crypto activos</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              BetFury aparece como oferta destacada arriba. 500 Casino, Gamdom, Roobet, Stake y
+              BetFury aparece como oferta destacada arriba. 500 Casino, Gamdom, Rainbet, Roobet, Stake y
               Mellstroy se presentan como candidatos del segmento crypto con enlaces activos o
-              enlaces oficiales. Rainbet aparece más abajo como candidato referral. BC.Game aparece
-              más abajo como comparación editorial no monetizada con enlace al sitio oficial de
+              enlaces oficiales. BC.Game aparece más abajo como comparación editorial no monetizada con enlace al sitio oficial de
               México. La disponibilidad, pagos, verificación, bonos y retiros dependen de cada
               operador y de tu jurisdicción.
             </p>
@@ -385,7 +390,7 @@ export default function CryptoCasinosPage() {
       >
         <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           BetFury y 500 Casino aparecen como ofertas destacadas arriba. Abajo puedes comparar Gamdom,
-          Roobet, Stake y otros operadores crypto.
+          Rainbet, Roobet, Stake y otros operadores crypto.
         </p>
         <RankingList casinos={rankingCasinos} vertical="crypto-casino" />
       </section>

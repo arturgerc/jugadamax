@@ -355,4 +355,36 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-09",
     locale: "es-MX",
   },
+  {
+    id: "rainbet-review",
+    casinoId: "rainbet",
+    authorId: "redaccion-jugadamax",
+    slug: "rainbet",
+    title: "Reseña de Rainbet México: casino crypto, sportsbook y Originals",
+    verdict:
+      "Rainbet puede servir como alternativa crypto sólida para comparar casino, sportsbook, Originals y un sistema de rewards activo, pero JugadaMax lo mantiene por debajo de BetFury, 500 Casino y Gamdom en prioridad editorial. Antes de registrarte, revisa promociones, pagos, retiros, verificación y jurisdicción según términos oficiales.",
+    rating: 4.1,
+    pros: [
+      "Enfoque crypto-first con múltiples criptomonedas.",
+      "Casino + sportsbook + Rainbet Originals en una sola cuenta.",
+      "Rewards públicos: rakeback, daily, weekly, monthly y rank-up rewards.",
+      "Demo mode en muchos juegos según información del operador.",
+      "Puede servir como alternativa internacional para comparar.",
+    ],
+    cons: [
+      "No es un operador fiat-local orientado específicamente a México.",
+      "Bonos y promociones requieren revisar términos detallados.",
+      "KYC, límites, métodos y tiempos pueden variar.",
+      "La disponibilidad de free spins y promos depende de elegibilidad y país.",
+    ],
+    body:
+      "Rainbet es un operador crypto internacional que combina casino online, apuestas deportivas y juegos propios bajo la marca Rainbet Originals. Su propuesta encaja con usuarios que buscan una experiencia centrada en criptomonedas, catálogo amplio y recompensas visibles, pero JugadaMax lo trata como candidato de comparación — no como partner crypto destacado del ranking actual.\n\nEn producto, Rainbet publica un catálogo amplio de casino con miles de juegos y proveedores como Pragmatic Play, Evolution, Relax Gaming, Hacksaw Gaming, BGaming y NoLimit City. También incluye live dealer, game shows, sportsbook con deportes tradicionales y esports, y Originals como Plinko, Limbo, Wheel, Mines, Dice, Blackjack y otros títulos propios. El operador indica demo mode en la mayoría de juegos de casino y en todos los Originals, lo que puede ayudar a explorar antes de apostar con fondos reales.\n\nEn promociones, la página pública del operador muestra al menos dos rutas principales: Wager Lock Promotion y No Wager Lock Promotion, además de mecánicas de bono de primer depósito y free spins. Según la información publicada, ambas rutas pueden aplicar depósito mínimo de $30 y máximo de $700. JugadaMax no inventa montos fijos de bienvenida ni garantiza que recibirás un bono: verifica siempre elegibilidad, requisitos y reglas vigentes antes de depositar.\n\nLa Wager Lock Promotion, según términos publicados por el operador, puede incluir requisito de apuesta 40x, bono solo en primer depósito, free spins con wagering 40x en slots de Pragmatic Play (Sweet Bonanza como juego listado), apuesta máxima activa del 2% del depósito, exclusiones de ciertos juegos (incluidos Hacksaw, Nolimit y RTP superior a 97,4%) y uso solo en casino. La No Wager Lock Promotion publica una fórmula de desbloqueo basada en volumen de apuesta (wager amount x 1% x 20%) y puede deshabilitar juegos con RTP superior a 97,4%. Las promociones pueden cambiar; si un bono no se acredita automáticamente, el operador recomienda contactar soporte antes de apostar.\n\nRainbet también expone un sistema de rewards y VIP con rakeback, daily bonus, weekly bonus, monthly bonus, pre-monthly bonus, rank-up rewards, weekly free spins, calendar rewards y representación VIP en niveles altos. La escalera publicada incluye rangos como Bronze, Silver, Gold, Platinum, Diamond, Infernal e Infernal Diamond. Estas recompensas son información del operador, no beneficios garantizados por JugadaMax; su disponibilidad depende de actividad, nivel, país y reglas internas.\n\nEn pagos, Rainbet se presenta como crypto-first y publica soporte para BTC, ETH, LTC, XRP, SOL, TRX, BNB, USDT y USDC. El sitio indica que los depósitos se acreditan tras una confirmación en blockchain y que los retiros suelen procesarse y enviarse en un rango de 5 a 15 minutos según su información oficial. JugadaMax no garantiza tiempos de retiro ni velocidad fija: redes, verificación, límites, comisiones y políticas antifraude pueden alterar cualquier estimación del operador.\n\nEn verificación y elegibilidad, Rainbet puede solicitar KYC, aplicar límites internos o restringir promociones según jurisdicción. Los free spins vinculados a Pragmatic Play solo están disponibles en países soportados por el proveedor, según condiciones publicadas. Para usuarios de México/LATAM, la disponibilidad real debe confirmarse en el operador antes de mover fondos relevantes.\n\nNuestra conclusión editorial: Rainbet es una opción crypto razonable para comparar gracias a su mix de casino, sportsbook, Originals y rewards, pero JugadaMax lo coloca por debajo de BetFury, 500 Casino y Gamdom porque esos operadores tienen mayor prioridad de campaña o partner en el ranking actual. Usa Rainbet como cuarta referencia de comparación, no como sustituto automático del partner destacado.",
+    paymentsSummary:
+      "Rainbet se orienta a pagos crypto (BTC, ETH, LTC, XRP, SOL, TRX, BNB, USDT, USDC). Métodos, redes, mínimos, comisiones y tiempos deben verificarse directamente en el operador.",
+    trustSummary:
+      "Rainbet indica operar como marca de RBGAMING N.V. según información del sitio. JugadaMax recomienda verificar licencia, jurisdicción, KYC, restricciones regionales y reglas de bonos antes de registrarte.",
+    publishedAt: "2026-07-10",
+    updatedAt: "2026-07-10",
+    locale: "es-MX",
+  },
 ];

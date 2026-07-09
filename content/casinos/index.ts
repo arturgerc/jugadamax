@@ -2,6 +2,7 @@ import type { Casino } from "@/types/content";
 import {
   BETFURY_AFFILIATE_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  RAINBET_REFERRAL_URL,
 } from "@/lib/affiliate/constants";
 
 /**
@@ -248,6 +249,40 @@ export const casinos: Casino[] = [
     bonusIds: ["500-casino-welcome"],
     summary:
       "500 Casino es un candidato crypto internacional con slots, live casino, sportsbook y promociones visibles. JugadaMax lo presenta como alternativa de comparación por debajo de BetFury; revisa términos, pagos, verificación y jurisdicción antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "rainbet",
+    slug: "rainbet",
+    name: "Rainbet",
+    logo: {
+      src: "/operators/rainbet.png",
+      alt: "Rainbet",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 7 },
+    affiliateUrl: RAINBET_REFERRAL_URL,
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+      { name: "Solana", kind: "crypto" },
+      { name: "TRX", kind: "crypto" },
+      { name: "BNB", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Información publicada por el operador (RBGAMING N.V.)",
+      notes:
+        "Rainbet indica operar como marca de RBGAMING N.V. con dirección en Hamchako, Mustamudu, Isla Autónoma de Anjouan, Unión de Comoros, según información del sitio. JugadaMax no verifica fuerza regulatoria ni disponibilidad para México; revisa términos, jurisdicción, KYC y políticas oficiales antes de registrarte.",
+    },
+    bonusIds: ["rainbet-promotions"],
+    summary:
+      "Rainbet es un casino crypto internacional con slots, juegos en vivo, sportsbook y títulos Originals. Puede funcionar como alternativa de comparación para usuarios de México/LATAM que buscan una experiencia centrada en criptomonedas, siempre revisando términos oficiales, disponibilidad regional, KYC y métodos de pago.",
     locale: "es-MX",
   },
   {

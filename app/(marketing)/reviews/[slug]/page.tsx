@@ -22,6 +22,7 @@ import {
   BETSSON_MX_CASINO_WELCOME_URL,
   BETSSON_MX_HOME_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  RAINBET_REFERRAL_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
@@ -269,6 +270,121 @@ const FIVEHUNDRED_FAQ = [
   },
 ] as const;
 
+const RAINBET_PROMO_CONDITIONS = [
+  { label: "Wager Lock", value: "Promoción con requisito de apuesta según términos oficiales" },
+  { label: "No Wager Lock", value: "Desbloqueo por volumen de apuesta según fórmula del operador" },
+  { label: "Depósito mínimo", value: "$30 según página pública de promociones" },
+  { label: "Depósito máximo", value: "$700 según página pública de promociones" },
+  { label: "Wager Lock (wagering)", value: "40x según términos publicados" },
+  { label: "Free spins", value: "Sweet Bonanza (Pragmatic Play) según elegibilidad y país" },
+  {
+    label: "Condiciones",
+    value: "Revisar juegos excluidos, RTP, apuesta máxima activa y reglas de retiro",
+  },
+] as const;
+
+const RAINBET_REWARDS_CARDS = [
+  {
+    title: "Rakeback",
+    text: "Devolución parcial según actividad y reglas del operador.",
+  },
+  {
+    title: "Daily / weekly / monthly",
+    text: "Bonos periódicos visibles en el sistema de rewards.",
+  },
+  {
+    title: "Rank-up rewards",
+    text: "Recompensas al subir de nivel en la escalera VIP.",
+  },
+  {
+    title: "Weekly free spins",
+    text: "Giros semanales sujetos a elegibilidad y términos.",
+  },
+  {
+    title: "Calendar rewards",
+    text: "Recompensas de calendario según campañas activas.",
+  },
+  {
+    title: "VIP ranks",
+    text: "Bronze, Silver, Gold, Platinum, Diamond, Infernal e Infernal Diamond.",
+  },
+] as const;
+
+const RAINBET_PAYMENTS_CARDS = [
+  {
+    title: "Crypto focus",
+    text: "Rainbet se presenta como operador crypto-first.",
+  },
+  {
+    title: "Criptomonedas",
+    text: "BTC, ETH, LTC, XRP, SOL, TRX, BNB, USDT y USDC según cajero oficial.",
+  },
+  {
+    title: "Depósitos",
+    text: "El operador indica acreditación tras una confirmación en blockchain.",
+  },
+  {
+    title: "Retiros",
+    text: "El sitio publica procesamiento típico de 5–15 minutos; JugadaMax no lo garantiza.",
+  },
+  {
+    title: "KYC",
+    text: "Verificación, límites y restricciones pueden aplicarse según políticas internas.",
+  },
+] as const;
+
+const RAINBET_PRODUCT_CARDS = [
+  {
+    title: "Casino / slots",
+    text: "Catálogo amplio con proveedores como Pragmatic Play, Evolution, Hacksaw y BGaming.",
+  },
+  {
+    title: "Live casino",
+    text: "Mesas en vivo y game shows según disponibilidad del catálogo.",
+  },
+  {
+    title: "Sportsbook",
+    text: "Apuestas deportivas tradicionales y esports según mercados y jurisdicción.",
+  },
+  {
+    title: "Rainbet Originals",
+    text: "Plinko, Limbo, Wheel, Mines, Dice, Blackjack y otros títulos propios del operador.",
+  },
+] as const;
+
+const RAINBET_FAQ = [
+  {
+    question: "¿Rainbet ofrece bonos?",
+    answer:
+      "Sí, la página pública de promociones muestra rutas Wager Lock y No Wager Lock, además de mecánicas de primer depósito y free spins. JugadaMax recomienda revisar siempre términos, elegibilidad y disponibilidad antes de depositar.",
+  },
+  {
+    question: "¿Rainbet tiene promociones sin wager lock?",
+    answer:
+      "El operador publica una No Wager Lock Promotion con fórmula de desbloqueo por volumen de apuesta. Las condiciones, juegos elegibles y límites deben confirmarse en el sitio oficial.",
+  },
+  {
+    question: "¿Qué criptomonedas acepta Rainbet?",
+    answer:
+      "Según información del operador, Rainbet soporta BTC, ETH, LTC, XRP, SOL, TRX, BNB, USDT y USDC. Redes, mínimos y comisiones pueden variar.",
+  },
+  {
+    question: "¿Rainbet tiene sportsbook?",
+    answer:
+      "Sí, Rainbet combina casino crypto con sportsbook de deportes tradicionales y esports, sujeto a mercados disponibles y restricciones regionales.",
+  },
+  {
+    question: "¿Rainbet garantiza retiros rápidos?",
+    answer:
+      "No. El operador publica tiempos estimados de 5–15 minutos, pero JugadaMax no garantiza velocidad de retiro. Verificación, red, límites y políticas internas pueden alterar cualquier plazo.",
+  },
+  {
+    question: "¿Rainbet es mejor que BetFury?",
+    answer:
+      "JugadaMax coloca BetFury por encima por la campaña activa y la propuesta de Bonus Cabinet. Rainbet queda como alternativa crypto para comparar, no como reemplazo automático del partner destacado.",
+  },
+] as const;
+
 function RelatedLinkBadge({
   kind,
   label,
@@ -457,7 +573,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       className={cn(
         review.slug === "betsson" ||
           review.slug === "betfury" ||
-          review.slug === "500-casino"
+          review.slug === "500-casino" ||
+          review.slug === "rainbet"
           ? "pt-8 pb-24 md:pt-8 md:pb-8"
           : "py-8",
       )}
@@ -580,6 +697,47 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             visualVariant="crypto"
             emphasis="comparison-primary"
             mobileMaxBullets={3}
+          />
+        ) : null}
+
+        {review.slug === "rainbet" ? (
+          <OfferCard
+            operatorName="Rainbet"
+            operatorId="rainbet"
+            badge="Crypto candidato"
+            headline="Rainbet: casino crypto, sportsbook y Originals"
+            subheadline="Promociones, rewards y pagos crypto según términos oficiales"
+            offerText="Wager Lock y No Wager Lock según página oficial de promociones"
+            paymentBadges={["BTC", "ETH", "USDT", "SOL", "LTC"]}
+            featureBullets={[
+              "Casino crypto con miles de juegos y proveedores destacados",
+              "Sportsbook y Rainbet Originals en una sola cuenta",
+              "Rewards: rakeback, daily, weekly, monthly y rank-up",
+              "Revisa promociones, pagos, KYC y disponibilidad regional",
+            ]}
+            primaryCtaLabel="Visitar Rainbet"
+            primaryCtaHref={RAINBET_REFERRAL_URL}
+            secondaryCtaLabel="Comparar casinos crypto"
+            secondaryCtaHref="/casinos-crypto"
+            termsNote="Promociones, recompensas, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Rainbet y de tu jurisdicción."
+            responsibleNote="18+ | Juega con responsabilidad"
+            visual={{
+              eyebrow: "Crypto casino",
+              title: "Casino + Sportsbook",
+              subtitle: "Originals y rewards según términos",
+              chips: ["Crypto", "Originals", "Sportsbook"],
+              variant: "crypto",
+              compact: true,
+            }}
+            visualVariant="crypto"
+            emphasis="comparison-secondary"
+            mobileMaxBullets={3}
+            logo={{
+              src: "/operators/rainbet.png",
+              alt: "Rainbet",
+              width: 80,
+              height: 40,
+            }}
           />
         ) : null}
 
@@ -948,6 +1106,166 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "rainbet" ? (
+          <section
+            aria-labelledby="rainbet-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="rainbet-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido de Rainbet
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Casino crypto con sportsbook y Rainbet Originals
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Promos</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Wager Lock y No Wager Lock según términos oficiales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Ideal para
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Usuarios que priorizan casino crypto, Originals, sportsbook y rewards activos
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Bonos, pagos, retiros, KYC, free spins y disponibilidad regional
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "rainbet" ? (
+          <section
+            aria-labelledby="rainbet-promociones-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="rainbet-promociones-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Promociones y condiciones
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Información basada en la página pública de promociones de Rainbet. Verifica siempre
+              elegibilidad, requisitos y reglas vigentes antes de depositar.
+            </p>
+            <dl className="mt-4 divide-y divide-white/10 rounded-lg border border-white/10">
+              {RAINBET_PROMO_CONDITIONS.map((row) => (
+                <div
+                  key={row.label}
+                  className="grid gap-1 px-4 py-3 sm:grid-cols-[minmax(0,9rem)_1fr] sm:gap-4"
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {row.label}
+                  </dt>
+                  <dd className="text-sm leading-relaxed text-muted-foreground">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "rainbet" ? (
+          <section aria-labelledby="rainbet-recompensas-heading">
+            <h2
+              id="rainbet-recompensas-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Rewards y VIP
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {RAINBET_REWARDS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "rainbet" ? (
+          <section aria-labelledby="rainbet-pagos-retiros-heading">
+            <h2
+              id="rainbet-pagos-retiros-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos, retiros y verificación
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {RAINBET_PAYMENTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "rainbet" ? (
+          <section aria-labelledby="rainbet-producto-heading">
+            <h2
+              id="rainbet-producto-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Casino, sportsbook y Originals
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {RAINBET_PRODUCT_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "rainbet" ? (
+          <section
+            aria-labelledby="rainbet-posicion-editorial-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="rainbet-posicion-editorial-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Por qué aparece debajo de BetFury, 500 Casino y Gamdom
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              JugadaMax muestra Rainbet como alternativa crypto sólida para comparar, pero BetFury,
+              500 Casino y Gamdom tienen mayor prioridad editorial en el ranking actual. La posición
+              puede cambiar si mejoran términos, tracking, ofertas o confirmación de partner.
+            </p>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -1097,6 +1415,47 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "rainbet" ? (
+          <section
+            aria-labelledby="rainbet-post-analisis-cta-heading"
+            className="rounded-xl border border-white/10 bg-gradient-to-br from-white/5 via-card to-[#0A1931] p-4 sm:p-5"
+          >
+            <h2
+              id="rainbet-post-analisis-cta-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Revisar Rainbet
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Antes de registrarte, confirma promociones vigentes, rewards, métodos de pago,
+              verificación y reglas de retiro directamente en Rainbet.
+            </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <a
+                href={RAINBET_REFERRAL_URL}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
+                  "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
+                  focusRing,
+                )}
+              >
+                Visitar Rainbet
+              </a>
+              <a
+                href="/casinos-crypto"
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+                  focusRing,
+                )}
+              >
+                Volver al ranking crypto
+              </a>
+            </div>
+          </section>
+        ) : null}
+
         {review.slug === "betsson" ? (
           <section aria-labelledby="betsson-faq-heading">
             <h2 id="betsson-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
@@ -1169,6 +1528,30 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "rainbet" ? (
+          <section aria-labelledby="rainbet-faq-heading">
+            <h2 id="rainbet-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre Rainbet
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {RAINBET_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {review.relatedLinks &&
         isOperatorCtaAllowed(casino.id) &&
         review.relatedLinks.length > 0 ? (
@@ -1209,7 +1592,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         {headlineBonus &&
         review.slug !== "betsson" &&
         review.slug !== "betfury" &&
-        review.slug !== "500-casino" ? (
+        review.slug !== "500-casino" &&
+        review.slug !== "rainbet" ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-1 text-lg font-semibold text-foreground">Bono</h2>
             <p className="text-sm text-muted-foreground">{headlineBonus}</p>
@@ -1239,7 +1623,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         {outboundLink &&
         review.slug !== "betsson" &&
         review.slug !== "betfury" &&
-        review.slug !== "500-casino" ? (
+        review.slug !== "500-casino" &&
+        review.slug !== "rainbet" ? (
           <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
             <OperatorCta link={outboundLink} />
           </div>
@@ -1266,6 +1651,14 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       <MobileStickyOfferCta
         primaryLabel="Visitar 500 Casino"
         primaryHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
+        secondaryLabel="Ranking crypto"
+        secondaryHref="/casinos-crypto"
+      />
+    ) : null}
+    {review.slug === "rainbet" ? (
+      <MobileStickyOfferCta
+        primaryLabel="Visitar Rainbet"
+        primaryHref={RAINBET_REFERRAL_URL}
         secondaryLabel="Ranking crypto"
         secondaryHref="/casinos-crypto"
       />

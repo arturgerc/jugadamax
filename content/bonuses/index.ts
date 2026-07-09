@@ -74,6 +74,15 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
+    id: "rainbet-promotions",
+    casinoId: "rainbet",
+    title: "Promociones Wager Lock y No Wager Lock según términos oficiales",
+    type: "welcome",
+    terms:
+      "La página pública de promociones muestra Wager Lock Promotion, No Wager Lock Promotion, bonos de primer depósito y free spins. Depósito mínimo $30 y máximo $700 según información publicada. Verifica requisitos de apuesta, juegos elegibles, elegibilidad por país, free spins de Pragmatic Play y condiciones antes de depositar.",
+    active: true,
+  },
+  {
     id: "betfury-welcome",
     casinoId: "betfury",
     title: "Hasta 590% + Free Spins según términos oficiales",
