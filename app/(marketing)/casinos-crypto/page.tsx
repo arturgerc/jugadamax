@@ -292,8 +292,9 @@ export default function CryptoCasinosPage() {
             eyebrow: "Bonus Cabinet",
             title: "Hasta 590% + Free Spins",
             subtitle: "Hasta $10,500 según términos oficiales",
-            chips: ["BFG", "Crypto", "Free Spins", "Cashback"],
+            chips: ["BFG", "Free Spins", "Cashback"],
             variant: "betfury",
+            compact: true,
           }}
           visualVariant="crypto"
           mobileMaxBullets={3}

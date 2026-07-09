@@ -393,8 +393,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     <>
     <Container
       className={cn(
-        "py-8",
-        (review.slug === "betsson" || review.slug === "betfury") && "pb-24 md:pb-8",
+        review.slug === "betsson" || review.slug === "betfury"
+          ? "pt-8 pb-24 md:pt-8 md:pb-8"
+          : "py-8",
       )}
     >
       <script
@@ -474,8 +475,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               eyebrow: "Bonus Cabinet",
               title: "Hasta 590% + Free Spins",
               subtitle: "Hasta $10,500 según términos oficiales",
-              chips: ["BFG", "Crypto", "Free Spins", "Cashback"],
+              chips: ["BFG", "Free Spins", "Cashback"],
               variant: "betfury",
+              compact: true,
             }}
             visualVariant="crypto"
             mobileMaxBullets={3}
