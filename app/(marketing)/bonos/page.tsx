@@ -66,7 +66,7 @@ const mixedBonusOperators = [
 ] as const;
 
 const betssonTermsNote =
-  "Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción.";
+  "Promoción publicada por Betsson MX. Bonos, giros, métodos de pago, verificación y retiros dependen de los términos oficiales del operador y de tu jurisdicción.";
 const betssonResponsibleNote = "18+ | Juega con responsabilidad";
 
 const ctaLinks = [
@@ -122,11 +122,137 @@ export default function BonosPage() {
         <ResponsibleGamblingNotice />
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           La disponibilidad de promociones varía según tu jurisdicción y los términos oficiales del
-          operador. JugadaMax no publica cifras promocionales no verificadas en esta página.
+          operador. Las cifras mostradas reflejan promociones publicadas por el operador y pueden
+          cambiar sin aviso.
         </p>
       </div>
 
       <div className="space-y-12">
+        <section aria-labelledby="bonos-destacados-heading">
+          <h2
+            id="bonos-destacados-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            Bonos destacados en México
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Ofertas de partners aprobados con términos publicados por el operador. Revisa siempre
+            requisitos de apuesta, límites y elegibilidad antes de depositar.
+          </p>
+          <OfferCard
+            operatorName="Betsson"
+            operatorId="betsson"
+            badge="Oferta destacada"
+            headline="Promoción de casino Betsson MX"
+            subheadline="Oferta destacada para usuarios de México"
+            offerText="Hasta $15,000 MXN + 200 giros gratis"
+            paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
+            featureBullets={[
+              "Promoción de bienvenida publicada por Betsson MX",
+              "Depósito desde $200 o mínimo $100 por SPEI según términos oficiales",
+              "+25 giros gratis extra si usas la app, según términos oficiales",
+              "Revisa requisitos de apuesta, límites y juegos elegibles",
+              "Verifica elegibilidad antes de depositar",
+            ]}
+            primaryCtaLabel="Ver bono Betsson"
+            primaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
+            secondaryCtaLabel="Leer reseña"
+            secondaryCtaHref="/reviews/betsson"
+            termsNote={betssonTermsNote}
+            responsibleNote={betssonResponsibleNote}
+            visualVariant="mexico"
+            logo={{
+              src: "/operators/betsson.svg",
+              alt: "Betsson",
+              width: 80,
+              height: 40,
+            }}
+            className="mt-5"
+          />
+        </section>
+
+        <section aria-labelledby="bonos-mixtos-heading">
+          <h2
+            id="bonos-mixtos-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            Bonos de casino y apuestas en operadores mixtos
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Algunos operadores combinan casino online, slots, live casino y apuestas deportivas en
+            una sola cuenta. 1xBet y Melbet se presentan como operadores mixtos según el mercado y
+            los términos oficiales. JugadaMax no publica montos ni códigos promocionales para estos
+            operadores.
+          </p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            {mixedBonusOperators.map((operator) => (
+              <article
+                key={operator.id}
+                className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6"
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-lg font-semibold text-foreground">{operator.name}</h3>
+                  <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
+                    Operador mixto
+                  </span>
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {operator.description}
+                </p>
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  Bonos, disponibilidad, métodos de pago, verificación y retiros dependen de los
+                  términos oficiales del operador y de tu jurisdicción.
+                </p>
+                <p className="inline-flex w-fit items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
+                  18+ | Juega con responsabilidad
+                </p>
+                <div className="mt-auto">
+                  <a
+                    href={operator.url}
+                    target="_blank"
+                    rel="sponsored nofollow noopener noreferrer"
+                    className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)] sm:w-auto"
+                  >
+                    {operator.cta}
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="bonos-crypto-operators-heading">
+          <h2
+            id="bonos-crypto-operators-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            Bonos en operadores crypto
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Como referencia editorial, en JugadaMax también cubrimos candidatos internacionales del
+            segmento crypto como{" "}
+            <span className="font-medium text-foreground">500 Casino</span>,{" "}
+            <span className="font-medium text-foreground">Roobet</span> y{" "}
+            <span className="font-medium text-foreground">Gamdom</span>. Antes de registrarte, revisa
+            en el sitio oficial si hay promociones vigentes, requisitos, límites, verificación y
+            disponibilidad para tu jurisdicción.
+          </p>
+          <nav aria-label="Guías crypto relacionadas" className="mt-4">
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {cryptoGuideLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+
         <section aria-labelledby="bonos-checklist-heading">
           <h2
             id="bonos-checklist-heading"
@@ -171,181 +297,6 @@ export default function BonosPage() {
               oficial antes de depositar.
             </p>
           </div>
-        </section>
-
-        <section aria-labelledby="bonos-crypto-operators-heading">
-          <h2
-            id="bonos-crypto-operators-heading"
-            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-          >
-            Bonos en operadores crypto
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Como referencia editorial, en JugadaMax también cubrimos candidatos internacionales del
-            segmento crypto como{" "}
-            <span className="font-medium text-foreground">500 Casino</span>,{" "}
-            <span className="font-medium text-foreground">Roobet</span> y{" "}
-            <span className="font-medium text-foreground">Gamdom</span>. En JugadaMax estos
-            operadores aparecen como candidatos editoriales internacionales del segmento crypto.
-            Antes de registrarte, revisa en el sitio oficial si hay promociones vigentes,
-            requisitos, límites, verificación y disponibilidad para tu jurisdicción.
-          </p>
-          <nav aria-label="Guías crypto relacionadas" className="mt-4">
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {cryptoGuideLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </section>
-
-        <section aria-labelledby="bonos-fiat-operators-heading">
-          <h2
-            id="bonos-fiat-operators-heading"
-            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-          >
-            Bonos en operadores locales o fiat
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Operadores con enfoque local o fiat como Codere, Caliente y Betsson pueden publicar
-            promociones orientadas a México o LATAM, pero las condiciones cambian con frecuencia.
-            JugadaMax no publica montos ni códigos promocionales en esta página. Revisa siempre la
-            oferta vigente, requisitos de apuesta y elegibilidad en el sitio oficial.
-          </p>
-          <OfferCard
-            operatorName="Betsson"
-            operatorId="betsson"
-            badge="Oferta fiat destacada"
-            headline="Promoción de casino Betsson MX"
-            subheadline="Oferta fiat destacada para usuarios de México"
-            offerText="Oferta disponible según términos oficiales"
-            paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
-            featureBullets={[
-              "Promoción de bienvenida según términos oficiales",
-              "Revisa requisitos de apuesta y límites",
-              "Pagos locales disponibles según operador",
-              "Verifica elegibilidad antes de depositar",
-            ]}
-            primaryCtaLabel="Ver promoción en Betsson MX"
-            primaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
-            termsNote={betssonTermsNote}
-            responsibleNote={betssonResponsibleNote}
-            visualVariant="mexico"
-            logo={{
-              src: "/operators/betsson.svg",
-              alt: "Betsson",
-              width: 80,
-              height: 40,
-            }}
-            className="mt-5"
-          />
-
-          <nav aria-label="Operadores fiat" className="mt-4 flex flex-wrap gap-3">
-            <Link
-              href="/casinos-fiat"
-              className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
-            >
-              Ver casinos fiat
-            </Link>
-          </nav>
-        </section>
-
-        <section aria-labelledby="bonos-mixtos-heading">
-          <h2
-            id="bonos-mixtos-heading"
-            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-          >
-            Bonos de casino y apuestas en operadores mixtos
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Algunos operadores combinan casino online, slots, live casino y apuestas deportivas en
-            una sola cuenta, con secciones promocionales para cada vertical. Betsson MX sigue siendo
-            nuestro partner fiat/casino/sportsbook más fuerte para México; 1xBet y Melbet se
-            presentan como operadores mixtos que pueden combinar casino y apuestas según el mercado y
-            los términos oficiales. JugadaMax no publica montos ni códigos promocionales.
-          </p>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            {mixedBonusOperators.map((operator) => (
-              <article
-                key={operator.id}
-                className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6"
-              >
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-foreground">{operator.name}</h3>
-                  <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
-                    Operador mixto
-                  </span>
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  {operator.description}
-                </p>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  Bonos, disponibilidad, métodos de pago, verificación y retiros dependen de los
-                  términos oficiales del operador y de tu jurisdicción.
-                </p>
-                <p className="inline-flex w-fit items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
-                  18+ | Juega con responsabilidad
-                </p>
-                <div className="mt-auto">
-                  <a
-                    href={operator.url}
-                    target="_blank"
-                    rel="sponsored nofollow noopener noreferrer"
-                    className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)] sm:w-auto"
-                  >
-                    {operator.cta}
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section aria-labelledby="bonos-antes-elegir-heading">
-          <h2
-            id="bonos-antes-elegir-heading"
-            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-          >
-            Antes de elegir un bono
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Las condiciones de los bonos cambian según el operador, el producto y tu jurisdicción.
-            Compara el tipo de casino, los métodos de pago, las reglas de verificación y las
-            condiciones de retiro antes de depositar.
-          </p>
-          <nav aria-label="Enlaces relacionados" className="mt-4 flex flex-wrap gap-3">
-            <Link
-              href="/casinos-crypto"
-              className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
-            >
-              Casinos crypto
-            </Link>
-            <Link
-              href="/casinos-fiat"
-              className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
-            >
-              Casinos fiat
-            </Link>
-            <Link
-              href="/guias/casinos-con-usdt-mexico"
-              className="inline-flex min-h-11 items-center rounded-lg border border-border/60 bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
-            >
-              Casinos con USDT en México
-            </Link>
-            <Link
-              href="/apuestas"
-              className="inline-flex min-h-11 items-center rounded-lg border border-dashed border-border/60 bg-card/40 px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-            >
-              Apuestas deportivas (sección adicional)
-            </Link>
-          </nav>
         </section>
 
         <section aria-labelledby="bonos-alertas-heading">

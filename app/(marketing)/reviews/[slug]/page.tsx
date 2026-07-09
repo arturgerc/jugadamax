@@ -234,21 +234,21 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             operatorName="Betsson"
             operatorId="betsson"
             badge="Partner aprobado"
-            headline="Betsson MX: casino online y apuestas con pagos locales"
-            subheadline="Partner fiat aprobado para México"
-            offerText="Promoción de bienvenida sujeta a términos oficiales"
+            headline="Promoción de casino Betsson MX"
+            subheadline="Oferta destacada para usuarios de México"
+            offerText="Hasta $15,000 MXN + 200 giros gratis"
             paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
             featureBullets={[
+              "Promoción de bienvenida publicada por Betsson MX",
               "Casino online y apuestas deportivas",
-              "Métodos de pago populares en México",
-              "Marca internacional con enfoque LATAM",
-              "Revisa bonos, límites y verificación antes de registrarte",
+              "Pagos locales como OXXO y SPEI según términos",
+              "Revisa requisitos de apuesta, límites y verificación",
             ]}
-            primaryCtaLabel="Entrar a Betsson MX"
-            primaryCtaHref={BETSSON_MX_HOME_URL}
-            secondaryCtaLabel="Ver promoción de casino"
-            secondaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
-            termsNote="Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción."
+            primaryCtaLabel="Ver bono Betsson"
+            primaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
+            secondaryCtaLabel="Entrar a Betsson MX"
+            secondaryCtaHref={BETSSON_MX_HOME_URL}
+            termsNote="Promoción publicada por Betsson MX. Bonos, giros, métodos de pago, verificación y retiros dependen de los términos oficiales del operador y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
             visualVariant="fiat"
             logo={casino.logo}
@@ -316,7 +316,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
         {review.slug === "stake" ? <StakeHighRollerSection /> : null}
 
-        {headlineBonus ? (
+        {headlineBonus && review.slug !== "betsson" ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-1 text-lg font-semibold text-foreground">Bono</h2>
             <p className="text-sm text-muted-foreground">{headlineBonus}</p>
@@ -343,9 +343,11 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </div>
         </section>
 
-        <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
-          <OperatorCta link={outboundLink} />
-        </div>
+        {outboundLink && review.slug !== "betsson" ? (
+          <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
+            <OperatorCta link={outboundLink} />
+          </div>
+        ) : null}
       </article>
     </Container>
   );

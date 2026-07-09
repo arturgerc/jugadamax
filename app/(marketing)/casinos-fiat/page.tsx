@@ -142,7 +142,7 @@ export default function FiatCasinosPage() {
           ]}
           primaryCtaLabel="Entrar a Betsson MX"
           primaryCtaHref={BETSSON_MX_HOME_URL}
-          secondaryCtaLabel="Ver promoción de casino"
+          secondaryCtaLabel="Ver bono Betsson"
           secondaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
           termsNote={betssonTermsNote}
           responsibleNote={betssonResponsibleNote}

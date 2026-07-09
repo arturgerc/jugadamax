@@ -87,15 +87,14 @@ const verticalCtas = [
 
 export default function Home() {
   const cryptoCasinos = HOMEPAGE_CRYPTO_PREVIEW.slice(0, PREVIEW_COUNT);
-  const fiatCasinos = filterCasinosForSurface(
-    getCasinosByVertical("fiat-casino"),
-    "homepage",
-  ).slice(0, PREVIEW_COUNT);
-  const sportsbooks = filterCasinosForSurface(
-    getCasinosByVertical("sportsbook"),
-    "homepage",
-  ).slice(0, PREVIEW_COUNT);
-  const allCasinos = filterCasinosForSurface(getCasinos(), "homepage");
+  const homepageCasinos = (casinos: Casino[]) =>
+    filterCasinosForSurface(casinos, "homepage").filter((c) => c.id !== "betsson");
+  const fiatCasinos = homepageCasinos(getCasinosByVertical("fiat-casino")).slice(0, PREVIEW_COUNT);
+  const sportsbooks = homepageCasinos(getCasinosByVertical("sportsbook")).slice(
+    0,
+    PREVIEW_COUNT,
+  );
+  const bonusHighlightCasinos = homepageCasinos(getCasinos());
 
   return (
     <>
@@ -192,7 +191,7 @@ export default function Home() {
               "Casino online y apuestas deportivas",
               "Métodos de pago populares en México",
             ]}
-            primaryCtaLabel="Ver Betsson MX"
+            primaryCtaLabel="Entrar a Betsson MX"
             primaryCtaHref={BETSSON_MX_HOME_URL}
             termsNote="Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
@@ -244,7 +243,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <BonusHighlights casinos={allCasinos} />
+      <BonusHighlights casinos={bonusHighlightCasinos} />
 
       <section aria-labelledby="metodologia-heading" className="py-10">
         <Container>

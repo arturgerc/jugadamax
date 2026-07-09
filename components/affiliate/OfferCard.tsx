@@ -1,4 +1,5 @@
 import type { ImageRef } from "@/types/content";
+import Link from "next/link";
 import { OperatorLogo } from "@/components/brand/OperatorLogo";
 import { cn, focusRing } from "@/lib/utils";
 
@@ -26,6 +27,10 @@ export type OfferCardProps = {
 };
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
+
+function isExternalHref(href: string): boolean {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
 
 const variantShell: Record<OfferCardVisualVariant, string> = {
   mexico:
@@ -187,17 +192,29 @@ export function OfferCard({
             {primaryCtaLabel}
           </a>
           {secondaryCtaLabel && secondaryCtaHref ? (
-            <a
-              href={secondaryCtaHref}
-              target="_blank"
-              rel={AFFILIATE_REL}
-              className={cn(
-                "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
-                focusRing,
-              )}
-            >
-              {secondaryCtaLabel}
-            </a>
+            isExternalHref(secondaryCtaHref) ? (
+              <a
+                href={secondaryCtaHref}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+                  focusRing,
+                )}
+              >
+                {secondaryCtaLabel}
+              </a>
+            ) : (
+              <Link
+                href={secondaryCtaHref}
+                className={cn(
+                  "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+                  focusRing,
+                )}
+              >
+                {secondaryCtaLabel}
+              </Link>
+            )
           ) : null}
         </div>
       </div>
