@@ -1,6 +1,5 @@
 import type { Author, Casino, Review, Vertical } from "@/types/content";
 import { cn } from "@/lib/utils";
-import { RatingStars } from "@/components/ranking/RatingStars";
 import { AuthorByline } from "@/components/review/AuthorByline";
 import { OperatorLogo } from "@/components/brand/OperatorLogo";
 import type { UiLocale } from "@/lib/i18n/ui-labels";
@@ -166,6 +165,28 @@ function verticalChips(verticals: Vertical[], locale: UiLocale): string[] {
   return verticals.slice(0, 3).map((v) => VERTICAL_CHIP_LABELS[v][locale === "en" ? "en" : "es"]);
 }
 
+function EditorialStarRow({ rating, className }: { rating: number; className?: string }) {
+  const value = Math.max(0, Math.min(5, rating));
+
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("inline-flex items-center gap-0.5 text-primary", className)}
+    >
+      {Array.from({ length: 5 }, (_, index) => {
+        const fill = value - index;
+        const opacity = fill >= 1 ? "opacity-100" : fill >= 0.25 ? "opacity-55" : "opacity-25";
+
+        return (
+          <span key={index} className={cn("text-sm leading-none sm:text-base", opacity)}>
+            ★
+          </span>
+        );
+      })}
+    </span>
+  );
+}
+
 /**
  * Premium editorial review hero (FR-005/FR-016).
  *
@@ -272,7 +293,7 @@ export function ReviewHeader({
             <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
               {review.title}
             </h1>
-            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base lg:line-clamp-2">
+            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               {summary}
             </p>
           </div>
@@ -307,7 +328,7 @@ export function ReviewHeader({
             <span className="text-sm font-medium text-muted-foreground">/ 5</span>
           </div>
           <div className="min-w-0 flex-1 space-y-1 lg:flex-none">
-            <RatingStars rating={review.rating} className="lg:mx-auto" />
+            <EditorialStarRow rating={review.rating} className="lg:mx-auto" />
             <p className="text-xs font-semibold text-foreground sm:text-sm">{ratingLabel}</p>
             <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-xs">
               {ratingClarification}
