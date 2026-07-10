@@ -306,6 +306,36 @@ const ONEXBET_FAQ = [
   },
 ] as const;
 
+const ONEXBET_ANALYSIS_SECTIONS = [
+  {
+    title: "Nuestra valoración",
+    paragraphs: [
+      "1xBet es un operador mixto internacional que combina casino online, casino en vivo, slots y apuestas deportivas bajo una misma cuenta. Para usuarios de México y LATAM, JugadaMax lo presenta como candidato secundario frente a partners fiat locales como Betsson MX, pero puede interesar a quien busca mercados deportivos amplios, eSports y un paquete de bienvenida visible en el registro.",
+      "Nuestra conclusión editorial: 1xBet puede funcionar como operador mixto internacional para comparar casino + sportsbook, especialmente si el usuario revisa con calma el paquete de bienvenida, introduce el código 1x_5259707 cuando corresponda y confirma wagering, depósitos elegibles y reglas de retiro directamente en el operador antes de mover fondos.",
+    ],
+  },
+  {
+    title: "Paquete de bienvenida",
+    paragraphs: [
+      "En la pantalla de registro para México, 1xBet muestra un paquete de bienvenida de casino con titular hasta 40,000 MXN + 150 giros gratis, vinculado a depósitos según la campaña publicada. JugadaMax no interpreta ese titular como un crédito único garantizado en el primer depósito: el operador presenta un paquete que puede distribuirse en varios tramos, sujetos a términos oficiales, juegos elegibles, requisitos de apuesta, límites y vencimiento.",
+      "El código promocional confirmado para la campaña de JugadaMax es 1x_5259707. Debes introducirlo durante el registro si el operador lo solicita y verificar que la promoción siga activa antes de depositar. No confundas identificadores de tracking (BTAG, site ID o parámetros de afiliado) con el código promocional visible para el usuario.",
+    ],
+  },
+  {
+    title: "Casino y sportsbook",
+    paragraphs: [
+      "En apuestas deportivas, 1xBet suele mostrar fútbol, Liga MX, mercados internacionales, apuestas en vivo, eSports y otras disciplinas según disponibilidad. El bono deportivo debe tratarse por separado del paquete de casino: la ruta habitual es un bono de primer depósito según términos vigentes, con reglas de rollover, cuotas mínimas y mercados elegibles propias.",
+      "En casino, el operador publica categorías como slots, casino en vivo, juegos de mesa y otros formatos según catálogo vigente. Los 150 giros gratis del paquete de bienvenida, cuando aplican, dependen de elegibilidad, juegos participantes y condiciones publicadas por 1xBet — JugadaMax no garantiza su acreditación automática.",
+    ],
+  },
+  {
+    title: "Pagos, KYC y retiros",
+    paragraphs: [
+      "En pagos y retiros, métodos, límites, comisiones, monedas y tiempos pueden variar por país, método y estado de verificación. 1xBet puede solicitar KYC antes de permitir retiros o ciertas promociones. No afirmamos retiros rápidos ni garantizados.",
+    ],
+  },
+] as const;
+
 const FIVEHUNDRED_PRODUCT_CARDS = [
   {
     title: "Slots",
@@ -1583,22 +1613,45 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           <ProsCons pros={review.pros} cons={review.cons} />
         </section>
 
-        <section aria-label="Análisis" className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
-          <div className="space-y-4">
-            {review.body
-              .split(/\n\s*\n/)
-              .filter((paragraph) => paragraph.trim().length > 0)
-              .map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-sm leading-relaxed text-muted-foreground sm:text-base"
-                >
-                  {paragraph.trim()}
-                </p>
-              ))}
-          </div>
-        </section>
+        {review.slug === "1xbet" ? (
+          <section aria-label="Análisis" className="space-y-6">
+            <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
+            {ONEXBET_ANALYSIS_SECTIONS.map((section) => (
+              <div key={section.title} className="space-y-3">
+                <h3 className="text-base font-semibold text-foreground sm:text-lg">
+                  {section.title}
+                </h3>
+                <div className="space-y-3">
+                  {section.paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 48)}
+                      className="text-sm leading-relaxed text-muted-foreground sm:text-base"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </section>
+        ) : (
+          <section aria-label="Análisis" className="space-y-3">
+            <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
+            <div className="space-y-4">
+              {review.body
+                .split(/\n\s*\n/)
+                .filter((paragraph) => paragraph.trim().length > 0)
+                .map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="text-sm leading-relaxed text-muted-foreground sm:text-base"
+                  >
+                    {paragraph.trim()}
+                  </p>
+                ))}
+            </div>
+          </section>
+        )}
 
         {review.slug === "betsson" ? (
           <section
@@ -2003,8 +2056,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       <MobileStickyOfferCta
         primaryLabel="Ver paquete 1xBet"
         primaryHref={ONE_XBET_AFFILIATE_URL}
-        secondaryLabel="Comparar casinos fiat"
-        secondaryHref="/casinos-fiat"
+        secondaryLabel="Ver apuestas deportivas"
+        secondaryHref="/apuestas"
       />
     ) : null}
     </>

@@ -126,30 +126,30 @@ export default function FiatCasinosPage() {
           verificación y límites antes de registrarte.
         </p>
         <OneXBetFeaturedCard context="casino" />
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          {mixedOperators.map((operator) => (
-            <article
-              key={operator.id}
-              className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6"
-            >
+        {mixedOperators.map((operator) => (
+          <article
+            key={operator.id}
+            className="mt-5 flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between"
+          >
+            <div className="min-w-0 space-y-3">
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="text-lg font-semibold text-foreground">{operator.name}</h3>
                 <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
                   Operador mixto
                 </span>
               </div>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+              <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
                 {operator.description}
               </p>
               <p className="inline-flex w-fit items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
                 18+ | Juega con responsabilidad
               </p>
-              <div className="mt-auto">
-                <OperatorCta link={operator.link} className="w-full sm:w-auto" />
-              </div>
-            </article>
-          ))}
-        </div>
+            </div>
+            <div className="shrink-0 lg:w-56">
+              <OperatorCta link={operator.link} className="w-full" />
+            </div>
+          </article>
+        ))}
       </section>
 
       <section aria-labelledby="codere-fiat-heading" className="mb-8">

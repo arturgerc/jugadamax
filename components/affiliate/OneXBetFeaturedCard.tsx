@@ -11,6 +11,9 @@ const ONEXBET_RESPONSIBLE = "18+ | Juega con responsabilidad";
 
 const PROMO_LABEL = `Código promocional: ${ONE_XBET_PROMO_CODE}`;
 
+const PROMO_REGISTRATION_BULLET =
+  "Introduce el código durante el registro cuando corresponda";
+
 const ONEXBET_LOGO = {
   src: "/operators/1xbet.svg",
   alt: "1xBet",
@@ -102,7 +105,7 @@ const CONTEXT_CONFIG: Record<
     featureBullets: [
       "Oferta mostrada en el registro para nuevos usuarios",
       "El paquete puede estar vinculado a varios depósitos",
-      PROMO_LABEL,
+      PROMO_REGISTRATION_BULLET,
       "Confirma porcentajes, depósitos elegibles y wagering antes de depositar",
     ],
     primaryCtaLabel: "Ver oferta 1xBet",
@@ -124,13 +127,13 @@ const CONTEXT_CONFIG: Record<
     featureBullets: [
       "Paquete de bienvenida mostrado para nuevos usuarios elegibles",
       "Hasta 40,000 MXN + 150 giros gratis según términos",
-      PROMO_LABEL,
+      PROMO_REGISTRATION_BULLET,
       "Revisa depósitos elegibles, wagering y reglas de retiro",
     ],
     primaryCtaLabel: "Ver paquete 1xBet",
     primaryCtaHref: ONE_XBET_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos fiat",
-    secondaryCtaHref: "/casinos-fiat",
+    secondaryCtaLabel: "Ver apuestas deportivas",
+    secondaryCtaHref: "/apuestas",
     termsNote: ONEXBET_TERMS,
     visual: CASINO_VISUAL,
     visualVariant: "mexico",
