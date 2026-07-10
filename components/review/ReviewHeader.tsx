@@ -165,6 +165,20 @@ function verticalChips(verticals: Vertical[], locale: UiLocale): string[] {
   return verticals.slice(0, 3).map((v) => VERTICAL_CHIP_LABELS[v][locale === "en" ? "en" : "es"]);
 }
 
+/** Returns up to N complete sentences; falls back to the source text when unpunctuated. */
+function extractCompleteSentences(text: string, maxSentences: number): string {
+  const source = text.trim();
+  if (!source) return source;
+
+  const parts = source.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
+  if (!parts?.length) return source;
+
+  const sentences = parts.map((part) => part.trim()).filter(Boolean);
+  if (!sentences.length) return source;
+
+  return sentences.slice(0, maxSentences).join(" ");
+}
+
 function EditorialStarRow({ rating, className }: { rating: number; className?: string }) {
   const value = Math.max(0, Math.min(5, rating));
 
@@ -208,7 +222,9 @@ export function ReviewHeader({
 }) {
   const accent = resolveAccent(casino.id);
   const chips = verticalChips(casino.verticals, locale);
-  const summary = casino.summary ?? review.verdict;
+  const summarySource = casino.summary ?? review.verdict;
+  const mobileSummary = extractCompleteSentences(summarySource, 1);
+  const desktopSummary = extractCompleteSentences(summarySource, 2);
   const editorialBadge = locale === "en" ? "EDITORIAL REVIEW" : "RESEÑA EDITORIAL";
   const ratingLabel =
     locale === "en" ? "JugadaMax editorial rating" : "Calificación editorial de JugadaMax";
@@ -220,7 +236,7 @@ export function ReviewHeader({
   return (
     <header
       className={cn(
-        "relative overflow-hidden rounded-2xl border p-5 sm:p-7 lg:p-8",
+        "relative overflow-hidden rounded-2xl border p-4 sm:p-7 lg:p-8",
         accent.shell,
         className,
       )}
@@ -248,36 +264,36 @@ export function ReviewHeader({
         )}
       />
 
-      <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-center lg:gap-8">
-        <div className="min-w-0 space-y-4">
-          <div className="flex flex-wrap items-start gap-3 sm:gap-4">
+      <div className="relative grid gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-center lg:gap-8">
+        <div className="min-w-0 space-y-3 sm:space-y-4">
+          <div className="flex flex-wrap items-start gap-2.5 sm:gap-4">
             <OperatorLogo
               name={casino.name}
               logo={casino.logo}
               operatorId={casino.id}
-              className="h-12 w-20 sm:h-14 sm:w-24 lg:h-16 lg:w-[7.5rem]"
+              className="h-11 w-[5.25rem] sm:h-14 sm:w-24 lg:h-16 lg:w-[7.5rem]"
             />
-            <div className="min-w-0 flex-1 space-y-2">
-              <div className="flex flex-wrap items-center gap-2">
+            <div className="min-w-0 flex-1 space-y-1.5 sm:space-y-2">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span
                   className={cn(
-                    "inline-flex items-center rounded-full border px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide sm:text-[0.65rem]",
+                    "inline-flex items-center rounded-full border px-1.5 py-0.5 text-[0.55rem] font-semibold uppercase tracking-wide sm:px-2 sm:text-[0.65rem]",
                     accent.badge,
                   )}
                 >
                   {editorialBadge}
                 </span>
-                <span className="text-sm font-semibold text-foreground sm:text-base">
+                <span className="text-xs font-semibold text-foreground sm:text-base">
                   {casino.name}
                 </span>
               </div>
               {chips.length > 0 ? (
-                <ul className="flex flex-wrap gap-1.5" aria-label={locale === "en" ? "Categories" : "Categorías"}>
+                <ul className="flex flex-wrap gap-1 sm:gap-1.5" aria-label={locale === "en" ? "Categories" : "Categorías"}>
                   {chips.map((chip) => (
                     <li
                       key={chip}
                       className={cn(
-                        "inline-flex items-center rounded-md border px-2 py-0.5 text-[0.65rem] font-medium sm:text-xs",
+                        "inline-flex items-center rounded-md border px-1.5 py-0.5 text-[0.6rem] font-medium sm:px-2 sm:text-xs",
                         accent.chip,
                       )}
                     >
@@ -289,12 +305,15 @@ export function ReviewHeader({
             </div>
           </div>
 
-          <div className="space-y-3">
-            <h1 className="max-w-3xl text-3xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+          <div className="space-y-2 sm:space-y-3">
+            <h1 className="max-w-3xl text-[2rem] font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
               {review.title}
             </h1>
-            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-              {summary}
+            <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:hidden">
+              {mobileSummary}
+            </p>
+            <p className="hidden max-w-2xl text-sm leading-relaxed text-muted-foreground sm:block sm:text-base">
+              {desktopSummary}
             </p>
           </div>
 
@@ -316,21 +335,28 @@ export function ReviewHeader({
         <aside
           aria-label={locale === "en" ? "Editorial score" : "Puntuación editorial"}
           className={cn(
-            "flex shrink-0 flex-row items-center gap-4 rounded-xl border p-4",
+            "flex max-h-[7.5rem] shrink-0 flex-row items-center gap-3 rounded-xl border p-3 sm:max-h-none sm:gap-4 sm:p-4",
             "lg:flex-col lg:items-center lg:gap-2 lg:p-5 lg:text-center",
             accent.scorePanel,
           )}
         >
-          <div className="flex items-baseline gap-1 lg:justify-center">
-            <span className={cn("text-4xl font-extrabold tabular-nums sm:text-5xl", accent.scoreValue)}>
+          <div className="flex shrink-0 items-baseline gap-1 lg:justify-center">
+            <span
+              className={cn(
+                "text-3xl font-extrabold tabular-nums sm:text-5xl",
+                accent.scoreValue,
+              )}
+            >
               {review.rating.toFixed(1)}
             </span>
-            <span className="text-sm font-medium text-muted-foreground">/ 5</span>
+            <span className="text-xs font-medium text-muted-foreground sm:text-sm">/ 5</span>
           </div>
-          <div className="min-w-0 flex-1 space-y-1 lg:flex-none">
+          <div className="min-w-0 flex-1 space-y-0.5 sm:space-y-1 lg:flex-none">
             <EditorialStarRow rating={review.rating} className="lg:mx-auto" />
-            <p className="text-xs font-semibold text-foreground sm:text-sm">{ratingLabel}</p>
-            <p className="text-[0.65rem] leading-snug text-muted-foreground sm:text-xs">
+            <p className="text-[0.65rem] font-semibold leading-snug text-foreground sm:text-sm">
+              {ratingLabel}
+            </p>
+            <p className="text-[0.6rem] leading-snug text-muted-foreground sm:text-xs">
               {ratingClarification}
             </p>
           </div>

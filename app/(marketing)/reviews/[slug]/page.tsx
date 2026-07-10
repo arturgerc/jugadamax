@@ -873,7 +873,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           review.slug === "rainbet" ||
           review.slug === "1xbet" ||
           review.slug === "melbet"
-          ? "pt-8 pb-24 md:pt-8 md:pb-8"
+          ? "pt-8 pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pt-8 md:pb-8"
           : "py-8",
       )}
     >
@@ -895,7 +895,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         </ReviewProse>
 
         {review.slug === "betsson" ? (
-          <OfferCard
+          <div id="review-primary-offer">
+            <OfferCard
             operatorName="Betsson"
             operatorId="betsson"
             badge="Partner aprobado"
@@ -926,10 +927,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             mobileMaxBullets={3}
             logo={casino.logo}
           />
+          </div>
         ) : null}
 
         {review.slug === "betfury" ? (
-          <OfferCard
+          <div id="review-primary-offer">
+            <OfferCard
             operatorName="BetFury"
             operatorId="betfury"
             badge="Crypto partner destacado"
@@ -962,10 +965,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             mobileMaxBullets={3}
             logo={casino.logo}
           />
+          </div>
         ) : null}
 
         {review.slug === "500-casino" ? (
-          <OfferCard
+          <div id="review-primary-offer">
+            <OfferCard
             operatorName="500 Casino"
             operatorId="500-casino"
             badge="Crypto candidato"
@@ -996,10 +1001,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             emphasis="comparison-primary"
             mobileMaxBullets={3}
           />
+          </div>
         ) : null}
 
         {review.slug === "rainbet" ? (
-          <OfferCard
+          <div id="review-primary-offer">
+            <OfferCard
             operatorName="Rainbet"
             operatorId="rainbet"
             badge="Crypto candidato"
@@ -1036,14 +1043,19 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               height: 56,
             }}
           />
+          </div>
         ) : null}
 
         {review.slug === "1xbet" ? (
-          <OneXBetFeaturedCard context="review" />
+          <div id="review-primary-offer">
+            <OneXBetFeaturedCard context="review" />
+          </div>
         ) : null}
 
         {review.slug === "melbet" ? (
-          <MelbetFeaturedCard context="review" />
+          <div id="review-primary-offer">
+            <MelbetFeaturedCard context="review" />
+          </div>
         ) : null}
 
         {review.slug === "betsson" ? (
@@ -2431,6 +2443,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     </Container>
     {review.slug === "betsson" ? (
       <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Ver bono"
+        compactSecondaryLabel="Entrar"
         primaryLabel="Ver bono Betsson"
         primaryHref={BETSSON_MX_CASINO_WELCOME_URL}
         secondaryLabel="Entrar a Betsson MX"
@@ -2439,6 +2454,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     ) : null}
     {review.slug === "betfury" ? (
       <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Ver bonos"
+        compactSecondaryLabel="Comparar"
         primaryLabel="Ver bonos BetFury"
         primaryHref={BETFURY_AFFILIATE_URL}
         secondaryLabel="Comparar casinos crypto"
@@ -2447,6 +2465,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     ) : null}
     {review.slug === "500-casino" ? (
       <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Visitar"
+        compactSecondaryLabel="Comparar"
         primaryLabel="Visitar 500 Casino"
         primaryHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
         secondaryLabel="Ranking crypto"
@@ -2455,6 +2476,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     ) : null}
     {review.slug === "rainbet" ? (
       <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Visitar"
+        compactSecondaryLabel="Comparar"
         primaryLabel="Visitar Rainbet"
         primaryHref={RAINBET_REFERRAL_URL}
         secondaryLabel="Ranking crypto"
@@ -2463,6 +2487,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     ) : null}
     {review.slug === "1xbet" ? (
       <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Ver oferta"
+        compactSecondaryLabel="Apuestas"
         primaryLabel="Ver paquete 1xBet"
         primaryHref={ONE_XBET_AFFILIATE_URL}
         secondaryLabel="Ver apuestas deportivas"
@@ -2471,6 +2498,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     ) : null}
     {review.slug === "melbet" ? (
       <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Ver bono"
+        compactSecondaryLabel="Apuestas"
         primaryLabel="Ver bono Melbet"
         primaryHref={MELBET_AFFILIATE_URL}
         secondaryLabel="Ver apuestas deportivas"

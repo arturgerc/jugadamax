@@ -34,8 +34,8 @@ export function AuthorByline({
   const showCredentials = locale === "es" && author.credentials;
 
   return (
-    <div className={cn("space-y-1", className)}>
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+    <div className={cn("space-y-0.5 sm:space-y-1", className)}>
+      <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground sm:gap-x-2 sm:gap-y-1 sm:text-sm">
         <span className="text-foreground">
           {byPrefix} <span className="font-semibold">{displayName}</span>
           {showRole ? <span className="text-muted-foreground"> · {author.role}</span> : null}
@@ -55,7 +55,7 @@ export function AuthorByline({
           </>
         ) : null}
         {author.links?.map((link) => (
-          <span key={link.url} className="inline-flex items-center gap-x-2">
+          <span key={link.url} className="inline-flex items-center gap-x-1.5 sm:gap-x-2">
             <span aria-hidden="true">·</span>
             <a
               href={link.url}
@@ -72,7 +72,9 @@ export function AuthorByline({
         ))}
       </div>
       {showCredentials ? (
-        <p className="text-xs leading-relaxed text-muted-foreground">{author.credentials}</p>
+        <p className="hidden text-xs leading-relaxed text-muted-foreground sm:block">
+          {author.credentials}
+        </p>
       ) : null}
     </div>
   );
