@@ -132,7 +132,7 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     allowedSurfaces: ["casinos-fiat", "bonos", "apuestas", "reviews", "sitemap"],
     ctaAllowed: true,
     affiliateAllowed: true,
-    notes: "Mixed operator (casino + sportsbook); not crypto-first.",
+    notes: "Mixed operator (casino + sportsbook); promo code ml_2958499 confirmed for Mexico campaigns.",
   },
   codere: {
     id: "codere",

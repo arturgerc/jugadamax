@@ -8,10 +8,10 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
+import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
   BETSSON_MX_CASINO_WELCOME_URL,
-  MELBET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
@@ -46,17 +46,6 @@ const cryptoGuideLinks = [
   { href: "/guias/roobet-mexico-crypto", label: "Roobet en México" },
   { href: "/guias/gamdom-mexico-crypto", label: "Gamdom en México" },
   { href: "/guias/casinos-con-usdt-mexico", label: "Casinos con USDT" },
-] as const;
-
-const mixedBonusOperators = [
-  {
-    id: "melbet",
-    name: "Melbet",
-    url: MELBET_AFFILIATE_URL,
-    cta: "Ver opciones en Melbet",
-    description:
-      "Melbet es un operador mixto con secciones de apuestas deportivas y casino online. La disponibilidad de juegos, bonos, pagos, verificación y límites depende de los términos oficiales del operador y de tu jurisdicción.",
-  },
 ] as const;
 
 const betssonTermsNote =
@@ -258,45 +247,12 @@ export default function BonosPage() {
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             Algunos operadores combinan casino online, slots, live casino y apuestas deportivas en
-            una sola cuenta. Confirma siempre requisitos de apuesta, depósitos elegibles, límites y
+            una sola cuenta. El paquete de 1xBet se refiere al casino; el bono de Melbet es
+            deportivo. Confirma siempre requisitos de apuesta, depósitos elegibles, límites y
             elegibilidad antes de aceptar una promoción.
           </p>
           <OneXBetFeaturedCard context="bonus" />
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            {mixedBonusOperators.map((operator) => (
-              <article
-                key={operator.id}
-                className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6"
-              >
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-lg font-semibold text-foreground">{operator.name}</h3>
-                  <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
-                    Operador mixto
-                  </span>
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  {operator.description}
-                </p>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  Bonos, disponibilidad, métodos de pago, verificación y retiros dependen de los
-                  términos oficiales del operador y de tu jurisdicción.
-                </p>
-                <p className="inline-flex w-fit items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
-                  18+ | Juega con responsabilidad
-                </p>
-                <div className="mt-auto">
-                  <a
-                    href={operator.url}
-                    target="_blank"
-                    rel="sponsored nofollow noopener noreferrer"
-                    className="inline-flex min-h-11 w-full items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)] sm:w-auto"
-                  >
-                    {operator.cta}
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+          <MelbetFeaturedCard context="bonus" />
         </section>
 
         <section aria-labelledby="bonos-crypto-operators-heading">

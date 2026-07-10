@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import type { Casino } from "@/types/content";
 import { getCasinosByVertical } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
@@ -11,8 +10,8 @@ import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
+import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
-import { MELBET_AFFILIATE_URL } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Apuestas deportivas en México",
@@ -21,21 +20,7 @@ export const metadata: Metadata = buildMetadata({
   path: "/apuestas",
 });
 
-const affiliateSportsbooks: Casino[] = [
-  {
-    id: "melbet",
-    slug: "melbet",
-    name: "Melbet",
-    verticals: ["sportsbook"],
-    rankByVertical: { sportsbook: 5 },
-    affiliateUrl: MELBET_AFFILIATE_URL,
-    summary:
-      "Operador mixto con secciones de apuestas deportivas y también casino online / live casino según los términos oficiales. Antes de registrarte, revisa disponibilidad, métodos de pago, bonos, verificación y condiciones vigentes en el sitio oficial.",
-    locale: "es-MX",
-  },
-];
-
-function uniquePayments(casinos: Casino[]) {
+function uniquePayments(casinos: ReturnType<typeof getCasinosByVertical>) {
   const names = new Set<string>();
   for (const casino of casinos) {
     for (const p of casino.payments ?? []) {
@@ -46,12 +31,10 @@ function uniquePayments(casinos: Casino[]) {
 }
 
 export default function BettingSitesPage() {
-  // Betsson and Codere are featured above; exclude placeholder editorial entries
-  // from the ranking to avoid duplication and unapproved affiliate CTAs.
-  const editorialSportsbooks = getCasinosByVertical("sportsbook").filter(
-    (c) => c.id !== "betsson" && c.id !== "codere" && c.id !== "1xbet",
+  // Betsson, 1xBet and Melbet are featured above; exclude from ranking to avoid duplication.
+  const casinos = getCasinosByVertical("sportsbook").filter(
+    (c) => c.id !== "betsson" && c.id !== "codere" && c.id !== "1xbet" && c.id !== "melbet",
   );
-  const casinos = [...editorialSportsbooks, ...affiliateSportsbooks];
   const payments = uniquePayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -114,14 +97,20 @@ export default function BettingSitesPage() {
         <BetssonFeaturedCard context="sportsbook" />
       </section>
 
-      <section aria-labelledby="1xbet-apuestas-heading" className="mb-8">
+      <section aria-labelledby="mixtos-internacionales-heading" className="mb-8 space-y-4">
         <h2
-          id="1xbet-apuestas-heading"
+          id="mixtos-internacionales-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
         >
-          Operador mixto internacional
+          Operadores mixtos internacionales
         </h2>
-        <OneXBetFeaturedCard context="sportsbook" />
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Operadores internacionales con sportsbook y casino en una misma cuenta. Revisa siempre
+          bonos deportivos, promociones de casino, rollover, cuotas mínimas, verificación y
+          jurisdicción antes de registrarte.
+        </p>
+        <OneXBetFeaturedCard context="sportsbook" className="mt-0" />
+        <MelbetFeaturedCard context="sportsbook" className="mt-0" />
       </section>
 
       <section aria-labelledby="codere-apuestas-heading" className="mb-8">

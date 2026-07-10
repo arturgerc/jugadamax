@@ -418,4 +418,37 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-10",
     locale: "es-MX",
   },
+  {
+    id: "melbet-review",
+    casinoId: "melbet",
+    authorId: "redaccion-jugadamax",
+    slug: "melbet",
+    title: "Reseña de Melbet México: apuestas, casino y bono de bienvenida",
+    verdict:
+      "Melbet combina sportsbook y casino online en una sola cuenta con un bono deportivo escalonado visible para nuevos usuarios elegibles. Para JugadaMax puede encajar como operador mixto internacional activo tras Betsson y 1xBet, siempre revisando rollover, cuotas mínimas, depósitos elegibles, verificación, pagos y jurisdicción.",
+    rating: 4.0,
+    pros: [
+      "Sportsbook y casino en una sola cuenta.",
+      "Paquete deportivo escalonado en cuatro depósitos elegibles.",
+      "Amplia oferta de deportes, mercados en vivo y casino según catálogo visible.",
+      "Casino, slots, live casino y fast games en la misma plataforma.",
+      "Código promocional de campaña confirmado para JugadaMax.",
+    ],
+    cons: [
+      "Las condiciones del bono requieren revisión detallada antes de depositar.",
+      "Aplican requisitos de acumuladas y cuotas mínimas por selección.",
+      "Los bonos posteriores dependen del wagering previo y del timing del operador.",
+      "Pagos, disponibilidad y KYC varían según jurisdicción.",
+      "La interfaz puede sentirse densa para usuarios nuevos.",
+    ],
+    body:
+      "Melbet es un operador mixto internacional que combina apuestas deportivas, casino online, slots, live casino y fast games bajo una misma cuenta. Para usuarios de México y LATAM, JugadaMax lo presenta como partner activo secundario tras Betsson MX y 1xBet, especialmente si buscas un bono deportivo escalonado y una plataforma amplia para comparar sportsbook + casino.\n\nEl bono deportivo de bienvenida mostrado para México puede alcanzar hasta MX$17,500 distribuidos en los primeros cuatro depósitos elegibles: 100% hasta MX$7,000 en el primer depósito, 50% hasta MX$3,500 en el segundo, 25% hasta MX$3,500 en el tercero y 25% hasta MX$3,500 en el cuarto. JugadaMax no interpreta ese titular como un crédito único garantizado: cada tramo depende de elegibilidad, depósito mínimo (MX$100), aceptación previa del bono, perfil completado y términos oficiales.\n\nSegún la promoción visible, el requisito de apuesta es 5x del monto del bono, con apuestas acumuladas (parlays) de al menos 2 selecciones y cuota mínima de 1.40 por selección. El primer depósito elegible debe realizarse dentro de los 15 días posteriores al registro; los depósitos segundo, tercero y cuarto deben seguir el timing indicado por el operador tras cumplir el wagering del bono anterior. Cada bono puede tener un periodo de vigencia de 15 días según los términos publicados.\n\nEl código promocional confirmado para la campaña de JugadaMax es ml_2958499. Debes introducirlo durante el registro si el operador lo solicita, seleccionar o aceptar el bono deportivo antes de depositar y verificar que la promoción siga activa. No confundas identificadores de tracking con el código promocional visible para el usuario.\n\nEn casino, Melbet publica slots, casino en vivo, juegos de mesa y fast games según catálogo vigente. JugadaMax no atribuye el paquete de MX$17,500 al casino: las promociones de casino deben revisarse por separado según términos vigentes del operador.\n\nEn apuestas deportivas, el operador suele mostrar fútbol, Liga MX, mercados internacionales, apuestas en vivo, eSports y otras disciplinas según disponibilidad. Cuotas, liquidación y reglas de mercado pueden variar; confirma siempre la información vigente en Melbet.\n\nEn pagos, retiros y verificación, métodos, límites, comisiones, monedas y tiempos pueden variar por país, método y estado de la cuenta. Melbet puede solicitar KYC antes de permitir retiros o ciertas promociones. JugadaMax no garantiza retiros rápidos ni tiempos fijos.\n\nNuestra conclusión editorial: Melbet puede encajar para usuarios que comparan un sportsbook internacional con bono escalonado y también quieren explorar casino en la misma cuenta, siempre que revisen rollover, cuotas mínimas, vigencia, depósitos elegibles y reglas de retiro directamente en el operador antes de mover fondos. Para casino fiat local, también puedes comparar la sección de casinos fiat de JugadaMax.",
+    paymentsSummary:
+      "Métodos de pago, monedas, límites, comisiones y tiempos de retiro deben verificarse directamente en el cajero vigente de Melbet y en los términos oficiales del operador.",
+    trustSummary:
+      "JugadaMax trata Melbet como operador mixto internacional activo en campaña de afiliados. Recomienda verificar licencia, jurisdicción, KYC, restricciones regionales y reglas de bonos antes de registrarte.",
+    publishedAt: "2026-07-10",
+    updatedAt: "2026-07-10",
+    locale: "es-MX",
+  },
 ];

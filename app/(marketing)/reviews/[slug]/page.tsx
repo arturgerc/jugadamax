@@ -25,9 +25,12 @@ import {
   RAINBET_REFERRAL_URL,
   ONE_XBET_AFFILIATE_URL,
   ONE_XBET_PROMO_CODE,
+  MELBET_AFFILIATE_URL,
+  MELBET_PROMO_CODE,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
+import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
@@ -332,6 +335,150 @@ const ONEXBET_ANALYSIS_SECTIONS = [
     title: "Pagos, KYC y retiros",
     paragraphs: [
       "En pagos y retiros, métodos, límites, comisiones, monedas y tiempos pueden variar por país, método y estado de verificación. 1xBet puede solicitar KYC antes de permitir retiros o ciertas promociones. No afirmamos retiros rápidos ni garantizados.",
+    ],
+  },
+] as const;
+
+const MELBET_DEPOSIT_STAGES = [
+  { label: "1.º depósito", value: "100% hasta MX$7,000" },
+  { label: "2.º depósito", value: "50% hasta MX$3,500" },
+  { label: "3.º depósito", value: "25% hasta MX$3,500" },
+  { label: "4.º depósito", value: "25% hasta MX$3,500" },
+  { label: "Depósito mínimo", value: "MX$100" },
+  { label: "Wagering", value: "5x del bono según términos publicados" },
+  {
+    label: "Apuestas calificadas",
+    value:
+      "Acumuladas con al menos 2 selecciones y cuota mínima de 1.40 por selección según la promoción mostrada",
+  },
+  {
+    label: "Vigencia",
+    value: "Revisar periodos de 15 días y términos vigentes",
+  },
+] as const;
+
+const MELBET_REGISTRATION_STEPS = [
+  "Entra desde el enlace de afiliado de JugadaMax",
+  "Regístrate y completa la información de perfil si el operador la solicita",
+  `Introduce el código promocional ${MELBET_PROMO_CODE} cuando corresponda`,
+  "Selecciona o acepta el bono deportivo relevante antes de depositar",
+  "Realiza un depósito elegible desde MX$100 según términos vigentes",
+  "Revisa términos oficiales, rollover y reglas de retiro antes de apostar",
+] as const;
+
+const MELBET_CASINO_CARDS = [
+  { title: "Slots", text: "Catálogo de slots según proveedores y disponibilidad regional." },
+  { title: "Live casino", text: "Mesas y game shows sujetos al catálogo vigente del operador." },
+  { title: "Juegos de mesa", text: "Ruleta, blackjack y otros formatos según disponibilidad." },
+  {
+    title: "Fast games",
+    text: "Formatos rápidos según catálogo visible; promociones de casino aparte del bono deportivo.",
+  },
+] as const;
+
+const MELBET_SPORTS_CARDS = [
+  { title: "Fútbol y Liga MX", text: "Mercados locales e internacionales según calendario del operador." },
+  { title: "Apuestas en vivo", text: "Cuotas y estadísticas durante eventos según disponibilidad." },
+  { title: "eSports", text: "Disciplinas adicionales pueden variar por región y términos." },
+  {
+    title: "Reglas de mercado",
+    text: "Cuotas, liquidación y mercados elegibles para el bono deben confirmarse en Melbet.",
+  },
+] as const;
+
+const MELBET_PAYMENTS_CARDS = [
+  {
+    title: "Métodos",
+    text: "Opciones de depósito y retiro según cajero vigente; JugadaMax no inventa métodos concretos.",
+  },
+  {
+    title: "Retiros",
+    text: "Tiempos, límites y comisiones dependen de método, verificación y políticas internas.",
+  },
+  {
+    title: "KYC",
+    text: "Melbet puede solicitar verificación antes de retiros o promociones.",
+  },
+  {
+    title: "Disponibilidad",
+    text: "Monedas, límites y reglas activas deben confirmarse en el operador antes de depositar.",
+  },
+] as const;
+
+const MELBET_FAQ = [
+  {
+    question: "¿Cuál es el bono de bienvenida de Melbet?",
+    answer:
+      "El bono deportivo visible para nuevos usuarios elegibles puede alcanzar hasta MX$17,500 en los primeros cuatro depósitos, sujeto a términos oficiales, depósito mínimo y condiciones de apuesta.",
+  },
+  {
+    question: "¿El bono de MX$17,500 se recibe en un solo depósito?",
+    answer:
+      "No. El titular usa “hasta” como máximo repartido en cuatro tramos: 100% hasta MX$7,000, 50% hasta MX$3,500, 25% hasta MX$3,500 y 25% hasta MX$3,500, según depósitos elegibles y términos publicados.",
+  },
+  {
+    question: "¿Cuál es el código promocional de JugadaMax?",
+    answer: `El código promocional confirmado es ${MELBET_PROMO_CODE}. Verifica que esté activo antes de registrarte.`,
+  },
+  {
+    question: "¿Cuál es el depósito mínimo?",
+    answer:
+      "Según la promoción mostrada, el depósito mínimo elegible es MX$100. Confirma el importe vigente en Melbet antes de depositar.",
+  },
+  {
+    question: "¿Qué requisito de apuesta tiene el bono?",
+    answer:
+      "La promoción visible indica requisito de apuesta 5x del monto del bono, con acumuladas de al menos 2 selecciones y cuota mínima de 1.40 por selección, según términos publicados.",
+  },
+  {
+    question: "¿Melbet incluye casino y apuestas deportivas?",
+    answer:
+      "Sí. Melbet combina sportsbook y casino en una misma cuenta, pero el paquete de MX$17,500 corresponde al bono deportivo, no a promociones de casino.",
+  },
+  {
+    question: "¿Melbet puede solicitar verificación KYC?",
+    answer:
+      "Sí. El operador puede pedir documentación o verificación adicional antes de retiros o ciertas promociones, según sus políticas.",
+  },
+  {
+    question: "¿JugadaMax garantiza retiros rápidos?",
+    answer:
+      "No. JugadaMax no garantiza tiempos de retiro. Los retiros dependen del método, verificación de cuenta, límites y políticas internas del operador.",
+  },
+] as const;
+
+const MELBET_ANALYSIS_SECTIONS = [
+  {
+    title: "Nuestra valoración",
+    paragraphs: [
+      "Melbet es un operador mixto internacional que combina apuestas deportivas, casino online, slots, live casino y fast games bajo una misma cuenta. Para usuarios de México y LATAM, JugadaMax lo presenta como partner activo secundario tras Betsson MX y 1xBet, especialmente si buscas un bono deportivo escalonado y una plataforma amplia para comparar sportsbook + casino.",
+      "Nuestra conclusión editorial: Melbet puede encajar para usuarios que comparan un sportsbook internacional con bono escalonado y también quieren explorar casino en la misma cuenta, siempre que revisen rollover, cuotas mínimas, vigencia, depósitos elegibles y reglas de retiro directamente en el operador antes de mover fondos.",
+    ],
+  },
+  {
+    title: "Bono deportivo",
+    paragraphs: [
+      "El bono deportivo de bienvenida mostrado para México puede alcanzar hasta MX$17,500 distribuidos en los primeros cuatro depósitos elegibles: 100% hasta MX$7,000 en el primer depósito, 50% hasta MX$3,500 en el segundo, 25% hasta MX$3,500 en el tercero y 25% hasta MX$3,500 en el cuarto. JugadaMax no interpreta ese titular como un crédito único garantizado.",
+      "Según la promoción visible, el requisito de apuesta es 5x del monto del bono, con apuestas acumuladas de al menos 2 selecciones y cuota mínima de 1.40 por selección. El primer depósito elegible debe realizarse dentro de los 15 días posteriores al registro; los depósitos posteriores deben seguir el timing indicado por el operador tras cumplir el wagering del bono anterior.",
+    ],
+  },
+  {
+    title: "Casino y sportsbook",
+    paragraphs: [
+      "En casino, Melbet publica slots, casino en vivo, juegos de mesa y fast games según catálogo vigente. JugadaMax no atribuye el paquete de MX$17,500 al casino: las promociones de casino deben revisarse por separado según términos vigentes del operador.",
+      "En apuestas deportivas, el operador suele mostrar fútbol, Liga MX, mercados internacionales, apuestas en vivo, eSports y otras disciplinas según disponibilidad. Cuotas, liquidación y reglas de mercado pueden variar; confirma siempre la información vigente en Melbet.",
+    ],
+  },
+  {
+    title: "Pagos, KYC y retiros",
+    paragraphs: [
+      "En pagos, retiros y verificación, métodos, límites, comisiones, monedas y tiempos pueden variar por país, método y estado de la cuenta. Melbet puede solicitar KYC antes de permitir retiros o ciertas promociones. JugadaMax no garantiza retiros rápidos ni tiempos fijos.",
+    ],
+  },
+  {
+    title: "Para quién puede encajar",
+    paragraphs: [
+      "Melbet puede interesar a usuarios que priorizan un bono deportivo escalonado, mercados en vivo y la opción de explorar casino en la misma cuenta, siempre revisando condiciones detalladas del bono. Si buscas principalmente casino fiat local, también puedes comparar la sección de casinos fiat de JugadaMax.",
     ],
   },
 ] as const;
@@ -702,7 +849,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           review.slug === "betfury" ||
           review.slug === "500-casino" ||
           review.slug === "rainbet" ||
-          review.slug === "1xbet"
+          review.slug === "1xbet" ||
+          review.slug === "melbet"
           ? "pt-8 pb-24 md:pt-8 md:pb-8"
           : "py-8",
       )}
@@ -870,6 +1018,10 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
         {review.slug === "1xbet" ? (
           <OneXBetFeaturedCard context="review" />
+        ) : null}
+
+        {review.slug === "melbet" ? (
+          <MelbetFeaturedCard context="review" />
         ) : null}
 
         {review.slug === "betsson" ? (
@@ -1606,6 +1758,194 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "melbet" ? (
+          <section
+            aria-labelledby="melbet-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="melbet-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Sportsbook + casino en una misma cuenta
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Bono deportivo
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Hasta MX$17,500 en 4 depósitos según términos oficiales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Código promocional
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {MELBET_PROMO_CODE}
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Rollover, cuotas, vigencia, KYC y mercados elegibles
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "melbet" ? (
+          <section
+            aria-labelledby="melbet-bono-depositos-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="melbet-bono-depositos-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Bono deportivo por depósitos
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Paquete deportivo escalonado para nuevos usuarios elegibles. “Hasta” indica un máximo
+              repartido en cuatro tramos, sujeto a términos oficiales del operador.
+            </p>
+            <dl className="mt-4 grid gap-2 sm:grid-cols-2">
+              {MELBET_DEPOSIT_STAGES.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-lg border border-white/10 bg-[#111417] px-3 py-2.5"
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {row.label}
+                  </dt>
+                  <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              El primer depósito elegible debe realizarse dentro de los 15 días posteriores al
+              registro. Los depósitos segundo, tercero y cuarto deben seguir el timing del operador
+              tras cumplir el wagering del bono anterior. Confirma siempre la promoción vigente en
+              Melbet.
+            </p>
+          </section>
+        ) : null}
+
+        {review.slug === "melbet" ? (
+          <section
+            aria-labelledby="melbet-registro-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="melbet-registro-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Cómo solicitar el bono
+            </h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+              {MELBET_REGISTRATION_STEPS.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+            <div className="mt-4 space-y-3">
+              <a
+                href={MELBET_AFFILIATE_URL}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+              >
+                Ir a Melbet con enlace de JugadaMax
+              </a>
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                También puedes comparar operadores en la{" "}
+                <a
+                  href="/casinos-fiat"
+                  className="font-medium text-primary underline underline-offset-2 hover:text-[var(--jm-gold-strong)]"
+                >
+                  sección de casinos fiat
+                </a>{" "}
+                de JugadaMax.
+              </p>
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "melbet" ? (
+          <section aria-labelledby="melbet-casino-heading">
+            <h2
+              id="melbet-casino-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Casino online
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {MELBET_CASINO_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "melbet" ? (
+          <section aria-labelledby="melbet-apuestas-heading">
+            <h2
+              id="melbet-apuestas-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Sportsbook
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {MELBET_SPORTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "melbet" ? (
+          <section aria-labelledby="melbet-pagos-retiros-heading">
+            <h2
+              id="melbet-pagos-retiros-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos, retiros y verificación
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {MELBET_PAYMENTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -1617,6 +1957,27 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           <section aria-label="Análisis" className="space-y-6">
             <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
             {ONEXBET_ANALYSIS_SECTIONS.map((section) => (
+              <div key={section.title} className="space-y-3">
+                <h3 className="text-base font-semibold text-foreground sm:text-lg">
+                  {section.title}
+                </h3>
+                <div className="space-y-3">
+                  {section.paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 48)}
+                      className="text-sm leading-relaxed text-muted-foreground sm:text-base"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </section>
+        ) : review.slug === "melbet" ? (
+          <section aria-label="Análisis" className="space-y-6">
+            <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
+            {MELBET_ANALYSIS_SECTIONS.map((section) => (
               <div key={section.title} className="space-y-3">
                 <h3 className="text-base font-semibold text-foreground sm:text-lg">
                   {section.title}
@@ -1939,6 +2300,30 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "melbet" ? (
+          <section aria-labelledby="melbet-faq-heading">
+            <h2 id="melbet-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre Melbet
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {MELBET_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {review.relatedLinks &&
         isOperatorCtaAllowed(casino.id) &&
         review.relatedLinks.length > 0 ? (
@@ -1981,7 +2366,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "betfury" &&
         review.slug !== "500-casino" &&
         review.slug !== "rainbet" &&
-        review.slug !== "1xbet" ? (
+        review.slug !== "1xbet" &&
+        review.slug !== "melbet" ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-1 text-lg font-semibold text-foreground">Bono</h2>
             <p className="text-sm text-muted-foreground">{headlineBonus}</p>
@@ -2013,7 +2399,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "betfury" &&
         review.slug !== "500-casino" &&
         review.slug !== "rainbet" &&
-        review.slug !== "1xbet" ? (
+        review.slug !== "1xbet" &&
+        review.slug !== "melbet" ? (
           <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
             <OperatorCta link={outboundLink} />
           </div>
@@ -2056,6 +2443,14 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       <MobileStickyOfferCta
         primaryLabel="Ver paquete 1xBet"
         primaryHref={ONE_XBET_AFFILIATE_URL}
+        secondaryLabel="Ver apuestas deportivas"
+        secondaryHref="/apuestas"
+      />
+    ) : null}
+    {review.slug === "melbet" ? (
+      <MobileStickyOfferCta
+        primaryLabel="Ver bono Melbet"
+        primaryHref={MELBET_AFFILIATE_URL}
         secondaryLabel="Ver apuestas deportivas"
         secondaryHref="/apuestas"
       />

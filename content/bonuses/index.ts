@@ -100,4 +100,13 @@ export const bonuses: Bonus[] = [
       "Oferta mostrada por 1xBet para nuevos usuarios. El paquete puede depender de depósitos elegibles, requisitos de apuesta, juegos participantes, límites, vencimiento, verificación y jurisdicción. Confirma la promoción vigente antes de depositar.",
     active: true,
   },
+  {
+    id: "melbet-sportsbook-welcome",
+    casinoId: "melbet",
+    title: "Bono deportivo: hasta MX$17,500 en 4 depósitos",
+    type: "welcome",
+    terms:
+      "Paquete para los primeros cuatro depósitos elegibles: 100% hasta MX$7,000, 50% hasta MX$3,500, 25% hasta MX$3,500 y 25% hasta MX$3,500. Depósito mínimo MX$100. Requisito de apuesta 5x según términos publicados. Aplican cuotas mínimas, vigencia, verificación, mercados elegibles y restricciones del operador.",
+    active: true,
+  },
 ];

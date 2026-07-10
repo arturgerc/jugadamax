@@ -4,6 +4,7 @@ import {
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   ONE_XBET_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
+  MELBET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
 /**
@@ -343,6 +344,29 @@ export const casinos: Casino[] = [
     bonusIds: ["1xbet-casino-welcome-package"],
     summary:
       "1xBet es un operador mixto internacional con casino online, casino en vivo, slots y apuestas deportivas en una sola cuenta. Para usuarios de México/LATAM, JugadaMax lo presenta como candidato fiat/sportsbook secundario; revisa paquetes de bienvenida, pagos, verificación y términos oficiales antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "melbet",
+    slug: "melbet",
+    name: "Melbet",
+    logo: {
+      src: "/operators/melbet.svg",
+      alt: "Melbet",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: { "fiat-casino": 5, sportsbook: 5 },
+    affiliateUrl: MELBET_AFFILIATE_URL,
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Operador internacional mixto (casino + sportsbook). Licencia, disponibilidad, verificación, límites, bonos y retiros deben revisarse en los términos oficiales del operador y de tu jurisdicción.",
+    },
+    bonusIds: ["melbet-sportsbook-welcome"],
+    summary:
+      "Melbet es un operador mixto internacional con sportsbook, casino online, slots, live casino y fast games en una sola cuenta. Para usuarios de México/LATAM, JugadaMax lo presenta como candidato activo secundario tras Betsson y 1xBet; revisa bonos deportivos, promociones de casino, pagos, verificación y términos oficiales antes de registrarte.",
     locale: "es-MX",
   },
 ];

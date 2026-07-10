@@ -43,6 +43,9 @@ export const ONE_XBET_PROMO_CODE = "1x_5259707";
 export const MELBET_AFFILIATE_URL =
   "https://refpa3665.com/L?tag=d_5806065m_2170c_&site=5806065&ad=2170";
 
+/** Confirmed standalone promo code for Melbet Mexico registration campaigns. */
+export const MELBET_PROMO_CODE = "ml_2958499";
+
 /** Betsson MX approved affiliate links (Mexico fiat/casino/sportsbook direction). */
 export const BETSSON_MX_HOME_URL =
   "https://record.betsson.mx/_okP3zhMdNKxKqZDsJd1BOWNd7ZgqdRLk/1/";

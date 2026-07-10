@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -90,6 +90,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-emerald-500/20 bg-gradient-to-br from-[#020617] via-[#071422] to-[#041018] shadow-[inset_0_1px_0_rgba(34,211,238,0.1)]",
   onexbet:
     "border-sky-500/25 bg-gradient-to-br from-[#050d1f] via-[#0a1931] to-[#061018] shadow-[inset_0_1px_0_rgba(56,189,248,0.12)]",
+  melbet:
+    "border-[#FFB800]/25 bg-gradient-to-br from-[#0c0c0e] via-[#141414] to-[#0a0a0c] shadow-[inset_0_1px_0_rgba(255,184,0,0.14)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -108,6 +110,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_30%_20%,rgba(52,211,153,0.16),transparent_50%),radial-gradient(ellipse_at_80%_80%,rgba(34,211,238,0.12),transparent_45%),radial-gradient(circle_at_50%_100%,rgba(16,185,129,0.08),transparent_55%)]",
   onexbet:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.2),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.16),transparent_50%),radial-gradient(ellipse_at_20%_80%,rgba(34,197,94,0.08),transparent_45%)]",
+  melbet:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.04),transparent_50%),radial-gradient(ellipse_at_15%_85%,rgba(60,60,60,0.12),transparent_45%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -141,6 +145,14 @@ const onexbetCardGlow =
   "bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.08),transparent_50%)]";
 
 const onexbetBadge = "border-sky-400/30 bg-sky-500/10 text-sky-200";
+
+const melbetCardShell =
+  "border-[#FFB800]/25 bg-gradient-to-br from-[#0c0c0e] via-[#111417]/95 to-[#0a0a0c] ring-1 ring-[#FFB800]/10 shadow-[0_4px_28px_-12px_rgba(255,184,0,0.2)]";
+
+const melbetCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.1),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.03),transparent_50%)]";
+
+const melbetBadge = "border-[#FFB800]/35 bg-[#FFB800]/10 text-[#FFC300]";
 
 const rainbetCardShell =
   "border-emerald-500/20 bg-gradient-to-br from-[#020617] via-[#071422] to-[#041018] ring-1 ring-cyan-400/10 shadow-[0_4px_28px_-12px_rgba(34,211,238,0.18)]";
@@ -210,6 +222,23 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "melbet" ? (
+        <>
+          <div className="pointer-events-none absolute -right-1 top-0 h-full w-8 skew-x-[-14deg] border-l border-[#FFB800]/20 bg-[#FFB800]/5 md:w-10" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-2 top-2 grid grid-cols-4 gap-px opacity-30 md:left-3 md:top-3"
+          >
+            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+              <span key={i} className="h-0.5 w-2 rounded-full bg-white/40" />
+            ))}
+          </div>
+          <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-4 w-4 rounded-full border border-[#FFB800]/30 bg-[#FFB800]/10 md:bottom-3 md:left-3 md:h-5 md:w-5" />
+          <div className="pointer-events-none absolute bottom-4 left-4 h-2.5 w-2.5 rounded-full border border-white/15 bg-white/5 md:bottom-5 md:left-5" />
+          <div className="pointer-events-none absolute bottom-5 right-6 h-2 w-2 rotate-45 rounded-sm bg-[#FFB800]/70 shadow-[0_0_8px_rgba(255,184,0,0.35)] md:bottom-6 md:right-8" />
+        </>
+      ) : null}
+
       {panelVariant === "rainbet" ? (
         <>
           {/* Reward glow halo */}
@@ -249,11 +278,13 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "fivehundred" && "text-pink-300/90",
               panelVariant === "rainbet" && "text-cyan-300/85",
               panelVariant === "onexbet" && "text-sky-300/90",
+              panelVariant === "melbet" && "text-[#FFC300]/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
                 panelVariant !== "rainbet" &&
                 panelVariant !== "onexbet" &&
+                panelVariant !== "melbet" &&
                 "text-muted-foreground",
             )}
           >
@@ -274,6 +305,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#6EE7B7] via-[#34D399] to-[#22D3EE] bg-clip-text text-transparent",
             panelVariant === "onexbet" &&
               "bg-gradient-to-r from-[#7DD3FC] via-[#38BDF8] to-[#2563EB] bg-clip-text text-transparent",
+            panelVariant === "melbet" &&
+              "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FFE066] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -306,7 +339,9 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                           ? "border-cyan-500/20 bg-emerald-500/8 text-cyan-100/90"
                           : panelVariant === "onexbet"
                             ? "border-sky-400/25 bg-sky-500/10 text-sky-100/90"
-                            : "border-white/15 bg-white/5 text-muted-foreground",
+                            : panelVariant === "melbet"
+                              ? "border-[#FFB800]/30 bg-[#FFB800]/10 text-[#FFE066]/90"
+                              : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
                 {chip}
@@ -430,8 +465,13 @@ export function OfferCard({
 }: OfferCardProps) {
   const isRainbetBranded = operatorId === "rainbet" || visual?.variant === "rainbet";
   const isOnexbetBranded = operatorId === "1xbet" || visual?.variant === "onexbet";
+  const isMelbetBranded = operatorId === "melbet" || visual?.variant === "melbet";
   const variant =
-    visualVariant === "crypto" && emphasis === "comparison-secondary" && !isRainbetBranded && !isOnexbetBranded
+    visualVariant === "crypto" &&
+    emphasis === "comparison-secondary" &&
+    !isRainbetBranded &&
+    !isOnexbetBranded &&
+    !isMelbetBranded
       ? "dark"
       : visualVariant;
   const showInlineOfferText = !visual;
@@ -440,9 +480,11 @@ export function OfferCard({
     ? rainbetCardGlow
     : isOnexbetBranded
       ? onexbetCardGlow
-      : emphasisGlow[emphasis];
+      : isMelbetBranded
+        ? melbetCardGlow
+        : emphasisGlow[emphasis];
   const showVariantGlow =
-    emphasis === "standard" && !isRainbetBranded && !isOnexbetBranded;
+    emphasis === "standard" && !isRainbetBranded && !isOnexbetBranded && !isMelbetBranded;
 
   return (
     <article
@@ -453,8 +495,10 @@ export function OfferCard({
           ? rainbetCardShell
           : isOnexbetBranded
             ? onexbetCardShell
-            : variantShell[variant],
-        !isRainbetBranded && !isOnexbetBranded && emphasisShell[emphasis],
+            : isMelbetBranded
+              ? melbetCardShell
+              : variantShell[variant],
+        !isRainbetBranded && !isOnexbetBranded && !isMelbetBranded && emphasisShell[emphasis],
         className,
       )}
       aria-label={`Oferta de ${operatorName}`}
@@ -482,7 +526,9 @@ export function OfferCard({
                         ? rainbetBadge
                         : isOnexbetBranded
                           ? onexbetBadge
-                          : (emphasisBadge[emphasis] ?? variantBadge[variant])),
+                          : isMelbetBranded
+                            ? melbetBadge
+                            : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
                   {badge}

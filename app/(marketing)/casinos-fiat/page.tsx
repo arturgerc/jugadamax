@@ -8,11 +8,10 @@ import { RankingList } from "@/components/ranking/RankingList";
 import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
-import { OperatorCta } from "@/components/trust/OperatorCta";
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
+import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSections";
-import { MELBET_AFFILIATE_URL } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Casinos fiat en México",
@@ -20,22 +19,6 @@ export const metadata: Metadata = buildMetadata({
     "Compara casinos online fiat, slots, live casino, bonos y operadores mixtos para México. Revisa términos oficiales, pagos, verificación y límites.",
   path: "/casinos-fiat",
 });
-
-const mixedOperators = [
-  {
-    id: "melbet",
-    name: "Melbet",
-    link: {
-      market: "mx",
-      url: MELBET_AFFILIATE_URL,
-      label: "Ver Melbet",
-      isAffiliate: true,
-      rel: "sponsored nofollow noopener noreferrer",
-    },
-    description:
-      "Melbet es un operador mixto con secciones de apuestas deportivas y casino online. La disponibilidad de juegos, bonos, pagos, verificación y límites depende de los términos oficiales del operador y de tu jurisdicción.",
-  },
-] as const;
 
 function uniqueFiatPayments(casinos: ReturnType<typeof getCasinosByVertical>) {
   const names = new Set<string>();
@@ -51,7 +34,7 @@ export default function FiatCasinosPage() {
   // Betsson is featured as the primary Mexico fiat partner above; exclude the
   // placeholder editorial entry from the ranking to avoid duplication.
   const casinos = getCasinosByVertical("fiat-casino").filter(
-    (c) => c.id !== "betsson" && c.id !== "1xbet",
+    (c) => c.id !== "betsson" && c.id !== "1xbet" && c.id !== "melbet",
   );
   const fiatPayments = uniqueFiatPayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
@@ -126,30 +109,7 @@ export default function FiatCasinosPage() {
           verificación y límites antes de registrarte.
         </p>
         <OneXBetFeaturedCard context="casino" />
-        {mixedOperators.map((operator) => (
-          <article
-            key={operator.id}
-            className="mt-5 flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between"
-          >
-            <div className="min-w-0 space-y-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-lg font-semibold text-foreground">{operator.name}</h3>
-                <span className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
-                  Operador mixto
-                </span>
-              </div>
-              <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                {operator.description}
-              </p>
-              <p className="inline-flex w-fit items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2.5 py-1 text-xs font-medium text-emerald-400">
-                18+ | Juega con responsabilidad
-              </p>
-            </div>
-            <div className="shrink-0 lg:w-56">
-              <OperatorCta link={operator.link} className="w-full" />
-            </div>
-          </article>
-        ))}
+        <MelbetFeaturedCard context="casino" />
       </section>
 
       <section aria-labelledby="codere-fiat-heading" className="mb-8">
