@@ -887,9 +887,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       />
 
       <article className={REVIEW_ARTICLE_CLASS}>
-        <ReviewProse>
-          <ReviewHeader review={review} casino={casino} author={author} />
-        </ReviewProse>
+        <ReviewHeader review={review} casino={casino} author={author} />
 
         <ReviewProse className="space-y-3">
           <AffiliateDisclosure />
