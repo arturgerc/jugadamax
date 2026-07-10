@@ -319,6 +319,12 @@ export const casinos: Casino[] = [
     id: "1xbet",
     slug: "1xbet",
     name: "1xBet",
+    logo: {
+      src: "/operators/1xbet.svg",
+      alt: "1xBet",
+      width: 96,
+      height: 48,
+    },
     verticals: ["fiat-casino", "sportsbook"],
     rankByVertical: { "fiat-casino": 4, sportsbook: 4 },
     affiliateUrl: ONE_XBET_AFFILIATE_URL,

@@ -11,6 +11,13 @@ const ONEXBET_RESPONSIBLE = "18+ | Juega con responsabilidad";
 
 const PROMO_LABEL = `Código promocional: ${ONE_XBET_PROMO_CODE}`;
 
+const ONEXBET_LOGO = {
+  src: "/operators/1xbet.svg",
+  alt: "1xBet",
+  width: 96,
+  height: 48,
+} as const;
+
 type OneXBetContext = "casino" | "sportsbook" | "bonus" | "review";
 
 export type OneXBetFeaturedCardProps = {
@@ -143,6 +150,7 @@ export function OneXBetFeaturedCard({ context, className }: OneXBetFeaturedCardP
       operatorName="1xBet"
       operatorId="1xbet"
       promoCode={ONE_XBET_PROMO_CODE}
+      logo={ONEXBET_LOGO}
       responsibleNote={ONEXBET_RESPONSIBLE}
       {...config}
       className={className ?? config.className}
