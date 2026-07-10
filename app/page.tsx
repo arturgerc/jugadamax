@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { Casino } from "@/types/content";
-import { getCasinos, getCasinosByVertical } from "@/lib/content";
+import { getCasinosByVertical } from "@/lib/content";
 import { filterCasinosForSurface } from "@/content/operators/status";
 import {
   BETFURY_AFFILIATE_URL,
@@ -86,7 +86,6 @@ export default function Home() {
     0,
     PREVIEW_COUNT,
   );
-  const bonusHighlightCasinos = homepageCasinos(getCasinos());
 
   return (
     <>
@@ -319,6 +318,8 @@ export default function Home() {
         </Container>
       </section>
 
+      <BonusHighlights />
+
       {sportsbooks.length > 0 ? (
         <section aria-labelledby="top-betting-heading" className="py-10">
           <Container>
@@ -353,8 +354,6 @@ export default function Home() {
           </Container>
         </section>
       ) : null}
-
-      <BonusHighlights casinos={bonusHighlightCasinos} minItems={2} />
 
       <HomepageActionGrid />
 
