@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { notFound } from "next/navigation";
 import {
   getAuthorById,
@@ -40,6 +41,27 @@ import type { ReviewRelatedLink } from "@/types/content";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
+
+/** Shared review layout: wide article shell + readable prose column. */
+const REVIEW_ARTICLE_CLASS = "mx-auto w-full max-w-5xl space-y-7 sm:space-y-8";
+const REVIEW_PROSE_CLASS = "mx-auto w-full max-w-3xl";
+
+function ReviewProse({
+  children,
+  className,
+  as: Component = "div",
+  ...props
+}: {
+  children: ReactNode;
+  className?: string;
+  as?: "div" | "section";
+} & ComponentPropsWithoutRef<"section">) {
+  return (
+    <Component className={cn(REVIEW_PROSE_CLASS, className)} {...props}>
+      {children}
+    </Component>
+  );
+}
 
 const BETSSON_BONUS_CONDITIONS = [
   { label: "Bono", value: "Hasta $15,000 MXN + 200 giros gratis" },
@@ -864,13 +886,15 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
       />
 
-      <article className="mx-auto max-w-3xl space-y-8">
-        <ReviewHeader review={review} casino={casino} author={author} />
+      <article className={REVIEW_ARTICLE_CLASS}>
+        <ReviewProse>
+          <ReviewHeader review={review} casino={casino} author={author} />
+        </ReviewProse>
 
-        <div className="space-y-3">
+        <ReviewProse className="space-y-3">
           <AffiliateDisclosure />
           <ResponsibleGamblingNotice />
-        </div>
+        </ReviewProse>
 
         {review.slug === "betsson" ? (
           <OfferCard
@@ -1954,7 +1978,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         </section>
 
         {review.slug === "1xbet" ? (
-          <section aria-label="Análisis" className="space-y-6">
+          <ReviewProse as="section" aria-label="Análisis" className="space-y-6">
             <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
             {ONEXBET_ANALYSIS_SECTIONS.map((section) => (
               <div key={section.title} className="space-y-3">
@@ -1973,9 +1997,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 </div>
               </div>
             ))}
-          </section>
+          </ReviewProse>
         ) : review.slug === "melbet" ? (
-          <section aria-label="Análisis" className="space-y-6">
+          <ReviewProse as="section" aria-label="Análisis" className="space-y-6">
             <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
             {MELBET_ANALYSIS_SECTIONS.map((section) => (
               <div key={section.title} className="space-y-3">
@@ -1994,9 +2018,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 </div>
               </div>
             ))}
-          </section>
+          </ReviewProse>
         ) : (
-          <section aria-label="Análisis" className="space-y-3">
+          <ReviewProse as="section" aria-label="Análisis" className="space-y-3">
             <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
             <div className="space-y-4">
               {review.body
@@ -2011,7 +2035,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                   </p>
                 ))}
             </div>
-          </section>
+          </ReviewProse>
         )}
 
         {review.slug === "betsson" ? (
