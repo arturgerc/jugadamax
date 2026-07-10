@@ -10,11 +10,9 @@ import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { OperatorCta } from "@/components/trust/OperatorCta";
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
+import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSections";
-import {
-  MELBET_AFFILIATE_URL,
-  ONE_XBET_AFFILIATE_URL,
-} from "@/lib/affiliate/constants";
+import { MELBET_AFFILIATE_URL } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Casinos fiat en México",
@@ -24,19 +22,6 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const mixedOperators = [
-  {
-    id: "1xbet",
-    name: "1xBet",
-    link: {
-      market: "mx",
-      url: ONE_XBET_AFFILIATE_URL,
-      label: "Ver 1xBet",
-      isAffiliate: true,
-      rel: "sponsored nofollow noopener noreferrer",
-    },
-    description:
-      "1xBet es un operador mixto que puede combinar apuestas deportivas, casino online, slots y live casino según el mercado y los términos oficiales. Antes de registrarte, revisa bonos, métodos de pago, verificación, límites y disponibilidad para tu jurisdicción.",
-  },
   {
     id: "melbet",
     name: "Melbet",
@@ -65,7 +50,9 @@ function uniqueFiatPayments(casinos: ReturnType<typeof getCasinosByVertical>) {
 export default function FiatCasinosPage() {
   // Betsson is featured as the primary Mexico fiat partner above; exclude the
   // placeholder editorial entry from the ranking to avoid duplication.
-  const casinos = getCasinosByVertical("fiat-casino").filter((c) => c.id !== "betsson");
+  const casinos = getCasinosByVertical("fiat-casino").filter(
+    (c) => c.id !== "betsson" && c.id !== "1xbet",
+  );
   const fiatPayments = uniqueFiatPayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -138,6 +125,7 @@ export default function FiatCasinosPage() {
           mercado. Revisa siempre términos oficiales, disponibilidad, bonos, métodos de pago,
           verificación y límites antes de registrarte.
         </p>
+        <OneXBetFeaturedCard context="casino" />
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {mixedOperators.map((operator) => (
             <article

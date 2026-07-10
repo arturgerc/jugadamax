@@ -387,4 +387,35 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-10",
     locale: "es-MX",
   },
+  {
+    id: "1xbet-review",
+    casinoId: "1xbet",
+    authorId: "redaccion-jugadamax",
+    slug: "1xbet",
+    title: "Reseña de 1xBet México: casino, apuestas y paquete de bienvenida",
+    verdict:
+      "1xBet combina casino online y apuestas deportivas en una sola cuenta con un paquete de bienvenida visible para nuevos usuarios. Para JugadaMax puede encajar como operador mixto internacional secundario frente a partners fiat locales, siempre revisando depósitos elegibles, wagering, verificación, pagos y jurisdicción.",
+    rating: 4.0,
+    pros: [
+      "Casino y sportsbook en una sola cuenta.",
+      "Paquete de bienvenida destacado para usuarios elegibles de casino (hasta 40,000 MXN + 150 giros gratis según términos).",
+      "Código promocional de campaña confirmado para JugadaMax.",
+      "Amplio producto deportivo y de casino según catálogo visible del operador.",
+    ],
+    cons: [
+      "Los términos del paquete requieren revisión detallada antes de depositar.",
+      "Montos y giros gratis pueden depender de elegibilidad, depósitos y jurisdicción.",
+      "Pagos, KYC y retiros dependen de reglas internas y disponibilidad regional.",
+      "La interfaz puede sentirse densa para usuarios que buscan una experiencia minimalista.",
+    ],
+    body:
+      "1xBet es un operador mixto internacional que combina casino online, casino en vivo, slots y apuestas deportivas bajo una misma cuenta. Para usuarios de México y LATAM, JugadaMax lo presenta como candidato secundario frente a partners fiat locales como Betsson MX, pero puede interesar a quien busca mercados deportivos amplios, eSports y un paquete de bienvenida visible en el registro.\n\nEn la pantalla de registro para México, 1xBet muestra un paquete de bienvenida de casino con titular hasta 40,000 MXN + 150 giros gratis, vinculado a depósitos según la campaña publicada. JugadaMax no interpreta ese titular como un crédito único garantizado en el primer depósito: el operador presenta un paquete que puede distribuirse en varios tramos, sujetos a términos oficiales, juegos elegibles, requisitos de apuesta, límites y vencimiento.\n\nEl código promocional confirmado para la campaña de JugadaMax es 1x_5259707. Debes introducirlo durante el registro si el operador lo solicita y verificar que la promoción siga activa antes de depositar. No confundas identificadores de tracking (BTAG, site ID o parámetros de afiliado) con el código promocional visible para el usuario.\n\nEn apuestas deportivas, 1xBet suele mostrar fútbol, Liga MX, mercados internacionales, apuestas en vivo, eSports y otras disciplinas según disponibilidad. El bono deportivo debe tratarse por separado del paquete de casino: la ruta habitual es un bono de primer depósito según términos vigentes, con reglas de rollover, cuotas mínimas y mercados elegibles propias.\n\nEn casino, el operador publica categorías como slots, casino en vivo, juegos de mesa y otros formatos según catálogo vigente. Los 150 giros gratis del paquete de bienvenida, cuando aplican, dependen de elegibilidad, juegos participantes y condiciones publicadas por 1xBet — JugadaMax no garantiza su acreditación automática.\n\nEn pagos y retiros, métodos, límites, comisiones, monedas y tiempos pueden variar por país, método y estado de verificación. 1xBet puede solicitar KYC antes de permitir retiros o ciertas promociones. No afirmamos retiros rápidos ni garantizados.\n\nNuestra conclusión editorial: 1xBet puede funcionar como operador mixto internacional para comparar casino + sportsbook, especialmente si el usuario revisa con calma el paquete de bienvenida, introduce el código 1x_5259707 cuando corresponda y confirma wagering, depósitos elegibles y reglas de retiro directamente en el operador antes de mover fondos.",
+    paymentsSummary:
+      "1xBet puede aceptar MXN, métodos locales como OXXO y SPEI, tarjetas y opciones crypto según cajero vigente. Métodos, límites, comisiones y tiempos deben verificarse directamente en el operador.",
+    trustSummary:
+      "JugadaMax trata 1xBet como operador mixto internacional activo en campaña de afiliados. Recomienda verificar licencia, jurisdicción, KYC, restricciones regionales y reglas de bonos antes de registrarte.",
+    publishedAt: "2026-07-10",
+    updatedAt: "2026-07-10",
+    locale: "es-MX",
+  },
 ];

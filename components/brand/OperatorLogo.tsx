@@ -85,6 +85,23 @@ export function OperatorLogo({
   operatorId?: string;
   className?: string;
 }) {
+  if (operatorId === "1xbet" && !logo?.src) {
+    return (
+      <span
+        aria-hidden="true"
+        className={cn(
+          "inline-flex h-12 w-[4.5rem] shrink-0 items-center justify-center rounded-xl border border-sky-500/25 bg-gradient-to-br from-[#050d1f] via-[#0A1931] to-[#061018] px-1.5 ring-1 ring-cyan-400/15 shadow-[0_0_16px_-6px_rgba(56,189,248,0.25)] sm:w-20",
+          className,
+        )}
+      >
+        <span className="text-sm font-extrabold tracking-tight">
+          <span className="text-white">1x</span>
+          <span className="text-sky-300">Bet</span>
+        </span>
+      </span>
+    );
+  }
+
   if (operatorId === "500-casino" && !logo?.src) {
     return <FiveHundredWordmark className={className} />;
   }

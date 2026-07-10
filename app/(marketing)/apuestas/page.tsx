@@ -10,11 +10,9 @@ import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
+import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
-import {
-  MELBET_AFFILIATE_URL,
-  ONE_XBET_AFFILIATE_URL,
-} from "@/lib/affiliate/constants";
+import { MELBET_AFFILIATE_URL } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
   title: "Apuestas deportivas en México",
@@ -24,17 +22,6 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const affiliateSportsbooks: Casino[] = [
-  {
-    id: "1xbet",
-    slug: "1xbet",
-    name: "1xBet",
-    verticals: ["sportsbook"],
-    rankByVertical: { sportsbook: 4 },
-    affiliateUrl: ONE_XBET_AFFILIATE_URL,
-    summary:
-      "Operador mixto con enfoque en apuestas deportivas y también casino online / live casino según los términos oficiales y el mercado. La disponibilidad, métodos de pago, bonos y verificación dependen de tu jurisdicción y de las condiciones vigentes del operador.",
-    locale: "es-MX",
-  },
   {
     id: "melbet",
     slug: "melbet",
@@ -62,7 +49,7 @@ export default function BettingSitesPage() {
   // Betsson and Codere are featured above; exclude placeholder editorial entries
   // from the ranking to avoid duplication and unapproved affiliate CTAs.
   const editorialSportsbooks = getCasinosByVertical("sportsbook").filter(
-    (c) => c.id !== "betsson" && c.id !== "codere",
+    (c) => c.id !== "betsson" && c.id !== "codere" && c.id !== "1xbet",
   );
   const casinos = [...editorialSportsbooks, ...affiliateSportsbooks];
   const payments = uniquePayments(casinos);
@@ -125,6 +112,16 @@ export default function BettingSitesPage() {
           Partner destacado para México
         </h2>
         <BetssonFeaturedCard context="sportsbook" />
+      </section>
+
+      <section aria-labelledby="1xbet-apuestas-heading" className="mb-8">
+        <h2
+          id="1xbet-apuestas-heading"
+          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+        >
+          Operador mixto internacional
+        </h2>
+        <OneXBetFeaturedCard context="sportsbook" />
       </section>
 
       <section aria-labelledby="codere-apuestas-heading" className="mb-8">

@@ -23,8 +23,11 @@ import {
   BETSSON_MX_HOME_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
+  ONE_XBET_AFFILIATE_URL,
+  ONE_XBET_PROMO_CODE,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
@@ -206,6 +209,100 @@ const BETFURY_FAQ = [
     question: "¿BetFury es mejor para casino o sportsbook?",
     answer:
       "BetFury combina casino, posibles apuestas deportivas y gamificación. Encaja mejor para usuarios que buscan una experiencia crypto con promociones y recompensas por nivel.",
+  },
+] as const;
+
+const ONEXBET_CASINO_PACKAGE = [
+  { label: "Titular visible", value: "Hasta 40,000 MXN + 150 giros gratis" },
+  { label: "Tipo", value: "Paquete de bienvenida para casino (nuevos usuarios elegibles)" },
+  { label: "Código promocional", value: ONE_XBET_PROMO_CODE },
+  {
+    label: "Importante",
+    value: "“Hasta” indica un máximo; puede depender de depósitos elegibles y términos oficiales",
+  },
+] as const;
+
+const ONEXBET_REGISTRATION_STEPS = [
+  "Entra desde el enlace de afiliado de JugadaMax",
+  "Selecciona México / MXN si está disponible en el registro",
+  `Introduce el código promocional ${ONE_XBET_PROMO_CODE} cuando el operador lo solicite`,
+  "Elige el paquete de casino o la ruta deportiva según tu preferencia",
+  "Revisa términos oficiales, wagering y reglas de retiro antes de depositar",
+] as const;
+
+const ONEXBET_CASINO_CARDS = [
+  { title: "Slots", text: "Catálogo amplio según proveedores y disponibilidad regional." },
+  { title: "Casino en vivo", text: "Mesas y game shows sujetos a catálogo vigente del operador." },
+  { title: "Juegos de mesa", text: "Ruleta, blackjack y otros formatos según disponibilidad." },
+  {
+    title: "Giros gratis",
+    text: "Los 150 giros del paquete dependen de elegibilidad, juegos y términos — no están garantizados.",
+  },
+] as const;
+
+const ONEXBET_SPORTS_CARDS = [
+  { title: "Fútbol y Liga MX", text: "Mercados locales e internacionales según calendario del operador." },
+  { title: "Apuestas en vivo", text: "Cuotas y estadísticas durante eventos según disponibilidad." },
+  { title: "eSports", text: "Disciplinas adicionales pueden variar por región y términos." },
+  {
+    title: "Bono deportivo",
+    text: "Tratamiento separado del paquete de casino: bono de primer depósito según términos vigentes.",
+  },
+] as const;
+
+const ONEXBET_PAYMENTS_CARDS = [
+  {
+    title: "Métodos",
+    text: "MXN, OXXO, SPEI, tarjetas y opciones crypto pueden aparecer según cajero vigente.",
+  },
+  {
+    title: "Retiros",
+    text: "Tiempos, límites y comisiones dependen de método, verificación y políticas internas.",
+  },
+  {
+    title: "KYC",
+    text: "1xBet puede solicitar verificación antes de retiros o promociones.",
+  },
+  {
+    title: "Disponibilidad",
+    text: "Métodos y monedas activas deben confirmarse en el operador antes de depositar.",
+  },
+] as const;
+
+const ONEXBET_FAQ = [
+  {
+    question: "¿Cuál es el paquete de bienvenida de 1xBet?",
+    answer:
+      "En el registro para México, 1xBet muestra un paquete de bienvenida de casino con titular hasta 40,000 MXN + 150 giros gratis para nuevos usuarios elegibles, sujeto a términos oficiales y depósitos.",
+  },
+  {
+    question: "¿Cuál es el código promocional de JugadaMax para 1xBet?",
+    answer: `El código promocional confirmado es ${ONE_XBET_PROMO_CODE}. Verifica que esté activo antes de registrarte.`,
+  },
+  {
+    question: "¿Los 40,000 MXN se reciben en un solo depósito?",
+    answer:
+      "No necesariamente. El titular usa “hasta” como máximo y el banner se refiere a un paquete ligado a depósitos. JugadaMax no inventa porcentajes ni número de depósitos: confírmalo en 1xBet.",
+  },
+  {
+    question: "¿Los 150 giros gratis están garantizados?",
+    answer:
+      "No. Los giros dependen de elegibilidad, juegos participantes, depósitos y términos oficiales. JugadaMax no garantiza su acreditación.",
+  },
+  {
+    question: "¿1xBet ofrece casino y apuestas?",
+    answer:
+      "Sí. 1xBet combina casino online y sportsbook en una misma cuenta, pero bonos y reglas pueden diferir entre productos.",
+  },
+  {
+    question: "¿Qué debo revisar antes de retirar?",
+    answer:
+      "Verificación de cuenta, wagering cumplido, límites, método de retiro activo, comisiones y reglas antifraude publicadas por el operador.",
+  },
+  {
+    question: "¿Puede 1xBet solicitar KYC?",
+    answer:
+      "Sí. El operador puede pedir documentación o verificación adicional antes de retiros o ciertas promociones, según sus políticas.",
   },
 ] as const;
 
@@ -574,7 +671,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug === "betsson" ||
           review.slug === "betfury" ||
           review.slug === "500-casino" ||
-          review.slug === "rainbet"
+          review.slug === "rainbet" ||
+          review.slug === "1xbet"
           ? "pt-8 pb-24 md:pt-8 md:pb-8"
           : "py-8",
       )}
@@ -738,6 +836,10 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               height: 56,
             }}
           />
+        ) : null}
+
+        {review.slug === "1xbet" ? (
+          <OneXBetFeaturedCard context="review" />
         ) : null}
 
         {review.slug === "betsson" ? (
@@ -1267,6 +1369,213 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "1xbet" ? (
+          <section
+            aria-labelledby="onexbet-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="onexbet-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido de 1xBet
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Casino online + sportsbook en una misma cuenta
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Oferta casino
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Hasta 40,000 MXN + 150 giros gratis según términos oficiales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Código promocional
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {ONE_XBET_PROMO_CODE}
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Wagering, depósitos elegibles, juegos, KYC y jurisdicción
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "1xbet" ? (
+          <section
+            aria-labelledby="onexbet-paquete-casino-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="onexbet-paquete-casino-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Paquete de bienvenida para casino
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              En el registro para México, 1xBet muestra un paquete de bienvenida con titular{" "}
+              <strong className="font-semibold text-foreground">
+                hasta 40,000 MXN + 150 giros gratis
+              </strong>
+              . El banner se refiere a depósitos y promociones para nuevos usuarios elegibles.
+            </p>
+            <dl className="mt-4 grid gap-2 sm:grid-cols-2">
+              {ONEXBET_CASINO_PACKAGE.map((row) => (
+                <div
+                  key={row.label}
+                  className="rounded-lg border border-white/10 bg-[#111417] px-3 py-2.5"
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {row.label}
+                  </dt>
+                  <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              “Hasta” indica un máximo, no una acreditación garantizada en un solo depósito.
+              JugadaMax no inventa porcentajes ni número de depósitos: confirma la promoción vigente
+              en 1xBet antes de depositar.
+            </p>
+          </section>
+        ) : null}
+
+        {review.slug === "1xbet" ? (
+          <section
+            aria-labelledby="onexbet-bono-apuestas-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="onexbet-bono-apuestas-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Bono para apuestas
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              El paquete de casino con giros gratis no debe confundirse con el bono deportivo.
+              Para apuestas, 1xBet puede mostrar un{" "}
+              <strong className="font-semibold text-foreground">
+                bono de primer depósito según términos vigentes
+              </strong>
+              , con reglas de rollover, cuotas mínimas y vigencia propias del sportsbook.
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+              Revisa siempre la sección de promociones deportivas en el operador. JugadaMax no
+              mezcla wagering de casino con reglas de apuestas ni garantiza montos deportivos sin
+              confirmación oficial.
+            </p>
+          </section>
+        ) : null}
+
+        {review.slug === "1xbet" ? (
+          <section
+            aria-labelledby="onexbet-registro-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="onexbet-registro-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Cómo registrarse
+            </h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+              {ONEXBET_REGISTRATION_STEPS.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+            <div className="mt-4">
+              <a
+                href={ONE_XBET_AFFILIATE_URL}
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
+              >
+                Ir a 1xBet con enlace de JugadaMax
+              </a>
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "1xbet" ? (
+          <section aria-labelledby="onexbet-casino-heading">
+            <h2
+              id="onexbet-casino-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Casino online
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {ONEXBET_CASINO_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "1xbet" ? (
+          <section aria-labelledby="onexbet-apuestas-heading">
+            <h2
+              id="onexbet-apuestas-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Apuestas deportivas
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {ONEXBET_SPORTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "1xbet" ? (
+          <section aria-labelledby="onexbet-pagos-retiros-heading">
+            <h2
+              id="onexbet-pagos-retiros-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos, retiros y verificación
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {ONEXBET_PAYMENTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -1553,6 +1862,30 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "1xbet" ? (
+          <section aria-labelledby="onexbet-faq-heading">
+            <h2 id="onexbet-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre 1xBet
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {ONEXBET_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {review.relatedLinks &&
         isOperatorCtaAllowed(casino.id) &&
         review.relatedLinks.length > 0 ? (
@@ -1594,7 +1927,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "betsson" &&
         review.slug !== "betfury" &&
         review.slug !== "500-casino" &&
-        review.slug !== "rainbet" ? (
+        review.slug !== "rainbet" &&
+        review.slug !== "1xbet" ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-1 text-lg font-semibold text-foreground">Bono</h2>
             <p className="text-sm text-muted-foreground">{headlineBonus}</p>
@@ -1625,7 +1959,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "betsson" &&
         review.slug !== "betfury" &&
         review.slug !== "500-casino" &&
-        review.slug !== "rainbet" ? (
+        review.slug !== "rainbet" &&
+        review.slug !== "1xbet" ? (
           <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
             <OperatorCta link={outboundLink} />
           </div>
@@ -1662,6 +1997,14 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         primaryHref={RAINBET_REFERRAL_URL}
         secondaryLabel="Ranking crypto"
         secondaryHref="/casinos-crypto"
+      />
+    ) : null}
+    {review.slug === "1xbet" ? (
+      <MobileStickyOfferCta
+        primaryLabel="Ver paquete 1xBet"
+        primaryHref={ONE_XBET_AFFILIATE_URL}
+        secondaryLabel="Comparar casinos fiat"
+        secondaryHref="/casinos-fiat"
       />
     ) : null}
     </>

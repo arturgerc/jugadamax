@@ -91,4 +91,13 @@ export const bonuses: Bonus[] = [
       "Promoción visible en Bonus Cabinet. Bonos, free spins, cashback, retiros y verificación dependen de los términos oficiales de BetFury.",
     active: true,
   },
+  {
+    id: "1xbet-casino-welcome-package",
+    casinoId: "1xbet",
+    title: "Paquete de bienvenida: hasta 40,000 MXN + 150 giros gratis",
+    type: "welcome",
+    terms:
+      "Oferta mostrada por 1xBet para nuevos usuarios. El paquete puede depender de depósitos elegibles, requisitos de apuesta, juegos participantes, límites, vencimiento, verificación y jurisdicción. Confirma la promoción vigente antes de depositar.",
+    active: true,
+  },
 ];

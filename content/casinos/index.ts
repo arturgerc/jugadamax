@@ -2,6 +2,7 @@ import type { Casino } from "@/types/content";
 import {
   BETFURY_AFFILIATE_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  ONE_XBET_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
 } from "@/lib/affiliate/constants";
 
@@ -312,6 +313,30 @@ export const casinos: Casino[] = [
     bonusIds: ["betfury-welcome"],
     summary:
       "BetFury es un casino crypto gamificado con Bonus Cabinet, Free Spins, cashback, rakeback y promociones por nivel. Para usuarios de México/LATAM, JugadaMax lo presenta como partner crypto destacado; bonos, pagos, verificación y disponibilidad dependen de los términos oficiales y de tu jurisdicción.",
+    locale: "es-MX",
+  },
+  {
+    id: "1xbet",
+    slug: "1xbet",
+    name: "1xBet",
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: { "fiat-casino": 4, sportsbook: 4 },
+    affiliateUrl: ONE_XBET_AFFILIATE_URL,
+    payments: [
+      { name: "MXN", kind: "fiat" },
+      { name: "OXXO", kind: "fiat" },
+      { name: "SPEI", kind: "fiat" },
+      { name: "Visa", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Operador internacional mixto (casino + sportsbook). Licencia, disponibilidad, verificación, límites, bonos y retiros deben revisarse en los términos oficiales del operador y de tu jurisdicción.",
+    },
+    bonusIds: ["1xbet-casino-welcome-package"],
+    summary:
+      "1xBet es un operador mixto internacional con casino online, casino en vivo, slots y apuestas deportivas en una sola cuenta. Para usuarios de México/LATAM, JugadaMax lo presenta como candidato fiat/sportsbook secundario; revisa paquetes de bienvenida, pagos, verificación y términos oficiales antes de registrarte.",
     locale: "es-MX",
   },
 ];

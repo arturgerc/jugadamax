@@ -7,11 +7,11 @@ import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
+import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
   BETSSON_MX_CASINO_WELCOME_URL,
   MELBET_AFFILIATE_URL,
-  ONE_XBET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
 export const metadata: Metadata = buildMetadata({
@@ -49,14 +49,6 @@ const cryptoGuideLinks = [
 ] as const;
 
 const mixedBonusOperators = [
-  {
-    id: "1xbet",
-    name: "1xBet",
-    url: ONE_XBET_AFFILIATE_URL,
-    cta: "Ver opciones en 1xBet",
-    description:
-      "1xBet es un operador mixto que puede combinar apuestas deportivas, casino online, slots y live casino según el mercado y los términos oficiales. Antes de registrarte, revisa bonos, métodos de pago, verificación, límites y disponibilidad para tu jurisdicción.",
-  },
   {
     id: "melbet",
     name: "Melbet",
@@ -262,14 +254,14 @@ export default function BonosPage() {
             id="bonos-mixtos-heading"
             className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
           >
-            Bonos de casino y apuestas en operadores mixtos
+            Paquetes de bienvenida y operadores mixtos
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             Algunos operadores combinan casino online, slots, live casino y apuestas deportivas en
-            una sola cuenta. 1xBet y Melbet se presentan como operadores mixtos según el mercado y
-            los términos oficiales. JugadaMax no publica montos ni códigos promocionales para estos
-            operadores.
+            una sola cuenta. Confirma siempre requisitos de apuesta, depósitos elegibles, límites y
+            elegibilidad antes de aceptar una promoción.
           </p>
+          <OneXBetFeaturedCard context="bonus" />
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {mixedBonusOperators.map((operator) => (
               <article

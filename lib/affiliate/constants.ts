@@ -33,6 +33,9 @@ export const BETFURY_AFFILIATE_URL = "https://betfury.bet/d9lksw0db";
 export const ONE_XBET_AFFILIATE_URL =
   "https://reffpa.com/L?tag=d_5806070m_97c_&site=5806070&ad=97";
 
+/** Confirmed standalone promo code for 1xBet Mexico registration campaigns. */
+export const ONE_XBET_PROMO_CODE = "1x_5259707";
+
 /**
  * Melbet active affiliate link. Mixed operator (sportsbook + casino depending on
  * market and official terms); redirects by GEO/IP.
