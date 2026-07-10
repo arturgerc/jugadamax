@@ -44,7 +44,7 @@ const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
 /** Shared review layout: wide article shell + readable prose column. */
 const REVIEW_ARTICLE_CLASS = "mx-auto w-full max-w-5xl space-y-7 sm:space-y-8";
-const REVIEW_PROSE_CLASS = "mx-auto w-full max-w-3xl";
+const REVIEW_PROSE_CLASS = "mx-auto w-full max-w-4xl";
 
 function ReviewProse({
   children,
