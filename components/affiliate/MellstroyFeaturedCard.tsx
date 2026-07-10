@@ -4,6 +4,9 @@ import { OfferCard, type OfferCardProps } from "@/components/affiliate/OfferCard
 const MELLSTROY_TERMS =
   "Bonos, porcentajes, free spins, cashback, premios, juegos elegibles, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Mellstroy y de tu jurisdicción.";
 
+const MELLSTROY_COMPACT_CRYPTO_TERMS =
+  "Bonos, pagos, retiros y disponibilidad dependen de los términos oficiales y de tu jurisdicción.";
+
 const MELLSTROY_RESPONSIBLE = "18+ | Juega con responsabilidad";
 
 const MELLSTROY_LOGO = {
@@ -26,32 +29,30 @@ const CONTEXT_CONFIG: Record<
 > = {
   crypto: {
     badge: "Casino crypto",
-    headline: "Mellstroy: casino crypto, bonos y promociones",
-    subheadline: "Slots, live casino, pagos crypto y sportsbook adicional",
+    headline: "Mellstroy",
+    subheadline: "Casino crypto con bonos y promociones",
     offerText: "Hasta 660% + 400 FS según promoción vigente",
-    paymentBadges: ["USDT", "Crypto", "Casino", "Sportsbook"],
+    paymentBadges: ["USDT", "Casino", "400 FS"],
     featureBullets: [
-      "Página de promociones: hasta 660% + 400 FS",
-      "Otra creatividad de registro muestra 550% + 400 FS",
-      "Cashback de hasta 30% según promoción",
-      "20 FS por verificar el teléfono según elegibilidad",
-      "Slots, live casino, Fortune Wheel y sportsbook adicional",
+      "Hasta 660% + 400 FS según la oferta vigente",
+      "Slots, live casino y Fortune Wheel",
+      "Revisa bonos, KYC y disponibilidad",
     ],
     primaryCtaLabel: "Ver oferta Mellstroy",
     primaryCtaHref: MELLSTROY_GLOBAL_AFFILIATE_URL,
     secondaryCtaLabel: "Leer reseña",
     secondaryCtaHref: "/reviews/mellstroy",
-    termsNote: MELLSTROY_TERMS,
+    termsNote: MELLSTROY_COMPACT_CRYPTO_TERMS,
     visual: {
       eyebrow: "WELCOME BONUS",
       title: "Hasta 660% + 400 FS",
-      subtitle: "La oferta puede variar por campaña y términos",
-      chips: ["Crypto", "400 FS", "Cashback"],
+      subtitle: "Oferta variable según campaña",
+      chips: ["Crypto", "400 FS"],
       variant: "mellstroy",
       compact: true,
     },
     visualVariant: "crypto",
-    mobileMaxBullets: 3,
+    mobileMaxBullets: 2,
   },
   bonus: {
     badge: "Promociones crypto",

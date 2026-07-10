@@ -403,7 +403,7 @@ export default function CryptoCasinosPage() {
           BetFury y 500 Casino aparecen como ofertas destacadas arriba. Abajo puedes comparar Gamdom,
           Rainbet, Roobet, Stake y otros operadores crypto.
         </p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2" aria-label="Comparar casinos crypto">
+        <div className="mt-4 grid items-start gap-4 md:grid-cols-2" aria-label="Comparar casinos crypto">
           <OfferCard
             operatorName="Gamdom"
             operatorId="gamdom"
@@ -544,7 +544,7 @@ export default function CryptoCasinosPage() {
             }}
             className="p-3 sm:p-4"
           />
-          <MellstroyFeaturedCard context="crypto" className="p-3 sm:p-4" />
+          <MellstroyFeaturedCard context="crypto" className="h-fit self-start p-3 sm:p-4" />
           <OfferCard
             operatorName="BC.Game"
             operatorId="bcgame"
