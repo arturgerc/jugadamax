@@ -301,7 +301,7 @@ export const reviews: Review[] = [
     title: "Reseña de BetFury México: casino crypto, Bonus Cabinet y Free Spins",
     verdict:
       "BetFury destaca por su enfoque crypto gamificado, Bonus Cabinet, Free Spins, cashback y recompensas por nivel. Para JugadaMax puede encajar como partner crypto destacado para usuarios que buscan una experiencia más promocional que un casino tradicional, siempre revisando términos, verificación, límites y disponibilidad.",
-    rating: 4.2,
+    rating: 4.8,
     pros: [
       "Bonus Cabinet con depósitos escalonados y Free Spins según términos oficiales.",
       "Sistema gamificado con Free Fury Wheel, cashback, rakeback y bonos por nivel.",
