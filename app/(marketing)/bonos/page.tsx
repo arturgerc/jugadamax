@@ -224,12 +224,12 @@ export default function BonosPage() {
             headline="BetFury Bonus Cabinet"
             subheadline="Depósitos escalonados, Free Spins y recompensas por nivel"
             offerText="Hasta 590% + Free Spins según términos oficiales"
-            promoCode="dilyl6y3r"
+            promoCode="d9lksw0db"
             paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
             featureBullets={[
               "Bonus Cabinet con depósitos escalonados según términos oficiales",
               "Free Fury Wheel, cashback y rakeback según nivel",
-              "Código de campaña informado: dilyl6y3r",
+              "Código promocional: d9lksw0db",
             ]}
             mobileMaxBullets={3}
             primaryCtaLabel="Ver bonos BetFury"

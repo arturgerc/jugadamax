@@ -144,7 +144,7 @@ export default function Home() {
             headline="BetFury: casino crypto con Bonus Cabinet"
             subheadline="Bonos, Free Spins, cashback y promociones por nivel"
             offerText="Hasta 590% + Free Spins según términos oficiales"
-            promoCode="dilyl6y3r"
+            promoCode="d9lksw0db"
             paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
             featureBullets={[
               "Bonus Cabinet con depósitos escalonados",

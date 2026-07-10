@@ -114,7 +114,7 @@ const BETFURY_BONUS_CABINET = [
   { label: "1er depósito", value: "150% + 50 Free Spins desde $5" },
   { label: "2º depósito", value: "180% + 75 Free Spins desde $20" },
   { label: "3er depósito", value: "200% + 100 Free Spins desde $100" },
-  { label: "Código", value: "dilyl6y3r" },
+  { label: "Código promocional", value: "d9lksw0db" },
   {
     label: "Condiciones",
     value: "Revisar wagering, límites, juegos elegibles y vencimiento",
@@ -195,7 +195,7 @@ const BETFURY_FAQ = [
   {
     question: "¿Cuál es el código promocional de BetFury?",
     answer:
-      "La campaña visible para JugadaMax usa el código dilyl6y3r. Verifica siempre que el código y la promoción estén activos antes de registrarte.",
+      "El código promocional confirmado para JugadaMax es d9lksw0db. Verifica siempre que el código y la promoción estén activos antes de registrarte.",
   },
   {
     question: "¿BetFury paga rápido?",
@@ -638,13 +638,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             headline="BetFury: Bonus Cabinet y casino crypto"
             subheadline="Free Spins, cashback, rakeback y recompensas por nivel"
             offerText="Hasta 590% + Free Spins según términos oficiales"
-            promoCode="dilyl6y3r"
+            promoCode="d9lksw0db"
             paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
             featureBullets={[
               "Bonus Cabinet con depósitos escalonados según términos oficiales",
               "Hasta $10,500 visible en la promoción del operador",
               "Free Fury Wheel, cashback, rakeback y bonos regulares",
-              "Código de campaña informado: dilyl6y3r",
+              "Código promocional: d9lksw0db",
             ]}
             primaryCtaLabel="Ver bonos BetFury"
             primaryCtaHref={BETFURY_AFFILIATE_URL}
@@ -878,8 +878,10 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
-                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Código</dt>
-                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">dilyl6y3r</dd>
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Código promocional
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">d9lksw0db</dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">

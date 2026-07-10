@@ -59,7 +59,7 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     ctaAllowed: true,
     affiliateAllowed: true,
     notes:
-      "Referral/candidate terms pending manager confirmation; promo code dilyl6y3r exists in campaign records.",
+      "Active referral link; promo code d9lksw0db confirmed for JugadaMax campaigns.",
   },
   roobet: {
     id: "roobet",

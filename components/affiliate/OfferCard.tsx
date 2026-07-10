@@ -449,9 +449,8 @@ export function OfferCard({
 
           {promoCode ? (
             <p className="text-[0.7rem] leading-snug text-muted-foreground sm:text-xs">
-              Código promocional informado por el operador:{" "}
-              <span className="font-mono font-semibold text-foreground">{promoCode}</span>. Verifica
-              términos oficiales antes de usarlo.
+              Código promocional:{" "}
+              <span className="font-mono font-semibold text-foreground">{promoCode}</span>
             </p>
           ) : null}
 

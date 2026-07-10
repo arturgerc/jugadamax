@@ -280,13 +280,13 @@ export default function CryptoCasinosPage() {
           headline="BetFury: bonus crypto y casino gamificado"
           subheadline="Bonus Cabinet, Free Spins, cashback y promociones por nivel"
           offerText="Hasta 590% + Free Spins según términos oficiales"
-          promoCode="dilyl6y3r"
+          promoCode="d9lksw0db"
           paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
           featureBullets={[
             "Bonus Cabinet con depósitos escalonados según términos oficiales",
             "Hasta $10,500 visible en la promoción del operador",
             "Free Fury Wheel, cashback, rakeback y bonos semanales según nivel",
-            "Código de campaña informado: dilyl6y3r",
+            "Código promocional: d9lksw0db",
           ]}
           primaryCtaLabel="Ver bonos BetFury"
           primaryCtaHref={BETFURY_AFFILIATE_URL}

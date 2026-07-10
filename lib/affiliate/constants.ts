@@ -24,7 +24,7 @@ export const GAMDOM_GLOBAL_AFFILIATE_URL = "https://gamdom.com/r/arturgerc";
 export const MELLSTROY_GLOBAL_AFFILIATE_URL = "https://mell9382.live/?p=etp3";
 
 /** BetFury active tracking link (crypto/LATAM direction). */
-export const BETFURY_AFFILIATE_URL = "https://betfury.bet/dilyl6y3r";
+export const BETFURY_AFFILIATE_URL = "https://betfury.bet/d9lksw0db";
 
 /**
  * 1xBet active affiliate link. Mixed operator (sportsbook + casino/live casino
