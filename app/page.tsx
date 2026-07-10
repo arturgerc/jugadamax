@@ -5,11 +5,11 @@ import { getCasinosByVertical } from "@/lib/content";
 import { filterCasinosForSurface } from "@/content/operators/status";
 import {
   BETFURY_AFFILIATE_URL,
-  BETSSON_MX_CASINO_WELCOME_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   GAMDOM_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { HomepageActionGrid } from "@/components/home/HomepageActionGrid";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
@@ -274,43 +274,7 @@ export default function Home() {
               Ver todos los casinos fiat
             </Link>
           </div>
-          <OfferCard
-            operatorName="Betsson"
-            operatorId="betsson"
-            badge="Oferta fiat destacada"
-            headline="Betsson MX: bono de casino y pagos locales"
-            subheadline="Casino online y apuestas para usuarios de México"
-            offerText="Hasta $15,000 MXN + 200 giros gratis"
-            paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
-            featureBullets={[
-              "Promoción de bienvenida publicada por Betsson MX",
-              "+25 giros gratis extra si usas la app, según términos oficiales",
-              "Pagos locales como OXXO y SPEI según términos",
-              "Revisa requisitos de apuesta, límites y elegibilidad",
-            ]}
-            primaryCtaLabel="Ver bono Betsson"
-            primaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
-            secondaryCtaLabel="Leer reseña"
-            secondaryCtaHref="/reviews/betsson"
-            termsNote="Promoción publicada por Betsson MX. Bonos, giros, métodos de pago, verificación y retiros dependen de los términos oficiales del operador y de tu jurisdicción."
-            responsibleNote="18+ | Juega con responsabilidad"
-            visual={{
-              eyebrow: "Casino welcome offer",
-              title: "Hasta $15,000 MXN + 200 giros gratis",
-              subtitle: "+25 giros extra en la app",
-              chips: ["OXXO", "SPEI", "Visa", "Mastercard"],
-              variant: "betsson",
-            }}
-            visualVariant="fiat"
-            mobileMaxBullets={3}
-            logo={{
-              src: "/operators/betsson.svg",
-              alt: "Betsson",
-              width: 80,
-              height: 40,
-            }}
-            className="mb-4 p-4 sm:p-5"
-          />
+          <BetssonFeaturedCard context="homepage" />
           {fiatCasinos.length > 0 ? (
             <div className="mt-6">
               <RankingList casinos={fiatCasinos} vertical="fiat-casino" />

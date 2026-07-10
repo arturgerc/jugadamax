@@ -9,11 +9,9 @@ import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { OperatorCta } from "@/components/trust/OperatorCta";
-import { OfferCard } from "@/components/affiliate/OfferCard";
+import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSections";
 import {
-  BETSSON_MX_CASINO_WELCOME_URL,
-  BETSSON_MX_HOME_URL,
   MELBET_AFFILIATE_URL,
   ONE_XBET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -24,10 +22,6 @@ export const metadata: Metadata = buildMetadata({
     "Compara casinos online fiat, slots, live casino, bonos y operadores mixtos para México. Revisa términos oficiales, pagos, verificación y límites.",
   path: "/casinos-fiat",
 });
-
-const betssonTermsNote =
-  "Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción.";
-const betssonResponsibleNote = "18+ | Juega con responsabilidad";
 
 const mixedOperators = [
   {
@@ -126,41 +120,7 @@ export default function FiatCasinosPage() {
         >
           Partner destacado para México
         </h2>
-        <OfferCard
-          operatorName="Betsson"
-          operatorId="betsson"
-          badge="Partner fiat aprobado"
-          headline="Betsson MX: casino online y apuestas con pagos locales"
-          subheadline="Partner fiat aprobado para México"
-          offerText="Promoción de bienvenida sujeta a términos oficiales"
-          paymentBadges={["Visa", "Mastercard", "OXXO", "SPEI"]}
-          featureBullets={[
-            "Casino online y apuestas deportivas",
-            "Métodos de pago populares en México",
-            "Marca internacional con enfoque LATAM",
-            "Revisa bonos, límites y verificación antes de registrarte",
-          ]}
-          primaryCtaLabel="Entrar a Betsson MX"
-          primaryCtaHref={BETSSON_MX_HOME_URL}
-          secondaryCtaLabel="Ver bono Betsson"
-          secondaryCtaHref={BETSSON_MX_CASINO_WELCOME_URL}
-          termsNote={betssonTermsNote}
-          responsibleNote={betssonResponsibleNote}
-          visual={{
-            title: "Hasta $15,000 MXN + 200 giros gratis",
-            chips: ["OXXO", "SPEI", "Visa"],
-            variant: "betsson",
-            compact: true,
-          }}
-          visualVariant="fiat"
-          logo={{
-            src: "/operators/betsson.svg",
-            alt: "Betsson",
-            width: 80,
-            height: 40,
-          }}
-          className="mt-4"
-        />
+        <BetssonFeaturedCard context="fiat" />
       </section>
 
       <section aria-labelledby="operadores-mixtos-heading" className="mb-8">

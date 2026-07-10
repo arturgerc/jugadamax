@@ -9,10 +9,9 @@ import { RankingList } from "@/components/ranking/RankingList";
 import { ComparisonTable } from "@/components/comparison/ComparisonTable";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
-import { OfferCard } from "@/components/affiliate/OfferCard";
+import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
 import {
-  BETSSON_MX_APUESTAS_URL,
   MELBET_AFFILIATE_URL,
   ONE_XBET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -23,10 +22,6 @@ export const metadata: Metadata = buildMetadata({
     "Sección secundaria de JugadaMax para comparar apuestas deportivas y operadores mixtos. El foco principal del sitio sigue siendo casino online.",
   path: "/apuestas",
 });
-
-const betssonTermsNote =
-  "Bonos, métodos de pago, verificación y retiros dependen de los términos oficiales de Betsson MX y de tu jurisdicción.";
-const betssonResponsibleNote = "18+ | Juega con responsabilidad";
 
 const affiliateSportsbooks: Casino[] = [
   {
@@ -129,33 +124,7 @@ export default function BettingSitesPage() {
         >
           Partner destacado para México
         </h2>
-        <OfferCard
-          operatorName="Betsson"
-          operatorId="betsson"
-          badge="Sportsbook MX"
-          headline="Betsson MX para apuestas deportivas"
-          subheadline="Casino y sportsbook en una sola cuenta"
-          offerText="Apuestas deportivas y casino en una sola cuenta"
-          paymentBadges={["Liga MX", "Fútbol", "OXXO", "SPEI", "Visa"]}
-          featureBullets={[
-            "Apuestas deportivas y casino online",
-            "Mercados de fútbol y deportes populares",
-            "Métodos de pago locales según términos",
-            "Revisa bonos, límites y verificación",
-          ]}
-          primaryCtaLabel="Ver apuestas en Betsson MX"
-          primaryCtaHref={BETSSON_MX_APUESTAS_URL}
-          termsNote={betssonTermsNote}
-          responsibleNote={betssonResponsibleNote}
-          visualVariant="sportsbook"
-          logo={{
-            src: "/operators/betsson.svg",
-            alt: "Betsson",
-            width: 80,
-            height: 40,
-          }}
-          className="mt-4"
-        />
+        <BetssonFeaturedCard context="sportsbook" />
       </section>
 
       <section aria-labelledby="codere-apuestas-heading" className="mb-8">

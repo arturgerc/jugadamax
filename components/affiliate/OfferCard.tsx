@@ -30,6 +30,10 @@ export type OfferCardProps = {
   primaryCtaHref: string;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
+  tertiaryCtaLabel?: string;
+  tertiaryCtaHref?: string;
+  /** Optional override for the category badge pill (e.g. emerald sportsbook accent). */
+  badgeClassName?: string;
   termsNote: string;
   responsibleNote: string;
   visual?: OfferCardVisual;
@@ -286,13 +290,20 @@ type OfferCardCtasProps = {
   primaryCtaHref: string;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
+  tertiaryCtaLabel?: string;
+  tertiaryCtaHref?: string;
 };
+
+const tertiaryCtaClassName =
+  "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-white/10 bg-transparent px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-white/20 hover:bg-white/5 hover:text-foreground";
 
 function OfferCardCtas({
   primaryCtaLabel,
   primaryCtaHref,
   secondaryCtaLabel,
   secondaryCtaHref,
+  tertiaryCtaLabel,
+  tertiaryCtaHref,
 }: OfferCardCtasProps) {
   return (
     <>
@@ -333,6 +344,22 @@ function OfferCardCtas({
           </Link>
         )
       ) : null}
+      {tertiaryCtaLabel && tertiaryCtaHref ? (
+        isExternalHref(tertiaryCtaHref) ? (
+          <a
+            href={tertiaryCtaHref}
+            target="_blank"
+            rel={AFFILIATE_REL}
+            className={cn(tertiaryCtaClassName, focusRing)}
+          >
+            {tertiaryCtaLabel}
+          </a>
+        ) : (
+          <Link href={tertiaryCtaHref} className={cn(tertiaryCtaClassName, focusRing)}>
+            {tertiaryCtaLabel}
+          </Link>
+        )
+      ) : null}
     </>
   );
 }
@@ -355,6 +382,9 @@ export function OfferCard({
   primaryCtaHref,
   secondaryCtaLabel,
   secondaryCtaHref,
+  tertiaryCtaLabel,
+  tertiaryCtaHref,
+  badgeClassName,
   termsNote,
   responsibleNote,
   visual,
@@ -403,9 +433,10 @@ export function OfferCard({
                 <span
                   className={cn(
                     "inline-flex items-center rounded-full border px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide",
-                    isRainbetBranded
-                      ? rainbetBadge
-                      : (emphasisBadge[emphasis] ?? variantBadge[variant]),
+                    badgeClassName ??
+                      (isRainbetBranded
+                        ? rainbetBadge
+                        : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
                   {badge}
@@ -428,6 +459,8 @@ export function OfferCard({
               primaryCtaHref={primaryCtaHref}
               secondaryCtaLabel={secondaryCtaLabel}
               secondaryCtaHref={secondaryCtaHref}
+              tertiaryCtaLabel={tertiaryCtaLabel}
+              tertiaryCtaHref={tertiaryCtaHref}
             />
             {visual ? <OfferVisualPanel visual={visual} /> : null}
           </div>
@@ -511,6 +544,8 @@ export function OfferCard({
             primaryCtaHref={primaryCtaHref}
             secondaryCtaLabel={secondaryCtaLabel}
             secondaryCtaHref={secondaryCtaHref}
+            tertiaryCtaLabel={tertiaryCtaLabel}
+            tertiaryCtaHref={tertiaryCtaHref}
           />
         </div>
       </div>
