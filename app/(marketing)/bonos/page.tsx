@@ -9,6 +9,7 @@ import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
+import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
   BETSSON_MX_CASINO_WELCOME_URL,
@@ -236,6 +237,7 @@ export default function BonosPage() {
             }}
             className="mt-4"
           />
+          <MellstroyFeaturedCard context="bonus" />
         </section>
 
         <section aria-labelledby="bonos-mixtos-heading">

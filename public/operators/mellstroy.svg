@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="Mellstroy">
+  <defs>
+    <linearGradient id="mellstroy-shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="55%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="mellstroy-inner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E9D5FF"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8 10)">
+    <path d="M28 4 L52 4 L58 18 L64 4 L88 4 L88 56 L72 56 L72 28 L58 56 L42 28 L42 56 L26 56 Z" fill="url(#mellstroy-shield)" stroke="#C4B5FD" stroke-width="1.5"/>
+    <path d="M34 14 L46 14 L50 24 L54 14 L66 14 L66 46 L56 46 L56 30 L50 46 L44 30 L44 46 L34 46 Z" fill="url(#mellstroy-inner)" opacity="0.95"/>
+  </g>
+  <text x="108" y="50" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1.5">MELLSTROY</text>
+</svg>

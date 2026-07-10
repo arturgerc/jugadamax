@@ -11,6 +11,7 @@ import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { CryptoCasinoInfoSections } from "@/components/verticals/CryptoCasinoInfoSections";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
   BCGAME_MX_OFFICIAL_URL,
@@ -148,12 +149,18 @@ const affiliateCryptoCasinos: Casino[] = [
   {
     id: "mellstroy",
     slug: "mellstroy",
-    name: "Mellstroy / MellAff",
+    name: "Mellstroy",
     verticals: ["crypto-casino"],
     rankByVertical: { "crypto-casino": 7 },
     affiliateUrl: MELLSTROY_GLOBAL_AFFILIATE_URL,
+    logo: {
+      src: "/operators/mellstroy.svg",
+      alt: "Mellstroy",
+      width: 120,
+      height: 48,
+    },
     summary:
-      "Candidato de casino crypto/social casino internacional para tráfico LATAM. Revisa términos oficiales y disponibilidad antes de registrarte.",
+      "Casino crypto internacional con promociones visibles, Fortune Wheel y sportsbook adicional. Revisa términos oficiales, bonos, pagos, verificación y disponibilidad antes de registrarte.",
     locale: "es-MX",
   },
   {
@@ -537,36 +544,7 @@ export default function CryptoCasinosPage() {
             }}
             className="p-3 sm:p-4"
           />
-          <OfferCard
-            operatorName="Mellstroy / MellAff"
-            operatorId="mellstroy"
-            badge="Comparar"
-            headline="Mellstroy"
-            subheadline="Casino crypto/social para LATAM"
-            offerText="Disponibilidad y promociones según términos oficiales"
-            paymentBadges={["Crypto"]}
-            featureBullets={[
-              "Candidato crypto internacional",
-              "Revisa términos oficiales y disponibilidad",
-              "Pagos, retiros y verificación dependen del operador",
-            ]}
-            primaryCtaLabel="Visitar Mellstroy"
-            primaryCtaHref={MELLSTROY_GLOBAL_AFFILIATE_URL}
-            termsNote="Promociones, pagos, retiros y elegibilidad dependen de los términos oficiales del operador y de tu jurisdicción."
-            responsibleNote="18+ | Juega con responsabilidad"
-            visual={{
-              eyebrow: "Crypto casino",
-              title: "Mellstroy",
-              subtitle: "Comparar según términos",
-              chips: ["Crypto", "LATAM"],
-              variant: "crypto",
-              compact: true,
-            }}
-            visualVariant="dark"
-            emphasis="comparison-secondary"
-            mobileMaxBullets={2}
-            className="p-3 sm:p-4"
-          />
+          <MellstroyFeaturedCard context="crypto" className="p-3 sm:p-4" />
           <OfferCard
             operatorName="BC.Game"
             operatorId="bcgame"

@@ -109,4 +109,13 @@ export const bonuses: Bonus[] = [
       "Paquete para los primeros cuatro depósitos elegibles: 100% hasta MX$7,000, 50% hasta MX$3,500, 25% hasta MX$3,500 y 25% hasta MX$3,500. Depósito mínimo MX$100. Requisito de apuesta 5x según términos publicados. Aplican cuotas mínimas, vigencia, verificación, mercados elegibles y restricciones del operador.",
     active: true,
   },
+  {
+    id: "mellstroy-welcome",
+    casinoId: "mellstroy",
+    title: "Bono de bienvenida: hasta 660% + 400 FS",
+    type: "welcome",
+    terms:
+      "La página de promociones suministrada muestra hasta 660% + 400 FS, mientras que otra creatividad de registro muestra 550% + 400 FS. La oferta puede variar según campaña, registro, cuenta, elegibilidad, jurisdicción y términos vigentes. Confirma porcentajes, depósitos elegibles, wagering, juegos, límites y vencimiento antes de depositar.",
+    active: true,
+  },
 ];

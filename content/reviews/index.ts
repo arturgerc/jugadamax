@@ -451,4 +451,37 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-10",
     locale: "es-MX",
   },
+  {
+    id: "mellstroy-review",
+    casinoId: "mellstroy",
+    authorId: "redaccion-jugadamax",
+    slug: "mellstroy",
+    title: "Reseña de Mellstroy México: casino crypto, bonos y promociones",
+    verdict:
+      "Mellstroy combina casino crypto, slots, live casino, Fortune Wheel, promociones visibles y sportsbook adicional en una plataforma internacional. Puede funcionar como alternativa de comparación, pero JugadaMax lo mantiene por debajo de sus partners crypto principales debido a la necesidad de confirmar términos, licencia, disponibilidad regional, KYC y condiciones exactas de bonos.",
+    rating: 3.9,
+    pros: [
+      "Casino, sportsbook y live casino dentro de una misma plataforma",
+      "Promoción visible de hasta 660% + 400 FS según términos",
+      "Cashback, free spins, Fortune Wheel y promociones adicionales visibles",
+      "Interfaz visual diferenciada y orientada a entretenimiento",
+      "Enlace de afiliado activo para seguimiento",
+    ],
+    cons: [
+      "Las creatividades suministradas muestran cifras distintas: 660% y 550%",
+      "Los requisitos exactos del bono deben verificarse antes de depositar",
+      "Licencia y disponibilidad regional no verificadas por JugadaMax",
+      "Pagos, retiros, límites y KYC dependen del operador",
+      "La interfaz puede resultar intensa o muy promocional para algunos usuarios",
+    ],
+    body:
+      "Mellstroy es un casino crypto internacional con una interfaz visual intensa, promociones destacadas y una mezcla de casino online, live casino, Fortune Wheel y sportsbook adicional. Para usuarios de México y LATAM, JugadaMax lo presenta como alternativa de comparación con enlace de afiliado activo, pero por debajo de BetFury, 500 Casino, Gamdom, Rainbet, Roobet y Stake en prioridad editorial.\n\nLa página de promociones suministrada muestra un titular de hasta 660% + 400 FS, junto con cashback de hasta 30%, free spins por verificación telefónica, Lucky Wheel, free spins semanales y un bono deportivo de hasta +15% según términos. Sin embargo, otra creatividad de registro muestra 550% + 400 FS. JugadaMax no garantiza ninguna de esas cifras: la oferta puede variar por campaña, flujo de registro, cuenta, GEO y términos vigentes.\n\nEn producto, Mellstroy expone categorías como casino, sport, live casino, Fortune Wheel y bonos. El foco editorial de JugadaMax está en el casino crypto — slots, live casino, pagos crypto y promociones — mientras que el sportsbook se menciona solo como producto adicional disponible dentro de la plataforma.\n\nEn pagos, la interfaz suministrada muestra USDT como método visible. Otros activos, redes, mínimos, comisiones y límites deben confirmarse en el cajero oficial del operador. JugadaMax no inventa criptomonedas adicionales ni afirma retiros rápidos o garantizados.\n\nEn verificación y retiros, Mellstroy puede solicitar KYC, aplicar límites internos o restringir promociones según jurisdicción. Los tiempos de retiro dependen del método, verificación de cuenta, políticas antifraude y reglas vigentes del operador.\n\nNuestra conclusión editorial: Mellstroy puede encajar para usuarios que comparan casinos crypto internacionales con promociones visibles y aceptan revisar términos con detalle, pero JugadaMax lo mantiene en una posición inferior del ranking crypto porque partners con mayor prioridad editorial ofrecen seguimiento, transparencia o campaña más consolidada. Confirma siempre la oferta activa, wagering, elegibilidad y reglas de retiro directamente en Mellstroy antes de depositar.",
+    paymentsSummary:
+      "USDT es visible en la interfaz suministrada. Otros métodos, redes, mínimos, comisiones y tiempos deben verificarse directamente en el cajero oficial de Mellstroy.",
+    trustSummary:
+      "JugadaMax trata Mellstroy como casino crypto internacional con enlace de afiliado activo. Recomienda verificar licencia, jurisdicción, KYC, restricciones regionales y reglas de bonos antes de registrarte.",
+    publishedAt: "2026-07-11",
+    updatedAt: "2026-07-11",
+    locale: "es-MX",
+  },
 ];

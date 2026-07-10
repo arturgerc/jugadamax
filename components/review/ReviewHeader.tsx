@@ -94,6 +94,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-[#FFB800]/25 bg-[#FFB800]/10",
     decorB: "bg-[#FFB800]/55",
   },
+  mellstroy: {
+    shell:
+      "border-violet-500/25 bg-gradient-to-br from-[#1a0a24] via-[#120818] to-[#0d0614] ring-1 ring-violet-500/10 shadow-[0_4px_28px_-12px_rgba(139,92,246,0.18)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.1),transparent_50%)]",
+    badge: "border-violet-400/30 bg-violet-500/10 text-violet-200",
+    chip: "border-violet-500/20 bg-violet-500/8 text-violet-100/90",
+    scorePanel: "border-violet-500/25 bg-[#1a0a24]/85 shadow-[inset_0_1px_0_rgba(139,92,246,0.1)]",
+    scoreValue: "text-violet-300",
+    decorA: "border-violet-400/20 bg-violet-500/10",
+    decorB: "bg-blue-400/50",
+  },
   stake: {
     shell:
       "border-emerald-500/25 bg-gradient-to-br from-[#061018] via-[#0A1931] to-[#041018] ring-1 ring-emerald-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.16)]",

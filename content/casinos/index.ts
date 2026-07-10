@@ -5,6 +5,7 @@ import {
   ONE_XBET_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
   MELBET_AFFILIATE_URL,
+  MELLSTROY_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
 /**
@@ -264,7 +265,7 @@ export const casinos: Casino[] = [
       height: 40,
     },
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 7 },
+    rankByVertical: { "crypto-casino": 8 },
     affiliateUrl: RAINBET_REFERRAL_URL,
     payments: [
       { name: "Bitcoin", kind: "crypto" },
@@ -367,6 +368,30 @@ export const casinos: Casino[] = [
     bonusIds: ["melbet-sportsbook-welcome"],
     summary:
       "Melbet es un operador mixto internacional con sportsbook, casino online, slots, live casino y fast games en una sola cuenta. Para usuarios de México/LATAM, JugadaMax lo presenta como candidato activo secundario tras Betsson y 1xBet; revisa bonos deportivos, promociones de casino, pagos, verificación y términos oficiales antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "mellstroy",
+    slug: "mellstroy",
+    name: "Mellstroy",
+    logo: {
+      src: "/operators/mellstroy.svg",
+      alt: "Mellstroy",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 7 },
+    affiliateUrl: MELLSTROY_GLOBAL_AFFILIATE_URL,
+    payments: [{ name: "USDT", kind: "crypto" }],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Operador internacional de casino y sportsbook. Licencia, entidad operadora, disponibilidad para México/LATAM, verificación, bonos, pagos y retiros deben confirmarse directamente en los términos oficiales.",
+    },
+    bonusIds: ["mellstroy-welcome"],
+    summary:
+      "Mellstroy es un casino crypto con slots, live casino, Fortune Wheel, promociones visibles y sportsbook adicional. Para usuarios de México/LATAM, JugadaMax lo mantiene como alternativa internacional de prioridad inferior a sus principales partners crypto; bonos, pagos, verificación y disponibilidad dependen de términos oficiales.",
     locale: "es-MX",
   },
 ];

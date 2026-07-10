@@ -28,10 +28,12 @@ import {
   ONE_XBET_PROMO_CODE,
   MELBET_AFFILIATE_URL,
   MELBET_PROMO_CODE,
+  MELLSTROY_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
+import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
@@ -681,6 +683,166 @@ const RAINBET_FAQ = [
   },
 ] as const;
 
+const MELLSTROY_WELCOME_COMPARISON = [
+  { label: "Página de promociones", value: "Hasta 660% + 400 FS" },
+  { label: "Creatividad de registro", value: "550% + 400 FS" },
+  {
+    label: "Interpretación",
+    value: "Las promociones pueden variar por campaña o flujo de registro",
+  },
+  {
+    label: "Importante",
+    value:
+      "JugadaMax no garantiza ninguna de las cifras; confirma la oferta activa antes de depositar",
+  },
+] as const;
+
+const MELLSTROY_PROMO_CARDS = [
+  {
+    title: "Cashback",
+    text: "Hasta 30% cashback según promoción visible; no es un beneficio permanente ni garantizado.",
+  },
+  {
+    title: "Verificación telefónica",
+    text: "20 FS por verificar el teléfono según elegibilidad y términos vigentes.",
+  },
+  {
+    title: "Free spins semanales",
+    text: "Promoción visible de free spins semanales; disponibilidad sujeta a campaña y cuenta.",
+  },
+  {
+    title: "Lucky Wheel",
+    text: "Premios diarios según Fortune Wheel / Lucky Wheel y reglas del operador.",
+  },
+  {
+    title: "Bono deportivo",
+    text: "Hasta +15% a tu sports win según términos; producto adicional, no el foco principal.",
+  },
+  {
+    title: "Campañas adicionales",
+    text: "Lucky Races y otras campañas visibles pueden cambiar sin aviso.",
+  },
+] as const;
+
+const MELLSTROY_PRODUCT_CARDS = [
+  { title: "Slots", text: "Catálogo de casino con juegos destacados según disponibilidad regional." },
+  { title: "Live casino", text: "Mesas y formatos en vivo sujetos al catálogo vigente del operador." },
+  { title: "Fortune Wheel", text: "Rueda de premios visible en la interfaz; reglas y elegibilidad en términos oficiales." },
+  { title: "Casino games", text: "Sección principal de juegos de casino dentro de la plataforma crypto." },
+  {
+    title: "Sportsbook",
+    text: "Apuestas deportivas disponibles como producto adicional; no es el posicionamiento principal de JugadaMax.",
+  },
+  {
+    title: "Bonos y promociones",
+    text: "Página dedicada a promociones activas; confirma siempre la oferta vigente al registrarte.",
+  },
+] as const;
+
+const MELLSTROY_PAYMENTS_CARDS = [
+  {
+    title: "USDT visible",
+    text: "La interfaz suministrada muestra USDT como método de pago crypto.",
+  },
+  {
+    title: "Otros métodos",
+    text: "Otras monedas y redes deben confirmarse directamente en el cajero oficial.",
+  },
+  {
+    title: "KYC",
+    text: "Mellstroy puede solicitar verificación de identidad antes de retiros o promociones.",
+  },
+  {
+    title: "Retiros",
+    text: "Métodos, límites y tiempos varían; JugadaMax no garantiza plazos de retiro.",
+  },
+  {
+    title: "Disponibilidad",
+    text: "La elegibilidad depende de jurisdicción, cuenta y términos vigentes del operador.",
+  },
+] as const;
+
+const MELLSTROY_ANALYSIS_SECTIONS = [
+  {
+    title: "Nuestra valoración",
+    paragraphs: [
+      "Mellstroy recibe una calificación editorial provisional de 3.9/5 en JugadaMax. Es una opinión editorial del equipo, no una puntuación agregada de usuarios ni una garantía de calidad operativa.",
+      "La plataforma destaca por promociones visibles, Fortune Wheel y una mezcla de casino crypto con sportsbook adicional, pero la discrepancia entre creatividades (660% vs 550%) obliga a confirmar la oferta activa antes de depositar.",
+    ],
+  },
+  {
+    title: "Bono y promociones",
+    paragraphs: [
+      "La página de promociones suministrada muestra hasta 660% + 400 FS, mientras que otra creatividad de registro muestra 550% + 400 FS. JugadaMax no garantiza ninguna cifra: la oferta puede variar por campaña, flujo de registro, cuenta, GEO y términos vigentes.",
+      "También aparecen cashback de hasta 30%, 20 FS por verificar el teléfono, free spins semanales, Lucky Wheel y un bono deportivo de hasta +15% según términos. Ninguna promoción debe interpretarse como permanente o automática.",
+    ],
+  },
+  {
+    title: "Casino y sportsbook",
+    paragraphs: [
+      "El foco editorial está en el casino crypto: slots, live casino, Fortune Wheel y pagos crypto. El sportsbook existe como producto adicional dentro de la misma cuenta, pero no define la clasificación principal de Mellstroy en JugadaMax.",
+      "La interfaz puede resultar intensa o muy promocional para usuarios que prefieren una experiencia minimalista. Explora el catálogo y confirma juegos elegibles para bonos antes de apostar.",
+    ],
+  },
+  {
+    title: "Pagos, KYC y retiros",
+    paragraphs: [
+      "USDT es el método crypto visible en la interfaz suministrada. Otros activos, redes, mínimos y comisiones deben verificarse en el cajero oficial del operador.",
+      "Mellstroy puede solicitar KYC, aplicar límites internos o restringir promociones según jurisdicción. JugadaMax no afirma retiros rápidos ni garantizados.",
+    ],
+  },
+  {
+    title: "Para quién puede encajar",
+    paragraphs: [
+      "Mellstroy puede encajar para usuarios que comparan casinos crypto internacionales, aceptan revisar términos con detalle y no necesitan pagos fiat locales como OXXO o SPEI.",
+      "Puede ser menos adecuado para quien busca máxima claridad en bonos desde el primer vistazo, operadores con licencia local verificada o una experiencia sin múltiples campañas simultáneas.",
+    ],
+  },
+] as const;
+
+const MELLSTROY_FAQ = [
+  {
+    question: "¿Cuál es el bono de bienvenida de Mellstroy?",
+    answer:
+      "La página de promociones suministrada muestra hasta 660% + 400 FS según términos vigentes. Otra creatividad de registro muestra 550% + 400 FS. JugadaMax no garantiza ninguna cifra; confirma la oferta activa durante el registro.",
+  },
+  {
+    question: "¿El bono es de 660% o 550%?",
+    answer:
+      "Depende de la campaña o creatividad que veas. Las promociones pueden variar por flujo de registro, cuenta, GEO y términos vigentes. Revisa siempre la oferta activa en Mellstroy antes de depositar.",
+  },
+  {
+    question: "¿Qué significa 400 FS?",
+    answer:
+      "FS suele referirse a free spins (giros gratis). La cantidad, juegos elegibles, wagering y vencimiento deben confirmarse en los términos oficiales del operador.",
+  },
+  {
+    question: "¿Mellstroy ofrece cashback?",
+    answer:
+      "La promoción visible menciona cashback de hasta 30% según términos. No es un beneficio permanente ni garantizado; revisa elegibilidad y reglas en el operador.",
+  },
+  {
+    question: "¿Mellstroy tiene sportsbook?",
+    answer:
+      "Sí, la interfaz muestra sección de apuestas deportivas como producto adicional. JugadaMax clasifica a Mellstroy principalmente como casino crypto.",
+  },
+  {
+    question: "¿Mellstroy acepta USDT?",
+    answer:
+      "USDT es visible en la interfaz suministrada. Otros métodos crypto deben confirmarse en el cajero oficial del operador.",
+  },
+  {
+    question: "¿Mellstroy puede solicitar KYC?",
+    answer:
+      "Sí. El operador puede pedir verificación de identidad antes de retiros o ciertas promociones, según sus políticas.",
+  },
+  {
+    question: "¿JugadaMax garantiza retiros rápidos?",
+    answer:
+      "No. JugadaMax no garantiza tiempos de retiro. Los retiros dependen del método, verificación, límites y políticas internas del operador.",
+  },
+] as const;
+
 function RelatedLinkBadge({
   kind,
   label,
@@ -872,7 +1034,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           review.slug === "500-casino" ||
           review.slug === "rainbet" ||
           review.slug === "1xbet" ||
-          review.slug === "melbet"
+          review.slug === "melbet" ||
+          review.slug === "mellstroy"
           ? "pt-8 pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pt-8 md:pb-8"
           : "py-8",
       )}
@@ -1055,6 +1218,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         {review.slug === "melbet" ? (
           <div id="review-primary-offer">
             <MelbetFeaturedCard context="review" />
+          </div>
+        ) : null}
+
+        {review.slug === "mellstroy" ? (
+          <div id="review-primary-offer">
+            <MellstroyFeaturedCard context="review" />
           </div>
         ) : null}
 
@@ -1980,6 +2149,159 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "mellstroy" ? (
+          <section
+            aria-labelledby="mellstroy-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="mellstroy-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido de Mellstroy
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Casino crypto con sportsbook adicional
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Oferta visible
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Hasta 660% + 400 FS según promoción vigente
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Método visible
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">USDT</dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Bonos, wagering, licencia, KYC y disponibilidad
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "mellstroy" ? (
+          <section
+            aria-labelledby="mellstroy-bono-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="mellstroy-bono-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Bono de bienvenida
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Comparación basada en creatividades suministradas. Confirma siempre la oferta activa
+              durante el registro.
+            </p>
+            <dl className="mt-4 divide-y divide-white/10 rounded-lg border border-white/10">
+              {MELLSTROY_WELCOME_COMPARISON.map((row) => (
+                <div
+                  key={row.label}
+                  className="grid gap-1 px-4 py-3 sm:grid-cols-[minmax(0,11rem)_1fr] sm:gap-4"
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {row.label}
+                  </dt>
+                  <dd className="text-sm leading-relaxed text-muted-foreground">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "mellstroy" ? (
+          <section aria-labelledby="mellstroy-promociones-heading">
+            <h2
+              id="mellstroy-promociones-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Promociones visibles
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {MELLSTROY_PROMO_CARDS.map((card) => (
+                <div key={card.title} className="rounded-xl border border-border/60 bg-card p-4">
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "mellstroy" ? (
+          <section aria-labelledby="mellstroy-producto-heading">
+            <h2
+              id="mellstroy-producto-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Casino y producto
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {MELLSTROY_PRODUCT_CARDS.map((card) => (
+                <div key={card.title} className="rounded-xl border border-border/60 bg-card p-4">
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "mellstroy" ? (
+          <section aria-labelledby="mellstroy-pagos-heading">
+            <h2
+              id="mellstroy-pagos-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos, retiros y verificación
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {MELLSTROY_PAYMENTS_CARDS.map((card) => (
+                <div key={card.title} className="rounded-xl border border-border/60 bg-card p-4">
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "mellstroy" ? (
+          <section
+            aria-labelledby="mellstroy-posicion-editorial-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="mellstroy-posicion-editorial-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Posición editorial
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Mellstroy tiene un enlace de afiliado activo en JugadaMax, pero se mantiene por debajo
+              de BetFury, 500 Casino, Gamdom, Rainbet, Roobet y Stake en el ranking crypto. La
+              posición puede cambiar si mejoran términos, tracking, disponibilidad GEO y
+              transparencia del operador. La relación comercial no determina por sí sola la
+              calificación editorial.
+            </p>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -2012,6 +2334,27 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           <ReviewProse as="section" aria-label="Análisis" className="space-y-6">
             <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
             {MELBET_ANALYSIS_SECTIONS.map((section) => (
+              <div key={section.title} className="space-y-3">
+                <h3 className="text-base font-semibold text-foreground sm:text-lg">
+                  {section.title}
+                </h3>
+                <div className="space-y-3">
+                  {section.paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 48)}
+                      className="text-sm leading-relaxed text-muted-foreground sm:text-base"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </ReviewProse>
+        ) : review.slug === "mellstroy" ? (
+          <ReviewProse as="section" aria-label="Análisis" className="space-y-6">
+            <h2 className="text-xl font-semibold text-foreground">Análisis</h2>
+            {MELLSTROY_ANALYSIS_SECTIONS.map((section) => (
               <div key={section.title} className="space-y-3">
                 <h3 className="text-base font-semibold text-foreground sm:text-lg">
                   {section.title}
@@ -2214,6 +2557,47 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "mellstroy" ? (
+          <section
+            aria-labelledby="mellstroy-post-analisis-cta-heading"
+            className="rounded-xl border border-violet-500/20 bg-gradient-to-br from-violet-500/8 via-card to-[#1a0a24] p-4 sm:p-5"
+          >
+            <h2
+              id="mellstroy-post-analisis-cta-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Revisar Mellstroy
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Antes de registrarte, confirma la promoción activa, porcentajes, free spins, pagos,
+              verificación y reglas de retiro directamente en Mellstroy.
+            </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <a
+                href={MELLSTROY_GLOBAL_AFFILIATE_URL}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
+                  "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
+                  focusRing,
+                )}
+              >
+                Ver oferta Mellstroy
+              </a>
+              <a
+                href="/casinos-crypto"
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+                  focusRing,
+                )}
+              >
+                Volver al ranking crypto
+              </a>
+            </div>
+          </section>
+        ) : null}
+
         {review.slug === "betsson" ? (
           <section aria-labelledby="betsson-faq-heading">
             <h2 id="betsson-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
@@ -2358,6 +2742,30 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "mellstroy" ? (
+          <section aria-labelledby="mellstroy-faq-heading">
+            <h2 id="mellstroy-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre Mellstroy
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {MELLSTROY_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {review.relatedLinks &&
         isOperatorCtaAllowed(casino.id) &&
         review.relatedLinks.length > 0 ? (
@@ -2401,7 +2809,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "500-casino" &&
         review.slug !== "rainbet" &&
         review.slug !== "1xbet" &&
-        review.slug !== "melbet" ? (
+        review.slug !== "melbet" &&
+        review.slug !== "mellstroy" ? (
           <section aria-label="Bono" className="rounded-lg border border-border/60 bg-card p-4">
             <h2 className="mb-1 text-lg font-semibold text-foreground">Bono</h2>
             <p className="text-sm text-muted-foreground">{headlineBonus}</p>
@@ -2434,7 +2843,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "500-casino" &&
         review.slug !== "rainbet" &&
         review.slug !== "1xbet" &&
-        review.slug !== "melbet" ? (
+        review.slug !== "melbet" &&
+        review.slug !== "mellstroy" ? (
           <div className="flex flex-wrap gap-3 border-t border-border/60 pt-6">
             <OperatorCta link={outboundLink} />
           </div>
@@ -2505,6 +2915,17 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         primaryHref={MELBET_AFFILIATE_URL}
         secondaryLabel="Ver apuestas deportivas"
         secondaryHref="/apuestas"
+      />
+    ) : null}
+    {review.slug === "mellstroy" ? (
+      <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Ver oferta"
+        compactSecondaryLabel="Comparar"
+        primaryLabel="Ver oferta Mellstroy"
+        primaryHref={MELLSTROY_GLOBAL_AFFILIATE_URL}
+        secondaryLabel="Comparar casinos crypto"
+        secondaryHref="/casinos-crypto"
       />
     ) : null}
     </>

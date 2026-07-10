@@ -86,7 +86,7 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     allowedSurfaces: ["casinos-crypto", "bonos", "reviews", "sitemap", "english-global"],
     ctaAllowed: true,
     affiliateAllowed: true,
-    notes: "Lower/grey/social priority; not a primary homepage offer.",
+    notes: "Lower/grey priority; not a primary homepage offer.",
   },
   stake: {
     id: "stake",

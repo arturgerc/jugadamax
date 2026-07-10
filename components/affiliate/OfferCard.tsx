@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -92,6 +92,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-sky-500/25 bg-gradient-to-br from-[#050d1f] via-[#0a1931] to-[#061018] shadow-[inset_0_1px_0_rgba(56,189,248,0.12)]",
   melbet:
     "border-[#FFB800]/25 bg-gradient-to-br from-[#0c0c0e] via-[#141414] to-[#0a0a0c] shadow-[inset_0_1px_0_rgba(255,184,0,0.14)]",
+  mellstroy:
+    "border-violet-500/25 bg-gradient-to-br from-[#1a0a24] via-[#120818] to-[#0d0614] shadow-[inset_0_1px_0_rgba(139,92,246,0.12)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -112,6 +114,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.2),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.16),transparent_50%),radial-gradient(ellipse_at_20%_80%,rgba(34,197,94,0.08),transparent_45%)]",
   melbet:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.04),transparent_50%),radial-gradient(ellipse_at_15%_85%,rgba(60,60,60,0.12),transparent_45%)]",
+  mellstroy:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.2),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.12),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(217,70,239,0.08),transparent_45%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -153,6 +157,14 @@ const melbetCardGlow =
   "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.1),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.03),transparent_50%)]";
 
 const melbetBadge = "border-[#FFB800]/35 bg-[#FFB800]/10 text-[#FFC300]";
+
+const mellstroyCardShell =
+  "border-violet-500/25 bg-gradient-to-br from-[#1a0a24] via-[#120818]/95 to-[#0d0614] ring-1 ring-violet-500/10 shadow-[0_4px_28px_-12px_rgba(139,92,246,0.22)]";
+
+const mellstroyCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.08),transparent_50%),radial-gradient(ellipse_at_60%_40%,rgba(217,70,239,0.06),transparent_45%)]";
+
+const mellstroyBadge = "border-violet-400/30 bg-violet-500/10 text-violet-200";
 
 const rainbetCardShell =
   "border-emerald-500/20 bg-gradient-to-br from-[#020617] via-[#071422] to-[#041018] ring-1 ring-cyan-400/10 shadow-[0_4px_28px_-12px_rgba(34,211,238,0.18)]";
@@ -239,6 +251,18 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "mellstroy" ? (
+        <>
+          <div className="pointer-events-none absolute -right-1 top-1 h-10 w-8 skew-x-[-16deg] border-l border-violet-400/25 bg-violet-500/8 md:h-12 md:w-10" />
+          <div className="pointer-events-none absolute bottom-3 left-3 h-5 w-5 rounded-full border border-violet-400/30 bg-violet-500/10 md:bottom-4 md:left-4 md:h-6 md:w-6">
+            <span className="absolute inset-[3px] rounded-full border border-blue-400/20" />
+          </div>
+          <div className="pointer-events-none absolute bottom-5 right-5 h-2 w-2 rotate-45 rounded-sm border border-fuchsia-400/40 bg-fuchsia-500/20 md:bottom-6 md:right-7" />
+          <div className="pointer-events-none absolute right-8 top-4 h-1.5 w-1.5 rotate-45 rounded-sm bg-blue-400/50 md:right-10 md:top-5" />
+          <div className="pointer-events-none absolute left-1/2 top-1 h-px w-12 -translate-x-1/2 bg-gradient-to-r from-transparent via-violet-400/40 to-transparent md:w-16" />
+        </>
+      ) : null}
+
       {panelVariant === "rainbet" ? (
         <>
           {/* Reward glow halo */}
@@ -279,12 +303,14 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "rainbet" && "text-cyan-300/85",
               panelVariant === "onexbet" && "text-sky-300/90",
               panelVariant === "melbet" && "text-[#FFC300]/90",
+              panelVariant === "mellstroy" && "text-violet-300/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
                 panelVariant !== "rainbet" &&
                 panelVariant !== "onexbet" &&
                 panelVariant !== "melbet" &&
+                panelVariant !== "mellstroy" &&
                 "text-muted-foreground",
             )}
           >
@@ -307,6 +333,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#7DD3FC] via-[#38BDF8] to-[#2563EB] bg-clip-text text-transparent",
             panelVariant === "melbet" &&
               "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FFE066] bg-clip-text text-transparent",
+            panelVariant === "mellstroy" &&
+              "bg-gradient-to-r from-[#C4B5FD] via-[#A78BFA] to-[#60A5FA] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -341,7 +369,9 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                             ? "border-sky-400/25 bg-sky-500/10 text-sky-100/90"
                             : panelVariant === "melbet"
                               ? "border-[#FFB800]/30 bg-[#FFB800]/10 text-[#FFE066]/90"
-                              : "border-white/15 bg-white/5 text-muted-foreground",
+                              : panelVariant === "mellstroy"
+                                ? "border-violet-500/25 bg-violet-500/10 text-violet-100/90"
+                                : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
                 {chip}
@@ -466,12 +496,14 @@ export function OfferCard({
   const isRainbetBranded = operatorId === "rainbet" || visual?.variant === "rainbet";
   const isOnexbetBranded = operatorId === "1xbet" || visual?.variant === "onexbet";
   const isMelbetBranded = operatorId === "melbet" || visual?.variant === "melbet";
+  const isMellstroyBranded = operatorId === "mellstroy" || visual?.variant === "mellstroy";
   const variant =
     visualVariant === "crypto" &&
     emphasis === "comparison-secondary" &&
     !isRainbetBranded &&
     !isOnexbetBranded &&
-    !isMelbetBranded
+    !isMelbetBranded &&
+    !isMellstroyBranded
       ? "dark"
       : visualVariant;
   const showInlineOfferText = !visual;
@@ -482,9 +514,15 @@ export function OfferCard({
       ? onexbetCardGlow
       : isMelbetBranded
         ? melbetCardGlow
-        : emphasisGlow[emphasis];
+        : isMellstroyBranded
+          ? mellstroyCardGlow
+          : emphasisGlow[emphasis];
   const showVariantGlow =
-    emphasis === "standard" && !isRainbetBranded && !isOnexbetBranded && !isMelbetBranded;
+    emphasis === "standard" &&
+    !isRainbetBranded &&
+    !isOnexbetBranded &&
+    !isMelbetBranded &&
+    !isMellstroyBranded;
 
   return (
     <article
@@ -497,8 +535,14 @@ export function OfferCard({
             ? onexbetCardShell
             : isMelbetBranded
               ? melbetCardShell
-              : variantShell[variant],
-        !isRainbetBranded && !isOnexbetBranded && !isMelbetBranded && emphasisShell[emphasis],
+              : isMellstroyBranded
+                ? mellstroyCardShell
+                : variantShell[variant],
+        !isRainbetBranded &&
+          !isOnexbetBranded &&
+          !isMelbetBranded &&
+          !isMellstroyBranded &&
+          emphasisShell[emphasis],
         className,
       )}
       aria-label={`Oferta de ${operatorName}`}
@@ -528,7 +572,9 @@ export function OfferCard({
                           ? onexbetBadge
                           : isMelbetBranded
                             ? melbetBadge
-                            : (emphasisBadge[emphasis] ?? variantBadge[variant])),
+                            : isMellstroyBranded
+                              ? mellstroyBadge
+                              : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
                   {badge}
