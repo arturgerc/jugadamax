@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 // live on the vertical pages. Renders only real, available entries (no filler).
 const PREVIEW_COUNT = 3;
 
-/** Editorial hero recommendation — BetFury as #1 crypto partner (internal links only). */
+/** Editorial hero recommendation — BetFury as #1 crypto partner. */
 const HOMEPAGE_HERO_FEATURED_CRYPTO: Casino = {
   id: "betfury",
   slug: "betfury",
@@ -91,7 +91,13 @@ export default function Home() {
   return (
     <>
       <SocialLinks variant="floating" />
-      <Hero featuredCasino={HOMEPAGE_HERO_FEATURED_CRYPTO} featuredEyebrow="Crypto destacado" />
+      <Hero
+        featuredCasino={HOMEPAGE_HERO_FEATURED_CRYPTO}
+        featuredEyebrow="Crypto destacado"
+        featuredTopBadge="Top crypto JugadaMax"
+        affiliateCtaLabel="Registrarse en BetFury"
+        affiliateCtaHref={BETFURY_AFFILIATE_URL}
+      />
 
       <QuickCategories />
 

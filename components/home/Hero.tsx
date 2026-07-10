@@ -7,17 +7,23 @@ import { cn } from "@/lib/utils";
 /**
  * Homepage hero v2 (FR-001).
  *
- * Editorial two-column layout. Internal CTAs only — no affiliate links in the
- * hero. Static, lightweight, mobile-first. No autoplay video or particles.
+ * Editorial two-column layout with optional featured partner affiliate CTA in the
+ * recommendation card. Static, lightweight, mobile-first.
  */
 export function Hero({
   className,
   featuredCasino,
   featuredEyebrow = "Recomendación editorial",
+  featuredTopBadge,
+  affiliateCtaLabel,
+  affiliateCtaHref,
 }: {
   className?: string;
   featuredCasino?: Casino;
   featuredEyebrow?: string;
+  featuredTopBadge?: string;
+  affiliateCtaLabel?: string;
+  affiliateCtaHref?: string;
 }) {
   return (
     <section
@@ -87,6 +93,9 @@ export function Hero({
             <HeroRecommendationCard
               casino={featuredCasino}
               eyebrow={featuredEyebrow}
+              topBadge={featuredTopBadge}
+              affiliateCtaLabel={affiliateCtaLabel}
+              affiliateCtaHref={affiliateCtaHref}
               className="mt-8 lg:mt-0"
             />
           ) : null}
