@@ -55,4 +55,34 @@ export const globalCasinos: Casino[] = [
       "BC.Game is a crypto-first casino platform with a broad token list and provably fair games. Availability, verification requirements and payment options vary by jurisdiction.",
     locale: "en",
   },
+  {
+    id: "xonbet",
+    slug: "xonbet",
+    name: "XON.BET",
+    logo: {
+      src: "/operators/xonbet.svg",
+      alt: "XON.BET",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino"],
+    rankByVertical: { "fiat-casino": 1 },
+    rating: 3.7,
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "Interac", kind: "fiat" },
+      { name: "Skrill", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao Gaming Authority — OGL/2024/1056/0702",
+      notes:
+        "XON.BET is operated by Inextro B.V. under an active Curaçao Gaming Authority licence. Beriston Ltd. acts as payment agent. This is not a local licence for Canada, Germany, Sweden, Denmark or other target markets. Availability and local legality must be checked separately.",
+    },
+    summary:
+      "XON.BET is a multi-currency online casino with slots, live casino, tournaments, loyalty features and both fiat and selected crypto payment options. Its welcome package and payment methods vary by country, currency and account.",
+    locale: "en",
+  },
 ];

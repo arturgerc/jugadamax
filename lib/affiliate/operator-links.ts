@@ -14,6 +14,7 @@ import {
   ROOBET_GLOBAL_AFFILIATE_URL,
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
+  XONBET_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
 function stakeMxLink(): OperatorLink {
@@ -123,6 +124,21 @@ function rainbetGlobalLink(): OperatorLink | undefined {
   };
 }
 
+const XONBET_CANADA_GEO_WARNING =
+  "Partner availability includes Canada, but online gambling rules are provincial. JugadaMax does not present XON.BET as an Ontario-registered operator. Check applicable provincial rules and the operator's current terms before registering.";
+
+function xonbetGlobalLink(): OperatorLink | undefined {
+  if (!XONBET_GLOBAL_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: XONBET_GLOBAL_AFFILIATE_URL,
+    label: "Visit XON.BET",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: `${XONBET_CANADA_GEO_WARNING} Partner-reported availability is not a legal guarantee — local law and operator terms apply.`,
+  };
+}
+
 const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLink | undefined>>>> = {
   stake: {
     mx: stakeMxLink(),
@@ -146,6 +162,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   rainbet: {
     global: rainbetGlobalLink(),
+  },
+  xonbet: {
+    global: xonbetGlobalLink(),
   },
 };
 

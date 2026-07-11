@@ -138,6 +138,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-violet-400/20 bg-cyan-500/10",
     decorB: "bg-cyan-400/45",
   },
+  xonbet: {
+    shell:
+      "border-cyan-400/25 bg-gradient-to-br from-[#070B1C] via-[#11133A] to-[#070B1C] ring-1 ring-pink-500/10 shadow-[0_4px_28px_-12px_rgba(0,217,255,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(0,217,255,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,42,154,0.1),transparent_50%)]",
+    badge: "border-cyan-400/30 bg-cyan-500/10 text-cyan-200",
+    chip: "border-pink-500/25 bg-cyan-500/8 text-pink-100/90",
+    scorePanel: "border-cyan-400/25 bg-[#070B1C]/85 shadow-[inset_0_1px_0_rgba(0,217,255,0.08)]",
+    scoreValue: "text-cyan-300",
+    decorA: "border-pink-400/25 bg-cyan-500/10",
+    decorB: "bg-pink-400/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",

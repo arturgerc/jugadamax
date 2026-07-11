@@ -16,6 +16,7 @@ import { JurisdictionWarning } from "@/components/trust/JurisdictionWarning";
 import { RankingList } from "@/components/ranking/RankingList";
 import { SocialLinks } from "@/components/social/SocialLinks";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
+import { XonbetFeaturedCard } from "@/components/affiliate/XonbetFeaturedCard";
 
 export const metadata: Metadata = {
   ...buildEnMetadata({
@@ -137,7 +138,8 @@ export default function EnHomePage() {
                 Fiat Casinos
               </h2>
               <p className="text-sm text-muted-foreground sm:text-base">
-                Global fiat casino coverage and payment-method context for international readers.
+                XON.BET is our first reviewed multi-currency casino in the English section.
+                Payment methods and availability vary by country.
               </p>
             </div>
             <Link
@@ -147,12 +149,8 @@ export default function EnHomePage() {
               View fiat casinos
             </Link>
           </div>
-          <div className="mt-6">
-            <EnCoveragePlaceholder
-              description="English fiat casino rankings are being expanded. Availability, licensing and payment methods depend on your jurisdiction and each operator's official terms."
-              href="/en/casinos-fiat"
-              linkLabel="Learn about fiat coverage"
-            />
+          <div className="mt-6 max-w-2xl">
+            <XonbetFeaturedCard context="homepage" />
           </div>
         </Container>
       </section>

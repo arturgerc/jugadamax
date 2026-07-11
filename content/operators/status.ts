@@ -189,6 +189,16 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     affiliateAllowed: false,
     notes: "Bitcasino rejected — do not render.",
   },
+  xonbet: {
+    id: "xonbet",
+    name: "XON.BET",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["english-global", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "English/global fiat casino only. Partner-reported GEOs exclude New Zealand targeting. Casino product only on JugadaMax — no sportsbook surfaces.",
+  },
 };
 
 export function getOperatorPolicy(operatorId: string): OperatorPolicy | undefined {
