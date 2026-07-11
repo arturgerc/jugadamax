@@ -25,7 +25,7 @@ export function ArticleList({
     <ul className={cn("grid gap-4 sm:grid-cols-2", className)}>
       {articles.map((article) => (
         <li key={article.id}>
-          <ArticleCard article={article} />
+          <ArticleCard article={article} headingLevel="h2" />
         </li>
       ))}
     </ul>

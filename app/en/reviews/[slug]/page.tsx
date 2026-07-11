@@ -112,7 +112,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const review = getGlobalReviewBySlug(slug);
-  if (!review) return {};
+  if (!review) {
+    return {
+      title: "Page Not Found",
+      robots: { index: false, follow: true },
+    };
+  }
   const casino = getGlobalCasinoById(review.casinoId);
   const name = casino?.name ?? review.title;
 

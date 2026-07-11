@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 
 export function ResponsibleGamblingNoticeEn({ className }: { className?: string }) {
@@ -18,9 +20,12 @@ export function ResponsibleGamblingNoticeEn({ className }: { className?: string 
       <span>
         Gambling involves risk. Play responsibly. Adults 18+ only. Check local laws and operator
         terms before registering.{" "}
-        <a href="/en/responsible-gambling" className="font-medium text-primary underline underline-offset-2">
+        <Link
+          href="/en/responsible-gambling"
+          className="font-medium text-primary underline underline-offset-2"
+        >
           Responsible gambling
-        </a>
+        </Link>
         .
       </span>
     </aside>

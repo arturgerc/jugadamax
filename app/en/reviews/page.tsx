@@ -11,6 +11,10 @@ export const metadata: Metadata = buildEnMetadata({
   description:
     "Independent English reviews of global crypto casinos including Stake and BC.Game. Jurisdiction-aware, adults 18+, no hype.",
   path: "/en/reviews",
+  languageAlternates: {
+    "es-MX": "/reviews",
+    en: "/en/reviews",
+  },
 });
 
 export default function EnReviewsIndexPage() {

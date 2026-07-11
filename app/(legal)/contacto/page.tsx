@@ -9,6 +9,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Contacta al equipo editorial de JugadaMax para consultas, correcciones de contenido o propuestas de colaboración.",
   path: "/contacto",
+  languageAlternates: {
+    "es-MX": "/contacto",
+    en: "/en/contact",
+  },
 });
 
 export default function ContactoPage() {

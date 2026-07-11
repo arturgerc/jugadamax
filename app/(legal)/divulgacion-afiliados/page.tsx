@@ -8,6 +8,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Cómo funciona la afiliación en JugadaMax: podemos recibir una comisión por registros a través de nuestros enlaces, sin costo adicional para ti y sin condicionar nuestra evaluación editorial.",
   path: "/divulgacion-afiliados",
+  languageAlternates: {
+    "es-MX": "/divulgacion-afiliados",
+    en: "/en/affiliate-disclosure",
+  },
 });
 
 export default function DivulgacionAfiliadosPage() {

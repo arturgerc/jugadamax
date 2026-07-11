@@ -51,6 +51,18 @@ function assertUniqueSlugs(items: { slug: string }[], collection: string): void 
   }
 }
 
+function assertOneReviewPerCasino(items: Review[], collection: string): void {
+  const seen = new Set<string>();
+  for (const review of items) {
+    if (seen.has(review.casinoId)) {
+      throw new ContentValidationError(
+        `${collection}: multiple reviews reference casinoId "${review.casinoId}"`,
+      );
+    }
+    seen.add(review.casinoId);
+  }
+}
+
 /**
  * Ranking integrity (Constitution Principle III): within a given vertical, no
  * two casinos may claim the same `rankByVertical` position. A collision would
@@ -84,6 +96,7 @@ function assertUniqueRanksPerVertical(items: Casino[]): void {
 
 const authors: Author[] = rawAuthors.map(validateAuthor);
 assertUniqueIds(authors, "authors");
+assertUniqueSlugs(authors, "authors");
 
 const casinos: Casino[] = rawCasinos.map(validateCasino);
 assertUniqueIds(casinos, "casinos");
@@ -96,15 +109,19 @@ assertUniqueIds(bonuses, "bonuses");
 const reviews: Review[] = rawReviews.map(validateReview);
 assertUniqueIds(reviews, "reviews");
 assertUniqueSlugs(reviews, "reviews");
+assertOneReviewPerCasino(reviews, "reviews");
 
 const articles: Article[] = [...rawGuides, ...rawNews].map(validateArticle);
 assertUniqueIds(articles, "articles");
+assertUniqueSlugs(articles, "articles");
 
 // --- Referential integrity ---
 
 const authorIds = new Set(authors.map((a) => a.id));
 const casinoIds = new Set(casinos.map((c) => c.id));
 const bonusIds = new Set(bonuses.map((b) => b.id));
+const bonusesById = new Map(bonuses.map((b) => [b.id, b]));
+const reviewsByCasinoId = new Map(reviews.map((r) => [r.casinoId, r]));
 
 for (const bonus of bonuses) {
   if (!casinoIds.has(bonus.casinoId)) {
@@ -121,6 +138,21 @@ for (const casino of casinos) {
         `casino "${casino.id}": bonusId "${bid}" does not resolve`,
       );
     }
+    const bonus = bonusesById.get(bid);
+    if (bonus?.casinoId !== casino.id) {
+      throw new ContentValidationError(
+        `casino "${casino.id}": bonusId "${bid}" belongs to casinoId "${bonus?.casinoId}"`,
+      );
+    }
+  }
+}
+
+for (const bonus of bonuses) {
+  const casino = casinos.find((item) => item.id === bonus.casinoId);
+  if (!casino?.bonusIds?.includes(bonus.id)) {
+    throw new ContentValidationError(
+      `bonus "${bonus.id}": owning casino "${bonus.casinoId}" does not reference it in bonusIds`,
+    );
   }
 }
 
@@ -133,6 +165,21 @@ for (const review of reviews) {
   if (!authorIds.has(review.authorId)) {
     throw new ContentValidationError(
       `review "${review.id}": authorId "${review.authorId}" does not resolve`,
+    );
+  }
+}
+
+for (const casino of casinos) {
+  if (casino.rating === undefined) continue;
+  const review = reviewsByCasinoId.get(casino.id);
+  if (!review) {
+    throw new ContentValidationError(
+      `casino "${casino.id}": rating requires a corresponding authored review`,
+    );
+  }
+  if (casino.rating !== review.rating) {
+    throw new ContentValidationError(
+      `casino "${casino.id}": rating ${casino.rating} does not match review rating ${review.rating}`,
     );
   }
 }

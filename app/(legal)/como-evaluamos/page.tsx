@@ -8,6 +8,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Metodología editorial de JugadaMax para evaluar y ordenar casinos crypto, casinos fiat y casas de apuestas en México: seguridad, licencias, pagos y experiencia de usuario.",
   path: "/como-evaluamos",
+  languageAlternates: {
+    "es-MX": "/como-evaluamos",
+    en: "/en/how-we-review",
+  },
 });
 
 export default function ComoEvaluamosPage() {

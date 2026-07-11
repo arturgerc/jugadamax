@@ -19,11 +19,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-[var(--jm-navy)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--jm-navy)]/80">
       <Container className="relative flex h-16 items-center justify-between gap-4">
-        <Link href="/" aria-label="JugadaMax — Inicio" className={cn("inline-flex items-center rounded-md", focusRing)}>
+        <Link
+          href="/"
+          aria-label="JugadaMax — Inicio"
+          className={cn("inline-flex min-h-11 items-center rounded-md", focusRing)}
+        >
           <Logo decorative />
         </Link>
 
-        <nav aria-label="Navegación principal" className="hidden items-center gap-6 md:flex">
+        <nav aria-label="Navegación principal" className="hidden items-center gap-6 lg:flex">
           {desktopNav.map((link) => (
             <a
               key={link.href}

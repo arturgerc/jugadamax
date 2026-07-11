@@ -32,7 +32,7 @@ export function MobileNav() {
   const links = [...primaryNav, ...legalNav];
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         aria-label={open ? "Cerrar menú" : "Abrir menú"}

@@ -116,8 +116,8 @@ export const guides: Article[] = [
     coverImage: {
       src: "/guides/casinos-con-usdt-mexico.png",
       alt: "Ilustración editorial sobre casinos con USDT, stablecoins, wallets crypto y juego responsable",
-      width: 1200,
-      height: 630,
+      width: 1086,
+      height: 1448,
     },
   },
   {
@@ -167,8 +167,8 @@ export const guides: Article[] = [
     coverImage: {
       src: "/guides/casinos-con-bitcoin-mexico.png",
       alt: "Ilustración editorial sobre casinos con Bitcoin, wallets crypto y juego responsable en México",
-      width: 1200,
-      height: 630,
+      width: 1731,
+      height: 909,
     },
   },
   {

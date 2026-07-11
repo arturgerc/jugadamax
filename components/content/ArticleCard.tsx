@@ -16,20 +16,23 @@ export function articleHref(article: Pick<Article, "type" | "slug">): string {
 export function ArticleCard({
   article,
   className,
+  headingLevel = "h3",
 }: {
   article: Article;
   className?: string;
+  headingLevel?: "h2" | "h3";
 }) {
   const author = getAuthorById(article.authorId);
   const href = articleHref(article);
+  const Heading = headingLevel;
 
   return (
     <article className={cn("flex flex-col rounded-lg border border-border/60 bg-card p-5", className)}>
-      <h3 className="text-lg font-semibold text-foreground">
+      <Heading className="text-lg font-semibold text-foreground">
         <Link href={href} className={cn("rounded-sm transition-colors hover:text-primary", focusRing)}>
           {article.title}
         </Link>
-      </h3>
+      </Heading>
       <p className="mt-2 text-sm text-muted-foreground">{article.summary}</p>
       {author ? (
         <AuthorByline

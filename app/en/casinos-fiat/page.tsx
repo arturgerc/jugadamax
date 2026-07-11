@@ -12,10 +12,6 @@ export const metadata: Metadata = {
     description:
       "Editorial overview of fiat online casinos for global readers. Payment-method context, jurisdiction notes and responsible gambling. Coverage is being expanded.",
     path: "/en/casinos-fiat",
-    languageAlternates: {
-      "es-MX": "/casinos-fiat",
-      en: "/en/casinos-fiat",
-    },
   }),
   robots: {
     index: false,

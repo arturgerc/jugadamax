@@ -18,12 +18,12 @@ export function EnSiteHeader() {
         <Link
           href="/en"
           aria-label="JugadaMax Global — Home"
-          className={cn("inline-flex items-center rounded-md", focusRing)}
+          className={cn("inline-flex min-h-11 items-center rounded-md", focusRing)}
         >
           <Logo decorative />
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-6 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-6 lg:flex">
           {enDesktopNav.map((link) => (
             <Link
               key={link.href}

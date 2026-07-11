@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAuthorById } from "@/lib/content";
 import { getGlobalGuideBySlug } from "@/lib/content/global";
 import { buildEnMetadata } from "@/lib/seo/metadata";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
 import { AuthorByline } from "@/components/review/AuthorByline";
 import { ResponsibleGamblingNoticeEn } from "@/components/trust/ResponsibleGamblingNoticeEn";
@@ -18,6 +19,7 @@ export const metadata: Metadata = buildEnMetadata({
   description:
     "Editorial guide to evaluating crypto casinos: jurisdiction, licensing, payments, bonus terms and responsible gambling. Adults 18+.",
   path: "/en/guides/best-crypto-casinos",
+  type: "article",
 });
 
 type BodyBlock =
@@ -91,10 +93,34 @@ export default function EnBestCryptoCasinosGuidePage() {
   if (!guide) notFound();
 
   const author = getAuthorById(guide.authorId);
+  if (!author) notFound();
+
   const { mainBlocks, faqItems } = splitBodyAndFaq(guide.body);
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", path: "/en" },
+    { name: "Guides", path: "/en/guides" },
+    { name: guide.title, path: "/en/guides/best-crypto-casinos" },
+  ]);
+  const article = articleJsonLd({
+    headline: guide.title,
+    path: "/en/guides/best-crypto-casinos",
+    authorName: author.name,
+    datePublished: guide.publishedAt,
+    dateModified: guide.updatedAt,
+    type: "Article",
+    inLanguage: "en",
+  });
 
   return (
     <Container className="py-8 sm:py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+      />
       <article className="mx-auto max-w-3xl space-y-8">
         <header className="relative overflow-hidden rounded-2xl border border-white/10 bg-card p-5 sm:p-6">
           <div
@@ -106,14 +132,12 @@ export default function EnBestCryptoCasinosGuidePage() {
               {guide.title}
             </h1>
             <p className="text-sm text-muted-foreground sm:text-base">{guide.summary}</p>
-            {author ? (
-              <AuthorByline
-                author={author}
-                publishedAt={guide.publishedAt}
-                updatedAt={guide.updatedAt}
-                locale="en"
-              />
-            ) : null}
+            <AuthorByline
+              author={author}
+              publishedAt={guide.publishedAt}
+              updatedAt={guide.updatedAt}
+              locale="en"
+            />
             <p className="text-xs leading-relaxed text-muted-foreground">
               Reviewed by <span className="font-medium text-foreground">JugadaMax Editorial</span>.
             </p>

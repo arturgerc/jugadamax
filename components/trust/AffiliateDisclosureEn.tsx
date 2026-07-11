@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 
 export function AffiliateDisclosureEn({ className }: { className?: string }) {
@@ -12,12 +14,12 @@ export function AffiliateDisclosureEn({ className }: { className?: string }) {
       <strong className="font-semibold text-foreground">Affiliate disclosure:</strong> JugadaMax may
       earn a commission if you register with an operator through our links. This does not cost you
       extra and does not influence our editorial assessments.{" "}
-      <a
+      <Link
         href="/en/affiliate-disclosure"
         className="font-medium text-primary underline underline-offset-2"
       >
         Learn more
-      </a>
+      </Link>
       .
     </aside>
   );

@@ -32,7 +32,7 @@ export function LicenseInfo({
       <a
         href={licensing.licenseRef}
         target="_blank"
-        rel="noopener nofollow"
+        rel="nofollow noopener noreferrer"
         className={cn("inline-flex", className)}
       >
         <TrustBadge label={licenseBadgeLabel(locale, name)} />

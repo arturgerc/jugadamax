@@ -12,8 +12,10 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { CryptoCasinoInfoSections } from "@/components/verticals/CryptoCasinoInfoSections";
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
+import { cn, focusRing } from "@/lib/utils";
 import {
   BETFURY_AFFILIATE_URL,
+  BETFURY_PROMO_CODE,
   BCGAME_MX_OFFICIAL_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   GAMDOM_GLOBAL_AFFILIATE_URL,
@@ -237,25 +239,25 @@ export default function CryptoCasinosPage() {
           <nav aria-label="Navegación rápida" className="flex flex-wrap gap-2 pt-1">
             <Link
               href="#ranking-casinos-crypto"
-              className="inline-flex items-center rounded-full border border-border/60 px-2.5 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60"
+              className={cn("inline-flex min-h-11 items-center rounded-full border border-border/60 px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60", focusRing)}
             >
               Ranking crypto
             </Link>
             <Link
               href="#casinos-crypto-internacionales"
-              className="inline-flex items-center rounded-full border border-border/60 px-2.5 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60"
+              className={cn("inline-flex min-h-11 items-center rounded-full border border-border/60 px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60", focusRing)}
             >
               Internacionales
             </Link>
             <Link
               href="#guias-crypto-mexico"
-              className="inline-flex items-center rounded-full border border-border/60 px-2.5 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60"
+              className={cn("inline-flex min-h-11 items-center rounded-full border border-border/60 px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60", focusRing)}
             >
               Guías para México
             </Link>
             <Link
               href="/como-evaluamos"
-              className="inline-flex items-center rounded-full border border-border/60 px-2.5 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60"
+              className={cn("inline-flex min-h-11 items-center rounded-full border border-border/60 px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60", focusRing)}
             >
               Metodología
             </Link>
@@ -287,13 +289,13 @@ export default function CryptoCasinosPage() {
           headline="BetFury: bonus crypto y casino gamificado"
           subheadline="Bonus Cabinet, Free Spins, cashback y promociones por nivel"
           offerText="Hasta 590% + Free Spins según términos oficiales"
-          promoCode="d9lksw0db"
+          promoCode={BETFURY_PROMO_CODE}
           paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
           featureBullets={[
             "Bonus Cabinet con depósitos escalonados según términos oficiales",
             "Hasta $10,500 visible en la promoción del operador",
             "Free Fury Wheel, cashback, rakeback y bonos semanales según nivel",
-            "Código promocional: d9lksw0db",
+            `Código promocional: ${BETFURY_PROMO_CODE}`,
           ]}
           primaryCtaLabel="Ver bonos BetFury"
           primaryCtaHref={BETFURY_AFFILIATE_URL}
@@ -521,6 +523,7 @@ export default function CryptoCasinosPage() {
             ]}
             primaryCtaLabel="Ver Stake México"
             primaryCtaHref={STAKE_MX_OFFICIAL_URL}
+            primaryCtaIsAffiliate={false}
             secondaryCtaLabel="Leer reseña"
             secondaryCtaHref="/reviews/stake"
             termsNote="Bonos, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Stake y de tu jurisdicción."
@@ -560,6 +563,7 @@ export default function CryptoCasinosPage() {
             ]}
             primaryCtaLabel="Ver BC.Game MX"
             primaryCtaHref={BCGAME_MX_OFFICIAL_URL}
+            primaryCtaIsAffiliate={false}
             termsNote="JugadaMax no tiene campaña afiliada confirmada para México. Bonos, pagos, retiros y verificación dependen de los términos oficiales del operador."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{
