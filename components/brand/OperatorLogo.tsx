@@ -28,6 +28,9 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "gamdom") {
     return "border-emerald-400/30 ring-emerald-500/20 shadow-[0_0_18px_-6px_rgba(0,245,138,0.25)]";
   }
+  if (operatorId === "xonbet") {
+    return "border-cyan-400/30 ring-cyan-400/20 shadow-[0_0_18px_-6px_rgba(0,217,255,0.25)]";
+  }
   return "ring-white/10";
 }
 
@@ -43,6 +46,9 @@ function logoTileBackground(operatorId?: string): string {
   }
   if (operatorId === "gamdom") {
     return "bg-gradient-to-br from-[#061019] via-[#07131d] to-[#091722]";
+  }
+  if (operatorId === "xonbet") {
+    return "bg-gradient-to-br from-[#070B1C] via-[#11133A] to-[#070B1C]";
   }
   return "bg-[#16233f]";
 }
@@ -93,20 +99,22 @@ export function OperatorLogo({
   if (logo?.src) {
     const isRainbet = operatorId === "rainbet";
     const isGamdom = operatorId === "gamdom";
-    const isWideWordmark = isRainbet || isGamdom;
+    const isXonbet = operatorId === "xonbet";
+    const isWideWordmark = isRainbet || isGamdom || isXonbet;
     return (
       <span
         className={cn(
           "inline-flex shrink-0 items-center justify-center rounded-xl ring-1",
           isWideWordmark
-            ? isGamdom
-              ? "h-14 w-[7.5rem] border border-emerald-500/25 px-1 py-0.5"
+            ? isGamdom || isXonbet
+              ? "h-14 w-[7.5rem] border px-1 py-0.5"
               : "h-14 w-[5.75rem] border border-emerald-500/20 px-0.5 py-0.5 sm:w-24"
             : "h-12 w-[4.5rem] px-1 py-1 sm:w-20",
           logoTileBackground(operatorId),
           logoTileAccent(operatorId),
           isRainbet && "shadow-[inset_0_1px_0_rgba(52,211,153,0.1)]",
           isGamdom && "shadow-[inset_0_1px_0_rgba(0,245,138,0.1)]",
+          isXonbet && "border-cyan-500/25 shadow-[inset_0_1px_0_rgba(0,217,255,0.1)]",
           className,
         )}
       >
@@ -114,9 +122,9 @@ export function OperatorLogo({
           src={logo.src}
           alt=""
           aria-hidden="true"
-          width={logo.width ?? (isGamdom ? 120 : isRainbet ? 96 : 80)}
-          height={logo.height ?? (isGamdom ? 48 : isRainbet ? 56 : LOGO_HEIGHT)}
-          sizes={isGamdom ? "120px" : isRainbet ? "96px" : "80px"}
+          width={logo.width ?? (isXonbet || isGamdom ? 120 : isRainbet ? 96 : 80)}
+          height={logo.height ?? (isXonbet || isGamdom ? 48 : isRainbet ? 56 : LOGO_HEIGHT)}
+          sizes={isXonbet || isGamdom ? "120px" : isRainbet ? "96px" : "80px"}
           className={cn(
             "max-w-full object-contain",
             isWideWordmark ? "max-h-[3.25rem] w-full" : "max-h-full",

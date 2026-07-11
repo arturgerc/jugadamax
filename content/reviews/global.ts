@@ -143,4 +143,42 @@ export const globalReviews: Review[] = [
     updatedAt: "2026-07-06",
     locale: "en",
   },
+  {
+    id: "xonbet-review-en",
+    casinoId: "xonbet",
+    authorId: "arturs-stoliks",
+    slug: "xonbet",
+    title: "XON.BET Review 2026 — Bonus, Games, Payments & Safety",
+    verdict:
+      "XON.BET combines a large casino lobby, live games, tournaments, loyalty features and both fiat and selected crypto payment options. The welcome package is commercially strong, but promotional caps vary by GEO and independent external safety assessments are mixed. JugadaMax treats XON.BET as a secondary international option and recommends checking licence status, withdrawal limits, KYC, local rules and live bonus terms before depositing.",
+    rating: 3.7,
+    pros: [
+      "Broad slots, live casino and table-game coverage.",
+      "Cards, e-wallets and selected crypto payments.",
+      "Four-deposit welcome package and weekly cashback.",
+      "Active Curaçao Gaming Authority licence.",
+    ],
+    cons: [
+      "Bonus caps and percentages vary by GEO and account.",
+      "External safety and user-feedback assessments are mixed.",
+      "Monthly and weekly withdrawal limits may be restrictive.",
+      "Not locally licensed for each partner-reported market.",
+      "Payment methods are not available equally in every country.",
+    ],
+    body: [
+      "## Overview",
+      "XON.BET is an international online casino operated by Inextro B.V. under Curaçao Gaming Authority licence OGL/2024/1056/0702. JugadaMax covers it as a casino-only product for English/global readers — not as a sportsbook recommendation.",
+      "The platform combines slots, live dealer tables, instant formats, tournaments and loyalty mechanics with fiat and selected crypto payment routes. Availability, payment methods and promotional values depend on country, currency and account status.",
+      "JugadaMax assigns a cautious editorial rating of 3.7/5. External assessments are mixed, including a low safety classification from one major independent casino-review platform. This is JugadaMax editorial opinion — not an aggregate user score.",
+      "Before registering, confirm the live welcome offer shown after redirect, wagering rules, withdrawal limits, verification requirements and whether the operator accepts customers from your jurisdiction under local law.",
+      "Gambling involves financial risk. 18+ only. Do not use VPNs or false location information to access restricted services.",
+    ].join("\n\n"),
+    paymentsSummary:
+      "XON.BET supports a mix of cards, e-wallets and selected cryptocurrencies. Availability, fees, minimums, withdrawal routes and processing times depend on country, account verification and current cashier rules.",
+    trustSummary:
+      "XON.BET is operated by Inextro B.V. under active Curaçao Gaming Authority licence OGL/2024/1056/0702. Beriston Ltd. acts as payment agent. The Curaçao licence is not a substitute for local authorisation in regulated target markets.",
+    publishedAt: "2026-07-11",
+    updatedAt: "2026-07-11",
+    locale: "en",
+  },
 ];

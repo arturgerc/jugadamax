@@ -16,6 +16,7 @@ import { JurisdictionWarning } from "@/components/trust/JurisdictionWarning";
 import { RankingList } from "@/components/ranking/RankingList";
 import { SocialLinks } from "@/components/social/SocialLinks";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
+import { XonbetFeaturedCard } from "@/components/affiliate/XonbetFeaturedCard";
 
 export const metadata: Metadata = {
   ...buildEnMetadata({
@@ -128,8 +129,8 @@ export default function EnHomePage() {
 
       <section aria-labelledby="en-top-fiat-heading" className="py-10">
         <Container>
-          <div className="flex flex-wrap items-end justify-between gap-3">
-            <div className="max-w-2xl space-y-1">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
+            <div className="min-w-0 space-y-1 sm:flex-1 sm:pr-4">
               <h2
                 id="en-top-fiat-heading"
                 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
@@ -137,23 +138,18 @@ export default function EnHomePage() {
                 Fiat Casinos
               </h2>
               <p className="text-sm text-muted-foreground sm:text-base">
-                Global fiat casino coverage and payment-method context for international readers.
+                XON.BET is our first reviewed multi-currency casino in the English section.
+                Payment methods and availability vary by country.
               </p>
             </div>
             <Link
               href="/en/casinos-fiat"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+              className="inline-flex min-h-11 shrink-0 items-center justify-center self-start rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60 sm:self-auto"
             >
               View fiat casinos
             </Link>
           </div>
-          <div className="mt-6">
-            <EnCoveragePlaceholder
-              description="English fiat casino rankings are being expanded. Availability, licensing and payment methods depend on your jurisdiction and each operator's official terms."
-              href="/en/casinos-fiat"
-              linkLabel="Learn about fiat coverage"
-            />
-          </div>
+          <XonbetFeaturedCard context="homepage" />
         </Container>
       </section>
 
