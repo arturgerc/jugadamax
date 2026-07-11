@@ -47,6 +47,8 @@ export type OfferCardProps = {
   headingLevel?: OfferCardHeadingLevel;
   logo?: ImageRef;
   className?: string;
+  /** Tighter layout for side-by-side comparison grids (homepage / crypto ranking). */
+  compactComparison?: boolean;
 };
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -548,6 +550,7 @@ export function OfferCard({
   headingLevel = "h3",
   logo,
   className,
+  compactComparison = false,
 }: OfferCardProps) {
   const isRainbetBranded = operatorId === "rainbet" || visual?.variant === "rainbet";
   const isOnexbetBranded = operatorId === "1xbet" || visual?.variant === "onexbet";
@@ -627,8 +630,18 @@ export function OfferCard({
         )}
       />
 
-      <div className="relative flex flex-col gap-3 lg:flex-row lg:items-stretch lg:justify-between lg:gap-5">
-        <div className="min-w-0 flex-1 space-y-2.5 sm:space-y-3 lg:space-y-4">
+      <div
+        className={cn(
+          "relative flex flex-col gap-3 lg:flex-row lg:justify-between",
+          compactComparison ? "lg:items-start lg:gap-3" : "lg:items-stretch lg:gap-5",
+        )}
+      >
+        <div
+          className={cn(
+            "min-w-0 flex-1",
+            compactComparison ? "space-y-2 sm:space-y-2.5" : "space-y-2.5 sm:space-y-3 lg:space-y-4",
+          )}
+        >
           <div className="flex flex-wrap items-start gap-2.5 sm:gap-3">
             <OperatorLogo name={operatorName} logo={logo} operatorId={operatorId} />
             <div className="min-w-0 flex-1 space-y-1">
@@ -720,7 +733,12 @@ export function OfferCard({
           ) : null}
 
           {featureBullets.length > 0 ? (
-            <ul className="grid gap-1.5 md:grid-cols-2 md:gap-2">
+            <ul
+              className={cn(
+                "grid gap-1.5",
+                compactComparison ? "grid-cols-1" : "md:grid-cols-2 md:gap-2",
+              )}
+            >
               {featureBullets.map((bullet, index) => (
                 <li
                   key={bullet}
@@ -752,8 +770,18 @@ export function OfferCard({
             </ul>
           ) : null}
 
-          <div className="space-y-1.5 border-t border-white/10 pt-2 sm:space-y-2 sm:pt-2.5 md:pt-3">
-            <p className="text-[0.7rem] leading-relaxed text-muted-foreground sm:text-xs">
+          <div
+            className={cn(
+              "space-y-1.5 border-t border-white/10",
+              compactComparison ? "pt-1.5 sm:pt-2" : "pt-2 sm:space-y-2 sm:pt-2.5 md:pt-3",
+            )}
+          >
+            <p
+              className={cn(
+                "leading-relaxed text-muted-foreground",
+                compactComparison ? "text-[0.65rem] sm:text-[0.7rem]" : "text-[0.7rem] sm:text-xs",
+              )}
+            >
               {termsNote}
             </p>
             <p className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/8 px-2 py-0.5 text-[0.7rem] font-medium text-emerald-400 sm:px-2.5 sm:py-1 sm:text-xs">
@@ -762,7 +790,12 @@ export function OfferCard({
           </div>
         </div>
 
-        <div className="hidden shrink-0 flex-col justify-center gap-2 lg:flex lg:w-60">
+        <div
+          className={cn(
+            "hidden shrink-0 flex-col gap-2 lg:flex",
+            compactComparison ? "lg:w-44 xl:w-48 lg:justify-start" : "lg:w-60 lg:justify-center",
+          )}
+        >
           {visual ? <OfferVisualPanel visual={visual} /> : null}
           <OfferCardCtas
             primaryCtaLabel={primaryCtaLabel}

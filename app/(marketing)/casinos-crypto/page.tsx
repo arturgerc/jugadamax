@@ -413,7 +413,7 @@ export default function CryptoCasinosPage() {
           Rainbet, Roobet, Stake y otros operadores crypto.
         </p>
         <div className="mt-4 grid items-start gap-4 md:grid-cols-2" aria-label="Comparar casinos crypto">
-          <GamdomFeaturedCard context="crypto" className="h-fit self-start p-3 sm:p-4" />
+          <GamdomFeaturedCard context="crypto" />
           <OfferCard
             operatorName="Rainbet"
             operatorId="rainbet"

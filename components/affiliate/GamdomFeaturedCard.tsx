@@ -1,7 +1,10 @@
 import { GAMDOM_GLOBAL_AFFILIATE_URL } from "@/lib/affiliate/constants";
 import { OfferCard, type OfferCardProps } from "@/components/affiliate/OfferCard";
 
-const GAMDOM_TERMS =
+const GAMDOM_COMPACT_TERMS =
+  "Promoción, elegibilidad y disponibilidad según términos oficiales y jurisdicción.";
+
+const GAMDOM_FULL_TERMS =
   "Oferta de bienvenida visible para nuevos usuarios elegibles. Debe reclamarse desde Rewards durante las primeras 6 horas tras el registro. La activación, el cálculo del rakeback, la disponibilidad y las condiciones dependen de los términos oficiales de Gamdom y de tu jurisdicción.";
 
 const GAMDOM_RESPONSIBLE = "18+ | Juega con responsabilidad";
@@ -13,7 +16,7 @@ const GAMDOM_LOGO = {
   height: 48,
 } as const;
 
-type GamdomContext = "homepage" | "crypto" | "bonus";
+type GamdomContext = "homepage" | "crypto" | "bonus" | "review";
 
 export type GamdomFeaturedCardProps = {
   context: GamdomContext;
@@ -27,58 +30,60 @@ const CONTEXT_CONFIG: Record<
   homepage: {
     badge: "Crypto + Rewards",
     headline: "Gamdom",
-    subheadline: "Casino crypto, sportsbook y Rewards",
-    offerText: "Rakeback elevado al 15% durante 7 días",
-    paymentBadges: ["Crypto", "Originals", "Sportsbook", "Rewards"],
+    subheadline: "Casino crypto, sportsbook y Originals",
+    offerText: "15% rakeback por 7 días según elegibilidad",
+    paymentBadges: ["Crypto", "Originals", "Rewards"],
     featureBullets: [
       "Casino, sportsbook y juegos Originals",
-      "Welcome offer disponible desde Rewards según elegibilidad",
+      "15% rakeback por 7 días según términos",
     ],
     primaryCtaLabel: "Visitar Gamdom",
     primaryCtaHref: GAMDOM_GLOBAL_AFFILIATE_URL,
-    secondaryCtaLabel: "Guía Gamdom",
-    secondaryCtaHref: "/guias/gamdom-mexico-crypto",
-    termsNote: GAMDOM_TERMS,
+    secondaryCtaLabel: "Leer reseña",
+    secondaryCtaHref: "/reviews/gamdom",
+    termsNote: GAMDOM_COMPACT_TERMS,
     visual: {
       eyebrow: "WELCOME REWARDS",
       title: "15% rakeback",
-      subtitle: "Durante 7 días según términos",
-      chips: ["Rewards", "7 días", "Crypto"],
+      subtitle: "7 días · según términos",
+      chips: ["Rewards", "7 días"],
       variant: "gamdom",
       compact: true,
     },
     visualVariant: "crypto",
     mobileMaxBullets: 2,
     emphasis: "comparison-secondary",
+    compactComparison: true,
+    className: "h-fit self-start p-3 sm:p-4",
   },
   crypto: {
     badge: "Crypto internacional",
-    headline: "Gamdom: casino, sportsbook y Rewards",
-    subheadline: "Originals, promociones rotativas y experiencia crypto-first",
-    offerText: "Rakeback elevado al 15% durante 7 días",
-    paymentBadges: ["Crypto", "Casino", "Sportsbook", "Rewards"],
+    headline: "Gamdom",
+    subheadline: "Casino crypto, sportsbook y Rewards",
+    offerText: "15% rakeback por 7 días según elegibilidad",
+    paymentBadges: ["Crypto", "Originals", "Sportsbook"],
     featureBullets: [
-      "Casino, sportsbook y juegos Originals en una sola cuenta",
-      "Rakeback elevado al 15% durante 7 días para nuevos usuarios elegibles",
-      "Debe reclamarse desde Rewards durante las primeras 6 horas",
-      "Promociones rotativas de casino y sportsbook según términos",
+      "Casino, sportsbook y juegos Originals",
+      "Rewards y promociones según términos",
     ],
     primaryCtaLabel: "Visitar Gamdom",
     primaryCtaHref: GAMDOM_GLOBAL_AFFILIATE_URL,
-    secondaryCtaLabel: "Leer guía",
-    secondaryCtaHref: "/guias/gamdom-mexico-crypto",
-    termsNote: GAMDOM_TERMS,
+    secondaryCtaLabel: "Leer reseña",
+    secondaryCtaHref: "/reviews/gamdom",
+    termsNote: GAMDOM_COMPACT_TERMS,
     visual: {
       eyebrow: "WELCOME OFFER",
-      title: "15% rakeback · 7 días",
-      subtitle: "Actívalo desde Rewards según elegibilidad",
-      chips: ["Rewards", "Originals", "Sports"],
+      title: "15% rakeback",
+      subtitle: "7 días · según términos",
+      chips: ["Rewards", "7 días"],
       variant: "gamdom",
       compact: true,
     },
     visualVariant: "crypto",
     mobileMaxBullets: 2,
     emphasis: "comparison-secondary",
+    compactComparison: true,
+    className: "h-fit self-start p-3 sm:p-4",
   },
   bonus: {
     badge: "Welcome Rewards",
@@ -95,9 +100,9 @@ const CONTEXT_CONFIG: Record<
     ],
     primaryCtaLabel: "Ver oferta Gamdom",
     primaryCtaHref: GAMDOM_GLOBAL_AFFILIATE_URL,
-    secondaryCtaLabel: "Leer guía Gamdom",
-    secondaryCtaHref: "/guias/gamdom-mexico-crypto",
-    termsNote: GAMDOM_TERMS,
+    secondaryCtaLabel: "Leer reseña",
+    secondaryCtaHref: "/reviews/gamdom",
+    termsNote: GAMDOM_FULL_TERMS,
     visual: {
       eyebrow: "WELCOME REWARDS",
       title: "15% rakeback",
@@ -110,11 +115,40 @@ const CONTEXT_CONFIG: Record<
     mobileMaxBullets: 3,
     className: "mt-4",
   },
+  review: {
+    badge: "Crypto + Rewards",
+    headline: "Gamdom: casino, sportsbook, Originals y Rewards",
+    subheadline: "Operador crypto internacional con promociones rotativas",
+    offerText: "15% rakeback por 7 días según elegibilidad",
+    paymentBadges: ["Crypto", "Originals", "Sportsbook", "Rewards"],
+    featureBullets: [
+      "Casino, sportsbook y juegos Originals",
+      "Welcome offer para nuevos usuarios elegibles",
+      "Debe reclamarse desde Rewards durante las primeras 6 horas",
+      "Promociones rotativas según términos oficiales",
+    ],
+    primaryCtaLabel: "Visitar Gamdom",
+    primaryCtaHref: GAMDOM_GLOBAL_AFFILIATE_URL,
+    secondaryCtaLabel: "Comparar casinos crypto",
+    secondaryCtaHref: "/casinos-crypto",
+    termsNote: GAMDOM_FULL_TERMS,
+    visual: {
+      eyebrow: "WELCOME REWARDS",
+      title: "15% rakeback",
+      subtitle: "7 días · activación desde Rewards",
+      chips: ["15%", "7 días", "Rewards"],
+      variant: "gamdom",
+      compact: false,
+    },
+    visualVariant: "crypto",
+    mobileMaxBullets: 4,
+    headingLevel: "h2",
+  },
 };
 
 /**
  * Unified Gamdom featured offer card — emerald Rewards identity across
- * homepage, crypto ranking and bonus surfaces.
+ * homepage, crypto ranking, bonus and review surfaces.
  */
 export function GamdomFeaturedCard({ context, className }: GamdomFeaturedCardProps) {
   const config = CONTEXT_CONFIG[context];

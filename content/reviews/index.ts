@@ -390,6 +390,37 @@ export const reviews: Review[] = [
     locale: "es-MX",
   },
   {
+    id: "gamdom-review",
+    casinoId: "gamdom",
+    authorId: "redaccion-jugadamax",
+    slug: "gamdom",
+    title: "Reseña de Gamdom México: casino crypto, sportsbook, Originals y Rewards",
+    verdict:
+      "Gamdom combina casino crypto, sportsbook, juegos Originals y un ecosistema de Rewards con promociones rotativas. La oferta de bienvenida revisada mostraba rakeback elevado al 15% durante 7 días para nuevos usuarios elegibles, pero debía reclamarse desde Rewards durante las primeras 6 horas. JugadaMax lo considera una alternativa crypto competitiva, siempre revisando jurisdicción, pagos, KYC y términos oficiales.",
+    rating: 4.2,
+    pros: [
+      "Casino, sportsbook y juegos Originals dentro de una misma cuenta.",
+      "Identidad visual y experiencia de producto bien trabajadas.",
+      "Sistema de Rewards y promociones rotativas.",
+      "Welcome offer con rakeback elevado al 15% durante 7 días según elegibilidad.",
+    ],
+    cons: [
+      "No es un operador fiat local de México.",
+      "La welcome offer requiere reclamarse dentro de las primeras 6 horas.",
+      "Promociones, disponibilidad y elegibilidad pueden cambiar.",
+      "Pagos, retiros, límites y KYC deben comprobarse en los términos oficiales.",
+    ],
+    body:
+      "Gamdom es un operador crypto internacional que integra casino online, apuestas deportivas, juegos propios bajo la marca Originals y un ecosistema de Rewards visible desde el registro. Para usuarios de México y LATAM, JugadaMax lo presenta como alternativa crypto internacional con enlace de afiliado activo, no como operador local con pagos fiat.\n\nLa propuesta de producto se centra en una experiencia oscura, rápida y orientada a recompensas. El casino expone categorías de slots, mesas, live dealer y títulos propios; el sportsbook complementa la cuenta con mercados deportivos según disponibilidad del operador. Los Originals aportan juegos de house edge propio dentro del ecosistema Gamdom, útil para usuarios que ya conocen el segmento crypto.\n\nEn promociones, Gamdom muestra campañas rotativas de casino, sportsbook, wager promotions, jackpot y eventos temáticos. JugadaMax no recomienda registrarse basándose solo en un banner o nombre promocional: cada campaña puede cambiar, finalizar o aplicar reglas distintas por cuenta y jurisdicción.\n\nLa welcome offer revisada por JugadaMax el 11 de julio de 2026 mostraba rakeback elevado al 15% durante 7 días para nuevos usuarios elegibles. La promoción debía reclamarse desde la sección Rewards durante las primeras 6 horas tras el registro; después de activarla, el rakeback promocional se aplicaba durante los siguientes 7 días según términos oficiales. La elegibilidad, el cálculo del rakeback y la ventana de activación pueden variar — confirma siempre en el operador antes de depositar.\n\nEl panel Rewards concentra rakeback, misiones, campañas y beneficios acumulables. Esto puede resultar atractivo para jugadores que valoran devoluciones parciales y promociones frecuentes, pero no sustituye la lectura de condiciones: límites, juegos elegibles, verificación y reglas antifraude siguen aplicando.\n\nEn pagos, Gamdom se orienta al segmento crypto. Monedas, redes, mínimos, comisiones, límites y tiempos deben confirmarse directamente en el cajero y los términos oficiales. JugadaMax no afirma disponibilidad de OXXO, SPEI, MXN ni retiros garantizados para México.\n\nEn verificación y retiros, aceptar crypto no implica jugar sin identificación. Gamdom puede solicitar KYC, aplicar límites internos o restringir promociones según actividad, antifraude y jurisdicción. No recomendamos registrarse esperando anonimato total ni retiros automáticos sin revisar políticas oficiales.\n\nNuestra conclusión editorial: Gamdom es una alternativa crypto sólida para comparar gracias a su mix de casino, sportsbook, Originals y Rewards, con una welcome offer revisada que puede interesar a nuevos usuarios elegibles. JugadaMax lo mantiene por debajo de BetFury y 500 Casino en prioridad de campaña, pero por encima de operadores de comparación secundaria en el ranking actual. Revisa siempre términos, pagos, KYC y disponibilidad regional antes de mover fondos.",
+    paymentsSummary:
+      "Gamdom se orienta al segmento crypto. Monedas, redes, mínimos, comisiones, límites, tiempos y métodos disponibles deben confirmarse directamente en el cajero y los términos oficiales.",
+    trustSummary:
+      "JugadaMax no verifica una licencia local mexicana para Gamdom. Antes de registrarte, revisa entidad operadora, licencia publicada, restricciones regionales, verificación, reglas de cuenta, pagos y retiros.",
+    publishedAt: "2026-07-11",
+    updatedAt: "2026-07-11",
+    locale: "es-MX",
+  },
+  {
     id: "1xbet-review",
     casinoId: "1xbet",
     authorId: "redaccion-jugadamax",

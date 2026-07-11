@@ -213,7 +213,7 @@ export default function Home() {
                 }}
                 mobileMaxBullets={2}
               />
-              <GamdomFeaturedCard context="homepage" className="h-fit self-start lg:p-4" />
+              <GamdomFeaturedCard context="homepage" />
             </div>
           </div>
 
