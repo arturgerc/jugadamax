@@ -129,8 +129,8 @@ export default function EnHomePage() {
 
       <section aria-labelledby="en-top-fiat-heading" className="py-10">
         <Container>
-          <div className="flex flex-wrap items-end justify-between gap-3">
-            <div className="max-w-2xl space-y-1">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
+            <div className="min-w-0 space-y-1 sm:flex-1 sm:pr-4">
               <h2
                 id="en-top-fiat-heading"
                 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
@@ -144,13 +144,16 @@ export default function EnHomePage() {
             </div>
             <Link
               href="/en/casinos-fiat"
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+              className="inline-flex min-h-11 shrink-0 items-center justify-center self-start rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60 sm:self-auto"
             >
               View fiat casinos
             </Link>
           </div>
-          <div className="mt-6 max-w-2xl">
-            <XonbetFeaturedCard context="homepage" />
+          <div className="mt-6 w-full md:grid md:grid-cols-2 md:items-start md:gap-4">
+            <XonbetFeaturedCard
+              context="homepage"
+              className="h-fit w-full self-start p-3 sm:p-4"
+            />
           </div>
         </Container>
       </section>
