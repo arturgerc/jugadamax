@@ -84,8 +84,14 @@ const globalAffiliateCryptoCasinos: Casino[] = [
     name: "Gamdom",
     verticals: ["crypto-casino"],
     rankByVertical: { "crypto-casino": 5 },
+    logo: {
+      src: "/operators/gamdom.svg",
+      alt: "Gamdom",
+      width: 120,
+      height: 48,
+    },
     summary:
-      "International crypto operator included as an editorial candidate. Review official terms, availability, payment methods, account rules, bonuses and verification requirements before registering.",
+      "International crypto casino and sportsbook with Originals, Rewards and rotating promotions. Availability, payments, verification, account rules and promotional eligibility depend on your jurisdiction and Gamdom's current official terms.",
     locale: "en",
   },
   {

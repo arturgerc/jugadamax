@@ -10,6 +10,7 @@ import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCt
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
+import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
   BETFURY_PROMO_CODE,
@@ -238,6 +239,9 @@ export default function BonosPage() {
             }}
             className="mt-4"
           />
+          <div id="gamdom-welcome-offer">
+            <GamdomFeaturedCard context="bonus" />
+          </div>
           <MellstroyFeaturedCard context="bonus" />
         </section>
 

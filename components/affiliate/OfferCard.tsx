@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -100,6 +100,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-[#FFB800]/25 bg-gradient-to-br from-[#0c0c0e] via-[#141414] to-[#0a0a0c] shadow-[inset_0_1px_0_rgba(255,184,0,0.14)]",
   mellstroy:
     "border-violet-500/25 bg-gradient-to-br from-[#1a0a24] via-[#120818] to-[#0d0614] shadow-[inset_0_1px_0_rgba(139,92,246,0.12)]",
+  gamdom:
+    "border-emerald-400/25 bg-gradient-to-br from-[#061019] via-[#07131d] to-[#091722] shadow-[inset_0_1px_0_rgba(0,245,138,0.12)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -122,6 +124,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,255,255,0.04),transparent_50%),radial-gradient(ellipse_at_15%_85%,rgba(60,60,60,0.12),transparent_45%)]",
   mellstroy:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.2),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.12),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(217,70,239,0.08),transparent_45%)]",
+  gamdom:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(0,245,138,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(32,217,176,0.12),transparent_50%),radial-gradient(ellipse_at_60%_80%,rgba(166,255,77,0.06),transparent_45%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -180,6 +184,20 @@ const rainbetCardGlow =
 
 const rainbetBadge = "border-emerald-500/30 bg-emerald-500/10 text-emerald-300";
 
+const gamdomCardShell =
+  "border-emerald-400/25 bg-gradient-to-br from-[#061019] via-[#07131d]/95 to-[#091722] ring-1 ring-emerald-500/10 shadow-[0_4px_28px_-12px_rgba(0,245,138,0.18)]";
+
+const gamdomCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(0,245,138,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(32,217,176,0.08),transparent_50%)]";
+
+const gamdomBadge = "border-emerald-400/30 bg-emerald-500/10 text-emerald-200";
+
+const gamdomPrimaryCta =
+  "bg-[#00F58A] text-[#061019] transition-colors hover:bg-[#14E887] focus-visible:ring-emerald-400/50";
+
+const gamdomSecondaryCta =
+  "border-emerald-400/35 text-emerald-200 transition-colors hover:bg-emerald-500/10";
+
 function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
   const panelVariant = visual.variant ?? "dark";
   const compact = visual.compact === true;
@@ -191,6 +209,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         compact ? "p-2.5" : "p-2 max-md:p-2.5 md:p-3 lg:p-4",
         panelVariant === "fivehundred" && compact && "p-3",
         panelVariant === "rainbet" && compact && "p-3",
+        panelVariant === "gamdom" && compact && "p-3",
         visualPanelShell[panelVariant],
       )}
     >
@@ -269,6 +288,18 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "gamdom" ? (
+        <>
+          <div className="pointer-events-none absolute left-[55%] top-[45%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/10 blur-2xl md:h-20 md:w-20" />
+          <div className="pointer-events-none absolute right-3 top-3 h-5 w-5 rounded-full border-2 border-emerald-400/35 md:right-3.5 md:top-3.5 md:h-6 md:w-6">
+            <span className="absolute inset-[3px] rounded-full border border-[#20D9B0]/30" />
+          </div>
+          <div className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 rounded-full border border-[#00F58A]/40 bg-emerald-500/15 shadow-[0_0_10px_rgba(0,245,138,0.28)] md:bottom-3.5 md:left-3.5 md:h-5 md:w-5" />
+          <div className="pointer-events-none absolute bottom-5 right-6 h-2 w-2 rotate-45 rounded-sm bg-gradient-to-br from-[#00F58A]/70 to-[#20D9B0]/50 shadow-[0_0_8px_rgba(32,217,176,0.35)] md:bottom-6 md:right-8 md:h-2.5 md:w-2.5" />
+          <div className="pointer-events-none absolute right-10 top-5 hidden h-1.5 w-1.5 rounded-full bg-[#A6FF4D]/60 md:block" />
+        </>
+      ) : null}
+
       {panelVariant === "rainbet" ? (
         <>
           {/* Reward glow halo */}
@@ -310,6 +341,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "onexbet" && "text-sky-300/90",
               panelVariant === "melbet" && "text-[#FFC300]/90",
               panelVariant === "mellstroy" && "text-violet-300/90",
+              panelVariant === "gamdom" && "text-emerald-300/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
@@ -317,6 +349,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                 panelVariant !== "onexbet" &&
                 panelVariant !== "melbet" &&
                 panelVariant !== "mellstroy" &&
+                panelVariant !== "gamdom" &&
                 "text-muted-foreground",
             )}
           >
@@ -341,6 +374,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#FFB800] via-[#FFC300] to-[#FFE066] bg-clip-text text-transparent",
             panelVariant === "mellstroy" &&
               "bg-gradient-to-r from-[#C4B5FD] via-[#A78BFA] to-[#60A5FA] bg-clip-text text-transparent",
+            panelVariant === "gamdom" &&
+              "bg-gradient-to-r from-[#00F58A] via-[#14E887] to-[#A6FF4D] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -377,7 +412,9 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                               ? "border-[#FFB800]/30 bg-[#FFB800]/10 text-[#FFE066]/90"
                               : panelVariant === "mellstroy"
                                 ? "border-violet-500/25 bg-violet-500/10 text-violet-100/90"
-                                : "border-white/15 bg-white/5 text-muted-foreground",
+                                : panelVariant === "gamdom"
+                                  ? "border-emerald-400/25 bg-emerald-500/10 text-emerald-100/90"
+                                  : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
                 {chip}
@@ -398,6 +435,8 @@ type OfferCardCtasProps = {
   secondaryCtaHref?: string;
   tertiaryCtaLabel?: string;
   tertiaryCtaHref?: string;
+  primaryButtonClassName?: string;
+  secondaryButtonClassName?: string;
 };
 
 const tertiaryCtaClassName =
@@ -411,6 +450,8 @@ function OfferCardCtas({
   secondaryCtaHref,
   tertiaryCtaLabel,
   tertiaryCtaHref,
+  primaryButtonClassName,
+  secondaryButtonClassName,
 }: OfferCardCtasProps) {
   return (
     <>
@@ -420,7 +461,8 @@ function OfferCardCtas({
         rel={primaryCtaIsAffiliate ? AFFILIATE_REL : OFFICIAL_REL}
         className={cn(
           "inline-flex min-h-11 w-full items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
-          "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
+          primaryButtonClassName ??
+            "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
           focusRing,
         )}
       >
@@ -433,7 +475,9 @@ function OfferCardCtas({
             target="_blank"
             rel={AFFILIATE_REL}
             className={cn(
-              "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+              "inline-flex min-h-11 w-full items-center justify-center rounded-md border px-5 py-2.5 text-sm font-semibold",
+              secondaryButtonClassName ??
+                "border-primary/40 text-primary transition-colors hover:bg-primary/10",
               focusRing,
             )}
           >
@@ -443,7 +487,9 @@ function OfferCardCtas({
           <Link
             href={secondaryCtaHref}
             className={cn(
-              "inline-flex min-h-11 w-full items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
+              "inline-flex min-h-11 w-full items-center justify-center rounded-md border px-5 py-2.5 text-sm font-semibold",
+              secondaryButtonClassName ??
+                "border-primary/40 text-primary transition-colors hover:bg-primary/10",
               focusRing,
             )}
           >
@@ -507,13 +553,15 @@ export function OfferCard({
   const isOnexbetBranded = operatorId === "1xbet" || visual?.variant === "onexbet";
   const isMelbetBranded = operatorId === "melbet" || visual?.variant === "melbet";
   const isMellstroyBranded = operatorId === "mellstroy" || visual?.variant === "mellstroy";
+  const isGamdomBranded = operatorId === "gamdom" || visual?.variant === "gamdom";
   const variant =
     visualVariant === "crypto" &&
     emphasis === "comparison-secondary" &&
     !isRainbetBranded &&
     !isOnexbetBranded &&
     !isMelbetBranded &&
-    !isMellstroyBranded
+    !isMellstroyBranded &&
+    !isGamdomBranded
       ? "dark"
       : visualVariant;
   const showInlineOfferText = !visual;
@@ -526,20 +574,29 @@ export function OfferCard({
         ? melbetCardGlow
         : isMellstroyBranded
           ? mellstroyCardGlow
-          : emphasisGlow[emphasis];
+          : isGamdomBranded
+            ? gamdomCardGlow
+            : emphasisGlow[emphasis];
   const showVariantGlow =
     emphasis === "standard" &&
     !isRainbetBranded &&
     !isOnexbetBranded &&
     !isMelbetBranded &&
-    !isMellstroyBranded;
+    !isMellstroyBranded &&
+    !isGamdomBranded;
+  const brandedCtaProps = isGamdomBranded
+    ? { primaryButtonClassName: gamdomPrimaryCta, secondaryButtonClassName: gamdomSecondaryCta }
+    : {};
   const Heading = headingLevel;
 
   return (
     <article
       className={cn(
         "relative overflow-hidden rounded-2xl border p-3 sm:p-5 lg:p-6",
-        emphasis === "comparison-secondary" && !isRainbetBranded && "sm:p-4",
+        emphasis === "comparison-secondary" &&
+          !isRainbetBranded &&
+          !isGamdomBranded &&
+          "sm:p-4",
         isRainbetBranded
           ? rainbetCardShell
           : isOnexbetBranded
@@ -548,11 +605,14 @@ export function OfferCard({
               ? melbetCardShell
               : isMellstroyBranded
                 ? mellstroyCardShell
-                : variantShell[variant],
+                : isGamdomBranded
+                  ? gamdomCardShell
+                  : variantShell[variant],
         !isRainbetBranded &&
           !isOnexbetBranded &&
           !isMelbetBranded &&
           !isMellstroyBranded &&
+          !isGamdomBranded &&
           emphasisShell[emphasis],
         className,
       )}
@@ -585,7 +645,9 @@ export function OfferCard({
                             ? melbetBadge
                             : isMellstroyBranded
                               ? mellstroyBadge
-                              : (emphasisBadge[emphasis] ?? variantBadge[variant])),
+                              : isGamdomBranded
+                                ? gamdomBadge
+                                : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
                   {badge}
@@ -611,6 +673,7 @@ export function OfferCard({
               secondaryCtaHref={secondaryCtaHref}
               tertiaryCtaLabel={tertiaryCtaLabel}
               tertiaryCtaHref={tertiaryCtaHref}
+              {...brandedCtaProps}
             />
             {visual ? <OfferVisualPanel visual={visual} /> : null}
           </div>
@@ -668,7 +731,19 @@ export function OfferCard({
                       "max-md:hidden",
                   )}
                 >
-                  <span aria-hidden="true" className={cn("mt-0.5 shrink-0", isRainbetBranded ? "text-emerald-400" : isOnexbetBranded ? "text-sky-400" : "text-primary")}>
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "mt-0.5 shrink-0",
+                      isGamdomBranded
+                        ? "text-[#00F58A]"
+                        : isRainbetBranded
+                          ? "text-emerald-400"
+                          : isOnexbetBranded
+                            ? "text-sky-400"
+                            : "text-primary",
+                    )}
+                  >
                     ✓
                   </span>
                   {bullet}
@@ -697,6 +772,7 @@ export function OfferCard({
             secondaryCtaHref={secondaryCtaHref}
             tertiaryCtaLabel={tertiaryCtaLabel}
             tertiaryCtaHref={tertiaryCtaHref}
+            {...brandedCtaProps}
           />
         </div>
       </div>
