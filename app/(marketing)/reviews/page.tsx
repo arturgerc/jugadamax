@@ -16,6 +16,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Reseñas editoriales de casinos crypto, casinos fiat y casas de apuestas para jugadores en México.",
   path: "/reviews",
+  languageAlternates: {
+    "es-MX": "/reviews",
+    en: "/en/reviews",
+  },
 });
 
 export default function ReviewsIndexPage() {

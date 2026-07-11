@@ -16,6 +16,8 @@ export type OfferCardVisual = {
 
 export type OfferCardEmphasis = "standard" | "comparison-primary" | "comparison-secondary";
 
+export type OfferCardHeadingLevel = "h2" | "h3";
+
 export type OfferCardProps = {
   operatorName: string;
   operatorId: string;
@@ -28,6 +30,8 @@ export type OfferCardProps = {
   featureBullets: string[];
   primaryCtaLabel: string;
   primaryCtaHref: string;
+  /** Defaults to affiliate semantics; set false for an official non-affiliate destination. */
+  primaryCtaIsAffiliate?: boolean;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
   tertiaryCtaLabel?: string;
@@ -40,11 +44,13 @@ export type OfferCardProps = {
   visualVariant?: OfferCardVisualVariant;
   mobileMaxBullets?: number;
   emphasis?: OfferCardEmphasis;
+  headingLevel?: OfferCardHeadingLevel;
   logo?: ImageRef;
   className?: string;
 };
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
+const OFFICIAL_REL = "nofollow noopener noreferrer";
 
 function isExternalHref(href: string): boolean {
   return href.startsWith("http://") || href.startsWith("https://");
@@ -387,6 +393,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
 type OfferCardCtasProps = {
   primaryCtaLabel: string;
   primaryCtaHref: string;
+  primaryCtaIsAffiliate: boolean;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
   tertiaryCtaLabel?: string;
@@ -399,6 +406,7 @@ const tertiaryCtaClassName =
 function OfferCardCtas({
   primaryCtaLabel,
   primaryCtaHref,
+  primaryCtaIsAffiliate,
   secondaryCtaLabel,
   secondaryCtaHref,
   tertiaryCtaLabel,
@@ -409,7 +417,7 @@ function OfferCardCtas({
       <a
         href={primaryCtaHref}
         target="_blank"
-        rel={AFFILIATE_REL}
+        rel={primaryCtaIsAffiliate ? AFFILIATE_REL : OFFICIAL_REL}
         className={cn(
           "inline-flex min-h-11 w-full items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
           "bg-primary text-primary-foreground transition-colors hover:bg-[var(--jm-gold-strong)]",
@@ -479,6 +487,7 @@ export function OfferCard({
   featureBullets,
   primaryCtaLabel,
   primaryCtaHref,
+  primaryCtaIsAffiliate = true,
   secondaryCtaLabel,
   secondaryCtaHref,
   tertiaryCtaLabel,
@@ -490,6 +499,7 @@ export function OfferCard({
   visualVariant = "dark",
   mobileMaxBullets,
   emphasis = "standard",
+  headingLevel = "h3",
   logo,
   className,
 }: OfferCardProps) {
@@ -523,6 +533,7 @@ export function OfferCard({
     !isOnexbetBranded &&
     !isMelbetBranded &&
     !isMellstroyBranded;
+  const Heading = headingLevel;
 
   return (
     <article
@@ -545,7 +556,7 @@ export function OfferCard({
           emphasisShell[emphasis],
         className,
       )}
-      aria-label={`Oferta de ${operatorName}`}
+      aria-label={`${primaryCtaIsAffiliate ? "Oferta de" : "Información de"} ${operatorName}`}
     >
       <div
         aria-hidden="true"
@@ -580,9 +591,9 @@ export function OfferCard({
                   {badge}
                 </span>
               ) : null}
-              <h3 className="text-base font-bold tracking-tight text-foreground sm:text-lg lg:text-xl">
+              <Heading className="text-base font-bold tracking-tight text-foreground sm:text-lg lg:text-xl">
                 {headline}
-              </h3>
+              </Heading>
               {subheadline ? (
                 <p className="text-xs font-medium leading-snug text-muted-foreground sm:text-sm">
                   {subheadline}
@@ -595,6 +606,7 @@ export function OfferCard({
             <OfferCardCtas
               primaryCtaLabel={primaryCtaLabel}
               primaryCtaHref={primaryCtaHref}
+              primaryCtaIsAffiliate={primaryCtaIsAffiliate}
               secondaryCtaLabel={secondaryCtaLabel}
               secondaryCtaHref={secondaryCtaHref}
               tertiaryCtaLabel={tertiaryCtaLabel}
@@ -680,6 +692,7 @@ export function OfferCard({
           <OfferCardCtas
             primaryCtaLabel={primaryCtaLabel}
             primaryCtaHref={primaryCtaHref}
+            primaryCtaIsAffiliate={primaryCtaIsAffiliate}
             secondaryCtaLabel={secondaryCtaLabel}
             secondaryCtaHref={secondaryCtaHref}
             tertiaryCtaLabel={tertiaryCtaLabel}

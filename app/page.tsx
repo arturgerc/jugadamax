@@ -5,6 +5,7 @@ import { getCasinosByVertical } from "@/lib/content";
 import { filterCasinosForSurface } from "@/content/operators/status";
 import {
   BETFURY_AFFILIATE_URL,
+  BETFURY_PROMO_CODE,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
   GAMDOM_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -144,7 +145,7 @@ export default function Home() {
             headline="BetFury: casino crypto con Bonus Cabinet"
             subheadline="Bonos, Free Spins, cashback y promociones por nivel"
             offerText="Hasta 590% + Free Spins según términos oficiales"
-            promoCode="d9lksw0db"
+            promoCode={BETFURY_PROMO_CODE}
             paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
             featureBullets={[
               "Bonus Cabinet con depósitos escalonados",

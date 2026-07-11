@@ -71,8 +71,9 @@ export function ComparisonTable({
                   ? getBonusesForCasino(casino.id).find((b) => b.active)?.title
                   : undefined;
               const payments = (casino.payments ?? []).map((p) => p.name).join(", ");
-              const reviewSlug =
-                reviewSlugByCasinoId?.[casino.id] ?? getReviewForCasino(casino.id)?.slug;
+              const reviewSlug = reviewSlugByCasinoId
+                ? reviewSlugByCasinoId[casino.id]
+                : getReviewForCasino(casino.id)?.slug;
               const outboundLink = getCasinoOutboundLink(casino, market);
 
               return (

@@ -20,6 +20,7 @@ import { LicenseInfo } from "@/components/trust/LicenseInfo";
 import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
 import {
   BETFURY_AFFILIATE_URL,
+  BETFURY_PROMO_CODE,
   BETSSON_MX_CASINO_WELCOME_URL,
   BETSSON_MX_HOME_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
@@ -144,7 +145,7 @@ const BETFURY_BONUS_CABINET = [
   { label: "1er depósito", value: "150% + 50 Free Spins desde $5" },
   { label: "2º depósito", value: "180% + 75 Free Spins desde $20" },
   { label: "3er depósito", value: "200% + 100 Free Spins desde $100" },
-  { label: "Código promocional", value: "d9lksw0db" },
+  { label: "Código promocional", value: BETFURY_PROMO_CODE },
   {
     label: "Condiciones",
     value: "Revisar wagering, límites, juegos elegibles y vencimiento",
@@ -224,8 +225,7 @@ const BETFURY_FAQ = [
   },
   {
     question: "¿Cuál es el código promocional de BetFury?",
-    answer:
-      "El código promocional confirmado para JugadaMax es d9lksw0db. Verifica siempre que el código y la promoción estén activos antes de registrarte.",
+    answer: `El código promocional confirmado para JugadaMax es ${BETFURY_PROMO_CODE}. Verifica siempre que el código y la promoción estén activos antes de registrarte.`,
   },
   {
     question: "¿BetFury paga rápido?",
@@ -975,7 +975,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const review = getReviewBySlug(slug);
-  if (!review) return {};
+  if (!review) {
+    return {
+      title: "Página no encontrada",
+      robots: { index: false, follow: true },
+    };
+  }
   const casino = getCasinoById(review.casinoId);
   const name = casino?.name ?? review.title;
 
@@ -1060,6 +1065,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         {review.slug === "betsson" ? (
           <div id="review-primary-offer">
             <OfferCard
+            headingLevel="h2"
             operatorName="Betsson"
             operatorId="betsson"
             badge="Partner aprobado"
@@ -1096,19 +1102,20 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         {review.slug === "betfury" ? (
           <div id="review-primary-offer">
             <OfferCard
+            headingLevel="h2"
             operatorName="BetFury"
             operatorId="betfury"
             badge="Crypto partner destacado"
             headline="BetFury: Bonus Cabinet y casino crypto"
             subheadline="Free Spins, cashback, rakeback y recompensas por nivel"
             offerText="Hasta 590% + Free Spins según términos oficiales"
-            promoCode="d9lksw0db"
+            promoCode={BETFURY_PROMO_CODE}
             paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
             featureBullets={[
               "Bonus Cabinet con depósitos escalonados según términos oficiales",
               "Hasta $10,500 visible en la promoción del operador",
               "Free Fury Wheel, cashback, rakeback y bonos regulares",
-              "Código promocional: d9lksw0db",
+              `Código promocional: ${BETFURY_PROMO_CODE}`,
             ]}
             primaryCtaLabel="Ver bonos BetFury"
             primaryCtaHref={BETFURY_AFFILIATE_URL}
@@ -1134,6 +1141,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         {review.slug === "500-casino" ? (
           <div id="review-primary-offer">
             <OfferCard
+            headingLevel="h2"
             operatorName="500 Casino"
             operatorId="500-casino"
             badge="Crypto candidato"
@@ -1170,6 +1178,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         {review.slug === "rainbet" ? (
           <div id="review-primary-offer">
             <OfferCard
+            headingLevel="h2"
             operatorName="Rainbet"
             operatorId="rainbet"
             badge="Crypto candidato"
@@ -1368,7 +1377,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
                   Código promocional
                 </dt>
-                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">d9lksw0db</dd>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {BETFURY_PROMO_CODE}
+                </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">

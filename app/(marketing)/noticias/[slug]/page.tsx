@@ -17,7 +17,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticleBySlug("news", slug);
-  if (!article) return {};
+  if (!article) {
+    return {
+      title: "Página no encontrada",
+      robots: { index: false, follow: true },
+    };
+  }
 
   return buildMetadata({
     title: article.title,

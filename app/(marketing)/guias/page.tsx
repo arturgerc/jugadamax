@@ -10,6 +10,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Guías editoriales de JugadaMax para elegir casinos crypto, casinos fiat y casas de apuestas en México con información clara y juego responsable +18.",
   path: "/guias",
+  languageAlternates: {
+    "es-MX": "/guias",
+    en: "/en/guides",
+  },
 });
 
 export default function GuidesIndexPage() {

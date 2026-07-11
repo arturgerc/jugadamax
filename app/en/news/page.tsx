@@ -13,10 +13,6 @@ export const metadata: Metadata = {
     description:
       "JugadaMax English news and updates on crypto casinos, payments and iGaming editorial coverage.",
     path: "/en/news",
-    languageAlternates: {
-      "es-MX": "/noticias",
-      en: "/en/news",
-    },
   }),
   robots: {
     index: false,

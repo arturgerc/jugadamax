@@ -23,8 +23,11 @@ export const GAMDOM_GLOBAL_AFFILIATE_URL = "https://gamdom.com/r/arturgerc";
 
 export const MELLSTROY_GLOBAL_AFFILIATE_URL = "https://mell9382.live/?p=etp3";
 
+/** Confirmed standalone promo code for BetFury JugadaMax campaigns. */
+export const BETFURY_PROMO_CODE = "d9lksw0db";
+
 /** BetFury active tracking link (crypto/LATAM direction). */
-export const BETFURY_AFFILIATE_URL = "https://betfury.bet/d9lksw0db";
+export const BETFURY_AFFILIATE_URL = `https://betfury.bet/${BETFURY_PROMO_CODE}`;
 
 /**
  * 1xBet active affiliate link. Mixed operator (sportsbook + casino/live casino

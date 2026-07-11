@@ -8,6 +8,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Información para socios, afiliados y managers sobre JugadaMax, proyecto editorial de iGaming para México y LATAM con guías, reseñas, canales sociales y estándares de tráfico responsable.",
   path: "/partners",
+  languageAlternates: {
+    "es-MX": "/partners",
+    en: "/en/partners",
+  },
 });
 
 export default function PartnersPage() {

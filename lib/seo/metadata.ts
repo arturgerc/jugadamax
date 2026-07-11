@@ -65,5 +65,9 @@ export function buildMetadata(input: PageMetadataInput): Metadata {
 export function buildEnMetadata(
   input: Omit<PageMetadataInput, "ogLocale">,
 ): Metadata {
-  return buildMetadata({ ...input, ogLocale: "en_US" });
+  return buildMetadata({
+    ...input,
+    image: input.image ?? "/en/opengraph-image",
+    ogLocale: "en_US",
+  });
 }

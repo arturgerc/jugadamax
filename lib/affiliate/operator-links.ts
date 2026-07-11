@@ -161,13 +161,14 @@ export function resolveOperatorLink(operatorId: string, market: Market): Operato
  * fallback on Mexico pages only when operator policy allows CTA + affiliate.
  */
 export function getCasinoOutboundLink(casino: Casino, market: Market): OperatorLink | undefined {
+  if (!isOperatorCtaAllowed(casino.id)) return undefined;
+
   const configured = resolveOperatorLink(casino.id, market);
   if (configured) return configured;
 
   if (
     market === "mx" &&
     casino.affiliateUrl &&
-    isOperatorCtaAllowed(casino.id) &&
     isOperatorAffiliateAllowed(casino.id)
   ) {
     return {

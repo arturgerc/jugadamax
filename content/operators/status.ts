@@ -6,6 +6,8 @@
  * Do not add operators to money pages without updating this registry first.
  */
 
+import { BETFURY_PROMO_CODE } from "@/lib/affiliate/constants";
+
 export type OperatorPublicStatus =
   | "active-affiliate"
   | "active-referral"
@@ -58,8 +60,7 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     allowedSurfaces: ["homepage", "casinos-crypto", "bonos", "reviews", "sitemap"],
     ctaAllowed: true,
     affiliateAllowed: true,
-    notes:
-      "Active referral link; promo code d9lksw0db confirmed for JugadaMax campaigns.",
+    notes: `Active referral link; promo code ${BETFURY_PROMO_CODE} confirmed for JugadaMax campaigns.`,
   },
   roobet: {
     id: "roobet",

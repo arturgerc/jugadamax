@@ -8,6 +8,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "El juego es solo para mayores de 18 años y puede causar adicción. Guía de juego responsable de JugadaMax: señales de riesgo, recomendaciones y dónde buscar ayuda.",
   path: "/juego-responsable",
+  languageAlternates: {
+    "es-MX": "/juego-responsable",
+    en: "/en/responsible-gambling",
+  },
 });
 
 export default function JuegoResponsablePage() {

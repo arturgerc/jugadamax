@@ -1,4 +1,5 @@
 import type { ImageRef } from "@/types/content";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const LOGO_HEIGHT = 48;
@@ -104,13 +105,13 @@ export function OperatorLogo({
           className,
         )}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element -- local operator asset */}
-        <img
+        <Image
           src={logo.src}
           alt=""
           aria-hidden="true"
           width={logo.width ?? (isRainbet ? 96 : 80)}
           height={logo.height ?? (isRainbet ? 56 : LOGO_HEIGHT)}
+          sizes={isRainbet ? "96px" : "80px"}
           className={cn(
             "max-w-full object-contain",
             isRainbet ? "max-h-[3.25rem] w-full" : "max-h-full",

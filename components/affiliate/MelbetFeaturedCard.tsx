@@ -167,6 +167,7 @@ export function MelbetFeaturedCard({ context, className }: MelbetFeaturedCardPro
       logo={MELBET_LOGO}
       responsibleNote={MELBET_RESPONSIBLE}
       {...config}
+      headingLevel={context === "review" ? "h2" : "h3"}
       className={className ?? config.className}
     />
   );

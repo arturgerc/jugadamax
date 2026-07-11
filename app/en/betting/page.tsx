@@ -12,10 +12,6 @@ export const metadata: Metadata = {
     description:
       "Sports betting and sportsbook editorial overview for global readers. Responsible gambling, jurisdiction notes and coverage expansion. Adults 18+.",
     path: "/en/betting",
-    languageAlternates: {
-      "es-MX": "/apuestas",
-      en: "/en/betting",
-    },
   }),
   robots: {
     index: false,

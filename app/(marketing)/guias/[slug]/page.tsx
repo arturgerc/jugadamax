@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticleBySlug, getArticles, getAuthorById } from "@/lib/content";
@@ -134,12 +135,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticleBySlug("guide", slug);
-  if (!article) return {};
+  if (!article) {
+    return {
+      title: "Página no encontrada",
+      robots: { index: false, follow: true },
+    };
+  }
 
   return buildMetadata({
     title: article.title,
     description: article.summary,
     path: `/guias/${article.slug}`,
+    image: article.coverImage?.src,
     type: "article",
   });
 }
@@ -178,6 +185,7 @@ export default async function GuideArticlePage({
     authorName: author.name,
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
+    image: article.coverImage?.src,
     type: "Article",
   });
 
@@ -208,14 +216,13 @@ export default async function GuideArticlePage({
 
         {article.coverImage ? (
           <div className="aspect-[1200/630] w-full overflow-hidden rounded-xl border border-border/60 bg-card shadow-sm">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={article.coverImage.src}
               alt={article.coverImage.alt}
               width={article.coverImage.width}
               height={article.coverImage.height}
+              sizes="(max-width: 48rem) 100vw, 48rem"
               className="block h-full w-full object-cover object-center"
-              decoding="async"
             />
           </div>
         ) : null}

@@ -128,6 +128,7 @@ export function MellstroyFeaturedCard({ context, className }: MellstroyFeaturedC
       logo={MELLSTROY_LOGO}
       responsibleNote={MELLSTROY_RESPONSIBLE}
       {...config}
+      headingLevel={context === "review" ? "h2" : "h3"}
       className={className ?? config.className}
     />
   );

@@ -91,7 +91,7 @@ const globalAffiliateCryptoCasinos: Casino[] = [
   {
     id: "mellstroy",
     slug: "mellstroy",
-    name: "Mellstroy / MellAff",
+    name: "Mellstroy",
     verticals: ["crypto-casino"],
     rankByVertical: { "crypto-casino": 6 },
     summary:
@@ -185,7 +185,10 @@ export default function EnCryptoCasinosPage() {
         </JurisdictionWarning>
       </div>
 
-      <section aria-label="Global crypto casino ranking" className="mb-6">
+      <section aria-labelledby="global-crypto-ranking-heading" className="mb-6">
+        <h2 id="global-crypto-ranking-heading" className="sr-only">
+          Global crypto casino ranking
+        </h2>
         <RankingList
           casinos={casinos}
           vertical="crypto-casino"

@@ -156,6 +156,7 @@ export function OneXBetFeaturedCard({ context, className }: OneXBetFeaturedCardP
       logo={ONEXBET_LOGO}
       responsibleNote={ONEXBET_RESPONSIBLE}
       {...config}
+      headingLevel={context === "review" ? "h2" : "h3"}
       className={className ?? config.className}
     />
   );

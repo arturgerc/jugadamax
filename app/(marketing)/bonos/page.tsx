@@ -12,6 +12,7 @@ import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
+  BETFURY_PROMO_CODE,
   BETSSON_MX_CASINO_WELCOME_URL,
 } from "@/lib/affiliate/constants";
 
@@ -206,12 +207,12 @@ export default function BonosPage() {
             headline="BetFury Bonus Cabinet"
             subheadline="Depósitos escalonados, Free Spins y recompensas por nivel"
             offerText="Hasta 590% + Free Spins según términos oficiales"
-            promoCode="d9lksw0db"
+            promoCode={BETFURY_PROMO_CODE}
             paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
             featureBullets={[
               "Bonus Cabinet con depósitos escalonados según términos oficiales",
               "Free Fury Wheel, cashback y rakeback según nivel",
-              "Código promocional: d9lksw0db",
+              `Código promocional: ${BETFURY_PROMO_CODE}`,
             ]}
             mobileMaxBullets={3}
             primaryCtaLabel="Ver bonos BetFury"
