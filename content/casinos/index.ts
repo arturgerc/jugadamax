@@ -2,6 +2,7 @@ import type { Casino } from "@/types/content";
 import {
   BETFURY_AFFILIATE_URL,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
+  GAMDOM_GLOBAL_AFFILIATE_URL,
   ONE_XBET_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
   MELBET_AFFILIATE_URL,
@@ -252,6 +253,29 @@ export const casinos: Casino[] = [
     bonusIds: ["500-casino-welcome"],
     summary:
       "500 Casino es un candidato crypto internacional con slots, live casino, sportsbook y promociones visibles. JugadaMax lo presenta como alternativa de comparación por debajo de BetFury; revisa términos, pagos, verificación y jurisdicción antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "gamdom",
+    slug: "gamdom",
+    name: "Gamdom",
+    logo: {
+      src: "/operators/gamdom.svg",
+      alt: "Gamdom",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    rating: 4.2,
+    affiliateUrl: GAMDOM_GLOBAL_AFFILIATE_URL,
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Gamdom es un operador crypto internacional. JugadaMax no verifica licencia local mexicana, disponibilidad regional, KYC, pagos, retiros ni condiciones promocionales; revisa entidad operadora, restricciones y términos oficiales antes de registrarte.",
+    },
+    summary:
+      "Gamdom es un operador crypto internacional con casino, sportsbook, juegos Originals, Rewards y promociones rotativas. Para usuarios de México/LATAM, JugadaMax lo presenta como una alternativa crypto internacional; disponibilidad, pagos, verificación y promociones dependen de los términos oficiales y de la jurisdicción.",
     locale: "es-MX",
   },
   {

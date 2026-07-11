@@ -11,6 +11,7 @@ import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { CryptoCasinoInfoSections } from "@/components/verticals/CryptoCasinoInfoSections";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { cn, focusRing } from "@/lib/utils";
 import {
@@ -106,6 +107,12 @@ const affiliateCryptoCasinos: Casino[] = [
     verticals: ["crypto-casino"],
     rankByVertical: { "crypto-casino": 3 },
     affiliateUrl: GAMDOM_GLOBAL_AFFILIATE_URL,
+    logo: {
+      src: "/operators/gamdom.svg",
+      alt: "Gamdom",
+      width: 120,
+      height: 48,
+    },
     summary:
       "Candidato de casino crypto internacional. Revisa disponibilidad, métodos de pago, límites y verificación antes de registrarte.",
     locale: "es-MX",
@@ -406,38 +413,7 @@ export default function CryptoCasinosPage() {
           Rainbet, Roobet, Stake y otros operadores crypto.
         </p>
         <div className="mt-4 grid items-start gap-4 md:grid-cols-2" aria-label="Comparar casinos crypto">
-          <OfferCard
-            operatorName="Gamdom"
-            operatorId="gamdom"
-            badge="Crypto candidato"
-            headline="Gamdom"
-            subheadline="Casino crypto internacional para comparar"
-            offerText="Disponibilidad y promociones según términos oficiales"
-            paymentBadges={["Crypto", "Casino", "Promos"]}
-            featureBullets={[
-              "Casino crypto internacional",
-              "Revisa límites, pagos y verificación",
-              "Comparar antes de registrarte",
-            ]}
-            primaryCtaLabel="Visitar Gamdom"
-            primaryCtaHref={GAMDOM_GLOBAL_AFFILIATE_URL}
-            secondaryCtaLabel="Ver ranking crypto"
-            secondaryCtaHref="/casinos-crypto"
-            termsNote="Disponibilidad, bonos, pagos y retiros dependen de términos oficiales y jurisdicción."
-            responsibleNote="18+ | Juega con responsabilidad"
-            visual={{
-              eyebrow: "Crypto casino",
-              title: "Gamdom",
-              subtitle: "Casino crypto internacional",
-              chips: ["Crypto", "Casino", "Promos"],
-              variant: "crypto",
-              compact: true,
-            }}
-            visualVariant="dark"
-            emphasis="comparison-secondary"
-            mobileMaxBullets={2}
-            className="p-3 sm:p-4"
-          />
+          <GamdomFeaturedCard context="crypto" />
           <OfferCard
             operatorName="Rainbet"
             operatorId="rainbet"

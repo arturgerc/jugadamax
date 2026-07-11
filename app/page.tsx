@@ -7,9 +7,9 @@ import {
   BETFURY_AFFILIATE_URL,
   BETFURY_PROMO_CODE,
   FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
-  GAMDOM_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { HomepageActionGrid } from "@/components/home/HomepageActionGrid";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -181,7 +181,7 @@ export default function Home() {
             <h3 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
               También puedes comparar
             </h3>
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid items-start gap-4 md:grid-cols-2 md:items-stretch">
               <OfferCard
                 operatorName="500 Casino"
                 operatorId="500-casino"
@@ -203,6 +203,7 @@ export default function Home() {
                 responsibleNote="18+ | Juega con responsabilidad"
                 visualVariant="crypto"
                 emphasis="comparison-primary"
+                fillHeight
                 visual={{
                   eyebrow: "Crypto casino",
                   title: "500 Casino",
@@ -213,28 +214,10 @@ export default function Home() {
                 }}
                 mobileMaxBullets={2}
               />
-              <OfferCard
-                operatorName="Gamdom"
-                operatorId="gamdom"
-                badge="Comparar"
-                headline="Gamdom"
-                subheadline="Alternativa crypto internacional"
-                offerText="Disponibilidad y promociones según términos oficiales"
-                paymentBadges={["Crypto"]}
-                featureBullets={[
-                  "Casino crypto internacional para comparar",
-                  "Revisa límites, pagos y verificación antes de registrarte",
-                ]}
-                primaryCtaLabel="Visitar Gamdom"
-                primaryCtaHref={GAMDOM_GLOBAL_AFFILIATE_URL}
-                secondaryCtaLabel="Ver ranking crypto"
-                secondaryCtaHref="/casinos-crypto"
-                termsNote="Disponibilidad, bonos, pagos y retiros dependen de términos oficiales y jurisdicción."
-                responsibleNote="18+ | Juega con responsabilidad"
-                visualVariant="dark"
-                emphasis="comparison-secondary"
-                mobileMaxBullets={2}
-                className="lg:p-4"
+              <GamdomFeaturedCard
+                context="homepage"
+                fillHeight
+                className="h-fit self-start p-3 sm:p-4 md:h-full md:self-stretch"
               />
             </div>
           </div>

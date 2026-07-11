@@ -30,8 +30,10 @@ import {
   MELBET_AFFILIATE_URL,
   MELBET_PROMO_CODE,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
+  GAMDOM_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
+import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
@@ -683,6 +685,86 @@ const RAINBET_FAQ = [
   },
 ] as const;
 
+const GAMDOM_PRODUCT_CARDS = [
+  {
+    title: "Casino online",
+    text: "Slots, mesas y live dealer según catálogo vigente del operador.",
+  },
+  {
+    title: "Sportsbook",
+    text: "Apuestas deportivas integradas en la misma cuenta, sujetas a mercados y restricciones regionales.",
+  },
+  {
+    title: "Originals",
+    text: "Juegos propios de house edge dentro del ecosistema Gamdom, útiles para explorar el producto crypto.",
+  },
+  {
+    title: "Experiencia unificada",
+    text: "Casino, sportsbook y Rewards comparten una sola cuenta; revisa reglas de saldo y promociones por sección.",
+  },
+] as const;
+
+const GAMDOM_REWARDS_CARDS = [
+  {
+    title: "Welcome offer revisada",
+    text: "Rakeback elevado al 15% durante 7 días para nuevos usuarios elegibles, según revisión editorial de julio de 2026.",
+  },
+  {
+    title: "Ventana de activación",
+    text: "La oferta debía reclamarse desde Rewards durante las primeras 6 horas tras el registro. Confirma siempre la ventana vigente.",
+  },
+  {
+    title: "Rewards continuo",
+    text: "Rakeback, misiones y beneficios acumulables visibles en el panel Rewards según actividad y términos.",
+  },
+  {
+    title: "Promociones rotativas",
+    text: "Campañas de casino, sportsbook, wager, jackpot y eventos temáticos que pueden cambiar o finalizar sin aviso.",
+  },
+] as const;
+
+const GAMDOM_PAYMENTS_CARDS = [
+  {
+    title: "Enfoque crypto",
+    text: "Gamdom se orienta a depósitos y retiros con criptomonedas. Métodos, redes y límites deben confirmarse en el cajero oficial.",
+  },
+  {
+    title: "Verificación",
+    text: "El operador puede solicitar KYC por seguridad, retiros, actividad inusual o cumplimiento de sus términos internos.",
+  },
+  {
+    title: "Retiros",
+    text: "JugadaMax no garantiza tiempos, montos ni disponibilidad de retiro. Red, verificación y políticas antifraude pueden alterar cualquier estimación.",
+  },
+  {
+    title: "Jurisdicción",
+    text: "Disponibilidad, promociones y reglas de cuenta dependen de tu ubicación y de los términos oficiales de Gamdom.",
+  },
+] as const;
+
+const GAMDOM_FAQ = [
+  {
+    question: "¿Gamdom tiene oferta de bienvenida?",
+    answer:
+      "En la revisión editorial de julio de 2026, Gamdom mostraba rakeback elevado al 15% durante 7 días para nuevos usuarios elegibles. La disponibilidad, el cálculo y las reglas pueden cambiar; confirma siempre en el operador.",
+  },
+  {
+    question: "¿Cómo se activa el rakeback de Gamdom?",
+    answer:
+      "Según la oferta revisada, debía reclamarse desde la sección Rewards durante las primeras 6 horas tras el registro. Después de activarla, el rakeback promocional se aplicaba durante los siguientes 7 días según términos oficiales.",
+  },
+  {
+    question: "¿Gamdom tiene casino y sportsbook?",
+    answer:
+      "Sí. Gamdom combina casino online, sportsbook y juegos Originals en una sola cuenta, sujeto a catálogo, mercados y restricciones regionales vigentes.",
+  },
+  {
+    question: "¿Gamdom está disponible en México?",
+    answer:
+      "JugadaMax no afirma disponibilidad universal para México. La elegibilidad, pagos, verificación y promociones dependen de los términos oficiales de Gamdom y de tu jurisdicción.",
+  },
+] as const;
+
 const MELLSTROY_WELCOME_COMPARISON = [
   { label: "Página de promociones", value: "Hasta 660% + 400 FS" },
   { label: "Creatividad de registro", value: "550% + 400 FS" },
@@ -1038,6 +1120,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           review.slug === "betfury" ||
           review.slug === "500-casino" ||
           review.slug === "rainbet" ||
+          review.slug === "gamdom" ||
           review.slug === "1xbet" ||
           review.slug === "melbet" ||
           review.slug === "mellstroy"
@@ -1215,6 +1298,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               height: 56,
             }}
           />
+          </div>
+        ) : null}
+
+        {review.slug === "gamdom" ? (
+          <div id="review-primary-offer">
+            <GamdomFeaturedCard context="review" />
           </div>
         ) : null}
 
@@ -2313,6 +2402,116 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "gamdom" ? (
+          <section
+            aria-labelledby="gamdom-resumen-rapido-heading"
+            className="rounded-xl border border-border/60 bg-card p-4 sm:p-5"
+          >
+            <h2
+              id="gamdom-resumen-rapido-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Resumen rápido de Gamdom
+            </h2>
+            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Casino crypto con sportsbook, Originals y Rewards
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Welcome</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  15% rakeback por 7 días según elegibilidad y términos oficiales
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Ideal para
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Usuarios que buscan casino crypto, sportsbook y recompensas activas
+                </dd>
+              </div>
+              <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  Revisar
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Activación desde Rewards, pagos, KYC, retiros y jurisdicción
+                </dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
+
+        {review.slug === "gamdom" ? (
+          <section aria-labelledby="gamdom-producto-heading">
+            <h2
+              id="gamdom-producto-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Casino, sportsbook y Originals
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {GAMDOM_PRODUCT_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "gamdom" ? (
+          <section aria-labelledby="gamdom-rewards-heading">
+            <h2
+              id="gamdom-rewards-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Rewards y welcome promotion
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {GAMDOM_REWARDS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {review.slug === "gamdom" ? (
+          <section aria-labelledby="gamdom-pagos-retiros-heading">
+            <h2
+              id="gamdom-pagos-retiros-heading"
+              className="text-lg font-semibold text-foreground sm:text-xl"
+            >
+              Pagos, retiros y KYC
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {GAMDOM_PAYMENTS_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="rounded-xl border border-border/60 bg-card p-4"
+                >
+                  <h3 className="text-sm font-semibold text-foreground">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <VerdictBox verdict={review.verdict} rating={review.rating} />
 
         <section aria-label="Puntos a favor y en contra">
@@ -2568,6 +2767,47 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "gamdom" ? (
+          <section
+            aria-labelledby="gamdom-post-analisis-cta-heading"
+            className="rounded-xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/8 via-card to-[#061019] p-4 sm:p-5"
+          >
+            <h2
+              id="gamdom-post-analisis-cta-heading"
+              className="text-lg font-semibold text-foreground"
+            >
+              Revisar Gamdom
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Antes de registrarte, confirma la welcome offer vigente, activación desde Rewards,
+              pagos, verificación y reglas de retiro directamente en Gamdom.
+            </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <a
+                href={GAMDOM_GLOBAL_AFFILIATE_URL}
+                target="_blank"
+                rel={AFFILIATE_REL}
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold",
+                  "bg-[#00F58A] text-[#061019] transition-colors hover:bg-[#14E887]",
+                  focusRing,
+                )}
+              >
+                Visitar Gamdom
+              </a>
+              <a
+                href="/casinos-crypto"
+                className={cn(
+                  "inline-flex min-h-11 items-center justify-center rounded-md border border-emerald-400/35 px-5 py-2.5 text-sm font-semibold text-emerald-200 transition-colors hover:bg-emerald-500/10",
+                  focusRing,
+                )}
+              >
+                Volver al ranking crypto
+              </a>
+            </div>
+          </section>
+        ) : null}
+
         {review.slug === "mellstroy" ? (
           <section
             aria-labelledby="mellstroy-post-analisis-cta-heading"
@@ -2705,6 +2945,30 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           </section>
         ) : null}
 
+        {review.slug === "gamdom" ? (
+          <section aria-labelledby="gamdom-faq-heading">
+            <h2 id="gamdom-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
+              Preguntas frecuentes sobre Gamdom
+            </h2>
+            <div className="mt-4 divide-y divide-white/10 rounded-xl border border-border/60 bg-card">
+              {GAMDOM_FAQ.map((item) => (
+                <details key={item.question} className="group px-4 py-1 sm:px-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"
+                    >
+                      ▾
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {review.slug === "1xbet" ? (
           <section aria-labelledby="onexbet-faq-heading">
             <h2 id="onexbet-faq-heading" className="text-lg font-semibold text-foreground sm:text-xl">
@@ -2819,6 +3083,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "betfury" &&
         review.slug !== "500-casino" &&
         review.slug !== "rainbet" &&
+        review.slug !== "gamdom" &&
         review.slug !== "1xbet" &&
         review.slug !== "melbet" &&
         review.slug !== "mellstroy" ? (
@@ -2853,6 +3118,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         review.slug !== "betfury" &&
         review.slug !== "500-casino" &&
         review.slug !== "rainbet" &&
+        review.slug !== "gamdom" &&
         review.slug !== "1xbet" &&
         review.slug !== "melbet" &&
         review.slug !== "mellstroy" ? (
@@ -2902,6 +3168,17 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         compactSecondaryLabel="Comparar"
         primaryLabel="Visitar Rainbet"
         primaryHref={RAINBET_REFERRAL_URL}
+        secondaryLabel="Ranking crypto"
+        secondaryHref="/casinos-crypto"
+      />
+    ) : null}
+    {review.slug === "gamdom" ? (
+      <MobileStickyOfferCta
+        showAfterId="review-primary-offer"
+        compactPrimaryLabel="Visitar"
+        compactSecondaryLabel="Comparar"
+        primaryLabel="Visitar Gamdom"
+        primaryHref={GAMDOM_GLOBAL_AFFILIATE_URL}
         secondaryLabel="Ranking crypto"
         secondaryHref="/casinos-crypto"
       />
