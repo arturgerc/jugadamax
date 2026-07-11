@@ -49,6 +49,8 @@ export type OfferCardProps = {
   className?: string;
   /** Tighter layout for side-by-side comparison grids (homepage / crypto ranking). */
   compactComparison?: boolean;
+  /** Stretch to grid row height from md up; pins disclaimer to the bottom of the body column. */
+  fillHeight?: boolean;
 };
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -551,6 +553,7 @@ export function OfferCard({
   logo,
   className,
   compactComparison = false,
+  fillHeight = false,
 }: OfferCardProps) {
   const isRainbetBranded = operatorId === "rainbet" || visual?.variant === "rainbet";
   const isOnexbetBranded = operatorId === "1xbet" || visual?.variant === "onexbet";
@@ -596,6 +599,7 @@ export function OfferCard({
     <article
       className={cn(
         "relative overflow-hidden rounded-2xl border p-3 sm:p-5 lg:p-6",
+        fillHeight && "md:flex md:h-full md:flex-col",
         emphasis === "comparison-secondary" &&
           !isRainbetBranded &&
           !isGamdomBranded &&
@@ -633,12 +637,14 @@ export function OfferCard({
       <div
         className={cn(
           "relative flex flex-col gap-3 lg:flex-row lg:justify-between",
+          fillHeight && "md:h-full md:min-h-0 md:flex-1 lg:items-stretch",
           compactComparison ? "lg:items-start lg:gap-3" : "lg:items-stretch lg:gap-5",
         )}
       >
         <div
           className={cn(
             "min-w-0 flex-1",
+            fillHeight && "md:flex md:min-h-0 md:flex-1 md:flex-col",
             compactComparison ? "space-y-2 sm:space-y-2.5" : "space-y-2.5 sm:space-y-3 lg:space-y-4",
           )}
         >
@@ -773,6 +779,7 @@ export function OfferCard({
           <div
             className={cn(
               "space-y-1.5 border-t border-white/10",
+              fillHeight && "md:mt-auto",
               compactComparison ? "pt-1.5 sm:pt-2" : "pt-2 sm:space-y-2 sm:pt-2.5 md:pt-3",
             )}
           >
@@ -793,7 +800,10 @@ export function OfferCard({
         <div
           className={cn(
             "hidden shrink-0 flex-col gap-2 lg:flex",
-            compactComparison ? "lg:w-44 xl:w-48 lg:justify-start" : "lg:w-60 lg:justify-center",
+            fillHeight && "lg:h-full lg:justify-between",
+            compactComparison
+              ? cn("lg:w-44 xl:w-48", !fillHeight && "lg:justify-start")
+              : cn("lg:w-60", !fillHeight && "lg:justify-center"),
           )}
         >
           {visual ? <OfferVisualPanel visual={visual} /> : null}

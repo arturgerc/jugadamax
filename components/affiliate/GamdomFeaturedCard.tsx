@@ -21,6 +21,7 @@ type GamdomContext = "homepage" | "crypto" | "bonus" | "review";
 export type GamdomFeaturedCardProps = {
   context: GamdomContext;
   className?: string;
+  fillHeight?: boolean;
 };
 
 const CONTEXT_CONFIG: Record<
@@ -150,7 +151,7 @@ const CONTEXT_CONFIG: Record<
  * Unified Gamdom featured offer card — emerald Rewards identity across
  * homepage, crypto ranking, bonus and review surfaces.
  */
-export function GamdomFeaturedCard({ context, className }: GamdomFeaturedCardProps) {
+export function GamdomFeaturedCard({ context, className, fillHeight }: GamdomFeaturedCardProps) {
   const config = CONTEXT_CONFIG[context];
 
   return (
@@ -160,6 +161,7 @@ export function GamdomFeaturedCard({ context, className }: GamdomFeaturedCardPro
       logo={GAMDOM_LOGO}
       responsibleNote={GAMDOM_RESPONSIBLE}
       {...config}
+      fillHeight={fillHeight}
       className={className ?? config.className}
     />
   );

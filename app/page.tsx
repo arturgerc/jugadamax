@@ -181,7 +181,7 @@ export default function Home() {
             <h3 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
               También puedes comparar
             </h3>
-            <div className="grid items-start gap-4 md:grid-cols-2">
+            <div className="grid items-start gap-4 md:grid-cols-2 md:items-stretch">
               <OfferCard
                 operatorName="500 Casino"
                 operatorId="500-casino"
@@ -203,6 +203,7 @@ export default function Home() {
                 responsibleNote="18+ | Juega con responsabilidad"
                 visualVariant="crypto"
                 emphasis="comparison-primary"
+                fillHeight
                 visual={{
                   eyebrow: "Crypto casino",
                   title: "500 Casino",
@@ -213,7 +214,11 @@ export default function Home() {
                 }}
                 mobileMaxBullets={2}
               />
-              <GamdomFeaturedCard context="homepage" />
+              <GamdomFeaturedCard
+                context="homepage"
+                fillHeight
+                className="h-fit self-start p-3 sm:p-4 md:h-full md:self-stretch"
+              />
             </div>
           </div>
 
