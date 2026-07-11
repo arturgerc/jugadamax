@@ -53,9 +53,7 @@ const CONTEXT_CONFIG: Record<
     },
     visualVariant: "fiat",
     mobileMaxBullets: 2,
-    emphasis: "comparison-secondary",
-    compactComparison: true,
-    className: "h-fit self-start p-3 sm:p-4",
+    className: "mt-6",
   },
   fiat: {
     badge: "FEATURED MULTI-CURRENCY CASINO",

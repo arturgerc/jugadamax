@@ -149,12 +149,7 @@ export default function EnHomePage() {
               View fiat casinos
             </Link>
           </div>
-          <div className="mt-6 w-full md:grid md:grid-cols-2 md:items-start md:gap-4">
-            <XonbetFeaturedCard
-              context="homepage"
-              className="h-fit w-full self-start p-3 sm:p-4"
-            />
-          </div>
+          <XonbetFeaturedCard context="homepage" />
         </Container>
       </section>
 
