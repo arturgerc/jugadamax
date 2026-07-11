@@ -21,6 +21,7 @@ type MellstroyContext = "crypto" | "bonus" | "review";
 export type MellstroyFeaturedCardProps = {
   context: MellstroyContext;
   className?: string;
+  fillHeight?: boolean;
 };
 
 const CONTEXT_CONFIG: Record<
@@ -118,7 +119,11 @@ const CONTEXT_CONFIG: Record<
  * Unified Mellstroy featured offer card — aubergine/violet identity across
  * crypto, bonus and review surfaces.
  */
-export function MellstroyFeaturedCard({ context, className }: MellstroyFeaturedCardProps) {
+export function MellstroyFeaturedCard({
+  context,
+  className,
+  fillHeight,
+}: MellstroyFeaturedCardProps) {
   const config = CONTEXT_CONFIG[context];
 
   return (
@@ -129,6 +134,7 @@ export function MellstroyFeaturedCard({ context, className }: MellstroyFeaturedC
       responsibleNote={MELLSTROY_RESPONSIBLE}
       {...config}
       headingLevel={context === "review" ? "h2" : "h3"}
+      fillHeight={fillHeight}
       className={className ?? config.className}
     />
   );

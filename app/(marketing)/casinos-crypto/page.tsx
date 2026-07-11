@@ -412,8 +412,12 @@ export default function CryptoCasinosPage() {
           BetFury y 500 Casino aparecen como ofertas destacadas arriba. Abajo puedes comparar Gamdom,
           Rainbet, Roobet, Stake y otros operadores crypto.
         </p>
-        <div className="mt-4 grid items-start gap-4 md:grid-cols-2" aria-label="Comparar casinos crypto">
-          <GamdomFeaturedCard context="crypto" />
+        <div className="mt-4 grid items-start gap-4 md:grid-cols-2 md:items-stretch" aria-label="Comparar casinos crypto">
+          <GamdomFeaturedCard
+            context="crypto"
+            fillHeight
+            className="h-fit self-start p-3 sm:p-4 md:self-stretch"
+          />
           <OfferCard
             operatorName="Rainbet"
             operatorId="rainbet"
@@ -444,6 +448,7 @@ export default function CryptoCasinosPage() {
             }}
             visualVariant="crypto"
             mobileMaxBullets={2}
+            fillHeight
             logo={{
               src: "/operators/rainbet.png",
               alt: "Rainbet",
@@ -482,6 +487,7 @@ export default function CryptoCasinosPage() {
             visualVariant="dark"
             emphasis="comparison-secondary"
             mobileMaxBullets={2}
+            fillHeight
             className="p-3 sm:p-4"
           />
           <OfferCard
@@ -515,6 +521,7 @@ export default function CryptoCasinosPage() {
             visualVariant="dark"
             emphasis="comparison-secondary"
             mobileMaxBullets={2}
+            fillHeight
             logo={{
               src: "/operators/stake.svg",
               alt: "Stake",
@@ -523,7 +530,11 @@ export default function CryptoCasinosPage() {
             }}
             className="p-3 sm:p-4"
           />
-          <MellstroyFeaturedCard context="crypto" className="h-fit self-start p-3 sm:p-4" />
+          <MellstroyFeaturedCard
+            context="crypto"
+            fillHeight
+            className="h-fit self-start p-3 sm:p-4 md:self-stretch"
+          />
           <OfferCard
             operatorName="BC.Game"
             operatorId="bcgame"
@@ -553,6 +564,7 @@ export default function CryptoCasinosPage() {
             visualVariant="dark"
             emphasis="comparison-secondary"
             mobileMaxBullets={2}
+            fillHeight
             className="p-3 sm:p-4"
           />
         </div>
