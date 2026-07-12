@@ -31,6 +31,9 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "xonbet") {
     return "border-cyan-400/30 ring-cyan-400/20 shadow-[0_0_18px_-6px_rgba(0,217,255,0.25)]";
   }
+  if (operatorId === "vodkabet") {
+    return "border-blue-500/30 ring-violet-500/20 shadow-[0_0_18px_-6px_rgba(59,130,246,0.25)]";
+  }
   return "ring-white/10";
 }
 
@@ -49,6 +52,9 @@ function logoTileBackground(operatorId?: string): string {
   }
   if (operatorId === "xonbet") {
     return "bg-gradient-to-br from-[#070B1C] via-[#11133A] to-[#070B1C]";
+  }
+  if (operatorId === "vodkabet") {
+    return "bg-gradient-to-br from-[#071225] via-[#091733] to-[#101B3D]";
   }
   return "bg-[#16233f]";
 }
@@ -100,13 +106,14 @@ export function OperatorLogo({
     const isRainbet = operatorId === "rainbet";
     const isGamdom = operatorId === "gamdom";
     const isXonbet = operatorId === "xonbet";
-    const isWideWordmark = isRainbet || isGamdom || isXonbet;
+    const isVodkabet = operatorId === "vodkabet";
+    const isWideWordmark = isRainbet || isGamdom || isXonbet || isVodkabet;
     return (
       <span
         className={cn(
           "inline-flex shrink-0 items-center justify-center rounded-xl ring-1",
           isWideWordmark
-            ? isGamdom || isXonbet
+            ? isGamdom || isXonbet || isVodkabet
               ? "h-14 w-[7.5rem] border px-1 py-0.5"
               : "h-14 w-[5.75rem] border border-emerald-500/20 px-0.5 py-0.5 sm:w-24"
             : "h-12 w-[4.5rem] px-1 py-1 sm:w-20",
@@ -115,6 +122,7 @@ export function OperatorLogo({
           isRainbet && "shadow-[inset_0_1px_0_rgba(52,211,153,0.1)]",
           isGamdom && "shadow-[inset_0_1px_0_rgba(0,245,138,0.1)]",
           isXonbet && "border-cyan-500/25 shadow-[inset_0_1px_0_rgba(0,217,255,0.1)]",
+          isVodkabet && "border-blue-500/25 shadow-[inset_0_1px_0_rgba(59,130,246,0.1)]",
           className,
         )}
       >
@@ -122,9 +130,9 @@ export function OperatorLogo({
           src={logo.src}
           alt=""
           aria-hidden="true"
-          width={logo.width ?? (isXonbet || isGamdom ? 120 : isRainbet ? 96 : 80)}
-          height={logo.height ?? (isXonbet || isGamdom ? 48 : isRainbet ? 56 : LOGO_HEIGHT)}
-          sizes={isXonbet || isGamdom ? "120px" : isRainbet ? "96px" : "80px"}
+          width={logo.width ?? (isXonbet || isGamdom || isVodkabet ? 120 : isRainbet ? 96 : 80)}
+          height={logo.height ?? (isXonbet || isGamdom || isVodkabet ? 48 : isRainbet ? 56 : LOGO_HEIGHT)}
+          sizes={isXonbet || isGamdom || isVodkabet ? "120px" : isRainbet ? "96px" : "80px"}
           className={cn(
             "max-w-full object-contain",
             isWideWordmark ? "max-h-[3.25rem] w-full" : "max-h-full",

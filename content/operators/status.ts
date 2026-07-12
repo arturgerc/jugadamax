@@ -199,6 +199,16 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     notes:
       "English/global fiat casino only. Partner-reported GEOs exclude New Zealand targeting. Casino product only on JugadaMax — no sportsbook surfaces.",
   },
+  vodkabet: {
+    id: "vodkabet",
+    name: "Vodka.bet",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["casinos-crypto", "bonos", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active JugadaMax affiliate campaign. International crypto-oriented casino with sportsbook as an additional product. Promo code JUGADAMAX. Licence, payments, KYC, withdrawals and jurisdiction availability require verification.",
+  },
 };
 
 export function getOperatorPolicy(operatorId: string): OperatorPolicy | undefined {

@@ -63,3 +63,9 @@ export const RAINBET_REFERRAL_URL = "https://rainbet.com?r=arturgerc";
 /** XON.BET global affiliate link (English/global fiat casino coverage). */
 export const XONBET_GLOBAL_AFFILIATE_URL =
   "https://promo-push.com/l/6a50e1f402d53ba1dd0315a3?sub_id=jugadamax&sub_id_2=SEO";
+
+/** Vodka.bet active affiliate link (Spanish/MX crypto casino campaign). */
+export const VODKABET_AFFILIATE_URL = "https://vodka200032.com?id=18393";
+
+/** Confirmed standalone promo code for Vodka.bet JugadaMax campaigns. */
+export const VODKABET_PROMO_CODE = "JUGADAMAX";

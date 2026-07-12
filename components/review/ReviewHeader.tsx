@@ -149,6 +149,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-pink-400/25 bg-cyan-500/10",
     decorB: "bg-pink-400/45",
   },
+  vodkabet: {
+    shell:
+      "border-blue-500/25 bg-gradient-to-br from-[#071225] via-[#091733] to-[#101B3D] ring-1 ring-violet-500/10 shadow-[0_4px_28px_-12px_rgba(59,130,246,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(139,92,246,0.1),transparent_50%)]",
+    badge: "border-violet-400/30 bg-violet-500/10 text-violet-200",
+    chip: "border-blue-500/25 bg-violet-500/8 text-violet-100/90",
+    scorePanel: "border-blue-500/25 bg-[#071225]/85 shadow-[inset_0_1px_0_rgba(59,130,246,0.08)]",
+    scoreValue: "text-blue-300",
+    decorA: "border-violet-400/20 bg-blue-500/10",
+    decorB: "bg-violet-400/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",
