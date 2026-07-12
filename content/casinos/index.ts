@@ -7,6 +7,7 @@ import {
   RAINBET_REFERRAL_URL,
   MELBET_AFFILIATE_URL,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
+  VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
 /**
@@ -416,6 +417,31 @@ export const casinos: Casino[] = [
     bonusIds: ["mellstroy-welcome"],
     summary:
       "Mellstroy es un casino crypto con slots, live casino, Fortune Wheel, promociones visibles y sportsbook adicional. Para usuarios de México/LATAM, JugadaMax lo mantiene como alternativa internacional de prioridad inferior a sus principales partners crypto; bonos, pagos, verificación y disponibilidad dependen de términos oficiales.",
+    locale: "es-MX",
+  },
+  {
+    id: "vodkabet",
+    slug: "vodka-bet",
+    name: "Vodka.bet",
+    logo: {
+      src: "/operators/vodkabet.svg",
+      alt: "Vodka.bet",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    rating: 3.6,
+    affiliateUrl: VODKABET_AFFILIATE_URL,
+    payments: [{ name: "Crypto", kind: "crypto" }],
+    licensing: {
+      licenseName: "Licencia no verificada por JugadaMax",
+      notes:
+        "Vodka.bet se presenta como operador internacional. JugadaMax no ha verificado una licencia mexicana ni una entidad operadora local. Revisa licencia publicada, jurisdicción, KYC, pagos, límites y términos directamente en el operador.",
+    },
+    bonusIds: ["vodkabet-welcome"],
+    summary:
+      "Vodka.bet es un casino internacional con slots, live casino, juegos de mesa, jackpots y sportsbook adicional. La campaña JUGADAMAX muestra 125% en el primer depósito, hasta 300 FS, un extra para depósitos crypto y free spins vinculados a Telegram, todo sujeto a términos, elegibilidad y jurisdicción.",
     locale: "es-MX",
   },
 ];

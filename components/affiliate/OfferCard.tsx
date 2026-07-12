@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "vodkabet" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -108,6 +108,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-emerald-400/25 bg-gradient-to-br from-[#061019] via-[#07131d] to-[#091722] shadow-[inset_0_1px_0_rgba(0,245,138,0.12)]",
   xonbet:
     "border-cyan-400/25 bg-gradient-to-br from-[#070B1C] via-[#11133A] to-[#070B1C] shadow-[inset_0_1px_0_rgba(0,217,255,0.12)]",
+  vodkabet:
+    "border-blue-500/25 bg-gradient-to-br from-[#071225] via-[#091733] to-[#101B3D] shadow-[inset_0_1px_0_rgba(59,130,246,0.12)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -134,6 +136,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(0,245,138,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(32,217,176,0.12),transparent_50%),radial-gradient(ellipse_at_60%_80%,rgba(166,255,77,0.06),transparent_45%)]",
   xonbet:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(0,217,255,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,42,154,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(51,21,104,0.12),transparent_45%)]",
+  vodkabet:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(139,92,246,0.12),transparent_50%),radial-gradient(ellipse_at_60%_80%,rgba(56,189,248,0.08),transparent_45%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -220,6 +224,20 @@ const xonbetPrimaryCta =
 const xonbetSecondaryCta =
   "border-cyan-400/35 text-cyan-200 transition-colors hover:bg-cyan-500/10";
 
+const vodkabetCardShell =
+  "border-blue-500/25 bg-gradient-to-br from-[#071225] via-[#091733]/95 to-[#101B3D] ring-1 ring-violet-500/10 shadow-[0_4px_28px_-12px_rgba(59,130,246,0.18)]";
+
+const vodkabetCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(139,92,246,0.1),transparent_50%)]";
+
+const vodkabetBadge = "border-violet-400/30 bg-violet-500/10 text-violet-200";
+
+const vodkabetPrimaryCta =
+  "bg-[#2563EB] text-white transition-colors hover:bg-[#3B82F6] focus-visible:ring-blue-400/50";
+
+const vodkabetSecondaryCta =
+  "border-violet-400/35 text-violet-200 transition-colors hover:bg-violet-500/10";
+
 function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
   const panelVariant = visual.variant ?? "dark";
   const compact = visual.compact === true;
@@ -233,6 +251,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         panelVariant === "rainbet" && compact && "p-3",
         panelVariant === "gamdom" && compact && "p-3",
         panelVariant === "xonbet" && compact && "p-3",
+        panelVariant === "vodkabet" && compact && "p-3",
         visualPanelShell[panelVariant],
       )}
     >
@@ -320,6 +339,17 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "vodkabet" ? (
+        <>
+          <div className="pointer-events-none absolute right-4 top-3 h-8 w-3 rounded-b-md border border-blue-400/30 bg-gradient-to-b from-violet-500/15 to-blue-500/10 md:right-5 md:top-3.5 md:h-9 md:w-3.5" />
+          <div className="pointer-events-none absolute right-[1.35rem] top-2 h-1.5 w-1.5 rounded-full bg-cyan-300/50 md:right-[1.6rem] md:top-2.5" />
+          <div className="pointer-events-none absolute right-5 top-1 h-1 w-1 rounded-full bg-violet-300/40 md:right-6" />
+          <div className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 rounded-full border border-blue-400/35 bg-blue-500/15 shadow-[0_0_8px_rgba(56,189,248,0.25)] md:bottom-3.5 md:left-3.5 md:h-5 md:w-5" />
+          <div className="pointer-events-none absolute bottom-6 right-6 h-2.5 w-2.5 rotate-45 rounded-sm border border-violet-400/40 bg-violet-500/15 md:bottom-7 md:right-8" />
+          <div className="pointer-events-none absolute left-1/2 top-2 h-px w-10 -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-400/35 to-transparent md:w-14" />
+        </>
+      ) : null}
+
       {panelVariant === "gamdom" ? (
         <>
           <div className="pointer-events-none absolute left-[55%] top-[45%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/10 blur-2xl md:h-20 md:w-20" />
@@ -375,6 +405,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "mellstroy" && "text-violet-300/90",
               panelVariant === "gamdom" && "text-emerald-300/90",
               panelVariant === "xonbet" && "text-cyan-300/90",
+              panelVariant === "vodkabet" && "text-violet-300/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
@@ -412,6 +443,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#00F58A] via-[#14E887] to-[#A6FF4D] bg-clip-text text-transparent",
             panelVariant === "xonbet" &&
               "bg-gradient-to-r from-[#23E6FF] via-[#00D9FF] to-[#FF2A9A] bg-clip-text text-transparent",
+            panelVariant === "vodkabet" &&
+              "bg-gradient-to-r from-[#60A5FA] via-[#8B5CF6] to-[#A78BFA] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -452,7 +485,9 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                                   ? "border-emerald-400/25 bg-emerald-500/10 text-emerald-100/90"
                                   : panelVariant === "xonbet"
                                     ? "border-cyan-400/25 bg-cyan-500/10 text-cyan-100/90"
-                                    : "border-white/15 bg-white/5 text-muted-foreground",
+                                    : panelVariant === "vodkabet"
+                                      ? "border-violet-500/25 bg-violet-500/10 text-violet-100/90"
+                                      : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
                 {chip}
@@ -595,6 +630,7 @@ export function OfferCard({
   const isMellstroyBranded = operatorId === "mellstroy" || visual?.variant === "mellstroy";
   const isGamdomBranded = operatorId === "gamdom" || visual?.variant === "gamdom";
   const isXonbetBranded = operatorId === "xonbet" || visual?.variant === "xonbet";
+  const isVodkabetBranded = operatorId === "vodkabet" || visual?.variant === "vodkabet";
   const variant =
     visualVariant === "crypto" &&
     emphasis === "comparison-secondary" &&
@@ -603,7 +639,8 @@ export function OfferCard({
     !isMelbetBranded &&
     !isMellstroyBranded &&
     !isGamdomBranded &&
-    !isXonbetBranded
+    !isXonbetBranded &&
+    !isVodkabetBranded
       ? "dark"
       : visualVariant;
   const showInlineOfferText = !visual;
@@ -620,6 +657,8 @@ export function OfferCard({
             ? gamdomCardGlow
             : isXonbetBranded
               ? xonbetCardGlow
+              : isVodkabetBranded
+                ? vodkabetCardGlow
               : emphasisGlow[emphasis];
   const showVariantGlow =
     emphasis === "standard" &&
@@ -628,11 +667,14 @@ export function OfferCard({
     !isMelbetBranded &&
     !isMellstroyBranded &&
     !isGamdomBranded &&
-    !isXonbetBranded;
+    !isXonbetBranded &&
+    !isVodkabetBranded;
   const brandedCtaProps = isGamdomBranded
     ? { primaryButtonClassName: gamdomPrimaryCta, secondaryButtonClassName: gamdomSecondaryCta }
     : isXonbetBranded
       ? { primaryButtonClassName: xonbetPrimaryCta, secondaryButtonClassName: xonbetSecondaryCta }
+      : isVodkabetBranded
+        ? { primaryButtonClassName: vodkabetPrimaryCta, secondaryButtonClassName: vodkabetSecondaryCta }
       : {};
   const Heading = headingLevel;
 
@@ -645,6 +687,7 @@ export function OfferCard({
           !isRainbetBranded &&
           !isGamdomBranded &&
           !isXonbetBranded &&
+          !isVodkabetBranded &&
           "sm:p-4",
         isRainbetBranded
           ? rainbetCardShell
@@ -658,6 +701,8 @@ export function OfferCard({
                   ? gamdomCardShell
                   : isXonbetBranded
                     ? xonbetCardShell
+                    : isVodkabetBranded
+                      ? vodkabetCardShell
                     : variantShell[variant],
         !isRainbetBranded &&
           !isOnexbetBranded &&
@@ -665,6 +710,7 @@ export function OfferCard({
           !isMellstroyBranded &&
           !isGamdomBranded &&
           !isXonbetBranded &&
+          !isVodkabetBranded &&
           emphasisShell[emphasis],
         className,
       )}
@@ -713,6 +759,8 @@ export function OfferCard({
                                 ? gamdomBadge
                                 : isXonbetBranded
                                   ? xonbetBadge
+                                  : isVodkabetBranded
+                                    ? vodkabetBadge
                                   : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
@@ -810,6 +858,8 @@ export function OfferCard({
                         ? "text-[#00F58A]"
                         : isXonbetBranded
                           ? "text-cyan-400"
+                          : isVodkabetBranded
+                            ? "text-violet-400"
                           : isRainbetBranded
                           ? "text-emerald-400"
                           : isOnexbetBranded

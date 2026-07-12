@@ -118,4 +118,13 @@ export const bonuses: Bonus[] = [
       "La página de promociones suministrada muestra hasta 660% + 400 FS, mientras que otra creatividad de registro muestra 550% + 400 FS. La oferta puede variar según campaña, registro, cuenta, elegibilidad, jurisdicción y términos vigentes. Confirma porcentajes, depósitos elegibles, wagering, juegos, límites y vencimiento antes de depositar.",
     active: true,
   },
+  {
+    id: "vodkabet-welcome",
+    casinoId: "vodkabet",
+    title: "125% en el primer depósito + hasta 300 FS según campaña",
+    type: "welcome",
+    terms:
+      "Código JUGADAMAX. Las creatividades también muestran +2% para depósitos crypto y 50 FS por vincular Telegram. Depósito mínimo, wagering, juegos elegibles, vencimiento, límites y disponibilidad deben confirmarse en los términos oficiales.",
+    active: true,
+  },
 ];

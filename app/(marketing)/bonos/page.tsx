@@ -10,6 +10,7 @@ import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCt
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
+import { VodkabetFeaturedCard } from "@/components/affiliate/VodkabetFeaturedCard";
 import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
@@ -243,6 +244,7 @@ export default function BonosPage() {
             <GamdomFeaturedCard context="bonus" />
           </div>
           <MellstroyFeaturedCard context="bonus" />
+          <VodkabetFeaturedCard context="bonus" />
         </section>
 
         <section aria-labelledby="bonos-mixtos-heading">

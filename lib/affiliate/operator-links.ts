@@ -14,6 +14,7 @@ import {
   ROOBET_GLOBAL_AFFILIATE_URL,
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
+  VODKABET_AFFILIATE_URL,
   XONBET_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
@@ -127,6 +128,21 @@ function rainbetGlobalLink(): OperatorLink | undefined {
 const XONBET_CANADA_GEO_WARNING =
   "Partner availability includes Canada, but online gambling rules are provincial. JugadaMax does not present XON.BET as an Ontario-registered operator. Check applicable provincial rules and the operator's current terms before registering.";
 
+const VODKABET_MX_GEO_WARNING =
+  "Vodka.bet se presenta como operador internacional. La disponibilidad, promociones, pagos y acceso dependen de tu jurisdicción y de los términos oficiales. JugadaMax no afirma disponibilidad legal o local para México.";
+
+function vodkabetMxLink(): OperatorLink | undefined {
+  if (!VODKABET_AFFILIATE_URL) return undefined;
+  return {
+    market: "mx",
+    url: VODKABET_AFFILIATE_URL,
+    label: "Ver oferta Vodka.bet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: VODKABET_MX_GEO_WARNING,
+  };
+}
+
 function xonbetGlobalLink(): OperatorLink | undefined {
   if (!XONBET_GLOBAL_AFFILIATE_URL) return undefined;
   return {
@@ -165,6 +181,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   xonbet: {
     global: xonbetGlobalLink(),
+  },
+  vodkabet: {
+    mx: vodkabetMxLink(),
   },
 };
 

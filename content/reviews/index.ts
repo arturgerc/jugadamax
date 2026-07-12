@@ -517,4 +517,36 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-11",
     locale: "es-MX",
   },
+  {
+    id: "vodkabet-review",
+    casinoId: "vodkabet",
+    authorId: "redaccion-jugadamax",
+    slug: "vodka-bet",
+    title: "Reseña de Vodka.bet para México: bono, free spins y casino crypto",
+    verdict:
+      "Vodka.bet combina slots, live casino, juegos de mesa, jackpots y sportsbook adicional dentro de una propuesta internacional orientada a promociones y depósitos crypto. La campaña JUGADAMAX muestra 125% en el primer depósito, hasta 300 FS, +2% para depósitos crypto y 50 FS por vincular Telegram, pero las condiciones completas, licencia, pagos, KYC y retiros deben verificarse antes de depositar. JugadaMax lo considera una opción crypto secundaria y provisional, no un operador local mexicano.",
+    rating: 3.6,
+    pros: [
+      "Campaña JUGADAMAX con varios incentivos promocionales visibles.",
+      "Casino con slots, live casino, mesas y jackpots.",
+      "Extra promocional para depósitos crypto según elegibilidad.",
+      "Sportsbook disponible como producto adicional.",
+    ],
+    cons: [
+      "Licencia y entidad operadora aún no verificadas por JugadaMax.",
+      "Wagering, depósitos mínimos y reglas de free spins deben confirmarse.",
+      "La recompensa por Telegram depende de vinculación y condiciones adicionales.",
+      "Pagos, límites, KYC y retiros no están suficientemente verificados.",
+      "No es un casino fiat local de México.",
+    ],
+    body:
+      "Vodka.bet es un casino internacional orientado a promociones y depósitos crypto, con categorías visibles de slots, mesas, live casino, jackpots y una sección de sportsbook adicional. Para usuarios de México y LATAM, JugadaMax lo presenta como campaña activa con código JUGADAMAX, no como operador local con pagos fiat.\n\nLas creatividades de campaña suministradas muestran 125% en el primer depósito, hasta 300 free spins vinculados a depósitos, +2% adicional para depósitos crypto y 50 FS por vincular Telegram. JugadaMax no garantiza esas cifras: depósito mínimo, wagering, juegos elegibles, vencimiento, límites y disponibilidad pueden variar por campaña, cuenta, GEO y términos oficiales.\n\nEn producto, la plataforma expone un lobby amplio con múltiples proveedores, ruleta, juegos rápidos y promociones rotativas. El sportsbook aparece como producto adicional dentro del ecosistema del operador; JugadaMax no lo evalúa como recomendación deportiva independiente ni lo coloca en la sección de apuestas.\n\nEn pagos, la campaña enfatiza depósitos crypto, pero JugadaMax no publica una lista verificada de monedas, redes, mínimos, comisiones o tiempos de retiro. Confirma activos, KYC, límites y reglas de retiro directamente en el cajero y los términos vigentes de Vodka.bet.\n\nEn confianza y licencia, JugadaMax no ha verificado entidad operadora, licencia mexicana ni autorización local. El operador puede usar dominios dinámicos o espejos; revisa footer, términos, restricciones regionales y políticas de verificación antes de registrarte. Nuestra calificación editorial provisional es 3.6/5: opción crypto secundaria para comparar, no sustituto de operadores fiat locales ni de partners crypto con mayor seguimiento editorial.",
+    paymentsSummary:
+      "La campaña muestra un extra para depósitos crypto, pero JugadaMax no publica una lista de monedas o redes sin verificar el cajero. Confirma activos, redes, mínimos, comisiones, límites, KYC y reglas de retiro directamente en Vodka.bet.",
+    trustSummary:
+      "JugadaMax no ha verificado una licencia mexicana, entidad operadora local ni autorización específica para México. Revisa el footer, licencia publicada, términos, restricciones regionales, KYC y políticas de retiro antes de registrarte.",
+    publishedAt: "2026-07-12",
+    updatedAt: "2026-07-12",
+    locale: "es-MX",
+  },
 ];
