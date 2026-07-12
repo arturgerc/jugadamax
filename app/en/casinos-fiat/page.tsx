@@ -4,6 +4,7 @@ import Link from "next/link";
 import { buildEnMetadata } from "@/lib/seo/metadata";
 import { Container } from "@/components/layout/Container";
 import { XonbetFeaturedCard } from "@/components/affiliate/XonbetFeaturedCard";
+import { SlotoroFeaturedCard } from "@/components/affiliate/SlotoroFeaturedCard";
 import { AffiliateDisclosureEn } from "@/components/trust/AffiliateDisclosureEn";
 import { ResponsibleGamblingNoticeEn } from "@/components/trust/ResponsibleGamblingNoticeEn";
 import { JurisdictionWarning } from "@/components/trust/JurisdictionWarning";
@@ -19,21 +20,47 @@ export const metadata: Metadata = buildEnMetadata({
 const CANADA_WARNING =
   "Partner availability includes Canada, but online gambling rules are provincial. JugadaMax does not present XON.BET as an Ontario-registered operator. Check applicable provincial rules and the operator's current terms before registering.";
 
-const WELCOME_DEPOSITS = [
+const SLOTORO_RESTRICTED_WARNING =
+  "Slotoro's current official terms restrict several major markets, including the UK, US, Australia, Belgium, France, Italy and Spain. This list can change. Verify live terms before registering.";
+
+const XON_WELCOME_DEPOSITS = [
   { label: "1st deposit", value: "150%" },
   { label: "2nd deposit", value: "120%" },
   { label: "3rd deposit", value: "110%" },
   { label: "4th deposit", value: "120%" },
 ] as const;
 
-const PAYMENT_ITEMS = [
+const SLOTORO_WELCOME_CARDS = [
+  {
+    title: "First deposit",
+    value: "100% up to 500 + 100 FS",
+    note: "Minimum deposit 10",
+  },
+  {
+    title: "Second deposit",
+    value: "75% up to 500 + 50 FS",
+    note: "Or 125% up to 1,000 + 75 FS with higher minimum",
+  },
+  {
+    title: "Third deposit",
+    value: "150% up to 1,000 + 75 FS",
+    note: "Minimum deposit 25",
+  },
+  {
+    title: "Bonus rules",
+    value: "40x wagering · 5 days",
+    note: "Maximum conversion and bet limits apply",
+  },
+] as const;
+
+const XON_PAYMENT_ITEMS = [
   {
     title: "Cards",
-    text: "Visa and Mastercard may appear where the cashier supports them. Limits and fees vary by country.",
+    text: "Visa and Mastercard may appear where the XON.BET cashier supports them.",
   },
   {
     title: "E-wallets",
-    text: "Skrill, Neteller and Jeton availability depends on region and account verification status.",
+    text: "Skrill, Neteller and Jeton availability depends on region and account verification.",
   },
   {
     title: "Interac",
@@ -41,11 +68,30 @@ const PAYMENT_ITEMS = [
   },
   {
     title: "Selected crypto",
-    text: "Bitcoin, Ethereum, USDT and other assets where enabled. Networks and minimums differ.",
+    text: "Bitcoin, Ethereum, USDT and other assets where enabled on XON.BET.",
   },
 ] as const;
 
-const PRODUCT_ITEMS = [
+const SLOTORO_PAYMENT_ITEMS = [
+  {
+    title: "Cards",
+    text: "Visa and Mastercard where the Slotoro cashier supports them.",
+  },
+  {
+    title: "E-wallets",
+    text: "Skrill, Neteller, MiFinity, Jeton, MuchBetter and AstroPay where enabled.",
+  },
+  {
+    title: "Interac",
+    text: "Interac may appear in supported regions — not universal.",
+  },
+  {
+    title: "Selected crypto",
+    text: "Secondary crypto options such as BTC, ETH and USDT where the cashier enables them.",
+  },
+] as const;
+
+const XON_PRODUCT_ITEMS = [
   { title: "Slots", text: "Broad slot lobby with multiple providers." },
   { title: "Live casino", text: "Live dealer tables subject to regional availability." },
   { title: "Table games", text: "RNG table and card formats alongside instant/crash titles." },
@@ -99,18 +145,21 @@ export default function EnFiatCasinosPage() {
             id="en-fiat-featured-heading"
             className="mb-4 text-lg font-semibold text-foreground sm:text-xl"
           >
-            Featured international casino
+            Featured international casinos
           </h2>
-          <XonbetFeaturedCard context="fiat" />
+          <div className="space-y-4">
+            <XonbetFeaturedCard context="fiat" className="" />
+            <SlotoroFeaturedCard context="fiat" className="" />
+          </div>
         </section>
 
-        <SectionCard title="Welcome package">
+        <SectionCard title="XON.BET welcome package">
           <p className="mt-2 text-sm text-muted-foreground">
             XON.BET markets up to 500% across the first four deposits. Currency caps and exact
             percentages vary by GEO and account — JugadaMax does not display a fixed universal cap.
           </p>
           <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {WELCOME_DEPOSITS.map((item) => (
+            {XON_WELCOME_DEPOSITS.map((item) => (
               <div
                 key={item.label}
                 className="rounded-lg border border-cyan-500/20 bg-[#070B1C]/60 p-3 text-center"
@@ -127,24 +176,96 @@ export default function EnFiatCasinosPage() {
           </p>
         </SectionCard>
 
+        <SectionCard title="Slotoro welcome package">
+          <p className="mt-2 text-sm text-muted-foreground">
+            Slotoro markets up to 2,500 in bonus value plus up to 250 free spins across three
+            deposits. Currency presentation varies by country and account.
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {SLOTORO_WELCOME_CARDS.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-fuchsia-500/20 bg-[#130020]/60 p-3"
+              >
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {item.title}
+                </p>
+                <p className="mt-1 text-sm font-bold text-[#F4FF00]">{item.value}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{item.note}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Bonus value, currency, deposit thresholds, wagering, eligible games and availability vary
+            by country, account and current terms.
+          </p>
+        </SectionCard>
+
+        <SectionCard title="Royal Piggy wheel">
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            The supplied promotional landing presents a variable reward wheel with free-spin prizes up
+            to 250 FS. The actual reward and availability depend on landing, country, account and live
+            terms.
+          </p>
+        </SectionCard>
+
+        <SectionCard title="Compare reviewed fiat casinos">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-lg border border-cyan-500/20 bg-[#070B1C]/60 p-4">
+              <h3 className="text-sm font-semibold text-cyan-200">XON.BET</h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                <li>Multi-currency casino with four-deposit package</li>
+                <li>Cards, e-wallets, Interac and selected crypto</li>
+                <li>Main caution: mixed external safety signals</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-fuchsia-500/20 bg-[#130020]/60 p-4">
+              <h3 className="text-sm font-semibold text-fuchsia-200">Slotoro</h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                <li>Fiat-led multi-currency with three-deposit package and wheel landing</li>
+                <li>Cards, e-wallets and Interac</li>
+                <li>Main caution: wagering, conversion and withdrawal rules</li>
+              </ul>
+            </div>
+          </div>
+        </SectionCard>
+
         <SectionCard title="Payments">
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {PAYMENT_ITEMS.map((item) => (
+          <h3 className="mt-4 text-sm font-semibold text-foreground">XON.BET</h3>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            {XON_PAYMENT_ITEMS.map((item) => (
               <div key={item.title} className="rounded-lg border border-white/10 bg-[#111417] p-3">
-                <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                <h4 className="text-sm font-semibold text-foreground">{item.title}</h4>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <h3 className="mt-6 text-sm font-semibold text-foreground">Slotoro</h3>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            {SLOTORO_PAYMENT_ITEMS.map((item) => (
+              <div key={item.title} className="rounded-lg border border-white/10 bg-[#111417] p-3">
+                <h4 className="text-sm font-semibold text-foreground">{item.title}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
               </div>
             ))}
           </div>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             KYC and method-matching rules apply before withdrawals. Payment routes are not guaranteed
-            in every country — verify on the operator&apos;s official cashier before depositing.
+            in every country — verify on each operator&apos;s official cashier before depositing.
           </p>
         </SectionCard>
 
         <SectionCard title="Games and product">
+          <p className="mt-2 text-sm text-muted-foreground">
+            XON.BET product overview — Slotoro adds Wheel of Fortune, VIP Space and sportsbook as an
+            additional product. See the{" "}
+            <Link href="/en/reviews/slotoro" className="text-primary underline-offset-2 hover:underline">
+              Slotoro review
+            </Link>{" "}
+            for full product detail.
+          </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {PRODUCT_ITEMS.map((item) => (
+            {XON_PRODUCT_ITEMS.map((item) => (
               <div key={item.title} className="rounded-lg border border-white/10 bg-[#111417] p-3">
                 <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
@@ -154,16 +275,20 @@ export default function EnFiatCasinosPage() {
         </SectionCard>
 
         <SectionCard title="Availability">
+          <h3 className="mt-4 text-sm font-semibold text-foreground">XON.BET</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             Partner-reported availability includes{" "}
             {PARTNER_GEOS.join(", ")}. This is not a legal guarantee — local law and operator terms
-            apply. JugadaMax does not provide VPN or false-location guidance.
+            apply. XON.BET holds a Curaçao Gaming Authority licence — not local authorisation in
+            Canada, Germany, Sweden, Denmark or other partner-reported markets.
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            XON.BET holds a Curaçao Gaming Authority licence — not local authorisation in Canada,
-            Germany, Sweden, Denmark or other partner-reported markets. Canada availability is
-            provincial; see the jurisdiction notice above.
+          <h3 className="mt-6 text-sm font-semibold text-foreground">Slotoro</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Slotoro&apos;s official general terms list multiple restricted jurisdictions. Do not infer
+            availability from supported currencies or languages alone. JugadaMax does not provide VPN
+            or false-location guidance.
           </p>
+          <JurisdictionWarning className="mt-4">{SLOTORO_RESTRICTED_WARNING}</JurisdictionWarning>
         </SectionCard>
 
         <SectionCard title="How we review">

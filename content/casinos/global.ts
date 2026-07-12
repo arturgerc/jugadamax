@@ -85,4 +85,34 @@ export const globalCasinos: Casino[] = [
       "XON.BET is a multi-currency online casino with slots, live casino, tournaments, loyalty features and both fiat and selected crypto payment options. Its welcome package and payment methods vary by country, currency and account.",
     locale: "en",
   },
+  {
+    id: "slotoro",
+    slug: "slotoro",
+    name: "Slotoro Casino",
+    logo: {
+      src: "/operators/slotoro.svg",
+      alt: "Slotoro Casino",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino"],
+    rankByVertical: { "fiat-casino": 2 },
+    rating: 4.1,
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "Interac", kind: "fiat" },
+      { name: "Skrill", kind: "fiat" },
+      { name: "Neteller", kind: "fiat" },
+      { name: "MiFinity", kind: "fiat" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — OGL/2024/686/0183",
+      notes:
+        "Slotoro is operated by Wiraon B.V. (registration 146886). Official terms list Briantie Limited (HE 385770) as payment agent. This Curaçao licence is not local authorisation in every market. Check the current restricted-country list and local law.",
+    },
+    summary:
+      "Slotoro is a fiat-led multi-currency online casino with slots, live casino, table games, tournaments, Wheel of Fortune, VIP and loyalty features. Sportsbook is available as an additional product. The welcome package and payment methods vary by country and account.",
+    locale: "en",
+  },
 ];

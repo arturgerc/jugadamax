@@ -14,6 +14,7 @@ import {
   ROOBET_GLOBAL_AFFILIATE_URL,
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
+  SLOTORO_MAIN_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
   XONBET_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -131,6 +132,21 @@ const XONBET_CANADA_GEO_WARNING =
 const VODKABET_MX_GEO_WARNING =
   "Vodka.bet se presenta como operador internacional. La disponibilidad, promociones, pagos y acceso dependen de tu jurisdicción y de los términos oficiales. JugadaMax no afirma disponibilidad legal o local para México.";
 
+const SLOTORO_GLOBAL_GEO_WARNING =
+  "Slotoro availability depends on the player's jurisdiction and the operator's current restricted-country list. Several major markets are restricted. Check local law and live Slotoro terms before registering. Do not use a VPN or false location information.";
+
+function slotoroGlobalLink(): OperatorLink | undefined {
+  if (!SLOTORO_MAIN_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: SLOTORO_MAIN_AFFILIATE_URL,
+    label: "Visit Slotoro",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: SLOTORO_GLOBAL_GEO_WARNING,
+  };
+}
+
 function vodkabetMxLink(): OperatorLink | undefined {
   if (!VODKABET_AFFILIATE_URL) return undefined;
   return {
@@ -181,6 +197,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   xonbet: {
     global: xonbetGlobalLink(),
+  },
+  slotoro: {
+    global: slotoroGlobalLink(),
   },
   vodkabet: {
     mx: vodkabetMxLink(),

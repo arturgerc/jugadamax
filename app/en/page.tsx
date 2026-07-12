@@ -17,6 +17,7 @@ import { RankingList } from "@/components/ranking/RankingList";
 import { SocialLinks } from "@/components/social/SocialLinks";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
 import { XonbetFeaturedCard } from "@/components/affiliate/XonbetFeaturedCard";
+import { SlotoroFeaturedCard } from "@/components/affiliate/SlotoroFeaturedCard";
 
 export const metadata: Metadata = {
   ...buildEnMetadata({
@@ -138,8 +139,8 @@ export default function EnHomePage() {
                 Fiat Casinos
               </h2>
               <p className="text-sm text-muted-foreground sm:text-base">
-                XON.BET is our first reviewed multi-currency casino in the English section.
-                Payment methods and availability vary by country.
+                Reviewed fiat and multi-currency casinos for international readers. Payment methods,
+                bonuses and availability vary by country.
               </p>
             </div>
             <Link
@@ -149,7 +150,10 @@ export default function EnHomePage() {
               View fiat casinos
             </Link>
           </div>
-          <XonbetFeaturedCard context="homepage" />
+          <div className="mt-6 space-y-4">
+            <XonbetFeaturedCard context="homepage" className="" />
+            <SlotoroFeaturedCard context="homepage" className="" />
+          </div>
         </Container>
       </section>
 

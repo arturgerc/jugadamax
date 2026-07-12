@@ -199,6 +199,16 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     notes:
       "English/global fiat casino only. Partner-reported GEOs exclude New Zealand targeting. Casino product only on JugadaMax — no sportsbook surfaces.",
   },
+  slotoro: {
+    id: "slotoro",
+    name: "Slotoro Casino",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["english-global", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active global affiliate campaign. Fiat / multi-currency casino with sportsbook as an additional product. Current official restricted-country list applies. Main and bonus landings are configured separately.",
+  },
   vodkabet: {
     id: "vodkabet",
     name: "Vodka.bet",

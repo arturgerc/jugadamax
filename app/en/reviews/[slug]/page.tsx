@@ -27,6 +27,7 @@ import {
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
 import { XonbetReviewContent } from "@/components/review/XonbetReviewContent";
+import { SlotoroReviewContent } from "@/components/review/SlotoroReviewContent";
 
 type BodyBlock =
   | { type: "h2"; text: string }
@@ -74,6 +75,15 @@ function getEnReviewRelatedLinks(slug: string) {
     return [
       { href: "/en/casinos-fiat", label: "Fiat & multi-currency casinos" },
       { href: "/en/casinos-crypto", label: "Crypto casinos ranking" },
+      { href: "/en/how-we-review", label: "How we review" },
+      { href: "/en/responsible-gambling", label: "Responsible gambling" },
+    ];
+  }
+
+  if (slug === "slotoro") {
+    return [
+      { href: "/en/casinos-fiat", label: "Fiat & multi-currency casinos" },
+      { href: "/en/reviews/xonbet", label: "XON.BET review" },
       { href: "/en/how-we-review", label: "How we review" },
       { href: "/en/responsible-gambling", label: "Responsible gambling" },
     ];
@@ -189,6 +199,41 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
           dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
         />
         <XonbetReviewContent review={review} casino={casino} author={author} />
+        <section aria-labelledby="en-review-related-heading" className="mx-auto mt-10 max-w-5xl">
+          <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
+            Continue reading
+          </h2>
+          <nav aria-label="Related guides and reviews" className="mt-4">
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {getEnReviewRelatedLinks(slug).map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+      </Container>
+    );
+  }
+
+  if (slug === "slotoro") {
+    return (
+      <Container className="py-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+        />
+        <SlotoroReviewContent review={review} casino={casino} author={author} />
         <section aria-labelledby="en-review-related-heading" className="mx-auto mt-10 max-w-5xl">
           <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
             Continue reading

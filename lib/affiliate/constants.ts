@@ -69,3 +69,7 @@ export const VODKABET_AFFILIATE_URL = "https://vodka200032.com?id=18393";
 
 /** Confirmed standalone promo code for Vodka.bet JugadaMax campaigns. */
 export const VODKABET_PROMO_CODE = "JUGADAMAX";
+
+/** Slotoro global affiliate link (English/global fiat casino coverage). */
+export const SLOTORO_MAIN_AFFILIATE_URL =
+  "https://promo-click.com/l/6a5390be02a89cb4920587e2";
