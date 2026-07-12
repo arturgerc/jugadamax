@@ -110,6 +110,15 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
+    id: "awintura-welcome",
+    casinoId: "awintura",
+    title: "Hasta $60,000 + 250 FS + 200% freebets según campaña",
+    type: "welcome",
+    terms:
+      "La moneda, importes, depósitos elegibles, wagering, cuotas, juegos, límites, vencimiento y disponibilidad dependen de la creatividad activa, la cuenta, el GEO y los términos oficiales.",
+    active: true,
+  },
+  {
     id: "mellstroy-welcome",
     casinoId: "mellstroy",
     title: "Bono de bienvenida: hasta 660% + 400 FS",

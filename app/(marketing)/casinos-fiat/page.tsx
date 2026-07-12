@@ -11,6 +11,7 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
+import { AwinturaFeaturedCard } from "@/components/affiliate/AwinturaFeaturedCard";
 import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSections";
 
 export const metadata: Metadata = buildMetadata({
@@ -34,7 +35,7 @@ export default function FiatCasinosPage() {
   // Betsson is featured as the primary Mexico fiat partner above; exclude the
   // placeholder editorial entry from the ranking to avoid duplication.
   const casinos = getCasinosByVertical("fiat-casino").filter(
-    (c) => c.id !== "betsson" && c.id !== "1xbet" && c.id !== "melbet",
+    (c) => c.id !== "betsson" && c.id !== "1xbet" && c.id !== "melbet" && c.id !== "awintura",
   );
   const fiatPayments = uniqueFiatPayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
@@ -110,6 +111,7 @@ export default function FiatCasinosPage() {
         </p>
         <OneXBetFeaturedCard context="casino" />
         <MelbetFeaturedCard context="casino" />
+        <AwinturaFeaturedCard context="casino" />
       </section>
 
       <section aria-labelledby="codere-fiat-heading" className="mb-8">

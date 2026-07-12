@@ -7,6 +7,7 @@ import {
   RAINBET_REFERRAL_URL,
   MELBET_AFFILIATE_URL,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
+  AWINTURA_CARD_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
@@ -393,6 +394,37 @@ export const casinos: Casino[] = [
     bonusIds: ["melbet-sportsbook-welcome"],
     summary:
       "Melbet es un operador mixto internacional con sportsbook, casino online, slots, live casino y fast games en una sola cuenta. Para usuarios de México/LATAM, JugadaMax lo presenta como candidato activo secundario tras Betsson y 1xBet; revisa bonos deportivos, promociones de casino, pagos, verificación y términos oficiales antes de registrarte.",
+    locale: "es-MX",
+  },
+  {
+    id: "awintura",
+    slug: "awintura",
+    name: "Awintura",
+    logo: {
+      src: "/operators/awintura.svg",
+      alt: "Awintura",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    rating: 4.1,
+    affiliateUrl: AWINTURA_CARD_AFFILIATE_URL,
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Tether", kind: "crypto" },
+      { name: "Binance Pay", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — OGL/2024/686/0183",
+      notes:
+        "Awintura is operated by Wiraon B.V. (registration 146886). Briantie Limited (HE 385770) acts as payment agent. This is not a local Mexican licence. Availability, payments, sportsbook access and promotions depend on jurisdiction and account.",
+    },
+    bonusIds: ["awintura-welcome"],
+    summary:
+      "Awintura es un operador internacional mixto con casino, slots, live casino, juegos de mesa, promociones, sportsbook, VIP y funciones de gamificación. Admite métodos fiat y algunas opciones crypto según país y cuenta. La campaña JugadaMax muestra hasta $60,000, 250 FS y 200% freebets según términos.",
     locale: "es-MX",
   },
   {

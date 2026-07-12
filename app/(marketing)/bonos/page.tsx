@@ -9,6 +9,7 @@ import { OfferCard } from "@/components/affiliate/OfferCard";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
+import { AwinturaFeaturedCard } from "@/components/affiliate/AwinturaFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { VodkabetFeaturedCard } from "@/components/affiliate/VodkabetFeaturedCard";
 import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
@@ -262,6 +263,7 @@ export default function BonosPage() {
           </p>
           <OneXBetFeaturedCard context="bonus" />
           <MelbetFeaturedCard context="bonus" />
+          <AwinturaFeaturedCard context="bonus" />
         </section>
 
         <section aria-labelledby="bonos-crypto-operators-heading">

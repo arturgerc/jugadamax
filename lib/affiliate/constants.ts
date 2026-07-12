@@ -69,3 +69,11 @@ export const VODKABET_AFFILIATE_URL = "https://vodka200032.com?id=18393";
 
 /** Confirmed standalone promo code for Vodka.bet JugadaMax campaigns. */
 export const VODKABET_PROMO_CODE = "JUGADAMAX";
+
+/** Awintura card / information landing affiliate link (Spanish/MX campaign). */
+export const AWINTURA_CARD_AFFILIATE_URL =
+  "https://affinturo-promo.com/l/6a4e37eaf9599b9fe6096a12";
+
+/** Awintura direct registration landing — final review CTA only. */
+export const AWINTURA_REGISTRATION_AFFILIATE_URL =
+  "https://affinturo-promo.com/l/6a50015dbd80654f2a03d9d2";

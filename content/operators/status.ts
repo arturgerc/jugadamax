@@ -135,6 +135,16 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     affiliateAllowed: true,
     notes: "Mixed operator (casino + sportsbook); promo code ml_2958499 confirmed for Mexico campaigns.",
   },
+  awintura: {
+    id: "awintura",
+    name: "Awintura",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["casinos-fiat", "bonos", "apuestas", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active Mexico/LATAM affiliate campaign. International mixed operator: fiat/multi-currency casino with sportsbook additional and selected crypto payment methods. Card CTAs use the information landing; only the final review CTA uses direct registration.",
+  },
   codere: {
     id: "codere",
     name: "Codere",
