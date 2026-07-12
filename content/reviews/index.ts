@@ -485,6 +485,47 @@ export const reviews: Review[] = [
     locale: "es-MX",
   },
   {
+    id: "awintura-review",
+    casinoId: "awintura",
+    authorId: "redaccion-jugadamax",
+    slug: "awintura",
+    title: "Reseña de Awintura México: bono, casino, pagos y apuestas",
+    verdict:
+      "Awintura combina casino, slots, live casino, mesas, sportsbook y un ecosistema amplio de promociones y recompensas. La campaña JugadaMax muestra hasta $60,000, 250 FS y 200% freebets, pero las cifras, moneda y condiciones varían por GEO y cuenta. La licencia Curaçao y la variedad de producto son puntos positivos; la falta de licencia local mexicana, las reglas de bonos, KYC, rollover de depósitos y retiros requieren atención. JugadaMax lo valora con 4.1/5 como operador internacional mixto de prioridad secundaria.",
+    rating: 4.1,
+    pros: [
+      "Licencia Curaçao y entidad operadora identificable.",
+      "Casino, sportsbook, live casino y mesas en una sola cuenta.",
+      "Métodos fiat y algunas opciones crypto según mercado.",
+      "VIP, torneos, logros, Wheel of Fortune y otras funciones.",
+      "Campaña activa con casino bonus, free spins y freebets.",
+    ],
+    cons: [
+      "No cuenta con licencia local mexicana verificada.",
+      "Los importes promocionales cambian por GEO, moneda y cuenta.",
+      "Las reglas genéricas y promocionales de wagering pueden diferir.",
+      "KYC y restricciones de retiro pueden aplicarse.",
+      "El rollover insuficiente del depósito puede generar comisiones o bloqueos.",
+      "La muestra externa de opiniones de usuarios sigue siendo limitada.",
+      "OXXO y SPEI no han sido verificados por JugadaMax en el cajero en vivo.",
+    ],
+    body: [
+      "## Resumen",
+      "Awintura es un operador internacional mixto operado por Wiraon B.V. bajo licencia Curaçao OGL/2024/686/0183. JugadaMax lo clasifica como casino fiat/multi-moneda con sportsbook adicional — no como casino crypto ni como operador local mexicano.",
+      "La campaña suministrada para JugadaMax muestra hasta $60,000, 250 free spins y 200% freebets, pero las páginas públicas de Awintura presentan otras estructuras según país, moneda y cuenta. Confirma siempre la promoción activa tras el redirect.",
+      "JugadaMax asigna una valoración editorial de 4.1/5. Las evaluaciones externas son favorables en seguridad general, pero la muestra de opiniones de jugadores sigue siendo limitada. Esto es opinión editorial — no una puntuación agregada de usuarios.",
+      "Antes de registrarte, revisa wagering, conversión de bonos, KYC, rollover de depósitos, restricciones de retiro y si el operador acepta clientes desde tu jurisdicción conforme a la ley local.",
+      "El juego implica riesgo financiero. 18+ solamente. No uses VPN ni datos falsos de ubicación.",
+    ].join("\n\n"),
+    paymentsSummary:
+      "Awintura publica métodos de pago diferentes según país. Visa, Mastercard y algunas opciones crypto como Bitcoin, Tether y Binance Pay aparecen en fuentes oficiales. Una base externa reporta OXXO Pay y SPEI, pero JugadaMax no garantiza su disponibilidad para una cuenta mexicana. Confirma métodos, moneda, redes, mínimos, comisiones, KYC y retiros directamente en el cajero.",
+    trustSummary:
+      "Awintura es operado por Wiraon B.V. bajo licencia Curaçao OGL/2024/686/0183. Briantie Limited actúa como agente de pagos. México no aparece en la lista restringida revisada, pero esto no equivale a autorización local. Revisa restricciones, verificación, bonos, pagos y retiros antes de registrarte.",
+    publishedAt: "2026-07-12",
+    updatedAt: "2026-07-12",
+    locale: "es-MX",
+  },
+  {
     id: "mellstroy-review",
     casinoId: "mellstroy",
     authorId: "redaccion-jugadamax",

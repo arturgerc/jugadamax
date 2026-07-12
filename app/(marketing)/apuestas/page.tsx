@@ -11,6 +11,7 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
+import { AwinturaFeaturedCard } from "@/components/affiliate/AwinturaFeaturedCard";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
 
 export const metadata: Metadata = buildMetadata({
@@ -33,7 +34,12 @@ function uniquePayments(casinos: ReturnType<typeof getCasinosByVertical>) {
 export default function BettingSitesPage() {
   // Betsson, 1xBet and Melbet are featured above; exclude from ranking to avoid duplication.
   const casinos = getCasinosByVertical("sportsbook").filter(
-    (c) => c.id !== "betsson" && c.id !== "codere" && c.id !== "1xbet" && c.id !== "melbet",
+    (c) =>
+      c.id !== "betsson" &&
+      c.id !== "codere" &&
+      c.id !== "1xbet" &&
+      c.id !== "melbet" &&
+      c.id !== "awintura",
   );
   const payments = uniquePayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
@@ -111,6 +117,7 @@ export default function BettingSitesPage() {
         </p>
         <OneXBetFeaturedCard context="sportsbook" className="mt-0" />
         <MelbetFeaturedCard context="sportsbook" className="mt-0" />
+        <AwinturaFeaturedCard context="sportsbook" className="mt-0" />
       </section>
 
       <section aria-labelledby="codere-apuestas-heading" className="mb-8">

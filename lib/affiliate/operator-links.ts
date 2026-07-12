@@ -14,6 +14,7 @@ import {
   ROOBET_GLOBAL_AFFILIATE_URL,
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
+  AWINTURA_CARD_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
   XONBET_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -131,6 +132,21 @@ const XONBET_CANADA_GEO_WARNING =
 const VODKABET_MX_GEO_WARNING =
   "Vodka.bet se presenta como operador internacional. La disponibilidad, promociones, pagos y acceso dependen de tu jurisdicción y de los términos oficiales. JugadaMax no afirma disponibilidad legal o local para México.";
 
+const AWINTURA_MX_GEO_WARNING =
+  "Operador internacional. La disponibilidad, pagos, promociones y sportsbook dependen de tu jurisdicción y de los términos oficiales.";
+
+function awinturaMxLink(): OperatorLink | undefined {
+  if (!AWINTURA_CARD_AFFILIATE_URL) return undefined;
+  return {
+    market: "mx",
+    url: AWINTURA_CARD_AFFILIATE_URL,
+    label: "Visitar Awintura",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: AWINTURA_MX_GEO_WARNING,
+  };
+}
+
 function vodkabetMxLink(): OperatorLink | undefined {
   if (!VODKABET_AFFILIATE_URL) return undefined;
   return {
@@ -184,6 +200,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   vodkabet: {
     mx: vodkabetMxLink(),
+  },
+  awintura: {
+    mx: awinturaMxLink(),
   },
 };
 

@@ -38,6 +38,7 @@ import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard"
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { VodkabetReviewContent } from "@/components/review/VodkabetReviewContent";
+import { AwinturaReviewContent } from "@/components/review/AwinturaReviewContent";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
@@ -1126,6 +1127,24 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
           />
           <VodkabetReviewContent review={review} casino={casino} author={author} />
+        </Container>
+      </>
+    );
+  }
+
+  if (review.slug === "awintura") {
+    return (
+      <>
+        <Container className="pt-8 pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pt-8 md:pb-8">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+          />
+          <AwinturaReviewContent review={review} casino={casino} author={author} />
         </Container>
       </>
     );

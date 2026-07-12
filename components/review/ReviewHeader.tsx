@@ -160,6 +160,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-violet-400/20 bg-blue-500/10",
     decorB: "bg-violet-400/45",
   },
+  awintura: {
+    shell:
+      "border-[#D49A00]/25 bg-gradient-to-br from-[#090704] via-[#120D05] to-[#272011] ring-1 ring-[#537A28]/10 shadow-[0_4px_28px_-12px_rgba(212,154,0,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(242,182,0,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(83,122,40,0.1),transparent_50%)]",
+    badge: "border-[#D49A00]/30 bg-[#D49A00]/10 text-[#FFD54A]",
+    chip: "border-[#537A28]/25 bg-[#D49A00]/8 text-[#FFD54A]/90",
+    scorePanel: "border-[#D49A00]/25 bg-[#120D05]/85 shadow-[inset_0_1px_0_rgba(212,154,0,0.08)]",
+    scoreValue: "text-[#FFD54A]",
+    decorA: "border-[#537A28]/25 bg-[#D49A00]/10",
+    decorB: "bg-[#FFD54A]/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",
