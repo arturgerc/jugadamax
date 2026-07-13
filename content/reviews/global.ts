@@ -181,4 +181,44 @@ export const globalReviews: Review[] = [
     updatedAt: "2026-07-11",
     locale: "en",
   },
+  {
+    id: "slotoro-review-en",
+    casinoId: "slotoro",
+    authorId: "arturs-stoliks",
+    slug: "slotoro",
+    title: "Slotoro Casino Review 2026 — Bonus, Games, Payments & Safety",
+    verdict:
+      "Slotoro combines a broad fiat-led casino catalogue, live games, tournaments, Wheel of Fortune, VIP and loyalty features with sportsbook as an additional product. Its active Curaçao licence and payment range are positives. The welcome package is commercially strong, but 40x wagering, a five-day wagering period, bonus conversion rules, withdrawal conditions and limited mixed player feedback require attention. JugadaMax rates Slotoro 4.1/5 as a reviewed secondary international option.",
+    rating: 4.1,
+    pros: [
+      "Active Curaçao licence with identifiable operator and payment agent.",
+      "Broad slots, live casino, table and instant-game catalogue.",
+      "Cards, e-wallets, Interac and multi-currency support where available.",
+      "Welcome package, Wheel of Fortune, tournaments and loyalty programme.",
+      "Sportsbook available as an additional product.",
+    ],
+    cons: [
+      "40x wagering and a five-day bonus wagering period.",
+      "Maximum conversion and maximum-bet rules apply to bonuses.",
+      "Withdrawal timing and limits vary, with additional lifetime-deposit restrictions.",
+      "Several major international markets are restricted.",
+      "Player-feedback samples remain limited and mixed.",
+      "Payment methods are not available equally in every country.",
+    ],
+    body: [
+      "## Overview",
+      "Slotoro is an international fiat-led online casino operated by Wiraon B.V. under Curaçao licence OGL/2024/686/0183. JugadaMax covers it as a fiat / multi-currency casino for English/global readers — sportsbook is an additional product, not the basis for this classification.",
+      "The platform combines slots, live dealer tables, instant formats, tournaments, Wheel of Fortune, VIP Space and loyalty mechanics with cards, e-wallets, Interac and selected crypto where enabled. Availability, payment methods and promotional values depend on country, currency and account status.",
+      "JugadaMax assigns an editorial rating of 4.1/5. External assessments are broadly positive on licensing and product breadth, but player-feedback samples remain limited and mixed. This is JugadaMax editorial opinion — not an aggregate user score.",
+      "Before registering, confirm the live welcome offer shown after redirect, wagering rules, restricted-country list, withdrawal limits, verification requirements and whether the operator accepts customers from your jurisdiction under local law.",
+      "Gambling involves financial risk. 18+ only. Do not use VPNs or false location information to access restricted services.",
+    ].join("\n\n"),
+    paymentsSummary:
+      "Slotoro supports cards, e-wallets, Interac and selected crypto assets where enabled. Methods, currency, minimums, KYC, fees, same-method withdrawal rules and processing times depend on country, account and current cashier terms.",
+    trustSummary:
+      "Slotoro is operated by Wiraon B.V. under Curaçao licence OGL/2024/686/0183. Briantie Limited acts as payment agent. This is not local authorisation in every market. Current restricted-country, KYC, withdrawal and bonus terms must be reviewed before registering.",
+    publishedAt: "2026-07-12",
+    updatedAt: "2026-07-12",
+    locale: "en",
+  },
 ];

@@ -77,3 +77,7 @@ export const AWINTURA_CARD_AFFILIATE_URL =
 /** Awintura direct registration landing — final review CTA only. */
 export const AWINTURA_REGISTRATION_AFFILIATE_URL =
   "https://affinturo-promo.com/l/6a50015dbd80654f2a03d9d2";
+
+/** Slotoro global affiliate link (English/global fiat casino coverage). */
+export const SLOTORO_MAIN_AFFILIATE_URL =
+  "https://promo-click.com/l/6a5390be02a89cb4920587e2";

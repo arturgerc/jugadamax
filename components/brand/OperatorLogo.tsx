@@ -37,6 +37,9 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "awintura") {
     return "border-[#D49A00]/30 ring-[#537A28]/20 shadow-[0_0_18px_-6px_rgba(212,154,0,0.25)]";
   }
+  if (operatorId === "slotoro") {
+    return "border-fuchsia-500/30 ring-fuchsia-500/20 shadow-[0_0_18px_-6px_rgba(217,0,215,0.25)]";
+  }
   return "ring-white/10";
 }
 
@@ -61,6 +64,9 @@ function logoTileBackground(operatorId?: string): string {
   }
   if (operatorId === "awintura") {
     return "bg-gradient-to-br from-[#090704] via-[#120D05] to-[#272011]";
+  }
+  if (operatorId === "slotoro") {
+    return "bg-gradient-to-br from-[#080014] via-[#130020] to-[#22002F]";
   }
   return "bg-[#16233f]";
 }
@@ -114,13 +120,15 @@ export function OperatorLogo({
     const isXonbet = operatorId === "xonbet";
     const isVodkabet = operatorId === "vodkabet";
     const isAwintura = operatorId === "awintura";
-    const isWideWordmark = isRainbet || isGamdom || isXonbet || isVodkabet || isAwintura;
+    const isSlotoro = operatorId === "slotoro";
+    const isWideWordmark =
+      isRainbet || isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro;
     return (
       <span
         className={cn(
           "inline-flex shrink-0 items-center justify-center rounded-xl ring-1",
           isWideWordmark
-            ? isGamdom || isXonbet || isVodkabet || isAwintura
+            ? isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro
               ? "h-14 w-[7.5rem] border px-1 py-0.5"
               : "h-14 w-[5.75rem] border border-emerald-500/20 px-0.5 py-0.5 sm:w-24"
             : "h-12 w-[4.5rem] px-1 py-1 sm:w-20",
@@ -131,6 +139,7 @@ export function OperatorLogo({
           isXonbet && "border-cyan-500/25 shadow-[inset_0_1px_0_rgba(0,217,255,0.1)]",
           isVodkabet && "border-blue-500/25 shadow-[inset_0_1px_0_rgba(59,130,246,0.1)]",
           isAwintura && "border-[#D49A00]/25 shadow-[inset_0_1px_0_rgba(212,154,0,0.1)]",
+          isSlotoro && "border-fuchsia-500/25 shadow-[inset_0_1px_0_rgba(217,0,215,0.1)]",
           className,
         )}
       >
@@ -138,9 +147,29 @@ export function OperatorLogo({
           src={logo.src}
           alt=""
           aria-hidden="true"
-          width={logo.width ?? (isXonbet || isGamdom || isVodkabet || isAwintura ? 120 : isRainbet ? 96 : 80)}
-          height={logo.height ?? (isXonbet || isGamdom || isVodkabet || isAwintura ? 48 : isRainbet ? 56 : LOGO_HEIGHT)}
-          sizes={isXonbet || isGamdom || isVodkabet || isAwintura ? "120px" : isRainbet ? "96px" : "80px"}
+          width={
+            logo.width ??
+            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro
+              ? 120
+              : isRainbet
+                ? 96
+                : 80)
+          }
+          height={
+            logo.height ??
+            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro
+              ? 48
+              : isRainbet
+                ? 56
+                : LOGO_HEIGHT)
+          }
+          sizes={
+            isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro
+              ? "120px"
+              : isRainbet
+                ? "96px"
+                : "80px"
+          }
           className={cn(
             "max-w-full object-contain",
             isWideWordmark ? "max-h-[3.25rem] w-full" : "max-h-full",

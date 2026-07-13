@@ -171,6 +171,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-[#537A28]/25 bg-[#D49A00]/10",
     decorB: "bg-[#FFD54A]/45",
   },
+  slotoro: {
+    shell:
+      "border-fuchsia-500/25 bg-gradient-to-br from-[#080014] via-[#130020] to-[#22002F] ring-1 ring-fuchsia-500/10 shadow-[0_4px_28px_-12px_rgba(217,0,215,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(240,43,203,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(244,255,0,0.08),transparent_50%)]",
+    badge: "border-fuchsia-400/30 bg-fuchsia-500/10 text-fuchsia-200",
+    chip: "border-fuchsia-500/25 bg-fuchsia-500/8 text-fuchsia-100/90",
+    scorePanel: "border-fuchsia-500/25 bg-[#130020]/85 shadow-[inset_0_1px_0_rgba(217,0,215,0.08)]",
+    scoreValue: "text-[#F4FF00]",
+    decorA: "border-fuchsia-400/25 bg-fuchsia-500/10",
+    decorB: "bg-[#F4FF00]/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",
