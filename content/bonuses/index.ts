@@ -128,6 +128,15 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
+    id: "sportsbetio-champions-welcome",
+    casinoId: "sportsbetio",
+    title: "100% hasta 300 USDT para Sports o Casino",
+    type: "welcome",
+    terms:
+      "Depósito mínimo de 10 USDT. Wagering publicado: 15x para Sports y 40x para Casino. Activación, mercados, juegos, vencimiento, KYC, pagos y disponibilidad dependen de la cuenta, GEO y términos vigentes.",
+    active: true,
+  },
+  {
     id: "mellstroy-welcome",
     casinoId: "mellstroy",
     title: "Bono de bienvenida: hasta 660% + 400 FS",

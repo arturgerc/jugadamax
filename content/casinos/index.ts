@@ -9,6 +9,7 @@ import {
   MELLSTROY_GLOBAL_AFFILIATE_URL,
   AWINTURA_CARD_AFFILIATE_URL,
   MOSTBET_PLAYERS_AFFILIATE_URL,
+  SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
   ROOBET_MX_CASINO_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -490,6 +491,38 @@ export const casinos: Casino[] = [
     bonusIds: ["mostbet-first-deposit"],
     summary:
       "Mostbet es un operador internacional mixto con sportsbook, casino, live casino, poker, esports y juegos instantáneos. La landing afiliada muestra 125% + 250 FS para el primer depósito con selección Casino o Sports. La moneda, condiciones, pagos y disponibilidad dependen de la cuenta, GEO y términos vigentes.",
+    locale: "es-MX",
+  },
+  {
+    id: "sportsbetio",
+    slug: "sportsbet-io",
+    name: "Sportsbet.io",
+    logo: {
+      src: "/operators/sportsbet.svg",
+      alt: "Sportsbet.io",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino", "sportsbook"],
+    rankByVertical: {},
+    rating: 4.0,
+    affiliateUrl: SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — OGL/2023/110/0072",
+      notes:
+        "Sportsbet.io es operado por mBet Solutions N.V. bajo supervisión de Curaçao Gaming Authority. mProcessing Solutions Ltd gestiona algunos métodos de pago. Esto no equivale a licencia local mexicana. Revisa restricciones, KYC, promociones y términos vigentes.",
+    },
+    bonusIds: ["sportsbetio-champions-welcome"],
+    summary:
+      "Sportsbet.io es un sportsbook crypto internacional con casino, live casino, slots, Originals, torneos y VIP. El Champions Welcome Bonus publicado ofrece 100% hasta 300 USDT para Sports o Casino, sujeto a depósito mínimo, wagering, cuenta, GEO y términos oficiales.",
     locale: "es-MX",
   },
   {

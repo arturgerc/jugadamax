@@ -95,3 +95,18 @@ export const MOSTBET_PLAYERS_AFFILIATE_URL =
 /** Mostbet application download affiliate landing — review app section only. */
 export const MOSTBET_APP_DOWNLOAD_URL =
   "https://xtsplkmost.com/yJUU";
+
+/** General Sportsbet.io registration landing for Spanish/MX coverage. */
+export const SPORTSBETIO_REGISTRATION_AFFILIATE_URL =
+  "https://go.sportsbet.io?asset_id=37501682";
+
+/** Temporary $777,777 World Cup Tournament campaign. */
+export const SPORTSBETIO_WORLD_CUP_TOURNAMENT_URL =
+  "https://go.sportsbet.io?asset_id=37501609";
+
+/** Sportsbook-specific Sportsbet.io landing. */
+export const SPORTSBETIO_BETTING_AFFILIATE_URL =
+  "https://go.sportsbet.io?asset_id=37501752";
+
+export const SPORTSBETIO_WORLD_CUP_TOURNAMENT_END =
+  "2026-07-19T23:00:00Z";

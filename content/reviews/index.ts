@@ -561,6 +561,43 @@ export const reviews: Review[] = [
     locale: "es-MX",
   },
   {
+    id: "sportsbetio-review",
+    casinoId: "sportsbetio",
+    authorId: "redaccion-jugadamax",
+    slug: "sportsbet-io",
+    title: "Reseña de Sportsbet.io México: apuestas crypto, casino y bono",
+    rating: 4.0,
+    publishedAt: "2026-07-14",
+    updatedAt: "2026-07-14",
+    locale: "es-MX",
+    verdict:
+      "Sportsbet.io combina un sportsbook crypto consolidado con live betting, esports, casino, live casino, slots, Originals y promociones. El Champions Welcome Bonus publicado ofrece 100% hasta 300 USDT para Sports o Casino, con depósito mínimo de 10 USDT y wagering distinto según producto. La licencia Curaçao y la transparencia corporativa son puntos positivos, pero la ausencia de licencia local mexicana, el Safety Index externo más bajo, las reclamaciones, KYC y condiciones de retiro requieren cautela. JugadaMax lo valora con 4.0/5.",
+    pros: [
+      "Sportsbook crypto amplio con pre-match, live y esports.",
+      "Casino, live casino, slots y Originals en una sola cuenta.",
+      "Welcome bonus oficial con condiciones publicadas.",
+      "Licencia Curaçao y operador identificable.",
+      "Amplia selección de criptomonedas.",
+      "Aplicación Android y PWA para iOS.",
+      "Interfaz y soporte en español.",
+    ],
+    cons: [
+      "No cuenta con licencia local mexicana.",
+      "Casino Guru publica un Safety Index por debajo de la media.",
+      "Fuentes externas registran reclamaciones y casos de restricciones de cuenta.",
+      "KYC puede solicitarse antes de retiros.",
+      "Las promociones temporales cambian con frecuencia.",
+      "Fees y condiciones de retiro pueden depender del método.",
+      "La lista de jurisdicciones restringidas es extensa.",
+    ],
+    body:
+      "Sportsbet.io es un sportsbook crypto internacional con casino adicional. JugadaMax lo clasifica como sportsbook-first con crypto-casino secundario — no como operador fiat.\n\nEl Champions Welcome Bonus publicado ofrece 100% hasta 300 USDT con elección Sports o Casino, depósito mínimo 10 USDT y wagering 15x/40x.\n\nOperado por mBet Solutions N.V. bajo licencia Curaçao OGL/2023/110/0072. México no aparece en la lista restringida revisada; no equivale a licencia local mexicana.\n\nCalificamos Sportsbet.io 4.0/5: producto sólido y transparencia corporativa, con cautela sobre Safety Index externo, KYC y retiros. 18+.",
+    paymentsSummary:
+      "Sportsbet.io es crypto-first y admite múltiples activos como BTC, ETH, USDT, USDC, Litecoin y XRP. Sus términos también contemplan fiat, pero monedas, métodos, redes, mínimos, fees y disponibilidad dependen de la cuenta y el país. Confirma siempre el cajero antes de transferir fondos.",
+    trustSummary:
+      "Sportsbet.io es operado por mBet Solutions N.V. bajo licencia Curaçao OGL/2023/110/0072. mProcessing Solutions Ltd gestiona algunos pagos. México no aparece en la lista restringida revisada, pero esto no equivale a licencia local mexicana. Revisa restricciones, KYC, bonos y políticas de retiro antes de registrarte.",
+  },
+  {
     id: "mellstroy-review",
     casinoId: "mellstroy",
     authorId: "redaccion-jugadamax",

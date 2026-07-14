@@ -240,6 +240,16 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     notes:
       "Active JugadaMax affiliate campaign. International crypto-oriented casino with sportsbook as an additional product. Promo code JUGADAMAX. Licence, payments, KYC, withdrawals and jurisdiction availability require verification.",
   },
+  sportsbetio: {
+    id: "sportsbetio",
+    name: "Sportsbet.io",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["casinos-crypto", "apuestas", "bonos", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active Spanish/MX affiliate campaign. Crypto-first sportsbook with substantial crypto casino coverage. General registration, sportsbook and temporary tournament links are mapped separately. Not presented as locally licensed in Mexico.",
+  },
 };
 
 export function getOperatorPolicy(operatorId: string): OperatorPolicy | undefined {

@@ -17,6 +17,7 @@ import {
   STAKE_MX_OFFICIAL_URL,
   AWINTURA_CARD_AFFILIATE_URL,
   MOSTBET_PLAYERS_AFFILIATE_URL,
+  SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
   SLOTORO_MAIN_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
   XONBET_GLOBAL_AFFILIATE_URL,
@@ -180,6 +181,21 @@ function mostbetMxLink(): OperatorLink | undefined {
   };
 }
 
+const SPORTSBETIO_MX_GEO_WARNING =
+  "Sportsbet.io es un operador crypto internacional con sportsbook y casino. México no aparece en la lista restringida revisada, pero JugadaMax no afirma licencia local mexicana. Disponibilidad, bonos, pagos, KYC y retiros dependen de tu jurisdicción y de los términos oficiales.";
+
+function sportsbetioMxLink(): OperatorLink | undefined {
+  if (!SPORTSBETIO_REGISTRATION_AFFILIATE_URL) return undefined;
+  return {
+    market: "mx",
+    url: SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
+    label: "Visitar Sportsbet.io",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: SPORTSBETIO_MX_GEO_WARNING,
+  };
+}
+
 const SLOTORO_GLOBAL_GEO_WARNING =
   "Slotoro availability depends on the player's jurisdiction and the operator's current restricted-country list. Several major markets are restricted. Check local law and live Slotoro terms before registering. Do not use a VPN or false location information.";
 
@@ -258,6 +274,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   mostbet: {
     mx: mostbetMxLink(),
+  },
+  sportsbetio: {
+    mx: sportsbetioMxLink(),
   },
 };
 
