@@ -12,6 +12,7 @@ import {
   MELLSTROY_GLOBAL_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
   ROOBET_GLOBAL_AFFILIATE_URL,
+  ROOBET_MX_CASINO_AFFILIATE_URL,
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
   AWINTURA_CARD_AFFILIATE_URL,
@@ -88,6 +89,21 @@ function roobetGlobalLink(): OperatorLink | undefined {
     isAffiliate: true,
     rel: "sponsored nofollow noopener noreferrer",
     geoWarning: "Availability depends on your jurisdiction and official operator terms.",
+  };
+}
+
+const ROOBET_MX_GEO_WARNING =
+  "Roobet es un operador crypto internacional. La disponibilidad, promociones, pagos, sportsbook, KYC y retiros dependen de tu ubicación, cuenta y de los términos oficiales. JugadaMax no afirma que Roobet cuente con licencia local mexicana.";
+
+function roobetMxLink(): OperatorLink | undefined {
+  if (!ROOBET_MX_CASINO_AFFILIATE_URL) return undefined;
+  return {
+    market: "mx",
+    url: ROOBET_MX_CASINO_AFFILIATE_URL,
+    label: "Visitar Roobet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: ROOBET_MX_GEO_WARNING,
   };
 }
 
@@ -200,6 +216,7 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
     global: fiveHundredCasinoGlobalLink(),
   },
   roobet: {
+    mx: roobetMxLink(),
     global: roobetGlobalLink(),
   },
   gamdom: {

@@ -8,6 +8,7 @@ import {
   MELBET_AFFILIATE_URL,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
   AWINTURA_CARD_AFFILIATE_URL,
+  ROOBET_MX_CASINO_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 
@@ -312,6 +313,37 @@ export const casinos: Casino[] = [
     bonusIds: ["rainbet-promotions"],
     summary:
       "Rainbet es un casino crypto internacional con slots, juegos en vivo, sportsbook y títulos Originals. Puede funcionar como alternativa de comparación para usuarios de México/LATAM que buscan una experiencia centrada en criptomonedas, siempre revisando términos oficiales, disponibilidad regional, KYC y métodos de pago.",
+    locale: "es-MX",
+  },
+  {
+    id: "roobet",
+    slug: "roobet",
+    name: "Roobet",
+    logo: {
+      src: "/operators/roobet.svg",
+      alt: "Roobet",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    rating: 4.1,
+    affiliateUrl: ROOBET_MX_CASINO_AFFILIATE_URL,
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao / Anjouan — verificar términos vigentes",
+      notes:
+        "Fuentes externas identifican a Raw Entertainment B.V. y licencias de Curaçao y Anjouan. JugadaMax recomienda confirmar la entidad, los números de licencia, restricciones regionales, KYC y políticas vigentes directamente en Roobet antes de registrarte.",
+    },
+    summary:
+      "Roobet es un casino crypto internacional con slots, live casino, sportsbook, promociones rotativas y campañas VIP. Para usuarios de México, JugadaMax lo presenta como candidato internacional de comparación; la disponibilidad, promociones, pagos, KYC y retiros dependen de los términos oficiales y de la jurisdicción.",
     locale: "es-MX",
   },
   {

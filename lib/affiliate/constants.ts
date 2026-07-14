@@ -17,7 +17,13 @@ export const BCGAME_GLOBAL_AFFILIATE_URL = "https://bc.game/i-mr7or7t2-n/";
 
 export const FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL = "https://500.casino/r/ARTURGERC";
 
-export const ROOBET_GLOBAL_AFFILIATE_URL = "https://roobet.com/?ref=arturgerc";
+/** Roobet general brand affiliate link (English/global fallback). */
+export const ROOBET_GLOBAL_AFFILIATE_URL =
+  "https://go.roobet.com/visit/?bta=46294&brand=roobet";
+
+/** Roobet direct casino landing — Spanish/MX casino cards, review CTAs and sticky. */
+export const ROOBET_MX_CASINO_AFFILIATE_URL =
+  "https://go.roobet.com/visit/?bta=46294&nci=6463";
 
 export const GAMDOM_GLOBAL_AFFILIATE_URL = "https://gamdom.com/r/arturgerc";
 

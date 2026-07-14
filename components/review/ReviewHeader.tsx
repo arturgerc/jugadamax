@@ -118,14 +118,14 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
   },
   roobet: {
     shell:
-      "border-orange-500/25 bg-gradient-to-br from-[#140a0a] via-[#111417] to-[#0A1931] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(239,68,68,0.16)]",
-    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(249,115,22,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(239,68,68,0.08),transparent_50%)]",
-    badge: "border-orange-500/30 bg-orange-500/10 text-orange-200",
-    chip: "border-orange-500/20 bg-red-500/8 text-orange-100/90",
-    scorePanel: "border-orange-500/25 bg-[#140a0a]/85 shadow-[inset_0_1px_0_rgba(249,115,22,0.08)]",
-    scoreValue: "text-orange-300",
-    decorA: "border-red-400/20 bg-orange-500/10",
-    decorB: "bg-orange-400/50",
+      "border-violet-500/25 bg-gradient-to-br from-[#070817] via-[#0B0B22] to-[#211C50] ring-1 ring-violet-500/10 shadow-[0_4px_28px_-12px_rgba(109,40,217,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(109,40,217,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(139,92,246,0.1),transparent_50%)]",
+    badge: "border-violet-400/30 bg-violet-500/10 text-violet-200",
+    chip: "border-[#54D900]/25 bg-violet-500/8 text-violet-100/90",
+    scorePanel: "border-violet-500/25 bg-[#0B0B22]/85 shadow-[inset_0_1px_0_rgba(109,40,217,0.08)]",
+    scoreValue: "text-violet-300",
+    decorA: "border-violet-400/25 bg-violet-500/10",
+    decorB: "bg-[#B7FF00]/45",
   },
   gamdom: {
     shell:

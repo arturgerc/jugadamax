@@ -559,6 +559,40 @@ export const reviews: Review[] = [
     locale: "es-MX",
   },
   {
+    id: "roobet-review",
+    casinoId: "roobet",
+    authorId: "redaccion-jugadamax",
+    slug: "roobet",
+    title: "Reseña de Roobet México: casino, promociones y sportsbook",
+    rating: 4.1,
+    publishedAt: "2026-07-14",
+    updatedAt: "2026-07-14",
+    locale: "es-MX",
+    verdict:
+      "Roobet combina casino crypto, live casino, sportsbook y un catálogo amplio de promociones rotativas. Las campañas suministradas incluyen Weekly Raffle, Drops & Wins, Crown the Champions, promociones VIP y acciones deportivas. Su variedad de producto y la campaña de afiliado activa son puntos positivos, pero los premios, elegibilidad, KYC, pagos y retiros deben comprobarse antes de depositar. JugadaMax lo valora con 4.1/5 como operador crypto internacional de comparación para usuarios de México.",
+    pros: [
+      "Casino, live casino y sportsbook dentro de una misma plataforma.",
+      "Promociones rotativas para casino, VIP y apuestas deportivas.",
+      "Campañas visibles como Drops & Wins y Weekly Raffle.",
+      "Soporte para varias criptomonedas y otros métodos según mercado.",
+      "Soporte y contenido disponibles en español según fuentes revisadas.",
+    ],
+    cons: [
+      "No es un operador con licencia local mexicana.",
+      "Las campañas y prize pools no garantizan premios individuales.",
+      "KYC, pagos, retiros y límites dependen de cuenta y jurisdicción.",
+      "Algunas promociones tienen vencimiento corto o elegibilidad limitada.",
+      "Fuentes externas identifican cláusulas que requieren lectura cuidadosa.",
+      "No todos los métodos de pago están disponibles en todos los países.",
+    ],
+    paymentsSummary:
+      "Roobet se orienta a pagos crypto y fuentes revisadas incluyen Bitcoin, Ethereum, USDT, USDC, Litecoin, XRP y otros métodos según país. JugadaMax recomienda confirmar monedas, redes, mínimos, comisiones, límites, KYC y tiempos de retiro directamente en el cajero antes de mover fondos.",
+    trustSummary:
+      "Fuentes externas identifican a Raw Entertainment B.V. y licencias de Curaçao y Anjouan. Esto no equivale a una licencia local mexicana. JugadaMax recomienda confirmar entidad operadora, licencias vigentes, restricciones regionales, KYC, reglas promocionales y políticas de retiro directamente en Roobet.",
+    body:
+      "Roobet es un casino crypto internacional con slots, live casino, sportsbook, promociones rotativas y campañas VIP. JugadaMax lo presenta como candidato de comparación para usuarios de México, no como operador local con licencia SEGOB.\n\nLas campañas visibles en capturas de julio de 2026 incluyen Weekly Raffle, Drops & Wins, Crown the Champions, promociones VIP y acciones deportivas. Ninguna garantiza premios individuales, elegibilidad universal ni disponibilidad en México.\n\nEn producto, Roobet integra casino, Originals, live games y sportsbook en una misma cuenta. Las promociones rotan con frecuencia y deben confirmarse en el operador antes de depositar.\n\nEn pagos y retiros, Roobet acepta varias criptomonedas según mercado, pero KYC, límites, comisiones y tiempos dependen de cuenta y jurisdicción. JugadaMax no garantiza retiros rápidos.\n\nCalificamos Roobet 4.1/5: buena variedad de producto y campaña afiliada activa, con cautela sobre licencia local, promociones variables y reglas que requieren lectura cuidadosa. 18+.",
+  },
+  {
     id: "vodkabet-review",
     casinoId: "vodkabet",
     authorId: "redaccion-jugadamax",
