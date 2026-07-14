@@ -16,6 +16,7 @@ import { RoobetFeaturedCard } from "@/components/affiliate/RoobetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { VodkabetFeaturedCard } from "@/components/affiliate/VodkabetFeaturedCard";
 import { SportsbetFeaturedCard } from "@/components/affiliate/SportsbetFeaturedCard";
+import { BitcasinoFeaturedCard } from "@/components/affiliate/BitcasinoFeaturedCard";
 import { cn, focusRing } from "@/lib/utils";
 import {
   BETFURY_AFFILIATE_URL,
@@ -418,15 +419,18 @@ export default function CryptoCasinosPage() {
           Otros casinos crypto para comparar
         </h2>
         <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          BetFury y 500 Casino aparecen como ofertas destacadas arriba. Vodka.bet y Sportsbet.io
-          aparecen como campañas internacionales activas antes del bloque compacto de comparación
-          entre Gamdom, Rainbet, Roobet, Stake, Mellstroy y BC.Game.
+          BetFury y 500 Casino aparecen como ofertas destacadas arriba. Vodka.bet, Sportsbet.io y
+          Bitcasino.io aparecen como campañas internacionales activas antes del bloque compacto de
+          comparación entre Gamdom, Rainbet, Roobet, Stake, Mellstroy y BC.Game.
         </p>
         <div id="vodkabet-crypto-offer" className="mt-4">
           <VodkabetFeaturedCard context="crypto" />
         </div>
         <div id="sportsbetio-crypto-offer" className="mt-4">
           <SportsbetFeaturedCard context="crypto" />
+        </div>
+        <div id="bitcasino-crypto-offer" className="mt-4">
+          <BitcasinoFeaturedCard context="crypto" />
         </div>
         <div className="mt-4 grid items-start gap-4 md:grid-cols-2 md:items-stretch" aria-label="Comparar casinos crypto">
           <GamdomFeaturedCard

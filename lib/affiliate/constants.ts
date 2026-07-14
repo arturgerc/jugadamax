@@ -110,3 +110,11 @@ export const SPORTSBETIO_BETTING_AFFILIATE_URL =
 
 export const SPORTSBETIO_WORLD_CUP_TOURNAMENT_END =
   "2026-07-19T23:00:00Z";
+
+/** Bitcasino promotion / welcome-bonus affiliate landing. */
+export const BITCASINO_PROMO_AFFILIATE_URL =
+  "https://go.bitcasino.io?asset_id=37501754";
+
+/** Bitcasino general registration affiliate landing. */
+export const BITCASINO_REGISTRATION_AFFILIATE_URL =
+  "https://go.bitcasino.io?asset_id=37501595";

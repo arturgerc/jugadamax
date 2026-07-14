@@ -598,6 +598,40 @@ export const reviews: Review[] = [
       "Sportsbet.io es operado por mBet Solutions N.V. bajo licencia Curaçao OGL/2023/110/0072. mProcessing Solutions Ltd gestiona algunos pagos. México no aparece en la lista restringida revisada, pero esto no equivale a licencia local mexicana. Revisa restricciones, KYC, bonos y políticas de retiro antes de registrarte.",
   },
   {
+    id: "bitcasino-review",
+    casinoId: "bitcasino",
+    authorId: "redaccion-jugadamax",
+    slug: "bitcasino",
+    title: "Reseña de Bitcasino México: bono, casino crypto y depósitos",
+    rating: 4.0,
+    publishedAt: "2026-07-14",
+    updatedAt: "2026-07-14",
+    locale: "es-MX",
+    verdict:
+      "Bitcasino combina slots, live casino, mesas, Originals, jackpots y promociones dentro de una experiencia crypto-first. La campaña suministrada anuncia hasta 5,000 USDT repartidos en tres bonos de depósito. La especialización crypto, el producto de casino y las promociones son puntos positivos, pero la licencia vigente, wagering, KYC, pagos y retiros deben verificarse antes de depositar. JugadaMax lo valora con 4.0/5 como casino crypto internacional de comparación para México.",
+    pros: [
+      "Casino especializado en criptomonedas.",
+      "Slots, live casino, mesas y Originals.",
+      "Welcome offer repartida en tres depósitos.",
+      "Promociones rotativas y beneficios VIP.",
+      "Interfaz disponible en español.",
+    ],
+    cons: [
+      "No cuenta con licencia local mexicana verificada.",
+      "El máximo de 5,000 USDT no está garantizado para todas las cuentas.",
+      "Wagering, depósito mínimo y juegos elegibles requieren revisión.",
+      "KYC y controles de retiro pueden aplicarse.",
+      "Monedas, redes y disponibilidad dependen de cuenta y GEO.",
+      "Las campañas temporales pueden finalizar o cambiar.",
+    ],
+    body:
+      "Bitcasino.io es un casino crypto internacional con slots, live casino y Originals. JugadaMax lo clasifica como crypto-casino — no como operador fiat ni sportsbook.\n\nLa campaña suministrada anuncia hasta 5,000 USDT en tres bonos de depósito. Confirma wagering, activación y elegibilidad antes de depositar.\n\nOperado por Moon Technologies B.V. bajo licencia Curaçao OGL/2023/111/0069 según información oficial. No equivale a licencia local mexicana.\n\nCalificamos Bitcasino 4.0/5: producto sólido y campaña activa, con cautela sobre wagering, KYC y retiros. 18+.",
+    paymentsSummary:
+      "Bitcasino está orientado a pagos crypto. La campaña suministrada menciona USDT, BTC, ETH, TRX y otro activo o moneda que debe confirmarse directamente en los términos. Comprueba activo, red, mínimos, fees, límites, KYC y tiempos de retiro dentro del cajero antes de transferir fondos.",
+    trustSummary:
+      "Bitcasino.io es operado por Moon Technologies B.V. bajo licencia Curaçao OGL/2023/111/0069 según información oficial publicada. Una interfaz en español o el acceso desde México no equivalen a licencia local mexicana. Revisa restricciones, KYC, bonos y políticas de retiro antes de registrarte.",
+  },
+  {
     id: "mellstroy-review",
     casinoId: "mellstroy",
     authorId: "redaccion-jugadamax",

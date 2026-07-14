@@ -204,6 +204,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-[#36B958]/25 bg-[#36B958]/10",
     decorB: "bg-[#65E782]/45",
   },
+  bitcasino: {
+    shell:
+      "border-[#6519A8]/25 bg-gradient-to-br from-[#12051F] via-[#210936] to-[#35105A] ring-1 ring-[#7B22D3]/10 shadow-[0_4px_28px_-12px_rgba(123,34,211,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(123,34,211,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,90,0,0.1),transparent_50%)]",
+    badge: "border-[#7B22D3]/30 bg-[#6519A8]/20 text-[#F5F1FA]",
+    chip: "border-[#7B22D3]/25 bg-[#6519A8]/8 text-[#F5F1FA]/90",
+    scorePanel: "border-[#FF5A00]/25 bg-[#12051F]/85 shadow-[inset_0_1px_0_rgba(255,90,0,0.08)]",
+    scoreValue: "text-[#FF7417]",
+    decorA: "border-[#7B22D3]/25 bg-[#6519A8]/10",
+    decorB: "bg-[#FFCC4D]/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",

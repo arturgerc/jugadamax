@@ -204,11 +204,12 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
   bitcasino: {
     id: "bitcasino",
     name: "Bitcasino.io",
-    publicStatus: "rejected",
-    allowedSurfaces: [],
-    ctaAllowed: false,
-    affiliateAllowed: false,
-    notes: "Bitcasino rejected — do not render.",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["casinos-crypto", "bonos", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active Spanish/MX affiliate campaign. Crypto-first casino with slots, live casino and Originals. Registration and promotion links are mapped separately. Not presented as locally licensed in Mexico.",
   },
   xonbet: {
     id: "xonbet",
