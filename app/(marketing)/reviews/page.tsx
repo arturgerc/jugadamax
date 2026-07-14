@@ -23,7 +23,22 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function ReviewsIndexPage() {
-  const reviews = filterReviewsForSurface(getReviews(), "reviews");
+  const reviews = filterReviewsForSurface(getReviews(), "reviews")
+    .slice()
+    .sort((a, b) => {
+      const publishedDifference =
+        Date.parse(b.publishedAt) - Date.parse(a.publishedAt);
+
+      if (publishedDifference !== 0) return publishedDifference;
+
+      const updatedDifference =
+        Date.parse(b.updatedAt ?? b.publishedAt) -
+        Date.parse(a.updatedAt ?? a.publishedAt);
+
+      if (updatedDifference !== 0) return updatedDifference;
+
+      return a.title.localeCompare(b.title, "es");
+    });
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
     { name: "Reseñas", path: "/reviews" },
