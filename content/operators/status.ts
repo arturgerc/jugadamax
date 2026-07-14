@@ -65,11 +65,12 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
   roobet: {
     id: "roobet",
     name: "Roobet",
-    publicStatus: "active-referral",
+    publicStatus: "active-affiliate",
     allowedSurfaces: ["casinos-crypto", "bonos", "reviews", "sitemap", "english-global"],
     ctaAllowed: true,
     affiliateAllowed: true,
-    notes: "Referral active; full affiliate terms still pending.",
+    notes:
+      "Approved affiliate links active. Mexico casino CTAs use the direct casino landing; global content uses the general brand landing. Roobet is classified as an international crypto casino with sportsbook additional. Promotions, availability, KYC, payments and withdrawals depend on jurisdiction and official terms.",
   },
   rainbet: {
     id: "rainbet",

@@ -12,6 +12,7 @@ import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblin
 import { CryptoCasinoInfoSections } from "@/components/verticals/CryptoCasinoInfoSections";
 import { OfferCard } from "@/components/affiliate/OfferCard";
 import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
+import { RoobetFeaturedCard } from "@/components/affiliate/RoobetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { VodkabetFeaturedCard } from "@/components/affiliate/VodkabetFeaturedCard";
 import { cn, focusRing } from "@/lib/utils";
@@ -23,7 +24,7 @@ import {
   GAMDOM_GLOBAL_AFFILIATE_URL,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
   RAINBET_REFERRAL_URL,
-  ROOBET_GLOBAL_AFFILIATE_URL,
+  ROOBET_MX_CASINO_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
 } from "@/lib/affiliate/constants";
 
@@ -141,9 +142,15 @@ const affiliateCryptoCasinos: Casino[] = [
     name: "Roobet",
     verticals: ["crypto-casino"],
     rankByVertical: { "crypto-casino": 5 },
-    affiliateUrl: ROOBET_GLOBAL_AFFILIATE_URL,
+    affiliateUrl: ROOBET_MX_CASINO_AFFILIATE_URL,
+    logo: {
+      src: "/operators/roobet.svg",
+      alt: "Roobet",
+      width: 120,
+      height: 48,
+    },
     summary:
-      "Candidato de casino crypto internacional. El enlace de referido está disponible mientras la campaña de afiliado sigue pendiente; revisa términos y disponibilidad antes de registrarte.",
+      "Roobet es un casino crypto internacional con slots, live casino, promociones rotativas y sportsbook adicional. La campaña de afiliado está activa para JugadaMax; revisa promociones, disponibilidad, KYC, pagos y retiros antes de registrarte.",
     locale: "es-MX",
   },
   {
@@ -462,58 +469,25 @@ export default function CryptoCasinosPage() {
             }}
             className="p-3 sm:p-4"
           />
-          <OfferCard
-            operatorName="Roobet"
-            operatorId="roobet"
-            badge="Comparar"
-            headline="Roobet"
-            subheadline="Casino crypto internacional para comparar"
-            offerText="Revisa términos oficiales antes de registrarte"
-            paymentBadges={["Crypto", "Casino"]}
-            featureBullets={[
-              "Candidato crypto internacional",
-              "Disponibilidad depende de jurisdicción",
-              "Pagos, retiros y verificación dependen del operador",
-            ]}
-            primaryCtaLabel="Visitar Roobet"
-            primaryCtaHref={ROOBET_GLOBAL_AFFILIATE_URL}
-            secondaryCtaLabel="Guía de Roobet"
-            secondaryCtaHref="/guias/roobet-mexico-crypto"
-            termsNote="Promociones, pagos, retiros y elegibilidad dependen de los términos oficiales de Roobet y de tu jurisdicción."
-            responsibleNote="18+ | Juega con responsabilidad"
-            visual={{
-              eyebrow: "Crypto casino",
-              title: "Roobet",
-              subtitle: "Comparar según términos oficiales",
-              chips: ["Crypto", "Casino"],
-              variant: "crypto",
-              compact: true,
-            }}
-            visualVariant="dark"
-            emphasis="comparison-secondary"
-            mobileMaxBullets={2}
-            fillHeight
-            className="p-3 sm:p-4"
-          />
+          <RoobetFeaturedCard context="crypto" fillHeight className="p-3 sm:p-4" />
           <OfferCard
             operatorName="Stake"
             operatorId="stake"
             badge="Comparar"
             headline="Stake"
             subheadline="Operador crypto/global para México"
-            offerText="Revisa términos oficiales en stake.mx"
-            paymentBadges={["BTC", "ETH", "USDT", "LTC"]}
+            offerText="Sitio oficial stake.mx"
+            paymentBadges={["BTC", "USDT", "Sportsbook"]}
             featureBullets={[
               "Casino crypto y sportsbook según dominio local",
-              "Disponibilidad depende de jurisdicción",
-              "Pagos, retiros y verificación dependen del operador",
+              "Pagos, retiros, KYC y disponibilidad según términos",
             ]}
             primaryCtaLabel="Ver Stake México"
             primaryCtaHref={STAKE_MX_OFFICIAL_URL}
             primaryCtaIsAffiliate={false}
             secondaryCtaLabel="Leer reseña"
             secondaryCtaHref="/reviews/stake"
-            termsNote="Bonos, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Stake y de tu jurisdicción."
+            termsNote="Pagos, retiros, KYC y disponibilidad dependen de los términos oficiales."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{
               eyebrow: "Crypto casino",
@@ -525,6 +499,7 @@ export default function CryptoCasinosPage() {
             }}
             visualVariant="dark"
             emphasis="comparison-secondary"
+            compactComparison
             mobileMaxBullets={2}
             fillHeight
             logo={{
