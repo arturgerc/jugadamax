@@ -12,6 +12,7 @@ import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard"
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { AwinturaFeaturedCard } from "@/components/affiliate/AwinturaFeaturedCard";
+import { MostbetFeaturedCard } from "@/components/affiliate/MostbetFeaturedCard";
 import { BettingInfoSections } from "@/components/verticals/BettingInfoSections";
 
 export const metadata: Metadata = buildMetadata({
@@ -39,7 +40,8 @@ export default function BettingSitesPage() {
       c.id !== "codere" &&
       c.id !== "1xbet" &&
       c.id !== "melbet" &&
-      c.id !== "awintura",
+      c.id !== "awintura" &&
+      c.id !== "mostbet",
   );
   const payments = uniquePayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
@@ -118,6 +120,7 @@ export default function BettingSitesPage() {
         <OneXBetFeaturedCard context="sportsbook" className="mt-0" />
         <MelbetFeaturedCard context="sportsbook" className="mt-0" />
         <AwinturaFeaturedCard context="sportsbook" className="mt-0" />
+        <MostbetFeaturedCard context="sportsbook" className="mt-0" />
       </section>
 
       <section aria-labelledby="codere-apuestas-heading" className="mb-8">

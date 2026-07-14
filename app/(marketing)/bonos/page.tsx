@@ -10,6 +10,7 @@ import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCt
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { AwinturaFeaturedCard } from "@/components/affiliate/AwinturaFeaturedCard";
+import { MostbetFeaturedCard } from "@/components/affiliate/MostbetFeaturedCard";
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { VodkabetFeaturedCard } from "@/components/affiliate/VodkabetFeaturedCard";
 import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
@@ -258,12 +259,14 @@ export default function BonosPage() {
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             Algunos operadores combinan casino online, slots, live casino y apuestas deportivas en
             una sola cuenta. El paquete de 1xBet se refiere al casino; el bono de Melbet es
-            deportivo. Confirma siempre requisitos de apuesta, depósitos elegibles, límites y
-            elegibilidad antes de aceptar una promoción.
+            deportivo. Mostbet permite elegir promoción Casino o Sports en su landing de registro.
+            Confirma siempre requisitos de apuesta, depósitos elegibles, límites y elegibilidad
+            antes de aceptar una promoción.
           </p>
           <OneXBetFeaturedCard context="bonus" />
           <MelbetFeaturedCard context="bonus" />
           <AwinturaFeaturedCard context="bonus" />
+          <MostbetFeaturedCard context="bonus" />
         </section>
 
         <section aria-labelledby="bonos-crypto-operators-heading">

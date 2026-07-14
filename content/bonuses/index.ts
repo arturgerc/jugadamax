@@ -119,6 +119,15 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
+    id: "mostbet-first-deposit",
+    casinoId: "mostbet",
+    title: "125% + 250 FS en el primer depósito según campaña",
+    type: "welcome",
+    terms:
+      "La landing suministrada permite seleccionar Casino o Sports. El importe máximo, moneda, depósito mínimo, wagering, free spins, juegos, mercados, cuotas, vencimiento, KYC y disponibilidad dependen de la campaña, cuenta, GEO y términos vigentes.",
+    active: true,
+  },
+  {
     id: "mellstroy-welcome",
     casinoId: "mellstroy",
     title: "Bono de bienvenida: hasta 660% + 400 FS",

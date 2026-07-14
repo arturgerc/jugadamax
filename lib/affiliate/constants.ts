@@ -87,3 +87,11 @@ export const AWINTURA_REGISTRATION_AFFILIATE_URL =
 /** Slotoro global affiliate link (English/global fiat casino coverage). */
 export const SLOTORO_MAIN_AFFILIATE_URL =
   "https://promo-click.com/l/6a5390be02a89cb4920587e2";
+
+/** Mostbet web/player affiliate landing for Spanish/MX mixed coverage. */
+export const MOSTBET_PLAYERS_AFFILIATE_URL =
+  "https://pg5i0mmb.com/FJUU";
+
+/** Mostbet application download affiliate landing — review app section only. */
+export const MOSTBET_APP_DOWNLOAD_URL =
+  "https://xtsplkmost.com/yJUU";

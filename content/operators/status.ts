@@ -146,6 +146,16 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     notes:
       "Active Mexico/LATAM affiliate campaign. International mixed operator: fiat/multi-currency casino with sportsbook additional and selected crypto payment methods. Card CTAs use the information landing; only the final review CTA uses direct registration.",
   },
+  mostbet: {
+    id: "mostbet",
+    name: "Mostbet",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["casinos-fiat", "apuestas", "bonos", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active Spanish/MX affiliate campaign. Mixed fiat/multi-currency casino and sportsbook. Main web CTAs use the player landing; the app link is limited to the dedicated review app section. Not classified in casinos-crypto and not presented as locally licensed in Mexico.",
+  },
   codere: {
     id: "codere",
     name: "Codere",

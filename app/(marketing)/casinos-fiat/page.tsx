@@ -12,6 +12,7 @@ import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard"
 import { OneXBetFeaturedCard } from "@/components/affiliate/OneXBetFeaturedCard";
 import { MelbetFeaturedCard } from "@/components/affiliate/MelbetFeaturedCard";
 import { AwinturaFeaturedCard } from "@/components/affiliate/AwinturaFeaturedCard";
+import { MostbetFeaturedCard } from "@/components/affiliate/MostbetFeaturedCard";
 import { FiatCasinoInfoSections } from "@/components/verticals/FiatCasinoInfoSections";
 
 export const metadata: Metadata = buildMetadata({
@@ -35,7 +36,7 @@ export default function FiatCasinosPage() {
   // Betsson is featured as the primary Mexico fiat partner above; exclude the
   // placeholder editorial entry from the ranking to avoid duplication.
   const casinos = getCasinosByVertical("fiat-casino").filter(
-    (c) => c.id !== "betsson" && c.id !== "1xbet" && c.id !== "melbet" && c.id !== "awintura",
+    (c) => c.id !== "betsson" && c.id !== "1xbet" && c.id !== "melbet" && c.id !== "awintura" && c.id !== "mostbet",
   );
   const fiatPayments = uniqueFiatPayments(casinos);
   const breadcrumb = breadcrumbJsonLd([
@@ -104,14 +105,15 @@ export default function FiatCasinosPage() {
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
           Algunos operadores de México/LATAM combinan casino fiat, slots, live casino y apuestas
           deportivas en una sola cuenta. Betsson MX es nuestro partner fiat principal para México;
-          1xBet y Melbet se presentan como operadores mixtos de casino y apuestas. Estos operadores
-          pueden incluir secciones de casino, slots, live casino y apuestas deportivas según el
-          mercado. Revisa siempre términos oficiales, disponibilidad, bonos, métodos de pago,
-          verificación y límites antes de registrarte.
+          1xBet, Melbet, Awintura y Mostbet se presentan como operadores mixtos de casino y
+          apuestas. Estos operadores pueden incluir secciones de casino, slots, live casino y
+          apuestas deportivas según el mercado. Revisa siempre términos oficiales, disponibilidad,
+          bonos, métodos de pago, verificación y límites antes de registrarte.
         </p>
         <OneXBetFeaturedCard context="casino" />
         <MelbetFeaturedCard context="casino" />
         <AwinturaFeaturedCard context="casino" />
+        <MostbetFeaturedCard context="casino" />
       </section>
 
       <section aria-labelledby="codere-fiat-heading" className="mb-8">
