@@ -43,6 +43,9 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "roobet") {
     return "border-violet-500/30 ring-violet-500/20 shadow-[0_0_18px_-6px_rgba(109,40,217,0.25)]";
   }
+  if (operatorId === "mostbet") {
+    return "border-[#0A5A9C]/30 ring-[#34A5FF]/20 shadow-[0_0_18px_-6px_rgba(52,165,255,0.25)]";
+  }
   return "ring-white/10";
 }
 
@@ -73,6 +76,9 @@ function logoTileBackground(operatorId?: string): string {
   }
   if (operatorId === "roobet") {
     return "bg-gradient-to-br from-[#070817] via-[#0B0B22] to-[#211C50]";
+  }
+  if (operatorId === "mostbet") {
+    return "bg-gradient-to-br from-[#031A36] via-[#052B52] to-[#074477]";
   }
   return "bg-[#16233f]";
 }
@@ -128,14 +134,15 @@ export function OperatorLogo({
     const isAwintura = operatorId === "awintura";
     const isSlotoro = operatorId === "slotoro";
     const isRoobet = operatorId === "roobet";
+    const isMostbet = operatorId === "mostbet";
     const isWideWordmark =
-      isRainbet || isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet;
+      isRainbet || isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet;
     return (
       <span
         className={cn(
           "inline-flex shrink-0 items-center justify-center rounded-xl ring-1",
           isWideWordmark
-            ? isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet
+            ? isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet
               ? "h-14 w-[7.5rem] border px-1 py-0.5"
               : "h-14 w-[5.75rem] border border-emerald-500/20 px-0.5 py-0.5 sm:w-24"
             : "h-12 w-[4.5rem] px-1 py-1 sm:w-20",
@@ -148,6 +155,7 @@ export function OperatorLogo({
           isAwintura && "border-[#D49A00]/25 shadow-[inset_0_1px_0_rgba(212,154,0,0.1)]",
           isSlotoro && "border-fuchsia-500/25 shadow-[inset_0_1px_0_rgba(217,0,215,0.1)]",
           isRoobet && "border-violet-500/25 shadow-[inset_0_1px_0_rgba(109,40,217,0.1)]",
+          isMostbet && "border-[#0A5A9C]/25 shadow-[inset_0_1px_0_rgba(52,165,255,0.1)]",
           className,
         )}
       >
@@ -157,7 +165,7 @@ export function OperatorLogo({
           aria-hidden="true"
           width={
             logo.width ??
-            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet
+            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet
               ? 120
               : isRainbet
                 ? 96
@@ -165,14 +173,14 @@ export function OperatorLogo({
           }
           height={
             logo.height ??
-            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet
+            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet
               ? 48
               : isRainbet
                 ? 56
                 : LOGO_HEIGHT)
           }
           sizes={
-            isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet
+            isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet
               ? "120px"
               : isRainbet
                 ? "96px"

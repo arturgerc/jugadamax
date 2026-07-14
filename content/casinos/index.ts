@@ -8,6 +8,7 @@ import {
   MELBET_AFFILIATE_URL,
   MELLSTROY_GLOBAL_AFFILIATE_URL,
   AWINTURA_CARD_AFFILIATE_URL,
+  MOSTBET_PLAYERS_AFFILIATE_URL,
   ROOBET_MX_CASINO_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -457,6 +458,38 @@ export const casinos: Casino[] = [
     bonusIds: ["awintura-welcome"],
     summary:
       "Awintura es un operador internacional mixto con casino, slots, live casino, juegos de mesa, promociones, sportsbook, VIP y funciones de gamificación. Admite métodos fiat y algunas opciones crypto según país y cuenta. La campaña JugadaMax muestra hasta $60,000, 250 FS y 200% freebets según términos.",
+    locale: "es-MX",
+  },
+  {
+    id: "mostbet",
+    slug: "mostbet",
+    name: "Mostbet",
+    logo: {
+      src: "/operators/mostbet.webp",
+      alt: "Mostbet",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    rating: 3.8,
+    affiliateUrl: MOSTBET_PLAYERS_AFFILIATE_URL,
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "OXXO", kind: "fiat" },
+      { name: "SPEI", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — confirmar licencia vigente en términos oficiales",
+      notes:
+        "Fuentes externas identifican a Bizbon N.V. y la licencia OGL/2024/597/0249 de Curaçao. Esto no equivale a licencia local mexicana. Verifica entidad, licencia, restricciones, KYC y términos actuales directamente en Mostbet.",
+    },
+    bonusIds: ["mostbet-first-deposit"],
+    summary:
+      "Mostbet es un operador internacional mixto con sportsbook, casino, live casino, poker, esports y juegos instantáneos. La landing afiliada muestra 125% + 250 FS para el primer depósito con selección Casino o Sports. La moneda, condiciones, pagos y disponibilidad dependen de la cuenta, GEO y términos vigentes.",
     locale: "es-MX",
   },
   {

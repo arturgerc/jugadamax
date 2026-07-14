@@ -526,6 +526,41 @@ export const reviews: Review[] = [
     locale: "es-MX",
   },
   {
+    id: "mostbet-review",
+    casinoId: "mostbet",
+    authorId: "redaccion-jugadamax",
+    slug: "mostbet",
+    title: "Reseña de Mostbet México: bono, casino, apuestas y aplicación",
+    verdict:
+      "Mostbet combina sportsbook, casino, live casino, poker, esports y una aplicación móvil dentro de una oferta internacional amplia. La landing afiliada suministrada muestra 125% + 250 FS para el primer depósito con elección Casino o Sports. La variedad de producto y pagos es positiva, pero la ausencia de licencia local mexicana, las evaluaciones externas mixtas, las reglas promocionales, KYC y retiros requieren cautela. JugadaMax lo valora con 3.8/5 como operador mixto internacional de prioridad secundaria.",
+    rating: 3.8,
+    pros: [
+      "Sportsbook amplio con apuestas pre-match, live y esports.",
+      "Casino, live casino, slots, poker y juegos instantáneos.",
+      "Landing de primer depósito con selección Casino o Sports.",
+      "Interfaz disponible en español y experiencia localizada.",
+      "Aplicaciones móviles y acceso web según fuentes revisadas.",
+      "Métodos fiat y crypto según país y cuenta.",
+    ],
+    cons: [
+      "No cuenta con licencia local mexicana verificada.",
+      "Las evaluaciones editoriales externas son mixtas.",
+      "El bono, moneda, wagering y depósito mínimo cambian por GEO.",
+      "OXXO, SPEI y otros métodos no están garantizados para todas las cuentas.",
+      "KYC, retiros, límites y controles internos pueden aplicarse.",
+      "Fuentes externas registran múltiples reclamaciones de usuarios.",
+    ],
+    body:
+      "Mostbet es un operador internacional mixto con sportsbook, casino, live casino, poker, esports y aplicación móvil. JugadaMax lo clasifica como casino fiat/multi-moneda con sportsbook adicional — no como casino crypto.\n\nLa landing afiliada muestra 125% + 250 FS con elección Casino o Sports. Las campañas son variables; confirma moneda, wagering y elegibilidad antes de depositar.\n\nFuentes externas identifican a Bizbon N.V. y licencia Curaçao OGL/2024/597/0249; JugadaMax no confirmó el footer en vivo durante esta revisión. No equivale a licencia local mexicana.\n\nCalificamos Mostbet 3.8/5: producto amplio y campaña activa, con cautela sobre evaluaciones externas mixtas, reglas promocionales y pagos variables. 18+.",
+    paymentsSummary:
+      "Fuentes externas asocian Mostbet con MXN, tarjetas, OXXO Pay, SPEI, e-wallets, transferencias y varias criptomonedas. JugadaMax no verificó todos los métodos dentro de un cajero mexicano autenticado. Confirma opciones activas, moneda, redes, mínimos, comisiones, KYC y tiempos de retiro directamente en tu cuenta.",
+    trustSummary:
+      "Fuentes externas identifican a Bizbon N.V. y una licencia de Curaçao, actualmente reportada como OGL/2024/597/0249. Esto no equivale a licencia local mexicana. Verifica entidad, licencia vigente, restricciones regionales, promociones, KYC y políticas de retiro directamente en Mostbet.",
+    publishedAt: "2026-07-14",
+    updatedAt: "2026-07-14",
+    locale: "es-MX",
+  },
+  {
     id: "mellstroy-review",
     casinoId: "mellstroy",
     authorId: "redaccion-jugadamax",
