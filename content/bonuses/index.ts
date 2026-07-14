@@ -137,6 +137,15 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
+    id: "bitcasino-three-deposit-welcome",
+    casinoId: "bitcasino",
+    title: "Hasta 5,000 USDT en tres bonos de depósito",
+    type: "welcome",
+    terms:
+      "Primer depósito: 100% hasta 1,500 USDT. Segundo depósito: 50% hasta 2,000 USDT. Tercer depósito: 100% hasta 1,500 USDT. Activación, moneda, depósito mínimo, wagering, juegos elegibles, vencimiento, KYC y disponibilidad dependen de la cuenta, GEO y términos vigentes.",
+    active: true,
+  },
+  {
     id: "mellstroy-welcome",
     casinoId: "mellstroy",
     title: "Bono de bienvenida: hasta 660% + 400 FS",

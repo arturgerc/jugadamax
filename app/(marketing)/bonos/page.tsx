@@ -14,6 +14,7 @@ import { MostbetFeaturedCard } from "@/components/affiliate/MostbetFeaturedCard"
 import { MellstroyFeaturedCard } from "@/components/affiliate/MellstroyFeaturedCard";
 import { VodkabetFeaturedCard } from "@/components/affiliate/VodkabetFeaturedCard";
 import { SportsbetFeaturedCard } from "@/components/affiliate/SportsbetFeaturedCard";
+import { BitcasinoFeaturedCard } from "@/components/affiliate/BitcasinoFeaturedCard";
 import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
 import {
   BETFURY_AFFILIATE_URL,
@@ -249,6 +250,7 @@ export default function BonosPage() {
           <MellstroyFeaturedCard context="bonus" />
           <VodkabetFeaturedCard context="bonus" />
           <SportsbetFeaturedCard context="bonus" />
+          <BitcasinoFeaturedCard context="bonus" />
         </section>
 
         <section aria-labelledby="bonos-mixtos-heading">

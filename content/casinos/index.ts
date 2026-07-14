@@ -10,6 +10,7 @@ import {
   AWINTURA_CARD_AFFILIATE_URL,
   MOSTBET_PLAYERS_AFFILIATE_URL,
   SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
+  BITCASINO_REGISTRATION_AFFILIATE_URL,
   ROOBET_MX_CASINO_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -523,6 +524,36 @@ export const casinos: Casino[] = [
     bonusIds: ["sportsbetio-champions-welcome"],
     summary:
       "Sportsbet.io es un sportsbook crypto internacional con casino, live casino, slots, Originals, torneos y VIP. El Champions Welcome Bonus publicado ofrece 100% hasta 300 USDT para Sports o Casino, sujeto a depósito mínimo, wagering, cuenta, GEO y términos oficiales.",
+    locale: "es-MX",
+  },
+  {
+    id: "bitcasino",
+    slug: "bitcasino",
+    name: "Bitcasino.io",
+    logo: {
+      src: "/operators/bitcasino.svg",
+      alt: "Bitcasino.io",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    rating: 4.0,
+    affiliateUrl: BITCASINO_REGISTRATION_AFFILIATE_URL,
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "TRX", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — OGL/2023/111/0069",
+      notes:
+        "Bitcasino.io es operado por Moon Technologies B.V. bajo licencia Curaçao Gaming Authority OGL/2023/111/0069 según información oficial publicada. Esto no equivale a licencia local mexicana. Verifica entidad, licencia vigente, restricciones, KYC y términos actuales.",
+    },
+    bonusIds: ["bitcasino-three-deposit-welcome"],
+    summary:
+      "Bitcasino.io es un casino crypto internacional con slots, live casino, Originals, jackpots y promociones. La campaña suministrada anuncia hasta 5,000 USDT repartidos en tres bonos de depósito, sujeto a cuenta, GEO, wagering y términos oficiales.",
     locale: "es-MX",
   },
   {
