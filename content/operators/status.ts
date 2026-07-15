@@ -107,7 +107,7 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     ctaAllowed: true,
     affiliateAllowed: false,
     notes:
-      "BC.Game MX uses official non-affiliate domain (bcgame.mx) on Spanish/MX pages. English/global may use global affiliate ref.",
+      "Spanish/MX pages use the official bcgame.mx domain without affiliate tracking. BC.Game remains the final editorial comparison operator in the Spanish crypto order. No confirmed Mexico affiliate campaign.",
   },
   betsson: {
     id: "betsson",

@@ -581,6 +581,26 @@ export const casinos: Casino[] = [
     locale: "es-MX",
   },
   {
+    id: "bcgame",
+    slug: "bcgame",
+    name: "BC.Game",
+    verticals: ["crypto-casino"],
+    rankByVertical: { "crypto-casino": 9 },
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licencia internacional (según fuentes externas)",
+      notes:
+        "Fuentes externas identifican a Twocent Technology Limited y licencia de Anjouan. No equivale a licencia local mexicana. Verifica entidad, licencia vigente y restricciones en el sitio oficial.",
+    },
+    summary:
+      "BC.Game es un casino crypto internacional con slots, live casino, crash, Originals y sportsbook. JugadaMax lo incluye como comparación editorial sin campaña afiliada para México; pagos, KYC, bonos y retiros dependen de términos oficiales.",
+    locale: "es-MX",
+  },
+  {
     id: "vodkabet",
     slug: "vodka-bet",
     name: "Vodka.bet",

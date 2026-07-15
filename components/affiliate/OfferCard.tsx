@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "vodkabet" | "awintura" | "slotoro" | "roobet" | "mostbet" | "sportsbetio" | "bitcasino" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "vodkabet" | "awintura" | "slotoro" | "roobet" | "mostbet" | "sportsbetio" | "bitcasino" | "bcgame" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -122,6 +122,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-[#36B958]/25 bg-gradient-to-br from-[#11161C] via-[#171E25] to-[#202932] shadow-[inset_0_1px_0_rgba(54,185,88,0.12)]",
   bitcasino:
     "border-[#6519A8]/25 bg-gradient-to-br from-[#12051F] via-[#210936] to-[#35105A] shadow-[inset_0_1px_0_rgba(123,34,211,0.12)]",
+  bcgame:
+    "border-emerald-700/20 bg-gradient-to-br from-[#07110D] via-[#0B1712] to-[#10251A] shadow-[inset_0_1px_0_rgba(32,184,100,0.1)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -162,6 +164,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(54,185,88,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(69,208,103,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(101,231,130,0.06),transparent_45%)]",
   bitcasino:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(123,34,211,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,90,0,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(255,204,77,0.06),transparent_45%)]",
+  bcgame:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(32,184,100,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(20,53,34,0.14),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(240,185,11,0.05),transparent_45%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -346,6 +350,20 @@ const bitcasinoPrimaryCta =
 const bitcasinoSecondaryCta =
   "border-[#7B22D3]/40 text-[#F5F1FA] transition-colors hover:bg-[#6519A8]/20";
 
+const bcgameCardShell =
+  "border-emerald-700/20 bg-gradient-to-br from-[#07110D] via-[#0B1712]/95 to-[#10251A] ring-1 ring-emerald-800/10 shadow-none";
+
+const bcgameCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(32,184,100,0.1),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(20,53,34,0.12),transparent_50%)]";
+
+const bcgameBadge = "border-emerald-600/25 bg-emerald-900/20 text-emerald-300/90";
+
+const bcgamePrimaryCta =
+  "bg-[#168548] text-[#EAF7EF] transition-colors hover:bg-[#20B864] focus-visible:ring-emerald-500/50";
+
+const bcgameSecondaryCta =
+  "border-emerald-600/35 text-emerald-200 transition-colors hover:bg-emerald-900/20";
+
 function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
   const panelVariant = visual.variant ?? "dark";
   const compact = visual.compact === true;
@@ -366,6 +384,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         panelVariant === "mostbet" && compact && "p-3",
         panelVariant === "sportsbetio" && compact && "p-3",
         panelVariant === "bitcasino" && compact && "p-3",
+        panelVariant === "bcgame" && compact && "p-3",
         visualPanelShell[panelVariant],
       )}
     >
@@ -555,6 +574,37 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "bcgame" ? (
+        <>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[55%] top-[45%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/8 blur-2xl md:h-20 md:w-20"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-3 top-3 h-5 w-5 rotate-[30deg] border border-emerald-500/30 bg-emerald-900/20 md:right-3.5 md:top-3.5 md:h-6 md:w-6"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 rounded-full border border-[#20B864]/35 bg-emerald-800/20 shadow-[0_0_8px_rgba(32,184,100,0.2)] md:bottom-3.5 md:left-3.5 md:h-5 md:w-5"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-5 right-6 flex h-3 w-3 items-center justify-center rounded-sm border border-emerald-600/30 bg-[#143522]/80 md:bottom-6 md:right-8 md:h-3.5 md:w-3.5"
+          >
+            <span className="h-0.5 w-1.5 rounded-full bg-[#47E887]/60" />
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-2 h-px w-10 -translate-x-1/2 bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent md:w-14"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-10 top-5 hidden h-1.5 w-1.5 rounded-full bg-[#F0B90B]/40 md:block"
+          />
+        </>
+      ) : null}
+
       {panelVariant === "rainbet" ? (
         <>
           {/* Reward glow halo */}
@@ -605,6 +655,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "mostbet" && "text-[#34A5FF]/90",
               panelVariant === "sportsbetio" && "text-[#65E782]/90",
               panelVariant === "bitcasino" && "text-[#FF7417]/90",
+              panelVariant === "bcgame" && "text-emerald-300/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
@@ -621,6 +672,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                 panelVariant !== "mostbet" &&
                 panelVariant !== "sportsbetio" &&
                 panelVariant !== "bitcasino" &&
+                panelVariant !== "bcgame" &&
                 "text-muted-foreground",
             )}
           >
@@ -663,6 +715,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#65E782] via-[#45D067] to-[#36B958] bg-clip-text text-transparent",
             panelVariant === "bitcasino" &&
               "bg-gradient-to-r from-[#FF7417] via-[#8F2BFF] to-[#FFCC4D] bg-clip-text text-transparent",
+            panelVariant === "bcgame" &&
+              "bg-gradient-to-r from-[#47E887] via-[#20B864] to-[#EAF7EF] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -717,6 +771,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                                                 ? "border-[#36B958]/25 bg-[#36B958]/10 text-[#DCE5EC]/90"
                                                 : panelVariant === "bitcasino"
                                                   ? "border-[#7B22D3]/25 bg-[#6519A8]/15 text-[#F5F1FA]/90"
+                                                  : panelVariant === "bcgame"
+                                                    ? "border-emerald-600/25 bg-emerald-900/15 text-emerald-100/90"
                                       : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
@@ -867,6 +923,7 @@ export function OfferCard({
   const isMostbetBranded = operatorId === "mostbet" || visual?.variant === "mostbet";
   const isSportsbetioBranded = operatorId === "sportsbetio" || visual?.variant === "sportsbetio";
   const isBitcasinoBranded = operatorId === "bitcasino" || visual?.variant === "bitcasino";
+  const isBcgameBranded = operatorId === "bcgame" || visual?.variant === "bcgame";
   const variant =
     visualVariant === "crypto" &&
     emphasis === "comparison-secondary" &&
@@ -882,7 +939,8 @@ export function OfferCard({
     !isRoobetBranded &&
     !isMostbetBranded &&
     !isSportsbetioBranded &&
-    !isBitcasinoBranded
+    !isBitcasinoBranded &&
+    !isBcgameBranded
       ? "dark"
       : visualVariant;
   const showInlineOfferText = !visual;
@@ -913,6 +971,8 @@ export function OfferCard({
                           ? sportsbetioCardGlow
                           : isBitcasinoBranded
                             ? bitcasinoCardGlow
+                            : isBcgameBranded
+                              ? bcgameCardGlow
               : emphasisGlow[emphasis];
   const showVariantGlow =
     emphasis === "standard" &&
@@ -928,7 +988,8 @@ export function OfferCard({
     !isRoobetBranded &&
     !isMostbetBranded &&
     !isSportsbetioBranded &&
-    !isBitcasinoBranded;
+    !isBitcasinoBranded &&
+    !isBcgameBranded;
   const brandedCtaProps = isGamdomBranded
     ? { primaryButtonClassName: gamdomPrimaryCta, secondaryButtonClassName: gamdomSecondaryCta }
     : isXonbetBranded
@@ -953,6 +1014,11 @@ export function OfferCard({
                         primaryButtonClassName: bitcasinoPrimaryCta,
                         secondaryButtonClassName: bitcasinoSecondaryCta,
                       }
+                    : isBcgameBranded
+                      ? {
+                          primaryButtonClassName: bcgamePrimaryCta,
+                          secondaryButtonClassName: bcgameSecondaryCta,
+                        }
       : {};
   const Heading = headingLevel;
 
@@ -972,6 +1038,7 @@ export function OfferCard({
           !isMostbetBranded &&
           !isSportsbetioBranded &&
           !isBitcasinoBranded &&
+          !isBcgameBranded &&
           "sm:p-4",
         isRainbetBranded
           ? rainbetCardShell
@@ -999,6 +1066,8 @@ export function OfferCard({
                                 ? sportsbetioCardShell
                                 : isBitcasinoBranded
                                   ? bitcasinoCardShell
+                                  : isBcgameBranded
+                                    ? bcgameCardShell
                               : variantShell[variant],
         !isRainbetBranded &&
           !isOnexbetBranded &&
@@ -1013,6 +1082,7 @@ export function OfferCard({
           !isMostbetBranded &&
           !isSportsbetioBranded &&
           !isBitcasinoBranded &&
+          !isBcgameBranded &&
           emphasisShell[emphasis],
         className,
       )}
@@ -1075,6 +1145,8 @@ export function OfferCard({
                                               ? sportsbetioBadge
                                               : isBitcasinoBranded
                                                 ? bitcasinoBadge
+                                                : isBcgameBranded
+                                                  ? bcgameBadge
                                   : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
@@ -1180,6 +1252,8 @@ export function OfferCard({
                               ? "text-[#65E782]"
                               : isBitcasinoBranded
                                 ? "text-[#FF7417]"
+                                : isBcgameBranded
+                                  ? "text-[#47E887]"
                           : isRainbetBranded
                           ? "text-emerald-400"
                           : isOnexbetBranded

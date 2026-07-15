@@ -52,6 +52,9 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "bitcasino") {
     return "border-[#6519A8]/30 ring-[#7B22D3]/20 shadow-[0_0_18px_-6px_rgba(123,34,211,0.25)]";
   }
+  if (operatorId === "bcgame") {
+    return "border-emerald-700/30 ring-emerald-600/15 shadow-[0_0_16px_-6px_rgba(32,184,100,0.2)]";
+  }
   return "ring-white/10";
 }
 
@@ -91,6 +94,9 @@ function logoTileBackground(operatorId?: string): string {
   }
   if (operatorId === "bitcasino") {
     return "bg-gradient-to-br from-[#12051F] via-[#210936] to-[#35105A]";
+  }
+  if (operatorId === "bcgame") {
+    return "bg-gradient-to-br from-[#07110D] via-[#0B1712] to-[#10251A]";
   }
   return "bg-[#16233f]";
 }
@@ -219,7 +225,9 @@ export function OperatorLogo({
         operatorId === "gamdom" ? "size-11 text-xs" : "size-12 text-sm",
         operatorId === "gamdom"
           ? "bg-[#111417] font-semibold tracking-tight text-muted-foreground ring-white/8"
-          : "bg-gradient-to-br from-[#16233f] to-[var(--jm-graphite)] font-bold tracking-tight text-primary ring-primary/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
+          : operatorId === "bcgame"
+            ? "bg-gradient-to-br from-[#07110D] via-[#0B1712] to-[#143522] font-bold tracking-tight text-[#47E887] ring-emerald-700/25 shadow-[inset_0_1px_0_rgba(240,185,11,0.08)]"
+            : "bg-gradient-to-br from-[#16233f] to-[var(--jm-graphite)] font-bold tracking-tight text-primary ring-primary/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
         className,
       )}
     >

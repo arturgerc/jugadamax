@@ -730,4 +730,38 @@ export const reviews: Review[] = [
     updatedAt: "2026-07-12",
     locale: "es-MX",
   },
+  {
+    id: "bcgame-review",
+    casinoId: "bcgame",
+    authorId: "redaccion-jugadamax",
+    slug: "bcgame",
+    title: "Reseña de BC.Game México: casino crypto, Originals y sportsbook",
+    rating: 3.8,
+    publishedAt: "2026-07-15",
+    updatedAt: "2026-07-15",
+    locale: "es-MX",
+    verdict:
+      "BC.Game combina casino crypto, live casino, slots, juegos crash, Originals y sportsbook dentro de una plataforma internacional amplia. JugadaMax lo incluye como comparación editorial y enlace oficial, no como partner afiliado para México. La variedad de producto y criptomonedas es positiva, pero la licencia internacional, las opiniones externas mixtas, las reclamaciones, KYC y condiciones de retiro requieren cautela. JugadaMax lo valora con 3.8/5 y lo mantiene en la última posición del ranking crypto español.",
+    pros: [
+      "Casino, live casino, crash, Originals y sportsbook.",
+      "Amplia compatibilidad con criptomonedas según cuenta.",
+      "Sitio oficial localizado para México.",
+      "Soporte y plataforma disponibles en español.",
+      "Oferta amplia de juegos y proveedores.",
+    ],
+    cons: [
+      "No existe campaña afiliada confirmada para JugadaMax México.",
+      "No cuenta con licencia local mexicana verificada.",
+      "Las evaluaciones y opiniones externas son mixtas.",
+      "Fuentes externas registran numerosas reclamaciones.",
+      "KYC, fees, límites y tiempos de retiro pueden aplicarse.",
+      "Métodos y promociones dependen de la cuenta y jurisdicción.",
+    ],
+    paymentsSummary:
+      "BC.Game es un operador crypto con soporte para activos como Bitcoin, Ethereum, USDT y otras monedas según cuenta. Fuentes externas también enumeran diversos métodos regionales, pero JugadaMax no garantiza que estén disponibles para todos los usuarios de México. Confirma activos, redes, mínimos, fees, límites, KYC y retiros directamente en el cajero.",
+    trustSummary:
+      "BC.Game opera como casino internacional. Fuentes externas identifican a Twocent Technology Limited y una licencia de Anjouan, pero esto no equivale a licencia local mexicana. JugadaMax recomienda verificar entidad operadora, licencia vigente, restricciones regionales, KYC, promociones y reglas de retiro directamente en el sitio oficial.",
+    body:
+      "BC.Game es una plataforma internacional que combina casino crypto, live casino, slots, juegos crash, Originals y sportsbook dentro de una misma cuenta según configuración del operador. JugadaMax lo incluye en /casinos-crypto como comparación editorial de última posición, con enlace oficial a bcgame.mx y sin campaña afiliada confirmada para México.\n\nEn producto, el operador describe apuestas pre-partido e in-play, promociones rotativas y cashback variable. Reseñas externas como Casino Guru y AskGamblers ofrecen evaluaciones mixtas; JugadaMax no copia esas puntuaciones como propias ni garantiza bonos, disponibilidad en México ni retiros rápidos.\n\nEn pagos, BC.Game admite Bitcoin, Ethereum, USDT y otras monedas según cuenta, pero redes, mínimos, fees, límites y KYC deben confirmarse en el cajero oficial. No asumas juego anónimo ni ausencia de verificación.\n\nEn confianza, fuentes externas identifican a Twocent Technology Limited y licencia de Anjouan, información que no equivale a licencia local mexicana. Existen reclamaciones registradas en sitios independientes que deben considerarse junto con los términos oficiales.\n\nCalificamos BC.Game con 3.8/5 como opinión editorial de JugadaMax — no como puntuación agregada de usuarios — y lo mantenemos por debajo de partners afiliados activos en el ranking crypto español. 18+.",
+  },
 ];
