@@ -6,10 +6,10 @@ import { filterCasinosForSurface } from "@/content/operators/status";
 import {
   BETFURY_AFFILIATE_URL,
   BETFURY_PROMO_CODE,
-  FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
 import { OfferCard } from "@/components/affiliate/OfferCard";
-import { GamdomFeaturedCard } from "@/components/affiliate/GamdomFeaturedCard";
+import { BitcasinoFeaturedCard } from "@/components/affiliate/BitcasinoFeaturedCard";
+import { SportsbetFeaturedCard } from "@/components/affiliate/SportsbetFeaturedCard";
 import { BetssonFeaturedCard } from "@/components/affiliate/BetssonFeaturedCard";
 import { HomepageActionGrid } from "@/components/home/HomepageActionGrid";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -182,43 +182,8 @@ export default function Home() {
               También puedes comparar
             </h3>
             <div className="grid items-start gap-4 md:grid-cols-2 md:items-stretch">
-              <OfferCard
-                operatorName="500 Casino"
-                operatorId="500-casino"
-                badge="Crypto candidato"
-                headline="500 Casino"
-                subheadline="Casino crypto, slots y sportsbook"
-                offerText="Promociones visibles según términos oficiales"
-                paymentBadges={["Crypto", "Slots", "Sportsbook"]}
-                featureBullets={[
-                  "Casino crypto para comparar",
-                  "Slots, live casino y sportsbook",
-                  "Revisa términos, pagos y verificación",
-                ]}
-                primaryCtaLabel="Visitar 500 Casino"
-                primaryCtaHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
-                secondaryCtaLabel="Leer reseña"
-                secondaryCtaHref="/reviews/500-casino"
-                termsNote="Promociones, pagos, retiros y disponibilidad dependen de términos oficiales y jurisdicción."
-                responsibleNote="18+ | Juega con responsabilidad"
-                visualVariant="crypto"
-                emphasis="comparison-primary"
-                fillHeight
-                visual={{
-                  eyebrow: "Crypto casino",
-                  title: "500 Casino",
-                  subtitle: "Slots y sportsbook",
-                  chips: ["Crypto", "Slots", "Sportsbook"],
-                  variant: "fivehundred",
-                  compact: true,
-                }}
-                mobileMaxBullets={2}
-              />
-              <GamdomFeaturedCard
-                context="homepage"
-                fillHeight
-                className="h-fit self-start p-3 sm:p-4 md:h-full md:self-stretch"
-              />
+              <BitcasinoFeaturedCard context="homepage" />
+              <SportsbetFeaturedCard context="homepage" />
             </div>
           </div>
 
