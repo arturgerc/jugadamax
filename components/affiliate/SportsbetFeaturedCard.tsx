@@ -22,7 +22,7 @@ const SPORTSBETIO_LOGO = {
   height: 48,
 } as const;
 
-type SportsbetContext = "crypto" | "sportsbook" | "bonus" | "review";
+type SportsbetContext = "homepage" | "crypto" | "sportsbook" | "bonus" | "review";
 
 export type SportsbetFeaturedCardProps = {
   context: SportsbetContext;
@@ -33,6 +33,36 @@ const CONTEXT_CONFIG: Record<
   SportsbetContext,
   Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
 > = {
+  homepage: {
+    badge: "CRYPTO SPORTSBOOK + CASINO",
+    headline: "Sportsbet.io",
+    subheadline: "Apuestas crypto, live betting y casino",
+    offerText: "100% hasta 300 USDT — Sports o Casino",
+    paymentBadges: ["USDT", "Sports", "Casino"],
+    featureBullets: [
+      "Sportsbook crypto, live betting y casino en una cuenta",
+      "Depósito mínimo 10 USDT; wagering publicado de 15x o 40x",
+    ],
+    primaryCtaLabel: "Visitar Sportsbet.io",
+    primaryCtaHref: SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
+    secondaryCtaLabel: "Leer reseña",
+    secondaryCtaHref: "/reviews/sportsbet-io",
+    termsNote:
+      "Bono, pagos, KYC y retiros dependen de la promoción, cuenta, GEO y términos.",
+    visual: {
+      eyebrow: "CHAMPIONS WELCOME",
+      title: "100% hasta 300 USDT",
+      subtitle: "Sports 15x · Casino 40x",
+      chips: ["Sports", "Casino", "USDT"],
+      variant: "sportsbetio",
+      compact: true,
+    },
+    visualVariant: "crypto",
+    mobileMaxBullets: 2,
+    compactComparison: true,
+    fillHeight: true,
+    className: "h-fit self-start p-3 sm:p-4 md:h-full md:self-stretch",
+  },
   crypto: {
     badge: "CRYPTO SPORTSBOOK + CASINO",
     headline: "Sportsbet.io: apuestas crypto, casino y promociones",

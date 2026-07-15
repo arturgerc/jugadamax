@@ -19,7 +19,7 @@ const BITCASINO_LOGO = {
   height: 48,
 } as const;
 
-type BitcasinoContext = "crypto" | "bonus" | "review";
+type BitcasinoContext = "homepage" | "crypto" | "bonus" | "review";
 
 export type BitcasinoFeaturedCardProps = {
   context: BitcasinoContext;
@@ -30,6 +30,36 @@ const CONTEXT_CONFIG: Record<
   BitcasinoContext,
   Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
 > = {
+  homepage: {
+    badge: "CRYPTO CASINO",
+    headline: "Bitcasino.io",
+    subheadline: "Slots, live casino y Originals",
+    offerText: "Hasta 5,000 USDT en 3 bonos de depósito",
+    paymentBadges: ["BTC", "USDT", "Casino"],
+    featureBullets: [
+      "Casino crypto con slots, live casino y Originals",
+      "Tres bonos de depósito; revisa wagering, KYC y términos",
+    ],
+    primaryCtaLabel: "Visitar Bitcasino",
+    primaryCtaHref: BITCASINO_REGISTRATION_AFFILIATE_URL,
+    secondaryCtaLabel: "Leer reseña",
+    secondaryCtaHref: "/reviews/bitcasino",
+    termsNote:
+      "Bonos, pagos, KYC y retiros dependen de la cuenta, GEO y términos oficiales.",
+    visual: {
+      eyebrow: "WELCOME CRYPTO",
+      title: "Hasta 5,000 USDT",
+      subtitle: "3 bonos de depósito",
+      chips: ["Crypto", "Casino", "3 depósitos"],
+      variant: "bitcasino",
+      compact: true,
+    },
+    visualVariant: "crypto",
+    mobileMaxBullets: 2,
+    compactComparison: true,
+    fillHeight: true,
+    className: "h-fit self-start p-3 sm:p-4 md:h-full md:self-stretch",
+  },
   crypto: {
     badge: "CRYPTO CASINO",
     headline: "Bitcasino: casino crypto, slots y live casino",
