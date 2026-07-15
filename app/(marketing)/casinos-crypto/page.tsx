@@ -526,31 +526,33 @@ export default function CryptoCasinosPage() {
           <OfferCard
             operatorName="BC.Game"
             operatorId="bcgame"
-            badge="Comparar"
-            headline="BC.Game"
-            subheadline="Comparación editorial crypto"
-            offerText="Revisa términos oficiales en BC.Game MX"
+            badge="COMPARACIÓN EDITORIAL"
+            headline="BC.Game: casino crypto, Originals y sportsbook"
+            subheadline="Operador internacional para comparar desde México"
+            offerText="Casino, live casino, crash y apuestas deportivas"
             paymentBadges={["BTC", "ETH", "USDT"]}
             featureBullets={[
-              "Operador crypto internacional",
-              "Disponibilidad depende de jurisdicción",
-              "Pagos, retiros y verificación dependen del operador",
+              "Slots, live casino, crash, Originals y sportsbook",
+              "Pagos, KYC, retiros y disponibilidad según jurisdicción",
             ]}
-            primaryCtaLabel="Ver BC.Game MX"
+            primaryCtaLabel="Ver BC.Game México"
             primaryCtaHref={BCGAME_MX_OFFICIAL_URL}
             primaryCtaIsAffiliate={false}
-            termsNote="JugadaMax no tiene campaña afiliada confirmada para México. Bonos, pagos, retiros y verificación dependen de los términos oficiales del operador."
+            secondaryCtaLabel="Leer reseña"
+            secondaryCtaHref="/reviews/bcgame"
+            termsNote="Sitio oficial sin campaña afiliada de JugadaMax. Pagos, bonos, KYC y retiros dependen de los términos oficiales."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{
-              eyebrow: "Crypto casino",
-              title: "BC.Game",
-              subtitle: "Sitio oficial México",
-              chips: ["Crypto", "Casino"],
-              variant: "crypto",
+              eyebrow: "CRYPTO CASINO",
+              title: "Casino + Sportsbook",
+              subtitle: "Live · Crash · Originals",
+              chips: ["Crypto", "Live", "Sport"],
+              variant: "bcgame",
               compact: true,
             }}
             visualVariant="dark"
             emphasis="comparison-secondary"
+            compactComparison
             mobileMaxBullets={2}
             fillHeight
             className="p-3 sm:p-4"
