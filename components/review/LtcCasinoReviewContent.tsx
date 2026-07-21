@@ -477,13 +477,13 @@ export function LtcCasinoReviewContent({
               Registrarse en LTC Casino
             </a>
             <Link
-              href="/casinos-crypto"
+              href="/casinos-sin-kyc"
               className={cn(
                 "inline-flex min-h-11 items-center justify-center rounded-md border border-[#4B6FFF]/40 px-5 py-2.5 text-sm font-semibold text-[#7F8FFF] transition-colors hover:bg-[#1237FF]/15",
                 focusRing,
               )}
             >
-              Comparar casinos crypto
+              Comparar casinos sin verificación
             </Link>
           </div>
         </section>
@@ -520,11 +520,11 @@ export function LtcCasinoReviewContent({
       <MobileStickyOfferCta
         showAfterId="review-primary-offer"
         compactPrimaryLabel="Registrarse"
-        compactSecondaryLabel="Resumen"
+        compactSecondaryLabel="Comparar"
         primaryLabel="Registrarse"
         primaryHref={LTCCASINO_AFFILIATE_URL}
-        secondaryLabel="Leer reseña"
-        secondaryHref="#resumen-ltccasino"
+        secondaryLabel="Comparar"
+        secondaryHref="/casinos-sin-kyc"
       />
     </>
   );

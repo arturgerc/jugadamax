@@ -226,6 +226,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-[#4B6FFF]/25 bg-[#1237FF]/10",
     decorB: "bg-[#7F8FFF]/45",
   },
+  ethcasino: {
+    shell:
+      "border-[#10BBD7]/25 bg-gradient-to-br from-[#080D18] via-[#0D1824] to-[#132535] ring-1 ring-[#21D6EB]/10 shadow-[0_4px_28px_-12px_rgba(16,187,215,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(16,187,215,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(122,125,255,0.1),transparent_50%)]",
+    badge: "border-[#21D6EB]/30 bg-[#16394A]/40 text-[#56E8F6]",
+    chip: "border-[#21D6EB]/25 bg-[#16394A]/10 text-[#DFFBFF]/90",
+    scorePanel: "border-[#10BBD7]/25 bg-[#080D18]/85 shadow-[inset_0_1px_0_rgba(16,187,215,0.08)]",
+    scoreValue: "text-[#56E8F6]",
+    decorA: "border-[#21D6EB]/25 bg-[#16394A]/10",
+    decorB: "bg-[#7A7DFF]/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",
@@ -265,6 +276,9 @@ function verticalChips(verticals: Vertical[], locale: UiLocale, operatorId?: str
     .slice(0, 3)
     .map((v) => VERTICAL_CHIP_LABELS[v][locale === "en" ? "en" : "es"]);
   if (operatorId === "ltccasino" && locale !== "en") {
+    return ["SIN KYC", ...base].slice(0, 3);
+  }
+  if (operatorId === "ethcasino" && locale !== "en") {
     return ["SIN KYC", ...base].slice(0, 3);
   }
   return base;

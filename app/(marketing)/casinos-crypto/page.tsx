@@ -18,6 +18,7 @@ import { VodkabetFeaturedCard } from "@/components/affiliate/VodkabetFeaturedCar
 import { SportsbetFeaturedCard } from "@/components/affiliate/SportsbetFeaturedCard";
 import { BitcasinoFeaturedCard } from "@/components/affiliate/BitcasinoFeaturedCard";
 import { LtcCasinoFeaturedCard } from "@/components/affiliate/LtcCasinoFeaturedCard";
+import { EthCasinoFeaturedCard } from "@/components/affiliate/EthCasinoFeaturedCard";
 import { cn, focusRing } from "@/lib/utils";
 import {
   BETFURY_AFFILIATE_URL,
@@ -268,10 +269,10 @@ export default function CryptoCasinosPage() {
               Internacionales
             </Link>
             <Link
-              href="#casino-crypto-sin-kyc"
-              className={cn("inline-flex min-h-11 items-center rounded-full border border-border/60 px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/60", focusRing)}
+              href="/casinos-sin-kyc"
+              className={cn("inline-flex min-h-11 items-center rounded-full border border-primary/40 bg-primary/8 px-3 py-1 text-xs font-medium text-primary transition-colors hover:border-primary/60", focusRing)}
             >
-              Casino sin KYC
+              Casinos sin KYC
             </Link>
             <Link
               href="#guias-crypto-mexico"
@@ -406,11 +407,12 @@ export default function CryptoCasinosPage() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
               BetFury aparece como oferta destacada arriba. 500 Casino, Gamdom, Rainbet, Roobet, Stake y
               Mellstroy se presentan como candidatos del segmento crypto con enlaces activos o
-              enlaces oficiales. LTC Casino aparece como tarjeta afiliada activa enfocada en
-              privacidad y registro sin KYC, fuera del ranking numerado. BC.Game aparece más abajo
-              como comparación editorial no monetizada con enlace al sitio oficial de México. La
-              disponibilidad, pagos, verificación, bonos y retiros dependen de cada operador y de tu
-              jurisdicción.
+              enlaces oficiales. ETH Casino y LTC Casino aparecen como tarjetas afiliadas activas de
+              casinos sin KYC, fuera del ranking numerado; el estatus de afiliado no determina las
+              puntuaciones editoriales y las cautelas de seguridad externas siguen visibles. BC.Game
+              aparece más abajo como comparación editorial no monetizada con enlace al sitio oficial
+              de México. La disponibilidad, pagos, verificación, bonos y retiros dependen de cada
+              operador y de tu jurisdicción.
             </p>
           </article>
         </div>
@@ -425,14 +427,15 @@ export default function CryptoCasinosPage() {
           id="casino-crypto-sin-kyc-heading"
           className="text-lg font-bold tracking-tight text-foreground sm:text-xl"
         >
-          Casino crypto sin KYC destacado
+          Casinos crypto sin KYC destacados
         </h2>
         <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          LTC Casino se orienta a usuarios que priorizan privacidad, registro con email y contraseña
-          y pagos crypto. La política sin KYC es publicada por el operador; revisa siempre las
-          reglas vigentes del dominio de registro.
+          ETH Casino y LTC Casino se orientan a usuarios que priorizan privacidad, registro con email
+          y contraseña y pagos crypto. Las políticas sin KYC son publicadas por cada operador y pueden
+          cambiar; revisa siempre las reglas del dominio de registro.
         </p>
-        <LtcCasinoFeaturedCard context="crypto" />
+        <EthCasinoFeaturedCard context="crypto" />
+        <LtcCasinoFeaturedCard context="crypto" className="mt-4" />
       </section>
 
       <section

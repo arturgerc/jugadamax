@@ -12,6 +12,7 @@ import {
   SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
   BITCASINO_REGISTRATION_AFFILIATE_URL,
   LTCCASINO_AFFILIATE_URL,
+  ETHCASINO_AFFILIATE_URL,
   ROOBET_MX_CASINO_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -93,16 +94,17 @@ export const casinos: Casino[] = [
     slug: "ethcasino",
     name: "ETH Casino",
     logo: {
-      src: "/operators/ethcasino.jpg",
+      src: "/operators/ethcasino.svg",
       alt: "ETH Casino",
-      width: 80,
-      height: 40,
+      width: 140,
+      height: 56,
     },
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 4 },
+    rankByVertical: {},
+    affiliateUrl: ETHCASINO_AFFILIATE_URL,
     payments: [
-      { name: "Bitcoin", kind: "crypto" },
       { name: "Ethereum", kind: "crypto" },
+      { name: "Bitcoin", kind: "crypto" },
       { name: "XRP", kind: "crypto" },
       { name: "USDT", kind: "crypto" },
       { name: "Solana", kind: "crypto" },
@@ -114,14 +116,14 @@ export const casinos: Casino[] = [
       { name: "Litecoin", kind: "crypto" },
     ],
     licensing: {
-      licenseName: "Licencia no verificada por JugadaMax",
+      licenseName:
+        "Sin licencia de juego verificada independientemente por JugadaMax",
       notes:
-        "El sitio publica términos sobre pagos, cashouts, anti-fraud policy y responsabilidad del jugador. No es licencia local SEGOB México; revisa términos y disponibilidad regional.",
+        "ETH Casino se presenta como casino crypto internacional sin KYC. JugadaMax no confirma licencia local mexicana ni una licencia internacional vigente. Revisa términos, jurisdicción, límites, controles antifraude y políticas actuales después del redirect.",
     },
-    bonusIds: ["ethcasino-welcome"],
-    // Editorial only — no approved tracking link.
+    bonusIds: [],
     summary:
-      "ETH Casino es un casino crypto con enfoque en Ethereum, stablecoins y juegos en vivo. Para México y LATAM, JugadaMax lo presenta como candidato crypto/offshore; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
+      "ETH Casino es un casino crypto centrado en Ethereum y una política pública sin KYC. El registro descrito utiliza email y contraseña, y el operador acepta ETH, BTC, USDT y otras criptomonedas. Su propuesta principal es privacidad, pagos desde wallets, slots, juegos crypto y live casino, no bonos de bienvenida.",
     locale: "es-MX",
   },
   {

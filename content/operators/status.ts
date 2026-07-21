@@ -20,6 +20,7 @@ export type OperatorSurface =
   | "homepage"
   | "casinos-crypto"
   | "casinos-fiat"
+  | "casinos-sin-kyc"
   | "bonos"
   | "apuestas"
   | "reviews"
@@ -187,17 +188,23 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
   ethcasino: {
     id: "ethcasino",
     name: "ETH Casino",
-    publicStatus: "editorial-hold",
-    allowedSurfaces: ["reviews", "sitemap"],
-    ctaAllowed: false,
-    affiliateAllowed: false,
-    notes: "Editorial hold — hidden from homepage and money pages.",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: [
+      "casinos-crypto",
+      "casinos-sin-kyc",
+      "reviews",
+      "sitemap",
+    ],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active Spanish/MX no-KYC crypto affiliate campaign managed through the BitPartners.io relationship reported by the project owner. Campaign code jg7kkva6a. ETH Casino is promoted around privacy, email/password registration and crypto payments rather than bonuses. No local Mexican licence or absolute anonymity is claimed.",
   },
   ltccasino: {
     id: "ltccasino",
     name: "LTC Casino",
     publicStatus: "active-affiliate",
-    allowedSurfaces: ["casinos-crypto", "reviews", "sitemap"],
+    allowedSurfaces: ["casinos-crypto", "casinos-sin-kyc", "reviews", "sitemap"],
     ctaAllowed: true,
     affiliateAllowed: true,
     notes:

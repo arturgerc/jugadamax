@@ -25,16 +25,7 @@ export const bonuses: Bonus[] = [
     active: true,
   },
   {
-    id: "ethcasino-welcome",
-    casinoId: "ethcasino",
-    title: "Consulta la promoción vigente en el sitio oficial",
-    type: "welcome",
-    terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
-    active: true,
-  },
-  {
-    id: "caliente-welcome",
-    casinoId: "caliente",
+    id: "caliente-welcome",    casinoId: "caliente",
     title: "Consulta el bono de bienvenida vigente",
     type: "welcome",
     terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",

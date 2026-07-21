@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" role="img" aria-label="ETH Casino">
+  <defs>
+    <linearGradient id="ethDiamond" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A9F3FF"/>
+      <stop offset="45%" stop-color="#45E5F6"/>
+      <stop offset="100%" stop-color="#18C8E8"/>
+    </linearGradient>
+    <linearGradient id="ethText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2FBFF"/>
+      <stop offset="100%" stop-color="#A9F3FF"/>
+    </linearGradient>
+    <filter id="ethSoftShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#08131F" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <!-- Ethereum-style diamond -->
+  <g transform="translate(36, 42)" filter="url(#ethSoftShadow)" aria-hidden="true">
+    <polygon points="48,4 84,54 48,104 12,54" fill="url(#ethDiamond)" opacity="0.95"/>
+    <polygon points="48,4 84,54 48,58" fill="#F2FBFF" opacity="0.35"/>
+    <polygon points="48,58 84,54 48,104" fill="#0B2230" opacity="0.28"/>
+    <polygon points="48,4 12,54 48,58" fill="#45E5F6" opacity="0.45"/>
+    <polygon points="48,58 12,54 48,104" fill="#08131F" opacity="0.22"/>
+    <line x1="48" y1="4" x2="48" y2="104" stroke="#0B2230" stroke-width="1.5" opacity="0.35"/>
+    <line x1="12" y1="54" x2="84" y2="54" stroke="#F2FBFF" stroke-width="1.2" opacity="0.4"/>
+  </g>
+
+  <!-- Angular wordmark: ETH -->
+  <g filter="url(#ethSoftShadow)">
+    <text
+      x="148"
+      y="78"
+      fill="url(#ethText)"
+      font-family="Segoe UI, Arial, Helvetica, sans-serif"
+      font-size="58"
+      font-weight="800"
+      font-style="italic"
+      letter-spacing="4"
+      transform="skewX(-8)"
+    >ETH</text>
+    <text
+      x="148"
+      y="138"
+      fill="#F2FBFF"
+      font-family="Segoe UI, Arial, Helvetica, sans-serif"
+      font-size="42"
+      font-weight="700"
+      font-style="italic"
+      letter-spacing="8"
+      transform="skewX(-8)"
+    >CASINO</text>
+  </g>
+
+  <!-- Accent bar -->
+  <rect x="148" y="92" width="118" height="3" rx="1.5" fill="#18C8E8" opacity="0.85"/>
+  <rect x="274" y="92" width="36" height="3" rx="1.5" fill="#728497" opacity="0.55"/>
+</svg>
