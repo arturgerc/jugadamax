@@ -6,14 +6,15 @@ import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
+import { AnonymousCasinoFeaturedCard } from "@/components/affiliate/AnonymousCasinoFeaturedCard";
 import { EthCasinoFeaturedCard } from "@/components/affiliate/EthCasinoFeaturedCard";
 import { LtcCasinoFeaturedCard } from "@/components/affiliate/LtcCasinoFeaturedCard";
 import { cn, focusRing } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Casinos sin KYC en México: ETH Casino y LTC Casino",
+  title: "Casinos sin KYC en México: Anonymous, ETH y LTC",
   description:
-    "Compara casinos crypto sin KYC para México: registro con email y contraseña, ETH, LTC, Bitcoin, USDT, juegos, retiros, privacidad y riesgos.",
+    "Compara Anonymous Casino, ETH Casino y LTC Casino: registro con email y contraseña, pagos crypto, juegos, retiros, privacidad, límites y riesgos.",
   path: "/casinos-sin-kyc",
 });
 
@@ -21,7 +22,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Qué es un casino sin KYC?",
     answer:
-      "Es un casino que publica una política de registro sin verificación documental tradicional. En ETH Casino y LTC Casino el flujo descrito usa email y contraseña. Las políticas son del operador y pueden cambiar.",
+      "Es un casino que publica una política de registro sin verificación documental tradicional. En Anonymous Casino, ETH Casino y LTC Casino el flujo descrito usa email y contraseña. Las políticas son del operador y pueden cambiar.",
   },
   {
     question: "¿Sin KYC significa anonimato absoluto?",
@@ -31,7 +32,12 @@ const FAQ_ITEMS = [
   {
     question: "¿Cuál recomienda JugadaMax primero?",
     answer:
-      "En este cluster editorial, ETH Casino aparece primero (4.7/5) y LTC Casino segundo (4.6/5). Ambas puntuaciones son opiniones editoriales de JugadaMax.",
+      "En este cluster editorial, Anonymous Casino aparece primero (4.9/5), seguido de ETH Casino (4.7/5) y LTC Casino (4.6/5). Las puntuaciones son opiniones editoriales de JugadaMax.",
+  },
+  {
+    question: "¿Anonymous Casino y CryptoCasino.CC son lo mismo?",
+    answer:
+      "Sí. Anonymous Casino es la marca promocional del casino disponible en CryptoCasino.CC.",
   },
   {
     question: "¿Estos casinos aceptan OXXO o SPEI?",
@@ -41,6 +47,7 @@ const FAQ_ITEMS = [
 ] as const;
 
 export default function CasinosSinKycPage() {
+  const anonymousReview = getReviewBySlug("cryptocasino");
   const ethReview = getReviewBySlug("ethcasino");
   const ltcReview = getReviewBySlug("ltccasino");
   const breadcrumb = breadcrumbJsonLd([
@@ -55,10 +62,10 @@ export default function CasinosSinKycPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <header className="relative mb-8 overflow-hidden rounded-2xl border border-[#10BBD7]/20 bg-gradient-to-br from-[#080D18] via-[#0D1824] to-[#111417] p-5 sm:p-6 lg:p-8">
+      <header className="relative mb-8 overflow-hidden rounded-2xl border border-[#E0001B]/25 bg-gradient-to-br from-[#050607] via-[#0B0D12] to-[#111417] p-5 sm:p-6 lg:p-8">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,187,215,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(122,125,255,0.08),transparent_50%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(224,0,27,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(16,187,215,0.08),transparent_50%)]"
         />
         <div className="relative space-y-4">
           <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
@@ -66,12 +73,13 @@ export default function CasinosSinKycPage() {
           </h1>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             Comparamos casinos crypto que publican políticas de registro sin verificación documental.
-            ETH Casino y LTC Casino permiten crear una cuenta mediante email y contraseña según sus
-            materiales públicos, pero la disponibilidad, controles antifraude, redes, límites y
-            retiros dependen de cada operador y de tu jurisdicción.
+            Anonymous Casino (CryptoCasino.CC), ETH Casino y LTC Casino permiten crear una cuenta
+            mediante email y contraseña según sus materiales públicos, pero la disponibilidad,
+            controles antifraude, redes, límites y retiros dependen de cada operador y de tu
+            jurisdicción.
           </p>
           <ul className="flex flex-wrap gap-2" aria-label="Enfoque de la página">
-            <li className="inline-flex items-center rounded-full border border-[#21D6EB]/30 bg-[#16394A]/35 px-2.5 py-1 text-xs font-medium text-[#56E8F6]">
+            <li className="inline-flex items-center rounded-full border border-[#FF1C24]/35 bg-[#B30016]/20 px-2.5 py-1 text-xs font-medium text-[#FF4A2E]">
               Sin KYC
             </li>
             <li className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2.5 py-1 text-xs font-medium text-muted-foreground">
@@ -106,11 +114,18 @@ export default function CasinosSinKycPage() {
         </p>
       </section>
 
+      <section aria-labelledby="anonymous-nokyc-card" className="mb-6">
+        <h2 id="anonymous-nokyc-card" className="sr-only">
+          Anonymous Casino
+        </h2>
+        <AnonymousCasinoFeaturedCard context="nokyc" />
+      </section>
+
       <section aria-labelledby="eth-nokyc-card" className="mb-6">
         <h2 id="eth-nokyc-card" className="sr-only">
           ETH Casino
         </h2>
-        <EthCasinoFeaturedCard context="nokyc" />
+        <EthCasinoFeaturedCard context="nokyc" className="mt-4" />
       </section>
 
       <section aria-labelledby="ltc-nokyc-card" className="mb-8">
@@ -120,11 +135,53 @@ export default function CasinosSinKycPage() {
         <LtcCasinoFeaturedCard context="crypto" className="mt-4" />
       </section>
 
+      <section aria-labelledby="cual-elegir" className="mb-8">
+        <h2 id="cual-elegir" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
+          ¿Cuál elegir?
+        </h2>
+        <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+          <li>
+            <span className="font-semibold text-foreground">Anonymous Casino:</span> elección
+            editorial más alta de JugadaMax para cobertura no-KYC amplia en CryptoCasino.CC.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">ETH Casino:</span> mejor encaje para
+            usuarios centrados en Ethereum.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">LTC Casino:</span> mejor encaje para
+            usuarios centrados en Litecoin.
+          </li>
+        </ul>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Las puntuaciones son opiniones editoriales de JugadaMax y no garantías de pago, licencia o
+          anonimato.
+        </p>
+      </section>
+
       <section aria-labelledby="comparacion-resumen" className="mb-8">
         <h2 id="comparacion-resumen" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
           Resumen comparativo
         </h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <div className="mt-4 grid gap-4 lg:grid-cols-3">
+          <article className="rounded-xl border border-[#E0001B]/25 bg-[#0B0D12]/70 p-5">
+            <h3 className="font-semibold text-foreground">Anonymous Casino</h3>
+            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+              <li>Valoración editorial JugadaMax: {anonymousReview?.rating ?? 4.9}/5</li>
+              <li>Opera en CryptoCasino.CC</li>
+              <li>Posicionamiento sin KYC</li>
+              <li>Registro con email y contraseña</li>
+              <li>8 criptomonedas confirmadas</li>
+              <li>Slots, crypto games y live casino</li>
+              <li>Varias cuentas según Terms, con cautela de abuso</li>
+            </ul>
+            <Link
+              href="/reviews/cryptocasino"
+              className={cn("mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-[#FF4A2E] underline-offset-2 hover:underline", focusRing)}
+            >
+              Leer reseña de Anonymous Casino
+            </Link>
+          </article>
           <article className="rounded-xl border border-[#10BBD7]/20 bg-[#0D1824]/70 p-5">
             <h3 className="font-semibold text-foreground">ETH Casino</h3>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
@@ -162,60 +219,6 @@ export default function CasinosSinKycPage() {
         </div>
       </section>
 
-      <section aria-labelledby="comparacion-registro" className="mb-8">
-        <h2 id="comparacion-registro" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
-          Comparación de registro
-        </h2>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Ambos operadores describen un alta con email y contraseña, sin campos de identidad
-          documental en el flujo público. ETH Casino añade confirmación de correo y selección de
-          criptomoneda preferida según su FAQ. Las reglas exactas pueden variar tras el redirect.
-        </p>
-      </section>
-
-      <section aria-labelledby="comparacion-crypto" className="mb-8">
-        <h2 id="comparacion-crypto" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
-          Comparación de criptomonedas
-        </h2>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          ETH Casino publica soporte para BTC, ETH, XRP, USDT, SOL, BNB, DOGE, ADA, USDC, TRX y LTC.
-          LTC Casino también opera en entorno crypto-only con Litecoin como activo central. En ambos
-          casos debes verificar red, mínimos y dirección antes de transferir.
-        </p>
-      </section>
-
-      <section aria-labelledby="comparacion-juegos" className="mb-8">
-        <h2 id="comparacion-juegos" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
-          Comparación de juegos
-        </h2>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          ETH Casino cubre slots, Bonus Buy, crash, Plinko, Dice, mesas clásicas, game shows y live
-          casino. LTC Casino se orienta a slots, formatos crypto rápidos y live casino según catálogo.
-          Ninguno se presenta aquí como sportsbook principal.
-        </p>
-      </section>
-
-      <section aria-labelledby="comparacion-retiros" className="mb-8">
-        <h2 id="comparacion-retiros" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
-          Retiros y límites
-        </h2>
-        <div className="mt-4 rounded-xl border border-amber-500/25 bg-amber-500/5 p-4 sm:p-5">
-          <h3 className="text-sm font-semibold text-foreground">Condiciones importantes (ETH Casino)</h3>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            <li>Requisito 1x de movimiento del depósito antes del retiro</li>
-            <li>Posible 10x si la actividad se centra solo en live Roulette y Baccarat</li>
-            <li>Hasta 2 retiros por día y 7 por semana</li>
-            <li>Límites diarios, semanales y mensuales por red/activo</li>
-            <li>Advertencia de precisión de dirección y red</li>
-          </ul>
-          <p className="mt-3 text-sm text-muted-foreground">
-            ETH Casino afirma procesar retiros de forma inmediata; la llegada depende de la red.
-            JugadaMax no garantiza retiros instantáneos. LTC Casino declara procesamiento en tiempo
-            real con la misma dependencia de blockchain.
-          </p>
-        </div>
-      </section>
-
       <section aria-labelledby="anonimato-limites" className="mb-8">
         <h2 id="anonimato-limites" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
           Sin KYC no significa anonimato absoluto
@@ -224,21 +227,6 @@ export default function CasinosSinKycPage() {
           Sigue existiendo un email, posible registro de IP/dispositivo, trazabilidad en blockchains
           públicas, controles antifraude y aplicación de leyes locales. No-KYC no equivale a licencia
           mexicana ni a ausencia de restricciones de cuenta.
-        </p>
-      </section>
-
-      <section aria-labelledby="como-evaluamos-nokyc" className="mb-8">
-        <h2 id="como-evaluamos-nokyc" className="text-lg font-bold tracking-tight text-foreground sm:text-xl">
-          Cómo evalúa JugadaMax los casinos sin KYC
-        </h2>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Priorizamos atribución de políticas del operador, claridad de registro, amplitud crypto,
-          catálogo, límites de retiro, cautelas de licencia y evaluaciones externas. El estatus de
-          afiliado no determina la puntuación editorial. Consulta la{" "}
-          <Link href="/como-evaluamos" className={cn("text-primary underline-offset-2 hover:underline", focusRing)}>
-            metodología
-          </Link>
-          .
         </p>
       </section>
 
@@ -269,6 +257,11 @@ export default function CasinosSinKycPage() {
           Enlaces relacionados
         </h2>
         <ul className="mt-4 flex flex-wrap gap-3 text-sm">
+          <li>
+            <Link href="/reviews/cryptocasino" className={cn("font-medium text-[#FF4A2E] underline-offset-2 hover:underline", focusRing)}>
+              Reseña Anonymous Casino
+            </Link>
+          </li>
           <li>
             <Link href="/reviews/ethcasino" className={cn("font-medium text-[#56E8F6] underline-offset-2 hover:underline", focusRing)}>
               Reseña ETH Casino

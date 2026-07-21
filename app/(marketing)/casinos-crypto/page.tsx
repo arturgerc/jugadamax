@@ -19,6 +19,7 @@ import { SportsbetFeaturedCard } from "@/components/affiliate/SportsbetFeaturedC
 import { BitcasinoFeaturedCard } from "@/components/affiliate/BitcasinoFeaturedCard";
 import { LtcCasinoFeaturedCard } from "@/components/affiliate/LtcCasinoFeaturedCard";
 import { EthCasinoFeaturedCard } from "@/components/affiliate/EthCasinoFeaturedCard";
+import { AnonymousCasinoFeaturedCard } from "@/components/affiliate/AnonymousCasinoFeaturedCard";
 import { cn, focusRing } from "@/lib/utils";
 import {
   BETFURY_AFFILIATE_URL,
@@ -407,8 +408,9 @@ export default function CryptoCasinosPage() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
               BetFury aparece como oferta destacada arriba. 500 Casino, Gamdom, Rainbet, Roobet, Stake y
               Mellstroy se presentan como candidatos del segmento crypto con enlaces activos o
-              enlaces oficiales. ETH Casino y LTC Casino aparecen como tarjetas afiliadas activas de
-              casinos sin KYC, fuera del ranking numerado; el estatus de afiliado no determina las
+              enlaces oficiales. Anonymous Casino, ETH Casino y LTC Casino aparecen como tarjetas
+              afiliadas activas de casinos sin KYC, fuera del ranking numerado; Anonymous Casino es la
+              elección editorial no-KYC más alta de JugadaMax. El estatus de afiliado no determina las
               puntuaciones editoriales y las cautelas de seguridad externas siguen visibles. BC.Game
               aparece más abajo como comparación editorial no monetizada con enlace al sitio oficial
               de México. La disponibilidad, pagos, verificación, bonos y retiros dependen de cada
@@ -430,11 +432,12 @@ export default function CryptoCasinosPage() {
           Casinos crypto sin KYC destacados
         </h2>
         <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          ETH Casino y LTC Casino se orientan a usuarios que priorizan privacidad, registro con email
-          y contraseña y pagos crypto. Las políticas sin KYC son publicadas por cada operador y pueden
-          cambiar; revisa siempre las reglas del dominio de registro.
+          Anonymous Casino, ETH Casino y LTC Casino se orientan a usuarios que priorizan privacidad,
+          registro con email y contraseña y pagos crypto. Las políticas sin KYC son publicadas por
+          cada operador; revisa siempre Terms, redes, límites y reglas del dominio de registro.
         </p>
-        <EthCasinoFeaturedCard context="crypto" />
+        <AnonymousCasinoFeaturedCard context="crypto" />
+        <EthCasinoFeaturedCard context="crypto" className="mt-4" />
         <LtcCasinoFeaturedCard context="crypto" className="mt-4" />
       </section>
 

@@ -178,12 +178,18 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
   },
   cryptocasino: {
     id: "cryptocasino",
-    name: "CryptoCasino.CC",
-    publicStatus: "editorial-hold",
-    allowedSurfaces: ["reviews", "sitemap"],
-    ctaAllowed: false,
-    affiliateAllowed: false,
-    notes: "Editorial hold — hidden from homepage and money pages.",
+    name: "Anonymous Casino",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: [
+      "casinos-crypto",
+      "casinos-sin-kyc",
+      "reviews",
+      "sitemap",
+    ],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active Spanish/MX no-KYC affiliate campaign for Anonymous Casino / CryptoCasino.CC through the BitPartners.io relationship reported by the project owner. Campaign code jycokf7tf. The operator is promoted around privacy, email/password registration and crypto payments, not around a guaranteed bonus. No local Mexican licence or absolute anonymity is claimed.",
   },
   ethcasino: {
     id: "ethcasino",

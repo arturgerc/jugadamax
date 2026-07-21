@@ -21,6 +21,7 @@ import {
   BITCASINO_REGISTRATION_AFFILIATE_URL,
   LTCCASINO_AFFILIATE_URL,
   ETHCASINO_AFFILIATE_URL,
+  ANONYMOUS_CASINO_AFFILIATE_URL,
   SLOTORO_MAIN_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
   XONBET_GLOBAL_AFFILIATE_URL,
@@ -245,6 +246,22 @@ function ethcasinoMxLink(): OperatorLink | undefined {
   };
 }
 
+const ANONYMOUS_CASINO_MX_GEO_WARNING =
+  "Anonymous Casino / CryptoCasino.CC es un casino crypto internacional que se promociona como sin KYC. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de los términos vigentes.";
+
+function anonymousCasinoMxLink(): OperatorLink | undefined {
+  if (!ANONYMOUS_CASINO_AFFILIATE_URL) return undefined;
+
+  return {
+    market: "mx",
+    url: ANONYMOUS_CASINO_AFFILIATE_URL,
+    label: "Registrarse en Anonymous Casino",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: ANONYMOUS_CASINO_MX_GEO_WARNING,
+  };
+}
+
 const SLOTORO_GLOBAL_GEO_WARNING =
   "Slotoro availability depends on the player's jurisdiction and the operator's current restricted-country list. Several major markets are restricted. Check local law and live Slotoro terms before registering. Do not use a VPN or false location information.";
 
@@ -335,6 +352,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   ethcasino: {
     mx: ethcasinoMxLink(),
+  },
+  cryptocasino: {
+    mx: anonymousCasinoMxLink(),
   },
 };
 
