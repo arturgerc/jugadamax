@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "vodkabet" | "awintura" | "slotoro" | "roobet" | "mostbet" | "sportsbetio" | "bitcasino" | "bcgame" | "ltccasino" | "ethcasino" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "vodkabet" | "awintura" | "slotoro" | "roobet" | "mostbet" | "sportsbetio" | "bitcasino" | "bcgame" | "ltccasino" | "ethcasino" | "anonymous" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -128,6 +128,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-[#2156FF]/25 bg-gradient-to-br from-[#171821] via-[#1D1F2A] to-[#252836] shadow-[inset_0_1px_0_rgba(33,86,255,0.12)]",
   ethcasino:
     "border-[#10BBD7]/25 bg-gradient-to-br from-[#080D18] via-[#0D1824] to-[#132535] shadow-[inset_0_1px_0_rgba(16,187,215,0.12)]",
+  anonymous:
+    "border-[#E0001B]/30 bg-gradient-to-br from-[#050607] via-[#0B0D12] to-[#151820] shadow-[inset_0_1px_0_rgba(224,0,27,0.12)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -174,6 +176,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(33,86,255,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(75,111,255,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(127,143,255,0.06),transparent_45%)]",
   ethcasino:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(16,187,215,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(122,125,255,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(86,232,246,0.06),transparent_45%)]",
+  anonymous:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(224,0,27,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,74,46,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(179,0,22,0.08),transparent_45%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -395,6 +399,15 @@ const ethcasinoPrimaryCta =
   "bg-[#10BBD7] text-[#080D18] transition-colors hover:bg-[#21D6EB] focus-visible:ring-cyan-400/50";
 const ethcasinoSecondaryCta =
   "border-[#21D6EB]/40 text-[#56E8F6] transition-colors hover:bg-[#16394A]/40";
+const anonymousCardShell =
+  "border-[#E0001B]/30 bg-gradient-to-br from-[#050607] via-[#0B0D12]/95 to-[#151820] ring-1 ring-[#FF1C24]/10 shadow-[0_4px_28px_-12px_rgba(224,0,27,0.28)]";
+const anonymousCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(224,0,27,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,74,46,0.08),transparent_50%)]";
+const anonymousBadge = "border-[#FF1C24]/35 bg-[#B30016]/20 text-[#FF4A2E]";
+const anonymousPrimaryCta =
+  "bg-[#E0001B] text-[#F7F7F7] transition-colors hover:bg-[#FF1C24] focus-visible:ring-red-500/50";
+const anonymousSecondaryCta =
+  "border-[#E0001B]/45 text-[#FF4A2E] transition-colors hover:bg-[#B30016]/20";
 
 function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
   const panelVariant = visual.variant ?? "dark";
@@ -419,6 +432,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         panelVariant === "bcgame" && compact && "p-3",
         panelVariant === "ltccasino" && compact && "p-3",
         panelVariant === "ethcasino" && compact && "p-3",
+        panelVariant === "anonymous" && compact && "p-3",
         visualPanelShell[panelVariant],
       )}
     >
@@ -709,6 +723,47 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "anonymous" ? (
+        <>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[55%] top-[45%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E0001B]/10 blur-2xl md:h-20 md:w-20"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-3 top-3 h-5 w-4 md:right-3.5 md:top-3.5 md:h-6 md:w-5"
+          >
+            <span className="absolute inset-x-0 top-0 h-2 rounded-t-sm border border-[#FF1C24]/35 bg-[#B30016]/20" />
+            <span className="absolute inset-x-0.5 top-1.5 h-2.5 rounded-b-md border-x border-b border-[#E0001B]/30 bg-[#151820]/40" />
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-3 left-3 h-4 w-3.5 md:bottom-3.5 md:left-3.5 md:h-5 md:w-4"
+          >
+            <span className="absolute inset-x-0 top-0 h-3 rounded-t-lg rounded-b-sm border border-[#E0001B]/35 bg-[#0B0D12]/60 md:h-3.5" />
+            <span className="absolute left-0.5 top-1 h-1 w-1 rounded-full bg-[#FF4A2E]/50 md:left-1" />
+            <span className="absolute right-0.5 top-1 h-1 w-1 rounded-full bg-[#FF4A2E]/50 md:right-1" />
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-5 right-6 md:bottom-6 md:right-8"
+          >
+            <span className="absolute h-2 w-2 rounded-full border border-[#FF1C24]/40 bg-[#E0001B]/20 shadow-[0_0_6px_rgba(224,0,27,0.25)]" />
+            <span className="absolute left-3 top-1 h-1.5 w-1.5 rounded-full border border-[#FF4A2E]/35 bg-[#B30016]/15" />
+            <span className="absolute left-1.5 top-2 h-px w-2.5 bg-[#FF1C24]/30" />
+            <span className="absolute left-2 top-0.5 h-px w-2 rotate-[25deg] bg-[#FF4A2E]/25" />
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-2 h-px w-10 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#FF1C24]/35 to-transparent md:w-14"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-10 top-5 hidden h-1 w-3 rounded-full bg-[#FF4A2E]/40 md:block"
+          />
+        </>
+      ) : null}
+
       {panelVariant === "rainbet" ? (
         <>
           {/* Reward glow halo */}
@@ -762,6 +817,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "bcgame" && "text-emerald-300/90",
               panelVariant === "ltccasino" && "text-[#7F8FFF]/90",
               panelVariant === "ethcasino" && "text-[#56E8F6]/90",
+              panelVariant === "anonymous" && "text-[#FF4A2E]/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
@@ -781,6 +837,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                 panelVariant !== "bcgame" &&
                 panelVariant !== "ltccasino" &&
                 panelVariant !== "ethcasino" &&
+                panelVariant !== "anonymous" &&
                 "text-muted-foreground",
             )}
           >
@@ -829,6 +886,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#7F8FFF] via-[#4B6FFF] to-[#EEF2FF] bg-clip-text text-transparent",
             panelVariant === "ethcasino" &&
               "bg-gradient-to-r from-[#56E8F6] via-[#10BBD7] to-[#DFFBFF] bg-clip-text text-transparent",
+            panelVariant === "anonymous" && "text-[#F7F7F7]",
           )}
         >
           {visual.title}
@@ -889,6 +947,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                                                       ? "border-[#4B6FFF]/25 bg-[#1237FF]/15 text-[#EEF2FF]/90"
                                                       : panelVariant === "ethcasino"
                                                         ? "border-[#21D6EB]/25 bg-[#16394A]/15 text-[#DFFBFF]/90"
+                                                        : panelVariant === "anonymous"
+                                                          ? "border-[#FF1C24]/25 bg-[#B30016]/15 text-[#F7F7F7]/90"
                                       : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
@@ -1042,6 +1102,7 @@ export function OfferCard({
   const isBcgameBranded = operatorId === "bcgame" || visual?.variant === "bcgame";
   const isLtccasinoBranded = operatorId === "ltccasino" || visual?.variant === "ltccasino";
   const isEthcasinoBranded = operatorId === "ethcasino" || visual?.variant === "ethcasino";
+  const isAnonymousBranded = operatorId === "cryptocasino" || visual?.variant === "anonymous";
   const variant =
     visualVariant === "crypto" &&
     emphasis === "comparison-secondary" &&
@@ -1060,7 +1121,8 @@ export function OfferCard({
     !isBitcasinoBranded &&
     !isBcgameBranded &&
     !isLtccasinoBranded &&
-    !isEthcasinoBranded
+    !isEthcasinoBranded &&
+    !isAnonymousBranded
       ? "dark"
       : visualVariant;
   const showInlineOfferText = !visual;
@@ -1097,6 +1159,8 @@ export function OfferCard({
                                 ? ltccasinoCardGlow
                                 : isEthcasinoBranded
                                   ? ethcasinoCardGlow
+                                  : isAnonymousBranded
+                                    ? anonymousCardGlow
               : emphasisGlow[emphasis];
   const showVariantGlow =
     emphasis === "standard" &&
@@ -1115,7 +1179,8 @@ export function OfferCard({
     !isBitcasinoBranded &&
     !isBcgameBranded &&
     !isLtccasinoBranded &&
-    !isEthcasinoBranded;
+    !isEthcasinoBranded &&
+    !isAnonymousBranded;
   const brandedCtaProps = isGamdomBranded
     ? { primaryButtonClassName: gamdomPrimaryCta, secondaryButtonClassName: gamdomSecondaryCta }
     : isXonbetBranded
@@ -1155,6 +1220,11 @@ export function OfferCard({
                               primaryButtonClassName: ethcasinoPrimaryCta,
                               secondaryButtonClassName: ethcasinoSecondaryCta,
                             }
+                          : isAnonymousBranded
+                            ? {
+                                primaryButtonClassName: anonymousPrimaryCta,
+                                secondaryButtonClassName: anonymousSecondaryCta,
+                              }
       : {};
   const Heading = headingLevel;
 
@@ -1177,6 +1247,7 @@ export function OfferCard({
           !isBcgameBranded &&
           !isLtccasinoBranded &&
           !isEthcasinoBranded &&
+          !isAnonymousBranded &&
           "sm:p-4",
         isRainbetBranded
           ? rainbetCardShell
@@ -1210,6 +1281,8 @@ export function OfferCard({
                                       ? ltccasinoCardShell
                                       : isEthcasinoBranded
                                         ? ethcasinoCardShell
+                                        : isAnonymousBranded
+                                          ? anonymousCardShell
                               : variantShell[variant],
         !isRainbetBranded &&
           !isOnexbetBranded &&
@@ -1227,6 +1300,7 @@ export function OfferCard({
           !isBcgameBranded &&
           !isLtccasinoBranded &&
           !isEthcasinoBranded &&
+          !isAnonymousBranded &&
           emphasisShell[emphasis],
         className,
       )}
@@ -1295,6 +1369,8 @@ export function OfferCard({
                                                     ? ltccasinoBadge
                                                     : isEthcasinoBranded
                                                       ? ethcasinoBadge
+                                                      : isAnonymousBranded
+                                                        ? anonymousBadge
                                   : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
@@ -1406,6 +1482,8 @@ export function OfferCard({
                                     ? "text-[#4B6FFF]"
                                     : isEthcasinoBranded
                                       ? "text-[#10BBD7]"
+                                      : isAnonymousBranded
+                                        ? "text-[#FF4A2E]"
                           : isRainbetBranded
                           ? "text-emerald-400"
                           : isOnexbetBranded

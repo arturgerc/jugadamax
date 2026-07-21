@@ -237,6 +237,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-[#21D6EB]/25 bg-[#16394A]/10",
     decorB: "bg-[#7A7DFF]/45",
   },
+  cryptocasino: {
+    shell:
+      "border-[#E0001B]/30 bg-gradient-to-br from-[#050607] via-[#0B0D12] to-[#151820] ring-1 ring-[#FF1C24]/10 shadow-[0_4px_28px_-12px_rgba(224,0,27,0.28)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(224,0,27,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,74,46,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(179,0,22,0.08),transparent_45%)]",
+    badge: "border-[#FF1C24]/35 bg-[#B30016]/20 text-[#FF4A2E]",
+    chip: "border-[#FF1C24]/25 bg-[#B30016]/10 text-[#F7F7F7]/90",
+    scorePanel: "border-[#E0001B]/25 bg-[#050607]/85 shadow-[inset_0_1px_0_rgba(224,0,27,0.1)]",
+    scoreValue: "text-[#FF4A2E]",
+    decorA: "border-[#FF1C24]/25 bg-[#B30016]/10",
+    decorB: "bg-[#FF4A2E]/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",
@@ -279,6 +290,9 @@ function verticalChips(verticals: Vertical[], locale: UiLocale, operatorId?: str
     return ["SIN KYC", ...base].slice(0, 3);
   }
   if (operatorId === "ethcasino" && locale !== "en") {
+    return ["SIN KYC", ...base].slice(0, 3);
+  }
+  if (operatorId === "cryptocasino" && locale !== "en") {
     return ["SIN KYC", ...base].slice(0, 3);
   }
   return base;

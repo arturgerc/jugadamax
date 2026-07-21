@@ -45,6 +45,7 @@ import { SportsbetReviewContent } from "@/components/review/SportsbetReviewConte
 import { BitcasinoReviewContent } from "@/components/review/BitcasinoReviewContent";
 import { LtcCasinoReviewContent } from "@/components/review/LtcCasinoReviewContent";
 import { EthCasinoReviewContent } from "@/components/review/EthCasinoReviewContent";
+import { AnonymousCasinoReviewContent } from "@/components/review/AnonymousCasinoReviewContent";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
@@ -1080,13 +1081,17 @@ export async function generateMetadata({
         ? "LTC Casino México: casino sin KYC y pagos crypto"
         : review.slug === "ethcasino"
           ? "ETH Casino México: casino sin KYC y pagos crypto"
-          : review.title,
+          : review.slug === "cryptocasino"
+            ? "Anonymous Casino México: CryptoCasino.CC sin KYC"
+            : review.title,
     description:
       review.slug === "ltccasino"
         ? "Reseña de LTC Casino para México: registro con email y contraseña, política sin KYC, Litecoin, Bitcoin, USDT, juegos crypto, retiros y principales riesgos."
         : review.slug === "ethcasino"
           ? "Reseña de ETH Casino para México: registro con email y contraseña, política sin KYC, Ethereum, USDT, juegos en vivo, retiros, límites y riesgos."
-          : `Reseña editorial de ${name}: veredicto, pros y contras, pagos y licencia. Con divulgación de afiliados y juego responsable +18.`,
+          : review.slug === "cryptocasino"
+            ? "Reseña de Anonymous Casino y CryptoCasino.CC: registro con email, casino sin KYC, BTC, ETH, USDT, juegos crypto, retiros, límites y riesgos."
+            : `Reseña editorial de ${name}: veredicto, pros y contras, pagos y licencia. Con divulgación de afiliados y juego responsable +18.`,
     path: `/reviews/${review.slug}`,
     type: "article",
     ...(review.slug === "stake"
@@ -1269,6 +1274,24 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
           />
           <EthCasinoReviewContent review={review} casino={casino} author={author} />
+        </Container>
+      </>
+    );
+  }
+
+  if (review.slug === "cryptocasino") {
+    return (
+      <>
+        <Container className="pt-8 pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pt-8 md:pb-8">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+          />
+          <AnonymousCasinoReviewContent review={review} casino={casino} author={author} />
         </Container>
       </>
     );

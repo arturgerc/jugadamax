@@ -138,3 +138,10 @@ export const ETHCASINO_AFFILIATE_URL =
 
 /** Confirmed ETH Casino JugadaMax registration campaign code. */
 export const ETHCASINO_PROMO_CODE = "jg7kkva6a";
+
+/** Anonymous Casino / CryptoCasino.CC registration affiliate link for Spanish/MX no-KYC coverage. */
+export const ANONYMOUS_CASINO_AFFILIATE_URL =
+  "https://reganon.casa/jycokf7tf";
+
+/** Confirmed Anonymous Casino JugadaMax registration campaign code. */
+export const ANONYMOUS_CASINO_PROMO_CODE = "jycokf7tf";

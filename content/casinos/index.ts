@@ -13,6 +13,7 @@ import {
   BITCASINO_REGISTRATION_AFFILIATE_URL,
   LTCCASINO_AFFILIATE_URL,
   ETHCASINO_AFFILIATE_URL,
+  ANONYMOUS_CASINO_AFFILIATE_URL,
   ROOBET_MX_CASINO_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -59,34 +60,35 @@ export const casinos: Casino[] = [
   {
     id: "cryptocasino",
     slug: "cryptocasino",
-    name: "CryptoCasino.CC",
+    name: "Anonymous Casino",
     logo: {
-      src: "/operators/cryptocasino.svg",
-      alt: "CryptoCasino.CC",
-      width: 80,
-      height: 40,
+      src: "/operators/anonymous.png",
+      alt: "Anonymous Casino",
+      width: 180,
+      height: 56,
     },
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 3 },
+    rankByVertical: {},
+    affiliateUrl: ANONYMOUS_CASINO_AFFILIATE_URL,
     payments: [
       { name: "Bitcoin", kind: "crypto" },
       { name: "Ethereum", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
       { name: "USDT", kind: "crypto" },
       { name: "Solana", kind: "crypto" },
       { name: "Dogecoin", kind: "crypto" },
       { name: "USDC", kind: "crypto" },
-      { name: "XRP", kind: "crypto" },
       { name: "Litecoin", kind: "crypto" },
     ],
     licensing: {
-      licenseName: "Licencia no verificada por JugadaMax",
+      licenseName:
+        "Sin licencia de juego verificada independientemente por JugadaMax",
       notes:
-        "Licencia, entidad operadora, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial. No es licencia local SEGOB México.",
+        "Anonymous Casino opera públicamente en CryptoCasino.CC como casino crypto internacional sin KYC. JugadaMax no confirma licencia local mexicana ni una licencia offshore vigente. Revisa Terms, jurisdicción, límites, controles antifraude y políticas actuales después del redirect.",
     },
-    bonusIds: ["cryptocasino-welcome"],
-    // Editorial only — no approved tracking link.
+    bonusIds: [],
     summary:
-      "CryptoCasino.CC es un casino crypto con enfoque en Bitcoin, Ethereum, USDT, Solana y pagos desde wallets. Para México y LATAM, JugadaMax lo presenta como candidato crypto/offshore orientado a privacidad y registro sencillo; disponibilidad, verificación, límites, bonos y retiros deben revisarse en el sitio oficial.",
+      "Anonymous Casino, disponible en CryptoCasino.CC, es un casino crypto orientado a privacidad y registro sin KYC. El formulario público utiliza email y contraseña y admite BTC, ETH, XRP, USDT, SOL, DOGE, USDC y LTC. Su propuesta principal es acceso sencillo, crypto games, slots y live casino, no un bono garantizado.",
     locale: "es-MX",
   },
   {
