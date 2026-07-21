@@ -215,6 +215,17 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
     decorA: "border-[#7B22D3]/25 bg-[#6519A8]/10",
     decorB: "bg-[#FFCC4D]/45",
   },
+  ltccasino: {
+    shell:
+      "border-[#2156FF]/25 bg-gradient-to-br from-[#171821] via-[#1D1F2A] to-[#252836] ring-1 ring-[#1237FF]/10 shadow-[0_4px_28px_-12px_rgba(33,86,255,0.16)]",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(33,86,255,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(75,111,255,0.1),transparent_50%)]",
+    badge: "border-[#4B6FFF]/30 bg-[#1237FF]/15 text-[#7F8FFF]",
+    chip: "border-[#4B6FFF]/25 bg-[#1237FF]/10 text-[#EEF2FF]/90",
+    scorePanel: "border-[#2156FF]/25 bg-[#171821]/85 shadow-[inset_0_1px_0_rgba(33,86,255,0.08)]",
+    scoreValue: "text-[#4B6FFF]",
+    decorA: "border-[#4B6FFF]/25 bg-[#1237FF]/10",
+    decorB: "bg-[#7F8FFF]/45",
+  },
   codere: {
     shell:
       "border-emerald-500/20 bg-gradient-to-br from-[#0A1931] via-[#111417] to-[#140a0a] ring-1 ring-red-500/10 shadow-[0_4px_28px_-12px_rgba(0,168,107,0.12)]",
@@ -249,8 +260,14 @@ function resolveAccent(operatorId: string): ReviewHeaderAccent {
   return REVIEW_HEADER_ACCENTS[operatorId] ?? DEFAULT_ACCENT;
 }
 
-function verticalChips(verticals: Vertical[], locale: UiLocale): string[] {
-  return verticals.slice(0, 3).map((v) => VERTICAL_CHIP_LABELS[v][locale === "en" ? "en" : "es"]);
+function verticalChips(verticals: Vertical[], locale: UiLocale, operatorId?: string): string[] {
+  const base = verticals
+    .slice(0, 3)
+    .map((v) => VERTICAL_CHIP_LABELS[v][locale === "en" ? "en" : "es"]);
+  if (operatorId === "ltccasino" && locale !== "en") {
+    return ["SIN KYC", ...base].slice(0, 3);
+  }
+  return base;
 }
 
 /** Returns up to N complete sentences; falls back to the source text when unpunctuated. */
@@ -309,7 +326,7 @@ export function ReviewHeader({
   locale?: UiLocale;
 }) {
   const accent = resolveAccent(casino.id);
-  const chips = verticalChips(casino.verticals, locale);
+  const chips = verticalChips(casino.verticals, locale, casino.id);
   const summarySource = casino.summary ?? review.verdict;
   const mobileSummary = extractCompleteSentences(summarySource, 1);
   const desktopSummary = extractCompleteSentences(summarySource, 2);
