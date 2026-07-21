@@ -1,11 +1,14 @@
-type HomepageEventName =
+type AnalyticsEventName =
   | "homepage_category_click"
   | "homepage_affiliate_click"
   | "homepage_review_click"
   | "homepage_latest_click"
-  | "homepage_promo_click";
+  | "homepage_promo_click"
+  | "crypto_page_affiliate_click"
+  | "crypto_page_review_click"
+  | "crypto_page_category_click";
 
-type HomepageEventParams = Record<string, string | number | undefined>;
+type AnalyticsEventParams = Record<string, string | number | undefined>;
 
 declare global {
   interface Window {
@@ -14,12 +17,12 @@ declare global {
 }
 
 /**
- * Safe homepage analytics helper. No-ops during SSR and when gtag is absent.
+ * Safe analytics helper. No-ops during SSR and when gtag is absent.
  * Never throws; never blocks navigation; never sends personal data.
  */
 export function trackHomepageEvent(
-  event: HomepageEventName,
-  params: HomepageEventParams = {},
+  event: AnalyticsEventName,
+  params: AnalyticsEventParams = {},
 ): void {
   if (typeof window === "undefined") return;
 
@@ -39,3 +42,6 @@ export function trackHomepageEvent(
     // ignore
   }
 }
+
+/** Alias for non-homepage surfaces that reuse the same safe helper. */
+export const trackAnalyticsEvent = trackHomepageEvent;

@@ -66,7 +66,7 @@ export function CryptoCasinoInfoSections({
   const methods = paymentMethods.length > 0 ? paymentMethods : [...defaultCryptoMethods];
 
   return (
-    <div className="space-y-12 sm:space-y-14">
+    <div className="space-y-10 sm:space-y-12">
       {/* Cómo evaluamos */}
       <section aria-labelledby="evaluacion-crypto-heading">
         <h2
@@ -79,14 +79,16 @@ export function CryptoCasinoInfoSections({
           Analizamos la información disponible del operador y priorizamos claridad, pagos
           compatibles, condiciones de bonos y señales de juego responsable.
         </p>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+        <ul className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
           {evaluationCriteria.map((item) => (
             <li
               key={item.title}
-              className="rounded-2xl border border-white/10 bg-card p-4 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.45)] sm:p-5"
+              className="rounded-lg border border-border/60 bg-card p-3.5 sm:p-4"
             >
-              <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+              <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                {item.body}
+              </p>
             </li>
           ))}
         </ul>
