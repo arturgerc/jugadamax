@@ -1,4 +1,7 @@
-import { MELLSTROY_GLOBAL_AFFILIATE_URL } from "@/lib/affiliate/constants";
+import {
+  MELLSTROY_GLOBAL_AFFILIATE_URL,
+  MELLSTROY_PROMO_CODE,
+} from "@/lib/affiliate/constants";
 import { OfferCard, type OfferCardProps } from "@/components/affiliate/OfferCard";
 
 const MELLSTROY_TERMS =
@@ -26,7 +29,10 @@ export type MellstroyFeaturedCardProps = {
 
 const CONTEXT_CONFIG: Record<
   MellstroyContext,
-  Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
+  Omit<
+    OfferCardProps,
+    "operatorName" | "operatorId" | "responsibleNote" | "logo" | "promoCode"
+  >
 > = {
   crypto: {
     badge: "Casino crypto",
@@ -36,7 +42,7 @@ const CONTEXT_CONFIG: Record<
     paymentBadges: ["USDT", "Casino", "400 FS"],
     featureBullets: [
       "Hasta 660% + 400 FS según la oferta vigente",
-      "Slots, live casino y Fortune Wheel",
+      `Slots, live casino y código ${MELLSTROY_PROMO_CODE}`,
       "Revisa bonos, KYC y disponibilidad",
     ],
     primaryCtaLabel: "Ver oferta Mellstroy",
@@ -47,7 +53,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "WELCOME BONUS",
       title: "Hasta 660% + 400 FS",
-      subtitle: "Oferta variable según campaña",
+      subtitle: `Código ${MELLSTROY_PROMO_CODE} · oferta variable`,
       chips: ["Crypto", "400 FS"],
       variant: "mellstroy",
       compact: true,
@@ -66,7 +72,7 @@ const CONTEXT_CONFIG: Record<
       "Creatividad de registro suministrada: 550% + 400 FS",
       "Hasta 30% cashback visible en la promoción",
       "20 FS por verificación telefónica según elegibilidad",
-      "Free spins semanales y Lucky Wheel según términos",
+      `Código promocional: ${MELLSTROY_PROMO_CODE}`,
     ],
     primaryCtaLabel: "Ver promociones Mellstroy",
     primaryCtaHref: MELLSTROY_GLOBAL_AFFILIATE_URL,
@@ -76,7 +82,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "CASINO PROMOS",
       title: "Hasta 660% + 400 FS",
-      subtitle: "Confirma la oferta activa durante el registro",
+      subtitle: `Código ${MELLSTROY_PROMO_CODE} · oferta variable`,
       chips: ["400 FS", "Cashback", "Wheel"],
       variant: "mellstroy",
       compact: true,
@@ -94,7 +100,7 @@ const CONTEXT_CONFIG: Record<
     featureBullets: [
       "Casino, sport, live casino y Fortune Wheel",
       "Promoción principal visible de hasta 660% + 400 FS",
-      "Cashback, free spins y promociones adicionales",
+      `Código promocional confirmado: ${MELLSTROY_PROMO_CODE}`,
       "Revisa wagering, elegibilidad, KYC y disponibilidad",
     ],
     primaryCtaLabel: "Ver oferta Mellstroy",
@@ -105,7 +111,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "MELLSTROY CASINO",
       title: "Hasta 660% + 400 FS",
-      subtitle: "Promoción variable según campaña",
+      subtitle: `Código ${MELLSTROY_PROMO_CODE} · oferta variable`,
       chips: ["Crypto", "Casino", "400 FS"],
       variant: "mellstroy",
       compact: true,
@@ -131,6 +137,7 @@ export function MellstroyFeaturedCard({
       operatorName="Mellstroy"
       operatorId="mellstroy"
       logo={MELLSTROY_LOGO}
+      promoCode={MELLSTROY_PROMO_CODE}
       responsibleNote={MELLSTROY_RESPONSIBLE}
       {...config}
       headingLevel={context === "review" ? "h2" : "h3"}

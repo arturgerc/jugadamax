@@ -88,7 +88,8 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     allowedSurfaces: ["casinos-crypto", "bonos", "reviews", "sitemap", "english-global"],
     ctaAllowed: true,
     affiliateAllowed: true,
-    notes: "Lower/grey priority; not a primary homepage offer.",
+    notes:
+      "Lower/grey priority; not a primary homepage offer. Promo code JUGADAMAX confirmed for the current JugadaMax campaign.",
   },
   stake: {
     id: "stake",
@@ -154,7 +155,7 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     ctaAllowed: true,
     affiliateAllowed: true,
     notes:
-      "Active Spanish/MX affiliate campaign. Mixed fiat/multi-currency casino and sportsbook. Main web CTAs use the player landing; the app link is limited to the dedicated review app section. Not classified in casinos-crypto and not presented as locally licensed in Mexico.",
+      "Active Spanish/MX affiliate campaign. Mixed fiat/multi-currency casino and sportsbook. Main web CTAs use the player landing; the app link is limited to the dedicated review app section. Promo code JUGADAMAX confirmed for the current JugadaMax campaign. Not classified in casinos-crypto and not presented as locally licensed in Mexico.",
   },
   codere: {
     id: "codere",
