@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { primaryNav, legalNav } from "@/components/layout/nav-links";
+import {
+  primaryNav,
+  legalNav,
+  isSpanishNavActive,
+} from "@/components/layout/nav-links";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { focusRing, cn } from "@/lib/utils";
 
@@ -63,19 +67,24 @@ export function MobileNav() {
             <div className="mb-2 border-b border-border/30 px-2 pb-2">
               <LanguageSwitcher currentPath={pathname} />
             </div>
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "flex min-h-11 items-center rounded-sm border-b border-border/30 px-2 text-base font-medium text-foreground last:border-b-0",
-                  focusRing,
-                )}
-              >
-                {link.label}
-              </a>
-            ))}
+            {links.map((link) => {
+              const active = isSpanishNavActive(pathname, link.href);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "flex min-h-11 items-center rounded-sm border-b border-border/30 px-2 text-base font-medium last:border-b-0",
+                    active ? "bg-white/5 text-foreground" : "text-foreground",
+                    focusRing,
+                  )}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
         </>
       )}

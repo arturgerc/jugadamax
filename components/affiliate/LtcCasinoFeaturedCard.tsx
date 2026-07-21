@@ -78,8 +78,8 @@ const CONTEXT_CONFIG: Record<
     ],
     primaryCtaLabel: "Registrarse en LTC Casino",
     primaryCtaHref: LTCCASINO_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos crypto",
-    secondaryCtaHref: "/casinos-crypto",
+    secondaryCtaLabel: "Comparar casinos sin KYC",
+    secondaryCtaHref: "/casinos-sin-kyc",
     termsNote: LTCCASINO_REVIEW_TERMS,
     visual: {
       eyebrow: "NO-KYC CRYPTO CASINO",

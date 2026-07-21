@@ -6,6 +6,8 @@
 export interface NavLink {
   label: string;
   href: string;
+  /** Optional longer label for footer / denser lists. */
+  footerLabel?: string;
 }
 
 /**
@@ -14,6 +16,7 @@ export interface NavLink {
  */
 export const desktopNav: NavLink[] = [
   { label: "Casinos Crypto", href: "/casinos-crypto" },
+  { label: "Sin KYC", href: "/casinos-sin-kyc", footerLabel: "Casinos sin KYC" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
   { label: "Bonos", href: "/bonos" },
   { label: "Guías", href: "/guias" },
@@ -30,6 +33,7 @@ export const desktopNav: NavLink[] = [
  */
 export const primaryNav: NavLink[] = [
   { label: "Casinos Crypto", href: "/casinos-crypto" },
+  { label: "Sin KYC", href: "/casinos-sin-kyc", footerLabel: "Casinos sin KYC" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
   { label: "Bonos", href: "/bonos" },
   { label: "Guías", href: "/guias" },
@@ -37,6 +41,12 @@ export const primaryNav: NavLink[] = [
   { label: "Reseñas", href: "/reviews" },
   { label: "Noticias", href: "/noticias" },
 ];
+
+/** Returns true when the current pathname matches a Spanish nav destination. */
+export function isSpanishNavActive(pathname: string, href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 /** Trust / legal destinations (footer + mobile). */
 export const legalNav: NavLink[] = [

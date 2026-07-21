@@ -131,3 +131,10 @@ export const LTCCASINO_AFFILIATE_URL =
 
 /** Confirmed LTC Casino JugadaMax registration campaign code. */
 export const LTCCASINO_PROMO_CODE = "j6ji2sb7n";
+
+/** ETH Casino registration affiliate link for Spanish/MX no-KYC crypto coverage. */
+export const ETHCASINO_AFFILIATE_URL =
+  "https://regcaseth.casa/jg7kkva6a";
+
+/** Confirmed ETH Casino JugadaMax registration campaign code. */
+export const ETHCASINO_PROMO_CODE = "jg7kkva6a";

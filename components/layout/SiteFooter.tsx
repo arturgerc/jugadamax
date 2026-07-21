@@ -36,7 +36,7 @@ export function SiteFooter() {
                       focusRing,
                     )}
                   >
-                    {link.label}
+                    {link.footerLabel ?? link.label}
                   </a>
                 </li>
               ))}

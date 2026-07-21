@@ -10,7 +10,7 @@ export type OfferCardVisual = {
   title: string;
   subtitle?: string;
   chips?: string[];
-  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "vodkabet" | "awintura" | "slotoro" | "roobet" | "mostbet" | "sportsbetio" | "bitcasino" | "bcgame" | "ltccasino" | "mexico" | "crypto" | "dark";
+  variant?: "betsson" | "betfury" | "fivehundred" | "rainbet" | "onexbet" | "melbet" | "mellstroy" | "gamdom" | "xonbet" | "vodkabet" | "awintura" | "slotoro" | "roobet" | "mostbet" | "sportsbetio" | "bitcasino" | "bcgame" | "ltccasino" | "ethcasino" | "mexico" | "crypto" | "dark";
   compact?: boolean;
 };
 
@@ -126,6 +126,8 @@ const visualPanelShell: Record<NonNullable<OfferCardVisual["variant"]>, string> 
     "border-emerald-700/20 bg-gradient-to-br from-[#07110D] via-[#0B1712] to-[#10251A] shadow-[inset_0_1px_0_rgba(32,184,100,0.1)]",
   ltccasino:
     "border-[#2156FF]/25 bg-gradient-to-br from-[#171821] via-[#1D1F2A] to-[#252836] shadow-[inset_0_1px_0_rgba(33,86,255,0.12)]",
+  ethcasino:
+    "border-[#10BBD7]/25 bg-gradient-to-br from-[#080D18] via-[#0D1824] to-[#132535] shadow-[inset_0_1px_0_rgba(16,187,215,0.12)]",
   mexico:
     "border-primary/30 bg-gradient-to-br from-[#16233f] via-[#111417] to-[#0A1931]",
   crypto:
@@ -170,6 +172,8 @@ const visualPanelGlow: Record<NonNullable<OfferCardVisual["variant"]>, string> =
     "bg-[radial-gradient(ellipse_at_top_right,rgba(32,184,100,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(20,53,34,0.14),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(240,185,11,0.05),transparent_45%)]",
   ltccasino:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(33,86,255,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(75,111,255,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(127,143,255,0.06),transparent_45%)]",
+  ethcasino:
+    "bg-[radial-gradient(ellipse_at_top_right,rgba(16,187,215,0.16),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(122,125,255,0.1),transparent_50%),radial-gradient(ellipse_at_70%_30%,rgba(86,232,246,0.06),transparent_45%)]",
   mexico:
     "bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.14),transparent_55%)]",
   crypto:
@@ -382,6 +386,16 @@ const ltccasinoPrimaryCta =
 const ltccasinoSecondaryCta =
   "border-[#4B6FFF]/40 text-[#7F8FFF] transition-colors hover:bg-[#1237FF]/15";
 
+const ethcasinoCardShell =
+  "border-[#10BBD7]/25 bg-gradient-to-br from-[#080D18] via-[#0D1824]/95 to-[#132535] ring-1 ring-[#21D6EB]/10 shadow-[0_4px_28px_-12px_rgba(16,187,215,0.22)]";
+const ethcasinoCardGlow =
+  "bg-[radial-gradient(ellipse_at_top_right,rgba(16,187,215,0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(122,125,255,0.08),transparent_50%)]";
+const ethcasinoBadge = "border-[#21D6EB]/30 bg-[#16394A]/40 text-[#56E8F6]";
+const ethcasinoPrimaryCta =
+  "bg-[#10BBD7] text-[#080D18] transition-colors hover:bg-[#21D6EB] focus-visible:ring-cyan-400/50";
+const ethcasinoSecondaryCta =
+  "border-[#21D6EB]/40 text-[#56E8F6] transition-colors hover:bg-[#16394A]/40";
+
 function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
   const panelVariant = visual.variant ?? "dark";
   const compact = visual.compact === true;
@@ -404,6 +418,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         panelVariant === "bitcasino" && compact && "p-3",
         panelVariant === "bcgame" && compact && "p-3",
         panelVariant === "ltccasino" && compact && "p-3",
+        panelVariant === "ethcasino" && compact && "p-3",
         visualPanelShell[panelVariant],
       )}
     >
@@ -655,6 +670,45 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
         </>
       ) : null}
 
+      {panelVariant === "ethcasino" ? (
+        <>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[55%] top-[45%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#10BBD7]/10 blur-2xl md:h-20 md:w-20"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-3 top-3 h-5 w-5 rotate-45 border border-[#21D6EB]/35 bg-[#16394A]/20 md:right-3.5 md:top-3.5 md:h-6 md:w-6"
+          >
+            <span className="absolute inset-[3px] border border-[#56E8F6]/25" />
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-3 left-3 h-4 w-4 md:bottom-3.5 md:left-3.5 md:h-5 md:w-5"
+          >
+            <span className="absolute inset-x-0.5 top-0 h-1 rounded-sm bg-[#56E8F6]/45" />
+            <span className="absolute inset-x-0 top-1 h-2.5 rounded-b-sm border border-[#10BBD7]/35 bg-[#16394A]/25" />
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-5 right-6 md:bottom-6 md:right-8"
+          >
+            <span className="absolute h-2 w-2 rounded-full border border-[#21D6EB]/40 bg-[#10BBD7]/20 shadow-[0_0_6px_rgba(16,187,215,0.25)]" />
+            <span className="absolute left-3 top-1 h-1.5 w-1.5 rounded-full border border-[#56E8F6]/35 bg-[#21D6EB]/15" />
+            <span className="absolute left-1.5 top-2 h-px w-2.5 bg-[#21D6EB]/30" />
+            <span className="absolute left-2 top-0.5 h-px w-2 rotate-[25deg] bg-[#7A7DFF]/25" />
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-2 h-px w-10 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#21D6EB]/35 to-transparent md:w-14"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-10 top-5 hidden h-1 w-3 rounded-full bg-[#56E8F6]/40 md:block"
+          />
+        </>
+      ) : null}
+
       {panelVariant === "rainbet" ? (
         <>
           {/* Reward glow halo */}
@@ -707,6 +761,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               panelVariant === "bitcasino" && "text-[#FF7417]/90",
               panelVariant === "bcgame" && "text-emerald-300/90",
               panelVariant === "ltccasino" && "text-[#7F8FFF]/90",
+              panelVariant === "ethcasino" && "text-[#56E8F6]/90",
               panelVariant !== "betsson" &&
                 panelVariant !== "betfury" &&
                 panelVariant !== "fivehundred" &&
@@ -725,6 +780,7 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                 panelVariant !== "bitcasino" &&
                 panelVariant !== "bcgame" &&
                 panelVariant !== "ltccasino" &&
+                panelVariant !== "ethcasino" &&
                 "text-muted-foreground",
             )}
           >
@@ -771,6 +827,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
               "bg-gradient-to-r from-[#47E887] via-[#20B864] to-[#EAF7EF] bg-clip-text text-transparent",
             panelVariant === "ltccasino" &&
               "bg-gradient-to-r from-[#7F8FFF] via-[#4B6FFF] to-[#EEF2FF] bg-clip-text text-transparent",
+            panelVariant === "ethcasino" &&
+              "bg-gradient-to-r from-[#56E8F6] via-[#10BBD7] to-[#DFFBFF] bg-clip-text text-transparent",
           )}
         >
           {visual.title}
@@ -829,6 +887,8 @@ function OfferVisualPanel({ visual }: { visual: OfferCardVisual }) {
                                                     ? "border-emerald-600/25 bg-emerald-900/15 text-emerald-100/90"
                                                     : panelVariant === "ltccasino"
                                                       ? "border-[#4B6FFF]/25 bg-[#1237FF]/15 text-[#EEF2FF]/90"
+                                                      : panelVariant === "ethcasino"
+                                                        ? "border-[#21D6EB]/25 bg-[#16394A]/15 text-[#DFFBFF]/90"
                                       : "border-white/15 bg-white/5 text-muted-foreground",
                 )}
               >
@@ -981,6 +1041,7 @@ export function OfferCard({
   const isBitcasinoBranded = operatorId === "bitcasino" || visual?.variant === "bitcasino";
   const isBcgameBranded = operatorId === "bcgame" || visual?.variant === "bcgame";
   const isLtccasinoBranded = operatorId === "ltccasino" || visual?.variant === "ltccasino";
+  const isEthcasinoBranded = operatorId === "ethcasino" || visual?.variant === "ethcasino";
   const variant =
     visualVariant === "crypto" &&
     emphasis === "comparison-secondary" &&
@@ -998,7 +1059,8 @@ export function OfferCard({
     !isSportsbetioBranded &&
     !isBitcasinoBranded &&
     !isBcgameBranded &&
-    !isLtccasinoBranded
+    !isLtccasinoBranded &&
+    !isEthcasinoBranded
       ? "dark"
       : visualVariant;
   const showInlineOfferText = !visual;
@@ -1033,6 +1095,8 @@ export function OfferCard({
                               ? bcgameCardGlow
                               : isLtccasinoBranded
                                 ? ltccasinoCardGlow
+                                : isEthcasinoBranded
+                                  ? ethcasinoCardGlow
               : emphasisGlow[emphasis];
   const showVariantGlow =
     emphasis === "standard" &&
@@ -1050,7 +1114,8 @@ export function OfferCard({
     !isSportsbetioBranded &&
     !isBitcasinoBranded &&
     !isBcgameBranded &&
-    !isLtccasinoBranded;
+    !isLtccasinoBranded &&
+    !isEthcasinoBranded;
   const brandedCtaProps = isGamdomBranded
     ? { primaryButtonClassName: gamdomPrimaryCta, secondaryButtonClassName: gamdomSecondaryCta }
     : isXonbetBranded
@@ -1085,6 +1150,11 @@ export function OfferCard({
                             primaryButtonClassName: ltccasinoPrimaryCta,
                             secondaryButtonClassName: ltccasinoSecondaryCta,
                           }
+                        : isEthcasinoBranded
+                          ? {
+                              primaryButtonClassName: ethcasinoPrimaryCta,
+                              secondaryButtonClassName: ethcasinoSecondaryCta,
+                            }
       : {};
   const Heading = headingLevel;
 
@@ -1106,6 +1176,7 @@ export function OfferCard({
           !isBitcasinoBranded &&
           !isBcgameBranded &&
           !isLtccasinoBranded &&
+          !isEthcasinoBranded &&
           "sm:p-4",
         isRainbetBranded
           ? rainbetCardShell
@@ -1137,6 +1208,8 @@ export function OfferCard({
                                     ? bcgameCardShell
                                     : isLtccasinoBranded
                                       ? ltccasinoCardShell
+                                      : isEthcasinoBranded
+                                        ? ethcasinoCardShell
                               : variantShell[variant],
         !isRainbetBranded &&
           !isOnexbetBranded &&
@@ -1153,6 +1226,7 @@ export function OfferCard({
           !isBitcasinoBranded &&
           !isBcgameBranded &&
           !isLtccasinoBranded &&
+          !isEthcasinoBranded &&
           emphasisShell[emphasis],
         className,
       )}
@@ -1219,6 +1293,8 @@ export function OfferCard({
                                                   ? bcgameBadge
                                                   : isLtccasinoBranded
                                                     ? ltccasinoBadge
+                                                    : isEthcasinoBranded
+                                                      ? ethcasinoBadge
                                   : (emphasisBadge[emphasis] ?? variantBadge[variant])),
                   )}
                 >
@@ -1328,6 +1404,8 @@ export function OfferCard({
                                   ? "text-[#47E887]"
                                   : isLtccasinoBranded
                                     ? "text-[#4B6FFF]"
+                                    : isEthcasinoBranded
+                                      ? "text-[#10BBD7]"
                           : isRainbetBranded
                           ? "text-emerald-400"
                           : isOnexbetBranded
