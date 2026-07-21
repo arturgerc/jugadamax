@@ -1,4 +1,7 @@
-import { MOSTBET_PLAYERS_AFFILIATE_URL } from "@/lib/affiliate/constants";
+import {
+  MOSTBET_PLAYERS_AFFILIATE_URL,
+  MOSTBET_PROMO_CODE,
+} from "@/lib/affiliate/constants";
 import { OfferCard, type OfferCardProps } from "@/components/affiliate/OfferCard";
 
 const MOSTBET_COMPACT_TERMS =
@@ -28,7 +31,10 @@ export type MostbetFeaturedCardProps = {
 
 const CONTEXT_CONFIG: Record<
   MostbetContext,
-  Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
+  Omit<
+    OfferCardProps,
+    "operatorName" | "operatorId" | "responsibleNote" | "logo" | "promoCode"
+  >
 > = {
   casino: {
     badge: "CASINO + APUESTAS",
@@ -39,7 +45,7 @@ const CONTEXT_CONFIG: Record<
     featureBullets: [
       "Casino, slots, live casino, poker y juegos instantáneos",
       "Sportsbook, apuestas en vivo y esports",
-      "La landing permite elegir promoción Casino o Sports",
+      `Código promocional ${MOSTBET_PROMO_CODE} para la campaña`,
       "Pagos, KYC y disponibilidad dependen de cuenta y GEO",
     ],
     primaryCtaLabel: "Visitar Mostbet",
@@ -50,7 +56,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "BONO DE PRIMER DEPÓSITO",
       title: "125% + 250 FS",
-      subtitle: "Elige Casino o Sports · términos aplican",
+      subtitle: `Casino o Sports · código ${MOSTBET_PROMO_CODE}`,
       chips: ["Casino", "Sports", "250 FS"],
       variant: "mostbet",
       compact: true,
@@ -68,7 +74,7 @@ const CONTEXT_CONFIG: Record<
     featureBullets: [
       "Fútbol y numerosos deportes con mercados pre-match y live",
       "Esports, Aviator, casino y live casino en la misma cuenta",
-      "Promoción Sports seleccionable en la landing de registro",
+      `Código ${MOSTBET_PROMO_CODE}; confirma la promoción Sports activa`,
       "Cuotas, wagering, mercados y disponibilidad según términos",
     ],
     primaryCtaLabel: "Ver apuestas Mostbet",
@@ -99,7 +105,7 @@ const CONTEXT_CONFIG: Record<
       "Ambas opciones anuncian 125% + 250 FS",
       "La interfaz mexicana muestra además campañas variables en MXN",
       "Confirma moneda, depósito mínimo, wagering y elegibilidad",
-      "No introduzcas un código promocional no confirmado",
+      `Código promocional: ${MOSTBET_PROMO_CODE}`,
     ],
     primaryCtaLabel: "Ver promoción Mostbet",
     primaryCtaHref: MOSTBET_PLAYERS_AFFILIATE_URL,
@@ -109,7 +115,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "ELIGE TU BONO",
       title: "125% + 250 FS",
-      subtitle: "Casino o Sports · primer depósito",
+      subtitle: `Código ${MOSTBET_PROMO_CODE} · primer depósito`,
       chips: ["125%", "250 FS", "Casino / Sports"],
       variant: "mostbet",
       compact: false,
@@ -127,7 +133,7 @@ const CONTEXT_CONFIG: Record<
     featureBullets: [
       "Casino, live casino, poker y juegos instantáneos",
       "Sportsbook, apuestas en vivo y esports",
-      "Promoción seleccionable entre Casino y Sports",
+      `Código ${MOSTBET_PROMO_CODE} para la campaña suministrada`,
       "Aplicación móvil mediante enlace independiente",
       "Licencia, pagos, KYC y disponibilidad deben verificarse",
     ],
@@ -139,7 +145,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "MOSTBET WELCOME",
       title: "125% + 250 FS",
-      subtitle: "Casino · Sports · cuenta y GEO",
+      subtitle: `Casino · Sports · código ${MOSTBET_PROMO_CODE}`,
       chips: ["Casino", "Sports", "App"],
       variant: "mostbet",
       compact: false,
@@ -159,6 +165,7 @@ export function MostbetFeaturedCard({ context, className }: MostbetFeaturedCardP
       operatorName="Mostbet"
       operatorId="mostbet"
       logo={MOSTBET_LOGO}
+      promoCode={MOSTBET_PROMO_CODE}
       responsibleNote={MOSTBET_RESPONSIBLE}
       {...config}
       className={className ?? config.className}

@@ -27,7 +27,7 @@ const CONTEXT_CONFIG: Record<
   crypto: {
     badge: "Casino crypto internacional",
     headline: "Vodka.bet: casino, slots y promociones",
-    subheadline: "Sportsbook adicional, depósitos crypto y código JUGADAMAX",
+    subheadline: `Sportsbook adicional, depósitos crypto y código ${VODKABET_PROMO_CODE}`,
     offerText: "125% + hasta 300 FS según campaña vigente",
     paymentBadges: ["Crypto", "Slots", "Live Casino", "Free Spins"],
     featureBullets: [
@@ -42,10 +42,10 @@ const CONTEXT_CONFIG: Record<
     secondaryCtaHref: "/reviews/vodka-bet",
     termsNote: VODKABET_CAMPAIGN_TERMS,
     visual: {
-      eyebrow: "PROMO JUGADAMAX",
+      eyebrow: `PROMO ${VODKABET_PROMO_CODE}`,
       title: "125% + hasta 300 FS",
       subtitle: "+2% crypto · +50 FS Telegram",
-      chips: ["JUGADAMAX", "125%", "300 FS"],
+      chips: [VODKABET_PROMO_CODE, "125%", "300 FS"],
       variant: "vodkabet",
       compact: true,
     },
@@ -73,7 +73,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "WELCOME PROMO",
       title: "125% + 300 FS",
-      subtitle: "Código JUGADAMAX",
+      subtitle: `Código ${VODKABET_PROMO_CODE}`,
       chips: ["125%", "300 FS", "+2% Crypto"],
       variant: "vodkabet",
       compact: true,
@@ -84,7 +84,7 @@ const CONTEXT_CONFIG: Record<
   },
   review: {
     badge: "Casino crypto internacional",
-    headline: "Vodka.bet: bono JUGADAMAX, free spins y depósitos crypto",
+    headline: `Vodka.bet: bono ${VODKABET_PROMO_CODE}, free spins y depósitos crypto`,
     subheadline: "Slots, live casino, jackpots y sportsbook adicional",
     offerText: "125% + hasta 300 FS según campaña vigente",
     paymentBadges: ["Crypto", "Free Spins", "Promo Code", "Telegram"],
@@ -100,9 +100,9 @@ const CONTEXT_CONFIG: Record<
     secondaryCtaHref: "/casinos-crypto",
     termsNote: VODKABET_CAMPAIGN_TERMS,
     visual: {
-      eyebrow: "PROMO JUGADAMAX",
+      eyebrow: `PROMO ${VODKABET_PROMO_CODE}`,
       title: "125% + 300 FS",
-      subtitle: "Código JUGADAMAX · según términos",
+      subtitle: `Código ${VODKABET_PROMO_CODE} · según términos`,
       chips: ["125%", "300 FS", "+2% Crypto"],
       variant: "vodkabet",
       compact: false,
