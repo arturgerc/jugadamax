@@ -17,7 +17,10 @@ type TrackedLinkProps = {
     | "homepage_affiliate_click"
     | "homepage_review_click"
     | "homepage_latest_click"
-    | "homepage_promo_click";
+    | "homepage_promo_click"
+    | "crypto_page_affiliate_click"
+    | "crypto_page_review_click"
+    | "crypto_page_category_click";
   section: string;
   position?: number | string;
   operator?: string;
