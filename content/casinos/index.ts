@@ -11,6 +11,7 @@ import {
   MOSTBET_PLAYERS_AFFILIATE_URL,
   SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
   BITCASINO_REGISTRATION_AFFILIATE_URL,
+  LTCCASINO_AFFILIATE_URL,
   ROOBET_MX_CASINO_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
 } from "@/lib/affiliate/constants";
@@ -128,28 +129,36 @@ export const casinos: Casino[] = [
     slug: "ltccasino",
     name: "LTC Casino",
     logo: {
-      src: "/operators/ltccasino.jpg",
+      src: "/operators/ltccasino.png",
       alt: "LTC Casino",
-      width: 80,
-      height: 40,
+      width: 120,
+      height: 48,
     },
     verticals: ["crypto-casino"],
-    rankByVertical: { "crypto-casino": 5 },
+    rankByVertical: {},
+    affiliateUrl: LTCCASINO_AFFILIATE_URL,
     payments: [
       { name: "Litecoin", kind: "crypto" },
       { name: "Bitcoin", kind: "crypto" },
       { name: "Ethereum", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
       { name: "USDT", kind: "crypto" },
+      { name: "Solana", kind: "crypto" },
+      { name: "BNB", kind: "crypto" },
+      { name: "Dogecoin", kind: "crypto" },
+      { name: "Cardano", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "TRX", kind: "crypto" },
     ],
     licensing: {
-      licenseName: "Licencia no verificada por JugadaMax",
+      licenseName:
+        "Licencia declarada por el operador — no verificada independientemente por JugadaMax",
       notes:
-        "Licencia, disponibilidad, verificación, límites y condiciones deben revisarse en el sitio oficial.",
+        "LTC Casino se presenta como casino crypto internacional. JugadaMax no confirma una licencia local mexicana ni garantiza el estado vigente de una licencia offshore. Revisa footer, términos, jurisdicción, límites y políticas actuales después del redirect.",
     },
-    bonusIds: ["ltccasino-welcome"],
-    // Editorial only — no approved tracking link.
+    bonusIds: [],
     summary:
-      "LTC Casino es un casino crypto con enfoque en Litecoin y pagos con criptomonedas. JugadaMax lo presenta como candidato de privacidad dentro del segmento crypto, pero recomienda revisar disponibilidad para México, requisitos de verificación, límites, comisiones y tiempos de retiro antes de registrarse.",
+      "LTC Casino es un casino crypto orientado a privacidad y registro sin KYC según su FAQ público. Permite registrarse con email y contraseña y acepta Litecoin, Bitcoin, Ethereum, USDT y otras criptomonedas. No se promociona como casino de bonos: su propuesta principal es acceso sencillo, juegos crypto y pagos desde wallets.",
     locale: "es-MX",
   },
   {

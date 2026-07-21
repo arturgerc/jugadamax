@@ -196,11 +196,12 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
   ltccasino: {
     id: "ltccasino",
     name: "LTC Casino",
-    publicStatus: "editorial-hold",
-    allowedSurfaces: ["reviews", "sitemap"],
-    ctaAllowed: false,
-    affiliateAllowed: false,
-    notes: "Editorial hold — hidden from homepage and money pages.",
+    publicStatus: "active-affiliate",
+    allowedSurfaces: ["casinos-crypto", "reviews", "sitemap"],
+    ctaAllowed: true,
+    affiliateAllowed: true,
+    notes:
+      "Active Spanish/MX affiliate campaign. Crypto-only privacy-focused casino promoted around no-KYC registration rather than bonuses. Campaign code j6ji2sb7n. The public FAQ states that verification is not performed and multiple accounts are not limited, but JugadaMax presents those claims with attribution and does not treat them as permission to evade laws, restrictions or responsible-gambling controls.",
   },
   bitcasino: {
     id: "bitcasino",

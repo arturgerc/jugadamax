@@ -52,6 +52,9 @@ function logoTileAccent(operatorId?: string): string {
   if (operatorId === "bitcasino") {
     return "border-[#6519A8]/30 ring-[#7B22D3]/20 shadow-[0_0_18px_-6px_rgba(123,34,211,0.25)]";
   }
+  if (operatorId === "ltccasino") {
+    return "border-[#2156FF]/30 ring-[#4B6FFF]/20 shadow-[0_0_18px_-6px_rgba(33,86,255,0.25)]";
+  }
   if (operatorId === "bcgame") {
     return "border-emerald-700/30 ring-emerald-600/15 shadow-[0_0_16px_-6px_rgba(32,184,100,0.2)]";
   }
@@ -94,6 +97,9 @@ function logoTileBackground(operatorId?: string): string {
   }
   if (operatorId === "bitcasino") {
     return "bg-gradient-to-br from-[#12051F] via-[#210936] to-[#35105A]";
+  }
+  if (operatorId === "ltccasino") {
+    return "bg-gradient-to-br from-[#171821] via-[#1D1F2A] to-[#252836]";
   }
   if (operatorId === "bcgame") {
     return "bg-gradient-to-br from-[#07110D] via-[#0B1712] to-[#10251A]";
@@ -155,14 +161,15 @@ export function OperatorLogo({
     const isMostbet = operatorId === "mostbet";
     const isSportsbetio = operatorId === "sportsbetio";
     const isBitcasino = operatorId === "bitcasino";
+    const isLtccasino = operatorId === "ltccasino";
     const isWideWordmark =
-      isRainbet || isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino;
+      isRainbet || isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino;
     return (
       <span
         className={cn(
           "inline-flex shrink-0 items-center justify-center rounded-xl ring-1",
           isWideWordmark
-            ? isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino
+            ? isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino
               ? "h-14 w-[7.5rem] border px-1 py-0.5"
               : "h-14 w-[5.75rem] border border-emerald-500/20 px-0.5 py-0.5 sm:w-24"
             : "h-12 w-[4.5rem] px-1 py-1 sm:w-20",
@@ -178,6 +185,7 @@ export function OperatorLogo({
           isMostbet && "border-[#0A5A9C]/25 shadow-[inset_0_1px_0_rgba(52,165,255,0.1)]",
           isSportsbetio && "border-[#36B958]/25 shadow-[inset_0_1px_0_rgba(54,185,88,0.1)]",
           isBitcasino && "border-[#6519A8]/25 shadow-[inset_0_1px_0_rgba(123,34,211,0.1)]",
+          isLtccasino && "border-[#2156FF]/25 shadow-[inset_0_1px_0_rgba(33,86,255,0.1)]",
           className,
         )}
       >
@@ -187,7 +195,7 @@ export function OperatorLogo({
           aria-hidden="true"
           width={
             logo.width ??
-            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino
+            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino
               ? 120
               : isRainbet
                 ? 96
@@ -195,14 +203,14 @@ export function OperatorLogo({
           }
           height={
             logo.height ??
-            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino
+            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino
               ? 48
               : isRainbet
                 ? 56
                 : LOGO_HEIGHT)
           }
           sizes={
-            isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino
+            isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino
               ? "120px"
               : isRainbet
                 ? "96px"

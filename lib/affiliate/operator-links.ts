@@ -19,6 +19,7 @@ import {
   MOSTBET_PLAYERS_AFFILIATE_URL,
   SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
   BITCASINO_REGISTRATION_AFFILIATE_URL,
+  LTCCASINO_AFFILIATE_URL,
   SLOTORO_MAIN_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
   XONBET_GLOBAL_AFFILIATE_URL,
@@ -212,6 +213,21 @@ function bitcasinoMxLink(): OperatorLink | undefined {
   };
 }
 
+const LTCCASINO_MX_GEO_WARNING =
+  "LTC Casino es un casino crypto internacional orientado a privacidad y registro sin KYC según su política pública. JugadaMax no afirma licencia local mexicana. Disponibilidad, pagos, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de las reglas vigentes.";
+
+function ltccasinoMxLink(): OperatorLink | undefined {
+  if (!LTCCASINO_AFFILIATE_URL) return undefined;
+  return {
+    market: "mx",
+    url: LTCCASINO_AFFILIATE_URL,
+    label: "Registrarse en LTC Casino",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: LTCCASINO_MX_GEO_WARNING,
+  };
+}
+
 const SLOTORO_GLOBAL_GEO_WARNING =
   "Slotoro availability depends on the player's jurisdiction and the operator's current restricted-country list. Several major markets are restricted. Check local law and live Slotoro terms before registering. Do not use a VPN or false location information.";
 
@@ -296,6 +312,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   bitcasino: {
     mx: bitcasinoMxLink(),
+  },
+  ltccasino: {
+    mx: ltccasinoMxLink(),
   },
 };
 

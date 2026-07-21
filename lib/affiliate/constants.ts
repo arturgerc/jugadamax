@@ -124,3 +124,10 @@ export const BITCASINO_PROMO_AFFILIATE_URL =
 /** Bitcasino general registration affiliate landing. */
 export const BITCASINO_REGISTRATION_AFFILIATE_URL =
   "https://go.bitcasino.io?asset_id=37501595";
+
+/** LTC Casino registration affiliate link for Spanish/MX crypto coverage. */
+export const LTCCASINO_AFFILIATE_URL =
+  "https://regcasltc.casa/j6ji2sb7n";
+
+/** Confirmed LTC Casino JugadaMax registration campaign code. */
+export const LTCCASINO_PROMO_CODE = "j6ji2sb7n";
