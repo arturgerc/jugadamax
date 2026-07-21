@@ -71,9 +71,13 @@ export function FiatCasinoInfoSections({
   const selectionMethods = paymentMethods.length > 0 ? paymentMethods : null;
 
   return (
-    <div className="space-y-12 sm:space-y-14">
+    <div className="space-y-8 sm:space-y-10 lg:space-y-12">
       {/* Cómo evaluamos */}
-      <section aria-labelledby="evaluacion-fiat-heading">
+      <section
+        id="como-evaluamos-fiat"
+        aria-labelledby="evaluacion-fiat-heading"
+        className="scroll-mt-24"
+      >
         <h2
           id="evaluacion-fiat-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
@@ -84,11 +88,11 @@ export function FiatCasinoInfoSections({
           Analizamos la información disponible del operador y priorizamos claridad, métodos de pago
           compatibles, condiciones de bonos y señales de juego responsable.
         </p>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+        <ul className="mt-5 grid grid-cols-1 gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4">
           {evaluationCriteria.map((item) => (
             <li
               key={item.title}
-              className="rounded-2xl border border-white/10 bg-card p-4 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.45)] sm:p-5"
+              className="rounded-xl border border-white/10 bg-card p-3.5 sm:p-4"
             >
               <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
