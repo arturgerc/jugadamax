@@ -16,7 +16,7 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-16 border-t border-border/60 bg-[var(--jm-graphite)]">
-      <Container className="py-10">
+      <Container className="max-w-7xl py-10">
         <ResponsibleGamblingNotice className="mb-8" />
 
         <Link href="/" aria-label="JugadaMax — Inicio" className={cn("mb-8 inline-flex rounded-md", focusRing)}>

@@ -181,6 +181,7 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     name: "Anonymous Casino",
     publicStatus: "active-affiliate",
     allowedSurfaces: [
+      "homepage",
       "casinos-crypto",
       "casinos-sin-kyc",
       "reviews",
