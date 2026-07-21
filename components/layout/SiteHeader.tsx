@@ -18,7 +18,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-[var(--jm-navy)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--jm-navy)]/80">
-      <Container className="relative flex h-16 items-center justify-between gap-3 xl:gap-4">
+      <Container className="relative flex h-16 max-w-7xl items-center justify-between gap-3 xl:gap-4">
         <Link
           href="/"
           aria-label="JugadaMax — Inicio"

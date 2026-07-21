@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { getArticles, getReviews } from "@/lib/content";
 import { filterReviewsForSurface } from "@/content/operators/status";
-import { Container } from "@/components/layout/Container";
-import { cn, focusRing } from "@/lib/utils";
+import { HomepageContainer } from "@/components/home/HomepageContainer";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { cn } from "@/lib/utils";
 
 type ContentKind = "guide" | "news" | "review";
 
@@ -12,9 +12,10 @@ type LatestItem = {
   excerpt: string;
   href: string;
   date: string;
+  sortMs: number;
 };
 
-const MAX_CARDS = 4;
+const MAX_CARDS = 3;
 
 const KIND_LABELS: Record<ContentKind, string> = {
   guide: "Guía",
@@ -22,10 +23,19 @@ const KIND_LABELS: Record<ContentKind, string> = {
   review: "Reseña",
 };
 
-const KIND_STYLES: Record<
-  ContentKind,
-  { badge: string; card: string; cta: string }
-> = {
+const KIND_CTA: Record<ContentKind, string> = {
+  guide: "Leer guía",
+  news: "Leer noticia",
+  review: "Leer reseña",
+};
+
+const KIND_PRIORITY: Record<ContentKind, number> = {
+  news: 0,
+  review: 1,
+  guide: 2,
+};
+
+const KIND_STYLES: Record<ContentKind, { badge: string; card: string; cta: string }> = {
   guide: {
     badge: "border-amber-400/30 bg-amber-500/10 text-amber-200",
     card: "border-amber-500/20 bg-gradient-to-br from-[#1a1408]/50 via-card/80 to-[#0A1931]/80 hover:border-amber-400/35",
@@ -43,93 +53,125 @@ const KIND_STYLES: Record<
   },
 };
 
+function safeSortMs(iso: string): number {
+  const ms = Date.parse(iso);
+  return Number.isFinite(ms) ? ms : 0;
+}
+
 function formatDate(iso: string): string {
+  const ms = safeSortMs(iso);
+  if (!ms) return "Fecha no disponible";
   return new Intl.DateTimeFormat("es-MX", {
     day: "numeric",
     month: "short",
     year: "numeric",
-  }).format(new Date(iso));
-}
-
-function reviewSortDate(review: { publishedAt: string; updatedAt?: string }): number {
-  return Date.parse(review.updatedAt ?? review.publishedAt);
+  }).format(new Date(ms));
 }
 
 function buildLatestItems(): LatestItem[] {
   const items: LatestItem[] = [];
 
-  for (const guide of getArticles("guide").slice(0, 2)) {
+  for (const guide of getArticles("guide")) {
+    const date = guide.updatedAt ?? guide.publishedAt;
     items.push({
       kind: "guide",
       title: guide.title,
       excerpt: guide.summary,
       href: `/guias/${guide.slug}`,
-      date: guide.updatedAt ?? guide.publishedAt,
+      date,
+      sortMs: safeSortMs(date),
     });
   }
 
-  if (items.length < MAX_CARDS) {
-    const newsLimit = Math.min(2, MAX_CARDS - items.length);
-    for (const article of getArticles("news").slice(0, newsLimit)) {
-      items.push({
-        kind: "news",
-        title: article.title,
-        excerpt: article.summary,
-        href: `/noticias/${article.slug}`,
-        date: article.updatedAt ?? article.publishedAt,
-      });
-    }
+  for (const article of getArticles("news")) {
+    const date = article.updatedAt ?? article.publishedAt;
+    items.push({
+      kind: "news",
+      title: article.title,
+      excerpt: article.summary,
+      href: `/noticias/${article.slug}`,
+      date,
+      sortMs: safeSortMs(date),
+    });
   }
 
-  if (items.length < MAX_CARDS) {
-    const reviewLimit = Math.min(2, MAX_CARDS - items.length);
-    const reviews = filterReviewsForSurface(getReviews(), "reviews")
-      .slice()
-      .sort((a, b) => reviewSortDate(b) - reviewSortDate(a))
-      .slice(0, reviewLimit);
-
-    for (const review of reviews) {
-      items.push({
-        kind: "review",
-        title: review.title,
-        excerpt: review.verdict,
-        href: `/reviews/${review.slug}`,
-        date: review.updatedAt ?? review.publishedAt,
-      });
-    }
+  for (const review of filterReviewsForSurface(getReviews(), "reviews")) {
+    const date = review.updatedAt ?? review.publishedAt;
+    items.push({
+      kind: "review",
+      title: review.title,
+      excerpt: review.verdict,
+      href: `/reviews/${review.slug}`,
+      date,
+      sortMs: safeSortMs(date),
+    });
   }
 
-  return items;
+  items.sort((a, b) => {
+    if (b.sortMs !== a.sortMs) return b.sortMs - a.sortMs;
+    const kindDiff = KIND_PRIORITY[a.kind] - KIND_PRIORITY[b.kind];
+    if (kindDiff !== 0) return kindDiff;
+    return a.title.localeCompare(b.title, "es");
+  });
+
+  return items.slice(0, MAX_CARDS);
 }
 
 /**
- * Mixed latest guides, news and reviews hub (P14C).
+ * Globally freshness-sorted latest content hub (homepage V3).
  */
 export function HomepageLatestContent() {
   const items = buildLatestItems();
   if (items.length === 0) return null;
 
   return (
-    <section aria-labelledby="ultimas-guias-heading" className="py-8">
-      <Container>
-        <div className="max-w-2xl space-y-1">
-          <h2
-            id="ultimas-guias-heading"
-            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-          >
-            Últimas guías y actualizaciones
-          </h2>
-          <p className="text-sm text-muted-foreground sm:text-base">
-            Contenido nuevo para comparar operadores y entender bonos, pagos y riesgos.
-          </p>
+    <section aria-labelledby="novedades-heading" className="py-6 sm:py-8">
+      <HomepageContainer>
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div className="max-w-2xl space-y-1">
+            <h2
+              id="novedades-heading"
+              className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+            >
+              Novedades y actualizaciones
+            </h2>
+            <p className="text-sm text-muted-foreground sm:text-base">
+              Reseñas, noticias y guías recientes para seguir cambios de operadores, pagos,
+              promociones y privacidad.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <TrackedLink
+              href="/noticias"
+              event="homepage_latest_click"
+              section="latest-content"
+              position="news-hub"
+              contentKind="news"
+              destination="/noticias"
+              className="inline-flex min-h-11 items-center rounded-md border border-border/60 px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50"
+            >
+              Ver noticias
+            </TrackedLink>
+            <TrackedLink
+              href="/reviews"
+              event="homepage_latest_click"
+              section="latest-content"
+              position="reviews-hub"
+              contentKind="review"
+              destination="/reviews"
+              className="inline-flex min-h-11 items-center rounded-md border border-border/60 px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50"
+            >
+              Ver reseñas
+            </TrackedLink>
+          </div>
         </div>
 
-        <ul className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {items.map((item) => {
+        <ul className="mt-4 grid grid-cols-1 gap-3 lg:mt-5 lg:grid-cols-3 lg:gap-4">
+          {items.map((item, index) => {
             const styles = KIND_STYLES[item.kind];
 
             return (
-              <li key={item.href} className="min-w-0">
+              <li key={`${item.kind}-${item.href}`} className="min-w-0">
                 <article
                   className={cn(
                     "flex h-full min-w-0 flex-col rounded-xl border p-4 transition-colors sm:p-5",
@@ -145,37 +187,38 @@ export function HomepageLatestContent() {
                     >
                       {KIND_LABELS[item.kind]}
                     </span>
-                    <time
-                      dateTime={item.date}
-                      className="text-[0.65rem] text-muted-foreground"
-                    >
+                    <time dateTime={item.date} className="text-[0.65rem] text-muted-foreground">
                       {formatDate(item.date)}
                     </time>
                   </div>
 
-                  <h3 className="mt-3 text-base font-semibold leading-snug text-foreground sm:text-lg">
+                  <h3 className="mt-2.5 text-base font-semibold leading-snug text-foreground sm:mt-3">
                     {item.title}
                   </h3>
-                  <p className="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground sm:line-clamp-3">
                     {item.excerpt}
                   </p>
 
-                  <Link
+                  <TrackedLink
                     href={item.href}
+                    event="homepage_latest_click"
+                    section="latest-content"
+                    position={index + 1}
+                    contentKind={item.kind}
+                    destination={item.href}
                     className={cn(
-                      "mt-4 inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-2",
+                      "mt-3 inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-2 sm:mt-4",
                       styles.cta,
-                      focusRing,
                     )}
                   >
-                    Leer más
-                  </Link>
+                    {KIND_CTA[item.kind]}
+                  </TrackedLink>
                 </article>
               </li>
             );
           })}
         </ul>
-      </Container>
+      </HomepageContainer>
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { Container } from "@/components/layout/Container";
+import { HomepageContainer } from "@/components/home/HomepageContainer";
 import { cn } from "@/lib/utils";
 
 const faqItems = [
@@ -18,14 +18,9 @@ const faqItems = [
       "Podemos recibir una comisión cuando un usuario se registra mediante determinados enlaces. Esto no añade un coste directo al usuario.",
   },
   {
-    question: "¿Qué debo revisar antes de aceptar un bono?",
+    question: "¿Qué significa casino sin KYC?",
     answer:
-      "Requisitos de apuesta, juegos elegibles, límites, vencimiento, verificación y reglas de retiro.",
-  },
-  {
-    question: "¿Qué diferencia hay entre casino crypto y fiat?",
-    answer:
-      "Los casinos crypto usan activos y redes blockchain; los operadores fiat suelen usar tarjetas, transferencias o métodos locales como OXXO y SPEI.",
+      "Un casino sin KYC declara que no solicita verificación documental en el flujo habitual. Esto no significa invisibilidad técnica absoluta: email, IP, dispositivo, wallets y blockchain pueden generar trazabilidad.",
   },
   {
     question: "¿Puedo jugar desde cualquier país?",
@@ -35,49 +30,50 @@ const faqItems = [
 ] as const;
 
 /**
- * Homepage FAQ with native disclosure elements (P14C).
- * Presentational only — no FAQPage JSON-LD (project has no reusable FAQ schema helper).
+ * Homepage FAQ with native disclosure elements (homepage V3 — max 5 items).
  */
 export function HomepageFAQ() {
   return (
-    <section aria-labelledby="faq-homepage-heading" className="py-8 pb-10">
-      <Container>
-        <h2
-          id="faq-homepage-heading"
-          className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-        >
-          Preguntas frecuentes
-        </h2>
+    <section aria-labelledby="faq-homepage-heading" className="py-6 pb-10 sm:py-8 lg:py-10">
+      <HomepageContainer>
+        <div className="mx-auto max-w-5xl">
+          <h2
+            id="faq-homepage-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            Preguntas frecuentes
+          </h2>
 
-        <div className="mt-5 space-y-2">
-          {faqItems.map((item) => (
-            <details
-              key={item.question}
-              className="group rounded-xl border border-white/8 bg-[#111417]/50 open:border-primary/25 open:bg-[#16233f]/40"
-            >
-              <summary
-                className={cn(
-                  "cursor-pointer list-none px-4 py-3.5 text-sm font-semibold text-foreground sm:px-5 sm:text-base",
-                  "[&::-webkit-details-marker]:hidden",
-                )}
+          <div className="mt-5 space-y-2">
+            {faqItems.map((item) => (
+              <details
+                key={item.question}
+                className="group rounded-xl border border-white/8 bg-[#111417]/50 open:border-primary/25 open:bg-[#16233f]/40"
               >
-                <span className="flex items-start justify-between gap-3">
-                  {item.question}
-                  <span
-                    aria-hidden="true"
-                    className="mt-0.5 shrink-0 text-primary transition-transform group-open:rotate-45"
-                  >
-                    +
+                <summary
+                  className={cn(
+                    "cursor-pointer list-none px-4 py-3.5 text-sm font-semibold text-foreground sm:px-5 sm:text-base",
+                    "[&::-webkit-details-marker]:hidden",
+                  )}
+                >
+                  <span className="flex items-start justify-between gap-3">
+                    {item.question}
+                    <span
+                      aria-hidden="true"
+                      className="mt-0.5 shrink-0 text-primary transition-transform group-open:rotate-45"
+                    >
+                      +
+                    </span>
                   </span>
-                </span>
-              </summary>
-              <p className="border-t border-white/6 px-4 pb-4 pt-3 text-sm leading-relaxed text-muted-foreground sm:px-5">
-                {item.answer}
-              </p>
-            </details>
-          ))}
+                </summary>
+                <p className="border-t border-white/6 px-4 pb-4 pt-3 text-sm leading-relaxed text-muted-foreground sm:px-5">
+                  {item.answer}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
-      </Container>
+      </HomepageContainer>
     </section>
   );
 }
