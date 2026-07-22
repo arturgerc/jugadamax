@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 
 const LOGO_HEIGHT = 48;
 
+export type OperatorLogoVariant = "default" | "compact-row";
+
 function monogramFromName(name: string): string {
   const words = name.trim().split(/\s+/).filter(Boolean);
   if (words.length >= 2) {
@@ -119,89 +121,183 @@ function logoTileBackground(operatorId?: string): string {
   return "bg-[#16233f]";
 }
 
-function FiveHundredWordmark({ className }: { className?: string }) {
+/** Extra inset glow used by many wordmark tiles (default variant only). */
+function logoTileInset(operatorId?: string): string | false {
+  if (operatorId === "rainbet") return "shadow-[inset_0_1px_0_rgba(52,211,153,0.1)]";
+  if (operatorId === "gamdom") return "shadow-[inset_0_1px_0_rgba(0,245,138,0.1)]";
+  if (operatorId === "xonbet") return "border-cyan-500/25 shadow-[inset_0_1px_0_rgba(0,217,255,0.1)]";
+  if (operatorId === "vodkabet") return "border-blue-500/25 shadow-[inset_0_1px_0_rgba(59,130,246,0.1)]";
+  if (operatorId === "awintura") return "border-[#D49A00]/25 shadow-[inset_0_1px_0_rgba(212,154,0,0.1)]";
+  if (operatorId === "slotoro") return "border-fuchsia-500/25 shadow-[inset_0_1px_0_rgba(217,0,215,0.1)]";
+  if (operatorId === "roobet") return "border-violet-500/25 shadow-[inset_0_1px_0_rgba(109,40,217,0.1)]";
+  if (operatorId === "mostbet") return "border-[#0A5A9C]/25 shadow-[inset_0_1px_0_rgba(52,165,255,0.1)]";
+  if (operatorId === "sportsbetio") return "border-[#36B958]/25 shadow-[inset_0_1px_0_rgba(54,185,88,0.1)]";
+  if (operatorId === "bitcasino") return "border-[#6519A8]/25 shadow-[inset_0_1px_0_rgba(123,34,211,0.1)]";
+  if (operatorId === "ltccasino") return "border-[#2156FF]/25 shadow-[inset_0_1px_0_rgba(33,86,255,0.1)]";
+  if (operatorId === "ethcasino") return "border-[#10BBD7]/25 shadow-[inset_0_1px_0_rgba(16,187,215,0.1)]";
+  if (operatorId === "cryptocasino") return "border-[#E0001B]/25 shadow-[inset_0_1px_0_rgba(224,0,27,0.1)]";
+  return false;
+}
+
+/**
+ * Optical fill tweaks for assets with large transparent padding.
+ * Applied only inside the fixed compact-row tile — never changes layout width.
+ */
+function compactOpticalImageClass(operatorId?: string): string {
+  if (operatorId === "rainbet") {
+    return "max-h-[2.35rem] w-[4.85rem] sm:max-h-[2.55rem] sm:w-[5.35rem]";
+  }
+  if (operatorId === "1xbet") {
+    return "max-h-[2.15rem] w-[4.55rem] sm:max-h-[2.35rem] sm:w-[5.1rem]";
+  }
+  if (operatorId === "melbet") {
+    return "max-h-[2.05rem] w-[4.4rem] sm:max-h-[2.25rem] sm:w-[4.9rem]";
+  }
+  return "max-h-[1.9rem] w-auto max-w-[4.55rem] sm:max-h-[2.15rem] sm:max-w-[5.1rem]";
+}
+
+function FiveHundredWordmark({
+  className,
+  compact = false,
+}: {
+  className?: string;
+  compact?: boolean;
+}) {
   return (
     <span
       aria-hidden="true"
       className={cn(
-        "inline-flex h-14 min-w-[5.75rem] shrink-0 flex-col items-center justify-center rounded-xl border px-3 py-2",
+        "inline-flex shrink-0 flex-col items-center justify-center rounded-xl border",
+        compact
+          ? "h-10 w-[5.25rem] px-1.5 py-1 sm:h-11 sm:w-24"
+          : "h-14 min-w-[5.75rem] px-3 py-2",
         logoTileBackground("500-casino"),
         logoTileAccent("500-casino"),
         "shadow-[inset_0_1px_0_rgba(236,72,153,0.12)]",
         className,
       )}
     >
-      <span className="bg-gradient-to-r from-[#F472B6] via-[#E11D48] to-[#FB7185] bg-clip-text text-xl font-extrabold leading-none tracking-tight text-transparent">
+      <span
+        className={cn(
+          "bg-gradient-to-r from-[#F472B6] via-[#E11D48] to-[#FB7185] bg-clip-text font-extrabold leading-none tracking-tight text-transparent",
+          compact ? "text-base" : "text-xl",
+        )}
+      >
         500
       </span>
-      <span className="mt-0.5 text-[0.55rem] font-bold uppercase tracking-[0.2em] text-pink-200/75">
+      <span
+        className={cn(
+          "font-bold uppercase tracking-[0.2em] text-pink-200/75",
+          compact ? "mt-0.5 text-[0.45rem]" : "mt-0.5 text-[0.55rem]",
+        )}
+      >
         Casino
       </span>
     </span>
   );
 }
 
+function isWideWordmarkOperator(operatorId?: string): boolean {
+  return (
+    operatorId === "rainbet" ||
+    operatorId === "gamdom" ||
+    operatorId === "xonbet" ||
+    operatorId === "vodkabet" ||
+    operatorId === "awintura" ||
+    operatorId === "slotoro" ||
+    operatorId === "roobet" ||
+    operatorId === "mostbet" ||
+    operatorId === "sportsbetio" ||
+    operatorId === "bitcasino" ||
+    operatorId === "ltccasino" ||
+    operatorId === "ethcasino" ||
+    operatorId === "cryptocasino"
+  );
+}
+
+function isExtraWideWordmark(operatorId?: string): boolean {
+  return (
+    operatorId === "gamdom" ||
+    operatorId === "xonbet" ||
+    operatorId === "vodkabet" ||
+    operatorId === "awintura" ||
+    operatorId === "slotoro" ||
+    operatorId === "roobet" ||
+    operatorId === "mostbet" ||
+    operatorId === "sportsbetio" ||
+    operatorId === "bitcasino" ||
+    operatorId === "ltccasino" ||
+    operatorId === "ethcasino" ||
+    operatorId === "cryptocasino"
+  );
+}
+
 /**
  * Operator logo with monogram fallback.
  *
- * Real logos use a wider 72–80×48 tile; monograms stay square 48×48. Decorative
- * when the operator name is visible on the same card.
+ * - default: existing card/header sizing (variable tile widths by operator group)
+ * - compact-row: fixed outer slot for list/comparison rows so names align
  */
 export function OperatorLogo({
   name,
   logo,
   operatorId,
   className,
+  variant = "default",
 }: {
   name: string;
   logo?: ImageRef;
   operatorId?: string;
   className?: string;
+  variant?: OperatorLogoVariant;
 }) {
+  const compact = variant === "compact-row";
+
   if (operatorId === "500-casino" && !logo?.src) {
-    return <FiveHundredWordmark className={className} />;
+    return <FiveHundredWordmark className={className} compact={compact} />;
   }
 
   if (logo?.src) {
+    if (compact) {
+      return (
+        <span
+          className={cn(
+            "inline-flex h-10 w-[5.25rem] shrink-0 items-center justify-center overflow-hidden rounded-lg border px-1 py-0.5 ring-1 sm:h-11 sm:w-24 sm:rounded-xl",
+            logoTileBackground(operatorId),
+            logoTileAccent(operatorId),
+            logoTileInset(operatorId),
+            className,
+          )}
+        >
+          <Image
+            src={logo.src}
+            alt=""
+            aria-hidden="true"
+            width={logo.width ?? 96}
+            height={logo.height ?? 40}
+            sizes="96px"
+            className={cn("object-contain", compactOpticalImageClass(operatorId))}
+          />
+        </span>
+      );
+    }
+
     const isRainbet = operatorId === "rainbet";
-    const isGamdom = operatorId === "gamdom";
-    const isXonbet = operatorId === "xonbet";
-    const isVodkabet = operatorId === "vodkabet";
-    const isAwintura = operatorId === "awintura";
-    const isSlotoro = operatorId === "slotoro";
-    const isRoobet = operatorId === "roobet";
-    const isMostbet = operatorId === "mostbet";
-    const isSportsbetio = operatorId === "sportsbetio";
-    const isBitcasino = operatorId === "bitcasino";
-    const isLtccasino = operatorId === "ltccasino";
-    const isEthcasino = operatorId === "ethcasino";
-    const isCryptocasino = operatorId === "cryptocasino";
-    const isWideWordmark =
-      isRainbet || isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino || isEthcasino || isCryptocasino;
+    const isWideWordmark = isWideWordmarkOperator(operatorId);
+    const isExtraWide = isExtraWideWordmark(operatorId);
+
     return (
       <span
         className={cn(
           "inline-flex shrink-0 items-center justify-center rounded-xl ring-1",
           isWideWordmark
-            ? isGamdom || isXonbet || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino || isEthcasino || isCryptocasino
+            ? isExtraWide
               ? "h-14 w-[7.5rem] border px-1 py-0.5"
               : "h-14 w-[5.75rem] border border-emerald-500/20 px-0.5 py-0.5 sm:w-24"
             : "h-12 w-[4.5rem] px-1 py-1 sm:w-20",
           logoTileBackground(operatorId),
           logoTileAccent(operatorId),
-          isRainbet && "shadow-[inset_0_1px_0_rgba(52,211,153,0.1)]",
-          isGamdom && "shadow-[inset_0_1px_0_rgba(0,245,138,0.1)]",
-          isXonbet && "border-cyan-500/25 shadow-[inset_0_1px_0_rgba(0,217,255,0.1)]",
-          isVodkabet && "border-blue-500/25 shadow-[inset_0_1px_0_rgba(59,130,246,0.1)]",
-          isAwintura && "border-[#D49A00]/25 shadow-[inset_0_1px_0_rgba(212,154,0,0.1)]",
-          isSlotoro && "border-fuchsia-500/25 shadow-[inset_0_1px_0_rgba(217,0,215,0.1)]",
-          isRoobet && "border-violet-500/25 shadow-[inset_0_1px_0_rgba(109,40,217,0.1)]",
-          isMostbet && "border-[#0A5A9C]/25 shadow-[inset_0_1px_0_rgba(52,165,255,0.1)]",
-          isSportsbetio && "border-[#36B958]/25 shadow-[inset_0_1px_0_rgba(54,185,88,0.1)]",
-          isBitcasino && "border-[#6519A8]/25 shadow-[inset_0_1px_0_rgba(123,34,211,0.1)]",
-          isLtccasino && "border-[#2156FF]/25 shadow-[inset_0_1px_0_rgba(33,86,255,0.1)]",
-          isEthcasino && "border-[#10BBD7]/25 shadow-[inset_0_1px_0_rgba(16,187,215,0.1)]",
-          isCryptocasino && "border-[#E0001B]/25 shadow-[inset_0_1px_0_rgba(224,0,27,0.1)]",
+          logoTileInset(operatorId),
           className,
         )}
       >
@@ -211,10 +307,10 @@ export function OperatorLogo({
           aria-hidden="true"
           width={
             logo.width ??
-            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino || isEthcasino || isCryptocasino
-              ? isCryptocasino
+            (isExtraWide
+              ? operatorId === "cryptocasino"
                 ? 180
-                : isEthcasino
+                : operatorId === "ethcasino"
                   ? 140
                   : 120
               : isRainbet
@@ -223,8 +319,8 @@ export function OperatorLogo({
           }
           height={
             logo.height ??
-            (isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino || isEthcasino || isCryptocasino
-              ? isCryptocasino || isEthcasino
+            (isExtraWide
+              ? operatorId === "cryptocasino" || operatorId === "ethcasino"
                 ? 56
                 : 48
               : isRainbet
@@ -232,10 +328,10 @@ export function OperatorLogo({
                 : LOGO_HEIGHT)
           }
           sizes={
-            isXonbet || isGamdom || isVodkabet || isAwintura || isSlotoro || isRoobet || isMostbet || isSportsbetio || isBitcasino || isLtccasino || isEthcasino || isCryptocasino
-              ? isCryptocasino
+            isExtraWide
+              ? operatorId === "cryptocasino"
                 ? "180px"
-                : isEthcasino
+                : operatorId === "ethcasino"
                   ? "140px"
                   : "120px"
               : isRainbet
@@ -247,6 +343,25 @@ export function OperatorLogo({
             isWideWordmark ? "max-h-[3.25rem] w-full" : "max-h-full",
           )}
         />
+      </span>
+    );
+  }
+
+  if (compact) {
+    return (
+      <span
+        aria-hidden="true"
+        className={cn(
+          "inline-flex h-10 w-[5.25rem] shrink-0 items-center justify-center rounded-lg border text-xs font-bold tracking-tight ring-1 sm:h-11 sm:w-24 sm:rounded-xl sm:text-sm",
+          logoTileBackground(operatorId),
+          logoTileAccent(operatorId),
+          operatorId === "bcgame"
+            ? "text-[#47E887]"
+            : "text-primary",
+          className,
+        )}
+      >
+        {monogramFromName(name)}
       </span>
     );
   }

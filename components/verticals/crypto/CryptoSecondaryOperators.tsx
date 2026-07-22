@@ -31,13 +31,12 @@ function SecondaryRow({
         )}
       >
         <div className="flex min-w-0 flex-1 items-center gap-2.5">
-          <span className="origin-left scale-[0.72]">
-            <OperatorLogo
-              logo={casino.logo}
-              name={casino.name}
-              operatorId={entry.operatorId}
-            />
-          </span>
+          <OperatorLogo
+            logo={casino.logo}
+            name={casino.name}
+            operatorId={entry.operatorId}
+            variant="compact-row"
+          />
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">
               <p className="truncate text-sm font-semibold text-foreground">{casino.name}</p>
