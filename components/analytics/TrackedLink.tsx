@@ -23,7 +23,10 @@ type TrackedLinkProps = {
     | "crypto_page_category_click"
     | "fiat_page_affiliate_click"
     | "fiat_page_review_click"
-    | "fiat_page_category_click";
+    | "fiat_page_category_click"
+    | "bonus_page_affiliate_click"
+    | "bonus_page_review_click"
+    | "bonus_page_category_click";
   section: string;
   position?: number | string;
   operator?: string;

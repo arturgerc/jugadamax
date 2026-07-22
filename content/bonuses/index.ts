@@ -6,6 +6,9 @@ import type { Bonus } from "@/types/content";
  * Authenticity (Constitution Principle V): titles are neutral, honest
  * placeholders that direct users to verify the current offer on the operator's
  * site. No fabricated amounts, no fabricated urgency/countdowns.
+ *
+ * Optional directory fields power /bonos V2. offerLabel / minDeposit / wagering
+ * only include values already published in editorial copy or operator terms text.
  */
 export const bonuses: Bonus[] = [
   {
@@ -15,6 +18,9 @@ export const bonuses: Bonus[] = [
     type: "welcome",
     terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
     active: true,
+    product: "casino",
+    market: "global",
+    status: "pending-verification",
   },
   {
     id: "caliente-welcome",
@@ -23,6 +29,9 @@ export const bonuses: Bonus[] = [
     type: "welcome",
     terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
     active: true,
+    product: "mixed",
+    market: "mx",
+    status: "pending-verification",
   },
   {
     id: "codere-welcome",
@@ -31,14 +40,26 @@ export const bonuses: Bonus[] = [
     type: "welcome",
     terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
     active: true,
+    product: "sportsbook",
+    market: "mx",
+    status: "pending-verification",
   },
   {
     id: "betsson-welcome",
     casinoId: "betsson",
     title: "Consulta la promoción de bienvenida vigente",
     type: "welcome",
-    terms: "Aplican términos y condiciones del operador. Verifica la oferta actual en el sitio oficial.",
+    terms:
+      "Promoción publicada por Betsson MX. Bonos, giros, métodos de pago, verificación y retiros dependen de los términos oficiales del operador y de tu jurisdicción.",
     active: true,
+    product: "casino",
+    market: "mx",
+    status: "active-variable",
+    offerLabel: "Hasta $15,000 MXN + 200 giros gratis",
+    minDeposit: "Desde $200 MXN (SPEI desde $100 según términos)",
+    productLabel: "Casino fiat MX",
+    directoryGroup: "casino-mx",
+    featuredPosition: 1,
   },
   {
     id: "500-casino-welcome",
@@ -48,6 +69,9 @@ export const bonuses: Bonus[] = [
     terms:
       "Verifica promociones, requisitos de apuesta, disponibilidad, pagos y retiros directamente en 500 Casino.",
     active: true,
+    product: "casino",
+    market: "global",
+    status: "active-variable",
   },
   {
     id: "rainbet-promotions",
@@ -57,6 +81,10 @@ export const bonuses: Bonus[] = [
     terms:
       "La página pública de promociones muestra Wager Lock Promotion, No Wager Lock Promotion, bonos de primer depósito y free spins. Depósito mínimo $30 y máximo $700 según información publicada. Verifica requisitos de apuesta, juegos elegibles, elegibilidad por país, free spins de Pragmatic Play y condiciones antes de depositar.",
     active: true,
+    product: "rewards",
+    market: "global",
+    status: "active-variable",
+    minDeposit: "Desde $30 (máx. $700 según info publicada)",
   },
   {
     id: "betfury-welcome",
@@ -66,6 +94,13 @@ export const bonuses: Bonus[] = [
     terms:
       "Promoción visible en Bonus Cabinet. Bonos, free spins, cashback, retiros y verificación dependen de los términos oficiales de BetFury.",
     active: true,
+    product: "rewards",
+    market: "global",
+    status: "active-variable",
+    offerLabel: "Hasta 590% + Free Spins según términos oficiales",
+    productLabel: "Crypto · rewards",
+    directoryGroup: "crypto-rewards",
+    featuredPosition: 2,
   },
   {
     id: "1xbet-casino-welcome-package",
@@ -75,6 +110,12 @@ export const bonuses: Bonus[] = [
     terms:
       "Oferta mostrada por 1xBet para nuevos usuarios. El paquete puede depender de depósitos elegibles, requisitos de apuesta, juegos participantes, límites, vencimiento, verificación y jurisdicción. Confirma la promoción vigente antes de depositar.",
     active: true,
+    product: "casino",
+    market: "mx",
+    status: "active-variable",
+    offerLabel: "Hasta 40,000 MXN + 150 giros gratis",
+    productLabel: "Casino (paquete)",
+    directoryGroup: "casino-mx",
   },
   {
     id: "melbet-sportsbook-welcome",
@@ -84,6 +125,14 @@ export const bonuses: Bonus[] = [
     terms:
       "Paquete para los primeros cuatro depósitos elegibles: 100% hasta MX$7,000, 50% hasta MX$3,500, 25% hasta MX$3,500 y 25% hasta MX$3,500. Depósito mínimo MX$100. Requisito de apuesta 5x según términos publicados. Aplican cuotas mínimas, vigencia, verificación, mercados elegibles y restricciones del operador.",
     active: true,
+    product: "sportsbook",
+    market: "mx",
+    status: "active-variable",
+    offerLabel: "Hasta MX$17,500 en 4 depósitos",
+    minDeposit: "MX$100",
+    wagering: "5x (deportivo, según términos)",
+    productLabel: "Apuestas",
+    directoryGroup: "sports-mixed",
   },
   {
     id: "awintura-welcome",
@@ -93,6 +142,12 @@ export const bonuses: Bonus[] = [
     terms:
       "La moneda, importes, depósitos elegibles, wagering, cuotas, juegos, límites, vencimiento y disponibilidad dependen de la creatividad activa, la cuenta, el GEO y los términos oficiales.",
     active: true,
+    product: "mixed",
+    market: "latam",
+    status: "active-variable",
+    offerLabel: "Hasta $60,000 + 250 FS + 200% freebets según campaña",
+    productLabel: "Casino + apuestas",
+    directoryGroup: "casino-mx",
   },
   {
     id: "mostbet-first-deposit",
@@ -102,6 +157,12 @@ export const bonuses: Bonus[] = [
     terms:
       "La landing suministrada permite seleccionar Casino o Sports. El importe máximo, moneda, depósito mínimo, wagering, free spins, juegos, mercados, cuotas, vencimiento, KYC y disponibilidad dependen de la campaña, cuenta, GEO y términos vigentes.",
     active: true,
+    product: "mixed",
+    market: "latam",
+    status: "active-variable",
+    offerLabel: "125% + 250 FS en el primer depósito según campaña",
+    productLabel: "Casino o Sports",
+    directoryGroup: "sports-mixed",
   },
   {
     id: "sportsbetio-champions-welcome",
@@ -111,6 +172,14 @@ export const bonuses: Bonus[] = [
     terms:
       "Depósito mínimo de 10 USDT. Wagering publicado: 15x para Sports y 40x para Casino. Activación, mercados, juegos, vencimiento, KYC, pagos y disponibilidad dependen de la cuenta, GEO y términos vigentes.",
     active: true,
+    product: "mixed",
+    market: "global",
+    status: "active-variable",
+    offerLabel: "100% hasta 300 USDT (Sports o Casino)",
+    minDeposit: "10 USDT",
+    wagering: "15x Sports / 40x Casino",
+    productLabel: "Sports o Casino",
+    directoryGroup: "sports-mixed",
   },
   {
     id: "bitcasino-three-deposit-welcome",
@@ -120,6 +189,13 @@ export const bonuses: Bonus[] = [
     terms:
       "Primer depósito: 100% hasta 1,500 USDT. Segundo depósito: 50% hasta 2,000 USDT. Tercer depósito: 100% hasta 1,500 USDT. Activación, moneda, depósito mínimo, wagering, juegos elegibles, vencimiento, KYC y disponibilidad dependen de la cuenta, GEO y términos vigentes.",
     active: true,
+    product: "casino",
+    market: "global",
+    status: "active-variable",
+    offerLabel: "Hasta 5,000 USDT en tres depósitos",
+    productLabel: "Casino crypto",
+    directoryGroup: "crypto-rewards",
+    featuredPosition: 3,
   },
   {
     id: "mellstroy-welcome",
@@ -129,6 +205,12 @@ export const bonuses: Bonus[] = [
     terms:
       "La página de promociones suministrada muestra hasta 660% + 400 FS, mientras que otra creatividad de registro muestra 550% + 400 FS. La oferta puede variar según campaña, registro, cuenta, elegibilidad, jurisdicción y términos vigentes. Confirma porcentajes, depósitos elegibles, wagering, juegos, límites y vencimiento antes de depositar.",
     active: true,
+    product: "casino",
+    market: "global",
+    status: "active-variable",
+    offerLabel: "Hasta 660% + 400 FS según campaña",
+    productLabel: "Casino crypto",
+    directoryGroup: "crypto-rewards",
   },
   {
     id: "vodkabet-welcome",
@@ -138,5 +220,26 @@ export const bonuses: Bonus[] = [
     terms:
       "Código JUGADAMAX. Las creatividades también muestran +2% para depósitos crypto y 50 FS por vincular Telegram. Depósito mínimo, wagering, juegos elegibles, vencimiento, límites y disponibilidad deben confirmarse en los términos oficiales.",
     active: true,
+    product: "casino",
+    market: "global",
+    status: "active-variable",
+    offerLabel: "125% + hasta 300 FS según campaña",
+    productLabel: "Casino crypto",
+    directoryGroup: "crypto-rewards",
+  },
+  {
+    id: "gamdom-rewards-welcome",
+    casinoId: "gamdom",
+    title: "Rakeback elevado al 15% durante 7 días según campaña Rewards",
+    type: "cashback",
+    terms:
+      "Promoción Rewards publicada por Gamdom. El rakeback elevado, la duración, elegibilidad, juegos, límites y disponibilidad dependen de la campaña, cuenta, GEO y términos oficiales. No es un bono de bienvenida estándar con depósito match fijo.",
+    active: true,
+    product: "rewards",
+    market: "global",
+    status: "active-variable",
+    offerLabel: "Rakeback 15% durante 7 días según campaña",
+    productLabel: "Rewards / rakeback",
+    directoryGroup: "crypto-rewards",
   },
 ];

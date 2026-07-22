@@ -215,6 +215,15 @@ export function getBonusesForCasino(casinoId: string): Bonus[] {
   return bonuses.filter((b) => b.casinoId === casinoId);
 }
 
+export function getBonusById(id: string): Bonus | undefined {
+  return bonusesById.get(id);
+}
+
+/** Active bonuses tagged for the Spanish /bonos directory, stable id order. */
+export function getBonosDirectoryBonuses(): Bonus[] {
+  return bonuses.filter((b) => b.active && b.directoryGroup);
+}
+
 export function getAuthorById(id: string): Author | undefined {
   return authors.find((a) => a.id === id);
 }

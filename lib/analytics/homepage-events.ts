@@ -9,7 +9,10 @@ type AnalyticsEventName =
   | "crypto_page_category_click"
   | "fiat_page_affiliate_click"
   | "fiat_page_review_click"
-  | "fiat_page_category_click";
+  | "fiat_page_category_click"
+  | "bonus_page_affiliate_click"
+  | "bonus_page_review_click"
+  | "bonus_page_category_click";
 
 type AnalyticsEventParams = Record<string, string | number | undefined>;
 

@@ -8,6 +8,10 @@
 
 import {
   ARTICLE_TYPES,
+  BONUS_DIRECTORY_GROUPS,
+  BONUS_MARKETS,
+  BONUS_PRODUCTS,
+  BONUS_STATUSES,
   BONUS_TYPES,
   LOCALES,
   PAYMENT_KINDS,
@@ -16,6 +20,10 @@ import {
   type ArticleType,
   type Author,
   type Bonus,
+  type BonusDirectoryGroup,
+  type BonusMarket,
+  type BonusProduct,
+  type BonusStatus,
   type BonusType,
   type Casino,
   type Locale,
@@ -129,6 +137,41 @@ export function validateBonus(input: Bonus): Bonus {
   }
   if (input.validUntil !== undefined) {
     assertIsoDate(input.validUntil, "validUntil", ctx);
+  }
+  if (input.product !== undefined) {
+    assertEnum<BonusProduct>(input.product, BONUS_PRODUCTS, "product", ctx);
+  }
+  if (input.market !== undefined) {
+    assertEnum<BonusMarket>(input.market, BONUS_MARKETS, "market", ctx);
+  }
+  if (input.status !== undefined) {
+    assertEnum<BonusStatus>(input.status, BONUS_STATUSES, "status", ctx);
+  }
+  if (input.directoryGroup !== undefined) {
+    assertEnum<BonusDirectoryGroup>(
+      input.directoryGroup,
+      BONUS_DIRECTORY_GROUPS,
+      "directoryGroup",
+      ctx,
+    );
+  }
+  if (input.featuredPosition !== undefined) {
+    if (
+      typeof input.featuredPosition !== "number" ||
+      !Number.isInteger(input.featuredPosition) ||
+      input.featuredPosition < 1
+    ) {
+      fail(`${ctx}: "featuredPosition" must be a positive integer`);
+    }
+  }
+  if (input.offerLabel !== undefined) {
+    assertNonEmptyString(input.offerLabel, "offerLabel", ctx);
+  }
+  if (input.minDeposit !== undefined) {
+    assertNonEmptyString(input.minDeposit, "minDeposit", ctx);
+  }
+  if (input.productLabel !== undefined) {
+    assertNonEmptyString(input.productLabel, "productLabel", ctx);
   }
   return input;
 }

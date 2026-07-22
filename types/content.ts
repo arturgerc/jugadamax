@@ -37,6 +37,50 @@ export const BONUS_TYPES: readonly BonusType[] = [
   "other",
 ] as const;
 
+/** Product surface for bonus directory and comparison. */
+export type BonusProduct = "casino" | "sportsbook" | "mixed" | "rewards";
+
+export const BONUS_PRODUCTS: readonly BonusProduct[] = [
+  "casino",
+  "sportsbook",
+  "mixed",
+  "rewards",
+] as const;
+
+export type BonusMarket = "mx" | "latam" | "global";
+
+export const BONUS_MARKETS: readonly BonusMarket[] = ["mx", "latam", "global"] as const;
+
+/**
+ * Editorial freshness status for a bonus record.
+ * Do not treat as operator verification of payouts or licences.
+ */
+export type BonusStatus =
+  | "active-verified"
+  | "active-variable"
+  | "expiring"
+  | "expired"
+  | "paused"
+  | "pending-verification";
+
+export const BONUS_STATUSES: readonly BonusStatus[] = [
+  "active-verified",
+  "active-variable",
+  "expiring",
+  "expired",
+  "paused",
+  "pending-verification",
+] as const;
+
+/** Grouping used by the Spanish /bonos directory. */
+export type BonusDirectoryGroup = "casino-mx" | "crypto-rewards" | "sports-mixed";
+
+export const BONUS_DIRECTORY_GROUPS: readonly BonusDirectoryGroup[] = [
+  "casino-mx",
+  "crypto-rewards",
+  "sports-mixed",
+] as const;
+
 export type PaymentKind = "crypto" | "fiat";
 
 export const PAYMENT_KINDS: readonly PaymentKind[] = ["crypto", "fiat"] as const;
@@ -95,6 +139,23 @@ export interface Bonus {
   /** ISO date; omit if evergreen. No fabricated urgency derived from this field. */
   validUntil?: string;
   active: boolean;
+  /** Optional product classification for directory / comparison surfaces. */
+  product?: BonusProduct;
+  market?: BonusMarket;
+  status?: BonusStatus;
+  /**
+   * Published offer line for UI when richer than `title`.
+   * Must not invent amounts — only copy already published by the operator/editorial.
+   */
+  offerLabel?: string;
+  /** Minimum deposit when published by the operator; omit if unknown. */
+  minDeposit?: string;
+  /** Short Spanish product label for comparison tables. */
+  productLabel?: string;
+  /** Directory group on /bonos; omit if not listed there. */
+  directoryGroup?: BonusDirectoryGroup;
+  /** Featured position on /bonos (1–3); omit if not featured. */
+  featuredPosition?: number;
 }
 
 export interface AuthorLink {
