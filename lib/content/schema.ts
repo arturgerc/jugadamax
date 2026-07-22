@@ -8,6 +8,7 @@
 
 import {
   ARTICLE_TYPES,
+  AUTHOR_KINDS,
   BONUS_DIRECTORY_GROUPS,
   BONUS_MARKETS,
   BONUS_PRODUCTS,
@@ -19,6 +20,7 @@ import {
   type Article,
   type ArticleType,
   type Author,
+  type AuthorKind,
   type Bonus,
   type BonusDirectoryGroup,
   type BonusMarket,
@@ -181,6 +183,17 @@ export function validateAuthor(input: Author): Author {
   assertNonEmptyString(input.id, "id", ctx);
   assertNonEmptyString(input.slug, "slug", ctx);
   assertNonEmptyString(input.name, "name", ctx);
+  if (input.kind !== undefined) {
+    assertEnum<AuthorKind>(input.kind, AUTHOR_KINDS, "kind", ctx);
+  }
+  if (input.specialties !== undefined) {
+    if (!Array.isArray(input.specialties)) {
+      fail(`${ctx}: "specialties" must be an array`);
+    }
+    for (const [index, specialty] of input.specialties.entries()) {
+      assertNonEmptyString(specialty, `specialties[${index}]`, ctx);
+    }
+  }
   return input;
 }
 

@@ -3,6 +3,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { notFound } from "next/navigation";
 import {
   getAuthorById,
+  getAuthorSameAs,
   getBonusesForCasino,
   getCasinoById,
   getReviewBySlug,
@@ -1130,6 +1131,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
     headline: review.title,
     path: `/reviews/${review.slug}`,
     authorName: author.name,
+    authorUrl: `/autores/${author.slug}`,
+    authorType: author.kind === "organization" ? "Organization" : "Person",
+    authorSameAs: getAuthorSameAs(author),
     datePublished: review.publishedAt,
     dateModified: review.updatedAt,
     type: "Article",

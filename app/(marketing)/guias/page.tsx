@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { getArticles } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
-import { ArticleList } from "@/components/content/ArticleList";
+import { GuideHubHero } from "@/components/verticals/guides/GuideHubHero";
+import { GuideHubTrustStrip } from "@/components/verticals/guides/GuideHubTrustStrip";
+import { GuideLearningPaths } from "@/components/verticals/guides/GuideLearningPaths";
+import { GuideHubLibrary } from "@/components/verticals/guides/GuideHubLibrary";
+import { GuideHubEducation } from "@/components/verticals/guides/GuideHubEducation";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Guías de casinos y apuestas en México",
+  title: "Guías de casino, crypto y apuestas para México",
   description:
-    "Guías editoriales de JugadaMax para elegir casinos crypto, casinos fiat y casas de apuestas en México con información clara y juego responsable +18.",
+    "Centro de aprendizaje editorial de JugadaMax: guías sobre casinos crypto, pagos, KYC, operadores internacionales y juego responsable para México y LATAM. 18+.",
   path: "/guias",
   languageAlternates: {
     "es-MX": "/guias",
@@ -17,27 +20,23 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function GuidesIndexPage() {
-  const guides = getArticles("guide");
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
     { name: "Guías", path: "/guias" },
   ]);
 
   return (
-    <Container className="py-8">
+    <Container className="max-w-7xl py-6 sm:py-8 lg:py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <header className="mb-6 space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Guías</h1>
-        <p className="max-w-2xl text-muted-foreground">
-          Guías editoriales para elegir y comparar operadores en México de forma informada.
-        </p>
-      </header>
-
-      <ArticleList articles={guides} />
+      <GuideHubHero />
+      <GuideHubTrustStrip />
+      <GuideLearningPaths />
+      <GuideHubLibrary />
+      <GuideHubEducation />
     </Container>
   );
 }

@@ -1,16 +1,14 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { getArticles, getReviews } from "@/lib/content";
+import { getArticles, getAuthors, getReviews } from "@/lib/content";
 import { getGlobalReviews } from "@/lib/content/global";
 import { filterReviewsForSurface } from "@/content/operators/status";
 
 /**
  * Dynamic sitemap (FR-023).
  *
- * Emits every public static page plus each review, guide, and news article from
- * the content loaders, staying in sync with content automatically. Content
- * entries carry `lastModified` from the record's `updatedAt` (falling back to
- * `publishedAt`).
+ * Emits every public static page plus each review, guide, news article, and
+ * Spanish author profile from the content loaders.
  */
 const STATIC_PATHS = [
   "/",
@@ -22,6 +20,7 @@ const STATIC_PATHS = [
   "/guias",
   "/noticias",
   "/reviews",
+  "/autores",
   "/como-evaluamos",
   "/divulgacion-afiliados",
   "/juego-responsable",
@@ -68,10 +67,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(article.updatedAt ?? article.publishedAt),
   }));
 
+  const authorEntries: MetadataRoute.Sitemap = getAuthors().map((author) => ({
+    url: abs(`/autores/${author.slug}`),
+  }));
+
   const enReviewEntries: MetadataRoute.Sitemap = getGlobalReviews().map((review) => ({
     url: abs(`/en/reviews/${review.slug}`),
     lastModified: new Date(review.updatedAt ?? review.publishedAt),
   }));
 
-  return [...staticEntries, ...reviewEntries, ...guideEntries, ...newsEntries, ...enReviewEntries];
+  return [
+    ...staticEntries,
+    ...reviewEntries,
+    ...guideEntries,
+    ...newsEntries,
+    ...authorEntries,
+    ...enReviewEntries,
+  ];
 }
