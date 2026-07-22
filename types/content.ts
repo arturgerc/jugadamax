@@ -163,6 +163,10 @@ export interface AuthorLink {
   url: string;
 }
 
+export type AuthorKind = "person" | "organization";
+
+export const AUTHOR_KINDS: readonly AuthorKind[] = ["person", "organization"] as const;
+
 export interface Author {
   id: string;
   slug: string;
@@ -172,6 +176,10 @@ export interface Author {
   bio?: string;
   avatar?: ImageRef;
   links?: AuthorLink[];
+  /** person vs editorial organization desk */
+  kind?: AuthorKind;
+  /** Short specialty labels for author profile pages */
+  specialties?: string[];
 }
 
 export interface ReviewRelatedLink {

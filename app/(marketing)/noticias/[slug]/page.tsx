@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getArticles, getAuthorById } from "@/lib/content";
+import { getArticleBySlug, getArticles, getAuthorById, getAuthorSameAs } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -56,6 +56,9 @@ export default async function NewsArticlePage({
     headline: article.title,
     path: `/noticias/${article.slug}`,
     authorName: author.name,
+    authorUrl: `/autores/${author.slug}`,
+    authorType: author.kind === "organization" ? "Organization" : "Person",
+    authorSameAs: getAuthorSameAs(author),
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     type: "NewsArticle",
@@ -83,6 +86,7 @@ export default async function NewsArticlePage({
             author={author}
             publishedAt={article.publishedAt}
             updatedAt={article.updatedAt}
+            compact
           />
         </header>
 

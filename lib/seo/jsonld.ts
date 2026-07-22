@@ -26,6 +26,7 @@ function publisherOrganization(): JsonLd {
       "@type": "ImageObject",
       url: absoluteUrl(siteConfig.logoUrl),
     },
+    ...(siteConfig.sameAs.length > 0 ? { sameAs: [...siteConfig.sameAs] } : {}),
   };
 }
 
@@ -39,6 +40,7 @@ export function organizationJsonLd(): JsonLd {
     name: siteConfig.name,
     url: siteConfig.url,
     logo: absoluteUrl(siteConfig.logoUrl),
+    ...(siteConfig.sameAs.length > 0 ? { sameAs: [...siteConfig.sameAs] } : {}),
   };
 }
 
@@ -83,6 +85,12 @@ export interface ArticleJsonLdInput {
   type?: "Article" | "NewsArticle";
   /** BCP 47 language tag; defaults to site locale (es-MX). */
   inLanguage?: string;
+  /** Internal author profile URL when available. */
+  authorUrl?: string;
+  /** Person (default) or Organization for editorial desks. */
+  authorType?: "Person" | "Organization";
+  /** Optional external sameAs URLs (e.g. LinkedIn). */
+  authorSameAs?: string[];
 }
 
 /**
@@ -99,7 +107,17 @@ export function articleJsonLd(input: ArticleJsonLdInput): JsonLd {
     image,
     type = "Article",
     inLanguage = siteConfig.locale,
+    authorUrl,
+    authorType = "Person",
+    authorSameAs,
   } = input;
+
+  const authorNode: JsonLd = {
+    "@type": authorType,
+    name: authorName,
+    ...(authorUrl ? { url: absoluteUrl(authorUrl) } : {}),
+    ...(authorSameAs && authorSameAs.length > 0 ? { sameAs: authorSameAs } : {}),
+  };
 
   return {
     "@context": "https://schema.org",
@@ -107,10 +125,64 @@ export function articleJsonLd(input: ArticleJsonLdInput): JsonLd {
     headline,
     mainEntityOfPage: absoluteUrl(path),
     inLanguage,
-    author: { "@type": "Person", name: authorName },
+    author: authorNode,
     publisher: publisherOrganization(),
     datePublished,
     ...(dateModified ? { dateModified } : {}),
     ...(image ? { image: absoluteUrl(image) } : {}),
+  };
+}
+
+export interface PersonJsonLdInput {
+  name: string;
+  path: string;
+  description?: string;
+  jobTitle?: string;
+  sameAs?: string[];
+}
+
+/** Person node for Spanish author profile pages. */
+export function personJsonLd(input: PersonJsonLdInput): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: input.name,
+    url: absoluteUrl(input.path),
+    ...(input.jobTitle ? { jobTitle: input.jobTitle } : {}),
+    ...(input.description ? { description: input.description } : {}),
+    ...(input.sameAs && input.sameAs.length > 0 ? { sameAs: input.sameAs } : {}),
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  };
+}
+
+export interface ProfileOrganizationJsonLdInput {
+  name: string;
+  path: string;
+  description?: string;
+  sameAs?: string[];
+}
+
+/** Organization node for the editorial-desk author profile. */
+export function profileOrganizationJsonLd(
+  input: ProfileOrganizationJsonLdInput,
+): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: input.name,
+    url: absoluteUrl(input.path),
+    ...(input.description ? { description: input.description } : {}),
+    ...(input.sameAs && input.sameAs.length > 0
+      ? { sameAs: input.sameAs }
+      : { sameAs: [...siteConfig.sameAs] }),
+    parentOrganization: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
   };
 }

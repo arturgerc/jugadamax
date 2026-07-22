@@ -30,6 +30,7 @@ import {
   validateReview,
 } from "@/lib/content/schema";
 import { sortByVerticalRank } from "@/lib/ranking";
+import { JUGADAMAX_COMPANY_LINKEDIN_URL } from "@/lib/site";
 
 function assertUniqueIds(items: { id: string }[], collection: string): void {
   const seen = new Set<string>();
@@ -226,6 +227,27 @@ export function getBonosDirectoryBonuses(): Bonus[] {
 
 export function getAuthorById(id: string): Author | undefined {
   return authors.find((a) => a.id === id);
+}
+
+export function getAuthorBySlug(slug: string): Author | undefined {
+  return authors.find((a) => a.slug === slug);
+}
+
+export function getAuthors(): Author[] {
+  return authors;
+}
+
+/**
+ * External sameAs URLs for Article/Person JSON-LD.
+ * Organization authors include the official company LinkedIn.
+ */
+export function getAuthorSameAs(author: Author): string[] | undefined {
+  const urls = [
+    ...(author.links?.map((link) => link.url) ?? []),
+    ...(author.kind === "organization" ? [JUGADAMAX_COMPANY_LINKEDIN_URL] : []),
+  ];
+  const unique = [...new Set(urls)];
+  return unique.length > 0 ? unique : undefined;
 }
 
 export function getReviews(): Review[] {
