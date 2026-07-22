@@ -295,6 +295,7 @@ export const casinos: Casino[] = [
     },
     summary:
       "Gamdom es un operador crypto internacional con casino, sportsbook, juegos Originals, Rewards y promociones rotativas. Para usuarios de México/LATAM, JugadaMax lo presenta como una alternativa crypto internacional; disponibilidad, pagos, verificación y promociones dependen de los términos oficiales y de la jurisdicción.",
+    bonusIds: ["gamdom-rewards-welcome"],
     locale: "es-MX",
   },
   {
