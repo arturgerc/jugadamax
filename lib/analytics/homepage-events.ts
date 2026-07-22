@@ -12,7 +12,11 @@ type AnalyticsEventName =
   | "fiat_page_category_click"
   | "bonus_page_affiliate_click"
   | "bonus_page_review_click"
-  | "bonus_page_category_click";
+  | "bonus_page_category_click"
+  | "betting_page_affiliate_click"
+  | "betting_page_review_click"
+  | "betting_page_category_click"
+  | "betting_page_nav_click";
 
 type AnalyticsEventParams = Record<string, string | number | undefined>;
 
