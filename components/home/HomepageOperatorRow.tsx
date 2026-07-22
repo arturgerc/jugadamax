@@ -44,9 +44,12 @@ export function HomepageOperatorRow({
         "transition-colors hover:border-white/10 hover:bg-white/[0.03]",
       )}
     >
-      <span className="origin-left scale-[0.68] sm:scale-[0.78]">
-        <OperatorLogo logo={logo} name={name} operatorId={operatorId} />
-      </span>
+      <OperatorLogo
+        logo={logo}
+        name={name}
+        operatorId={operatorId}
+        variant="compact-row"
+      />
       <span className="min-w-0 flex-1">
         <span className="block truncate text-sm font-semibold text-foreground">{name}</span>
         <span className="mt-0.5 block truncate text-[0.65rem] text-muted-foreground sm:text-[0.7rem]">

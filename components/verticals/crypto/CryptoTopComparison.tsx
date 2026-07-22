@@ -81,13 +81,12 @@ export function CryptoTopComparison() {
                   <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-white/15 text-[0.65rem] font-bold text-foreground">
                     {row.position}
                   </span>
-                  <span className="origin-left scale-[0.68]">
-                    <OperatorLogo
-                      logo={row.logo}
-                      name={row.name}
-                      operatorId={row.operatorId}
-                    />
-                  </span>
+                  <OperatorLogo
+                    logo={row.logo}
+                    name={row.name}
+                    operatorId={row.operatorId}
+                    variant="compact-row"
+                  />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold text-foreground">{row.name}</p>
                     <p className="truncate text-[0.7rem] text-muted-foreground">{row.purpose}</p>
@@ -160,6 +159,7 @@ export function CryptoTopComparison() {
                         logo={row.logo}
                         name={row.name}
                         operatorId={row.operatorId}
+                        variant="compact-row"
                       />
                       <div className="min-w-0">
                         <p className="font-semibold text-foreground">{row.name}</p>
