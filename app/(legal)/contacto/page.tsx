@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo/metadata";
-import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { ContactHubPage } from "@/components/verticals/contact/ContactHubPage";
+import { CONTACT_COPY } from "@/components/verticals/contact/contact-config";
 import { Container } from "@/components/layout/Container";
-import { SocialLinks } from "@/components/social/SocialLinks";
+import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contacto",
+  title: "Contacto editorial JugadaMax",
   description:
-    "Contacta al equipo editorial de JugadaMax para consultas, correcciones de contenido o propuestas de colaboración.",
+    "Contacta al equipo editorial de JugadaMax para correcciones, fuentes oficiales, socios, prensa o consultas editoriales. No somos soporte de casinos.",
   path: "/contacto",
   languageAlternates: {
     "es-MX": "/contacto",
@@ -16,80 +17,19 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function ContactoPage() {
+  const copy = CONTACT_COPY.es;
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Inicio", path: "/" },
-    { name: "Contacto", path: "/contacto" },
+    { name: copy.breadcrumbHome, path: copy.homeHref },
+    { name: copy.breadcrumbCurrent, path: "/contacto" },
   ]);
 
   return (
-    <Container className="py-8">
+    <Container className="max-w-7xl py-6 sm:py-8 lg:py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-
-      <article className="mx-auto max-w-3xl space-y-6">
-        <header className="space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Contacto
-          </h1>
-          <p className="text-muted-foreground">
-            ¿Tienes una consulta, una corrección de contenido o una propuesta de colaboración?
-          </p>
-        </header>
-
-        <section className="space-y-3 text-sm text-muted-foreground sm:text-base">
-          <p>
-            Escríbenos por correo electrónico a{" "}
-            <a
-              href="mailto:jugadamaxcom@gmail.com"
-              className="font-medium text-primary underline underline-offset-2"
-            >
-              jugadamaxcom@gmail.com
-            </a>
-            . Revisamos los mensajes de forma editorial y damos prioridad a correcciones de
-            información sobre operadores.
-          </p>
-          <p>
-            Para temas de afiliación y transparencia, consulta nuestra{" "}
-            <a
-              href="/divulgacion-afiliados"
-              className="font-medium text-primary underline underline-offset-2"
-            >
-              divulgación de afiliados
-            </a>{" "}
-            y la metodología en{" "}
-            <a
-              href="/como-evaluamos"
-              className="font-medium text-primary underline underline-offset-2"
-            >
-              Cómo evaluamos
-            </a>
-            .
-          </p>
-        </section>
-
-        <section aria-labelledby="contact-channels-heading" className="space-y-4">
-          <div className="space-y-2">
-            <h2
-              id="contact-channels-heading"
-              className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
-            >
-              Contacto y canales oficiales
-            </h2>
-            <p className="text-sm text-muted-foreground sm:text-base">
-              Puedes contactar a JugadaMax por email o seguir nuestros canales oficiales para
-              novedades, guías, reseñas y contenido sobre casinos online, apuestas y juego
-              responsable.
-            </p>
-          </div>
-          <SocialLinks variant="contact" />
-        </section>
-
-        <p className="text-xs text-muted-foreground">
-          Solo para mayores de 18 años. Juega de forma responsable.
-        </p>
-      </article>
+      <ContactHubPage locale="es" />
     </Container>
   );
 }
