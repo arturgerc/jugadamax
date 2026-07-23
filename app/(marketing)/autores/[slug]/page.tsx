@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getArticles, getAuthorBySlug, getAuthors } from "@/lib/content";
+import {
+  getArticles,
+  getAuthorBySlug,
+  getAuthors,
+  getCasinoById,
+  getReviews,
+} from "@/lib/content";
+import { filterReviewsForSurface } from "@/content/operators/status";
 import { buildMetadata } from "@/lib/seo/metadata";
 import {
   breadcrumbJsonLd,
@@ -50,6 +57,19 @@ export default async function AuthorProfilePage({
 
   const guides = getArticles("guide").filter((g) => g.authorId === author.id);
   const news = getArticles("news").filter((n) => n.authorId === author.id);
+  const reviews = filterReviewsForSurface(getReviews(), "reviews")
+    .filter((review) => review.authorId === author.id)
+    .slice()
+    .sort((a, b) => {
+      const publishedDifference =
+        Date.parse(b.publishedAt) - Date.parse(a.publishedAt);
+      if (publishedDifference !== 0) return publishedDifference;
+      const updatedDifference =
+        Date.parse(b.updatedAt ?? b.publishedAt) -
+        Date.parse(a.updatedAt ?? a.publishedAt);
+      if (updatedDifference !== 0) return updatedDifference;
+      return a.title.localeCompare(b.title, "es");
+    });
   const isPerson = author.kind !== "organization";
   const profilePath = `/autores/${author.slug}`;
   const sameAs = [
@@ -192,6 +212,46 @@ export default async function AuthorProfilePage({
           </section>
         ) : null}
 
+        {reviews.length > 0 ? (
+          <section aria-labelledby="author-reviews-heading" className="space-y-3">
+            <h2
+              id="author-reviews-heading"
+              className="text-xl font-bold tracking-tight text-foreground"
+            >
+              Reseñas de {author.name}
+            </h2>
+            <ul className="space-y-2">
+              {reviews.map((review) => {
+                const casino = getCasinoById(review.casinoId);
+                return (
+                  <li key={review.id}>
+                    <Link
+                      href={`/reviews/${review.slug}`}
+                      className={cn(
+                        "block rounded-lg border border-white/10 bg-[#111417]/50 px-3.5 py-3 transition-colors hover:border-primary/40",
+                        focusRing,
+                      )}
+                    >
+                      <span className="font-semibold text-foreground">
+                        {review.title}
+                      </span>
+                      {casino ? (
+                        <span className="mt-1 block text-sm text-muted-foreground">
+                          {casino.name} · {review.rating.toFixed(1)}/5 editorial
+                        </span>
+                      ) : (
+                        <span className="mt-1 block text-sm text-muted-foreground">
+                          {review.rating.toFixed(1)}/5 editorial
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ) : null}
+
         {news.length > 0 ? (
           <section aria-labelledby="author-news-heading" className="space-y-3">
             <h2
@@ -219,6 +279,15 @@ export default async function AuthorProfilePage({
         ) : null}
 
         <nav aria-label="Enlaces relacionados" className="flex flex-wrap gap-2">
+          <Link
+            href="/reviews"
+            className={cn(
+              "inline-flex min-h-11 items-center rounded-full border border-border/60 px-3.5 text-sm font-medium",
+              focusRing,
+            )}
+          >
+            Hub de reseñas
+          </Link>
           <Link
             href="/guias"
             className={cn(
