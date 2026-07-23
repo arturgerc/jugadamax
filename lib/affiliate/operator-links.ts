@@ -22,6 +22,7 @@ import {
   LTCCASINO_AFFILIATE_URL,
   ETHCASINO_AFFILIATE_URL,
   ANONYMOUS_CASINO_AFFILIATE_URL,
+  BETSSON_MX_HOME_URL,
   SLOTORO_MAIN_AFFILIATE_URL,
   VODKABET_AFFILIATE_URL,
   XONBET_GLOBAL_AFFILIATE_URL,
@@ -200,6 +201,21 @@ function sportsbetioMxLink(): OperatorLink | undefined {
   };
 }
 
+const SPORTSBETIO_GLOBAL_GEO_WARNING =
+  "Sportsbet.io is an international crypto sportsbook and casino. Availability, bonuses, payments, KYC and withdrawals depend on your jurisdiction and official operator terms. JugadaMax does not claim local licensing for every market.";
+
+function sportsbetioGlobalLink(): OperatorLink | undefined {
+  if (!SPORTSBETIO_REGISTRATION_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
+    label: "Visit Sportsbet.io",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: SPORTSBETIO_GLOBAL_GEO_WARNING,
+  };
+}
+
 const BITCASINO_MX_GEO_WARNING =
   "Bitcasino es un casino crypto internacional. JugadaMax no afirma licencia local mexicana. Disponibilidad, promociones, pagos, KYC y retiros dependen de tu jurisdicción y de los términos oficiales.";
 
@@ -212,6 +228,21 @@ function bitcasinoMxLink(): OperatorLink | undefined {
     isAffiliate: true,
     rel: "sponsored nofollow noopener noreferrer",
     geoWarning: BITCASINO_MX_GEO_WARNING,
+  };
+}
+
+const BITCASINO_GLOBAL_GEO_WARNING =
+  "Bitcasino.io is an international crypto casino. Availability, promotions, payments, KYC and withdrawals depend on your jurisdiction and official operator terms. JugadaMax does not claim local licensing for every market.";
+
+function bitcasinoGlobalLink(): OperatorLink | undefined {
+  if (!BITCASINO_REGISTRATION_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: BITCASINO_REGISTRATION_AFFILIATE_URL,
+    label: "Visit Bitcasino.io",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: BITCASINO_GLOBAL_GEO_WARNING,
   };
 }
 
@@ -259,6 +290,37 @@ function anonymousCasinoMxLink(): OperatorLink | undefined {
     isAffiliate: true,
     rel: "sponsored nofollow noopener noreferrer",
     geoWarning: ANONYMOUS_CASINO_MX_GEO_WARNING,
+  };
+}
+
+const ANONYMOUS_CASINO_GLOBAL_GEO_WARNING =
+  "Anonymous Casino / CryptoCasino.CC is an international crypto casino marketed around privacy-focused registration. JugadaMax does not claim absolute anonymity or local licensing for every market. Availability, networks, limits, fraud controls and withdrawals depend on jurisdiction and live operator terms.";
+
+function anonymousCasinoGlobalLink(): OperatorLink | undefined {
+  if (!ANONYMOUS_CASINO_AFFILIATE_URL) return undefined;
+
+  return {
+    market: "global",
+    url: ANONYMOUS_CASINO_AFFILIATE_URL,
+    label: "Visit Anonymous Casino",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: ANONYMOUS_CASINO_GLOBAL_GEO_WARNING,
+  };
+}
+
+const BETSSON_GLOBAL_GEO_WARNING =
+  "Betsson Mexico is a Mexico-facing fiat casino and sportsbook offering. Availability, payments, bonuses and account rules depend on Mexico-oriented terms and your jurisdiction. This is not a global multi-country Betsson guarantee.";
+
+function betssonGlobalLink(): OperatorLink | undefined {
+  if (!BETSSON_MX_HOME_URL) return undefined;
+  return {
+    market: "global",
+    url: BETSSON_MX_HOME_URL,
+    label: "Visit Betsson Mexico",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: BETSSON_GLOBAL_GEO_WARNING,
   };
 }
 
@@ -343,9 +405,11 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   sportsbetio: {
     mx: sportsbetioMxLink(),
+    global: sportsbetioGlobalLink(),
   },
   bitcasino: {
     mx: bitcasinoMxLink(),
+    global: bitcasinoGlobalLink(),
   },
   ltccasino: {
     mx: ltccasinoMxLink(),
@@ -355,6 +419,10 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   cryptocasino: {
     mx: anonymousCasinoMxLink(),
+    global: anonymousCasinoGlobalLink(),
+  },
+  betsson: {
+    global: betssonGlobalLink(),
   },
 };
 
