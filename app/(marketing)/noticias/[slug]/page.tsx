@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getArticles, getAuthorById, getAuthorSameAs } from "@/lib/content";
-import { buildMetadata } from "@/lib/seo/metadata";
-import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { NewsArticleTemplate } from "@/components/verticals/news/NewsArticleTemplate";
+import {
+  resolveNewsCard,
+  resolveRelatedNews,
+} from "@/components/verticals/news/news-hub-data";
 import { Container } from "@/components/layout/Container";
-import { AuthorByline } from "@/components/review/AuthorByline";
+import {
+  getArticleBySlug,
+  getArticles,
+  getAuthorById,
+  getAuthorSameAs,
+} from "@/lib/content";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { buildMetadata } from "@/lib/seo/metadata";
 
 export function generateStaticParams() {
   return getArticles("news").map((article) => ({ slug: article.slug }));
@@ -44,7 +53,10 @@ export default async function NewsArticlePage({
   const author = getAuthorById(article.authorId);
   if (!author) notFound();
 
-  const paragraphs = article.body.split("\n\n").filter(Boolean);
+  const card = resolveNewsCard(article);
+  if (!card) notFound();
+
+  const related = resolveRelatedNews(article, 3);
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
@@ -65,7 +77,7 @@ export default async function NewsArticlePage({
   });
 
   return (
-    <Container className="py-8">
+    <Container className="max-w-7xl py-6 sm:py-8 lg:py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
@@ -75,31 +87,7 @@ export default async function NewsArticlePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="mx-auto max-w-3xl space-y-6">
-        <header className="space-y-3">
-          <p className="text-sm font-medium uppercase tracking-wide text-accent">Noticia</p>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            {article.title}
-          </h1>
-          <p className="text-muted-foreground">{article.summary}</p>
-          <AuthorByline
-            author={author}
-            publishedAt={article.publishedAt}
-            updatedAt={article.updatedAt}
-            compact
-          />
-        </header>
-
-        <div className="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          {paragraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
-
-        <p className="border-t border-border/60 pt-6 text-xs text-muted-foreground">
-          Solo para mayores de 18 años. Juega de forma responsable.
-        </p>
-      </article>
+      <NewsArticleTemplate card={card} related={related} />
     </Container>
   );
 }
