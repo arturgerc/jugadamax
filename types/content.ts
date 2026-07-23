@@ -89,11 +89,104 @@ export type ArticleType = "guide" | "news";
 
 export const ARTICLE_TYPES: readonly ArticleType[] = ["guide", "news"] as const;
 
+/** Editorial format for news-hub articles (optional on guides). */
+export type NewsKind =
+  | "noticia"
+  | "analisis"
+  | "opinion"
+  | "noticia-opinion"
+  | "anuncio";
+
+export const NEWS_KINDS: readonly NewsKind[] = [
+  "noticia",
+  "analisis",
+  "opinion",
+  "noticia-opinion",
+  "anuncio",
+] as const;
+
+/** Topic category for news-hub filtering and archives. */
+export type NewsCategory =
+  | "actualidad"
+  | "regulacion"
+  | "crypto"
+  | "casinos"
+  | "apuestas"
+  | "bonos"
+  | "pagos"
+  | "industria"
+  | "jugadamax";
+
+export const NEWS_CATEGORIES: readonly NewsCategory[] = [
+  "actualidad",
+  "regulacion",
+  "crypto",
+  "casinos",
+  "apuestas",
+  "bonos",
+  "pagos",
+  "industria",
+  "jugadamax",
+] as const;
+
 export interface ImageRef {
   src: string;
   alt: string;
   width?: number;
   height?: number;
+}
+
+export interface ArticleSource {
+  label: string;
+  url: string;
+  publisher?: string;
+  publishedAt?: string;
+  note?: string;
+}
+
+export interface ArticleRelatedLink {
+  label: string;
+  href: string;
+}
+
+export interface ArticleAuthorComment {
+  heading: string;
+  body: string;
+}
+
+export interface Article {
+  id: string;
+  slug: string;
+  type: ArticleType;
+  title: string;
+  summary: string;
+  body: string;
+  authorId: string;
+  coverImage?: ImageRef;
+  tags?: string[];
+  /** ISO date. */
+  publishedAt: string;
+  /** ISO date. */
+  updatedAt?: string;
+  locale: Locale;
+  /** News-hub format; omit on evergreen guides. */
+  newsKind?: NewsKind;
+  /** News-hub topic category; omit on evergreen guides. */
+  newsCategory?: NewsCategory;
+  /** Short factual bullets shown above the body when authored. */
+  keyPoints?: string[];
+  /** External sources for news/analysis — never fabricated. */
+  sources?: ArticleSource[];
+  /** Internal or relative related links. */
+  relatedLinks?: ArticleRelatedLink[];
+  /** Explicit author commentary block (fact vs opinion separation). */
+  authorComment?: ArticleAuthorComment;
+  /** Optional short label for the factual section heading. */
+  factLabel?: string;
+  /** Optional short label for the opinion section heading. */
+  opinionLabel?: string;
+  /** Featured on News Hub index when true. */
+  featured?: boolean;
 }
 
 export interface PaymentMethod {
@@ -211,21 +304,4 @@ export interface Review {
   locale?: Locale;
   /** Optional neutral external resources; never presented as ownership proof. */
   relatedLinks?: ReviewRelatedLink[];
-}
-
-export interface Article {
-  id: string;
-  slug: string;
-  type: ArticleType;
-  title: string;
-  summary: string;
-  body: string;
-  authorId: string;
-  coverImage?: ImageRef;
-  tags?: string[];
-  /** ISO date. */
-  publishedAt: string;
-  /** ISO date. */
-  updatedAt?: string;
-  locale: Locale;
 }

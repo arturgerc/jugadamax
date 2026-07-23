@@ -15,6 +15,8 @@ import {
   BONUS_STATUSES,
   BONUS_TYPES,
   LOCALES,
+  NEWS_CATEGORIES,
+  NEWS_KINDS,
   PAYMENT_KINDS,
   VERTICALS,
   type Article,
@@ -29,6 +31,8 @@ import {
   type BonusType,
   type Casino,
   type Locale,
+  type NewsCategory,
+  type NewsKind,
   type PaymentKind,
   type Review,
   type Vertical,
@@ -258,6 +262,72 @@ export function validateArticle(input: Article): Article {
   assertIsoDate(input.publishedAt, "publishedAt", ctx);
   if (input.updatedAt !== undefined) {
     assertIsoDate(input.updatedAt, "updatedAt", ctx);
+  }
+  if (input.newsKind !== undefined) {
+    assertEnum<NewsKind>(input.newsKind, NEWS_KINDS, "newsKind", ctx);
+  }
+  if (input.newsCategory !== undefined) {
+    assertEnum<NewsCategory>(
+      input.newsCategory,
+      NEWS_CATEGORIES,
+      "newsCategory",
+      ctx,
+    );
+  }
+  if (input.keyPoints !== undefined) {
+    if (!Array.isArray(input.keyPoints)) {
+      fail(`${ctx}: "keyPoints" must be an array`);
+    }
+    for (const [index, point] of input.keyPoints.entries()) {
+      assertNonEmptyString(point, `keyPoints[${index}]`, ctx);
+    }
+  }
+  if (input.sources !== undefined) {
+    if (!Array.isArray(input.sources)) {
+      fail(`${ctx}: "sources" must be an array`);
+    }
+    for (const [index, source] of input.sources.entries()) {
+      const sourceCtx = `${ctx}: sources[${index}]`;
+      assertNonEmptyString(source.label, "label", sourceCtx);
+      const url = assertNonEmptyString(source.url, "url", sourceCtx);
+      try {
+        new URL(url);
+      } catch {
+        fail(`${sourceCtx}: "url" must be a valid absolute URL (got "${url}")`);
+      }
+      if (source.publisher !== undefined) {
+        assertNonEmptyString(source.publisher, "publisher", sourceCtx);
+      }
+      if (source.publishedAt !== undefined) {
+        assertIsoDate(source.publishedAt, "publishedAt", sourceCtx);
+      }
+      if (source.note !== undefined) {
+        assertNonEmptyString(source.note, "note", sourceCtx);
+      }
+    }
+  }
+  if (input.relatedLinks !== undefined) {
+    if (!Array.isArray(input.relatedLinks)) {
+      fail(`${ctx}: "relatedLinks" must be an array`);
+    }
+    for (const [index, link] of input.relatedLinks.entries()) {
+      const linkCtx = `${ctx}: relatedLinks[${index}]`;
+      assertNonEmptyString(link.label, "label", linkCtx);
+      assertNonEmptyString(link.href, "href", linkCtx);
+    }
+  }
+  if (input.authorComment !== undefined) {
+    assertNonEmptyString(input.authorComment.heading, "authorComment.heading", ctx);
+    assertNonEmptyString(input.authorComment.body, "authorComment.body", ctx);
+  }
+  if (input.factLabel !== undefined) {
+    assertNonEmptyString(input.factLabel, "factLabel", ctx);
+  }
+  if (input.opinionLabel !== undefined) {
+    assertNonEmptyString(input.opinionLabel, "opinionLabel", ctx);
+  }
+  if (input.featured !== undefined && typeof input.featured !== "boolean") {
+    fail(`${ctx}: "featured" must be a boolean`);
   }
   return input;
 }

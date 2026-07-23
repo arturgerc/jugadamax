@@ -2,6 +2,7 @@ import { getArticles, getReviews } from "@/lib/content";
 import { filterReviewsForSurface } from "@/content/operators/status";
 import { HomepageContainer } from "@/components/home/HomepageContainer";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { NEWS_KIND_LABELS } from "@/components/verticals/news/news-hub-config";
 import { cn } from "@/lib/utils";
 
 type ContentKind = "guide" | "news" | "review";
@@ -13,6 +14,8 @@ type LatestItem = {
   href: string;
   date: string;
   sortMs: number;
+  /** Optional news-format label for homepage badge (backward-compatible). */
+  badgeLabel?: string;
 };
 
 const MAX_CARDS = 3;
@@ -92,6 +95,9 @@ function buildLatestItems(): LatestItem[] {
       href: `/noticias/${article.slug}`,
       date,
       sortMs: safeSortMs(date),
+      badgeLabel: article.newsKind
+        ? NEWS_KIND_LABELS[article.newsKind]
+        : KIND_LABELS.news,
     });
   }
 
@@ -185,7 +191,7 @@ export function HomepageLatestContent() {
                         styles.badge,
                       )}
                     >
-                      {KIND_LABELS[item.kind]}
+                      {item.badgeLabel ?? KIND_LABELS[item.kind]}
                     </span>
                     <time dateTime={item.date} className="text-[0.65rem] text-muted-foreground">
                       {formatDate(item.date)}

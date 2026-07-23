@@ -47,5 +47,11 @@ export const authors: Author[] = [
       "Bonos y términos",
       "Juego responsable",
     ],
+    links: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/company/135315172",
+      },
+    ],
   },
 ];
