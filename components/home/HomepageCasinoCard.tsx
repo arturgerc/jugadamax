@@ -22,7 +22,10 @@ export type HomepageCasinoCardProps = {
   rating?: number;
   primaryCtaLabel: string;
   primaryCtaHref: string;
-  reviewHref: string;
+  /** When omitted, the secondary review link is not rendered. */
+  reviewHref?: string;
+  /** Defaults to Spanish “Leer reseña” for backward compatibility. */
+  reviewLabel?: string;
   theme: CasinoCardTheme;
   featured?: boolean;
   position: number;
@@ -87,6 +90,7 @@ export function HomepageCasinoCard({
   primaryCtaLabel,
   primaryCtaHref,
   reviewHref,
+  reviewLabel = "Leer reseña",
   theme,
   featured = false,
   position,
@@ -184,17 +188,19 @@ export function HomepageCasinoCard({
         >
           {primaryCtaLabel}
         </TrackedLink>
-        <TrackedLink
-          href={reviewHref}
-          event="homepage_review_click"
-          section="top-casinos"
-          position={position}
-          operator={operatorId}
-          destination={reviewHref}
-          className="inline-flex min-h-11 w-full items-center justify-center text-sm font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
-        >
-          Leer reseña
-        </TrackedLink>
+        {reviewHref ? (
+          <TrackedLink
+            href={reviewHref}
+            event="homepage_review_click"
+            section="top-casinos"
+            position={position}
+            operator={operatorId}
+            destination={reviewHref}
+            className="inline-flex min-h-11 w-full items-center justify-center text-sm font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+          >
+            {reviewLabel}
+          </TrackedLink>
+        ) : null}
       </div>
     </article>
   );
