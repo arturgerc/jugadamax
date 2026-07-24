@@ -16,7 +16,10 @@ import {
   STAKE_GLOBAL_AFFILIATE_URL,
   STAKE_MX_OFFICIAL_URL,
   AWINTURA_CARD_AFFILIATE_URL,
+  BETFURY_AFFILIATE_URL,
   MOSTBET_PLAYERS_AFFILIATE_URL,
+  ONE_XBET_AFFILIATE_URL,
+  MELBET_AFFILIATE_URL,
   SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
   BITCASINO_REGISTRATION_AFFILIATE_URL,
   LTCCASINO_AFFILIATE_URL,
@@ -261,6 +264,21 @@ function ltccasinoMxLink(): OperatorLink | undefined {
   };
 }
 
+const LTCCASINO_GLOBAL_GEO_WARNING =
+  "LTC Casino is an international crypto casino marketed around Litecoin and privacy-focused registration. JugadaMax does not claim absolute anonymity or local licensing for every market. Availability, networks, limits, fraud controls and withdrawals depend on jurisdiction and live operator terms.";
+
+function ltccasinoGlobalLink(): OperatorLink | undefined {
+  if (!LTCCASINO_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: LTCCASINO_AFFILIATE_URL,
+    label: "Visit LTC Casino",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: LTCCASINO_GLOBAL_GEO_WARNING,
+  };
+}
+
 const ETHCASINO_MX_GEO_WARNING =
   "ETH Casino es un casino crypto internacional que declara una política sin KYC. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de los términos vigentes.";
 
@@ -274,6 +292,21 @@ function ethcasinoMxLink(): OperatorLink | undefined {
     isAffiliate: true,
     rel: "sponsored nofollow noopener noreferrer",
     geoWarning: ETHCASINO_MX_GEO_WARNING,
+  };
+}
+
+const ETHCASINO_GLOBAL_GEO_WARNING =
+  "ETH Casino is an international crypto casino with a public no-KYC policy claim. JugadaMax does not claim absolute anonymity or local licensing for every market. Availability, networks, limits, fraud controls and withdrawals depend on jurisdiction and live operator terms.";
+
+function ethcasinoGlobalLink(): OperatorLink | undefined {
+  if (!ETHCASINO_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: ETHCASINO_AFFILIATE_URL,
+    label: "Visit ETH Casino",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: ETHCASINO_GLOBAL_GEO_WARNING,
   };
 }
 
@@ -351,6 +384,81 @@ function vodkabetMxLink(): OperatorLink | undefined {
   };
 }
 
+const VODKABET_GLOBAL_GEO_WARNING =
+  "Vodka.bet is presented as an international crypto-oriented casino. Availability, promotions, payments, KYC and withdrawals depend on your jurisdiction and live operator terms. JugadaMax does not claim local licensing for every market.";
+
+function vodkabetGlobalLink(): OperatorLink | undefined {
+  if (!VODKABET_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: VODKABET_AFFILIATE_URL,
+    label: "Visit Vodka.bet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: VODKABET_GLOBAL_GEO_WARNING,
+  };
+}
+
+const MOSTBET_GLOBAL_GEO_WARNING =
+  "Mostbet is an international mixed casino and sportsbook operator. Availability, payments, promotions, KYC and withdrawals depend on your jurisdiction and live operator terms. JugadaMax does not claim local licensing for every market.";
+
+function mostbetGlobalLink(): OperatorLink | undefined {
+  if (!MOSTBET_PLAYERS_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: MOSTBET_PLAYERS_AFFILIATE_URL,
+    label: "Visit Mostbet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: MOSTBET_GLOBAL_GEO_WARNING,
+  };
+}
+
+const BETFURY_GLOBAL_GEO_WARNING =
+  "BetFury is an international crypto casino with rewards framing. Availability, promotions, payments, KYC and withdrawals depend on your jurisdiction and live operator terms.";
+
+function betfuryGlobalLink(): OperatorLink | undefined {
+  if (!BETFURY_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: BETFURY_AFFILIATE_URL,
+    label: "Visit BetFury",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: BETFURY_GLOBAL_GEO_WARNING,
+  };
+}
+
+const ONE_XBET_GLOBAL_GEO_WARNING =
+  "1xBet is an international mixed casino and sportsbook operator. Availability, payments, promotions, KYC and withdrawals depend on your jurisdiction and live operator terms. JugadaMax does not claim local licensing for every market.";
+
+function oneXbetGlobalLink(): OperatorLink | undefined {
+  if (!ONE_XBET_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: ONE_XBET_AFFILIATE_URL,
+    label: "Visit 1xBet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: ONE_XBET_GLOBAL_GEO_WARNING,
+  };
+}
+
+const MELBET_GLOBAL_GEO_WARNING =
+  "Melbet is an international mixed casino and sportsbook operator. Availability, payments, promotions, KYC and withdrawals depend on your jurisdiction and live operator terms. JugadaMax does not claim local licensing for every market.";
+
+function melbetGlobalLink(): OperatorLink | undefined {
+  if (!MELBET_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: MELBET_AFFILIATE_URL,
+    label: "Visit Melbet",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: MELBET_GLOBAL_GEO_WARNING,
+  };
+}
+
 function xonbetGlobalLink(): OperatorLink | undefined {
   if (!XONBET_GLOBAL_AFFILIATE_URL) return undefined;
   return {
@@ -388,6 +496,9 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   rainbet: {
     global: rainbetGlobalLink(),
   },
+  betfury: {
+    global: betfuryGlobalLink(),
+  },
   xonbet: {
     global: xonbetGlobalLink(),
   },
@@ -396,12 +507,20 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   vodkabet: {
     mx: vodkabetMxLink(),
+    global: vodkabetGlobalLink(),
   },
   awintura: {
     mx: awinturaMxLink(),
   },
   mostbet: {
     mx: mostbetMxLink(),
+    global: mostbetGlobalLink(),
+  },
+  "1xbet": {
+    global: oneXbetGlobalLink(),
+  },
+  melbet: {
+    global: melbetGlobalLink(),
   },
   sportsbetio: {
     mx: sportsbetioMxLink(),
@@ -413,9 +532,11 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   ltccasino: {
     mx: ltccasinoMxLink(),
+    global: ltccasinoGlobalLink(),
   },
   ethcasino: {
     mx: ethcasinoMxLink(),
+    global: ethcasinoGlobalLink(),
   },
   cryptocasino: {
     mx: anonymousCasinoMxLink(),

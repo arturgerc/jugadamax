@@ -9,6 +9,8 @@ import { resolveOperatorLink } from "@/lib/affiliate/operator-links";
 export const EN_HOME_ALLOWLIST = [
   "cryptocasino",
   "bitcasino",
+  "ltccasino",
+  "ethcasino",
   "sportsbetio",
   "betsson",
 ] as const;
@@ -58,6 +60,30 @@ export const EN_HOME_RANKING: readonly EnHomeRankingEntry[] = [
     position: 2,
   },
   {
+    operatorId: "ltccasino",
+    name: "LTC Casino",
+    badge: "LITECOIN · NO-KYC FOCUS",
+    purpose: "Privacy & Litecoin",
+    summary:
+      "Litecoin-oriented crypto casino with email/password registration and a public no-KYC policy. Availability, networks and checks still depend on jurisdiction.",
+    chips: ["No-KYC focus", "LTC", "Crypto-only"],
+    ctaLabel: "Visit LTC Casino",
+    theme: "ltccasino",
+    position: 3,
+  },
+  {
+    operatorId: "ethcasino",
+    name: "ETH Casino",
+    badge: "ETHEREUM · NO-KYC FOCUS",
+    purpose: "Ethereum & privacy",
+    summary:
+      "Ethereum-first casino with email/password registration and a public no-KYC policy. Not absolute anonymity — terms and checks vary by jurisdiction.",
+    chips: ["No-KYC focus", "ETH", "Live Casino"],
+    ctaLabel: "Visit ETH Casino",
+    theme: "ethcasino",
+    position: 4,
+  },
+  {
     operatorId: "sportsbetio",
     name: "Sportsbet.io",
     badge: "CRYPTO SPORTS + CASINO",
@@ -67,7 +93,7 @@ export const EN_HOME_RANKING: readonly EnHomeRankingEntry[] = [
     chips: ["USDT", "Sports", "Casino"],
     ctaLabel: "Visit Sportsbet.io",
     theme: "sportsbetio",
-    position: 3,
+    position: 5,
   },
   {
     operatorId: "betsson",
@@ -79,7 +105,7 @@ export const EN_HOME_RANKING: readonly EnHomeRankingEntry[] = [
     chips: ["OXXO", "SPEI", "Cards"],
     ctaLabel: "Visit Betsson Mexico",
     theme: "betsson",
-    position: 4,
+    position: 6,
   },
 ] as const;
 
@@ -93,7 +119,7 @@ export type EnHomePromoConfig = {
   position: number;
 };
 
-/** Active promotions limited to the English homepage allowlist. */
+/** Active promotions limited to approved English homepage promotion cards. */
 export const EN_HOME_PROMOS: readonly EnHomePromoConfig[] = [
   {
     casinoId: "bitcasino",
@@ -127,7 +153,7 @@ export const EN_HOME_PROMOS: readonly EnHomePromoConfig[] = [
   },
 ] as const;
 
-export function resolveEnHomeCtaHref(operatorId: EnHomeOperatorId): string | undefined {
+export function resolveEnHomeCtaHref(operatorId: string): string | undefined {
   return resolveOperatorLink(operatorId, "global")?.url;
 }
 
@@ -183,9 +209,18 @@ export type EnMoreOptionsPanel = {
   ctaHref: string;
   theme: string;
   operators: readonly EnMoreOptionsOperator[];
+  /** Operators shown before the collapsed `<details>` (default 3). */
+  visibleCount?: number;
+  /** Summary when collapsed; use `{count}` for remaining operators. */
+  moreLabel?: string;
+  /** Summary when expanded; use `{count}` for remaining operators. */
+  hideLabel?: string;
 };
 
-/** Compact lower comparison panels — separate from the recommended shortlist. */
+/**
+ * Compact lower comparison panels — separate from the recommended shortlist.
+ * Includes existing EN operators plus owner-approved additions.
+ */
 export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
   {
     id: "crypto",
@@ -195,6 +230,9 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
     ctaHref: "/en/casinos-crypto",
     theme:
       "border-violet-500/20 bg-gradient-to-b from-[#12102a]/70 via-[#111417]/80 to-[#0A1931]/90",
+    visibleCount: 3,
+    moreLabel: "Show {count} more",
+    hideLabel: "Hide {count} operators",
     operators: [
       {
         operatorId: "stake",
@@ -206,6 +244,43 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
         label: "Crypto casino overview",
         ratingSource: "global",
       },
+      {
+        operatorId: "roobet",
+        label: "Crypto casino + sportsbook",
+        ratingSource: "canonical",
+      },
+      {
+        operatorId: "betfury",
+        label: "Crypto rewards casino",
+        ratingSource: "canonical",
+      },
+      {
+        operatorId: "rainbet",
+        label: "Crypto rewards",
+        ratingSource: "canonical",
+      },
+      {
+        operatorId: "gamdom",
+        label: "Crypto casino & Originals",
+        ratingSource: "canonical",
+      },
+      {
+        operatorId: "500-casino",
+        label: "Crypto casino",
+        ratingSource: "canonical",
+        displayName: "500 Casino",
+      },
+      {
+        operatorId: "mellstroy",
+        label: "Crypto casino coverage",
+        ratingSource: "canonical",
+      },
+      {
+        operatorId: "vodkabet",
+        label: "Crypto-oriented casino",
+        ratingSource: "canonical",
+        displayName: "Vodka.bet",
+      },
     ],
   },
   {
@@ -216,6 +291,9 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
     ctaHref: "/en/casinos-fiat",
     theme:
       "border-amber-500/20 bg-gradient-to-b from-[#161208]/60 via-[#111417]/80 to-[#0A1931]/90",
+    visibleCount: 3,
+    moreLabel: "Show {count} more",
+    hideLabel: "Hide {count} operators",
     operators: [
       {
         operatorId: "xonbet",
@@ -228,6 +306,22 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
         ratingSource: "global",
         displayName: "Slotoro Casino",
       },
+      {
+        operatorId: "1xbet",
+        label: "Casino + sportsbook",
+        ratingSource: "canonical",
+        displayName: "1xBet",
+      },
+      {
+        operatorId: "mostbet",
+        label: "Casino, betting and app",
+        ratingSource: "canonical",
+      },
+      {
+        operatorId: "melbet",
+        label: "Casino + sportsbook",
+        ratingSource: "canonical",
+      },
     ],
   },
   {
@@ -238,6 +332,9 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
     ctaHref: "/en/betting",
     theme:
       "border-emerald-500/15 bg-gradient-to-b from-[#0d1512]/60 via-[#111417]/70 to-[#0A1931]/90",
+    visibleCount: 3,
+    moreLabel: "Show {count} more",
+    hideLabel: "Hide {count} operators",
     operators: [
       {
         operatorId: "sportsbetio",
@@ -251,6 +348,17 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
         ratingSource: "canonical",
         displayName: "Betsson Mexico",
         marketBadge: "Mexico only",
+      },
+      {
+        operatorId: "1xbet",
+        label: "Casino + sportsbook",
+        ratingSource: "canonical",
+        displayName: "1xBet",
+      },
+      {
+        operatorId: "mostbet",
+        label: "Casino, betting and app",
+        ratingSource: "canonical",
       },
     ],
   },

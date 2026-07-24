@@ -29,9 +29,18 @@ const PANELS: readonly PanelConfig[] = [
     theme:
       "border-violet-500/20 bg-gradient-to-b from-[#12102a]/70 via-[#111417]/80 to-[#0A1931]/90",
     operators: [
-      { operatorId: "roobet", label: "Casino crypto + sportsbook" },
-      { operatorId: "rainbet", label: "Crypto rewards" },
-      { operatorId: "gamdom", label: "Casino crypto y Originals" },
+      {
+        operatorId: "roobet",
+        label: "Casino crypto + sportsbook",
+      },
+      {
+        operatorId: "mellstroy",
+        label: "Casino crypto + sportsbook",
+      },
+      {
+        operatorId: "vodkabet",
+        label: "Casino crypto + sportsbook",
+      },
     ],
   },
   {
