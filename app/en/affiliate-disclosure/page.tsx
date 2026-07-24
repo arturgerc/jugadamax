@@ -62,6 +62,13 @@ export default function EnAffiliateDisclosurePage() {
             current operator terms, jurisdiction restrictions and promotional conditions on the
             official site before registering or depositing.
           </p>
+          <p>
+            Affiliate links are technically marked with{" "}
+            <code className="rounded bg-card px-1 py-0.5 text-xs">rel=&quot;sponsored nofollow&quot;</code>{" "}
+            and may open in a new tab. Additional security attributes such as{" "}
+            <code className="rounded bg-card px-1 py-0.5 text-xs">noopener noreferrer</code> may also
+            be applied.
+          </p>
         </section>
 
         <ResponsibleGamblingNoticeEn />

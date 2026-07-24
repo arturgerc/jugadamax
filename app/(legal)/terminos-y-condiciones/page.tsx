@@ -8,6 +8,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Consulta los términos de uso de JugadaMax, un sitio editorial para mayores de 18 años sobre casinos online, apuestas, métodos de pago y juego responsable.",
   path: "/terminos-y-condiciones",
+  languageAlternates: {
+    "es-MX": "/terminos-y-condiciones",
+    en: "/en/terms-and-conditions",
+  },
 });
 
 export default function TerminosYCondicionesPage() {

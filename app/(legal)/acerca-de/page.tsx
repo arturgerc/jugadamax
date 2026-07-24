@@ -8,6 +8,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "JugadaMax es un sitio editorial de comparación y medios sobre casinos crypto, casinos fiat y apuestas deportivas en México. Conoce quiénes somos y cómo trabajamos.",
   path: "/acerca-de",
+  languageAlternates: {
+    "es-MX": "/acerca-de",
+    en: "/en/about",
+  },
 });
 
 export default function AcercaDePage() {

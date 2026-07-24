@@ -8,6 +8,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Conoce cómo JugadaMax trata la información de contacto, datos técnicos básicos, enlaces externos y privacidad en su sitio editorial sobre casinos online y apuestas.",
   path: "/politica-de-privacidad",
+  languageAlternates: {
+    "es-MX": "/politica-de-privacidad",
+    en: "/en/privacy-policy",
+  },
 });
 
 export default function PoliticaDePrivacidadPage() {
