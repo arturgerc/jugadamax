@@ -40,6 +40,9 @@ const STATIC_PATHS = [
   "/en/affiliate-disclosure",
   "/en/responsible-gambling",
   "/en/how-we-review",
+  "/en/privacy-policy",
+  "/en/terms-and-conditions",
+  "/en/about",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

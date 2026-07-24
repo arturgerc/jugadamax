@@ -48,7 +48,10 @@ export const enFooterInfo: NavLink[] = [
   { label: "How We Review", href: "/en/how-we-review" },
   { label: "Affiliate Disclosure", href: "/en/affiliate-disclosure" },
   { label: "Responsible Gambling", href: "/en/responsible-gambling" },
+  { label: "Privacy Policy", href: "/en/privacy-policy" },
+  { label: "Terms & Conditions", href: "/en/terms-and-conditions" },
   { label: "Partners / Media Kit", href: "/en/partners" },
+  { label: "About", href: "/en/about" },
   { label: "Contact", href: "/en/contact" },
 ];
 
@@ -76,6 +79,12 @@ export const PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/en/affiliate-disclosure": "/divulgacion-afiliados",
   "/juego-responsable": "/en/responsible-gambling",
   "/en/responsible-gambling": "/juego-responsable",
+  "/politica-de-privacidad": "/en/privacy-policy",
+  "/en/privacy-policy": "/politica-de-privacidad",
+  "/terminos-y-condiciones": "/en/terms-and-conditions",
+  "/en/terms-and-conditions": "/terminos-y-condiciones",
+  "/acerca-de": "/en/about",
+  "/en/about": "/acerca-de",
   "/casinos-fiat": "/en/casinos-fiat",
   "/en/casinos-fiat": "/casinos-fiat",
   "/apuestas": "/en/betting",
