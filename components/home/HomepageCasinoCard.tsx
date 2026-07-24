@@ -26,6 +26,12 @@ export type HomepageCasinoCardProps = {
   reviewHref?: string;
   /** Defaults to Spanish “Leer reseña” for backward compatibility. */
   reviewLabel?: string;
+  /**
+   * When true and `reviewHref` is absent, reserve the same vertical space as the
+   * review link row so card heights match Spanish homepage cards. Does not render
+   * a fake or disabled review link.
+   */
+  reserveReviewSpace?: boolean;
   theme: CasinoCardTheme;
   featured?: boolean;
   position: number;
@@ -91,6 +97,7 @@ export function HomepageCasinoCard({
   primaryCtaHref,
   reviewHref,
   reviewLabel = "Leer reseña",
+  reserveReviewSpace = false,
   theme,
   featured = false,
   position,
@@ -200,6 +207,8 @@ export function HomepageCasinoCard({
           >
             {reviewLabel}
           </TrackedLink>
+        ) : reserveReviewSpace ? (
+          <div className="min-h-11 w-full" aria-hidden="true" />
         ) : null}
       </div>
     </article>
