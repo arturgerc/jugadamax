@@ -17,7 +17,12 @@ export type CryptoTopCasinoCardProps = {
   rating?: number;
   primaryCtaLabel: string;
   primaryCtaHref: string;
-  reviewHref: string;
+  /** When omitted, the secondary review link is not rendered. */
+  reviewHref?: string;
+  /** Defaults to Spanish “Leer reseña”. */
+  reviewLabel?: string;
+  /** Reserve review-row height when `reviewHref` is absent. */
+  reserveReviewSpace?: boolean;
   theme: CryptoCardTheme;
   featured?: boolean;
   position: number;
@@ -99,6 +104,8 @@ export function CryptoTopCasinoCard({
   primaryCtaLabel,
   primaryCtaHref,
   reviewHref,
+  reviewLabel = "Leer reseña",
+  reserveReviewSpace = false,
   theme,
   featured = false,
   position,
@@ -197,17 +204,21 @@ export function CryptoTopCasinoCard({
         >
           {primaryCtaLabel}
         </TrackedLink>
-        <TrackedLink
-          href={reviewHref}
-          event="crypto_page_review_click"
-          section="top-crypto"
-          position={position}
-          operator={operatorId}
-          destination={reviewHref}
-          className="inline-flex min-h-11 w-full items-center justify-center text-sm font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
-        >
-          Leer reseña
-        </TrackedLink>
+        {reviewHref ? (
+          <TrackedLink
+            href={reviewHref}
+            event="crypto_page_review_click"
+            section="top-crypto"
+            position={position}
+            operator={operatorId}
+            destination={reviewHref}
+            className="inline-flex min-h-11 w-full items-center justify-center text-sm font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+          >
+            {reviewLabel}
+          </TrackedLink>
+        ) : reserveReviewSpace ? (
+          <div className="min-h-11 w-full" aria-hidden="true" />
+        ) : null}
       </div>
     </article>
   );

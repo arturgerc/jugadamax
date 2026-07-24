@@ -22,7 +22,14 @@ export type CryptoPromotionCardProps = {
   termsLine: string;
   ctaLabel: string;
   ctaHref: string;
-  reviewHref: string;
+  /** When omitted, the secondary review link is not rendered. */
+  reviewHref?: string;
+  /** Defaults to Spanish “Leer reseña”. */
+  reviewLabel?: string;
+  /** Label before promo code; defaults to Spanish “Código”. */
+  promoCodeLabel?: string;
+  /** Reserve review-row height when `reviewHref` is absent. */
+  reserveReviewSpace?: boolean;
   theme: CryptoPromoTheme;
   position: number;
   logo?: ImageRef;
@@ -38,6 +45,9 @@ export function CryptoPromotionCard({
   ctaLabel,
   ctaHref,
   reviewHref,
+  reviewLabel = "Leer reseña",
+  promoCodeLabel = "Código",
+  reserveReviewSpace = false,
   theme,
   position,
   logo,
@@ -52,7 +62,7 @@ export function CryptoPromotionCard({
       <p className="mt-3 text-sm font-medium leading-snug text-foreground">{offerTitle}</p>
 
       <p className="mt-2 truncate rounded-md border border-white/10 bg-[#0A1931]/50 px-2.5 py-1.5 text-xs font-mono text-muted-foreground">
-        Código: <span className="font-semibold text-foreground">{promoCode}</span>
+        {promoCodeLabel}: <span className="font-semibold text-foreground">{promoCode}</span>
       </p>
 
       <ul className="mt-3 flex flex-wrap gap-1.5">
@@ -83,17 +93,21 @@ export function CryptoPromotionCard({
         >
           {ctaLabel}
         </TrackedLink>
-        <TrackedLink
-          href={reviewHref}
-          event="crypto_page_review_click"
-          section="promociones-crypto"
-          position={position}
-          operator={operatorId}
-          destination={reviewHref}
-          className="inline-flex min-h-11 w-full items-center justify-center text-sm font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
-        >
-          Leer reseña
-        </TrackedLink>
+        {reviewHref ? (
+          <TrackedLink
+            href={reviewHref}
+            event="crypto_page_review_click"
+            section="promociones-crypto"
+            position={position}
+            operator={operatorId}
+            destination={reviewHref}
+            className="inline-flex min-h-11 w-full items-center justify-center text-sm font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+          >
+            {reviewLabel}
+          </TrackedLink>
+        ) : reserveReviewSpace ? (
+          <div className="min-h-11 w-full" aria-hidden="true" />
+        ) : null}
       </div>
     </article>
   );
