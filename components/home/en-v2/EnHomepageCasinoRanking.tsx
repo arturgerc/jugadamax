@@ -145,6 +145,7 @@ export function EnHomepageCasinoRanking() {
                   primaryCtaHref={card.ctaHref}
                   reviewHref={card.reviewHref}
                   reviewLabel="Read review"
+                  reserveReviewSpace
                   theme={card.theme}
                   featured={card.featured}
                   position={card.position}
@@ -170,6 +171,7 @@ export function EnHomepageCasinoRanking() {
                     primaryCtaHref={card.ctaHref}
                     reviewHref={card.reviewHref}
                     reviewLabel="Read review"
+                    reserveReviewSpace
                     theme={card.theme}
                     featured={card.featured}
                     position={card.position}
