@@ -7,13 +7,19 @@ export interface NavLink {
   href: string;
 }
 
-/** Desktop header navigation — English routes only. */
+/**
+ * Desktop header navigation — English routes only.
+ * Section order matches Spanish desktopNav (casino-first).
+ * No-KYC and Bonuses point to homepage anchors until dedicated EN routes exist.
+ */
 export const enDesktopNav: NavLink[] = [
   { label: "Crypto Casinos", href: "/en/casinos-crypto" },
+  { label: "No-KYC", href: "/en#anonymous-casino" },
   { label: "Fiat Casinos", href: "/en/casinos-fiat" },
+  { label: "Bonuses", href: "/en#active-promotions" },
+  { label: "Guides", href: "/en/guides" },
   { label: "Betting", href: "/en/betting" },
   { label: "Reviews", href: "/en/reviews" },
-  { label: "Guides", href: "/en/guides" },
   { label: "News", href: "/en/news" },
   { label: "Partners", href: "/en/partners" },
   { label: "Contact", href: "/en/contact" },
@@ -22,13 +28,18 @@ export const enDesktopNav: NavLink[] = [
 /** Mobile menu — same logical items as desktop (no legal/Spanish links). */
 export const enMobileNav: NavLink[] = enDesktopNav;
 
-/** Footer — Sections column. */
+/**
+ * Footer — Sections column.
+ * Mirrors Spanish primaryNav section order (Partners/Contact live in Information).
+ */
 export const enFooterSections: NavLink[] = [
   { label: "Crypto Casinos", href: "/en/casinos-crypto" },
+  { label: "No-KYC", href: "/en#anonymous-casino" },
   { label: "Fiat Casinos", href: "/en/casinos-fiat" },
+  { label: "Bonuses", href: "/en#active-promotions" },
+  { label: "Guides", href: "/en/guides" },
   { label: "Betting", href: "/en/betting" },
   { label: "Reviews", href: "/en/reviews" },
-  { label: "Guides", href: "/en/guides" },
   { label: "News", href: "/en/news" },
 ];
 
@@ -47,6 +58,10 @@ export const PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/en": "/",
   "/casinos-crypto": "/en/casinos-crypto",
   "/en/casinos-crypto": "/casinos-crypto",
+  "/casinos-sin-kyc": "/en#anonymous-casino",
+  "/en#anonymous-casino": "/casinos-sin-kyc",
+  "/bonos": "/en#active-promotions",
+  "/en#active-promotions": "/bonos",
   "/reviews": "/en/reviews",
   "/en/reviews": "/reviews",
   "/reviews/stake": "/en/reviews/stake",
