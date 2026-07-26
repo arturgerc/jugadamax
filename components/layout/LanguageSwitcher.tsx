@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn, focusRing } from "@/lib/utils";
-import { getLanguageAlternate } from "@/components/layout/en-nav-links";
+import { getLanguageAlternate } from "@/lib/i18n/language-alternates";
 
 interface LanguageSwitcherProps {
   /** Current page path, e.g. "/reviews/stake" or "/en/reviews/stake". */

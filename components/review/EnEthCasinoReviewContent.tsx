@@ -13,6 +13,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -243,7 +244,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "ETH Casino official site", href: "https://www.ethcasino.io/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "ethcasino",
+    operatorName: "ETH Casino",
+    market: "global",
+    locale: "en",
+    fallbackOfficialHref: "https://www.ethcasino.io/",
+  }),
   {
     label: "FAQ — does ETH Casino require KYC?",
     href: "https://www.ethcasino.io/faq/your-account/does-eth-casino-require-kyc",

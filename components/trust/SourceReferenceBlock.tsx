@@ -1,15 +1,45 @@
 import Link from "next/link";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { cn, focusRing } from "@/lib/utils";
+
+export type SourceReferenceKind = "affiliate" | "official-doc" | "third-party";
 
 export type SourceReference = {
   label: string;
   href?: string;
   note?: string;
   external?: boolean;
+  /** Controls rel + analytics for external rows. */
+  kind?: SourceReferenceKind;
+  /** Operator id for affiliate source analytics. */
+  operatorId?: string;
 };
 
 function isExternalHref(href: string): boolean {
   return /^https?:\/\//.test(href);
+}
+
+function inferKind(item: SourceReference): SourceReferenceKind | undefined {
+  if (item.kind) return item.kind;
+  if (!item.href || !isExternalHref(item.href)) return undefined;
+  const href = item.href.toLowerCase();
+  if (
+    href.includes("casino.guru") ||
+    href.includes("askgamblers.com") ||
+    href.includes("kick.com") ||
+    href.includes("ttrblog.io")
+  ) {
+    return "third-party";
+  }
+  // External operator document / homepage fallback without affiliate flag.
+  return "official-doc";
+}
+
+function relForKind(kind: SourceReferenceKind | undefined): string {
+  if (kind === "affiliate") return "sponsored nofollow noopener noreferrer";
+  if (kind === "official-doc") return "noopener noreferrer";
+  // third-party + default external
+  return "nofollow noopener noreferrer";
 }
 
 function SourceReferenceLink({ item }: { item: SourceReference }) {
@@ -22,23 +52,38 @@ function SourceReferenceLink({ item }: { item: SourceReference }) {
     return <span className="font-medium text-foreground">{item.label}</span>;
   }
 
-  if (item.external ?? isExternalHref(item.href)) {
+  const kind = inferKind(item);
+  const isExternal = item.external ?? isExternalHref(item.href);
+
+  if (!isExternal) {
     return (
-      <a
+      <Link href={item.href} className={className}>
+        {item.label}
+      </Link>
+    );
+  }
+
+  if (kind === "affiliate") {
+    return (
+      <TrackedLink
         href={item.href}
-        target="_blank"
-        rel="nofollow noopener noreferrer"
+        external
+        rel={relForKind(kind)}
         className={className}
+        event="review_source_affiliate_click"
+        section="sources"
+        operator={item.operatorId}
+        ctaType="source"
       >
         {item.label}
-      </a>
+      </TrackedLink>
     );
   }
 
   return (
-    <Link href={item.href} className={className}>
+    <a href={item.href} target="_blank" rel={relForKind(kind)} className={className}>
       {item.label}
-    </Link>
+    </a>
   );
 }
 

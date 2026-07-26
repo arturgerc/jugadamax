@@ -296,6 +296,19 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
     hideLabel: "Hide {count} operators",
     operators: [
       {
+        operatorId: "betsson",
+        label: "Mexico-facing fiat casino & sportsbook",
+        ratingSource: "global",
+        displayName: "Betsson Mexico",
+        marketBadge: "Mexico",
+      },
+      {
+        operatorId: "1xbet",
+        label: "Casino + sportsbook",
+        ratingSource: "global",
+        displayName: "1xBet",
+      },
+      {
         operatorId: "xonbet",
         label: "Multi-currency fiat casino",
         ratingSource: "global",
@@ -307,20 +320,28 @@ export const EN_HOME_MORE_OPTIONS: readonly EnMoreOptionsPanel[] = [
         displayName: "Slotoro Casino",
       },
       {
-        operatorId: "1xbet",
-        label: "Casino + sportsbook",
-        ratingSource: "canonical",
-        displayName: "1xBet",
-      },
-      {
         operatorId: "mostbet",
         label: "Casino, betting and app",
-        ratingSource: "canonical",
+        ratingSource: "global",
       },
       {
         operatorId: "melbet",
         label: "Casino + sportsbook",
-        ratingSource: "canonical",
+        ratingSource: "global",
+      },
+      {
+        operatorId: "caliente",
+        label: "Mexico-market casino & sports",
+        ratingSource: "global",
+        displayName: "Caliente",
+        marketBadge: "Mexico reference",
+      },
+      {
+        operatorId: "codere",
+        label: "Mexico-market betting & casino",
+        ratingSource: "global",
+        displayName: "Codere",
+        marketBadge: "Mexico reference",
       },
     ],
   },

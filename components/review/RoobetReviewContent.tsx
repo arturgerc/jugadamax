@@ -12,6 +12,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -172,7 +173,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Roobet — sitio oficial", href: "https://roobet.com/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "roobet",
+    operatorName: "Roobet",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://roobet.com/",
+  }),
   { label: "Roobet — promociones", href: "https://roobet.com/promotions" },
   { label: "Roobet — términos y condiciones", href: "https://roobet.com/terms" },
   {

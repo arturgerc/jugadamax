@@ -15,6 +15,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -171,7 +172,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Bitcasino.io — sitio oficial", href: "https://bitcasino.io/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "bitcasino",
+    operatorName: "Bitcasino.io",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://bitcasino.io/",
+  }),
   {
     label: "Bitcasino — información de licencia",
     href: "https://bitcasino.io/help-center/help-getting-started/is-bitcasino-licensed",

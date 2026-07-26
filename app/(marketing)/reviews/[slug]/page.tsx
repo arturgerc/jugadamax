@@ -12,13 +12,14 @@ import {
 import { filterReviewsForSurface, isOperatorAllowedOnSurface, isOperatorCtaAllowed } from "@/content/operators/status";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { getReviewLanguageAlternates } from "@/lib/i18n/language-alternates";
 import { Container } from "@/components/layout/Container";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
 import { AffiliateDisclosure } from "@/components/trust/AffiliateDisclosure";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
 import { OperatorCta } from "@/components/trust/OperatorCta";
 import { LicenseInfo } from "@/components/trust/LicenseInfo";
-import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
+import { getCasinoOutboundLink, resolveOperatorHomepageLink } from "@/lib/affiliate/operator-links";
 import {
   BETFURY_AFFILIATE_URL,
   BETFURY_PROMO_CODE,
@@ -47,13 +48,23 @@ import { BitcasinoReviewContent } from "@/components/review/BitcasinoReviewConte
 import { LtcCasinoReviewContent } from "@/components/review/LtcCasinoReviewContent";
 import { EthCasinoReviewContent } from "@/components/review/EthCasinoReviewContent";
 import { AnonymousCasinoReviewContent } from "@/components/review/AnonymousCasinoReviewContent";
+import { SpanishFiatContinueReading } from "@/components/review/SpanishFiatContinueReading";
+import {
+  SPANISH_FIAT_SOURCE_BLOCKS,
+  type SpanishFiatSourceSlug,
+} from "@/components/review/spanish-fiat-sources";
 import { MobileStickyOfferCta } from "@/components/affiliate/MobileStickyOfferCta";
 import { ReviewHeader } from "@/components/review/ReviewHeader";
 import { VerdictBox } from "@/components/review/VerdictBox";
 import { ProsCons } from "@/components/review/ProsCons";
 import { StakeHighRollerSection } from "@/components/review/StakeHighRollerSection";
+import { SourceReferenceBlock } from "@/components/trust/SourceReferenceBlock";
 import type { ReviewRelatedLink } from "@/types/content";
 import { cn, focusRing } from "@/lib/utils";
+
+function isSpanishFiatSourceSlug(slug: string): slug is SpanishFiatSourceSlug {
+  return slug in SPANISH_FIAT_SOURCE_BLOCKS;
+}
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
@@ -1095,14 +1106,7 @@ export async function generateMetadata({
             : `Reseña editorial de ${name}: veredicto, pros y contras, pagos y licencia. Con divulgación de afiliados y juego responsable +18.`,
     path: `/reviews/${review.slug}`,
     type: "article",
-    ...(review.slug === "stake"
-      ? {
-          languageAlternates: {
-            "es-MX": `/reviews/${review.slug}`,
-            en: `/en/reviews/${review.slug}`,
-          },
-        }
-      : {}),
+    languageAlternates: getReviewLanguageAlternates(review.slug),
   });
 }
 
@@ -3244,23 +3248,43 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               registrarte.
             </p>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {review.relatedLinks.map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  className="flex min-h-11 items-start gap-3 rounded-xl border border-white/10 bg-[#111417] p-3 transition-colors hover:border-primary/30"
-                >
-                  <RelatedLinkBadge kind={link.kind} label={link.label} />
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-semibold leading-snug text-foreground">{link.label}</p>
-                    {link.subtitle ? (
-                      <p className="mt-0.5 text-xs text-muted-foreground">{link.subtitle}</p>
-                    ) : null}
-                  </div>
-                </a>
-              ))}
+              {review.relatedLinks.map((link) => {
+                const homepage =
+                  link.kind === "website"
+                    ? resolveOperatorHomepageLink(casino.id, "mx")
+                    : undefined;
+                const href = homepage?.url ?? link.url;
+                const isAffiliate = Boolean(homepage?.isAffiliate);
+                const subtitle = isAffiliate
+                  ? "Abre el operador mediante la campaña aprobada de JugadaMax. JugadaMax puede recibir una comisión."
+                  : link.subtitle;
+
+                return (
+                  <a
+                    key={link.url}
+                    href={href}
+                    target="_blank"
+                    rel={
+                      isAffiliate
+                        ? "sponsored nofollow noopener noreferrer"
+                        : "nofollow noopener noreferrer"
+                    }
+                    className="flex min-h-11 items-start gap-3 rounded-xl border border-white/10 bg-[#111417] p-3 transition-colors hover:border-primary/30"
+                  >
+                    <RelatedLinkBadge kind={link.kind} label={link.label} />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-semibold leading-snug text-foreground">
+                        {isAffiliate
+                          ? `${link.label} — sitio oficial del operador mediante enlace afiliado de JugadaMax`
+                          : link.label}
+                      </p>
+                      {subtitle ? (
+                        <p className="mt-0.5 text-xs text-muted-foreground">{subtitle}</p>
+                      ) : null}
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </section>
         ) : null}
@@ -3301,6 +3325,17 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             ) : null}
           </div>
         </section>
+
+        {isSpanishFiatSourceSlug(review.slug) ? (
+          <>
+            <SourceReferenceBlock
+              title="Fuentes y referencias"
+              description={SPANISH_FIAT_SOURCE_BLOCKS[review.slug].description}
+              items={SPANISH_FIAT_SOURCE_BLOCKS[review.slug].items}
+            />
+            <SpanishFiatContinueReading />
+          </>
+        ) : null}
 
         {outboundLink &&
         review.slug !== "betsson" &&

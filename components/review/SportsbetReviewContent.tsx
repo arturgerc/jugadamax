@@ -17,6 +17,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -215,7 +216,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Sportsbet.io — sitio oficial", href: "https://sportsbet.io/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "sportsbetio",
+    operatorName: "Sportsbet.io",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://sportsbet.io/",
+  }),
   {
     label: "Champions Welcome Bonus",
     href: "https://sportsbet.io/de/promotions/2025-04-welcome-champion",
