@@ -28,6 +28,9 @@ import {
 } from "@/components/trust/SourceReferenceBlock";
 import { XonbetReviewContent } from "@/components/review/XonbetReviewContent";
 import { SlotoroReviewContent } from "@/components/review/SlotoroReviewContent";
+import { EnAnonymousCasinoReviewContent } from "@/components/review/EnAnonymousCasinoReviewContent";
+import { EnEthCasinoReviewContent } from "@/components/review/EnEthCasinoReviewContent";
+import { EnLtcCasinoReviewContent } from "@/components/review/EnLtcCasinoReviewContent";
 
 type BodyBlock =
   | { type: "h2"; text: string }
@@ -89,6 +92,32 @@ function getEnReviewRelatedLinks(slug: string) {
     ];
   }
 
+  if (slug === "cryptocasino" || slug === "ethcasino" || slug === "ltccasino") {
+    const peerReviews =
+      slug === "cryptocasino"
+        ? [
+            { href: "/en/reviews/ethcasino", label: "ETH Casino review" },
+            { href: "/en/reviews/ltccasino", label: "LTC Casino review" },
+          ]
+        : slug === "ethcasino"
+          ? [
+              { href: "/en/reviews/cryptocasino", label: "Anonymous Casino review" },
+              { href: "/en/reviews/ltccasino", label: "LTC Casino review" },
+            ]
+          : [
+              { href: "/en/reviews/cryptocasino", label: "Anonymous Casino review" },
+              { href: "/en/reviews/ethcasino", label: "ETH Casino review" },
+            ];
+
+    return [
+      { href: "/en/casinos-no-kyc", label: "No-KYC crypto casinos" },
+      ...peerReviews,
+      { href: "/en/casinos-crypto", label: "Crypto casinos ranking" },
+      { href: "/en/how-we-review", label: "How we review" },
+      { href: "/en/responsible-gambling", label: "Responsible gambling" },
+    ];
+  }
+
   const otherReview =
     slug === "stake"
       ? { href: "/en/reviews/bcgame", label: "BC.Game review" }
@@ -142,7 +171,10 @@ export async function generateMetadata({
   const name = casino?.name ?? review.title;
 
   const languageAlternates =
-    slug === "stake"
+    slug === "stake" ||
+    slug === "cryptocasino" ||
+    slug === "ethcasino" ||
+    slug === "ltccasino"
       ? { "es-MX": `/reviews/${slug}`, en: `/en/reviews/${slug}` }
       : undefined;
 
@@ -234,6 +266,111 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
           dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
         />
         <SlotoroReviewContent review={review} casino={casino} author={author} />
+        <section aria-labelledby="en-review-related-heading" className="mx-auto mt-10 max-w-5xl">
+          <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
+            Continue reading
+          </h2>
+          <nav aria-label="Related guides and reviews" className="mt-4">
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {getEnReviewRelatedLinks(slug).map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+      </Container>
+    );
+  }
+
+  if (slug === "cryptocasino") {
+    return (
+      <Container className="py-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+        />
+        <EnAnonymousCasinoReviewContent review={review} casino={casino} author={author} />
+        <section aria-labelledby="en-review-related-heading" className="mx-auto mt-10 max-w-5xl">
+          <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
+            Continue reading
+          </h2>
+          <nav aria-label="Related guides and reviews" className="mt-4">
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {getEnReviewRelatedLinks(slug).map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+      </Container>
+    );
+  }
+
+  if (slug === "ethcasino") {
+    return (
+      <Container className="py-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+        />
+        <EnEthCasinoReviewContent review={review} casino={casino} author={author} />
+        <section aria-labelledby="en-review-related-heading" className="mx-auto mt-10 max-w-5xl">
+          <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
+            Continue reading
+          </h2>
+          <nav aria-label="Related guides and reviews" className="mt-4">
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {getEnReviewRelatedLinks(slug).map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+      </Container>
+    );
+  }
+
+  if (slug === "ltccasino") {
+    return (
+      <Container className="py-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+        />
+        <EnLtcCasinoReviewContent review={review} casino={casino} author={author} />
         <section aria-labelledby="en-review-related-heading" className="mx-auto mt-10 max-w-5xl">
           <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
             Continue reading

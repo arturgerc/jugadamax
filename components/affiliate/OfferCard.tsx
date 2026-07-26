@@ -26,6 +26,8 @@ export type OfferCardProps = {
   subheadline?: string;
   offerText: string;
   promoCode?: string;
+  /** Label before promo code; defaults to Spanish “Código promocional”. */
+  promoCodeLabel?: string;
   paymentBadges: string[];
   featureBullets: string[];
   primaryCtaLabel: string;
@@ -1064,6 +1066,7 @@ export function OfferCard({
   subheadline,
   offerText,
   promoCode,
+  promoCodeLabel = "Código promocional",
   paymentBadges,
   featureBullets,
   primaryCtaLabel,
@@ -1419,7 +1422,7 @@ export function OfferCard({
 
           {promoCode ? (
             <p className="text-[0.7rem] leading-snug text-muted-foreground sm:text-xs">
-              Código promocional:{" "}
+              {promoCodeLabel}:{" "}
               <span className="font-mono font-semibold text-foreground">{promoCode}</span>
             </p>
           ) : null}

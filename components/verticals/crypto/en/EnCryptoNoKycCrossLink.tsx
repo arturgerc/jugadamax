@@ -9,7 +9,7 @@ const DISPLAY_NAMES: Record<(typeof EN_CRYPTO_NO_KYC_CROSSLINK_IDS)[number], str
   ltccasino: "LTC Casino",
 };
 
-const NO_KYC_HREF = "/en#anonymous-casino";
+const NO_KYC_HREF = "/en/casinos-no-kyc";
 
 /**
  * Compact no-KYC cross-link — no duplicate full affiliate cards.

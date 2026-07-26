@@ -12,7 +12,7 @@ const CHECK_ITEMS = [
 const QUICK_LINKS = [
   { label: "Top crypto", href: "#top-crypto" },
   { label: "Comparison", href: "#comparativa-crypto" },
-  { label: "No-KYC focus", href: "/en#anonymous-casino" },
+  { label: "No-KYC focus", href: "/en/casinos-no-kyc" },
   { label: "Promotions", href: "#promociones-crypto" },
   { label: "Guides", href: "#guias-crypto-en" },
 ] as const;

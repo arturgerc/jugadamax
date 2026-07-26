@@ -457,7 +457,7 @@ export function ReviewHeader({
             locale={locale}
             className="pt-1"
           />
-          {locale === "en" ? (
+          {locale === "en" && author.id !== "redaccion-jugadamax" ? (
             <p className="text-xs leading-relaxed text-muted-foreground">
               Reviewed by{" "}
               <span className="font-medium text-foreground">JugadaMax Editorial</span>.

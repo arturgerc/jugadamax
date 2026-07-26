@@ -16,6 +16,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Compara Anonymous Casino, ETH Casino y LTC Casino: registro con email y contraseña, pagos crypto, juegos, retiros, privacidad, límites y riesgos.",
   path: "/casinos-sin-kyc",
+  languageAlternates: {
+    "es-MX": "/casinos-sin-kyc",
+    en: "/en/casinos-no-kyc",
+  },
 });
 
 const FAQ_ITEMS = [

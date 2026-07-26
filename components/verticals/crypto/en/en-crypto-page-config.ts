@@ -232,7 +232,7 @@ export const EN_CRYPTO_GUIDES = [
 
 export const EN_CRYPTO_RELATED_LINKS = [
   { label: "Crypto guide", href: "/en/guides/best-crypto-casinos" },
-  { label: "No-KYC focus", href: "/en#anonymous-casino" },
+  { label: "No-KYC focus", href: "/en/casinos-no-kyc" },
   { label: "Active promotions", href: "/en#active-promotions" },
   { label: "Fiat casinos", href: "/en/casinos-fiat" },
   { label: "Sports betting", href: "/en/betting" },

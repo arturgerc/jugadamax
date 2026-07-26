@@ -10,11 +10,11 @@ export interface NavLink {
 /**
  * Desktop header navigation — English routes only.
  * Section order matches Spanish desktopNav (casino-first).
- * No-KYC and Bonuses point to homepage anchors until dedicated EN routes exist.
+ * Bonuses still point to a homepage anchor until a dedicated EN bonuses route exists.
  */
 export const enDesktopNav: NavLink[] = [
   { label: "Crypto Casinos", href: "/en/casinos-crypto" },
-  { label: "No-KYC", href: "/en#anonymous-casino" },
+  { label: "No-KYC", href: "/en/casinos-no-kyc" },
   { label: "Fiat Casinos", href: "/en/casinos-fiat" },
   { label: "Bonuses", href: "/en#active-promotions" },
   { label: "Guides", href: "/en/guides" },
@@ -34,7 +34,7 @@ export const enMobileNav: NavLink[] = enDesktopNav;
  */
 export const enFooterSections: NavLink[] = [
   { label: "Crypto Casinos", href: "/en/casinos-crypto" },
-  { label: "No-KYC", href: "/en#anonymous-casino" },
+  { label: "No-KYC", href: "/en/casinos-no-kyc" },
   { label: "Fiat Casinos", href: "/en/casinos-fiat" },
   { label: "Bonuses", href: "/en#active-promotions" },
   { label: "Guides", href: "/en/guides" },
@@ -61,14 +61,20 @@ export const PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/en": "/",
   "/casinos-crypto": "/en/casinos-crypto",
   "/en/casinos-crypto": "/casinos-crypto",
-  "/casinos-sin-kyc": "/en#anonymous-casino",
-  "/en#anonymous-casino": "/casinos-sin-kyc",
+  "/casinos-sin-kyc": "/en/casinos-no-kyc",
+  "/en/casinos-no-kyc": "/casinos-sin-kyc",
   "/bonos": "/en#active-promotions",
   "/en#active-promotions": "/bonos",
   "/reviews": "/en/reviews",
   "/en/reviews": "/reviews",
   "/reviews/stake": "/en/reviews/stake",
   "/en/reviews/stake": "/reviews/stake",
+  "/reviews/cryptocasino": "/en/reviews/cryptocasino",
+  "/en/reviews/cryptocasino": "/reviews/cryptocasino",
+  "/reviews/ethcasino": "/en/reviews/ethcasino",
+  "/en/reviews/ethcasino": "/reviews/ethcasino",
+  "/reviews/ltccasino": "/en/reviews/ltccasino",
+  "/en/reviews/ltccasino": "/reviews/ltccasino",
   "/contacto": "/en/contact",
   "/en/contact": "/contacto",
   "/partners": "/en/partners",

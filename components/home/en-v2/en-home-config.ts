@@ -166,8 +166,8 @@ export const EN_HOME_CATEGORIES = [
   },
   {
     label: "No-KYC",
-    href: "#anonymous-casino",
-    description: "Privacy-focused crypto casino discovery on this page",
+    href: "/en/casinos-no-kyc",
+    description: "Privacy-focused crypto casinos with document-light registration positioning",
     icon: "shield" as const,
   },
   {

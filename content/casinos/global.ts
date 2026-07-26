@@ -115,4 +115,103 @@ export const globalCasinos: Casino[] = [
       "Slotoro is a fiat-led multi-currency online casino with slots, live casino, table games, tournaments, Wheel of Fortune, VIP and loyalty features. Sportsbook is available as an additional product. The welcome package and payment methods vary by country and account.",
     locale: "en",
   },
+  {
+    id: "cryptocasino",
+    slug: "cryptocasino",
+    name: "Anonymous Casino",
+    logo: {
+      src: "/operators/anonymous.png",
+      alt: "Anonymous Casino",
+      width: 180,
+      height: 56,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "Solana", kind: "crypto" },
+      { name: "Dogecoin", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "No independently verified gambling licence by JugadaMax",
+      notes:
+        "Anonymous Casino operates publicly on CryptoCasino.CC as an international crypto casino with a public no-KYC policy claim. JugadaMax does not confirm a local licence for every market or a currently verified offshore licence. Availability, Terms, limits, fraud controls and withdrawal rules depend on jurisdiction and live operator policy.",
+    },
+    summary:
+      "Anonymous Casino (CryptoCasino.CC) is a privacy-oriented crypto casino with email/password registration and a public no-KYC policy. Supported assets include BTC, ETH, XRP, USDT, SOL, DOGE, USDC and LTC. Product focus is crypto games, slots and live casino — not a guaranteed bonus.",
+    locale: "en",
+  },
+  {
+    id: "ethcasino",
+    slug: "ethcasino",
+    name: "ETH Casino",
+    logo: {
+      src: "/operators/ethcasino.svg",
+      alt: "ETH Casino",
+      width: 140,
+      height: 56,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    payments: [
+      { name: "Ethereum", kind: "crypto" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "Solana", kind: "crypto" },
+      { name: "BNB", kind: "crypto" },
+      { name: "Dogecoin", kind: "crypto" },
+      { name: "Cardano", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "TRX", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "No independently verified gambling licence by JugadaMax",
+      notes:
+        "ETH Casino presents itself as an international crypto casino with a public no-KYC policy. JugadaMax does not confirm a local licence for every market or a currently verified international licence. Availability, Terms, limits, fraud controls and withdrawals depend on jurisdiction and live operator policy.",
+    },
+    summary:
+      "ETH Casino is an Ethereum-focused crypto casino with email/password registration and a public no-KYC policy. It accepts ETH, BTC, USDT and additional cryptocurrencies, with slots, crypto games and live casino. Availability and verification rules depend on jurisdiction and live Terms.",
+    locale: "en",
+  },
+  {
+    id: "ltccasino",
+    slug: "ltccasino",
+    name: "LTC Casino",
+    logo: {
+      src: "/operators/ltccasino.png",
+      alt: "LTC Casino",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    payments: [
+      { name: "Litecoin", kind: "crypto" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "Solana", kind: "crypto" },
+      { name: "BNB", kind: "crypto" },
+      { name: "Dogecoin", kind: "crypto" },
+      { name: "Cardano", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "TRX", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Operator-declared licence — not independently verified by JugadaMax",
+      notes:
+        "LTC Casino presents itself as an international crypto casino. JugadaMax does not confirm a local licence for every market or guarantee the current status of any offshore licence. Availability, footer claims, Terms, limits and policies must be checked after redirect.",
+    },
+    summary:
+      "LTC Casino is a Litecoin-oriented crypto casino with email/password registration and a public no-KYC policy per its FAQ. It accepts Litecoin, Bitcoin, Ethereum, USDT and other cryptocurrencies, with slots, live casino and instant crypto games. Availability depends on jurisdiction and live Terms.",
+    locale: "en",
+  },
 ];

@@ -9,7 +9,7 @@ import { AuthorByline } from "@/components/review/AuthorByline";
 export const metadata: Metadata = buildEnMetadata({
   title: "Crypto Casino Reviews — Global Editorial Coverage",
   description:
-    "Independent English reviews of global crypto casinos including Stake and BC.Game. Jurisdiction-aware, adults 18+, no hype.",
+    "Independent English reviews of global crypto casinos including Anonymous Casino, ETH Casino, LTC Casino, Stake and BC.Game. Jurisdiction-aware, adults 18+, no hype.",
   path: "/en/reviews",
   languageAlternates: {
     "es-MX": "/reviews",
