@@ -178,8 +178,8 @@ export const EN_HOME_CATEGORIES = [
   },
   {
     label: "Bonuses",
-    href: "#active-promotions",
-    description: "Active promotions from the curated English homepage operators",
+    href: "/en/bonuses",
+    description: "Full English bonus directory plus homepage promotion highlights",
     icon: "bonus" as const,
   },
 ] as const;

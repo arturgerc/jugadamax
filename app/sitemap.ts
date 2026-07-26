@@ -33,6 +33,7 @@ const STATIC_PATHS = [
   "/en/casinos-crypto",
   "/en/casinos-no-kyc",
   "/en/casinos-fiat",
+  "/en/bonuses",
   "/en/reviews",
   "/en/guides",
   "/en/contact",
