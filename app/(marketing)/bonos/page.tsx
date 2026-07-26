@@ -17,6 +17,10 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Compara promociones de casino, crypto y apuestas en México: depósito mínimo, wagering, vigencia, códigos y condiciones clave. 18+.",
   path: "/bonos",
+  languageAlternates: {
+    "es-MX": "/bonos",
+    en: "/en/bonuses",
+  },
 });
 
 const RELATED_LINKS = [

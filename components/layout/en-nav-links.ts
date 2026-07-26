@@ -10,13 +10,12 @@ export interface NavLink {
 /**
  * Desktop header navigation — English routes only.
  * Section order matches Spanish desktopNav (casino-first).
- * Bonuses still point to a homepage anchor until a dedicated EN bonuses route exists.
  */
 export const enDesktopNav: NavLink[] = [
   { label: "Crypto Casinos", href: "/en/casinos-crypto" },
   { label: "No-KYC", href: "/en/casinos-no-kyc" },
   { label: "Fiat Casinos", href: "/en/casinos-fiat" },
-  { label: "Bonuses", href: "/en#active-promotions" },
+  { label: "Bonuses", href: "/en/bonuses" },
   { label: "Guides", href: "/en/guides" },
   { label: "Betting", href: "/en/betting" },
   { label: "Reviews", href: "/en/reviews" },
@@ -36,7 +35,7 @@ export const enFooterSections: NavLink[] = [
   { label: "Crypto Casinos", href: "/en/casinos-crypto" },
   { label: "No-KYC", href: "/en/casinos-no-kyc" },
   { label: "Fiat Casinos", href: "/en/casinos-fiat" },
-  { label: "Bonuses", href: "/en#active-promotions" },
+  { label: "Bonuses", href: "/en/bonuses" },
   { label: "Guides", href: "/en/guides" },
   { label: "Betting", href: "/en/betting" },
   { label: "Reviews", href: "/en/reviews" },

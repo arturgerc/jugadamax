@@ -23,7 +23,12 @@ export const BONUS_SURFACES = {
     "inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-3 text-xs font-semibold text-primary-foreground transition-colors duration-150 hover:bg-[var(--jm-gold-strong)]",
 } as const;
 
-export type FeaturedThemeKey = "betsson" | "betfury" | "bitcasino";
+export type FeaturedThemeKey =
+  | "betsson"
+  | "betfury"
+  | "bitcasino"
+  | "xonbet"
+  | "slotoro";
 
 const FEATURED_THEMES: Record<
   FeaturedThemeKey,
@@ -47,12 +52,26 @@ const FEATURED_THEMES: Record<
     accentBar: "from-violet-400/70 via-orange-400/40 to-transparent",
     glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.14),transparent_58%)]",
   },
+  xonbet: {
+    card: "border-cyan-500/30 bg-gradient-to-b from-[#071528] via-[#14101f] to-[#0A1931]",
+    badge: "border-cyan-400/40 bg-cyan-500/12 text-cyan-200",
+    accentBar: "from-cyan-400/80 via-pink-400/60 to-transparent",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(34,211,238,0.16),transparent_52%),radial-gradient(ellipse_at_top_left,rgba(244,114,182,0.12),transparent_55%)]",
+  },
+  slotoro: {
+    card: "border-violet-500/28 bg-gradient-to-b from-[#16101f] via-[#1a1020] to-[#0A1931]",
+    badge: "border-fuchsia-400/35 bg-violet-500/12 text-fuchsia-200",
+    accentBar: "from-violet-400/70 via-fuchsia-400/55 to-yellow-400/45",
+    glow: "bg-[radial-gradient(ellipse_at_top_right,rgba(139,92,246,0.14),transparent_50%),radial-gradient(ellipse_at_top_left,rgba(250,204,21,0.1),transparent_55%)]",
+  },
 };
 
 export function featuredThemeForOperator(operatorId: string) {
   if (operatorId === "betsson") return FEATURED_THEMES.betsson;
   if (operatorId === "betfury") return FEATURED_THEMES.betfury;
   if (operatorId === "bitcasino") return FEATURED_THEMES.bitcasino;
+  if (operatorId === "xonbet") return FEATURED_THEMES.xonbet;
+  if (operatorId === "slotoro") return FEATURED_THEMES.slotoro;
   return FEATURED_THEMES.betsson;
 }
 
@@ -86,6 +105,8 @@ export const DIRECTORY_SECTION_THEMES: Record<
 const OPERATOR_CARD_ACCENTS: Record<string, string> = {
   "1xbet": "shadow-[inset_0_1px_0_rgba(34,211,238,0.08)]",
   awintura: "shadow-[inset_0_1px_0_rgba(212,154,0,0.1)]",
+  xonbet: "shadow-[inset_0_1px_0_rgba(96,165,250,0.12)]",
+  slotoro: "shadow-[inset_0_1px_0_rgba(250,204,21,0.1)]",
   gamdom: "shadow-[inset_0_1px_0_rgba(52,211,153,0.12)]",
   mellstroy: "shadow-[inset_0_1px_0_rgba(167,139,250,0.12)]",
   vodkabet: "shadow-[inset_0_1px_0_rgba(96,165,250,0.12)]",
@@ -112,6 +133,20 @@ export const NAV_LINK_ACCENTS: Record<string, string> = {
   "#hub-bonos":
     "hover:border-sky-400/40 hover:bg-sky-500/10 hover:text-sky-200",
   "#terminos-bonos":
+    "hover:border-white/25 hover:bg-white/[0.04] hover:text-foreground",
+  "#featured-promotions":
+    "hover:border-primary/50 hover:bg-primary/10 hover:text-primary",
+  "#bonus-comparison":
+    "hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-cyan-200",
+  "#bonuses-casino-fiat":
+    "hover:border-amber-400/40 hover:bg-amber-500/10 hover:text-amber-200",
+  "#bonuses-crypto-rewards":
+    "hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-violet-200",
+  "#bonuses-sports-mixed":
+    "hover:border-emerald-400/40 hover:bg-emerald-500/10 hover:text-emerald-200",
+  "#bonus-hub":
+    "hover:border-sky-400/40 hover:bg-sky-500/10 hover:text-sky-200",
+  "#bonus-terms":
     "hover:border-white/25 hover:bg-white/[0.04] hover:text-foreground",
 };
 
