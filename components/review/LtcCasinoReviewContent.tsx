@@ -15,6 +15,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -195,10 +196,18 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
+  buildOperatorHomepageSourceReference({
+    operatorId: "ltccasino",
+    operatorName: "LTC Casino",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://www.ltccasino.io/",
+  }),
   {
     label: "FAQ del operador — verificación y cuentas",
     href: "https://www.ltccasino.io/faq/your-account/how-do-i-block-my-account",
     note: "Declaraciones publicadas por LTC Casino sobre verificación y cuentas.",
+    kind: "official-doc",
   },
   {
     label: "FAQ del operador — procesamiento de retiros",
@@ -215,10 +224,6 @@ const SOURCE_REFERENCES: SourceReference[] = [
   { label: "TTR Blog", href: "https://ttrblog.io/" },
   { label: "Kick: LTCCASINO-COM", href: "https://kick.com/ltccasino-com" },
   { label: "Metodología editorial JugadaMax", href: "/como-evaluamos" },
-  {
-    label: "Enlace de registro suministrado por el partner",
-    note: "URL afiliada de campaña; no garantiza bono ni disponibilidad universal.",
-  },
 ];
 
 export function LtcCasinoReviewContent({

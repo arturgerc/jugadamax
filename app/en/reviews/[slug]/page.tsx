@@ -9,9 +9,11 @@ import {
   getGlobalReviewBySlug,
   getGlobalReviews,
 } from "@/lib/content/global";
+import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { buildEnMetadata } from "@/lib/seo/metadata";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
-import { getCasinoOutboundLink } from "@/lib/affiliate/operator-links";
+import { getReviewLanguageAlternates } from "@/lib/i18n/language-alternates";
 import { Container } from "@/components/layout/Container";
 import { PaymentBadges } from "@/components/ranking/PaymentBadges";
 import { AffiliateDisclosureEn } from "@/components/trust/AffiliateDisclosureEn";
@@ -31,6 +33,54 @@ import { SlotoroReviewContent } from "@/components/review/SlotoroReviewContent";
 import { EnAnonymousCasinoReviewContent } from "@/components/review/EnAnonymousCasinoReviewContent";
 import { EnEthCasinoReviewContent } from "@/components/review/EnEthCasinoReviewContent";
 import { EnLtcCasinoReviewContent } from "@/components/review/EnLtcCasinoReviewContent";
+import { EnBetssonReviewContent } from "@/components/review/EnBetssonReviewContent";
+import { EnOneXBetReviewContent } from "@/components/review/EnOneXBetReviewContent";
+import { EnMostbetReviewContent } from "@/components/review/EnMostbetReviewContent";
+import { EnMelbetReviewContent } from "@/components/review/EnMelbetReviewContent";
+import { EnCalienteReviewContent } from "@/components/review/EnCalienteReviewContent";
+import { EnCodereReviewContent } from "@/components/review/EnCodereReviewContent";
+import type { Author, Casino, Review } from "@/types/content";
+import type { ReactNode } from "react";
+
+type SpecializedReviewContent = (props: {
+  review: Review;
+  casino: Casino;
+  author: Author;
+}) => ReactNode;
+
+const SPECIALIZED_EN_REVIEW_CONTENT: Record<string, SpecializedReviewContent> = {
+  xonbet: XonbetReviewContent,
+  slotoro: SlotoroReviewContent,
+  cryptocasino: EnAnonymousCasinoReviewContent,
+  ethcasino: EnEthCasinoReviewContent,
+  ltccasino: EnLtcCasinoReviewContent,
+  betsson: EnBetssonReviewContent,
+  "1xbet": EnOneXBetReviewContent,
+  mostbet: EnMostbetReviewContent,
+  melbet: EnMelbetReviewContent,
+  caliente: EnCalienteReviewContent,
+  codere: EnCodereReviewContent,
+};
+
+/** Fiat TOP-6 + Mexico local references — must never use the narrow generic fallback. */
+const EN_FIAT_SPECIALIZED_REVIEW_SLUGS = [
+  "betsson",
+  "1xbet",
+  "xonbet",
+  "slotoro",
+  "mostbet",
+  "melbet",
+  "caliente",
+  "codere",
+] as const;
+
+for (const fiatSlug of EN_FIAT_SPECIALIZED_REVIEW_SLUGS) {
+  if (!SPECIALIZED_EN_REVIEW_CONTENT[fiatSlug]) {
+    throw new Error(
+      `Missing specialized English review content for fiat slug "${fiatSlug}".`,
+    );
+  }
+}
 
 type BodyBlock =
   | { type: "h2"; text: string }
@@ -92,6 +142,22 @@ function getEnReviewRelatedLinks(slug: string) {
     ];
   }
 
+  if (
+    slug === "betsson" ||
+    slug === "1xbet" ||
+    slug === "mostbet" ||
+    slug === "melbet" ||
+    slug === "caliente" ||
+    slug === "codere"
+  ) {
+    return [
+      { href: "/en/casinos-fiat", label: "Fiat & multi-currency casinos" },
+      { href: "/en/betting", label: "Sports betting coverage" },
+      { href: "/en/how-we-review", label: "How we review" },
+      { href: "/en/responsible-gambling", label: "Responsible gambling" },
+    ];
+  }
+
   if (slug === "cryptocasino" || slug === "ethcasino" || slug === "ltccasino") {
     const peerReviews =
       slug === "cryptocasino"
@@ -132,8 +198,17 @@ function getEnReviewRelatedLinks(slug: string) {
   ];
 }
 
-function getEnReviewSourceReferences(casinoName: string): SourceReference[] {
+function getEnReviewSourceReferences(
+  casinoId: string,
+  casinoName: string,
+): SourceReference[] {
   return [
+    buildOperatorHomepageSourceReference({
+      operatorId: casinoId,
+      operatorName: casinoName,
+      market: "global",
+      locale: "en",
+    }),
     { label: "JugadaMax editorial methodology", href: "/en/how-we-review" },
     { label: "Affiliate disclosure", href: "/en/affiliate-disclosure" },
     { label: "Responsible gambling", href: "/en/responsible-gambling" },
@@ -146,6 +221,7 @@ function getEnReviewSourceReferences(casinoName: string): SourceReference[] {
       label: "Author profile: Arturs Stoliks on LinkedIn",
       href: "https://www.linkedin.com/in/arturs-stoliks-953555280",
       note: "author/profile proof, not a factual source.",
+      kind: "third-party",
     },
   ];
 }
@@ -170,20 +246,12 @@ export async function generateMetadata({
   const casino = getGlobalCasinoById(review.casinoId);
   const name = casino?.name ?? review.title;
 
-  const languageAlternates =
-    slug === "stake" ||
-    slug === "cryptocasino" ||
-    slug === "ethcasino" ||
-    slug === "ltccasino"
-      ? { "es-MX": `/reviews/${slug}`, en: `/en/reviews/${slug}` }
-      : undefined;
-
   return buildEnMetadata({
     title: review.title,
     description: `Editorial review of ${name}: verdict, pros and cons, payments and licensing. Affiliate disclosure and responsible gambling 18+.`,
     path: `/en/reviews/${review.slug}`,
     type: "article",
-    languageAlternates,
+    languageAlternates: getReviewLanguageAlternates(slug),
   });
 }
 
@@ -200,7 +268,7 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
   const outboundLink = getCasinoOutboundLink(casino, "global");
   const { mainBlocks, faqItems } = splitBodyAndFaq(review.body);
   const relatedLinks = getEnReviewRelatedLinks(slug);
-  const sourceReferences = getEnReviewSourceReferences(casino.name);
+  const sourceReferences = getEnReviewSourceReferences(casino.id, casino.name);
 
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", path: "/en" },
@@ -390,6 +458,46 @@ export default async function EnReviewPage({ params }: { params: Promise<{ slug:
             </ul>
           </nav>
         </section>
+      </Container>
+    );
+  }
+
+  // Full-width specialized layouts (fiat + any other mapped slug that skipped early returns).
+  // Anything listed in SPECIALIZED_EN_REVIEW_CONTENT must not fall through to max-w-3xl.
+  const SpecializedReviewContent = SPECIALIZED_EN_REVIEW_CONTENT[slug];
+  if (SpecializedReviewContent) {
+    return (
+      <Container className="py-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+        />
+        <SpecializedReviewContent review={review} casino={casino} author={author} />
+        {slug !== "betsson" ? (
+          <section aria-labelledby="en-review-related-heading" className="mx-auto mt-10 max-w-5xl">
+            <h2 id="en-review-related-heading" className="text-xl font-semibold text-foreground">
+              Continue reading
+            </h2>
+            <nav aria-label="Related guides and reviews" className="mt-4">
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {relatedLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="block rounded-lg border border-border/60 bg-card p-4 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </section>
+        ) : null}
       </Container>
     );
   }

@@ -13,6 +13,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -93,7 +94,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "XON.BET official homepage", href: "https://xon.bet/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "xonbet",
+    operatorName: "XON.BET",
+    market: "global",
+    locale: "en",
+    fallbackOfficialHref: "https://xon.bet/",
+  }),
   { label: "XON.BET official terms", href: "https://xon.bet/terms" },
   {
     label: "Curaçao Gaming Authority certificate — OGL/2024/1056/0702",

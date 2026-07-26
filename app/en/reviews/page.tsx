@@ -7,9 +7,9 @@ import { Container } from "@/components/layout/Container";
 import { AuthorByline } from "@/components/review/AuthorByline";
 
 export const metadata: Metadata = buildEnMetadata({
-  title: "Crypto Casino Reviews — Global Editorial Coverage",
+  title: "Casino Reviews — Global Editorial Coverage",
   description:
-    "Independent English reviews of global crypto casinos including Anonymous Casino, ETH Casino, LTC Casino, Stake and BC.Game. Jurisdiction-aware, adults 18+, no hype.",
+    "Independent English reviews of crypto and fiat casinos including Anonymous Casino, XON.BET, Slotoro, Stake, 1xBet and Mexico-market references. Jurisdiction-aware, adults 18+, no hype.",
   path: "/en/reviews",
   languageAlternates: {
     "es-MX": "/reviews",
@@ -24,11 +24,11 @@ export default function EnReviewsIndexPage() {
     <Container className="py-8">
       <header className="mb-6 space-y-2">
         <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-          Crypto Casino Reviews
+          Casino Reviews
         </h1>
         <p className="max-w-2xl text-muted-foreground">
-          Editorial assessments of global crypto operators. Gambling involves risk. Check local laws
-          and operator terms before registering.
+          Editorial assessments of global crypto and fiat operators. Gambling involves risk. Check
+          local laws and operator terms before registering.
         </p>
       </header>
 

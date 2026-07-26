@@ -214,4 +214,170 @@ export const globalCasinos: Casino[] = [
       "LTC Casino is a Litecoin-oriented crypto casino with email/password registration and a public no-KYC policy per its FAQ. It accepts Litecoin, Bitcoin, Ethereum, USDT and other cryptocurrencies, with slots, live casino and instant crypto games. Availability depends on jurisdiction and live Terms.",
     locale: "en",
   },
+  {
+    id: "betsson",
+    slug: "betsson",
+    name: "Betsson Mexico",
+    logo: {
+      src: "/operators/betsson.svg",
+      alt: "Betsson Mexico",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "OXXO", kind: "fiat" },
+      { name: "SPEI", kind: "fiat" },
+    ],
+    licensing: {
+      licenseName: "SEGOB (Mexico) — operator-reported",
+      notes:
+        "Mexico-facing fiat casino and sportsbook. Operator reports local Mexican authorisation framing. Confirm current licence notes, product access and terms on official Betsson Mexico surfaces. Not presented as a universal multi-country guarantee.",
+    },
+    summary:
+      "Betsson Mexico is a Mexico-facing fiat casino and sportsbook with local payment framing (OXXO, SPEI, cards where available). On English JugadaMax pages it leads the fiat ranking as a Mexico-market option — not a global availability claim.",
+    locale: "en",
+  },
+  {
+    id: "1xbet",
+    slug: "1xbet",
+    name: "1xBet",
+    logo: {
+      src: "/operators/1xbet.svg",
+      alt: "1xBet",
+      width: 96,
+      height: 48,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "Skrill", kind: "fiat" },
+      { name: "Neteller", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licence not independently verified by JugadaMax",
+      notes:
+        "International mixed casino + sportsbook operator. Licensing, availability, verification, limits, bonuses and withdrawals must be checked in official operator terms for your jurisdiction.",
+    },
+    summary:
+      "1xBet is an international mixed operator with online casino, live casino, slots and sportsbook in one account. Promotions, payments and access depend on GEO, account status and live terms.",
+    locale: "en",
+  },
+  {
+    id: "mostbet",
+    slug: "mostbet",
+    name: "Mostbet",
+    logo: {
+      src: "/operators/mostbet.webp",
+      alt: "Mostbet",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "Skrill", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — confirm live licence on official terms",
+      notes:
+        "External sources identify Bizbon N.V. and Curaçao licence framing. This is not a local licence for every market. Verify entity, licence, restrictions, KYC and current terms on Mostbet.",
+    },
+    summary:
+      "Mostbet is an international mixed operator with sportsbook, casino, live casino, poker, esports and instant games. First-deposit campaigns, currency, payments and availability depend on account, GEO and live terms.",
+    locale: "en",
+  },
+  {
+    id: "melbet",
+    slug: "melbet",
+    name: "Melbet",
+    logo: {
+      src: "/operators/melbet.svg",
+      alt: "Melbet",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "Skrill", kind: "fiat" },
+      { name: "Neteller", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Licence not independently verified by JugadaMax",
+      notes:
+        "International mixed casino + sportsbook operator. Licensing, availability, verification, limits, bonuses and withdrawals must be checked in official operator terms for your jurisdiction.",
+    },
+    summary:
+      "Melbet is an international mixed operator with sportsbook, online casino, slots, live casino and fast games in one account. Promotions, payments and access depend on GEO, account status and live terms.",
+    locale: "en",
+  },
+  {
+    id: "caliente",
+    slug: "caliente",
+    name: "Caliente",
+    logo: {
+      src: "/operators/caliente.png",
+      alt: "Caliente",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "OXXO", kind: "fiat" },
+      { name: "SPEI", kind: "fiat" },
+    ],
+    licensing: {
+      licenseName: "SEGOB (Mexico) — operator-reported",
+      notes:
+        "Mexico-market editorial reference. Operator reports local Mexican authorisation. Confirm current licence framing, product access and terms on the official site. Not presented as a global multi-country guarantee.",
+    },
+    summary:
+      "Caliente is a Mexico-facing sportsbook and online casino brand with local payment framing. Included on JugadaMax English pages as a Mexico-market editorial reference — not as a universal international recommendation.",
+    locale: "en",
+  },
+  {
+    id: "codere",
+    slug: "codere",
+    name: "Codere",
+    logo: {
+      src: "/operators/codere.png",
+      alt: "Codere",
+      width: 80,
+      height: 40,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "OXXO", kind: "fiat" },
+      { name: "SPEI", kind: "fiat" },
+    ],
+    licensing: {
+      licenseName: "SEGOB (Mexico) — operator-reported",
+      notes:
+        "Mexico-market editorial reference. Operator reports local Mexican authorisation. Confirm current licence framing, product access and terms on the official site. Partner/affiliate status may be pending on JugadaMax.",
+    },
+    summary:
+      "Codere is a Mexico-facing sportsbook and online casino brand with local payment framing. Included on JugadaMax English pages as a Mexico-market editorial reference for comparison — not as an active global affiliate campaign.",
+    locale: "en",
+  },
 ];

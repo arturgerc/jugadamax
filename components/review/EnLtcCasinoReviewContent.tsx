@@ -14,6 +14,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -193,33 +194,39 @@ const FAQ_ITEMS = [
   },
 ] as const;
 
-function buildSourceReferences(affiliateUrl?: string): SourceReference[] {
+function buildSourceReferences(): SourceReference[] {
   return [
+    buildOperatorHomepageSourceReference({
+      operatorId: "ltccasino",
+      operatorName: "LTC Casino",
+      market: "global",
+      locale: "en",
+      fallbackOfficialHref: "https://www.ltccasino.io/",
+    }),
     {
       label: "Operator FAQ — verification and accounts",
       href: "https://www.ltccasino.io/faq/your-account/how-do-i-block-my-account",
       note: "Statements published by LTC Casino about verification and accounts.",
+      kind: "official-doc",
     },
     {
       label: "Operator FAQ — withdrawal processing",
       href: "https://www.ltccasino.io/faq/withdrawals/how-long-do-withdrawals-take",
+      kind: "official-doc",
     },
     {
       label: "Operator registration / privacy information",
       href: "https://www.ltccasino.io/cryptocasino/no-registration-online-casinos/",
+      kind: "official-doc",
     },
     {
       label: "Operator domain / mirror information",
       href: "https://www.ltccasino.io/uk/ltccasinocom-cant-log-in",
+      kind: "official-doc",
     },
-    { label: "TTR Blog", href: "https://ttrblog.io/" },
-    { label: "Kick: LTCCASINO-COM", href: "https://kick.com/ltccasino-com" },
+    { label: "TTR Blog", href: "https://ttrblog.io/", kind: "third-party" },
+    { label: "Kick: LTCCASINO-COM", href: "https://kick.com/ltccasino-com", kind: "third-party" },
     { label: "JugadaMax editorial methodology", href: "/en/how-we-review" },
-    {
-      label: "Partner-supplied registration link",
-      href: affiliateUrl,
-      note: "Campaign affiliate URL; does not guarantee a bonus or universal availability.",
-    },
   ];
 }
 
@@ -234,7 +241,7 @@ export function EnLtcCasinoReviewContent({
 }) {
   const affiliateUrl = resolveOperatorLink("ltccasino", "global")?.url;
   const analysisParagraphs = buildAnalysisParagraphs(review.rating);
-  const sourceReferences = buildSourceReferences(affiliateUrl);
+  const sourceReferences = buildSourceReferences();
 
   return (
     <>

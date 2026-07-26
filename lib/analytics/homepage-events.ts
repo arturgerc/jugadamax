@@ -16,7 +16,8 @@ type AnalyticsEventName =
   | "betting_page_affiliate_click"
   | "betting_page_review_click"
   | "betting_page_category_click"
-  | "betting_page_nav_click";
+  | "betting_page_nav_click"
+  | "review_source_affiliate_click";
 
 type AnalyticsEventParams = Record<string, string | number | undefined>;
 

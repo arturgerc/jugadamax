@@ -15,6 +15,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -248,7 +249,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Sitio oficial CryptoCasino.CC", href: "https://www.cryptocasino.cc/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "cryptocasino",
+    operatorName: "CryptoCasino.CC",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://www.cryptocasino.cc/",
+  }),
   {
     label: "FAQ — cómo crear una cuenta",
     href: "https://www.cryptocasino.cc/faq/your-first-steps/how-do-i-create-an-account",

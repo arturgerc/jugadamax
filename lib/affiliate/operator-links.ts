@@ -481,6 +481,7 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
     global: bcgameGlobalLink(),
   },
   "500-casino": {
+    mx: fiveHundredCasinoGlobalLink(),
     global: fiveHundredCasinoGlobalLink(),
   },
   roobet: {
@@ -488,21 +489,27 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
     global: roobetGlobalLink(),
   },
   gamdom: {
+    mx: gamdomGlobalLink(),
     global: gamdomGlobalLink(),
   },
   mellstroy: {
+    mx: mellstroyGlobalLink(),
     global: mellstroyGlobalLink(),
   },
   rainbet: {
+    mx: rainbetGlobalLink(),
     global: rainbetGlobalLink(),
   },
   betfury: {
+    mx: betfuryGlobalLink(),
     global: betfuryGlobalLink(),
   },
   xonbet: {
+    mx: xonbetGlobalLink(),
     global: xonbetGlobalLink(),
   },
   slotoro: {
+    mx: slotoroGlobalLink(),
     global: slotoroGlobalLink(),
   },
   vodkabet: {
@@ -517,9 +524,11 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
     global: mostbetGlobalLink(),
   },
   "1xbet": {
+    mx: oneXbetGlobalLink(),
     global: oneXbetGlobalLink(),
   },
   melbet: {
+    mx: melbetGlobalLink(),
     global: melbetGlobalLink(),
   },
   sportsbetio: {
@@ -543,6 +552,7 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
     global: anonymousCasinoGlobalLink(),
   },
   betsson: {
+    mx: betssonGlobalLink(),
     global: betssonGlobalLink(),
   },
 };
@@ -550,6 +560,31 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
 /** Returns a market-specific operator link when configured; undefined otherwise. */
 export function resolveOperatorLink(operatorId: string, market: Market): OperatorLink | undefined {
   return CONFIGURED_LINKS[operatorId]?.[market];
+}
+
+/**
+ * Homepage / “official site” destination for cards and source blocks.
+ * Prefers the requested market. When MX has no row but a global affiliate
+ * destination exists (e.g. Melbet, 1xBet), falls back to that affiliate URL.
+ * Returns undefined when CTA is not allowed (Caliente / Codere).
+ */
+export function resolveOperatorHomepageLink(
+  operatorId: string,
+  market: Market,
+): OperatorLink | undefined {
+  if (!isOperatorCtaAllowed(operatorId)) return undefined;
+
+  const preferred = resolveOperatorLink(operatorId, market);
+  if (preferred) return preferred;
+
+  if (market === "mx") {
+    const global = resolveOperatorLink(operatorId, "global");
+    if (global?.isAffiliate) {
+      return { ...global, market: "mx" };
+    }
+  }
+
+  return undefined;
 }
 
 /**
@@ -561,7 +596,7 @@ export function resolveOperatorLink(operatorId: string, market: Market): Operato
 export function getCasinoOutboundLink(casino: Casino, market: Market): OperatorLink | undefined {
   if (!isOperatorCtaAllowed(casino.id)) return undefined;
 
-  const configured = resolveOperatorLink(casino.id, market);
+  const configured = resolveOperatorHomepageLink(casino.id, market);
   if (configured) return configured;
 
   if (

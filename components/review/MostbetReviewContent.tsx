@@ -15,6 +15,8 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
+import { SpanishFiatContinueReading } from "@/components/review/SpanishFiatContinueReading";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -180,7 +182,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Mostbet — sitio oficial", href: "https://mostbet.com/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "mostbet",
+    operatorName: "Mostbet",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://mostbet.com/",
+  }),
   { label: "Mostbet — términos y condiciones", href: "https://mostbet.com/rules" },
   {
     label: "Casino Guru — reseña de Mostbet",
@@ -500,6 +508,8 @@ export function MostbetReviewContent({
           description="Información oficial, landing de campaña suministrada, evaluaciones externas y opinión editorial de JugadaMax."
           items={SOURCE_REFERENCES}
         />
+
+        <SpanishFiatContinueReading />
       </article>
 
       <MobileStickyOfferCta

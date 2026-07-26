@@ -13,6 +13,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -144,7 +145,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Slotoro official homepage", href: "https://slotoro.bet/en" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "slotoro",
+    operatorName: "Slotoro",
+    market: "global",
+    locale: "en",
+    fallbackOfficialHref: "https://slotoro.bet/en",
+  }),
   { label: "Slotoro General T&C", href: "https://slotoro.bet/en/terms-and-conditions" },
   { label: "Slotoro Bonus T&C", href: "https://slotoro.bet/en/bonus-terms" },
   { label: "Slotoro KYC Policy", href: "https://slotoro.bet/en/kyc-policy" },

@@ -12,6 +12,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -153,12 +154,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Vodka.bet — sitio oficial", href: "https://vodka.bet/" },
-  {
-    label: "Destino de campaña afiliada JugadaMax",
-    href: "https://vodka200032.com?id=18393",
-    note: "Enlace de afiliado/redirección — no es prueba independiente de licencia o pagos.",
-  },
+  buildOperatorHomepageSourceReference({
+    operatorId: "vodkabet",
+    operatorName: "Vodka.bet",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://vodka.bet/",
+  }),
   {
     label: "Creatividades de campaña suministradas (JUGADAMAX)",
     note:

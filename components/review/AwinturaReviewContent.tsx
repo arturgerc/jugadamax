@@ -16,6 +16,7 @@ import {
   SourceReferenceBlock,
   type SourceReference,
 } from "@/components/trust/SourceReferenceBlock";
+import { buildOperatorHomepageSourceReference } from "@/lib/affiliate/source-references";
 import { cn, focusRing } from "@/lib/utils";
 
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
@@ -141,7 +142,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 const SOURCE_REFERENCES: SourceReference[] = [
-  { label: "Awintura official homepage", href: "https://awintura.com/en/" },
+  buildOperatorHomepageSourceReference({
+    operatorId: "awintura",
+    operatorName: "Awintura",
+    market: "mx",
+    locale: "es",
+    fallbackOfficialHref: "https://awintura.com/en/",
+  }),
   { label: "Awintura Terms and Conditions", href: "https://awintura.com/en/terms" },
   { label: "Awintura AML Policy", href: "https://awintura.com/en/aml-policy" },
   { label: "Awintura Responsible Gaming", href: "https://awintura.com/en/responsible-gaming" },

@@ -30,7 +30,8 @@ type TrackedLinkProps = {
     | "betting_page_affiliate_click"
     | "betting_page_review_click"
     | "betting_page_category_click"
-    | "betting_page_nav_click";
+    | "betting_page_nav_click"
+    | "review_source_affiliate_click";
   section: string;
   position?: number | string;
   operator?: string;
