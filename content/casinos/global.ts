@@ -380,4 +380,63 @@ export const globalCasinos: Casino[] = [
       "Codere is a Mexico-facing sportsbook and online casino brand with local payment framing. Included on JugadaMax English pages as a Mexico-market editorial reference for comparison — not as an active global affiliate campaign.",
     locale: "en",
   },
+  {
+    id: "sportsbetio",
+    slug: "sportsbet-io",
+    name: "Sportsbet.io",
+    logo: {
+      src: "/operators/sportsbet.svg",
+      alt: "Sportsbet.io",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino", "sportsbook"],
+    rankByVertical: {},
+    rating: 4.0,
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "USDC", kind: "crypto" },
+      { name: "Litecoin", kind: "crypto" },
+      { name: "XRP", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — OGL/2023/110/0072",
+      notes:
+        "Sportsbet.io is operated by mBet Solutions N.V. under Curaçao Gaming Authority licence OGL/2023/110/0072. mProcessing Solutions Ltd handles some payment methods. This is not a local licence for every market. Check restrictions, KYC, promotions and live terms.",
+    },
+    summary:
+      "Sportsbet.io is an international crypto sportsbook with casino, live casino, slots, Originals, tournaments and VIP. The published Champions Welcome Bonus offers 100% up to 300 USDT for Sports or Casino, subject to minimum deposit, wagering, account, GEO and official terms.",
+    locale: "en",
+  },
+  {
+    id: "awintura",
+    slug: "awintura",
+    name: "Awintura",
+    logo: {
+      src: "/operators/awintura.svg",
+      alt: "Awintura",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["fiat-casino", "sportsbook"],
+    rankByVertical: {},
+    rating: 4.1,
+    payments: [
+      { name: "Visa", kind: "fiat" },
+      { name: "Mastercard", kind: "fiat" },
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Tether", kind: "crypto" },
+      { name: "Binance Pay", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — OGL/2024/686/0183",
+      notes:
+        "Awintura is operated by Wiraon B.V. (registration 146886). Briantie Limited (HE 385770) acts as payment agent. This is not local authorisation in every market. Availability, payments, sportsbook access and promotions depend on jurisdiction and account.",
+    },
+    summary:
+      "Awintura is an international mixed operator with casino, slots, live casino, table games, promotions, sportsbook, VIP and gamification features. It supports fiat methods and some crypto options depending on country and account. Campaign figures, currency and terms vary by GEO — confirm the live offer before depositing.",
+    locale: "en",
+  },
 ];

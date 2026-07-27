@@ -303,10 +303,26 @@ function extractCompleteSentences(text: string, maxSentences: number): string {
   const source = text.trim();
   if (!source) return source;
 
-  const parts = source.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
+  // Protect domain-style tokens (e.g. Sportsbet.io) so TLD dots are not sentence breaks.
+  const domains: string[] = [];
+  const protectedSource = source.replace(
+    /\b[\w-]+\.(?:io|com|net|org|co|bet|gg|app|cash|casino|me|tv|info)\b/gi,
+    (match) => {
+      const token = `\u0000DOM${domains.length}\u0000`;
+      domains.push(match);
+      return token;
+    },
+  );
+
+  const parts = protectedSource.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
   if (!parts?.length) return source;
 
-  const sentences = parts.map((part) => part.trim()).filter(Boolean);
+  const restore = (value: string) =>
+    value.replace(/\u0000DOM(\d+)\u0000/g, (_, index) => domains[Number(index)] ?? "");
+
+  const sentences = parts
+    .map((part) => restore(part.trim()))
+    .filter(Boolean);
   if (!sentences.length) return source;
 
   return sentences.slice(0, maxSentences).join(" ");
