@@ -24,12 +24,12 @@ export function buildOperatorHomepageSourceReference(options: {
       label:
         locale === "en"
           ? `${operatorName} — official operator site via JugadaMax affiliate link`
-          : `${operatorName} — sitio oficial del operador mediante enlace afiliado de JugadaMax`,
+          : `${operatorName} — sitio oficial del operador mediante enlace de afiliado de JugadaMax`,
       href: link.url,
       note:
         locale === "en"
           ? "Opens the operator through the approved JugadaMax partner campaign. JugadaMax may receive a commission."
-          : "Abre el operador mediante la campaña aprobada de JugadaMax. JugadaMax puede recibir una comisión.",
+          : "Abre el operador mediante la campaña de partner aprobada de JugadaMax. JugadaMax puede recibir una comisión.",
       kind: "affiliate",
       operatorId,
       external: true,

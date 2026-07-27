@@ -162,6 +162,9 @@ const VODKABET_MX_GEO_WARNING =
 const AWINTURA_MX_GEO_WARNING =
   "Operador internacional. La disponibilidad, pagos, promociones y sportsbook dependen de tu jurisdicción y de los términos oficiales.";
 
+const AWINTURA_GLOBAL_GEO_WARNING =
+  "Awintura is an international mixed operator. Availability, payments, promotions, KYC and sportsbook access depend on your jurisdiction and official operator terms. JugadaMax does not claim local licensing for every market.";
+
 function awinturaMxLink(): OperatorLink | undefined {
   if (!AWINTURA_CARD_AFFILIATE_URL) return undefined;
   return {
@@ -171,6 +174,18 @@ function awinturaMxLink(): OperatorLink | undefined {
     isAffiliate: true,
     rel: "sponsored nofollow noopener noreferrer",
     geoWarning: AWINTURA_MX_GEO_WARNING,
+  };
+}
+
+function awinturaGlobalLink(): OperatorLink | undefined {
+  if (!AWINTURA_CARD_AFFILIATE_URL) return undefined;
+  return {
+    market: "global",
+    url: AWINTURA_CARD_AFFILIATE_URL,
+    label: "Visit Awintura",
+    isAffiliate: true,
+    rel: "sponsored nofollow noopener noreferrer",
+    geoWarning: AWINTURA_GLOBAL_GEO_WARNING,
   };
 }
 
@@ -518,6 +533,7 @@ const CONFIGURED_LINKS: Partial<Record<string, Partial<Record<Market, OperatorLi
   },
   awintura: {
     mx: awinturaMxLink(),
+    global: awinturaGlobalLink(),
   },
   mostbet: {
     mx: mostbetMxLink(),

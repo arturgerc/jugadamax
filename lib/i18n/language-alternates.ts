@@ -8,12 +8,13 @@
  * (`content/reviews/global.ts`) review slugs that share the same public path.
  *
  * Not paired (intentionally omitted):
- * - Spanish-only: awintura, betfury, 500-casino, rainbet, gamdom, sportsbet-io,
- *   bitcasino, mellstroy, roobet, vodka-bet
+ * - Spanish-only: betfury, 500-casino, rainbet, gamdom, bitcasino, mellstroy,
+ *   roobet, vodka-bet
  * - English-only: xonbet, slotoro
  */
 export const PAIRED_REVIEW_SLUGS = [
   "1xbet",
+  "awintura",
   "bcgame",
   "betsson",
   "caliente",
@@ -23,6 +24,7 @@ export const PAIRED_REVIEW_SLUGS = [
   "ltccasino",
   "melbet",
   "mostbet",
+  "sportsbet-io",
   "stake",
 ] as const;
 

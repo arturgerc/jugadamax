@@ -24,6 +24,10 @@ export type BettingOperatorCardProps = {
   logo?: ImageRef;
   compact?: boolean;
   className?: string;
+  /** Defaults to Spanish “Leer reseña”. */
+  reviewCtaLabel?: string;
+  /** Defaults to Spanish “Código:”. */
+  promoCodeLabel?: string;
 };
 
 const THEMES: Record<
@@ -91,6 +95,8 @@ export function BettingOperatorCard({
   logo,
   compact = false,
   className,
+  reviewCtaLabel = "Leer reseña",
+  promoCodeLabel = "Código:",
 }: BettingOperatorCardProps) {
   const styles = THEMES[theme];
   const ratingLabel =
@@ -169,7 +175,7 @@ export function BettingOperatorCard({
 
       {promoCode ? (
         <p className="mt-1 break-all text-[0.7rem] text-muted-foreground">
-          Código:{" "}
+          {promoCodeLabel}{" "}
           <span className="font-semibold tracking-wide text-foreground">{promoCode}</span>
         </p>
       ) : null}
@@ -196,7 +202,7 @@ export function BettingOperatorCard({
           destination={reviewHref}
           className="inline-flex min-h-11 w-full items-center justify-center text-sm font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
         >
-          Leer reseña
+          {reviewCtaLabel}
         </TrackedLink>
       </div>
     </article>

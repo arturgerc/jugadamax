@@ -18,8 +18,8 @@ export function EnFiatSportsbookCrossLink() {
             Also looking for sports betting?
           </h2>
           <p className="text-sm text-muted-foreground">
-            1xBet, Mostbet and Melbet combine casino with sportsbook. Compare markets, live betting,
-            promotions and terms in the betting section.
+            Compare Betsson, 1xBet, Sportsbet.io, Melbet, Awintura and Mostbet on markets, live
+            betting, promotions and terms in the sports betting section.
           </p>
         </div>
         <TrackedLink

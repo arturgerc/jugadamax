@@ -172,7 +172,14 @@ const OPERATOR_POLICIES: Record<string, OperatorPolicy> = {
     id: "awintura",
     name: "Awintura",
     publicStatus: "active-affiliate",
-    allowedSurfaces: ["casinos-fiat", "bonos", "apuestas", "reviews", "sitemap"],
+    allowedSurfaces: [
+      "casinos-fiat",
+      "bonos",
+      "apuestas",
+      "reviews",
+      "sitemap",
+      "english-global",
+    ],
     ctaAllowed: true,
     affiliateAllowed: true,
     notes:
