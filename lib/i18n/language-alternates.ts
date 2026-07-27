@@ -64,6 +64,8 @@ const STATIC_PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/en/betting": "/apuestas",
   "/guias": "/en/guides",
   "/en/guides": "/guias",
+  "/guias/casinos-con-bitcoin-mexico": "/en/guides/bitcoin-casinos-in-mexico",
+  "/en/guides/bitcoin-casinos-in-mexico": "/guias/casinos-con-bitcoin-mexico",
   "/noticias": "/en/news",
   "/en/news": "/noticias",
 };

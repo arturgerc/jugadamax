@@ -39,6 +39,7 @@ const STATIC_PATHS = [
   "/en/contact",
   "/en/partners",
   "/en/guides/best-crypto-casinos",
+  "/en/guides/bitcoin-casinos-in-mexico",
   "/en/affiliate-disclosure",
   "/en/responsible-gambling",
   "/en/how-we-review",
