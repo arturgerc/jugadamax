@@ -72,9 +72,10 @@ export function EnSiteFooter() {
         </div>
 
         <p className="mt-10 text-xs text-muted-foreground">
-          © {year} JugadaMax. Independent crypto casino reviews and guides. Adults 18+ only.
-          Availability varies by jurisdiction. Do not use VPNs or false location information to
-          access restricted services.
+          © {year} JugadaMax. Independent editorial reviews and guides covering crypto casinos,
+          fiat and multi-currency casinos, and sports betting. Adults 18+ only. Availability varies
+          by jurisdiction. Do not use VPNs or false location information to access restricted
+          services.
         </p>
       </Container>
     </footer>
