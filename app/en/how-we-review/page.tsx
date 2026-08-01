@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
-import { buildEnMetadata } from "@/lib/seo/metadata";
-import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
+import { EnMethodologyAffiliateTransparency } from "@/components/verticals/methodology/en/EnMethodologyAffiliateTransparency";
+import { EnMethodologyAuthors } from "@/components/verticals/methodology/en/EnMethodologyAuthors";
+import { EnMethodologyCriteria } from "@/components/verticals/methodology/en/EnMethodologyCriteria";
+import { EnMethodologyFaq } from "@/components/verticals/methodology/en/EnMethodologyFaq";
+import { EnMethodologyHero } from "@/components/verticals/methodology/en/EnMethodologyHero";
+import { EnMethodologyPrinciples } from "@/components/verticals/methodology/en/EnMethodologyPrinciples";
+import { EnMethodologyProcess } from "@/components/verticals/methodology/en/EnMethodologyProcess";
+import { EnMethodologyRatings } from "@/components/verticals/methodology/en/EnMethodologyRatings";
+import { EnMethodologyRelatedRoutes } from "@/components/verticals/methodology/en/EnMethodologyRelatedRoutes";
+import { EnMethodologySources } from "@/components/verticals/methodology/en/EnMethodologySources";
+import { EnMethodologyTrustStrip } from "@/components/verticals/methodology/en/EnMethodologyTrustStrip";
+import { EnMethodologyUpdates } from "@/components/verticals/methodology/en/EnMethodologyUpdates";
+import { EN_METHOD_FAQ_ITEMS } from "@/components/verticals/methodology/en/en-methodology-config";
 import { Container } from "@/components/layout/Container";
-import { ResponsibleGamblingNoticeEn } from "@/components/trust/ResponsibleGamblingNoticeEn";
+import { breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo/jsonld";
+import { buildEnMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildEnMetadata({
-  title: "How We Review Crypto Casinos",
+  title: "How We Review Casinos & Sportsbooks",
   description:
-    "JugadaMax editorial methodology for reviewing crypto casinos: safety, licensing, payments, user experience, transparency, bonuses and responsible gambling. No fake ratings.",
+    "JugadaMax editorial methodology for reviewing crypto casinos, fiat and multi-currency casinos, and sportsbooks: criteria, sources, editorial ratings and affiliate disclosure. No fake user scores.",
   path: "/en/how-we-review",
   languageAlternates: {
     "es-MX": "/como-evaluamos",
@@ -21,71 +33,36 @@ export default function EnHowWeReviewPage() {
     { name: "How We Review", path: "/en/how-we-review" },
   ]);
 
+  const faq = faqPageJsonLd(
+    EN_METHOD_FAQ_ITEMS.map((item) => ({
+      question: item.q,
+      answer: item.a,
+    })),
+  );
+
   return (
-    <Container className="py-8">
+    <Container className="max-w-7xl py-6 sm:py-8 lg:py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+      />
 
-      <article className="mx-auto max-w-3xl space-y-6">
-        <header className="space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            How We Review
-          </h1>
-          <p className="text-muted-foreground">
-            Our rankings and reviews reflect editorial judgement — not neutral facts or user
-            aggregates.
-          </p>
-        </header>
-
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-foreground">Review criteria</h2>
-          <ul className="space-y-2 text-sm text-muted-foreground sm:text-base">
-            <li>
-              <strong className="text-foreground">Safety & trust:</strong> licensing information
-              published by the operator, transparency about ownership and terms. When we cannot
-              verify a claim independently, we say so clearly.
-            </li>
-            <li>
-              <strong className="text-foreground">Payments:</strong> supported cryptocurrencies or
-              methods, stated limits, fees and processing information from official sources.
-            </li>
-            <li>
-              <strong className="text-foreground">User experience:</strong> site usability, game or
-              market coverage, mobile access and support channels as observed editorially.
-            </li>
-            <li>
-              <strong className="text-foreground">Transparency:</strong> clarity of terms,
-              jurisdiction restrictions, verification requirements and promotional rules.
-            </li>
-            <li>
-              <strong className="text-foreground">Bonuses:</strong> how offers are presented and
-              whether terms appear understandable. We do not invent bonus amounts or promise
-              guaranteed value.
-            </li>
-            <li>
-              <strong className="text-foreground">Responsible gambling:</strong> whether the
-              operator publishes age limits, limit tools and responsible play messaging.
-            </li>
-          </ul>
-        </section>
-
-        <section className="space-y-3 text-sm text-muted-foreground sm:text-base">
-          <h2 className="text-xl font-semibold text-foreground">What we do not do</h2>
-          <p>
-            We do not publish AggregateRating schema, fake user reviews, fabricated payout proof or
-            guaranteed withdrawal claims. Editorial ratings shown on JugadaMax are author-attributed
-            opinions — not aggregated player scores.
-          </p>
-          <p>
-            Availability, bonuses and payment conditions change. Always confirm details on the
-            operator&apos;s official site before registering.
-          </p>
-        </section>
-
-        <ResponsibleGamblingNoticeEn />
-      </article>
+      <EnMethodologyHero />
+      <EnMethodologyTrustStrip />
+      <EnMethodologyPrinciples />
+      <EnMethodologyCriteria />
+      <EnMethodologyProcess />
+      <EnMethodologySources />
+      <EnMethodologyRatings />
+      <EnMethodologyAffiliateTransparency />
+      <EnMethodologyUpdates />
+      <EnMethodologyAuthors />
+      <EnMethodologyFaq />
+      <EnMethodologyRelatedRoutes />
     </Container>
   );
 }
