@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { getArticles, getAuthors, getReviews } from "@/lib/content";
-import { getGlobalReviews } from "@/lib/content/global";
+import { getGlobalNews, getGlobalReviews } from "@/lib/content/global";
 import { filterReviewsForSurface } from "@/content/operators/status";
 
 /**
@@ -37,6 +37,7 @@ const STATIC_PATHS = [
   "/en/betting",
   "/en/reviews",
   "/en/guides",
+  "/en/news",
   "/en/contact",
   "/en/partners",
   "/en/guides/best-crypto-casinos",
@@ -83,6 +84,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(review.updatedAt ?? review.publishedAt),
   }));
 
+  const enNewsEntries: MetadataRoute.Sitemap = getGlobalNews().map((article) => ({
+    url: abs(`/en/news/${article.slug}`),
+    lastModified: new Date(article.updatedAt ?? article.publishedAt),
+  }));
+
   return [
     ...staticEntries,
     ...reviewEntries,
@@ -90,5 +96,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...newsEntries,
     ...authorEntries,
     ...enReviewEntries,
+    ...enNewsEntries,
   ];
 }

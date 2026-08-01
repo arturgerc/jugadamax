@@ -1,84 +1,92 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { buildEnMetadata } from "@/lib/seo/metadata";
+import { EnNewsArchiveSection } from "@/components/verticals/news/en/EnNewsArchiveSection";
+import { EnNewsCategoryNav } from "@/components/verticals/news/en/EnNewsCategoryNav";
+import { EnNewsFeaturedSection } from "@/components/verticals/news/en/EnNewsFeaturedSection";
+import { EnNewsHubEducation } from "@/components/verticals/news/en/EnNewsHubEducation";
+import { EnNewsHubHero } from "@/components/verticals/news/en/EnNewsHubHero";
+import { EnNewsHubTrustStrip } from "@/components/verticals/news/en/EnNewsHubTrustStrip";
+import { EN_NEWS_FAQ_ITEMS } from "@/components/verticals/news/en/en-news-config";
+import {
+  parseEnNewsCategory,
+  resolveEnNewsDirectory,
+} from "@/components/verticals/news/en/en-news-data";
 import { Container } from "@/components/layout/Container";
 import {
-  SourceReferenceBlock,
-  type SourceReference,
-} from "@/components/trust/SourceReferenceBlock";
+  breadcrumbJsonLd,
+  collectionPageJsonLd,
+  faqPageJsonLd,
+} from "@/lib/seo/jsonld";
+import { buildEnMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  ...buildEnMetadata({
-    title: "News & Updates",
-    description:
-      "JugadaMax English news and updates on crypto casinos, payments and iGaming editorial coverage.",
+const EN_NEWS_HUB_TITLE = "Casino, Crypto & Betting News and Analysis";
+const EN_NEWS_HUB_DESCRIPTION =
+  "Editorial news, analysis and opinion on online casinos, crypto payments, bonuses, regulation and sports betting, with identified authors and cited sources where applicable.";
+
+export const metadata: Metadata = buildEnMetadata({
+  title: EN_NEWS_HUB_TITLE,
+  description: EN_NEWS_HUB_DESCRIPTION,
+  path: "/en/news",
+  languageAlternates: {
+    "es-MX": "/noticias",
+    en: "/en/news",
+  },
+});
+
+type EnNewsSearchParams = Promise<{
+  category?: string | string[];
+}>;
+
+/**
+ * English News Hub V2 — parity with Spanish /noticias.
+ */
+export default async function EnNewsIndexPage({
+  searchParams,
+}: {
+  searchParams: EnNewsSearchParams;
+}) {
+  const params = await searchParams;
+  const category = parseEnNewsCategory(params.category);
+  const items = resolveEnNewsDirectory({ category });
+
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", path: "/en" },
+    { name: "News", path: "/en/news" },
+  ]);
+
+  const faq = faqPageJsonLd(
+    EN_NEWS_FAQ_ITEMS.map((item) => ({
+      question: item.q,
+      answer: item.a,
+    })),
+  );
+
+  const collection = collectionPageJsonLd({
+    name: EN_NEWS_HUB_TITLE,
+    description: EN_NEWS_HUB_DESCRIPTION,
     path: "/en/news",
-  }),
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+  });
 
-const newsSourceReferences: SourceReference[] = [
-  { label: "JugadaMax editorial methodology", href: "/en/how-we-review" },
-  { label: "Affiliate disclosure", href: "/en/affiliate-disclosure" },
-  { label: "Responsible gambling", href: "/en/responsible-gambling" },
-  {
-    label: "Author profile: Arturs Stoliks on LinkedIn",
-    href: "https://www.linkedin.com/in/arturs-stoliks-953555280",
-    note: "author/profile proof, not a factual source.",
-  },
-];
-
-export default function EnNewsIndexPage() {
   return (
-    <Container className="py-8 sm:py-10">
-      <header className="relative mb-8 overflow-hidden rounded-2xl border border-white/10 bg-card p-5 sm:p-6 lg:p-8">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,184,0,0.06),transparent_55%)]"
-        />
-        <div className="relative space-y-4">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
-            News & Updates
-          </h1>
-          <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Editorial updates on crypto casinos, payments and iGaming coverage from JugadaMax.
-          </p>
-          <p className="max-w-3xl text-xs leading-relaxed text-muted-foreground">
-            <span className="font-medium text-foreground">By JugadaMax Editorial</span> · Reviewed
-            by JugadaMax Editorial · Last updated July 6, 2026 ·{" "}
-            <a
-              href="https://www.linkedin.com/in/arturs-stoliks-953555280"
-              target="_blank"
-              rel="me noopener noreferrer"
-              className="font-medium text-primary underline underline-offset-2"
-            >
-              Author profile: Arturs Stoliks on LinkedIn
-            </a>
-          </p>
-        </div>
-      </header>
+    <Container className="max-w-7xl py-6 sm:py-8 lg:py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collection) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+      />
 
-      <div className="rounded-lg border border-border/60 bg-card p-6 sm:p-8">
-        <p className="text-base leading-relaxed text-muted-foreground">
-          English updates are being prepared. For current Spanish updates, visit the{" "}
-          <Link href="/noticias" className="font-medium text-primary underline underline-offset-2">
-            Spanish news section
-          </Link>
-          .
-        </p>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Adults 18+ only. Gambling involves risk. Availability varies by jurisdiction.
-        </p>
-        <SourceReferenceBlock
-          title="Sources & references"
-          description="This placeholder is noindex while English news coverage is being prepared. LinkedIn is author/profile proof, not a factual source."
-          items={newsSourceReferences}
-          className="mt-6"
-        />
-      </div>
+      <EnNewsHubHero />
+      <EnNewsHubTrustStrip />
+      <EnNewsFeaturedSection />
+      <EnNewsCategoryNav />
+      <EnNewsArchiveSection items={items} category={category} />
+      <EnNewsHubEducation />
     </Container>
   );
 }

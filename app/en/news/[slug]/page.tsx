@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { NewsArticleTemplate } from "@/components/verticals/news/NewsArticleTemplate";
+import { EnNewsArticleTemplate } from "@/components/verticals/news/en/EnNewsArticleTemplate";
 import {
-  resolveNewsCard,
-  resolveRelatedNews,
-} from "@/components/verticals/news/news-hub-data";
+  resolveEnNewsCard,
+  resolveEnRelatedNews,
+} from "@/components/verticals/news/en/en-news-data";
 import { Container } from "@/components/layout/Container";
-import {
-  getArticleBySlug,
-  getArticles,
-  getAuthorById,
-  getAuthorSameAs,
-} from "@/lib/content";
-import { getSpanishNewsLanguageAlternates } from "@/lib/i18n/language-alternates";
+import { getAuthorById, getAuthorSameAs } from "@/lib/content";
+import { getGlobalNews, getGlobalNewsBySlug } from "@/lib/content/global";
+import { getNewsLanguageAlternates } from "@/lib/i18n/language-alternates";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/jsonld";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildEnMetadata } from "@/lib/seo/metadata";
 
 export function generateStaticParams() {
-  return getArticles("news").map((article) => ({ slug: article.slug }));
+  return getGlobalNews().map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({
@@ -26,56 +22,59 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug("news", slug);
+  const article = getGlobalNewsBySlug(slug);
   if (!article) {
     return {
-      title: "Página no encontrada",
+      title: "Page Not Found",
       robots: { index: false, follow: true },
     };
   }
 
-  return buildMetadata({
+  return buildEnMetadata({
     title: article.title,
     description: article.summary,
-    path: `/noticias/${article.slug}`,
+    path: `/en/news/${article.slug}`,
     type: "article",
-    languageAlternates: getSpanishNewsLanguageAlternates(article.slug),
+    languageAlternates: getNewsLanguageAlternates(article.slug),
   });
 }
 
-export default async function NewsArticlePage({
+export default async function EnNewsArticlePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = getArticleBySlug("news", slug);
+  const article = getGlobalNewsBySlug(slug);
   if (!article) notFound();
 
   const author = getAuthorById(article.authorId);
   if (!author) notFound();
 
-  const card = resolveNewsCard(article);
+  const card = resolveEnNewsCard(article);
   if (!card) notFound();
 
-  const related = resolveRelatedNews(article, 3);
+  const related = resolveEnRelatedNews(article, 3);
 
   const breadcrumb = breadcrumbJsonLd([
-    { name: "Inicio", path: "/" },
-    { name: "Noticias", path: "/noticias" },
-    { name: article.title, path: `/noticias/${article.slug}` },
+    { name: "Home", path: "/en" },
+    { name: "News", path: "/en/news" },
+    { name: article.title, path: `/en/news/${article.slug}` },
   ]);
 
   const jsonLd = articleJsonLd({
     headline: article.title,
-    path: `/noticias/${article.slug}`,
-    authorName: author.name,
-    authorUrl: `/autores/${author.slug}`,
+    path: `/en/news/${article.slug}`,
+    authorName:
+      author.id === "redaccion-jugadamax" ? "JugadaMax Editorial" : author.name,
+    authorUrl: "/en/about",
     authorType: author.kind === "organization" ? "Organization" : "Person",
     authorSameAs: getAuthorSameAs(author),
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     type: "NewsArticle",
+    inLanguage: "en",
+    image: article.coverImage?.src,
   });
 
   return (
@@ -89,7 +88,7 @@ export default async function NewsArticlePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <NewsArticleTemplate card={card} related={related} />
+      <EnNewsArticleTemplate card={card} related={related} />
     </Container>
   );
 }

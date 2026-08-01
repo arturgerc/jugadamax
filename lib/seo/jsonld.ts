@@ -93,6 +93,48 @@ export function itemListJsonLd(items: ItemListEntry[]): JsonLd {
   };
 }
 
+export interface FaqPageItem {
+  question: string;
+  answer: string;
+}
+
+/** FAQPage from the exact visible Q&A content. */
+export function faqPageJsonLd(items: FaqPageItem[]): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/** CollectionPage for editorial hubs (news, guides directories). No AggregateRating. */
+export function collectionPageJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    inLanguage: input.path.startsWith("/en") ? "en" : "es-MX",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "JugadaMax",
+      url: absoluteUrl(input.path.startsWith("/en") ? "/en" : "/"),
+    },
+  };
+}
+
 export interface ArticleJsonLdInput {
   headline: string;
   path: string;

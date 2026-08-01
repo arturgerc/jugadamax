@@ -7,6 +7,7 @@ import { authors as rawAuthors } from "@/content/authors";
 import { globalCasinos as rawGlobalCasinos } from "@/content/casinos/global";
 import { globalReviews as rawGlobalReviews } from "@/content/reviews/global";
 import { globalGuides as rawGlobalGuides } from "@/content/guides/global";
+import { globalNews as rawGlobalNews } from "@/content/news/global";
 import {
   ContentValidationError,
   validateArticle,
@@ -74,6 +75,7 @@ function assertUniqueRanksPerVertical(items: Casino[], collection: string): void
 const globalCasinos: Casino[] = rawGlobalCasinos.map(validateCasino);
 const globalReviews: Review[] = rawGlobalReviews.map(validateReview);
 const globalGuides: Article[] = rawGlobalGuides.map(validateArticle);
+const globalNews: Article[] = rawGlobalNews.map(validateArticle);
 
 assertUniqueIds(globalCasinos, "global casinos");
 assertUniqueSlugs(globalCasinos, "global casinos");
@@ -83,6 +85,8 @@ assertUniqueSlugs(globalReviews, "global reviews");
 assertOneReviewPerCasino(globalReviews, "global reviews");
 assertUniqueIds(globalGuides, "global guides");
 assertUniqueSlugs(globalGuides, "global guides");
+assertUniqueIds(globalNews, "global news");
+assertUniqueSlugs(globalNews, "global news");
 
 const authorIds = new Set(rawAuthors.map((author) => author.id));
 const casinoIds = new Set(globalCasinos.map((casino) => casino.id));
@@ -105,6 +109,19 @@ for (const guide of globalGuides) {
   if (!authorIds.has(guide.authorId)) {
     throw new ContentValidationError(
       `global guide "${guide.id}": authorId "${guide.authorId}" does not resolve`,
+    );
+  }
+}
+
+for (const article of globalNews) {
+  if (article.type !== "news") {
+    throw new ContentValidationError(
+      `global news "${article.id}": type must be "news"`,
+    );
+  }
+  if (!authorIds.has(article.authorId)) {
+    throw new ContentValidationError(
+      `global news "${article.id}": authorId "${article.authorId}" does not resolve`,
     );
   }
 }
@@ -154,4 +171,12 @@ export function getGlobalGuideBySlug(slug: string): Article | undefined {
 
 export function getGlobalGuides(): Article[] {
   return globalGuides;
+}
+
+export function getGlobalNews(): Article[] {
+  return globalNews;
+}
+
+export function getGlobalNewsBySlug(slug: string): Article | undefined {
+  return globalNews.find((article) => article.slug === slug);
 }

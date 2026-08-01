@@ -32,6 +32,34 @@ export type PairedReviewSlug = (typeof PAIRED_REVIEW_SLUGS)[number];
 
 const PAIRED_REVIEW_SLUG_SET = new Set<string>(PAIRED_REVIEW_SLUGS);
 
+/**
+ * Exact Spanish ↔ English news article path pairs.
+ * Slugs differ by language; map full paths for the switcher and hreflang.
+ */
+export const PAIRED_NEWS_ARTICLE_PATHS = [
+  {
+    es: "/noticias/como-leer-cambios-de-bonos-y-promociones-sin-caer-en-urgencia",
+    en: "/en/news/how-to-read-bonus-promotion-changes",
+  },
+  {
+    es: "/noticias/regulacion-juegos-mexico-sigue-pendiente-ante-mundial-2026",
+    en: "/en/news/mexico-gambling-regulation-world-cup-2026",
+  },
+  {
+    es: "/noticias/jugadamax-publica-su-metodologia-de-evaluacion",
+    en: "/en/news/jugadamax-editorial-review-methodology",
+  },
+] as const;
+
+function buildNewsLanguageAlternates(): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const pair of PAIRED_NEWS_ARTICLE_PATHS) {
+    map[pair.es] = pair.en;
+    map[pair.en] = pair.es;
+  }
+  return map;
+}
+
 /** Static marketing / legal page pairs (non-review). */
 const STATIC_PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/": "/en",
@@ -81,10 +109,11 @@ function buildReviewLanguageAlternates(): Record<string, string> {
   return map;
 }
 
-/** Full path map used by the language switcher (static pages + paired reviews). */
+/** Full path map used by the language switcher (static pages + paired reviews/news). */
 export const PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   ...STATIC_PAGE_LANGUAGE_ALTERNATES,
   ...buildReviewLanguageAlternates(),
+  ...buildNewsLanguageAlternates(),
 };
 
 /** Normalize pathname for lookup (trailing slash, query/hash stripped). */
@@ -114,6 +143,36 @@ export function getReviewLanguageAlternates(
 }
 
 /**
+ * SEO hreflang map for an English news slug, or undefined when unpaired.
+ */
+export function getNewsLanguageAlternates(
+  enSlug: string,
+): { "es-MX": string; en: string } | undefined {
+  const enPath = `/en/news/${enSlug}`;
+  const pair = PAIRED_NEWS_ARTICLE_PATHS.find((item) => item.en === enPath);
+  if (!pair) return undefined;
+  return {
+    "es-MX": pair.es,
+    en: pair.en,
+  };
+}
+
+/**
+ * SEO hreflang map for a Spanish news slug, or undefined when unpaired.
+ */
+export function getSpanishNewsLanguageAlternates(
+  esSlug: string,
+): { "es-MX": string; en: string } | undefined {
+  const esPath = `/noticias/${esSlug}`;
+  const pair = PAIRED_NEWS_ARTICLE_PATHS.find((item) => item.es === esPath);
+  if (!pair) return undefined;
+  return {
+    "es-MX": pair.es,
+    en: pair.en,
+  };
+}
+
+/**
  * Resolve the opposite-locale path for an exact alternate.
  * Returns undefined when no pair exists (caller may fall back to locale home).
  */
@@ -124,8 +183,11 @@ export function getLanguageAlternate(path: string): string | undefined {
 
   // Defensive: paired reviews even if the static map drifts.
   const reviewMatch = normalized.match(/^\/(en\/)?reviews\/([^/]+)$/);
-  if (!reviewMatch) return undefined;
-  const slug = reviewMatch[2];
-  if (!isPairedReviewSlug(slug)) return undefined;
-  return reviewMatch[1] ? `/reviews/${slug}` : `/en/reviews/${slug}`;
+  if (reviewMatch) {
+    const slug = reviewMatch[2];
+    if (!isPairedReviewSlug(slug)) return undefined;
+    return reviewMatch[1] ? `/reviews/${slug}` : `/en/reviews/${slug}`;
+  }
+
+  return undefined;
 }
