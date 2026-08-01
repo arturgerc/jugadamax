@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getAuthorById } from "@/lib/content";
-import { getGlobalCasinoById, getGlobalReviews } from "@/lib/content/global";
-import { buildEnMetadata } from "@/lib/seo/metadata";
+import { EnFeaturedReviews } from "@/components/verticals/reviews/en/EnFeaturedReviews";
+import { EnReviewAuthors } from "@/components/verticals/reviews/en/EnReviewAuthors";
+import { EnReviewCategories } from "@/components/verticals/reviews/en/EnReviewCategories";
+import { EnReviewDirectory } from "@/components/verticals/reviews/en/EnReviewDirectory";
+import { EnReviewMethodology } from "@/components/verticals/reviews/en/EnReviewMethodology";
+import { EnReviewsFaq, EnReviewsRelatedRoutes } from "@/components/verticals/reviews/en/EnReviewsFaq";
+import { EnReviewsHero } from "@/components/verticals/reviews/en/EnReviewsHero";
+import { EnReviewsTrustStrip } from "@/components/verticals/reviews/en/EnReviewsTrustStrip";
+import {
+  parseEnReviewHubCategory,
+  parseEnReviewHubQuery,
+  parseEnReviewHubSort,
+  resolveAllEnReviewCards,
+  resolveEnReviewDirectory,
+} from "@/components/verticals/reviews/en/en-reviews-data";
 import { Container } from "@/components/layout/Container";
-import { AuthorByline } from "@/components/review/AuthorByline";
+import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/seo/jsonld";
+import { buildEnMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildEnMetadata({
-  title: "Casino Reviews — Global Editorial Coverage",
+  title: "Casino & Sportsbook Reviews",
   description:
-    "Independent English reviews of crypto and fiat casinos including Anonymous Casino, XON.BET, Slotoro, Stake, 1xBet and Mexico-market references. Jurisdiction-aware, adults 18+, no hype.",
+    "Editorial reviews of crypto casinos, fiat and multi-currency operators, no-KYC casinos and sportsbooks, including payments, verification, ratings, strengths and drawbacks.",
   path: "/en/reviews",
   languageAlternates: {
     "es-MX": "/reviews",
@@ -17,63 +29,66 @@ export const metadata: Metadata = buildEnMetadata({
   },
 });
 
-export default function EnReviewsIndexPage() {
-  const reviews = getGlobalReviews();
+type EnReviewsSearchParams = Promise<{
+  q?: string | string[];
+  category?: string | string[];
+  sort?: string | string[];
+}>;
+
+/**
+ * English Reviews Hub V2 — directory index only.
+ * Individual /en/reviews/[slug] pages are unchanged.
+ */
+export default async function EnReviewsIndexPage({
+  searchParams,
+}: {
+  searchParams: EnReviewsSearchParams;
+}) {
+  const params = await searchParams;
+  const category = parseEnReviewHubCategory(params.category);
+  const sort = parseEnReviewHubSort(params.sort);
+  const query = parseEnReviewHubQuery(params.q);
+
+  const directory = resolveEnReviewDirectory({
+    category,
+    sort,
+    query,
+  });
+
+  const allCards = resolveAllEnReviewCards();
+
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", path: "/en" },
+    { name: "Reviews", path: "/en/reviews" },
+  ]);
+
+  const itemList = itemListJsonLd(
+    allCards.map((card) => ({
+      name: card.operatorName,
+      path: card.href,
+    })),
+  );
 
   return (
-    <Container className="py-8">
-      <header className="mb-6 space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-          Casino Reviews
-        </h1>
-        <p className="max-w-2xl text-muted-foreground">
-          Editorial assessments of global crypto and fiat operators. Gambling involves risk. Check
-          local laws and operator terms before registering.
-        </p>
-      </header>
+    <Container className="max-w-7xl py-6 sm:py-8 lg:py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
+      />
 
-      <ul className="grid gap-4 sm:grid-cols-2">
-        {reviews.map((review) => {
-          const casino = getGlobalCasinoById(review.casinoId);
-          const author = getAuthorById(review.authorId);
-          const href = `/en/reviews/${review.slug}`;
-
-          return (
-            <li key={review.id}>
-              <article className="flex h-full flex-col rounded-2xl border border-white/10 bg-card p-5">
-                {casino ? (
-                  <p className="text-xs font-medium uppercase tracking-wide text-accent">
-                    {casino.name} review
-                  </p>
-                ) : null}
-                <h2 className="mt-1 text-lg font-semibold text-foreground">
-                  <Link href={href} className="transition-colors hover:text-primary">
-                    {review.title}
-                  </Link>
-                </h2>
-                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                  {review.verdict}
-                </p>
-                {author ? (
-                  <AuthorByline
-                    author={author}
-                    publishedAt={review.publishedAt}
-                    updatedAt={review.updatedAt}
-                    locale="en"
-                    className="mt-3"
-                  />
-                ) : null}
-                <Link
-                  href={href}
-                  className="mt-4 inline-flex min-h-11 items-center text-sm font-medium text-primary underline underline-offset-2"
-                >
-                  Read review
-                </Link>
-              </article>
-            </li>
-          );
-        })}
-      </ul>
+      <EnReviewsHero />
+      <EnReviewsTrustStrip />
+      <EnFeaturedReviews />
+      <EnReviewCategories />
+      <EnReviewDirectory directory={directory} />
+      <EnReviewMethodology />
+      <EnReviewAuthors />
+      <EnReviewsFaq />
+      <EnReviewsRelatedRoutes />
     </Container>
   );
 }

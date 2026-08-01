@@ -74,6 +74,25 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]): JsonLd {
   };
 }
 
+export interface ItemListEntry {
+  name: string;
+  path: string;
+}
+
+/** ItemList of real internal URLs (reviews directory, etc.). No AggregateRating. */
+export function itemListJsonLd(items: ItemListEntry[]): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: absoluteUrl(item.path),
+    })),
+  };
+}
+
 export interface ArticleJsonLdInput {
   headline: string;
   path: string;
