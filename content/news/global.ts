@@ -75,14 +75,14 @@ export const globalNews: Article[] = [
     slug: "mexico-gambling-regulation-world-cup-2026",
     type: "news",
     title:
-      "Mexico’s Gambling Regulation Modernisation Remains Pending Ahead of the 2026 World Cup",
+      "Before the 2026 World Cup, Industry Warned Mexico’s Gambling Reform Was Still Pending",
     summary:
-      "Industry reporting warns that Mexico’s federal gambling framework remains outdated and that a full reform before the 2026 World Cup — which Mexico co-hosts — is unlikely. Clear separation between reported facts and editorial commentary.",
+      "In April 2026, iGaming Business reported that industry representatives were pressing Mexico to modernise its federal gambling framework and considered a completed reform unlikely before the World Cup began. Reported facts from that source, separated from JugadaMax editorial commentary (23 July 2026).",
     body: [
-      "According to coverage by iGaming Business, industry leaders in Mexico continue to call for clarity on modernising the regulatory framework for gambling and betting. The outlet describes a framework based on long-standing rules and reforms that have not yet materialised at the pace the online market demands.",
-      "In that same coverage, Miguel Ángel Ochoa Sánchez, president of the Mexican Association of Licensees, Operators and Suppliers of the Entertainment and Betting Industry (AIEJA), says the market is “under-regulated”, especially online, and that the sector is still waiting for a final version of the bill advanced after President Sheinbaum’s December 2024 public statement on the need for a new Federal Law on Games and Lotteries.",
-      "iGaming Business also indicates that, with limited time until the 2026 World Cup — co-hosted by Mexico — an updated framework ready for the tournament’s June start is unlikely. Timeline assessment and the judgement on reform probability belong to the cited report; JugadaMax does not invent legislative approval dates.",
-      "For readers in Mexico, the practical point is not to anticipate a law that does not yet exist, but to understand that availability, permits, taxes and operator conditions can change with jurisdiction and public policy. Any registration or deposit should be made only on sites whose legality and terms you can verify yourself.",
+      "In April 2026, iGaming Business reported that industry representatives were pressing Mexico to modernise its gambling framework before the FIFA World Cup. The report — published on 20 April 2026 — argued that a completed reform was unlikely to be in place before the tournament began in June.",
+      "In that same coverage, Miguel Ángel Ochoa Sánchez, president of the Mexican Association of Licensees, Operators and Suppliers of the Entertainment and Betting Industry (AIEJA), said at the time that the market was “under-regulated”, especially online, and that the sector was still waiting for a final version of the bill advanced after President Sheinbaum’s December 2024 public statement on the need for a new Federal Law on Games and Lotteries.",
+      "Timeline judgement and reform-probability assessment belong to that April iGaming Business report; JugadaMax does not invent legislative approval dates and does not convert the pre-tournament prediction into a confirmed post-tournament fact. This editorial note is published on 23 July 2026, after the FIFA World Cup 2026 closed (11 June–19 July 2026), and revisits what the source warned before the championship.",
+      "For readers in Mexico, the practical point remains not to anticipate a law that does not yet exist, but to understand that availability, permits, taxes and operator conditions can change with jurisdiction and public policy. Any registration or deposit should be made only on sites whose legality and terms you can verify yourself.",
     ].join("\n\n"),
     authorId: "arturs-stoliks",
     tags: ["regulation", "mexico", "world-cup-2026"],
@@ -95,10 +95,10 @@ export const globalNews: Article[] = [
     factLabel: "Reported facts",
     opinionLabel: "Editorial commentary",
     keyPoints: [
-      "iGaming Business reports industry pressure to modernise gambling regulation in Mexico.",
-      "AIEJA describes the online market as under-regulated and still waiting for a final bill text.",
-      "The same report considers an updated framework ready for the start of the 2026 World Cup unlikely.",
-      "JugadaMax does not claim a specific reform is already approved and does not invent official Congress timelines.",
+      "The 20 April 2026 iGaming Business report warned of industry pressure to modernise gambling regulation in Mexico before the World Cup.",
+      "At that time, AIEJA described the online market as under-regulated and still waiting for a final bill text.",
+      "The same source considered an updated framework ready before the tournament’s June 2026 start unlikely.",
+      "JugadaMax does not assert the post-World Cup legislative status and does not invent official Congress timelines; this note is published on 23 July 2026.",
     ],
     sources: [
       {
@@ -106,13 +106,13 @@ export const globalNews: Article[] = [
           "Pressure mounting for Mexico to modernise its gambling regulation",
         url: "https://igamingbusiness.com/legal-compliance/regulation/industry-pressure-mounting-mexico-modernise-gambling-regulation/",
         publisher: "iGaming Business",
-        note: "Industry coverage of pending reform and statements attributed to AIEJA.",
+        note: "Published 20 April 2026. Pre-World Cup industry coverage of pending reform and statements attributed to AIEJA.",
       },
       {
         label: "FIFA World Cup 2026™ — Canada, Mexico and United States",
         url: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026",
         publisher: "FIFA",
-        note: "Confirmation of the joint tournament; does not imply a new Mexican regulatory framework.",
+        note: "Confirmation of the joint tournament (11 June–19 July 2026); does not imply a new Mexican regulatory framework.",
       },
     ],
     relatedLinks: [
@@ -122,7 +122,7 @@ export const globalNews: Article[] = [
     ],
     authorComment: {
       heading: "Comment from Arturs Stoliks",
-      body: "My editorial reading is cautious: until a clear, current framework exists, players in Mexico should prioritise verifying terms, payments and risk — not promises of a “modern market”. A World Cup can increase attention on betting, but it does not automatically make an operator safe or authorised. At JugadaMax we will keep labelling opinion versus facts and update content only when there are verifiable sources.",
+      body: "My editorial reading is cautious: the April 2026 coverage documents an industry warning before the World Cup, not a post-tournament verdict. Until a clear, current framework can be verified, players in Mexico should prioritise terms, payments and risk — not promises of a “modern market”. A World Cup can increase attention on betting, but it does not automatically make an operator safe or authorised. At JugadaMax we will keep labelling opinion versus facts and update content only when there are verifiable sources.",
     },
     coverImage: {
       src: "/editorial/news/regulacion-juegos-mexico-mundial-2026.png",
