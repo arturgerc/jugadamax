@@ -11,7 +11,7 @@ const CHECK_ITEMS = [
 
 const FOCUS_BADGES = [
   "México / LATAM",
-  "Casino y crypto",
+  "Casino y cripto",
   "Términos y límites",
   "Evaluación editorial",
 ] as const;
@@ -43,7 +43,7 @@ export function BonusPageHero() {
             Bonos de casino en México: promociones y condiciones clave
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Comparamos promociones de casino, crypto y apuestas para México y LATAM. Revisa depósito
+            Comparamos promociones de casino, cripto y apuestas para México y LATAM. Revisa depósito
             mínimo, requisito de apuesta, juegos elegibles, vigencia, límites y verificación antes
             de registrarte.
           </p>

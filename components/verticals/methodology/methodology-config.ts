@@ -3,7 +3,7 @@
  */
 
 export const METHOD_FOCUS_PILLS = [
-  "Casinos crypto",
+  "Casinos cripto",
   "Casinos fiat",
   "Apuestas",
   "Seguridad y pagos",
@@ -23,7 +23,7 @@ export const METHOD_PRINCIPLES = [
   },
   {
     title: "Producto y GEO claramente definidos",
-    body: "El mismo operador puede evaluarse en contextos distintos (crypto, fiat, apuestas o mercado). Definimos el producto y el alcance geográfico cuando aplica.",
+    body: "El mismo operador puede evaluarse en contextos distintos (cripto, fiat, apuestas o mercado). Definimos el producto y el alcance geográfico cuando aplica.",
   },
   {
     title: "Fuentes identificables",
@@ -65,7 +65,7 @@ export const METHOD_CRITERIA = [
 export const METHOD_PROCESS_STEPS = [
   {
     heading: "Definimos el producto y el mercado",
-    body: "Identificamos si la reseña cubre casino crypto, fiat, apuestas u otro producto, y el contexto de mercado relevante (por ejemplo, México).",
+    body: "Identificamos si la reseña cubre casino cripto, fiat, apuestas u otro producto, y el contexto de mercado relevante (por ejemplo, México).",
   },
   {
     heading: "Revisamos páginas oficiales y términos",
@@ -149,7 +149,7 @@ export const METHOD_FAQ_ITEMS = [
 
 export const METHOD_RELATED_ROUTES = [
   { href: "/reviews", label: "Reseñas" },
-  { href: "/casinos-crypto", label: "Casinos crypto" },
+  { href: "/casinos-cripto", label: "Casinos cripto" },
   { href: "/casinos-fiat", label: "Casinos fiat" },
   { href: "/apuestas", label: "Apuestas" },
   { href: "/bonos", label: "Bonos" },

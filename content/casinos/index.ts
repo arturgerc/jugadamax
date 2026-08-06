@@ -84,11 +84,11 @@ export const casinos: Casino[] = [
       licenseName:
         "Sin licencia de juego verificada independientemente por JugadaMax",
       notes:
-        "Anonymous Casino opera públicamente en CryptoCasino.CC como casino crypto internacional sin KYC. JugadaMax no confirma licencia local mexicana ni una licencia offshore vigente. Revisa Terms, jurisdicción, límites, controles antifraude y políticas actuales después del redirect.",
+        "Anonymous Casino opera públicamente en CryptoCasino.CC como casino cripto internacional sin KYC. JugadaMax no confirma licencia local mexicana ni una licencia offshore vigente. Revisa Terms, jurisdicción, límites, controles antifraude y políticas actuales después del redirect.",
     },
     bonusIds: [],
     summary:
-      "Anonymous Casino, disponible en CryptoCasino.CC, es un casino crypto orientado a privacidad y registro sin KYC. El formulario público utiliza email y contraseña y admite BTC, ETH, XRP, USDT, SOL, DOGE, USDC y LTC. Su propuesta principal es acceso sencillo, crypto games, slots y live casino, no un bono garantizado.",
+      "Anonymous Casino, disponible en CryptoCasino.CC, es un casino cripto orientado a privacidad y registro sin KYC. El formulario público utiliza email y contraseña y admite BTC, ETH, XRP, USDT, SOL, DOGE, USDC y LTC. Su propuesta principal es acceso sencillo, juegos cripto, slots y live casino, no un bono garantizado.",
     locale: "es-MX",
   },
   {
@@ -121,11 +121,11 @@ export const casinos: Casino[] = [
       licenseName:
         "Sin licencia de juego verificada independientemente por JugadaMax",
       notes:
-        "ETH Casino se presenta como casino crypto internacional sin KYC. JugadaMax no confirma licencia local mexicana ni una licencia internacional vigente. Revisa términos, jurisdicción, límites, controles antifraude y políticas actuales después del redirect.",
+        "ETH Casino se presenta como casino cripto internacional sin KYC. JugadaMax no confirma licencia local mexicana ni una licencia internacional vigente. Revisa términos, jurisdicción, límites, controles antifraude y políticas actuales después del redirect.",
     },
     bonusIds: [],
     summary:
-      "ETH Casino es un casino crypto centrado en Ethereum y una política pública sin KYC. El registro descrito utiliza email y contraseña, y el operador acepta ETH, BTC, USDT y otras criptomonedas. Su propuesta principal es privacidad, pagos desde wallets, slots, juegos crypto y live casino, no bonos de bienvenida.",
+      "ETH Casino es un casino cripto centrado en Ethereum y una política pública sin KYC. El registro descrito utiliza email y contraseña, y el operador acepta ETH, BTC, USDT y otras criptomonedas. Su propuesta principal es privacidad, pagos desde wallets, slots, juegos cripto y live casino, no bonos de bienvenida.",
     locale: "es-MX",
   },
   {
@@ -158,11 +158,11 @@ export const casinos: Casino[] = [
       licenseName:
         "Licencia declarada por el operador — no verificada independientemente por JugadaMax",
       notes:
-        "LTC Casino se presenta como casino crypto internacional. JugadaMax no confirma una licencia local mexicana ni garantiza el estado vigente de una licencia offshore. Revisa footer, términos, jurisdicción, límites y políticas actuales después del redirect.",
+        "LTC Casino se presenta como casino cripto internacional. JugadaMax no confirma una licencia local mexicana ni garantiza el estado vigente de una licencia offshore. Revisa footer, términos, jurisdicción, límites y políticas actuales después del redirect.",
     },
     bonusIds: [],
     summary:
-      "LTC Casino es un casino crypto orientado a privacidad y registro sin KYC según su FAQ público. Permite registrarse con email y contraseña y acepta Litecoin, Bitcoin, Ethereum, USDT y otras criptomonedas. No se promociona como casino de bonos: su propuesta principal es acceso sencillo, juegos crypto y pagos desde wallets.",
+      "LTC Casino es un casino cripto orientado a privacidad y registro sin KYC según su FAQ público. Permite registrarse con email y contraseña y acepta Litecoin, Bitcoin, Ethereum, USDT y otras criptomonedas. No se promociona como casino de bonos: su propuesta principal es acceso sencillo, juegos cripto y pagos desde wallets.",
     locale: "es-MX",
   },
   {
@@ -220,7 +220,7 @@ export const casinos: Casino[] = [
     bonusIds: ["codere-welcome"],
     // Editorial only — partner pending; internal review at /reviews/codere.
     summary:
-      "Casa de apuestas y casino online con enfoque local para México. Destaca por apuestas deportivas, fútbol, métodos de pago mexicanos y experiencia orientada a usuarios que prefieren pesos mexicanos frente a casinos crypto/offshore.",
+      "Casa de apuestas y casino online con enfoque local para México. Destaca por apuestas deportivas, fútbol, métodos de pago mexicanos y experiencia orientada a usuarios que prefieren pesos mexicanos frente a casinos cripto/offshore.",
     locale: "es-MX",
   },
   {
@@ -249,7 +249,7 @@ export const casinos: Casino[] = [
     bonusIds: ["betsson-welcome"],
     // Outbound links resolved on vertical pages via BETSSON_MX_* constants.
     summary:
-      "Casino online y casa de apuestas con marca internacional y enfoque para México. Puede encajar para usuarios que buscan apuestas deportivas, casino, slots, pagos locales y una experiencia fiat frente a casinos crypto/offshore.",
+      "Casino online y casa de apuestas con marca internacional y enfoque para México. Puede encajar para usuarios que buscan apuestas deportivas, casino, slots, pagos locales y una experiencia fiat frente a casinos cripto/offshore.",
     locale: "es-MX",
   },
   {
@@ -271,7 +271,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["500-casino-welcome"],
     summary:
-      "500 Casino es un candidato crypto internacional con slots, live casino, sportsbook y promociones visibles. JugadaMax lo presenta como alternativa de comparación por debajo de BetFury; revisa términos, pagos, verificación y jurisdicción antes de registrarte.",
+      "500 Casino es un candidato cripto internacional con slots, live casino, sportsbook y promociones visibles. JugadaMax lo presenta como alternativa de comparación por debajo de BetFury; revisa términos, pagos, verificación y jurisdicción antes de registrarte.",
     locale: "es-MX",
   },
   {
@@ -291,10 +291,10 @@ export const casinos: Casino[] = [
     licensing: {
       licenseName: "Licencia no verificada por JugadaMax",
       notes:
-        "Gamdom es un operador crypto internacional. JugadaMax no verifica licencia local mexicana, disponibilidad regional, KYC, pagos, retiros ni condiciones promocionales; revisa entidad operadora, restricciones y términos oficiales antes de registrarte.",
+        "Gamdom es un operador cripto internacional. JugadaMax no verifica licencia local mexicana, disponibilidad regional, KYC, pagos, retiros ni condiciones promocionales; revisa entidad operadora, restricciones y términos oficiales antes de registrarte.",
     },
     summary:
-      "Gamdom es un operador crypto internacional con casino, sportsbook, juegos Originals, Rewards y promociones rotativas. Para usuarios de México/LATAM, JugadaMax lo presenta como una alternativa crypto internacional; disponibilidad, pagos, verificación y promociones dependen de los términos oficiales y de la jurisdicción.",
+      "Gamdom es un operador cripto internacional con casino, sportsbook, juegos Originals, Rewards y promociones rotativas. Para usuarios de México/LATAM, JugadaMax lo presenta como una alternativa cripto internacional; disponibilidad, pagos, verificación y promociones dependen de los términos oficiales y de la jurisdicción.",
     bonusIds: ["gamdom-rewards-welcome"],
     locale: "es-MX",
   },
@@ -329,7 +329,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["rainbet-promotions"],
     summary:
-      "Rainbet es un casino crypto internacional con slots, juegos en vivo, sportsbook y títulos Originals. Puede funcionar como alternativa de comparación para usuarios de México/LATAM que buscan una experiencia centrada en criptomonedas, siempre revisando términos oficiales, disponibilidad regional, KYC y métodos de pago.",
+      "Rainbet es un casino cripto internacional con slots, juegos en vivo, sportsbook y títulos Originals. Puede funcionar como alternativa de comparación para usuarios de México/LATAM que buscan una experiencia centrada en criptomonedas, siempre revisando términos oficiales, disponibilidad regional, KYC y métodos de pago.",
     locale: "es-MX",
   },
   {
@@ -360,7 +360,7 @@ export const casinos: Casino[] = [
         "Fuentes externas identifican a Raw Entertainment B.V. y licencias de Curaçao y Anjouan. JugadaMax recomienda confirmar la entidad, los números de licencia, restricciones regionales, KYC y políticas vigentes directamente en Roobet antes de registrarte.",
     },
     summary:
-      "Roobet es un casino crypto internacional con slots, live casino, sportsbook, promociones rotativas y campañas VIP. Para usuarios de México, JugadaMax lo presenta como candidato internacional de comparación; la disponibilidad, promociones, pagos, KYC y retiros dependen de los términos oficiales y de la jurisdicción.",
+      "Roobet es un casino cripto internacional con slots, live casino, sportsbook, promociones rotativas y campañas VIP. Para usuarios de México, JugadaMax lo presenta como candidato internacional de comparación; la disponibilidad, promociones, pagos, KYC y retiros dependen de los términos oficiales y de la jurisdicción.",
     locale: "es-MX",
   },
   {
@@ -389,7 +389,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["betfury-welcome"],
     summary:
-      "BetFury es un casino crypto gamificado con Bonus Cabinet, Free Spins, cashback, rakeback y promociones por nivel. Para usuarios de México/LATAM, JugadaMax lo presenta como partner crypto destacado; bonos, pagos, verificación y disponibilidad dependen de los términos oficiales y de tu jurisdicción.",
+      "BetFury es un casino cripto gamificado con Bonus Cabinet, Free Spins, cashback, rakeback y promociones por nivel. Para usuarios de México/LATAM, JugadaMax lo presenta como partner cripto destacado; bonos, pagos, verificación y disponibilidad dependen de los términos oficiales y de tu jurisdicción.",
     locale: "es-MX",
   },
   {
@@ -473,7 +473,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["awintura-welcome"],
     summary:
-      "Awintura es un operador internacional mixto con casino, slots, live casino, juegos de mesa, promociones, sportsbook, VIP y funciones de gamificación. Admite métodos fiat y algunas opciones crypto según país y cuenta. La campaña JugadaMax muestra hasta $60,000, 250 FS y 200% freebets según términos.",
+      "Awintura es un operador internacional mixto con casino, slots, live casino, juegos de mesa, promociones, sportsbook, VIP y funciones de gamificación. Admite métodos fiat y algunas opciones cripto según país y cuenta. La campaña JugadaMax muestra hasta $60,000, 250 FS y 200% freebets según términos.",
     locale: "es-MX",
   },
   {
@@ -537,7 +537,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["sportsbetio-champions-welcome"],
     summary:
-      "Sportsbet.io es un sportsbook crypto internacional con casino, live casino, slots, Originals, torneos y VIP. El Champions Welcome Bonus publicado ofrece 100% hasta 300 USDT para Sports o Casino, sujeto a depósito mínimo, wagering, cuenta, GEO y términos oficiales.",
+      "Sportsbet.io es un sportsbook cripto internacional con casino, live casino, slots, Originals, torneos y VIP. El Champions Welcome Bonus publicado ofrece 100% hasta 300 USDT para Sports o Casino, sujeto a depósito mínimo, wagering, cuenta, GEO y términos oficiales.",
     locale: "es-MX",
   },
   {
@@ -567,7 +567,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["bitcasino-three-deposit-welcome"],
     summary:
-      "Bitcasino.io es un casino crypto internacional con slots, live casino, Originals, jackpots y promociones. La campaña suministrada anuncia hasta 5,000 USDT repartidos en tres bonos de depósito, sujeto a cuenta, GEO, wagering y términos oficiales.",
+      "Bitcasino.io es un casino cripto internacional con slots, live casino, Originals, jackpots y promociones. La campaña suministrada anuncia hasta 5,000 USDT repartidos en tres bonos de depósito, sujeto a cuenta, GEO, wagering y términos oficiales.",
     locale: "es-MX",
   },
   {
@@ -591,7 +591,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["mellstroy-welcome"],
     summary:
-      "Mellstroy es un casino crypto con slots, live casino, Fortune Wheel, promociones visibles y sportsbook adicional. Para usuarios de México/LATAM, JugadaMax lo mantiene como alternativa internacional de prioridad inferior a sus principales partners crypto; bonos, pagos, verificación y disponibilidad dependen de términos oficiales.",
+      "Mellstroy es un casino cripto con slots, live casino, Fortune Wheel, promociones visibles y sportsbook adicional. Para usuarios de México/LATAM, JugadaMax lo mantiene como alternativa internacional de prioridad inferior a sus principales partners cripto; bonos, pagos, verificación y disponibilidad dependen de términos oficiales.",
     locale: "es-MX",
   },
   {
@@ -611,7 +611,7 @@ export const casinos: Casino[] = [
         "Fuentes externas identifican a Twocent Technology Limited y licencia de Anjouan. No equivale a licencia local mexicana. Verifica entidad, licencia vigente y restricciones en el sitio oficial.",
     },
     summary:
-      "BC.Game es un casino crypto internacional con slots, live casino, crash, Originals y sportsbook. JugadaMax lo incluye como comparación editorial sin campaña afiliada para México; pagos, KYC, bonos y retiros dependen de términos oficiales.",
+      "BC.Game es un casino cripto internacional con slots, live casino, crash, Originals y sportsbook. JugadaMax lo incluye como comparación editorial sin campaña afiliada para México; pagos, KYC, bonos y retiros dependen de términos oficiales.",
     locale: "es-MX",
   },
   {
@@ -628,7 +628,7 @@ export const casinos: Casino[] = [
     rankByVertical: {},
     rating: 3.6,
     affiliateUrl: VODKABET_AFFILIATE_URL,
-    payments: [{ name: "Crypto", kind: "crypto" }],
+    payments: [{ name: "Cripto", kind: "crypto" }],
     licensing: {
       licenseName: "Licencia no verificada por JugadaMax",
       notes:
@@ -636,7 +636,7 @@ export const casinos: Casino[] = [
     },
     bonusIds: ["vodkabet-welcome"],
     summary:
-      "Vodka.bet es un casino internacional con slots, live casino, juegos de mesa, jackpots y sportsbook adicional. La campaña JUGADAMAX muestra 125% en el primer depósito, hasta 300 FS, un extra para depósitos crypto y free spins vinculados a Telegram, todo sujeto a términos, elegibilidad y jurisdicción.",
+      "Vodka.bet es un casino internacional con slots, live casino, juegos de mesa, jackpots y sportsbook adicional. La campaña JUGADAMAX muestra 125% en el primer depósito, hasta 300 FS, un extra para depósitos con criptomonedas y free spins vinculados a Telegram, todo sujeto a términos, elegibilidad y jurisdicción.",
     locale: "es-MX",
   },
 ];

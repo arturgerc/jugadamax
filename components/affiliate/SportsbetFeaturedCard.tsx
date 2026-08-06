@@ -34,13 +34,13 @@ const CONTEXT_CONFIG: Record<
   Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
 > = {
   homepage: {
-    badge: "CRYPTO SPORTSBOOK + CASINO",
+    badge: "SPORTSBOOK CRIPTO + CASINO",
     headline: "Sportsbet.io",
-    subheadline: "Apuestas crypto, live betting y casino",
+    subheadline: "Apuestas cripto, live betting y casino",
     offerText: "100% hasta 300 USDT — Sports o Casino",
     paymentBadges: ["USDT", "Sports", "Casino"],
     featureBullets: [
-      "Sportsbook crypto, live betting y casino en una cuenta",
+      "Sportsbook cripto, live betting y casino en una cuenta",
       "Depósito mínimo 10 USDT; wagering publicado de 15x o 40x",
     ],
     primaryCtaLabel: "Visitar Sportsbet.io",
@@ -64,13 +64,13 @@ const CONTEXT_CONFIG: Record<
     className: "h-fit self-start p-3 sm:p-4 md:h-full md:self-stretch",
   },
   crypto: {
-    badge: "CRYPTO SPORTSBOOK + CASINO",
-    headline: "Sportsbet.io: apuestas crypto, casino y promociones",
+    badge: "SPORTSBOOK CRIPTO + CASINO",
+    headline: "Sportsbet.io: apuestas cripto, casino y promociones",
     subheadline: "Sportsbook, live betting, slots, Originals y live casino",
     offerText: "100% hasta 300 USDT — Sports o Casino",
-    paymentBadges: ["BTC", "USDT", "USDC", "Crypto"],
+    paymentBadges: ["BTC", "USDT", "USDC", "Cripto"],
     featureBullets: [
-      "Sportsbook crypto, casino y live casino en una cuenta",
+      "Sportsbook cripto, casino y live casino en una cuenta",
       "100% hasta 300 USDT con elección Sports o Casino",
       "Depósito mínimo 10 USDT; wagering 15x o 40x",
       "KYC, pagos, retiros y disponibilidad según términos",
@@ -93,7 +93,7 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   sportsbook: {
-    badge: "CRYPTO SPORTSBOOK",
+    badge: "SPORTSBOOK CRIPTO",
     headline: "Sportsbet.io: apuestas deportivas y live betting",
     subheadline: "Fútbol, esports, combinadas, mercados live y casino adicional",
     offerText: "100% hasta 300 USDT para Sports",
@@ -122,7 +122,7 @@ const CONTEXT_CONFIG: Record<
     className: "mt-0",
   },
   bonus: {
-    badge: "BONO CRYPTO SPORT O CASINO",
+    badge: "BONO CRIPTO DEPORTES O CASINO",
     headline: "Sportsbet.io: elige bono Sports o Casino",
     subheadline: "Welcome bonus publicado para nuevos usuarios elegibles",
     offerText: "100% hasta 300 USDT",
@@ -152,8 +152,8 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   review: {
-    badge: "SPORTSBOOK CRYPTO + CASINO",
-    headline: "Sportsbet.io: apuestas, casino, bonos y pagos crypto",
+    badge: "SPORTSBOOK CRIPTO + CASINO",
+    headline: "Sportsbet.io: apuestas, casino, bonos y pagos cripto",
     subheadline: "Operador internacional para comparar desde México",
     offerText: "100% hasta 300 USDT — Sports o Casino",
     paymentBadges: ["BTC", "USDT", "Sportsbook", "Casino"],
@@ -166,14 +166,14 @@ const CONTEXT_CONFIG: Record<
     ],
     primaryCtaLabel: "Visitar Sportsbet.io",
     primaryCtaHref: SPORTSBETIO_REGISTRATION_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos crypto",
-    secondaryCtaHref: "/casinos-crypto",
+    secondaryCtaLabel: "Comparar casinos cripto",
+    secondaryCtaHref: "/casinos-cripto",
     termsNote: SPORTSBETIO_FULL_TERMS,
     visual: {
       eyebrow: "SPORTSBET.IO WELCOME",
       title: "100% hasta 300 USDT",
       subtitle: "Sports 15x · Casino 40x",
-      chips: ["Sports", "Casino", "Crypto"],
+      chips: ["Sports", "Casino", "Cripto"],
       variant: "sportsbetio",
       compact: false,
     },

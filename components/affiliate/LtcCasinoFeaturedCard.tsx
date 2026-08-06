@@ -34,9 +34,9 @@ const CONTEXT_CONFIG: Record<
   >
 > = {
   crypto: {
-    badge: "CASINO CRYPTO SIN KYC",
-    headline: "LTC Casino: privacidad, crypto y registro sin documentos",
-    subheadline: "Email y contraseña, slots, live casino y juegos crypto",
+    badge: "CASINO CRIPTO SIN KYC",
+    headline: "LTC Casino: privacidad, cripto y registro sin documentos",
+    subheadline: "Email y contraseña, slots, live casino y juegos cripto",
     offerText: "Sin verificación KYC según el FAQ público del operador",
     paymentBadges: ["LTC", "BTC", "ETH", "USDT"],
     featureBullets: [
@@ -51,10 +51,10 @@ const CONTEXT_CONFIG: Record<
     secondaryCtaHref: "/reviews/ltccasino",
     termsNote: LTCCASINO_CRYPTO_TERMS,
     visual: {
-      eyebrow: "PRIVACY-FIRST CRYPTO",
+      eyebrow: "CRIPTO Y PRIVACIDAD",
       title: "Sin KYC",
       subtitle: "Email + contraseña · sin documentos",
-      chips: ["LTC", "No KYC", "Crypto"],
+      chips: ["LTC", "No KYC", "Cripto"],
       variant: "ltccasino",
       compact: true,
     },
@@ -63,8 +63,8 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   review: {
-    badge: "CASINO CRYPTO SIN KYC",
-    headline: "LTC Casino: privacidad, juegos crypto y pagos desde wallets",
+    badge: "CASINO CRIPTO SIN KYC",
+    headline: "LTC Casino: privacidad, juegos cripto y pagos desde wallets",
     subheadline:
       "Casino internacional sin verificación documental según su política pública",
     offerText: "Registro con email y contraseña",
@@ -82,10 +82,10 @@ const CONTEXT_CONFIG: Record<
     secondaryCtaHref: "/casinos-sin-kyc",
     termsNote: LTCCASINO_REVIEW_TERMS,
     visual: {
-      eyebrow: "NO-KYC CRYPTO CASINO",
-      title: "Privacidad crypto",
+      eyebrow: "CASINO CRIPTO SIN KYC",
+      title: "Privacidad cripto",
       subtitle: "Email · password · wallets",
-      chips: ["Sin KYC", "Litecoin", "Crypto-only"],
+      chips: ["Sin KYC", "Litecoin", "Solo cripto"],
       variant: "ltccasino",
       compact: false,
     },

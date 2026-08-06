@@ -41,7 +41,7 @@ export function CryptoTopComparison() {
           id="comparativa-crypto-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
         >
-          Comparativa rápida de casinos crypto
+          Comparativa rápida de casinos cripto
         </h2>
         <p className="text-sm text-muted-foreground sm:text-base">
           Resumen de la selección principal. Disponibilidad, KYC, redes, límites y retiros dependen

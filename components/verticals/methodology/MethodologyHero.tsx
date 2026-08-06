@@ -25,7 +25,7 @@ export function MethodologyHero() {
             Cómo evaluamos casinos y casas de apuestas
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            JugadaMax publica comparativas y reseñas editoriales de casinos crypto, casinos fiat y
+            JugadaMax publica comparativas y reseñas editoriales de casinos cripto, casinos fiat y
             casas de apuestas, con cobertura en español centrada en México. Las calificaciones son
             opiniones editoriales atribuidas — no promedios de votos de usuarios ni garantías de
             resultado.

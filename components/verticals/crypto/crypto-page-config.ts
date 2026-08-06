@@ -78,11 +78,11 @@ export const CRYPTO_TOP_SIX: readonly CryptoTopEntry[] = [
     operatorId: "cryptocasino",
     name: "Anonymous Casino",
     secondaryName: "CryptoCasino.CC",
-    badge: "TOP CRYPTO SIN KYC",
-    purpose: "Privacidad y crypto",
+    badge: "TOP CRIPTO SIN KYC",
+    purpose: "Privacidad y cripto",
     summary:
-      "Registro con email y contraseña, política pública sin KYC, slots, crypto games y live casino.",
-    chips: ["Sin KYC", "BTC / ETH", "Crypto games"],
+      "Registro con email y contraseña, política pública sin KYC, slots, juegos cripto y live casino.",
+    chips: ["Sin KYC", "BTC / ETH", "Juegos cripto"],
     kycLabel: "Sin KYC según operador",
     ctaLabel: "Registrarse",
     ctaHref: ANONYMOUS_CASINO_AFFILIATE_URL,
@@ -94,9 +94,10 @@ export const CRYPTO_TOP_SIX: readonly CryptoTopEntry[] = [
   {
     operatorId: "bitcasino",
     name: "Bitcasino.io",
-    badge: "CASINO CRYPTO",
+    badge: "CASINO CRIPTO",
     purpose: "Casino, Originals y live",
-    summary: "Slots, Originals, jackpots, promociones y casino en vivo para usuarios crypto.",
+    summary:
+      "Slots, Originals, jackpots, promociones y casino en vivo para usuarios de criptomonedas.",
     chips: ["BTC / USDT", "Originals", "Live Casino"],
     kycLabel: "Verificación según términos",
     ctaLabel: "Visitar Bitcasino",
@@ -110,8 +111,8 @@ export const CRYPTO_TOP_SIX: readonly CryptoTopEntry[] = [
     name: "LTC Casino",
     badge: "LITECOIN SIN KYC",
     purpose: "Privacidad y Litecoin",
-    summary: "Casino crypto orientado a Litecoin, registro por email y política pública sin KYC.",
-    chips: ["Sin KYC", "LTC", "Crypto-only"],
+    summary: "Casino cripto orientado a Litecoin, registro por email y política pública sin KYC.",
+    chips: ["Sin KYC", "LTC", "Solo cripto"],
     kycLabel: "Sin KYC según operador",
     ctaLabel: "Registrarse",
     ctaHref: LTCCASINO_AFFILIATE_URL,
@@ -124,7 +125,7 @@ export const CRYPTO_TOP_SIX: readonly CryptoTopEntry[] = [
     name: "ETH Casino",
     badge: "ETHEREUM SIN KYC",
     purpose: "Ethereum y privacidad",
-    summary: "Ethereum-first, registro por email, slots, crypto games y política pública sin KYC.",
+    summary: "Ethereum-first, registro por email, slots, juegos cripto y política pública sin KYC.",
     chips: ["Sin KYC", "ETH", "Live Casino"],
     kycLabel: "Sin KYC según operador",
     ctaLabel: "Registrarse",
@@ -136,9 +137,9 @@ export const CRYPTO_TOP_SIX: readonly CryptoTopEntry[] = [
   {
     operatorId: "sportsbetio",
     name: "Sportsbet.io",
-    badge: "CRYPTO CASINO + SPORTS",
+    badge: "CASINO CRIPTO + DEPORTES",
     purpose: "Casino y sportsbook",
-    summary: "Sportsbook crypto, live betting, slots, Originals y casino en vivo.",
+    summary: "Sportsbook cripto, live betting, slots, Originals y casino en vivo.",
     chips: ["USDT", "Sports", "Casino"],
     kycLabel: "Verificación según términos",
     ctaLabel: "Visitar Sportsbet.io",
@@ -150,10 +151,10 @@ export const CRYPTO_TOP_SIX: readonly CryptoTopEntry[] = [
   {
     operatorId: "roobet",
     name: "Roobet",
-    badge: "CRYPTO + SPORTSBOOK",
+    badge: "CRIPTO + SPORTSBOOK",
     purpose: "Casino, promociones y sportsbook",
     summary: "Slots, live casino, Originals, promociones rotativas y apuestas en una cuenta.",
-    chips: ["Crypto", "Casino", "Sportsbook"],
+    chips: ["Cripto", "Casino", "Sportsbook"],
     kycLabel: "Verificación según términos",
     ctaLabel: "Visitar Roobet",
     ctaHref: ROOBET_MX_CASINO_AFFILIATE_URL,
@@ -181,7 +182,7 @@ export const CRYPTO_PROMOTIONS: readonly CryptoPromoEntry[] = [
     operatorId: "vodkabet",
     offerTitle: "125% + hasta 300 FS según campaña",
     promoCode: VODKABET_PROMO_CODE,
-    chips: ["125%", "300 FS", "Crypto"],
+    chips: ["125%", "300 FS", "Cripto"],
     termsLine:
       "Importe, free spins, depósito mínimo, wagering, juegos y elegibilidad dependen de la campaña y términos.",
     ctaLabel: "Ver oferta Vodka.bet",
@@ -194,7 +195,7 @@ export const CRYPTO_PROMOTIONS: readonly CryptoPromoEntry[] = [
     operatorId: "mellstroy",
     offerTitle: "Hasta 660% + 400 FS según campaña vigente",
     promoCode: MELLSTROY_PROMO_CODE,
-    chips: ["Crypto", "400 FS", "Fortune Wheel"],
+    chips: ["Cripto", "400 FS", "Fortune Wheel"],
     termsLine:
       "Bonos, free spins, pagos, KYC, juegos, disponibilidad y wagering dependen de la campaña y términos.",
     ctaLabel: "Ver oferta Mellstroy",
@@ -208,7 +209,7 @@ export const CRYPTO_PROMOTIONS: readonly CryptoPromoEntry[] = [
 export const CRYPTO_INTERNATIONAL_ALTERNATIVES: readonly CryptoSecondaryEntry[] = [
   {
     operatorId: "500-casino",
-    label: "Casino crypto, slots y sportsbook",
+    label: "Casino cripto, slots y sportsbook",
     badge: "Cobertura internacional",
     ctaLabel: "Visitar",
     ctaHref: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
@@ -218,7 +219,7 @@ export const CRYPTO_INTERNATIONAL_ALTERNATIVES: readonly CryptoSecondaryEntry[] 
   },
   {
     operatorId: "gamdom",
-    label: "Casino crypto, Originals y sportsbook",
+    label: "Casino cripto, Originals y sportsbook",
     badge: "Cobertura internacional",
     ctaLabel: "Visitar",
     ctaHref: GAMDOM_GLOBAL_AFFILIATE_URL,
@@ -228,7 +229,7 @@ export const CRYPTO_INTERNATIONAL_ALTERNATIVES: readonly CryptoSecondaryEntry[] 
   },
   {
     operatorId: "rainbet",
-    label: "Casino crypto, rewards y sportsbook",
+    label: "Casino cripto, rewards y sportsbook",
     badge: "Cobertura internacional",
     ctaLabel: "Visitar",
     ctaHref: RAINBET_REFERRAL_URL,
@@ -241,7 +242,7 @@ export const CRYPTO_INTERNATIONAL_ALTERNATIVES: readonly CryptoSecondaryEntry[] 
 export const CRYPTO_EDITORIAL_REFERENCES: readonly CryptoSecondaryEntry[] = [
   {
     operatorId: "stake",
-    label: "Casino crypto y sportsbook",
+    label: "Casino cripto y sportsbook",
     badge: "Referencia editorial",
     ctaLabel: "Ver sitio oficial México",
     ctaHref: STAKE_MX_OFFICIAL_URL,
@@ -251,7 +252,7 @@ export const CRYPTO_EDITORIAL_REFERENCES: readonly CryptoSecondaryEntry[] = [
   },
   {
     operatorId: "bcgame",
-    label: "Casino crypto, Originals y sportsbook",
+    label: "Casino cripto, Originals y sportsbook",
     badge: "Referencia editorial",
     ctaLabel: "Ver sitio oficial BC.Game MX",
     ctaHref: BCGAME_MX_OFFICIAL_URL,

@@ -11,7 +11,7 @@ const criteria = [
   },
   {
     title: "Pagos",
-    text: "Crypto, wallets, OXXO, SPEI y límites.",
+    text: "Cripto, wallets, OXXO, SPEI y límites.",
     monogram: "P",
     accent: "border-cyan-500/20 bg-cyan-500/5 text-cyan-300",
   },

@@ -10,7 +10,7 @@ const CHECK_ITEMS = [
 ] as const;
 
 const QUICK_LINKS = [
-  { label: "Top crypto", href: "#top-crypto" },
+  { label: "Top cripto", href: "#top-crypto" },
   { label: "Comparativa", href: "#comparativa-crypto" },
   { label: "Casinos sin KYC", href: "/casinos-sin-kyc" },
   { label: "Promociones", href: "#promociones-crypto" },
@@ -38,10 +38,10 @@ export function CryptoPageHero() {
       <div className="relative grid gap-4 p-5 sm:p-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-8 lg:p-8">
         <div className="space-y-3">
           <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-            México · LATAM · Crypto
+            México · LATAM · Cripto
           </span>
           <h1 className="text-[1.85rem] font-bold leading-tight tracking-tight text-foreground sm:text-[2.15rem] lg:text-[2.35rem]">
-            Mejores Casinos Crypto en México
+            Mejores casinos cripto en México
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
             Comparamos casinos con Bitcoin, Ethereum, USDT y otras criptomonedas según privacidad,

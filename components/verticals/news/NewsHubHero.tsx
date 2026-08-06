@@ -28,7 +28,7 @@ export function NewsHubHero() {
             México · Noticias · Análisis · Opinión
           </span>
           <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-foreground sm:text-[2.1rem] lg:text-[2.3rem]">
-            Noticias de casinos, crypto y apuestas en México
+            Noticias de casinos, cripto y apuestas en México
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
             Actualidad editorial, análisis y comentario de autor sobre regulación,

@@ -57,10 +57,10 @@ const PRODUCT_PANELS = [
     body: "Las promociones fiat o locales suelen explicarse en MXN y pueden involucrar tarjetas, OXXO, SPEI u otros métodos tradicionales cuando el operador los ofrece.",
   },
   {
-    title: "Crypto",
+    title: "Cripto",
     accent: "border-violet-500/25 bg-gradient-to-b from-[#15101c] to-[#111417]",
     bar: "from-violet-400/70 to-transparent",
-    body: "Las promociones crypto pueden usar USDT u otras monedas, wallets y redes distintas. Un bono en crypto no elimina wagering, límites ni posibles controles de cuenta.",
+    body: "Las promociones cripto pueden usar USDT u otras monedas, wallets y redes distintas. Un bono en cripto no elimina wagering, límites ni posibles controles de cuenta.",
   },
   {
     title: "Apuestas",
@@ -89,7 +89,7 @@ const FAQ_ITEMS = [
     a: "Porque JugadaMax no tiene ese dato confirmado en el registro editorial. No inventamos depósito mínimo, wagering ni vigencia.",
   },
   {
-    q: "¿Los bonos crypto son mejores que los fiat?",
+    q: "¿Los bonos cripto son mejores que los fiat?",
     a: "No necesariamente. Cambian moneda, pagos y a veces verificación, pero siguen teniendo requisitos de apuesta y límites.",
   },
   {
@@ -163,7 +163,7 @@ export function BonusEducationSections() {
 
       <section aria-labelledby="bonos-fiat-crypto-sports-heading">
         <h2 id="bonos-fiat-crypto-sports-heading" className={sectionHeadingClassName()}>
-          Bonos fiat, crypto y de apuestas
+          Bonos fiat, cripto y de apuestas
         </h2>
         <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
           {PRODUCT_PANELS.map((panel) => (

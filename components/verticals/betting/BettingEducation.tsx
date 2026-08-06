@@ -169,7 +169,7 @@ export function BettingEducation({
           Pagos, retiros y KYC
         </h2>
         <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Los operadores pueden ofrecer tarjetas, SPEI, OXXO, transferencias o crypto según su
+          Los operadores pueden ofrecer tarjetas, SPEI, OXXO, transferencias o cripto según su
           producto. Comisiones, tiempos, límites y verificación dependen de cada cuenta.
         </p>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">

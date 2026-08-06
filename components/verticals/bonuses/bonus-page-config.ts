@@ -43,13 +43,13 @@ export const BONUS_FEATURED: readonly BonusPageCtaConfig[] = [
     ctaLabel: "Ver bonos BetFury",
     ctaHref: BETFURY_AFFILIATE_URL,
     promoCode: BETFURY_PROMO_CODE,
-    badge: "Crypto · rewards",
+    badge: "Cripto · rewards",
   },
   {
     bonusId: "bitcasino-three-deposit-welcome",
     ctaLabel: "Ver bono Bitcasino",
     ctaHref: BITCASINO_PROMO_AFFILIATE_URL,
-    badge: "Casino crypto",
+    badge: "Casino cripto",
   },
 ] as const;
 
@@ -120,9 +120,9 @@ export const BONUS_DIRECTORY_SECTIONS: readonly {
   },
   {
     group: "crypto-rewards",
-    heading: "Crypto y recompensas",
+    heading: "Cripto y recompensas",
     description:
-      "Bonos crypto, free spins y programas de rewards o rakeback según campaña.",
+      "Bonos cripto, free spins y programas de rewards o rakeback según campaña.",
     sectionId: "bonos-crypto-rewards",
   },
   {

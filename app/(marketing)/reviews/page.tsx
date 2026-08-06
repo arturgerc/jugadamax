@@ -20,7 +20,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Reseñas de casinos y casas de apuestas en México",
   description:
-    "Compara reseñas editoriales de casinos crypto, operadores fiat, casinos sin KYC y casas de apuestas para México. Consulta calificaciones, pagos, bonos, KYC, pros, contras y fechas de actualización.",
+    "Compara reseñas editoriales de casinos cripto, operadores fiat, casinos sin KYC y casas de apuestas para México. Consulta calificaciones, pagos, bonos, KYC, pros, contras y fechas de actualización.",
   path: "/reviews",
   languageAlternates: {
     "es-MX": "/reviews",

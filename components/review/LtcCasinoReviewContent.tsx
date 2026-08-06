@@ -21,12 +21,12 @@ import { cn, focusRing } from "@/lib/utils";
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
 const JURISDICTION_WARNING =
-  "LTC Casino es un casino crypto internacional. JugadaMax no afirma licencia local mexicana. Disponibilidad, registro, pagos, límites, controles antifraude y retiros dependen de tu ubicación, cuenta y reglas vigentes del dominio de registro.";
+  "LTC Casino es un casino cripto internacional. JugadaMax no afirma licencia local mexicana. Disponibilidad, registro, pagos, límites, controles antifraude y retiros dependen de tu ubicación, cuenta y reglas vigentes del dominio de registro.";
 
 const QUICK_SUMMARY = [
-  { title: "Tipo", text: "Casino crypto sin KYC" },
+  { title: "Tipo", text: "Casino cripto sin KYC" },
   { title: "Registro", text: "Email + contraseña" },
-  { title: "Pagos", text: "LTC, BTC, ETH, USDT y otras crypto" },
+  { title: "Pagos", text: "LTC, BTC, ETH, USDT y otras cripto" },
   { title: "Principal precaución", text: "No-KYC no equivale a anonimato absoluto" },
 ] as const;
 
@@ -51,7 +51,7 @@ const NO_KYC_CARDS = [
 
 const PRIVACY_ADVANTAGES = [
   "Sin carga de documentos de identidad según el operador",
-  "Sin datos de tarjeta bancaria en el flujo crypto-only",
+  "Sin datos de tarjeta bancaria en el flujo solo con criptomonedas",
   "Depósitos y retiros basados en wallets",
   "Registro con información personal limitada",
 ] as const;
@@ -87,7 +87,7 @@ const GAME_CARDS = [
   { title: "Ruleta", text: "Variantes de casino según región y catálogo." },
   { title: "Baccarat", text: "Mesas disponibles según configuración del lobby." },
   { title: "Live Casino", text: "Mesas en vivo sujetas a catálogo y horarios." },
-  { title: "Juegos crypto", text: "Formatos orientados a sesiones rápidas con crypto." },
+  { title: "Juegos cripto", text: "Formatos orientados a sesiones rápidas con cripto." },
 ] as const;
 
 const WITHDRAWAL_CARDS = [
@@ -110,7 +110,7 @@ const WITHDRAWAL_CARDS = [
 ] as const;
 
 const ANALYSIS_PARAGRAPHS_BASE = [
-  "LTC Casino se clasifica como casino crypto sin KYC porque su FAQ público declara que no realiza verificación documental y su material de registro describe un flujo con email y contraseña. JugadaMax presenta esas afirmaciones con atribución, no como prueba técnica independiente de que la verificación sea imposible.",
+  "LTC Casino se clasifica como casino cripto sin KYC porque su FAQ público declara que no realiza verificación documental y su material de registro describe un flujo con email y contraseña. JugadaMax presenta esas afirmaciones con atribución, no como prueba técnica independiente de que la verificación sea imposible.",
   "El operador atrae a usuarios que priorizan privacidad, pagos desde wallets y acceso sencillo frente a bonos. Su propuesta no gira alrededor de un welcome bonus: el código j6ji2sb7n identifica la campaña de registro y no garantiza una recompensa.",
   "Sin KYC no significa invisibilidad técnica absoluta. El email, la IP, el dispositivo, las direcciones de wallet y el historial en blockchains públicas pueden generar trazabilidad. Los sistemas antifraude y las leyes locales siguen aplicando.",
   "El FAQ público afirma que no limita el número de cuentas. JugadaMax no interpreta eso como autorización para evadir restricciones legales, límites, autoexclusión, controles de seguridad o reglas del dominio de registro.",
@@ -119,7 +119,7 @@ const ANALYSIS_PARAGRAPHS_BASE = [
 function buildAnalysisParagraphs(rating: number): string[] {
   return [
     ...ANALYSIS_PARAGRAPHS_BASE,
-    `Los pagos son crypto-only (LTC, BTC, ETH, USDT y otras). Confirma activo, red y dirección: las transferencias blockchain normalmente no se revierten. LTC Casino afirma procesar retiros en tiempo real; la llegada a la wallet depende de la red. JugadaMax lo valora con ${rating}/5 por privacidad, registro sin KYC según la política pública del operador, compatibilidad crypto y catálogo de juegos — con cautela sobre licencia local, anonimato técnico y condiciones de retiro. Esta es opinión editorial, no una puntuación agregada de usuarios. 18+.`,
+    `Los pagos son solo en criptomonedas (LTC, BTC, ETH, USDT y otras). Confirma activo, red y dirección: las transferencias blockchain normalmente no se revierten. LTC Casino afirma procesar retiros en tiempo real; la llegada a la wallet depende de la red. JugadaMax lo valora con ${rating}/5 por privacidad, registro sin KYC según la política pública del operador, compatibilidad cripto y catálogo de juegos — con cautela sobre licencia local, anonimato técnico y condiciones de retiro. Esta es opinión editorial, no una puntuación agregada de usuarios. 18+.`,
   ];
 }
 
@@ -161,7 +161,7 @@ const FAQ_ITEMS = [
   {
     question: "¿LTC Casino acepta Litecoin?",
     answer:
-      "Sí. Litecoin forma parte central de su identidad crypto. Confirma red, mínimos y dirección en el cajero antes de depositar.",
+      "Sí. Litecoin forma parte central de su identidad cripto. Confirma red, mínimos y dirección en el cajero antes de depositar.",
   },
   {
     question: "¿Qué otras criptomonedas acepta?",
@@ -397,7 +397,7 @@ export function LtcCasinoReviewContent({
 
         <section aria-labelledby="ltccasino-withdrawals-heading">
           <h2 id="ltccasino-withdrawals-heading" className="text-lg font-semibold text-foreground sm:text-xl">
-            Retiros crypto
+            Retiros en criptomonedas
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             El FAQ público afirma que las solicitudes se procesan en tiempo real. La llegada a la

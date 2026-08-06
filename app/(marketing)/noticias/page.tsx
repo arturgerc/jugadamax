@@ -14,9 +14,9 @@ import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Noticias de casinos, crypto y apuestas en México",
+  title: "Noticias de casinos, cripto y apuestas en México",
   description:
-    "Noticias, análisis y opinión editorial de JugadaMax sobre regulación, casinos, crypto, bonos y apuestas en México. Fuentes citadas y separación entre hechos y comentario.",
+    "Noticias, análisis y opinión editorial de JugadaMax sobre regulación, casinos, cripto, bonos y apuestas en México. Fuentes citadas y separación entre hechos y comentario.",
   path: "/noticias",
   languageAlternates: {
     "es-MX": "/noticias",

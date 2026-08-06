@@ -13,9 +13,9 @@ import { HomepageFAQ } from "@/components/home/HomepageFAQ";
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: "JugadaMax — Casinos online, bonos y crypto casinos en México",
+    title: "JugadaMax — Casinos online, bonos y casinos cripto en México",
     description:
-      "Compara casinos crypto, casinos fiat, bonos, slots y live casino para México y LATAM. Información editorial para mayores de 18 años con juego responsable.",
+      "Compara casinos cripto, casinos fiat, bonos, slots y live casino para México y LATAM. Información editorial para mayores de 18 años con juego responsable.",
     path: "/",
     languageAlternates: {
       "es-MX": "/",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     },
   }),
   title: {
-    absolute: "JugadaMax — Casinos online, bonos y crypto casinos en México",
+    absolute: "JugadaMax — Casinos online, bonos y casinos cripto en México",
   },
 };
 

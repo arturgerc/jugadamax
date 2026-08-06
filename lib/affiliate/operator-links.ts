@@ -103,7 +103,7 @@ function roobetGlobalLink(): OperatorLink | undefined {
 }
 
 const ROOBET_MX_GEO_WARNING =
-  "Roobet es un operador crypto internacional. La disponibilidad, promociones, pagos, sportsbook, KYC y retiros dependen de tu ubicación, cuenta y de los términos oficiales. JugadaMax no afirma que Roobet cuente con licencia local mexicana.";
+  "Roobet es un operador cripto internacional. La disponibilidad, promociones, pagos, sportsbook, KYC y retiros dependen de tu ubicación, cuenta y de los términos oficiales. JugadaMax no afirma que Roobet cuente con licencia local mexicana.";
 
 function roobetMxLink(): OperatorLink | undefined {
   if (!ROOBET_MX_CASINO_AFFILIATE_URL) return undefined;
@@ -205,7 +205,7 @@ function mostbetMxLink(): OperatorLink | undefined {
 }
 
 const SPORTSBETIO_MX_GEO_WARNING =
-  "Sportsbet.io es un operador crypto internacional con sportsbook y casino. México no aparece en la lista restringida revisada, pero JugadaMax no afirma licencia local mexicana. Disponibilidad, bonos, pagos, KYC y retiros dependen de tu jurisdicción y de los términos oficiales.";
+  "Sportsbet.io es un operador cripto internacional con sportsbook y casino. México no aparece en la lista restringida revisada, pero JugadaMax no afirma licencia local mexicana. Disponibilidad, bonos, pagos, KYC y retiros dependen de tu jurisdicción y de los términos oficiales.";
 
 function sportsbetioMxLink(): OperatorLink | undefined {
   if (!SPORTSBETIO_REGISTRATION_AFFILIATE_URL) return undefined;
@@ -235,7 +235,7 @@ function sportsbetioGlobalLink(): OperatorLink | undefined {
 }
 
 const BITCASINO_MX_GEO_WARNING =
-  "Bitcasino es un casino crypto internacional. JugadaMax no afirma licencia local mexicana. Disponibilidad, promociones, pagos, KYC y retiros dependen de tu jurisdicción y de los términos oficiales.";
+  "Bitcasino es un casino cripto internacional. JugadaMax no afirma licencia local mexicana. Disponibilidad, promociones, pagos, KYC y retiros dependen de tu jurisdicción y de los términos oficiales.";
 
 function bitcasinoMxLink(): OperatorLink | undefined {
   if (!BITCASINO_REGISTRATION_AFFILIATE_URL) return undefined;
@@ -265,7 +265,7 @@ function bitcasinoGlobalLink(): OperatorLink | undefined {
 }
 
 const LTCCASINO_MX_GEO_WARNING =
-  "LTC Casino es un casino crypto internacional orientado a privacidad y registro sin KYC según su política pública. JugadaMax no afirma licencia local mexicana. Disponibilidad, pagos, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de las reglas vigentes.";
+  "LTC Casino es un casino cripto internacional orientado a privacidad y registro sin KYC según su política pública. JugadaMax no afirma licencia local mexicana. Disponibilidad, pagos, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de las reglas vigentes.";
 
 function ltccasinoMxLink(): OperatorLink | undefined {
   if (!LTCCASINO_AFFILIATE_URL) return undefined;
@@ -295,7 +295,7 @@ function ltccasinoGlobalLink(): OperatorLink | undefined {
 }
 
 const ETHCASINO_MX_GEO_WARNING =
-  "ETH Casino es un casino crypto internacional que declara una política sin KYC. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de los términos vigentes.";
+  "ETH Casino es un casino cripto internacional que declara una política sin KYC. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de los términos vigentes.";
 
 function ethcasinoMxLink(): OperatorLink | undefined {
   if (!ETHCASINO_AFFILIATE_URL) return undefined;
@@ -326,7 +326,7 @@ function ethcasinoGlobalLink(): OperatorLink | undefined {
 }
 
 const ANONYMOUS_CASINO_MX_GEO_WARNING =
-  "Anonymous Casino / CryptoCasino.CC es un casino crypto internacional que se promociona como sin KYC. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de los términos vigentes.";
+  "Anonymous Casino / CryptoCasino.CC es un casino cripto internacional que se promociona como sin KYC. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, redes, límites, controles antifraude y retiros dependen de la jurisdicción y de los términos vigentes.";
 
 function anonymousCasinoMxLink(): OperatorLink | undefined {
   if (!ANONYMOUS_CASINO_AFFILIATE_URL) return undefined;

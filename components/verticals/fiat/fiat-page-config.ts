@@ -85,7 +85,7 @@ export const FIAT_TOP_FIVE: readonly FiatTopEntry[] = [
     badge: "CASINO MIXTO",
     purpose: "Casino, live y sportsbook",
     summary:
-      "Casino, slots, live casino, mesas y sportsbook con métodos fiat y algunas opciones crypto según mercado.",
+      "Casino, slots, live casino, mesas y sportsbook con métodos fiat y algunas opciones cripto según mercado.",
     paymentPriority: ["Visa", "Mastercard"],
     ctaLabel: "Visitar Awintura",
     ctaHref: AWINTURA_CARD_AFFILIATE_URL,

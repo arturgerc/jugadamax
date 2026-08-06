@@ -8,7 +8,7 @@ import { getCasinoById } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 /**
- * Main TOP-6 crypto recommendations for /casinos-crypto.
+ * Main TOP-6 crypto recommendations for /casinos-cripto.
  */
 export function CryptoTopRanking() {
   const cards = CRYPTO_TOP_SIX.flatMap((entry) => {
@@ -37,7 +37,7 @@ export function CryptoTopRanking() {
           id="top-crypto-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
         >
-          Casinos crypto recomendados por JugadaMax
+          Casinos cripto recomendados por JugadaMax
         </h2>
         <p className="text-sm text-muted-foreground sm:text-base">
           Selección editorial basada en interés de los usuarios, producto, pagos, especialización y

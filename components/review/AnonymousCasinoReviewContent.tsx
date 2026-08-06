@@ -21,12 +21,12 @@ import { cn, focusRing } from "@/lib/utils";
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
 const JURISDICTION_WARNING =
-  "Anonymous Casino / CryptoCasino.CC es un casino crypto internacional. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, registro, pagos, límites, controles antifraude y retiros dependen de tu ubicación, cuenta y reglas vigentes del dominio de registro.";
+  "Anonymous Casino / CryptoCasino.CC es un casino cripto internacional. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, registro, pagos, límites, controles antifraude y retiros dependen de tu ubicación, cuenta y reglas vigentes del dominio de registro.";
 
 const QUICK_SUMMARY = [
-  { title: "Tipo", text: "Casino crypto sin KYC" },
+  { title: "Tipo", text: "Casino cripto sin KYC" },
   { title: "Registro", text: "Email + contraseña" },
-  { title: "Pagos", text: "BTC, ETH, USDT y cinco crypto más" },
+  { title: "Pagos", text: "BTC, ETH, USDT y cinco cripto más" },
   { title: "Principal precaución", text: "Sin licencia verificada y límites de retiro" },
 ] as const;
 
@@ -40,7 +40,7 @@ const NO_KYC_CARDS = [
     text: "El FAQ describe registro con email y password.",
   },
   {
-    title: "Crypto-only",
+    title: "Solo cripto",
     text: "Los depósitos y retiros se realizan con criptomonedas.",
   },
   {
@@ -142,7 +142,7 @@ const REGISTRATION_STEPS = [
 function buildAnalysisParagraphs(rating: number): string[] {
   return [
     "Anonymous Casino es la marca promocional del casino disponible en CryptoCasino.CC. No son operadores distintos: la misma integración se presenta con ambas denominaciones en materiales públicos y en esta reseña.",
-    "Dentro del cluster sin KYC de JugadaMax, Anonymous Casino ocupa el primer puesto editorial por su posicionamiento claro de privacidad, registro con email y contraseña, cobertura crypto y amplitud de catálogo. ETH Casino y LTC Casino permanecen como alternativas especializadas.",
+    "Dentro del cluster sin KYC de JugadaMax, Anonymous Casino ocupa el primer puesto editorial por su posicionamiento claro de privacidad, registro con email y contraseña, cobertura cripto y amplitud de catálogo. ETH Casino y LTC Casino permanecen como alternativas especializadas.",
     "El modelo sin KYC reduce la verificación documental, pero no elimina trazabilidad técnica. La Privacy Policy informa tratamiento de IP, wallet, cookies e información transaccional; las blockchains públicas siguen siendo auditable.",
     "Los Terms permiten varias cuentas, aunque también autorizan restricciones de retiro ante sospecha de abuso o emails no confirmados. Existen turnover 1x, posible 10x en ciertos juegos live, límites de retiro y poderes de investigación antifraude.",
     `Casino Guru publica un Safety Index 5.3/10 (Below average) sin licencia verificada, aunque no encontró cláusulas depredadoras en los Terms directamente revisados. JugadaMax asigna ${rating}/5 como opinión editorial de encaje de producto en el nicho no-KYC, no como certificación de seguridad ni agregación de usuarios. 18+.`,
@@ -158,7 +158,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Anonymous Casino requiere KYC?",
     answer:
-      "Anonymous Casino, disponible en CryptoCasino.CC, se presenta como casino crypto sin KYC y sin verificación documental. Confirma siempre las reglas vigentes después del redirect.",
+      "Anonymous Casino, disponible en CryptoCasino.CC, se presenta como casino cripto sin KYC y sin verificación documental. Confirma siempre las reglas vigentes después del redirect.",
   },
   {
     question: "¿Pide documentos?",
@@ -178,7 +178,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Qué datos procesa?",
     answer:
-      "La Privacy Policy informa tratamiento de IP, número de wallet crypto, cookies/preferencias, información de depósitos, ganancias y cashouts, marketing salvo opt-out e información antifraude.",
+      "La Privacy Policy informa tratamiento de IP, número de wallet cripto, cookies/preferencias, información de depósitos, ganancias y cashouts, marketing salvo opt-out e información antifraude.",
   },
   {
     question: "¿Puedo tener varias cuentas?",
@@ -204,7 +204,7 @@ const FAQ_ITEMS = [
       "Sí. Incluye slots, Bonus Buy, jackpots, Megaways y formatos clásicos según catálogo.",
   },
   {
-    question: "¿Tiene juegos crypto?",
+    question: "¿Tiene juegos cripto?",
     answer: "Sí. Crash, Plinko, Limbo, Mines, Dice y Keno forman parte del catálogo público.",
   },
   {
@@ -214,7 +214,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "¿Tiene apuestas deportivas?",
-    answer: "Anonymous Casino se presenta como casino crypto, no como sportsbook.",
+    answer: "Anonymous Casino se presenta como casino cripto, no como sportsbook.",
   },
   {
     question: "¿Cuánto tardan los retiros?",
@@ -244,7 +244,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Por qué JugadaMax le da 4.9/5?",
     answer:
-      "JugadaMax asigna a Anonymous Casino una valoración editorial de 4.9/5 por su enfoque especializado sin KYC, registro sencillo, variedad crypto y catálogo de juegos. Esta puntuación no es un agregado de usuarios ni una garantía de seguridad, licencia o retiro.",
+      "JugadaMax asigna a Anonymous Casino una valoración editorial de 4.9/5 por su enfoque especializado sin KYC, registro sencillo, variedad cripto y catálogo de juegos. Esta puntuación no es un agregado de usuarios ni una garantía de seguridad, licencia o retiro.",
   },
 ] as const;
 
@@ -370,7 +370,7 @@ export function AnonymousCasinoReviewContent({
             ))}
           </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Anonymous Casino, disponible en CryptoCasino.CC, se presenta como casino crypto sin KYC
+            Anonymous Casino, disponible en CryptoCasino.CC, se presenta como casino cripto sin KYC
             y sin verificación documental. Según el FAQ público de CryptoCasino.CC, la cuenta puede
             crearse mediante email y contraseña sin introducir datos personales en el formulario
             descrito.
@@ -529,7 +529,7 @@ export function AnonymousCasinoReviewContent({
             ))}
           </ul>
           <p className="mt-3 text-sm text-muted-foreground">
-            Anonymous Casino se presenta como casino crypto, no como sportsbook. El número exacto de
+            Anonymous Casino se presenta como casino cripto, no como sportsbook. El número exacto de
             títulos puede cambiar.
           </p>
         </section>
@@ -569,7 +569,7 @@ export function AnonymousCasinoReviewContent({
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               JugadaMax asigna a Anonymous Casino una valoración editorial de 4.9/5 por su enfoque
-              especializado sin KYC, registro sencillo, variedad crypto y catálogo de juegos. Esta
+              especializado sin KYC, registro sencillo, variedad cripto y catálogo de juegos. Esta
               puntuación no es un agregado de usuarios ni una garantía de seguridad, licencia o
               retiro.
             </p>

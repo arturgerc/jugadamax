@@ -18,12 +18,12 @@ import { cn, focusRing } from "@/lib/utils";
 import type { Casino } from "@/types/content";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Mejores casinos crypto en México",
+  title: "Mejores casinos cripto en México",
   description:
-    "Compara casinos crypto, Bitcoin, Ethereum, USDT, privacidad, juegos, bonos, pagos y condiciones para México y LATAM. 18+.",
-  path: "/casinos-crypto",
+    "Compara casinos cripto, Bitcoin, Ethereum, USDT, privacidad, juegos, bonos, pagos y condiciones para México y LATAM. 18+.",
+  path: "/casinos-cripto",
   languageAlternates: {
-    "es-MX": "/casinos-crypto",
+    "es-MX": "/casinos-cripto",
     en: "/en/casinos-crypto",
   },
 });
@@ -56,7 +56,7 @@ const GUIDES = [
   },
   {
     href: "/guias/como-elegir-casino-crypto-mexico",
-    title: "Cómo elegir un casino crypto",
+    title: "Cómo elegir un casino cripto",
     description: "Checklist editorial: seguridad, pagos, términos y juego responsable.",
   },
 ] as const;
@@ -78,7 +78,7 @@ export default function CryptoCasinosPage() {
   const cryptoPayments = uniqueCryptoPayments(editorialCasinos);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Inicio", path: "/" },
-    { name: "Casinos Crypto", path: "/casinos-crypto" },
+    { name: "Casinos cripto", path: "/casinos-cripto" },
   ]);
 
   return (
@@ -105,7 +105,7 @@ export default function CryptoCasinosPage() {
           id="guias-crypto-mexico-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
         >
-          Guías crypto para jugadores en México
+          Guías cripto para jugadores en México
         </h2>
         <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
           {GUIDES.map((guide) => (

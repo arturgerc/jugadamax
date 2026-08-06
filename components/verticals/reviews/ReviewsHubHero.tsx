@@ -9,7 +9,7 @@ const CHECK_ITEMS = [
 ] as const;
 
 const FOCUS_BADGES = [
-  "Crypto y fiat",
+  "Cripto y fiat",
   "Sin KYC",
   "Apuestas",
   "México primero",
@@ -38,7 +38,7 @@ export function ReviewsHubHero() {
             Reseñas de casinos y casas de apuestas en México
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Compara reseñas editoriales de casinos crypto, operadores fiat, casinos
+            Compara reseñas editoriales de casinos cripto, operadores fiat, casinos
             sin KYC y casas de apuestas. Consulta calificaciones, pagos, bonos, KYC,
             pros, contras y fechas reales de actualización.
           </p>

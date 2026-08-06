@@ -55,21 +55,21 @@ export function Hero({
             </span>
 
             <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[2.5rem] lg:leading-tight">
-              Casinos online, bonos y crypto casinos para México
+              Casinos online, bonos y casinos cripto para México
             </h1>
 
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              JugadaMax compara casinos crypto, casinos fiat, bonos, slots y live casino para
+              JugadaMax compara casinos cripto, casinos fiat, bonos, slots y live casino para
               jugadores adultos en México y LATAM. Las apuestas deportivas existen como una sección
               adicional, pero el foco principal del sitio es casino.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
               <Link
-                href="/casinos-crypto"
+                href="/casinos-cripto"
                 className="inline-flex min-h-11 items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[0_2px_12px_-4px_rgba(255,184,0,0.35)] transition-colors hover:bg-[var(--jm-gold-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
-                Ver casinos crypto
+                Ver casinos cripto
               </Link>
               <Link
                 href="/bonos"

@@ -38,8 +38,8 @@ const CONTEXT_CONFIG: Record<
 > = {
   crypto: {
     badge: "CASINO ANÓNIMO SIN KYC",
-    headline: "Anonymous Casino: crypto, privacidad y registro sin documentos",
-    subheadline: "CryptoCasino.CC con slots, crypto games y live casino",
+    headline: "Anonymous Casino: cripto, privacidad y registro sin documentos",
+    subheadline: "CryptoCasino.CC con slots, juegos cripto y live casino",
     offerText: "Sin verificación KYC según la política pública del operador",
     paymentBadges: ["BTC", "ETH", "USDT", "LTC"],
     featureBullets: [
@@ -54,10 +54,10 @@ const CONTEXT_CONFIG: Record<
     secondaryCtaHref: "/reviews/cryptocasino",
     termsNote: ANONYMOUS_CRYPTO_TERMS,
     visual: {
-      eyebrow: "ANONYMOUS CRYPTO CASINO",
+      eyebrow: "CASINO CRIPTO ANÓNIMO",
       title: "Sin KYC",
-      subtitle: "Email + contraseña · crypto-only",
-      chips: ["No KYC", "Crypto", "Privacy"],
+      subtitle: "Email + contraseña · solo cripto",
+      chips: ["No KYC", "Cripto", "Privacy"],
       variant: "anonymous",
       compact: true,
     },
@@ -68,13 +68,13 @@ const CONTEXT_CONFIG: Record<
   nokyc: {
     badge: "ELECCIÓN JUGADAMAX SIN KYC",
     headline: "Anonymous Casino: nuestra elección no-KYC",
-    subheadline: "Privacidad, registro sencillo y casino crypto completo",
-    offerText: "Casino crypto sin verificación documental",
-    paymentBadges: ["BTC", "ETH", "USDT", "Crypto"],
+    subheadline: "Privacidad, registro sencillo y casino cripto completo",
+    offerText: "Casino cripto sin verificación documental",
+    paymentBadges: ["BTC", "ETH", "USDT", "Cripto"],
     featureBullets: [
       "Registro mediante email y contraseña",
       "No solicita datos personales en el flujo público descrito",
-      "Crypto games, slots y mesas en vivo",
+      "Juegos cripto, slots y mesas en vivo",
       "Valoración editorial JugadaMax: 4.9/5",
     ],
     primaryCtaLabel: "Registrarse en Anonymous Casino",
@@ -85,8 +85,8 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: "JUGADAMAX NO-KYC PICK",
       title: "4.9 / 5",
-      subtitle: "Privacidad · crypto · casino",
-      chips: ["Sin KYC", "Anonymous", "Crypto-only"],
+      subtitle: "Privacidad · cripto · casino",
+      chips: ["Sin KYC", "Anonymous", "Solo cripto"],
       variant: "anonymous",
       compact: false,
     },
@@ -94,8 +94,8 @@ const CONTEXT_CONFIG: Record<
     mobileMaxBullets: 3,
   },
   review: {
-    badge: "CASINO CRYPTO SIN KYC",
-    headline: "Anonymous Casino: privacidad, crypto games y casino en vivo",
+    badge: "CASINO CRIPTO SIN KYC",
+    headline: "Anonymous Casino: privacidad, juegos cripto y casino en vivo",
     subheadline: "CryptoCasino.CC para usuarios que priorizan registro sin documentos",
     offerText: "Email y contraseña, sin datos personales en el formulario descrito",
     paymentBadges: ["BTC", "ETH", "USDT", "LTC"],
@@ -113,7 +113,7 @@ const CONTEXT_CONFIG: Record<
     termsNote: ANONYMOUS_REVIEW_TERMS,
     visual: {
       eyebrow: "NO-KYC ANONYMOUS CASINO",
-      title: "Privacidad crypto",
+      title: "Privacidad cripto",
       subtitle: "Email · wallets · casino",
       chips: ["Sin KYC", "Anonymous", "CryptoCasino.CC"],
       variant: "anonymous",

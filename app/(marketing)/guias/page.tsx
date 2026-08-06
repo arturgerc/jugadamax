@@ -9,9 +9,9 @@ import { GuideHubLibrary } from "@/components/verticals/guides/GuideHubLibrary";
 import { GuideHubEducation } from "@/components/verticals/guides/GuideHubEducation";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Guías de casino, crypto y apuestas para México",
+  title: "Guías de casino, cripto y apuestas para México",
   description:
-    "Centro de aprendizaje editorial de JugadaMax: guías sobre casinos crypto, pagos, KYC, operadores internacionales y juego responsable para México y LATAM. 18+.",
+    "Centro de aprendizaje editorial de JugadaMax: guías sobre casinos cripto, pagos, KYC, operadores internacionales y juego responsable para México y LATAM. 18+.",
   path: "/guias",
   languageAlternates: {
     "es-MX": "/guias",

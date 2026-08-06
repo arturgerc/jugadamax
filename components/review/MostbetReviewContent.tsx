@@ -30,7 +30,7 @@ const EXTERNAL_RISK_NOTE =
 const QUICK_SUMMARY = [
   { title: "Tipo", text: "Casino fiat/multi-currency + sportsbook" },
   { title: "Promoción", text: "125% + 250 FS con elección Casino o Sports" },
-  { title: "Pagos", text: "MXN, tarjetas, e-wallets y crypto según cuenta" },
+  { title: "Pagos", text: "MXN, tarjetas, e-wallets y cripto según cuenta" },
   { title: "Principal precaución", text: "Licencia local, wagering, KYC y retiros" },
 ] as const;
 
@@ -76,7 +76,7 @@ const PAYMENT_CARDS = [
   { title: "Tarjetas", text: "Visa y Mastercard según cajero y país; límites y comisiones variables." },
   { title: "OXXO / SPEI reportados externamente", text: "Fuentes externas los mencionan; JugadaMax no garantiza su aparición en tu cajero." },
   { title: "E-wallets", text: "Monederos y métodos locales según país y cuenta." },
-  { title: "Bitcoin / USDT", text: "Opciones crypto secundarias; confirma red, mínimos y comisiones." },
+  { title: "Bitcoin / USDT", text: "Opciones cripto secundarias; confirma red, mínimos y comisiones." },
   { title: "MXN y otras monedas", text: "Pesos mexicanos y otras divisas según cuenta y campaña." },
   { title: "Cajero específico de cuenta", text: "Los métodos visibles pueden diferir entre usuarios y GEO." },
 ] as const;
@@ -101,8 +101,8 @@ const KYC_CARDS = [
 ] as const;
 
 const ANALYSIS_PARAGRAPHS = [
-  "Mostbet integra sportsbook, casino, live casino, poker, esports y aplicación móvil en una plataforma internacional. JugadaMax lo clasifica como operador mixto fiat/multi-moneda con sportsbook sustancial — no como casino crypto — y lo coloca tras Awintura en casinos fiat, apuestas y bonos.",
-  "Aunque fuentes externas reportan Bitcoin, USDT y otras criptomonedas, eso no justifica su inclusión en /casinos-crypto: los pagos crypto son secundarios y la propuesta principal es fiat/sportsbook. No aparece en homepage ni en rutas /en.",
+  "Mostbet integra sportsbook, casino, live casino, poker, esports y aplicación móvil en una plataforma internacional. JugadaMax lo clasifica como operador mixto fiat/multi-moneda con sportsbook sustancial — no como casino cripto — y lo coloca tras Awintura en casinos fiat, apuestas y bonos.",
+  "Aunque fuentes externas reportan Bitcoin, USDT y otras criptomonedas, eso no justifica su inclusión en /casinos-cripto: los pagos cripto son secundarios y la propuesta principal es fiat/sportsbook. No aparece en homepage ni en rutas /en.",
   "La landing afiliada suministrada muestra 125% + 250 FS con elección Casino o Sports. JugadaMax no publica un tope universal en moneda ni wagering fijo: depósito mínimo, rollover y elegibilidad deben confirmarse tras el redirect. El banner de 22,000 MXN es una campaña visible separada.",
   "La localización en español y MXN no equivale a licencia SEGOB. Fuentes externas identifican a Bizbon N.V. y OGL/2024/597/0249; JugadaMax no pudo confirmar el footer en vivo durante esta revisión. KYC, retiros y reclamaciones externas requieren cautela.",
   "Calificamos Mostbet 3.8/5: producto amplio, campaña activa y app móvil, pero evaluaciones externas mixtas, reglas promocionales variables y ausencia de licencia local mexicana. 18+ solamente.",
@@ -152,7 +152,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Mostbet acepta criptomonedas?",
     answer:
-      "Fuentes externas mencionan Bitcoin, USDT y otras criptomonedas como métodos secundarios. Esto no convierte a Mostbet en casino crypto en JugadaMax.",
+      "Fuentes externas mencionan Bitcoin, USDT y otras criptomonedas como métodos secundarios. Esto no convierte a Mostbet en casino cripto en JugadaMax.",
   },
   {
     question: "¿Mostbet tiene aplicación?",

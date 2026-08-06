@@ -22,7 +22,7 @@ export function HomepageSecondarySportsStrip() {
               </span>
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Compara sportsbooks crypto y operadores mixtos sin perder el enfoque casino-first de
+              Compara sportsbooks cripto y operadores mixtos sin perder el enfoque casino-first de
               JugadaMax.
             </p>
           </div>

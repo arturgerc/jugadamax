@@ -3,7 +3,7 @@
  */
 
 export const ABOUT_FOCUS_PILLS = [
-  "Casinos crypto y fiat",
+  "Casinos cripto y fiat",
   "Apuestas deportivas",
   "Pagos digitales",
   "Juego responsable",
@@ -26,8 +26,8 @@ export const ABOUT_PUBLISHING_AREAS = [
   {
     title: "Rankings y comparativas",
     body: "Directorios y tablas de comparación ordenados por criterio editorial. El orden puede verse influido por acuerdos comerciales divulgados.",
-    href: "/casinos-crypto",
-    label: "Ver casinos crypto",
+    href: "/casinos-cripto",
+    label: "Ver casinos cripto",
   },
   {
     title: "Guías",
@@ -95,7 +95,7 @@ export const ABOUT_BOUNDARIES = [
 export const ABOUT_FAQ_ITEMS = [
   {
     q: "¿Qué es JugadaMax?",
-    a: "JugadaMax es un sitio editorial de comparación y medios sobre casinos crypto, casinos fiat y apuestas deportivas, con cobertura en español centrada en México y páginas en inglés para lectores internacionales.",
+    a: "JugadaMax es un sitio editorial de comparación y medios sobre casinos cripto, casinos fiat y apuestas deportivas, con cobertura en español centrada en México y páginas en inglés para lectores internacionales.",
   },
   {
     q: "¿JugadaMax es un casino o una casa de apuestas?",

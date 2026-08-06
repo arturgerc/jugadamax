@@ -41,7 +41,7 @@ const CONTEXT_CONFIG: Record<
     headline: "Mostbet: casino online, live casino y sportsbook",
     subheadline: "Slots, mesas en vivo, esports y apuestas en una sola cuenta",
     offerText: "125% + 250 FS en el primer depósito",
-    paymentBadges: ["MXN", "Tarjetas", "E-wallets", "Crypto"],
+    paymentBadges: ["MXN", "Tarjetas", "E-wallets", "Cripto"],
     featureBullets: [
       "Casino, slots, live casino, poker y juegos instantáneos",
       "Sportsbook, apuestas en vivo y esports",
@@ -129,7 +129,7 @@ const CONTEXT_CONFIG: Record<
     headline: "Mostbet: casino, apuestas, bonos y aplicación",
     subheadline: "Operador internacional mixto para comparar desde México",
     offerText: "125% + 250 FS según campaña de primer depósito",
-    paymentBadges: ["MXN", "Tarjetas", "Crypto", "Sportsbook"],
+    paymentBadges: ["MXN", "Tarjetas", "Cripto", "Sportsbook"],
     featureBullets: [
       "Casino, live casino, poker y juegos instantáneos",
       "Sportsbook, apuestas en vivo y esports",

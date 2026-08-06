@@ -15,7 +15,7 @@ import { TrackedLink } from "@/components/analytics/TrackedLink";
 export const metadata: Metadata = buildMetadata({
   title: "Bonos de casino en México",
   description:
-    "Compara promociones de casino, crypto y apuestas en México: depósito mínimo, wagering, vigencia, códigos y condiciones clave. 18+.",
+    "Compara promociones de casino, cripto y apuestas en México: depósito mínimo, wagering, vigencia, códigos y condiciones clave. 18+.",
   path: "/bonos",
   languageAlternates: {
     "es-MX": "/bonos",
@@ -24,7 +24,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const RELATED_LINKS = [
-  { label: "Casinos crypto", href: "/casinos-crypto" },
+  { label: "Casinos cripto", href: "/casinos-cripto" },
   { label: "Casinos fiat", href: "/casinos-fiat" },
   { label: "Casinos sin KYC", href: "/casinos-sin-kyc" },
   { label: "Apuestas", href: "/apuestas" },

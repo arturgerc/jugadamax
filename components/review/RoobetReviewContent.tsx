@@ -18,15 +18,15 @@ import { cn, focusRing } from "@/lib/utils";
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
 const JURISDICTION_WARNING =
-  "Roobet es un operador crypto internacional. La disponibilidad, promociones, pagos, sportsbook, KYC y retiros dependen de tu ubicación, cuenta y de los términos oficiales. JugadaMax no afirma que Roobet cuente con licencia local mexicana.";
+  "Roobet es un operador cripto internacional. La disponibilidad, promociones, pagos, sportsbook, KYC y retiros dependen de tu ubicación, cuenta y de los términos oficiales. JugadaMax no afirma que Roobet cuente con licencia local mexicana.";
 
 const CAMPAIGN_SNAPSHOT_NOTE =
   "Campaña visible en la captura suministrada; puede finalizar, cambiar o no estar disponible para todas las cuentas.";
 
 const QUICK_SUMMARY = [
-  { title: "Tipo", text: "Casino crypto internacional con sportsbook adicional" },
+  { title: "Tipo", text: "Casino cripto internacional con sportsbook adicional" },
   { title: "Promociones", text: "Campañas rotativas de casino, VIP y deportes" },
-  { title: "Pagos", text: "Crypto y otros métodos según país y cajero" },
+  { title: "Pagos", text: "Cripto y otros métodos según país y cajero" },
   { title: "Principal precaución", text: "Elegibilidad, KYC, promociones y retiros" },
 ] as const;
 
@@ -100,14 +100,14 @@ const VIP_REWARDS_CARDS = [
 ] as const;
 
 const PAYMENT_CARDS = [
-  { title: "Bitcoin / Ethereum", text: "Activos crypto habituales; confirma red, mínimos y comisiones en el cajero." },
+  { title: "Bitcoin / Ethereum", text: "Activos cripto habituales; confirma red, mínimos y comisiones en el cajero." },
   { title: "USDT / USDC", text: "Stablecoins según red y país; verifica dirección y límites antes de depositar." },
   { title: "Litecoin / XRP", text: "Altcoins adicionales según cajero y cuenta." },
   { title: "Other methods by jurisdiction", text: "Otros métodos pueden aparecer según mercado; no asumas disponibilidad universal." },
 ] as const;
 
 const ANALYSIS_PARAGRAPHS = [
-  "Roobet integra casino crypto, live casino, Originals y sportsbook en una sola plataforma internacional. JugadaMax lo clasifica como casino crypto con sportsbook adicional y lo mantiene en el ranking manual de /casinos-crypto en la posición editorial existente, por debajo de BetFury, 500 Casino, Gamdom y Rainbet.",
+  "Roobet integra casino cripto, live casino, Originals y sportsbook en una sola plataforma internacional. JugadaMax lo clasifica como casino cripto con sportsbook adicional y lo mantiene en el ranking manual de /casinos-cripto en la posición editorial existente, por debajo de BetFury, 500 Casino, Gamdom y Rainbet.",
   "Las capturas de promociones de julio de 2026 muestran Weekly Raffle, Drops & Wins, Crown the Champions, campañas VIP y acciones deportivas como Football Frenzy o Parlay Power Play. Son campañas rotativas: importes, entradas, elegibilidad y vencimiento pueden cambiar o no aplicar a tu cuenta o jurisdicción.",
   "El sportsbook complementa el casino dentro de la misma cuenta, pero no convierte a Roobet en operador local mexicano ni en recomendación principal de apuestas en JugadaMax. Mercados, cuotas mínimas, mercados elegibles y promociones deportivas deben confirmarse en términos vigentes.",
   "En licencia y KYC, fuentes externas identifican a Raw Entertainment B.V. y licencias de Curaçao y Anjouan. Esto no equivale a autorización local mexicana. Roobet puede solicitar verificación antes de retiros o promociones; JugadaMax no garantiza tiempos de retiro ni ausencia de KYC.",
@@ -143,7 +143,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Roobet acepta criptomonedas?",
     answer:
-      "Roobet se orienta a pagos crypto. Bitcoin, Ethereum, USDT, USDC, Litecoin, XRP y otros métodos pueden estar disponibles según país y cajero; confirma redes y límites antes de depositar.",
+      "Roobet se orienta a pagos cripto. Bitcoin, Ethereum, USDT, USDC, Litecoin, XRP y otros métodos pueden estar disponibles según país y cajero; confirma redes y límites antes de depositar.",
   },
   {
     question: "¿Roobet está disponible en México?",
@@ -454,13 +454,13 @@ export function RoobetReviewContent({
               Visitar Roobet
             </a>
             <Link
-              href="/casinos-crypto"
+              href="/casinos-cripto"
               className={cn(
                 "inline-flex min-h-11 items-center justify-center rounded-md border border-violet-400/35 px-5 py-2.5 text-sm font-semibold text-violet-200 transition-colors hover:bg-violet-500/10",
                 focusRing,
               )}
             >
-              Comparar casinos crypto
+              Comparar casinos cripto
             </Link>
           </div>
         </section>
@@ -501,7 +501,7 @@ export function RoobetReviewContent({
         primaryLabel="Visitar Roobet"
         primaryHref={ROOBET_MX_CASINO_AFFILIATE_URL}
         secondaryLabel="Comparar"
-        secondaryHref="/casinos-crypto"
+        secondaryHref="/casinos-cripto"
       />
     </>
   );

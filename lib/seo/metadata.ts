@@ -11,7 +11,7 @@ import { siteConfig } from "@/lib/site";
 export interface PageMetadataInput {
   title: string;
   description: string;
-  /** Path relative to the site root, e.g. "/casinos-crypto". Used for canonical. */
+  /** Path relative to the site root, e.g. "/casinos-cripto". Used for canonical. */
   path?: string;
   /** Absolute or root-relative image path; falls back to the site default OG image. */
   image?: string;

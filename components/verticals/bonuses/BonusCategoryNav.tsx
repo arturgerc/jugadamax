@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: "Destacadas", href: "#promociones-destacadas" },
   { label: "Comparativa", href: "#comparativa-bonos" },
   { label: "Casino MX", href: "#bonos-casino-mx" },
-  { label: "Crypto", href: "#bonos-crypto-rewards" },
+  { label: "Cripto", href: "#bonos-crypto-rewards" },
   { label: "Apuestas", href: "#bonos-sports-mixed" },
   { label: "Guías y reseñas", href: "#hub-bonos" },
   { label: "Términos", href: "#terminos-bonos" },

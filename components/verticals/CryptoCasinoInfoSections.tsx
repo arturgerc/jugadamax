@@ -6,7 +6,7 @@ const evaluationCriteria = [
     body: "Analizamos la información disponible del operador y priorizamos claridad, pagos compatibles, condiciones de bonos y señales de juego responsable.",
   },
   {
-    title: "Métodos de pago crypto",
+    title: "Métodos de pago cripto",
     body: "Revisamos qué criptomonedas informa cada operador, sin asumir disponibilidad universal. Los métodos y límites pueden variar.",
   },
   {
@@ -21,12 +21,12 @@ const evaluationCriteria = [
 
 const faqItems = [
   {
-    question: "¿Qué es un casino crypto?",
+    question: "¿Qué es un casino cripto?",
     answer:
-      "Un casino crypto permite usar criptomonedas como Bitcoin, Ethereum, USDT u otras opciones compatibles para depósitos o pagos, según las condiciones de cada operador.",
+      "Un casino cripto permite usar criptomonedas como Bitcoin, Ethereum, USDT u otras opciones compatibles para depósitos o pagos, según las condiciones de cada operador.",
   },
   {
-    question: "¿Los casinos crypto están disponibles para jugadores en México?",
+    question: "¿Los casinos cripto están disponibles para jugadores en México?",
     answer:
       "La disponibilidad depende de cada operador y de sus términos. Antes de registrarte, revisa las condiciones, restricciones territoriales y requisitos de verificación.",
   },
@@ -73,7 +73,7 @@ export function CryptoCasinoInfoSections({
           id="evaluacion-crypto-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
         >
-          Cómo evaluamos los casinos crypto
+          Cómo evaluamos los casinos cripto
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-muted-foreground sm:text-base">
           Analizamos la información disponible del operador y priorizamos claridad, pagos
@@ -94,13 +94,13 @@ export function CryptoCasinoInfoSections({
         </ul>
       </section>
 
-      {/* Métodos de pago crypto */}
+      {/* Métodos de pago cripto */}
       <section aria-labelledby="pagos-crypto-heading">
         <h2
           id="pagos-crypto-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
         >
-          Métodos de pago crypto
+          Métodos de pago cripto
         </h2>
         <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
           Los métodos disponibles dependen de cada operador. Antes de registrarte, revisa
@@ -199,7 +199,7 @@ export function CryptoCasinoInfoSections({
             href="/guias/como-elegir-casino-crypto-mexico"
             className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
           >
-            Leer guía para elegir casino crypto
+            Leer guía para elegir casino cripto
           </Link>
         </div>
       </section>

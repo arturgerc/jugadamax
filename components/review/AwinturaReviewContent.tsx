@@ -30,7 +30,7 @@ const EXTERNAL_RISK_NOTE =
 const QUICK_SUMMARY = [
   { title: "Tipo", text: "Casino fiat/multi-currency con sportsbook adicional" },
   { title: "Campaña", text: "Hasta $60,000 + 250 FS + 200% freebets según GEO" },
-  { title: "Pagos", text: "Tarjetas y algunas opciones crypto según cajero" },
+  { title: "Pagos", text: "Tarjetas y algunas opciones cripto según cajero" },
   { title: "Principal precaución", text: "Bonos, KYC, rollover de depósitos y retiros" },
 ] as const;
 
@@ -62,7 +62,7 @@ const SPORTSBOOK_CARDS = [
 const PAYMENT_CARDS = [
   { title: "Visa / Mastercard", text: "Tarjetas donde el cajero las habilita; límites y comisiones varían por país y cuenta." },
   { title: "E-wallets", text: "E-wallets y métodos locales LATAM según país; no todos están disponibles en México." },
-  { title: "Bitcoin / Tether / Binance Pay", text: "Opciones crypto secundarias según cajero, red y cuenta — no convierten a Awintura en casino crypto en JugadaMax." },
+  { title: "Bitcoin / Tether / Binance Pay", text: "Opciones cripto secundarias según cajero, red y cuenta — no convierten a Awintura en casino cripto en JugadaMax." },
   { title: "Mexico cashier not independently verified", text: "Una base externa reporta OXXO Pay y SPEI, pero JugadaMax no verificó su disponibilidad en un cajero mexicano en vivo." },
 ] as const;
 
@@ -76,9 +76,9 @@ const CONDITIONS_CARDS = [
 ] as const;
 
 const ANALYSIS_PARAGRAPHS = [
-  "Awintura combina un catálogo amplio de casino — slots, live casino, mesas, jackpots, torneos, Wheel of Fortune, VIP y gamificación — con sportsbook y freebets en la misma cuenta. JugadaMax lo clasifica como casino fiat/multi-moneda con sportsbook adicional, no como casino crypto ni como operador local mexicano.",
+  "Awintura combina un catálogo amplio de casino — slots, live casino, mesas, jackpots, torneos, Wheel of Fortune, VIP y gamificación — con sportsbook y freebets en la misma cuenta. JugadaMax lo clasifica como casino fiat/multi-moneda con sportsbook adicional, no como casino cripto ni como operador local mexicano.",
   "La campaña suministrada para JugadaMax muestra hasta $60,000, 250 free spins y 200% freebets, pero la homepage pública de Awintura presenta otras cifras (p. ej. hasta 6,000 USD + 300 FS). Moneda, landing, país y promoción activa pueden cambiar lo que ve cada usuario. Confirma siempre la oferta en Active Promotions tras el redirect.",
-  "Por eso Awintura no aparece en /casinos-crypto: las opciones Bitcoin, Tether y Binance Pay son métodos de pago secundarios, no la clasificación editorial principal. En pagos, JugadaMax no garantiza OXXO ni SPEI para cuentas mexicanas hasta verificar el cajero en vivo.",
+  "Por eso Awintura no aparece en /casinos-cripto: las opciones Bitcoin, Tether y Binance Pay son métodos de pago secundarios, no la clasificación editorial principal. En pagos, JugadaMax no garantiza OXXO ni SPEI para cuentas mexicanas hasta verificar el cajero en vivo.",
   "En bonos y retiros, los términos distinguen saldos de casino y sport, exigen activación previa, limitan conversión y pueden aplicar KYC, reglas de mismo método y comisiones por bajo rollover de depósito. No prometemos retiros rápidos ni wagering universal único para la campaña JugadaMax.",
   "Calificamos Awintura 4.1/5 como operador internacional mixto secundario: licencia Curaçao identificable, producto amplio y señales externas favorables, pero sin licencia local mexicana, variabilidad promocional, reglas de bonos complejas y muestra limitada de feedback. 18+ solamente.",
 ] as const;
@@ -102,7 +102,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Awintura tiene casino y sportsbook?",
     answer:
-      "Sí. Awintura es un operador mixto con casino y sportsbook en una sola cuenta. JugadaMax lo cubre en casinos fiat, bonos y apuestas, pero no en la homepage ni en casinos crypto.",
+      "Sí. Awintura es un operador mixto con casino y sportsbook en una sola cuenta. JugadaMax lo cubre en casinos fiat, bonos y apuestas, pero no en la homepage ni en casinos cripto.",
   },
   {
     question: "¿Awintura acepta pagos fiat?",
@@ -112,7 +112,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Awintura acepta Bitcoin o USDT?",
     answer:
-      "Fuentes oficiales mencionan Bitcoin, Tether y Binance Pay entre opciones posibles. Esto no convierte a Awintura en casino crypto en JugadaMax; confirma redes y activos en el cajero.",
+      "Fuentes oficiales mencionan Bitcoin, Tether y Binance Pay entre opciones posibles. Esto no convierte a Awintura en casino cripto en JugadaMax; confirma redes y activos en el cajero.",
   },
   {
     question: "¿Awintura ofrece OXXO o SPEI en México?",

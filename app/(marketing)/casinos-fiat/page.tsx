@@ -38,7 +38,7 @@ function uniqueFiatPayments(casinos: Casino[]) {
 
 const RELATED_LINKS = [
   { label: "Bonos de casino", href: "/bonos" },
-  { label: "Casinos crypto", href: "/casinos-crypto" },
+  { label: "Casinos cripto", href: "/casinos-cripto" },
   { label: "Casinos sin KYC", href: "/casinos-sin-kyc" },
   { label: "Guías", href: "/guias" },
   { label: "Reseñas", href: "/reviews" },

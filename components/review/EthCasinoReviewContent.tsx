@@ -21,12 +21,12 @@ import { cn, focusRing } from "@/lib/utils";
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
 const JURISDICTION_WARNING =
-  "ETH Casino es un casino crypto internacional. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, registro, pagos, límites, controles antifraude y retiros dependen de tu ubicación, cuenta y reglas vigentes del dominio de registro.";
+  "ETH Casino es un casino cripto internacional. JugadaMax no afirma licencia local mexicana ni anonimato técnico absoluto. Disponibilidad, registro, pagos, límites, controles antifraude y retiros dependen de tu ubicación, cuenta y reglas vigentes del dominio de registro.";
 
 const QUICK_SUMMARY = [
   { title: "Tipo", text: "Casino Ethereum sin KYC" },
   { title: "Registro", text: "Email + contraseña" },
-  { title: "Pagos", text: "ETH, BTC, USDT y otras ocho crypto" },
+  { title: "Pagos", text: "ETH, BTC, USDT y otras ocho cripto" },
   { title: "Principal precaución", text: "Sin licencia verificada y límites de retiro" },
 ] as const;
 
@@ -52,7 +52,7 @@ const NO_KYC_CARDS = [
 const PRIVACY_ADVANTAGES = [
   "Sin carga de documentos según el operador",
   "Sin flujo de tarjeta bancaria",
-  "Pagos desde wallets crypto",
+  "Pagos desde wallets cripto",
   "Información de alta limitada (email + contraseña)",
   "2FA disponible / recomendable",
 ] as const;
@@ -150,11 +150,11 @@ const REGISTRATION_STEPS = [
 
 function buildAnalysisParagraphs(rating: number): string[] {
   return [
-    "ETH Casino se presenta como un casino Ethereum-first: la marca gira alrededor de ETH, wallets y una experiencia crypto-only, no alrededor de pagos fiat mexicanos ni de un bono de bienvenida permanente.",
+    "ETH Casino se presenta como un casino Ethereum-first: la marca gira alrededor de ETH, wallets y una experiencia solo con criptomonedas, no alrededor de pagos fiat mexicanos ni de un bono de bienvenida permanente.",
     "La URL /reviews/ethcasino ya concentra interés de búsqueda en México; esta actualización refuerza la misma página indexada con estructura editorial más clara, sin cambiar el slug ni fabricar una publicación nueva.",
     "El diferenciador principal es la política pública sin KYC. ETH Casino declara que no exige verificación documental y que el registro se completa con email, contraseña y confirmación de correo. JugadaMax atribuye esas afirmaciones al operador y recuerda que pueden cambiar.",
     "La privacidad tiene límites técnicos: el email, la IP, el dispositivo, las direcciones de wallet y el historial en blockchains públicas pueden generar trazabilidad. Los Terms también contemplan controles antifraude y restricciones de cuenta.",
-    `El operador admite once criptomonedas en sus Terms, con un catálogo de slots, juegos crypto y live casino de proveedores reconocidos según disponibilidad. Los retiros tienen límites diarios/semanales/mensuales y requisitos de movimiento del depósito. Casino Guru publica un Safety Index 5.3/10 (Below average) con licencia no verificada; JugadaMax asigna ${rating}/5 como opinión editorial propia, no como certificación de seguridad ni agregación de usuarios. 18+.`,
+    `El operador admite once criptomonedas en sus Terms, con un catálogo de slots, juegos cripto y live casino de proveedores reconocidos según disponibilidad. Los retiros tienen límites diarios/semanales/mensuales y requisitos de movimiento del depósito. Casino Guru publica un Safety Index 5.3/10 (Below average) con licencia no verificada; JugadaMax asigna ${rating}/5 como opinión editorial propia, no como certificación de seguridad ni agregación de usuarios. 18+.`,
   ];
 }
 
@@ -216,7 +216,7 @@ const FAQ_ITEMS = [
   {
     question: "¿ETH Casino tiene apuestas deportivas?",
     answer:
-      "ETH Casino se presenta como casino crypto, no como sportsbook principal.",
+      "ETH Casino se presenta como casino cripto, no como sportsbook principal.",
   },
   {
     question: "¿Cuánto tardan los retiros?",
@@ -241,7 +241,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Por qué JugadaMax le da 4.7/5?",
     answer:
-      "JugadaMax asigna a ETH Casino una valoración editorial de 4.7/5 por su propuesta diferenciada sin KYC, registro sencillo, amplia compatibilidad crypto y catálogo de juegos. Esta puntuación no es un agregado de usuarios ni una garantía de seguridad o retiro.",
+      "JugadaMax asigna a ETH Casino una valoración editorial de 4.7/5 por su propuesta diferenciada sin KYC, registro sencillo, amplia compatibilidad cripto y catálogo de juegos. Esta puntuación no es un agregado de usuarios ni una garantía de seguridad o retiro.",
   },
 ] as const;
 
@@ -360,7 +360,7 @@ export function EthCasinoReviewContent({
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
             Conservamos la URL indexada{" "}
             <span className="font-medium text-foreground">/reviews/ethcasino</span> y reforzamos el
-            enfoque editorial en no-KYC, registro con email y contraseña, pagos crypto y riesgos
+            enfoque editorial en no-KYC, registro con email y contraseña, pagos cripto y riesgos
             reales de retiro y jurisdicción, sin posicionar la marca alrededor de un bono de
             bienvenida.
           </p>
@@ -567,7 +567,7 @@ export function EthCasinoReviewContent({
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               JugadaMax asigna a ETH Casino una valoración editorial de 4.7/5 por su propuesta
-              diferenciada sin KYC, registro sencillo, amplia compatibilidad crypto y catálogo de
+              diferenciada sin KYC, registro sencillo, amplia compatibilidad cripto y catálogo de
               juegos. Esta puntuación no es un agregado de usuarios ni una garantía de seguridad o
               retiro.
             </p>

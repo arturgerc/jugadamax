@@ -15,7 +15,7 @@ export interface NavLink {
  * bonuses and guides come before the secondary sportsbook section (/apuestas).
  */
 export const desktopNav: NavLink[] = [
-  { label: "Casinos Crypto", href: "/casinos-crypto" },
+  { label: "Casinos cripto", href: "/casinos-cripto" },
   { label: "Sin KYC", href: "/casinos-sin-kyc", footerLabel: "Casinos sin KYC" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
   { label: "Bonos", href: "/bonos" },
@@ -32,7 +32,7 @@ export const desktopNav: NavLink[] = [
  * ordering; the sportsbook section (/apuestas) stays secondary.
  */
 export const primaryNav: NavLink[] = [
-  { label: "Casinos Crypto", href: "/casinos-crypto" },
+  { label: "Casinos cripto", href: "/casinos-cripto" },
   { label: "Sin KYC", href: "/casinos-sin-kyc", footerLabel: "Casinos sin KYC" },
   { label: "Casinos Fiat", href: "/casinos-fiat" },
   { label: "Bonos", href: "/bonos" },

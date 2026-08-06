@@ -88,7 +88,7 @@ const THEMES: Record<CryptoCardTheme, { card: string; badge: string; purpose: st
 };
 
 /**
- * Compact TOP crypto recommendation card for /casinos-crypto.
+ * Compact TOP crypto recommendation card for /casinos-cripto.
  */
 export function CryptoTopCasinoCard({
   operatorId,

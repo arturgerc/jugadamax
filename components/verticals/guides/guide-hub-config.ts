@@ -67,7 +67,7 @@ export const GUIDE_CATEGORY_META: Record<
       "bg-gradient-to-br from-[#1a160f] via-[#121820] to-[#0A1931] border-primary/25",
   },
   "crypto-payments": {
-    label: "Crypto y pagos",
+    label: "Cripto y pagos",
     accent: "border-cyan-400/30 text-cyan-200",
     fallback:
       "bg-gradient-to-br from-[#0d1824] via-[#101820] to-[#0A1931] border-cyan-500/20",
@@ -88,7 +88,7 @@ export const GUIDE_CATEGORY_META: Record<
 
 export const GUIDE_LEARNING_PATHS = [
   {
-    title: "Quiero elegir un casino crypto",
+    title: "Quiero elegir un casino cripto",
     description:
       "Empieza por seguridad, pagos, licencias informadas y condiciones antes de registrarte.",
     href: "/guias/como-elegir-casino-crypto-mexico",
@@ -96,7 +96,7 @@ export const GUIDE_LEARNING_PATHS = [
     accent: "border-primary/25 hover:border-primary/45",
   },
   {
-    title: "Quiero entender pagos crypto",
+    title: "Quiero entender pagos cripto",
     description:
       "Compara USDT, Bitcoin, redes, wallets, comisiones y riesgos operativos.",
     href: "/guias/casinos-con-usdt-mexico",

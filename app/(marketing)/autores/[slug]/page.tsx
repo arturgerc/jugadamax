@@ -41,7 +41,7 @@ export async function generateMetadata({
     title: `${author.name} · Autores JugadaMax`,
     description:
       author.bio ??
-      `Perfil editorial de ${author.name} en JugadaMax. Contenido sobre casinos, crypto y apuestas para México.`,
+      `Perfil editorial de ${author.name} en JugadaMax. Contenido sobre casinos, cripto y apuestas para México.`,
     path: `/autores/${author.slug}`,
   });
 }

@@ -26,7 +26,7 @@ const JURISDICTION_WARNING =
   "Sportsbet.io es un operador internacional con licencia de Curaçao. México no aparece en la lista de jurisdicciones restringidas revisada, pero esto no equivale a licencia local mexicana. La disponibilidad, registro, promociones, pagos, KYC y retiros dependen de la ubicación, la cuenta y los términos vigentes.";
 
 const QUICK_SUMMARY = [
-  { title: "Tipo", text: "Sportsbook crypto con casino adicional" },
+  { title: "Tipo", text: "Sportsbook cripto con casino adicional" },
   { title: "Welcome", text: "100% hasta 300 USDT — Sports o Casino" },
   { title: "Pagos", text: "BTC, USDT y otras monedas según cuenta" },
   { title: "Principal precaución", text: "Safety Index externo, KYC y retiros" },
@@ -98,7 +98,10 @@ const CASINO_CARDS = [
 ] as const;
 
 const PAYMENT_CARDS = [
-  { title: "Bitcoin / Ethereum", text: "Depósitos y retiros crypto según red y mínimos." },
+  {
+    title: "Bitcoin / Ethereum",
+    text: "Depósitos y retiros en criptomonedas según red y mínimos.",
+  },
   { title: "USDT / USDC", text: "Stablecoins; confirma red antes de transferir." },
   { title: "Litecoin / XRP", text: "Activos adicionales según cajero de cuenta." },
   { title: "Otras criptomonedas", text: "Catálogo amplio; disponibilidad variable por país." },
@@ -134,8 +137,8 @@ const KYC_CARDS = [
 ] as const;
 
 const ANALYSIS_PARAGRAPHS = [
-  "Sportsbet.io es ante todo un sportsbook crypto con apuestas pre-match, live, esports y mercados combinados. JugadaMax lo clasifica como sportsbook-first con casino crypto sustancial — no como operador fiat — y lo coloca en /casinos-crypto, /apuestas y /bonos crypto, pero no en /casinos-fiat ni homepage.",
-  "Aunque admite múltiples criptomonedas y también fiat según términos, la propuesta principal es crypto-first. Por eso aparece en casinos-crypto como campaña internacional activa junto a Vodka.bet, sin recibir un rank canónico numerado.",
+  "Sportsbet.io es ante todo un sportsbook cripto con apuestas pre-match, live, esports y mercados combinados. JugadaMax lo clasifica como sportsbook-first con casino cripto sustancial — no como operador fiat — y lo coloca en /casinos-cripto, /apuestas y /bonos cripto, pero no en /casinos-fiat ni homepage.",
+  "Aunque admite múltiples criptomonedas y también fiat según términos, la propuesta principal está centrada en cripto. Por eso aparece en casinos-cripto como campaña internacional activa junto a Vodka.bet, sin recibir un rank canónico numerado.",
   "El Champions Welcome Bonus publicado ofrece 100% hasta 300 USDT con elección Sports o Casino, depósito mínimo 10 USDT y wagering distinto: 15x para Sports y 40x para Casino. Debes activar la recompensa en Rewards antes de depositar.",
   "La campaña temporal $777,777 World Cup Tournament finaliza el 19 de julio de 2026 a las 23:00 UTC. JugadaMax la trata como snapshot editorial con CTA temporal; tras el vencimiento permanece como referencia histórica.",
   "Operado por mBet Solutions N.V. (129230) bajo licencia Curaçao OGL/2023/110/0072. México no figura en la lista restringida revisada, pero esto no equivale a licencia local mexicana.",
@@ -181,7 +184,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Sportsbet.io acepta Bitcoin y USDT?",
     answer:
-      "Sportsbet.io es crypto-first y admite BTC, USDT, USDC y otras criptomonedas según cuenta y país. Confirma red y mínimos en el cajero.",
+      "Sportsbet.io está centrado en cripto y admite BTC, USDT, USDC y otras criptomonedas según cuenta y país. Confirma red y mínimos en el cajero.",
   },
   {
     question: "¿Sportsbet.io acepta monedas fiat?",
@@ -201,7 +204,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Cuánto tardan los retiros?",
     answer:
-      "JugadaMax no garantiza tiempos. Retiros fiat pueden tardar hasta tres días laborables tras aprobación; crypto depende de red y revisiones.",
+      "JugadaMax no garantiza tiempos. Retiros fiat pueden tardar hasta tres días laborables tras aprobación; cripto depende de red y revisiones.",
   },
   {
     question: "¿Sportsbet.io está disponible en México?",
@@ -623,13 +626,13 @@ export function SportsbetReviewContent({
               Visitar Sportsbet.io
             </a>
             <Link
-              href="/casinos-crypto"
+              href="/casinos-cripto"
               className={cn(
                 "inline-flex min-h-11 items-center justify-center rounded-md border border-[#36B958]/40 px-5 py-2.5 text-sm font-semibold text-[#65E782] transition-colors hover:bg-[#36B958]/10",
                 focusRing,
               )}
             >
-              Comparar casinos crypto
+              Comparar casinos cripto
             </Link>
           </div>
         </section>
@@ -670,7 +673,7 @@ export function SportsbetReviewContent({
         primaryLabel="Visitar Sportsbet.io"
         primaryHref={SPORTSBETIO_REGISTRATION_AFFILIATE_URL}
         secondaryLabel="Comparar"
-        secondaryHref="/casinos-crypto"
+        secondaryHref="/casinos-cripto"
       />
     </>
   );

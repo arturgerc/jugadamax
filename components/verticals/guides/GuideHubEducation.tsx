@@ -53,7 +53,7 @@ const FAQ_ITEMS = [
 ] as const;
 
 const RELATED = [
-  { href: "/casinos-crypto", label: "Casinos crypto" },
+  { href: "/casinos-cripto", label: "Casinos cripto" },
   { href: "/casinos-fiat", label: "Casinos fiat" },
   { href: "/bonos", label: "Bonos" },
   { href: "/reviews", label: "Reseñas" },

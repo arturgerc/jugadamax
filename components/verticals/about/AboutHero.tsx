@@ -25,7 +25,7 @@ export function AboutHero() {
             Acerca de JugadaMax
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            JugadaMax es un sitio editorial de comparación y medios sobre casinos crypto, casinos
+            JugadaMax es un sitio editorial de comparación y medios sobre casinos cripto, casinos
             fiat y apuestas deportivas, con cobertura en español centrada en México. No somos un
             operador de juego: publicamos reseñas, rankings, guías y noticias con autores
             identificados.

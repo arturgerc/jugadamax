@@ -14,7 +14,7 @@ import { cn, focusRing } from "@/lib/utils";
 export const metadata: Metadata = buildMetadata({
   title: "Casinos sin KYC en México: Anonymous, ETH y LTC",
   description:
-    "Compara Anonymous Casino, ETH Casino y LTC Casino: registro con email y contraseña, pagos crypto, juegos, retiros, privacidad, límites y riesgos.",
+    "Compara Anonymous Casino, ETH Casino y LTC Casino: registro con email y contraseña, pagos cripto, juegos, retiros, privacidad, límites y riesgos.",
   path: "/casinos-sin-kyc",
   languageAlternates: {
     "es-MX": "/casinos-sin-kyc",
@@ -46,7 +46,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Estos casinos aceptan OXXO o SPEI?",
     answer:
-      "No se presentan aquí como casinos fiat mexicanos. Su propuesta es crypto-only con pagos desde wallets.",
+      "No se presentan aquí como casinos fiat mexicanos. Su propuesta es solo con criptomonedas y pagos desde wallets.",
   },
 ] as const;
 
@@ -76,7 +76,7 @@ export default function CasinosSinKycPage() {
             Casinos sin KYC en México
           </h1>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Comparamos casinos crypto que publican políticas de registro sin verificación documental.
+            Comparamos casinos cripto que publican políticas de registro sin verificación documental.
             Anonymous Casino (CryptoCasino.CC), ETH Casino y LTC Casino permiten crear una cuenta
             mediante email y contraseña según sus materiales públicos, pero la disponibilidad,
             controles antifraude, redes, límites y retiros dependen de cada operador y de tu
@@ -87,7 +87,7 @@ export default function CasinosSinKycPage() {
               Sin KYC
             </li>
             <li className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-              Crypto-only
+              Solo cripto
             </li>
             <li className="inline-flex items-center rounded-full border border-white/10 bg-[#16233f]/60 px-2.5 py-1 text-xs font-medium text-muted-foreground">
               México / LATAM
@@ -176,7 +176,7 @@ export default function CasinosSinKycPage() {
               <li>Posicionamiento sin KYC</li>
               <li>Registro con email y contraseña</li>
               <li>8 criptomonedas confirmadas</li>
-              <li>Slots, crypto games y live casino</li>
+              <li>Slots, juegos cripto y live casino</li>
               <li>Varias cuentas según Terms, con cautela de abuso</li>
             </ul>
             <Link
@@ -194,7 +194,7 @@ export default function CasinosSinKycPage() {
               <li>Sin KYC según el operador</li>
               <li>Registro con email y contraseña</li>
               <li>11 criptomonedas en los Terms</li>
-              <li>Slots, juegos crypto y live casino</li>
+              <li>Slots, juegos cripto y live casino</li>
             </ul>
             <Link
               href="/reviews/ethcasino"
@@ -210,8 +210,8 @@ export default function CasinosSinKycPage() {
               <li>Enfoque Litecoin</li>
               <li>Sin KYC según el operador</li>
               <li>Registro con email y contraseña</li>
-              <li>Múltiples activos crypto</li>
-              <li>Slots y juegos crypto</li>
+              <li>Múltiples activos cripto</li>
+              <li>Slots y juegos cripto</li>
             </ul>
             <Link
               href="/reviews/ltccasino"
@@ -277,8 +277,8 @@ export default function CasinosSinKycPage() {
             </Link>
           </li>
           <li>
-            <Link href="/casinos-crypto" className={cn("font-medium text-primary underline-offset-2 hover:underline", focusRing)}>
-              Casinos crypto
+            <Link href="/casinos-cripto" className={cn("font-medium text-primary underline-offset-2 hover:underline", focusRing)}>
+              Casinos cripto
             </Link>
           </li>
           <li>
