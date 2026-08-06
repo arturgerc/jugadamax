@@ -55,7 +55,7 @@ const CONTEXT_CONFIG: Record<
     headline: "1xBet MX: casino online y sportsbook",
     subheadline: "Slots, casino en vivo, apuestas y promociones en una sola cuenta",
     offerText: "Paquete de bienvenida: hasta 40,000 MXN + 150 giros gratis",
-    paymentBadges: ["MXN", "OXXO", "SPEI", "Visa", "Crypto"],
+    paymentBadges: ["MXN", "OXXO", "SPEI", "Visa", "Cripto"],
     featureBullets: [
       "Paquete de bienvenida mostrado para nuevos usuarios",
       "Hasta 40,000 MXN + 150 giros gratis según términos",

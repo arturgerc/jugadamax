@@ -31,11 +31,11 @@ const CONTEXT_CONFIG: Record<
   Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
 > = {
   crypto: {
-    badge: "Crypto + sportsbook",
+    badge: "Cripto + sportsbook",
     headline: "Roobet: casino, promociones y sportsbook",
     subheadline: "Slots, live casino y campañas rotativas",
     offerText: "Drops & Wins y promociones rotativas",
-    paymentBadges: ["Crypto", "Casino", "Sportsbook"],
+    paymentBadges: ["Cripto", "Casino", "Sportsbook"],
     featureBullets: [
       "Casino, Originals y sportsbook en una sola cuenta",
       "Promociones rotativas; revisa KYC, pagos y elegibilidad",
@@ -60,11 +60,11 @@ const CONTEXT_CONFIG: Record<
     className: "p-3 sm:p-4",
   },
   review: {
-    badge: "Casino crypto + sportsbook",
+    badge: "Casino cripto + sportsbook",
     headline: "Roobet: casino, promociones, VIP y sportsbook",
-    subheadline: "Operador internacional crypto para comparar desde México",
+    subheadline: "Operador internacional cripto para comparar desde México",
     offerText: "Drops & Wins, Weekly Raffle y campañas rotativas",
-    paymentBadges: ["Crypto", "Casino", "Sportsbook", "VIP"],
+    paymentBadges: ["Cripto", "Casino", "Sportsbook", "VIP"],
     featureBullets: [
       "Casino, live casino y Originals",
       "Weekly Raffle, Drops & Wins y campañas VIP",
@@ -73,8 +73,8 @@ const CONTEXT_CONFIG: Record<
     ],
     primaryCtaLabel: "Visitar Roobet",
     primaryCtaHref: ROOBET_MX_CASINO_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos crypto",
-    secondaryCtaHref: "/casinos-crypto",
+    secondaryCtaLabel: "Comparar casinos cripto",
+    secondaryCtaHref: "/casinos-cripto",
     termsNote: ROOBET_REVIEW_TERMS,
     visual: {
       eyebrow: "ROOBET PROMOTIONS",

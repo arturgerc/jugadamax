@@ -35,8 +35,8 @@ export function BonusFeaturedSection() {
               Promociones destacadas
             </h2>
             <p className="text-sm text-muted-foreground sm:text-base">
-              Tres ofertas prioritarias para comparar rápido: casino en México, rewards crypto y un
-              paquete de casino crypto. El orden es editorial y puede diferir de las puntuaciones de
+              Tres ofertas prioritarias para comparar rápido: casino en México, rewards cripto y un
+              paquete de casino cripto. El orden es editorial y puede diferir de las puntuaciones de
               reseña.
             </p>
           </div>

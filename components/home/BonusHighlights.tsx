@@ -30,7 +30,7 @@ type FeaturedOfferConfig = {
 const FEATURED_OFFERS: FeaturedOfferConfig[] = [
   {
     operatorId: "betfury",
-    badge: "Crypto destacado",
+    badge: "Cripto destacado",
     theme: "betfury",
     primaryCtaLabel: "Ver bonos BetFury",
     primaryCtaHref: BETFURY_AFFILIATE_URL,
@@ -50,22 +50,22 @@ const FEATURED_OFFERS: FeaturedOfferConfig[] = [
   },
   {
     operatorId: "rainbet",
-    badge: "Crypto rewards",
+    badge: "Recompensas cripto",
     theme: "rainbet",
     primaryCtaLabel: "Ver promociones Rainbet",
     primaryCtaHref: RAINBET_REFERRAL_URL,
     reviewHref: "/reviews/rainbet",
-    paymentChips: ["Rewards", "Free spins", "Crypto"],
+    paymentChips: ["Rewards", "Free spins", "Cripto"],
     disclaimer: "Promociones publicadas por el operador. Verifica disponibilidad y elegibilidad según términos oficiales.",
   },
   {
     operatorId: "500-casino",
-    badge: "Crypto candidato",
+    badge: "Cripto candidato",
     theme: "fivehundred",
     primaryCtaLabel: "Visitar 500 Casino",
     primaryCtaHref: FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL,
     reviewHref: "/reviews/500-casino",
-    paymentChips: ["Crypto", "Slots", "Sportsbook"],
+    paymentChips: ["Cripto", "Slots", "Sportsbook"],
     disclaimer: "Promociones visibles según términos oficiales. Verifica disponibilidad y elegibilidad antes de depositar.",
   },
 ];

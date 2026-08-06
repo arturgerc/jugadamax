@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   {
-    label: "Crypto",
-    href: "/casinos-crypto",
+    label: "Cripto",
+    href: "/casinos-cripto",
     description: "BTC, ETH, USDT y casinos internacionales",
     icon: "crypto" as const,
   },

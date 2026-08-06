@@ -2,7 +2,7 @@ import { VODKABET_AFFILIATE_URL, VODKABET_PROMO_CODE } from "@/lib/affiliate/con
 import { OfferCard, type OfferCardProps } from "@/components/affiliate/OfferCard";
 
 const VODKABET_CAMPAIGN_TERMS =
-  "Las creatividades de campaña suministradas muestran 125% en el primer depósito, hasta 300 FS, +2% para depósitos crypto y 50 FS por vincular Telegram. La elegibilidad, depósito mínimo, wagering, juegos válidos, vencimiento, disponibilidad y condiciones pueden variar por campaña, cuenta, GEO y términos oficiales.";
+  "Las creatividades de campaña suministradas muestran 125% en el primer depósito, hasta 300 FS, +2% para depósitos con criptomonedas y 50 FS por vincular Telegram. La elegibilidad, depósito mínimo, wagering, juegos válidos, vencimiento, disponibilidad y condiciones pueden variar por campaña, cuenta, GEO y términos oficiales.";
 
 const VODKABET_RESPONSIBLE = "18+ | Juega con responsabilidad";
 
@@ -25,15 +25,15 @@ const CONTEXT_CONFIG: Record<
   Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo" | "promoCode">
 > = {
   crypto: {
-    badge: "Casino crypto internacional",
+    badge: "Casino cripto internacional",
     headline: "Vodka.bet: casino, slots y promociones",
-    subheadline: `Sportsbook adicional, depósitos crypto y código ${VODKABET_PROMO_CODE}`,
+    subheadline: `Sportsbook adicional, depósitos con criptomonedas y código ${VODKABET_PROMO_CODE}`,
     offerText: "125% + hasta 300 FS según campaña vigente",
-    paymentBadges: ["Crypto", "Slots", "Live Casino", "Free Spins"],
+    paymentBadges: ["Cripto", "Slots", "Live Casino", "Free Spins"],
     featureBullets: [
       "125% en el primer depósito según campaña vigente",
       "Hasta 300 FS por depósito según términos",
-      "+2% para depósitos crypto según elegibilidad",
+      "+2% para depósitos con criptomonedas según elegibilidad",
       "+50 FS por vincular Telegram según condiciones",
     ],
     primaryCtaLabel: "Ver oferta Vodka.bet",
@@ -44,7 +44,7 @@ const CONTEXT_CONFIG: Record<
     visual: {
       eyebrow: `PROMO ${VODKABET_PROMO_CODE}`,
       title: "125% + hasta 300 FS",
-      subtitle: "+2% crypto · +50 FS Telegram",
+      subtitle: "+2% cripto · +50 FS Telegram",
       chips: [VODKABET_PROMO_CODE, "125%", "300 FS"],
       variant: "vodkabet",
       compact: true,
@@ -53,15 +53,15 @@ const CONTEXT_CONFIG: Record<
     mobileMaxBullets: 3,
   },
   bonus: {
-    badge: "Promo crypto",
-    headline: "Vodka.bet: bono de bienvenida y extras crypto",
-    subheadline: "125%, hasta 300 FS, extra crypto y recompensa Telegram",
+    badge: "Promo cripto",
+    headline: "Vodka.bet: bono de bienvenida y extras cripto",
+    subheadline: "125%, hasta 300 FS, extra cripto y recompensa Telegram",
     offerText: "125% + hasta 300 FS según campaña vigente",
-    paymentBadges: ["Crypto", "Free Spins", "Promo Code", "Telegram"],
+    paymentBadges: ["Cripto", "Free Spins", "Promo Code", "Telegram"],
     featureBullets: [
       "125% en el primer depósito según creatividad de campaña",
       "Hasta 300 FS vinculados a depósitos según términos",
-      "+2% adicional para depósitos crypto según elegibilidad",
+      "+2% adicional para depósitos con criptomonedas según elegibilidad",
       "+50 FS por vincular Telegram según condiciones",
       "Confirma wagering, depósito mínimo, juegos y vencimiento",
     ],
@@ -74,7 +74,7 @@ const CONTEXT_CONFIG: Record<
       eyebrow: "WELCOME PROMO",
       title: "125% + 300 FS",
       subtitle: `Código ${VODKABET_PROMO_CODE}`,
-      chips: ["125%", "300 FS", "+2% Crypto"],
+      chips: ["125%", "300 FS", "+2% Cripto"],
       variant: "vodkabet",
       compact: true,
     },
@@ -83,27 +83,27 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   review: {
-    badge: "Casino crypto internacional",
-    headline: `Vodka.bet: bono ${VODKABET_PROMO_CODE}, free spins y depósitos crypto`,
+    badge: "Casino cripto internacional",
+    headline: `Vodka.bet: bono ${VODKABET_PROMO_CODE}, free spins y depósitos con criptomonedas`,
     subheadline: "Slots, live casino, jackpots y sportsbook adicional",
     offerText: "125% + hasta 300 FS según campaña vigente",
-    paymentBadges: ["Crypto", "Free Spins", "Promo Code", "Telegram"],
+    paymentBadges: ["Cripto", "Free Spins", "Promo Code", "Telegram"],
     featureBullets: [
       "125% + hasta 300 FS según creatividades de campaña",
-      "+2% para depósitos crypto según elegibilidad",
+      "+2% para depósitos con criptomonedas según elegibilidad",
       "+50 FS por vincular Telegram según condiciones",
       "Confirma wagering, depósito mínimo, juegos y vencimiento",
     ],
     primaryCtaLabel: "Ver oferta Vodka.bet",
     primaryCtaHref: VODKABET_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos crypto",
-    secondaryCtaHref: "/casinos-crypto",
+    secondaryCtaLabel: "Comparar casinos cripto",
+    secondaryCtaHref: "/casinos-cripto",
     termsNote: VODKABET_CAMPAIGN_TERMS,
     visual: {
       eyebrow: `PROMO ${VODKABET_PROMO_CODE}`,
       title: "125% + 300 FS",
       subtitle: `Código ${VODKABET_PROMO_CODE} · según términos`,
-      chips: ["125%", "300 FS", "+2% Crypto"],
+      chips: ["125%", "300 FS", "+2% Cripto"],
       variant: "vodkabet",
       compact: false,
     },

@@ -12,7 +12,7 @@ import { filterReviewsForSurface } from "@/content/operators/status";
  */
 const STATIC_PATHS = [
   "/",
-  "/casinos-crypto",
+  "/casinos-cripto",
   "/casinos-sin-kyc",
   "/casinos-fiat",
   "/bonos",

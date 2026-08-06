@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Casinos Crypto, Casinos Fiat y Apuestas en México`,
+    default: `${siteConfig.name} — Casinos cripto, casinos fiat y apuestas en México`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.ogLocale,
     url: siteConfig.url,
-    title: `${siteConfig.name} — Casinos Crypto, Casinos Fiat y Apuestas en México`,
+    title: `${siteConfig.name} — Casinos cripto, casinos fiat y apuestas en México`,
     description: siteConfig.description,
     images: [{ url: siteConfig.ogImage }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Casinos Crypto, Casinos Fiat y Apuestas en México`,
+    title: `${siteConfig.name} — Casinos cripto, casinos fiat y apuestas en México`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },

@@ -93,7 +93,7 @@ export function GuideHubLibrary() {
             <SectionIntro
               id="crypto-y-pagos-intro"
               headingId="crypto-y-pagos-heading"
-              title="Crypto y métodos de pago"
+              title="Cripto y métodos de pago"
               description="Guías para entender monedas, redes, wallets, confirmaciones, comisiones y diferencias frente a pagos en MXN."
             />
             <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">

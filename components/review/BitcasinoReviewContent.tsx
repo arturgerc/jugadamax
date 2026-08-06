@@ -21,10 +21,10 @@ import { cn, focusRing } from "@/lib/utils";
 const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
 const JURISDICTION_WARNING =
-  "Bitcasino es un casino crypto internacional. JugadaMax no afirma que cuente con licencia local mexicana. La disponibilidad, registro, promociones, pagos, KYC y retiros dependen de tu ubicación, cuenta y términos vigentes.";
+  "Bitcasino es un casino cripto internacional. JugadaMax no afirma que cuente con licencia local mexicana. La disponibilidad, registro, promociones, pagos, KYC y retiros dependen de tu ubicación, cuenta y términos vigentes.";
 
 const QUICK_SUMMARY = [
-  { title: "Tipo", text: "Casino crypto internacional" },
+  { title: "Tipo", text: "Casino cripto internacional" },
   { title: "Welcome", text: "Hasta 5,000 USDT en tres depósitos" },
   { title: "Pagos", text: "BTC, ETH, USDT y TRX según cuenta" },
   { title: "Principal precaución", text: "Wagering, licencia, KYC y retiros" },
@@ -95,11 +95,11 @@ const KYC_CARDS = [
 ] as const;
 
 const ANALYSIS_PARAGRAPHS = [
-  "Bitcasino.io es un casino crypto-first con slots, live casino, mesas, Originals, jackpots y promociones VIP. JugadaMax lo clasifica exclusivamente como crypto-casino: no aparece en /casinos-fiat ni en /apuestas porque no es un operador fiat ni sportsbook.",
-  "En /casinos-crypto se presenta como tarjeta afiliada ancha tras Vodka.bet y Sportsbet.io, sin recibir un rank canónico numerado. El bloque compacto de comparación (Gamdom, Rainbet, Roobet, Stake, etc.) permanece intacto.",
+  "Bitcasino.io es un casino centrado en cripto con slots, live casino, mesas, Originals, jackpots y promociones VIP. JugadaMax lo clasifica exclusivamente como casino cripto: no aparece en /casinos-fiat ni en /apuestas porque no es un operador fiat ni sportsbook.",
+  "En /casinos-cripto se presenta como tarjeta afiliada ancha tras Vodka.bet y Sportsbet.io, sin recibir un rank canónico numerado. El bloque compacto de comparación (Gamdom, Rainbet, Roobet, Stake, etc.) permanece intacto.",
   "La campaña suministrada reparte hasta 5,000 USDT en tres bonos: 100% hasta 1,500 USDT, 50% hasta 2,000 USDT y 100% hasta 1,500 USDT. El máximo es la suma potencial de depósitos elegibles, no una entrega inmediata de 5,000 USDT.",
   "Las capturas muestran campañas rotativas como World Cup Wager Race, World Cup Cash Drops y Pragmatic Play Drops & Wins. Son promociones temporales; fechas, premios y elegibilidad pueden cambiar.",
-  "Operado por Moon Technologies B.V. bajo licencia Curaçao OGL/2023/111/0069 según información oficial. Una interfaz en español no equivale a licencia local mexicana. Comprueba red y activo antes de transferir crypto.",
+  "Operado por Moon Technologies B.V. bajo licencia Curaçao OGL/2023/111/0069 según información oficial. Una interfaz en español no equivale a licencia local mexicana. Comprueba red y activo antes de transferir cripto.",
   "Las evaluaciones externas pertenecen a terceros y pueden diferir. JugadaMax asigna 4.0/5 tras revisar producto, promoción, pagos, términos, licencia y riesgos. 18+.",
 ] as const;
 
@@ -127,7 +127,7 @@ const FAQ_ITEMS = [
   {
     question: "¿Bitcasino acepta Bitcoin y USDT?",
     answer:
-      "Sí, Bitcasino está orientado a pagos crypto. La campaña suministrada menciona USDT y BTC entre activos soportados. Confirma red y mínimos.",
+      "Sí, Bitcasino está orientado a pagos cripto. La campaña suministrada menciona USDT y BTC entre activos soportados. Confirma red y mínimos.",
   },
   {
     question: "¿Bitcasino acepta ETH y TRX?",
@@ -460,13 +460,13 @@ export function BitcasinoReviewContent({
               Visitar Bitcasino
             </a>
             <Link
-              href="/casinos-crypto"
+              href="/casinos-cripto"
               className={cn(
                 "inline-flex min-h-11 items-center justify-center rounded-md border border-[#7B22D3]/40 px-5 py-2.5 text-sm font-semibold text-[#F5F1FA] transition-colors hover:bg-[#6519A8]/20",
                 focusRing,
               )}
             >
-              Comparar casinos crypto
+              Comparar casinos cripto
             </Link>
           </div>
         </section>
@@ -507,7 +507,7 @@ export function BitcasinoReviewContent({
         primaryLabel="Visitar Bitcasino"
         primaryHref={BITCASINO_REGISTRATION_AFFILIATE_URL}
         secondaryLabel="Comparar"
-        secondaryHref="/casinos-crypto"
+        secondaryHref="/casinos-cripto"
       />
     </>
   );

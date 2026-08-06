@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cn, focusRing } from "@/lib/utils";
 
 /**
- * Compact affiliate + responsible gambling strip for /casinos-crypto.
+ * Compact affiliate + responsible gambling strip for /casinos-cripto.
  */
 export function CryptoPageTrustStrip({ className }: { className?: string }) {
   return (

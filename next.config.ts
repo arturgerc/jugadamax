@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/casinos-crypto",
+        destination: "/casinos-cripto",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

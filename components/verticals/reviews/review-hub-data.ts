@@ -88,7 +88,7 @@ function categoryBadgesFor(
 ): ReviewHubBadge[] {
   const meta: Record<Exclude<ReviewHubCategory, "todas">, ReviewHubBadge> = {
     crypto: {
-      label: "Crypto",
+      label: "Cripto",
       accent: "border-cyan-400/30 bg-cyan-500/10 text-cyan-200",
     },
     fiat: {

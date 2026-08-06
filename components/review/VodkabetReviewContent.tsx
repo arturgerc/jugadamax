@@ -21,10 +21,10 @@ const JURISDICTION_WARNING =
   "Vodka.bet se presenta como operador internacional. La disponibilidad, promociones, pagos y acceso dependen de tu jurisdicción y de los términos oficiales. JugadaMax no afirma disponibilidad legal o local para México.";
 
 const EDITORIAL_RISK_NOTE =
-  "JugadaMax no ha verificado licencia, entidad operadora, límites de retiro ni señales externas de confianza para Vodka.bet. Trátalo como opción crypto secundaria y provisional: confirma términos, KYC, pagos y quejas de jugadores antes de depositar.";
+  "JugadaMax no ha verificado licencia, entidad operadora, límites de retiro ni señales externas de confianza para Vodka.bet. Trátalo como opción cripto secundaria y provisional: confirma términos, KYC, pagos y quejas de jugadores antes de depositar.";
 
 const QUICK_SUMMARY = [
-  { title: "Tipo", text: "Casino crypto internacional con sportsbook adicional" },
+  { title: "Tipo", text: "Casino cripto internacional con sportsbook adicional" },
   { title: "Promoción", text: "125% + hasta 300 FS según campaña" },
   { title: "Código", text: "JUGADAMAX" },
   {
@@ -36,7 +36,7 @@ const QUICK_SUMMARY = [
 const PROMO_CARDS = [
   { title: "125% primer depósito", text: "según elegibilidad y términos" },
   { title: "Hasta 300 FS", text: "según elegibilidad y términos" },
-  { title: "+2% depósitos crypto", text: "según elegibilidad y términos" },
+  { title: "+2% en depósitos cripto", text: "según elegibilidad y términos" },
   { title: "+50 FS por Telegram", text: "según elegibilidad y términos" },
 ] as const;
 
@@ -61,8 +61,8 @@ const PRODUCT_CARDS = [
 
 const CRYPTO_TELEGRAM_CARDS = [
   {
-    title: "Depósitos crypto",
-    text: "La campaña enfatiza un extra promocional para depósitos crypto; activos y redes deben confirmarse en el cajero.",
+    title: "Depósitos con criptomonedas",
+    text: "La campaña enfatiza un extra promocional para depósitos con criptomonedas; activos y redes deben confirmarse en el cajero.",
   },
   {
     title: "Código JUGADAMAX",
@@ -80,7 +80,7 @@ const CRYPTO_TELEGRAM_CARDS = [
 
 const PAYMENT_TRUST_CARDS = [
   {
-    title: "Depósitos crypto",
+    title: "Depósitos con criptomonedas",
     text: "JugadaMax no publica monedas o redes verificadas; confirma en el cajero en vivo.",
   },
   {
@@ -98,10 +98,10 @@ const PAYMENT_TRUST_CARDS = [
 ] as const;
 
 const ANALYSIS_PARAGRAPHS = [
-  "Vodka.bet combina un lobby de casino internacional — slots, mesas, live casino, jackpots y juegos rápidos — con promociones orientadas a depósitos crypto y una sección Sports adicional. JugadaMax lo cubre como casino crypto internacional con campaña JUGADAMAX, no como operador fiat local ni como recomendación principal de apuestas deportivas.",
-  "Las creatividades de campaña suministradas muestran 125% en el primer depósito, hasta 300 free spins vinculados a depósitos, +2% adicional para depósitos crypto y 50 FS por vincular Telegram. Ninguna de esas cifras debe interpretarse como garantía: elegibilidad, depósito mínimo, wagering, juegos válidos y vencimiento pueden cambiar por campaña, cuenta y GEO.",
+  "Vodka.bet combina un lobby de casino internacional — slots, mesas, live casino, jackpots y juegos rápidos — con promociones orientadas a depósitos con criptomonedas y una sección Sports adicional. JugadaMax lo cubre como casino cripto internacional con campaña JUGADAMAX, no como operador fiat local ni como recomendación principal de apuestas deportivas.",
+  "Las creatividades de campaña suministradas muestran 125% en el primer depósito, hasta 300 free spins vinculados a depósitos, +2% adicional para depósitos con criptomonedas y 50 FS por vincular Telegram. Ninguna de esas cifras debe interpretarse como garantía: elegibilidad, depósito mínimo, wagering, juegos válidos y vencimiento pueden cambiar por campaña, cuenta y GEO.",
   "El código JUGADAMAX es el eje promocional acordado para JugadaMax. Confirma en el flujo de registro que la oferta activa coincide con la creatividad mostrada y lee los términos oficiales antes de aceptar bonos o vincular Telegram.",
-  "En pagos y retiros, la orientación crypto no elimina KYC ni límites internos. JugadaMax no ha verificado monedas, redes, comisiones ni tiempos de procesamiento. Revisa el cajero, políticas de retiro y posibles restricciones regionales antes de mover fondos.",
+  "En pagos y retiros, la orientación cripto no elimina KYC ni límites internos. JugadaMax no ha verificado monedas, redes, comisiones ni tiempos de procesamiento. Revisa el cajero, políticas de retiro y posibles restricciones regionales antes de mover fondos.",
   "Calificamos Vodka.bet 3.6/5 de forma provisional: producto de casino visible y campaña activa, pero licencia, entidad operadora y reglas completas de bonos/retiros siguen sin verificación editorial suficiente. No uses VPNs ni datos falsos para acceder a servicios restringidos. 18+.",
 ] as const;
 
@@ -122,7 +122,7 @@ const FAQ_ITEMS = [
       "Las creatividades muestran hasta 300 FS vinculados a depósitos, pero no garantizan esa cantidad para todas las cuentas. Confirma la oferta exacta en los términos oficiales.",
   },
   {
-    question: "¿Qué significa el +2% para depósitos crypto?",
+    question: "¿Qué significa el +2% para depósitos con criptomonedas?",
     answer:
       "Es un extra promocional visible en creatividades de campaña. Puede depender de activo, red, depósito mínimo y elegibilidad; no es un beneficio garantizado.",
   },
@@ -164,7 +164,7 @@ const SOURCE_REFERENCES: SourceReference[] = [
   {
     label: "Creatividades de campaña suministradas (JUGADAMAX)",
     note:
-      "Material promocional del partner: 125% primer depósito, hasta 300 FS, +2% crypto, +50 FS Telegram.",
+      "Material promocional del partner: 125% primer depósito, hasta 300 FS, +2% cripto, +50 FS Telegram.",
   },
   {
     label: "Metodología editorial JugadaMax",
@@ -253,7 +253,7 @@ export function VodkabetReviewContent({
 
         <section aria-labelledby="vodkabet-crypto-heading">
           <h2 id="vodkabet-crypto-heading" className="text-lg font-semibold text-foreground sm:text-xl">
-            Depósitos crypto y promoción Telegram
+            Depósitos con criptomonedas y promoción Telegram
           </h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {CRYPTO_TELEGRAM_CARDS.map((card) => (
@@ -354,13 +354,13 @@ export function VodkabetReviewContent({
               Ver oferta Vodka.bet
             </a>
             <Link
-              href="/casinos-crypto"
+              href="/casinos-cripto"
               className={cn(
                 "inline-flex min-h-11 items-center justify-center rounded-md border border-violet-400/35 px-5 py-2.5 text-sm font-semibold text-violet-200 transition-colors hover:bg-violet-500/10",
                 focusRing,
               )}
             >
-              Comparar casinos crypto
+              Comparar casinos cripto
             </Link>
           </div>
         </section>
@@ -400,8 +400,8 @@ export function VodkabetReviewContent({
         compactSecondaryLabel="Comparar"
         primaryLabel="Ver Vodka.bet"
         primaryHref={VODKABET_AFFILIATE_URL}
-        secondaryLabel="Comparar casinos crypto"
-        secondaryHref="/casinos-crypto"
+        secondaryLabel="Comparar casinos cripto"
+        secondaryHref="/casinos-cripto"
       />
     </>
   );

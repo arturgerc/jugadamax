@@ -32,12 +32,12 @@ export function HomepageHeroV3({ className }: { className?: string }) {
             </span>
 
             <h1 className="text-[2rem] font-bold leading-tight tracking-tight text-foreground sm:text-[2.25rem] lg:text-[2.4rem]">
-              Casinos crypto y sin KYC para México
+              Casinos cripto y sin KYC para México
             </h1>
 
             <p className="text-base leading-relaxed text-muted-foreground sm:text-[1.05rem]">
               Comparamos privacidad, pagos, promociones, juegos y retiros para ayudarte a elegir
-              casinos crypto en México y LATAM.
+              casinos cripto en México y LATAM.
             </p>
 
             <div className="flex flex-col gap-2.5 pt-0.5 min-[390px]:flex-row min-[390px]:flex-wrap">

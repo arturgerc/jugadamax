@@ -25,7 +25,7 @@ export function CryptoPromotionHighlights() {
           id="promociones-crypto-heading"
           className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
         >
-          Promociones crypto activas
+          Promociones cripto activas
         </h2>
         <p className="text-sm text-muted-foreground sm:text-base">
           Campañas publicadas por los operadores. Revisa depósito, rollover, juegos elegibles,

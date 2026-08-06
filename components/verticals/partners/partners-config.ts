@@ -155,7 +155,7 @@ export const PARTNERS_COPY: Record<PartnersLocale, PartnersCopy> = {
       },
       {
         title: "Guías educativas",
-        body: "Contenido evergreen sobre crypto, pagos, KYC, seguridad y comparación de operadores.",
+        body: "Contenido evergreen sobre cripto, pagos, KYC, seguridad y comparación de operadores.",
       },
       {
         title: "Noticias y análisis",
@@ -163,7 +163,7 @@ export const PARTNERS_COPY: Record<PartnersLocale, PartnersCopy> = {
       },
       {
         title: "Rankings y verticales",
-        body: "Páginas de casinos crypto, fiat, sin KYC, apuestas y directorio de bonos activos.",
+        body: "Páginas de casinos cripto, fiat, sin KYC, apuestas y directorio de bonos activos.",
       },
       {
         title: "Juego responsable",
@@ -188,7 +188,7 @@ export const PARTNERS_COPY: Record<PartnersLocale, PartnersCopy> = {
       },
       {
         title: "Audiencia EN / global",
-        body: "Páginas en inglés para operadores y lectores internacionales interesados en crypto y casinos online.",
+        body: "Páginas en inglés para operadores y lectores internacionales interesados en cripto y casinos online.",
       },
       {
         title: "Solo +18",
@@ -264,7 +264,7 @@ export const PARTNERS_COPY: Record<PartnersLocale, PartnersCopy> = {
       },
       {
         title: "Guías y educación",
-        body: "Contenido evergreen sobre pagos, crypto, KYC o producto, con atribución clara.",
+        body: "Contenido evergreen sobre pagos, cripto, KYC o producto, con atribución clara.",
       },
       {
         title: "Bonos y actualizaciones",

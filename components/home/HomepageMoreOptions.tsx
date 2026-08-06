@@ -22,24 +22,24 @@ type PanelConfig = {
 const PANELS: readonly PanelConfig[] = [
   {
     id: "crypto",
-    heading: "Crypto internacionales",
-    description: "Más casinos con BTC, ETH, USDT, slots y productos crypto.",
-    ctaLabel: "Ver ranking crypto",
-    ctaHref: "/casinos-crypto",
+    heading: "Cripto internacionales",
+    description: "Más casinos con BTC, ETH, USDT, slots y productos cripto.",
+    ctaLabel: "Ver ranking cripto",
+    ctaHref: "/casinos-cripto",
     theme:
       "border-violet-500/20 bg-gradient-to-b from-[#12102a]/70 via-[#111417]/80 to-[#0A1931]/90",
     operators: [
       {
         operatorId: "roobet",
-        label: "Casino crypto + sportsbook",
+        label: "Casino cripto + sportsbook",
       },
       {
         operatorId: "mellstroy",
-        label: "Casino crypto + sportsbook",
+        label: "Casino cripto + sportsbook",
       },
       {
         operatorId: "vodkabet",
-        label: "Casino crypto + sportsbook",
+        label: "Casino cripto + sportsbook",
       },
     ],
   },
@@ -66,7 +66,7 @@ const PANELS: readonly PanelConfig[] = [
     theme:
       "border-emerald-500/15 bg-gradient-to-b from-[#0d1512]/60 via-[#111417]/70 to-[#0A1931]/90",
     operators: [
-      { operatorId: "sportsbetio", label: "Sportsbook crypto + casino" },
+      { operatorId: "sportsbetio", label: "Sportsbook cripto + casino" },
       { operatorId: "mostbet", label: "Casino, apuestas y app" },
       { operatorId: "1xbet", label: "Casino + sportsbook" },
     ],

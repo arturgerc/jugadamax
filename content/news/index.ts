@@ -144,7 +144,7 @@ export const news: Article[] = [
     body: [
       "JugadaMax publicó su página de metodología, donde explicamos cómo evaluamos y ordenamos a los operadores que aparecen en el sitio.",
       "Nuestros rankings reflejan una evaluación editorial y pueden estar influenciados comercialmente mediante acuerdos de afiliación; por eso divulgamos esta información de forma abierta.",
-      "Puedes consultar los criterios completos en la sección Cómo evaluamos. Seguiremos actualizando nuestra cobertura de casinos crypto, casinos fiat y apuestas deportivas en México.",
+      "Puedes consultar los criterios completos en la sección Cómo evaluamos. Seguiremos actualizando nuestra cobertura de casinos cripto, casinos fiat y apuestas deportivas en México.",
     ].join("\n\n"),
     authorId: "redaccion-jugadamax",
     tags: ["anuncio"],
@@ -157,7 +157,7 @@ export const news: Article[] = [
     keyPoints: [
       "La metodología editorial de JugadaMax es pública en /como-evaluamos.",
       "Los rankings son evaluación editorial y pueden tener influencia comercial divulgada.",
-      "La cobertura continúa en crypto, fiat y apuestas para México.",
+      "La cobertura continúa en cripto, fiat y apuestas para México.",
     ],
     relatedLinks: [
       { label: "Cómo evaluamos", href: "/como-evaluamos" },

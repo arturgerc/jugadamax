@@ -17,7 +17,7 @@ export const siteConfig = {
   locale: "es-MX",
   ogLocale: "es_MX",
   description:
-    "JugadaMax: rankings y reseñas de casinos crypto, casinos fiat y apuestas deportivas en México. Información clara, con divulgación de afiliados y juego responsable +18.",
+    "JugadaMax: rankings y reseñas de casinos cripto, casinos fiat y apuestas deportivas en México. Información clara, con divulgación de afiliados y juego responsable +18.",
   /** Default social preview image (app/opengraph-image.tsx). */
   ogImage: "/opengraph-image",
   /** Brand icon for Organization/publisher JSON-LD (app/icon.svg). */

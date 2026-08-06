@@ -84,10 +84,10 @@ export const BETTING_ACTIVE_SIX: readonly BettingOperatorEntry[] = [
   {
     operatorId: "sportsbetio",
     name: "Sportsbet.io",
-    badge: "Crypto sportsbook",
-    purpose: "Apuestas con crypto",
+    badge: "Sportsbook cripto",
+    purpose: "Apuestas con cripto",
     summary:
-      "Sportsbook crypto internacional con casino adicional. No implica licencia local mexicana; confirma GEO y términos.",
+      "Sportsbook cripto internacional con casino adicional. No implica licencia local mexicana; confirma GEO y términos.",
     paymentPriority: ["Bitcoin", "Ethereum", "USDT", "USDC"],
     ctaLabel: "Visitar Sportsbet.io",
     ctaHref: SPORTSBETIO_BETTING_AFFILIATE_URL,
@@ -119,7 +119,7 @@ export const BETTING_ACTIVE_SIX: readonly BettingOperatorEntry[] = [
     badge: "Mixto internacional",
     purpose: "Sportsbook y casino",
     summary:
-      "Casino, live y sportsbook con métodos fiat y algunas opciones crypto según mercado y términos.",
+      "Casino, live y sportsbook con métodos fiat y algunas opciones cripto según mercado y términos.",
     paymentPriority: ["Visa", "Mastercard", "Bitcoin", "Tether"],
     ctaLabel: "Visitar Awintura",
     ctaHref: AWINTURA_CARD_AFFILIATE_URL,

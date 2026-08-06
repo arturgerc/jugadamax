@@ -39,7 +39,7 @@ const CONTEXT_CONFIG: Record<
   crypto: {
     badge: "CASINO ETHEREUM SIN KYC",
     headline: "ETH Casino: Ethereum, privacidad y registro sin documentos",
-    subheadline: "Email y contraseña, slots, juegos crypto y live casino",
+    subheadline: "Email y contraseña, slots, juegos cripto y live casino",
     offerText: "Sin verificación KYC según la política pública del operador",
     paymentBadges: ["ETH", "BTC", "USDT", "USDC"],
     featureBullets: [
@@ -57,7 +57,7 @@ const CONTEXT_CONFIG: Record<
       eyebrow: "ETHEREUM NO-KYC CASINO",
       title: "Sin KYC",
       subtitle: "Email + contraseña · Ethereum-first",
-      chips: ["ETH", "No KYC", "Crypto-only"],
+      chips: ["ETH", "No KYC", "Solo cripto"],
       variant: "ethcasino",
       compact: true,
     },
@@ -68,13 +68,13 @@ const CONTEXT_CONFIG: Record<
   nokyc: {
     badge: "ELECCIÓN JUGADAMAX SIN KYC",
     headline: "ETH Casino: nuestra opción Ethereum sin verificación",
-    subheadline: "Registro sencillo, pagos crypto y amplio catálogo de casino",
+    subheadline: "Registro sencillo, pagos cripto y amplio catálogo de casino",
     offerText: "Política pública sin KYC",
-    paymentBadges: ["ETH", "USDT", "BTC", "Crypto"],
+    paymentBadges: ["ETH", "USDT", "BTC", "Cripto"],
     featureBullets: [
       "Email y contraseña para crear la cuenta",
       "No solicita documentos según el FAQ público",
-      "Slots, crypto games y mesas en vivo",
+      "Slots, juegos cripto y mesas en vivo",
       "Rating editorial JugadaMax: 4.7/5",
     ],
     primaryCtaLabel: "Registrarse en ETH Casino",
@@ -95,7 +95,7 @@ const CONTEXT_CONFIG: Record<
   },
   review: {
     badge: "CASINO ETHEREUM SIN KYC",
-    headline: "ETH Casino: privacidad, Ethereum y casino crypto",
+    headline: "ETH Casino: privacidad, Ethereum y casino cripto",
     subheadline: "Operador internacional con registro mediante email y contraseña",
     offerText: "Sin verificación documental según el FAQ público",
     paymentBadges: ["ETH", "BTC", "USDT", "USDC"],
@@ -113,9 +113,9 @@ const CONTEXT_CONFIG: Record<
     termsNote: ETHCASINO_REVIEW_TERMS,
     visual: {
       eyebrow: "NO-KYC ETHEREUM CASINO",
-      title: "Privacidad crypto",
+      title: "Privacidad cripto",
       subtitle: "ETH · email · wallets",
-      chips: ["Sin KYC", "Ethereum", "Crypto-only"],
+      chips: ["Sin KYC", "Ethereum", "Solo cripto"],
       variant: "ethcasino",
       compact: false,
     },

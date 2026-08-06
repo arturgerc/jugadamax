@@ -19,7 +19,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Cómo evaluamos casinos y casas de apuestas",
   description:
-    "Metodología editorial de JugadaMax para reseñar y comparar casinos crypto, casinos fiat y casas de apuestas en México: criterios, fuentes, calificaciones editoriales y divulgación de afiliados.",
+    "Metodología editorial de JugadaMax para reseñar y comparar casinos cripto, casinos fiat y casas de apuestas en México: criterios, fuentes, calificaciones editoriales y divulgación de afiliados.",
   path: "/como-evaluamos",
   languageAlternates: {
     "es-MX": "/como-evaluamos",

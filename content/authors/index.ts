@@ -16,11 +16,11 @@ export const authors: Author[] = [
     kind: "person",
     role: "Fundador y editor de JugadaMax",
     credentials:
-      "Fundador de JugadaMax. Supervisa contenidos editoriales sobre casinos online, apuestas, métodos de pago, juego responsable y tendencias crypto para México y LATAM.",
+      "Fundador de JugadaMax. Supervisa contenidos editoriales sobre casinos online, apuestas, métodos de pago, juego responsable y tendencias cripto para México y LATAM.",
     bio: "Arturs Stoliks coordina JugadaMax como proyecto editorial independiente sobre casinos online, apuestas deportivas y pagos digitales. Su enfoque es publicar guías claras, reseñas cautelosas y contenido responsable para jugadores mayores de 18 años.",
     specialties: [
       "Casinos online",
-      "Pagos crypto",
+      "Pagos cripto",
       "Apuestas",
       "Juego responsable",
       "México y LATAM",
@@ -39,10 +39,10 @@ export const authors: Author[] = [
     kind: "organization",
     role: "Equipo Editorial",
     credentials:
-      "Equipo editorial de JugadaMax especializado en casinos crypto, casinos fiat y apuestas deportivas en México.",
+      "Equipo editorial de JugadaMax especializado en casinos cripto, casinos fiat y apuestas deportivas en México.",
     bio: "La Redacción de JugadaMax evalúa operadores con una metodología pública, priorizando seguridad, pagos, licencias y experiencia de usuario.",
     specialties: [
-      "Casinos crypto",
+      "Casinos cripto",
       "Casinos fiat",
       "Bonos y términos",
       "Juego responsable",

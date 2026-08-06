@@ -31,16 +31,21 @@ export const metadata: Metadata = buildEnMetadata({
     "Compare crypto casinos with Bitcoin, Ethereum, USDT and related payments. Editorial rankings, promotions and jurisdiction-aware notes. Adults 18+.",
   path: "/en/casinos-crypto",
   languageAlternates: {
-    "es-MX": "/casinos-crypto",
+    "es-MX": "/casinos-cripto",
     en: "/en/casinos-crypto",
   },
 });
+
+/** Payment names are stored once in Spanish; asset tickers are language-neutral. */
+const EN_PAYMENT_LABELS: Record<string, string> = {
+  Cripto: "Crypto",
+};
 
 function uniqueCryptoPayments(casinos: Casino[]) {
   const names = new Set<string>();
   for (const casino of casinos) {
     for (const p of casino.payments ?? []) {
-      if (p.kind === "crypto") names.add(p.name);
+      if (p.kind === "crypto") names.add(EN_PAYMENT_LABELS[p.name] ?? p.name);
     }
   }
   return [...names];

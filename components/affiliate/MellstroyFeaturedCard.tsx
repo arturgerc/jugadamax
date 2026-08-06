@@ -35,9 +35,9 @@ const CONTEXT_CONFIG: Record<
   >
 > = {
   crypto: {
-    badge: "Casino crypto",
+    badge: "Casino cripto",
     headline: "Mellstroy",
-    subheadline: "Casino crypto con bonos y promociones",
+    subheadline: "Casino cripto con bonos y promociones",
     offerText: "Hasta 660% + 400 FS según promoción vigente",
     paymentBadges: ["USDT", "Casino", "400 FS"],
     featureBullets: [
@@ -54,7 +54,7 @@ const CONTEXT_CONFIG: Record<
       eyebrow: "WELCOME BONUS",
       title: "Hasta 660% + 400 FS",
       subtitle: `Código ${MELLSTROY_PROMO_CODE} · oferta variable`,
-      chips: ["Crypto", "400 FS"],
+      chips: ["Cripto", "400 FS"],
       variant: "mellstroy",
       compact: true,
     },
@@ -62,11 +62,11 @@ const CONTEXT_CONFIG: Record<
     mobileMaxBullets: 2,
   },
   bonus: {
-    badge: "Promociones crypto",
+    badge: "Promociones cripto",
     headline: "Mellstroy: bono de bienvenida y recompensas",
     subheadline: "Free spins, cashback, wheel y promociones activas",
     offerText: "Hasta 660% + 400 FS según promoción vigente",
-    paymentBadges: ["Crypto", "Free Spins", "Cashback"],
+    paymentBadges: ["Cripto", "Free Spins", "Cashback"],
     featureBullets: [
       "Página de promociones: hasta 660% + 400 FS",
       "Creatividad de registro suministrada: 550% + 400 FS",
@@ -92,9 +92,9 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   review: {
-    badge: "Casino crypto",
-    headline: "Mellstroy: casino crypto, bonos y promociones",
-    subheadline: "Slots, live casino, pagos crypto y sportsbook adicional",
+    badge: "Casino cripto",
+    headline: "Mellstroy: casino cripto, bonos y promociones",
+    subheadline: "Slots, live casino, pagos cripto y sportsbook adicional",
     offerText: "Hasta 660% + 400 FS según promoción vigente",
     paymentBadges: ["USDT", "Casino", "Sportsbook", "Free Spins"],
     featureBullets: [
@@ -105,14 +105,14 @@ const CONTEXT_CONFIG: Record<
     ],
     primaryCtaLabel: "Ver oferta Mellstroy",
     primaryCtaHref: MELLSTROY_GLOBAL_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos crypto",
-    secondaryCtaHref: "/casinos-crypto",
+    secondaryCtaLabel: "Comparar casinos cripto",
+    secondaryCtaHref: "/casinos-cripto",
     termsNote: MELLSTROY_TERMS,
     visual: {
       eyebrow: "MELLSTROY CASINO",
       title: "Hasta 660% + 400 FS",
       subtitle: `Código ${MELLSTROY_PROMO_CODE} · oferta variable`,
-      chips: ["Crypto", "Casino", "400 FS"],
+      chips: ["Cripto", "Casino", "400 FS"],
       variant: "mellstroy",
       compact: true,
     },

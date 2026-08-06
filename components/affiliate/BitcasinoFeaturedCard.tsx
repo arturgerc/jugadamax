@@ -31,13 +31,13 @@ const CONTEXT_CONFIG: Record<
   Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
 > = {
   homepage: {
-    badge: "CRYPTO CASINO",
+    badge: "CASINO CRIPTO",
     headline: "Bitcasino.io",
     subheadline: "Slots, live casino y Originals",
     offerText: "Hasta 5,000 USDT en 3 bonos de depósito",
     paymentBadges: ["BTC", "USDT", "Casino"],
     featureBullets: [
-      "Casino crypto con slots, live casino y Originals",
+      "Casino cripto con slots, live casino y Originals",
       "Tres bonos de depósito; revisa wagering, KYC y términos",
     ],
     primaryCtaLabel: "Visitar Bitcasino",
@@ -47,10 +47,10 @@ const CONTEXT_CONFIG: Record<
     termsNote:
       "Bonos, pagos, KYC y retiros dependen de la cuenta, GEO y términos oficiales.",
     visual: {
-      eyebrow: "WELCOME CRYPTO",
+      eyebrow: "BIENVENIDA CRIPTO",
       title: "Hasta 5,000 USDT",
       subtitle: "3 bonos de depósito",
-      chips: ["Crypto", "Casino", "3 depósitos"],
+      chips: ["Cripto", "Casino", "3 depósitos"],
       variant: "bitcasino",
       compact: true,
     },
@@ -61,13 +61,13 @@ const CONTEXT_CONFIG: Record<
     className: "h-fit self-start p-3 sm:p-4 md:h-full md:self-stretch",
   },
   crypto: {
-    badge: "CRYPTO CASINO",
-    headline: "Bitcasino: casino crypto, slots y live casino",
+    badge: "CASINO CRIPTO",
+    headline: "Bitcasino: casino cripto, slots y live casino",
     subheadline: "Originals, mesas en vivo, jackpots y promociones",
     offerText: "Hasta 5,000 USDT en 3 bonos de depósito",
     paymentBadges: ["BTC", "ETH", "USDT", "TRX"],
     featureBullets: [
-      "Casino crypto con slots, live casino y Originals",
+      "Casino cripto con slots, live casino y Originals",
       "Tres bonos de depósito con máximo anunciado de 5,000 USDT",
       "Promociones rotativas, jackpots y beneficios VIP",
       "Pagos, KYC, retiros y disponibilidad según términos",
@@ -78,10 +78,10 @@ const CONTEXT_CONFIG: Record<
     secondaryCtaHref: "/reviews/bitcasino",
     termsNote: BITCASINO_COMPACT_TERMS,
     visual: {
-      eyebrow: "WELCOME CRYPTO",
+      eyebrow: "BIENVENIDA CRIPTO",
       title: "Hasta 5,000 USDT",
       subtitle: "3 bonos de depósito",
-      chips: ["Crypto", "3 depósitos", "5,000 USDT"],
+      chips: ["Cripto", "3 depósitos", "5,000 USDT"],
       variant: "bitcasino",
       compact: true,
     },
@@ -90,7 +90,7 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   bonus: {
-    badge: "WELCOME BONUS CRYPTO",
+    badge: "BONO DE BIENVENIDA CRIPTO",
     headline: "Bitcasino: hasta 5,000 USDT en tres depósitos",
     subheadline: "Bono escalonado para nuevos usuarios elegibles",
     offerText: "100% + 50% + 100% según depósito",
@@ -120,9 +120,9 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   review: {
-    badge: "CASINO CRYPTO",
+    badge: "CASINO CRIPTO",
     headline: "Bitcasino: bono, slots, live casino y Originals",
-    subheadline: "Casino internacional crypto para comparar desde México",
+    subheadline: "Casino internacional cripto para comparar desde México",
     offerText: "Hasta 5,000 USDT en tres bonos de depósito",
     paymentBadges: ["BTC", "ETH", "USDT", "TRX"],
     featureBullets: [
@@ -133,14 +133,14 @@ const CONTEXT_CONFIG: Record<
     ],
     primaryCtaLabel: "Visitar Bitcasino",
     primaryCtaHref: BITCASINO_REGISTRATION_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos crypto",
-    secondaryCtaHref: "/casinos-crypto",
+    secondaryCtaLabel: "Comparar casinos cripto",
+    secondaryCtaHref: "/casinos-cripto",
     termsNote: BITCASINO_FULL_TERMS,
     visual: {
       eyebrow: "BITCASINO WELCOME",
       title: "Hasta 5,000 USDT",
-      subtitle: "3 bonos · crypto casino",
-      chips: ["Crypto", "Casino", "Originals"],
+      subtitle: "3 bonos · casino cripto",
+      chips: ["Cripto", "Casino", "Originals"],
       variant: "bitcasino",
       compact: false,
     },

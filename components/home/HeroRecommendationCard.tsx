@@ -9,7 +9,7 @@ const AFFILIATE_REL = "sponsored nofollow noopener noreferrer";
 
 const trustPills = [
   "Metodología publicada",
-  "Pagos crypto y locales",
+  "Pagos cripto y locales",
   "Bonos sin urgencia falsa",
 ] as const;
 
@@ -135,10 +135,10 @@ export function HeroRecommendationCard({
             </Link>
           ) : null}
           <Link
-            href="/casinos-crypto"
+            href="/casinos-cripto"
             className="inline-flex min-h-11 items-center text-sm font-medium text-primary underline underline-offset-2 transition-colors hover:text-[var(--jm-gold-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
           >
-            Ver ranking crypto
+            Ver ranking cripto
           </Link>
         </div>
       </div>

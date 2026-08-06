@@ -15,7 +15,7 @@ export const NEWS_KIND_LABELS: Record<NewsKind, string> = {
 export const NEWS_CATEGORY_LABELS: Record<NewsCategory, string> = {
   actualidad: "Actualidad",
   regulacion: "Regulación",
-  crypto: "Crypto",
+  crypto: "Cripto",
   casinos: "Casinos",
   apuestas: "Apuestas",
   bonos: "Bonos",
@@ -101,7 +101,7 @@ export const NEWS_RELATED_ROUTES = [
   { href: "/guias", label: "Guías" },
   { href: "/bonos", label: "Bonos" },
   { href: "/apuestas", label: "Apuestas" },
-  { href: "/casinos-crypto", label: "Casinos crypto" },
+  { href: "/casinos-cripto", label: "Casinos cripto" },
   { href: "/como-evaluamos", label: "Cómo evaluamos" },
   { href: "/juego-responsable", label: "Juego responsable" },
   { href: "/divulgacion-afiliados", label: "Divulgación" },

@@ -2,7 +2,7 @@ import { TrackedLink } from "@/components/analytics/TrackedLink";
 
 const RELATED = [
   { href: "/casinos-fiat", label: "Casinos fiat" },
-  { href: "/casinos-crypto", label: "Casinos crypto" },
+  { href: "/casinos-cripto", label: "Casinos cripto" },
   { href: "/bonos", label: "Bonos" },
   { href: "/guias", label: "Guías" },
   { href: "/reviews", label: "Reseñas" },

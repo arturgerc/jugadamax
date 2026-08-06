@@ -17,7 +17,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Acerca de JugadaMax",
   description:
-    "JugadaMax es un sitio editorial de comparación y medios sobre casinos crypto, casinos fiat y apuestas deportivas en México. Conoce quiénes somos, cómo trabajamos y cómo divulgamos la afiliación.",
+    "JugadaMax es un sitio editorial de comparación y medios sobre casinos cripto, casinos fiat y apuestas deportivas en México. Conoce quiénes somos, cómo trabajamos y cómo divulgamos la afiliación.",
   path: "/acerca-de",
   languageAlternates: {
     "es-MX": "/acerca-de",

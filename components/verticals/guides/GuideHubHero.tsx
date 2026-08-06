@@ -3,14 +3,14 @@ import { cn, focusRing } from "@/lib/utils";
 
 const CHECK_ITEMS = [
   "Elegir un operador",
-  "Entender pagos crypto",
+  "Entender pagos cripto",
   "Revisar bonos y términos",
   "Comparar seguridad y KYC",
 ] as const;
 
 const FOCUS_BADGES = [
   "Casinos y apuestas",
-  "Crypto y pagos",
+  "Cripto y pagos",
   "Seguridad y KYC",
   "Juego responsable",
 ] as const;
@@ -35,7 +35,7 @@ export function GuideHubHero() {
             México · LATAM · Centro de aprendizaje
           </span>
           <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-foreground sm:text-[2.1rem] lg:text-[2.3rem]">
-            Guías de casino, crypto y apuestas para México
+            Guías de casino, cripto y apuestas para México
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
             Aprende a comparar operadores, entender pagos, bonos, KYC, licencias y riesgos antes de

@@ -29,11 +29,11 @@ const CONTEXT_CONFIG: Record<
   Omit<OfferCardProps, "operatorName" | "operatorId" | "responsibleNote" | "logo">
 > = {
   homepage: {
-    badge: "Crypto + Rewards",
+    badge: "Cripto + Rewards",
     headline: "Gamdom",
-    subheadline: "Casino crypto, sportsbook y Originals",
+    subheadline: "Casino cripto, sportsbook y Originals",
     offerText: "15% rakeback por 7 días según elegibilidad",
-    paymentBadges: ["Crypto", "Originals", "Rewards"],
+    paymentBadges: ["Cripto", "Originals", "Rewards"],
     featureBullets: [
       "Casino, sportsbook y juegos Originals",
       "15% rakeback por 7 días según términos",
@@ -58,11 +58,11 @@ const CONTEXT_CONFIG: Record<
     className: "h-fit self-start p-3 sm:p-4",
   },
   crypto: {
-    badge: "Crypto internacional",
+    badge: "Cripto internacional",
     headline: "Gamdom",
-    subheadline: "Casino crypto, sportsbook y Rewards",
+    subheadline: "Casino cripto, sportsbook y Rewards",
     offerText: "15% rakeback por 7 días según elegibilidad",
-    paymentBadges: ["Crypto", "Originals", "Sportsbook"],
+    paymentBadges: ["Cripto", "Originals", "Sportsbook"],
     featureBullets: [
       "Casino, sportsbook y juegos Originals",
       "Rewards y promociones según términos",
@@ -117,11 +117,11 @@ const CONTEXT_CONFIG: Record<
     className: "mt-4",
   },
   review: {
-    badge: "Crypto + Rewards",
+    badge: "Cripto + Rewards",
     headline: "Gamdom: casino, sportsbook, Originals y Rewards",
-    subheadline: "Operador crypto internacional con promociones rotativas",
+    subheadline: "Operador cripto internacional con promociones rotativas",
     offerText: "15% rakeback por 7 días según elegibilidad",
-    paymentBadges: ["Crypto", "Originals", "Sportsbook", "Rewards"],
+    paymentBadges: ["Cripto", "Originals", "Sportsbook", "Rewards"],
     featureBullets: [
       "Casino, sportsbook y juegos Originals",
       "Welcome offer para nuevos usuarios elegibles",
@@ -130,8 +130,8 @@ const CONTEXT_CONFIG: Record<
     ],
     primaryCtaLabel: "Visitar Gamdom",
     primaryCtaHref: GAMDOM_GLOBAL_AFFILIATE_URL,
-    secondaryCtaLabel: "Comparar casinos crypto",
-    secondaryCtaHref: "/casinos-crypto",
+    secondaryCtaLabel: "Comparar casinos cripto",
+    secondaryCtaHref: "/casinos-cripto",
     termsNote: GAMDOM_FULL_TERMS,
     visual: {
       eyebrow: "WELCOME REWARDS",

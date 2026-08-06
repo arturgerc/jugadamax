@@ -53,7 +53,7 @@ export const REVIEW_HUB_CATEGORIES: readonly {
 }[] = [
   {
     id: "crypto",
-    label: "Casinos crypto",
+    label: "Casinos cripto",
     description: "Operadores con enfoque en criptomonedas y wallets.",
     href: "/reviews?categoria=crypto#directorio",
     accent: "border-cyan-400/35 bg-cyan-500/10 text-cyan-200",
@@ -99,7 +99,7 @@ export const REVIEW_HUB_FILTER_OPTIONS: readonly {
   label: string;
 }[] = [
   { id: "todas", label: "Todas" },
-  { id: "crypto", label: "Crypto" },
+  { id: "crypto", label: "Cripto" },
   { id: "fiat", label: "Fiat" },
   { id: "sin-kyc", label: "Sin KYC" },
   { id: "apuestas", label: "Apuestas" },
@@ -149,7 +149,7 @@ export const REVIEW_FAQ_ITEMS = [
 ] as const;
 
 export const REVIEW_RELATED_ROUTES = [
-  { href: "/casinos-crypto", label: "Casinos crypto" },
+  { href: "/casinos-cripto", label: "Casinos cripto" },
   { href: "/casinos-fiat", label: "Casinos fiat" },
   { href: "/casinos-sin-kyc", label: "Casinos sin KYC" },
   { href: "/apuestas", label: "Apuestas" },

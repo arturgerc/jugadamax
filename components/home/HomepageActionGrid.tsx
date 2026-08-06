@@ -15,11 +15,11 @@ type IntentCard = {
 
 const intentCards: IntentCard[] = [
   {
-    title: "Quiero jugar con crypto",
+    title: "Quiero jugar con cripto",
     text: "Compara casinos con BTC, USDT, Originals, rewards y sportsbook.",
-    href: "/casinos-crypto",
-    badge: "Crypto",
-    cta: "Ver ranking crypto",
+    href: "/casinos-cripto",
+    badge: "Cripto",
+    cta: "Ver ranking cripto",
     theme: "crypto",
   },
   {

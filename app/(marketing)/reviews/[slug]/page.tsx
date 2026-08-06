@@ -204,8 +204,8 @@ const BETFURY_REWARDS_CARDS = [
 
 const BETFURY_PAYMENTS_CARDS = [
   {
-    title: "Crypto focus",
-    text: "BetFury se orienta a usuarios crypto y ecosistema BFG.",
+    title: "Enfoque cripto",
+    text: "BetFury se orienta a usuarios de criptomonedas y al ecosistema BFG.",
   },
   {
     title: "Depósitos",
@@ -253,12 +253,12 @@ const BETFURY_FAQ = [
   {
     question: "¿BetFury paga rápido?",
     answer:
-      "JugadaMax no garantiza tiempos de retiro. Los retiros dependen del método, red crypto, verificación de cuenta, límites y políticas internas del operador.",
+      "JugadaMax no garantiza tiempos de retiro. Los retiros dependen del método, red cripto, verificación de cuenta, límites y políticas internas del operador.",
   },
   {
     question: "¿BetFury es mejor para casino o sportsbook?",
     answer:
-      "BetFury combina casino, posibles apuestas deportivas y gamificación. Encaja mejor para usuarios que buscan una experiencia crypto con promociones y recompensas por nivel.",
+      "BetFury combina casino, posibles apuestas deportivas y gamificación. Encaja mejor para usuarios que buscan una experiencia con criptomonedas, promociones y recompensas por nivel.",
   },
 ] as const;
 
@@ -303,7 +303,7 @@ const ONEXBET_SPORTS_CARDS = [
 const ONEXBET_PAYMENTS_CARDS = [
   {
     title: "Métodos",
-    text: "MXN, OXXO, SPEI, tarjetas y opciones crypto pueden aparecer según cajero vigente.",
+    text: "MXN, OXXO, SPEI, tarjetas y opciones cripto pueden aparecer según cajero vigente.",
   },
   {
     title: "Retiros",
@@ -551,8 +551,8 @@ const FIVEHUNDRED_PRODUCT_CARDS = [
 
 const FIVEHUNDRED_PAYMENTS_CARDS = [
   {
-    title: "Crypto focus",
-    text: "500 Casino se orienta a usuarios crypto.",
+    title: "Enfoque cripto",
+    text: "500 Casino se orienta a usuarios de criptomonedas.",
   },
   {
     title: "Depósitos",
@@ -575,14 +575,14 @@ const FIVEHUNDRED_FAQ = [
       "Sí, el operador muestra promociones visibles, pero JugadaMax recomienda revisar siempre términos, requisitos y disponibilidad antes de depositar.",
   },
   {
-    question: "¿500 Casino es crypto o fiat?",
+    question: "¿500 Casino es cripto o fiat?",
     answer:
-      "JugadaMax lo trata como casino crypto. Si buscas pagos locales como OXXO o SPEI, revisa operadores fiat como Betsson MX.",
+      "JugadaMax lo trata como casino cripto. Si buscas pagos locales como OXXO o SPEI, revisa operadores fiat como Betsson MX.",
   },
   {
     question: "¿Por qué 500 Casino está debajo de BetFury?",
     answer:
-      "Porque BetFury tiene una campaña y propuesta de Bonus Cabinet más clara para el ranking actual. 500 Casino queda como alternativa crypto para comparar.",
+      "Porque BetFury tiene una campaña y propuesta de Bonus Cabinet más clara para el ranking actual. 500 Casino queda como alternativa cripto para comparar.",
   },
   {
     question: "¿JugadaMax garantiza retiros en 500 Casino?",
@@ -633,8 +633,8 @@ const RAINBET_REWARDS_CARDS = [
 
 const RAINBET_PAYMENTS_CARDS = [
   {
-    title: "Crypto focus",
-    text: "Rainbet se presenta como operador crypto-first.",
+    title: "Enfoque cripto",
+    text: "Rainbet se presenta como operador centrado en cripto.",
   },
   {
     title: "Criptomonedas",
@@ -692,7 +692,7 @@ const RAINBET_FAQ = [
   {
     question: "¿Rainbet tiene sportsbook?",
     answer:
-      "Sí, Rainbet combina casino crypto con sportsbook de deportes tradicionales y esports, sujeto a mercados disponibles y restricciones regionales.",
+      "Sí, Rainbet combina casino cripto con sportsbook de deportes tradicionales y esports, sujeto a mercados disponibles y restricciones regionales.",
   },
   {
     question: "¿Rainbet garantiza retiros rápidos?",
@@ -702,7 +702,7 @@ const RAINBET_FAQ = [
   {
     question: "¿Rainbet es mejor que BetFury?",
     answer:
-      "JugadaMax coloca BetFury por encima por la campaña activa y la propuesta de Bonus Cabinet. Rainbet queda como alternativa crypto para comparar, no como reemplazo automático del partner destacado.",
+      "JugadaMax coloca BetFury por encima por la campaña activa y la propuesta de Bonus Cabinet. Rainbet queda como alternativa cripto para comparar, no como reemplazo automático del partner destacado.",
   },
 ] as const;
 
@@ -717,7 +717,7 @@ const GAMDOM_PRODUCT_CARDS = [
   },
   {
     title: "Originals",
-    text: "Juegos propios de house edge dentro del ecosistema Gamdom, útiles para explorar el producto crypto.",
+    text: "Juegos propios de house edge dentro del ecosistema Gamdom, útiles para explorar el producto cripto.",
   },
   {
     title: "Experiencia unificada",
@@ -746,7 +746,7 @@ const GAMDOM_REWARDS_CARDS = [
 
 const GAMDOM_PAYMENTS_CARDS = [
   {
-    title: "Enfoque crypto",
+    title: "Enfoque cripto",
     text: "Gamdom se orienta a depósitos y retiros con criptomonedas. Métodos, redes y límites deben confirmarse en el cajero oficial.",
   },
   {
@@ -831,7 +831,7 @@ const MELLSTROY_PRODUCT_CARDS = [
   { title: "Slots", text: "Catálogo de casino con juegos destacados según disponibilidad regional." },
   { title: "Live casino", text: "Mesas y formatos en vivo sujetos al catálogo vigente del operador." },
   { title: "Fortune Wheel", text: "Rueda de premios visible en la interfaz; reglas y elegibilidad en términos oficiales." },
-  { title: "Casino games", text: "Sección principal de juegos de casino dentro de la plataforma crypto." },
+  { title: "Casino games", text: "Sección principal de juegos de casino dentro de la plataforma cripto." },
   {
     title: "Sportsbook",
     text: "Apuestas deportivas disponibles como producto adicional; no es el posicionamiento principal de JugadaMax.",
@@ -845,7 +845,7 @@ const MELLSTROY_PRODUCT_CARDS = [
 const MELLSTROY_PAYMENTS_CARDS = [
   {
     title: "USDT visible",
-    text: "La interfaz suministrada muestra USDT como método de pago crypto.",
+    text: "La interfaz suministrada muestra USDT como método de pago cripto.",
   },
   {
     title: "Otros métodos",
@@ -870,7 +870,7 @@ const MELLSTROY_ANALYSIS_SECTIONS = [
     title: "Nuestra valoración",
     paragraphs: [
       "Mellstroy recibe una calificación editorial provisional de 3.9/5 en JugadaMax. Es una opinión editorial del equipo, no una puntuación agregada de usuarios ni una garantía de calidad operativa.",
-      "La plataforma destaca por promociones visibles, Fortune Wheel y una mezcla de casino crypto con sportsbook adicional, pero la discrepancia entre creatividades (660% vs 550%) obliga a confirmar la oferta activa antes de depositar.",
+      "La plataforma destaca por promociones visibles, Fortune Wheel y una mezcla de casino cripto con sportsbook adicional, pero la discrepancia entre creatividades (660% vs 550%) obliga a confirmar la oferta activa antes de depositar.",
     ],
   },
   {
@@ -883,21 +883,21 @@ const MELLSTROY_ANALYSIS_SECTIONS = [
   {
     title: "Casino y sportsbook",
     paragraphs: [
-      "El foco editorial está en el casino crypto: slots, live casino, Fortune Wheel y pagos crypto. El sportsbook existe como producto adicional dentro de la misma cuenta, pero no define la clasificación principal de Mellstroy en JugadaMax.",
+      "El foco editorial está en el casino cripto: slots, live casino, Fortune Wheel y pagos cripto. El sportsbook existe como producto adicional dentro de la misma cuenta, pero no define la clasificación principal de Mellstroy en JugadaMax.",
       "La interfaz puede resultar intensa o muy promocional para usuarios que prefieren una experiencia minimalista. Explora el catálogo y confirma juegos elegibles para bonos antes de apostar.",
     ],
   },
   {
     title: "Pagos, KYC y retiros",
     paragraphs: [
-      "USDT es el método crypto visible en la interfaz suministrada. Otros activos, redes, mínimos y comisiones deben verificarse en el cajero oficial del operador.",
+      "USDT es el método cripto visible en la interfaz suministrada. Otros activos, redes, mínimos y comisiones deben verificarse en el cajero oficial del operador.",
       "Mellstroy puede solicitar KYC, aplicar límites internos o restringir promociones según jurisdicción. JugadaMax no afirma retiros rápidos ni garantizados.",
     ],
   },
   {
     title: "Para quién puede encajar",
     paragraphs: [
-      "Mellstroy puede encajar para usuarios que comparan casinos crypto internacionales, aceptan revisar términos con detalle y no necesitan pagos fiat locales como OXXO o SPEI.",
+      "Mellstroy puede encajar para usuarios que comparan casinos cripto internacionales, aceptan revisar términos con detalle y no necesitan pagos fiat locales como OXXO o SPEI.",
       "Puede ser menos adecuado para quien busca máxima claridad en bonos desde el primer vistazo, operadores con licencia local verificada o una experiencia sin múltiples campañas simultáneas.",
     ],
   },
@@ -927,12 +927,12 @@ const MELLSTROY_FAQ = [
   {
     question: "¿Mellstroy tiene sportsbook?",
     answer:
-      "Sí, la interfaz muestra sección de apuestas deportivas como producto adicional. JugadaMax clasifica a Mellstroy principalmente como casino crypto.",
+      "Sí, la interfaz muestra sección de apuestas deportivas como producto adicional. JugadaMax clasifica a Mellstroy principalmente como casino cripto.",
   },
   {
     question: "¿Mellstroy acepta USDT?",
     answer:
-      "USDT es visible en la interfaz suministrada. Otros métodos crypto deben confirmarse en el cajero oficial del operador.",
+      "USDT es visible en la interfaz suministrada. Otros métodos cripto deben confirmarse en el cajero oficial del operador.",
   },
   {
     question: "¿Mellstroy puede solicitar KYC?",
@@ -1046,7 +1046,7 @@ function RelatedLinkBadge({
   let websiteSubtitle = "Casino";
   if (labelUpper.includes("CRYPTOCASINO") || labelUpper.includes(".CC")) {
     websiteToken = "CC";
-    websiteSubtitle = "Crypto";
+    websiteSubtitle = "Cripto";
   } else if (labelUpper.includes("ETH")) {
     websiteToken = "ETH";
     websiteSubtitle = "Casino";
@@ -1090,19 +1090,19 @@ export async function generateMetadata({
   return buildMetadata({
     title:
       review.slug === "ltccasino"
-        ? "LTC Casino México: casino sin KYC y pagos crypto"
+        ? "LTC Casino México: casino sin KYC y pagos cripto"
         : review.slug === "ethcasino"
-          ? "ETH Casino México: casino sin KYC y pagos crypto"
+          ? "ETH Casino México: casino sin KYC y pagos cripto"
           : review.slug === "cryptocasino"
             ? "Anonymous Casino México: CryptoCasino.CC sin KYC"
             : review.title,
     description:
       review.slug === "ltccasino"
-        ? "Reseña de LTC Casino para México: registro con email y contraseña, política sin KYC, Litecoin, Bitcoin, USDT, juegos crypto, retiros y principales riesgos."
+        ? "Reseña de LTC Casino para México: registro con email y contraseña, política sin KYC, Litecoin, Bitcoin, USDT, juegos cripto, retiros y principales riesgos."
         : review.slug === "ethcasino"
           ? "Reseña de ETH Casino para México: registro con email y contraseña, política sin KYC, Ethereum, USDT, juegos en vivo, retiros, límites y riesgos."
           : review.slug === "cryptocasino"
-            ? "Reseña de Anonymous Casino y CryptoCasino.CC: registro con email, casino sin KYC, BTC, ETH, USDT, juegos crypto, retiros, límites y riesgos."
+            ? "Reseña de Anonymous Casino y CryptoCasino.CC: registro con email, casino sin KYC, BTC, ETH, USDT, juegos cripto, retiros, límites y riesgos."
             : `Reseña editorial de ${name}: veredicto, pros y contras, pagos y licencia. Con divulgación de afiliados y juego responsable +18.`,
     path: `/reviews/${review.slug}`,
     type: "article",
@@ -1381,12 +1381,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             headingLevel="h2"
             operatorName="BetFury"
             operatorId="betfury"
-            badge="Crypto partner destacado"
-            headline="BetFury: Bonus Cabinet y casino crypto"
+            badge="Cripto partner destacado"
+            headline="BetFury: Bonus Cabinet y casino cripto"
             subheadline="Free Spins, cashback, rakeback y recompensas por nivel"
             offerText="Hasta 590% + Free Spins según términos oficiales"
             promoCode={BETFURY_PROMO_CODE}
-            paymentBadges={["BFG", "Crypto", "Free Spins", "Cashback"]}
+            paymentBadges={["BFG", "Cripto", "Free Spins", "Cashback"]}
             featureBullets={[
               "Bonus Cabinet con depósitos escalonados según términos oficiales",
               "Hasta $10,500 visible en la promoción del operador",
@@ -1395,8 +1395,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             ]}
             primaryCtaLabel="Ver bonos BetFury"
             primaryCtaHref={BETFURY_AFFILIATE_URL}
-            secondaryCtaLabel="Comparar casinos crypto"
-            secondaryCtaHref="/casinos-crypto"
+            secondaryCtaLabel="Comparar casinos cripto"
+            secondaryCtaHref="/casinos-cripto"
             termsNote="Bonos, porcentajes, free spins, cashback, retiros, verificación y disponibilidad dependen de los términos oficiales de BetFury y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{
@@ -1420,28 +1420,28 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             headingLevel="h2"
             operatorName="500 Casino"
             operatorId="500-casino"
-            badge="Crypto candidato"
-            headline="500 Casino: casino crypto, slots y sportsbook"
+            badge="Cripto candidato"
+            headline="500 Casino: casino cripto, slots y sportsbook"
             subheadline="Promociones visibles, casino y apuestas según términos oficiales"
             offerText="Promociones, juegos y pagos según términos oficiales"
-            paymentBadges={["Crypto", "Slots", "Live", "Sportsbook"]}
+            paymentBadges={["Cripto", "Slots", "Live", "Sportsbook"]}
             featureBullets={[
-              "Casino crypto con slots, live casino y sportsbook",
+              "Casino cripto con slots, live casino y sportsbook",
               "Promociones visibles en el operador según términos oficiales",
               "Interfaz gaming con juegos destacados y categorías múltiples",
               "Revisa pagos, retiros, verificación y disponibilidad regional",
             ]}
             primaryCtaLabel="Visitar 500 Casino"
             primaryCtaHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
-            secondaryCtaLabel="Comparar casinos crypto"
-            secondaryCtaHref="/casinos-crypto"
+            secondaryCtaLabel="Comparar casinos cripto"
+            secondaryCtaHref="/casinos-cripto"
             termsNote="Promociones, juegos, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de 500 Casino y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{
-              eyebrow: "Crypto casino",
+              eyebrow: "Casino cripto",
               title: "500 Casino",
               subtitle: "Slots, sportsbook y promociones visibles",
-              chips: ["Crypto", "Slots", "Live", "Sportsbook"],
+              chips: ["Cripto", "Slots", "Live", "Sportsbook"],
               variant: "fivehundred",
             }}
             visualVariant="crypto"
@@ -1457,28 +1457,28 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             headingLevel="h2"
             operatorName="Rainbet"
             operatorId="rainbet"
-            badge="Crypto candidato"
-            headline="Rainbet: casino crypto, sportsbook y Originals"
-            subheadline="Promociones, rewards y pagos crypto según términos oficiales"
+            badge="Cripto candidato"
+            headline="Rainbet: casino cripto, sportsbook y Originals"
+            subheadline="Promociones, rewards y pagos cripto según términos oficiales"
             offerText="Wager Lock y No Wager Lock según página oficial de promociones"
             paymentBadges={["BTC", "ETH", "USDT", "SOL", "LTC"]}
             featureBullets={[
-              "Casino crypto con miles de juegos y proveedores destacados",
+              "Casino cripto con miles de juegos y proveedores destacados",
               "Sportsbook y Rainbet Originals en una sola cuenta",
               "Rewards: rakeback, daily, weekly, monthly y rank-up",
               "Revisa promociones, pagos, KYC y disponibilidad regional",
             ]}
             primaryCtaLabel="Visitar Rainbet"
             primaryCtaHref={RAINBET_REFERRAL_URL}
-            secondaryCtaLabel="Comparar casinos crypto"
-            secondaryCtaHref="/casinos-crypto"
+            secondaryCtaLabel="Comparar casinos cripto"
+            secondaryCtaHref="/casinos-cripto"
             termsNote="Promociones, recompensas, pagos, retiros, verificación y disponibilidad dependen de los términos oficiales de Rainbet y de tu jurisdicción."
             responsibleNote="18+ | Juega con responsabilidad"
             visual={{
-              eyebrow: "Crypto rewards",
+              eyebrow: "Recompensas cripto",
               title: "Rewards + Sportsbook",
               subtitle: "Originals, VIP y promos según términos",
-              chips: ["Crypto", "Originals", "Sportsbook", "Rewards"],
+              chips: ["Cripto", "Originals", "Sportsbook", "Rewards"],
               variant: "rainbet",
               compact: true,
             }}
@@ -1668,7 +1668,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                   Ideal para
                 </dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Usuarios que buscan casino crypto gamificado y recompensas por nivel
+                  Usuarios que buscan casino cripto gamificado y recompensas por nivel
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -1795,7 +1795,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Casino crypto con slots y sportsbook
+                  Casino cripto con slots y sportsbook
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -1809,7 +1809,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                   Ideal para
                 </dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Usuarios que comparan alternativas crypto frente a BetFury y Gamdom
+                  Usuarios que comparan alternativas cripto frente a BetFury y Gamdom
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -1880,7 +1880,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               Por qué aparece debajo de BetFury
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              JugadaMax muestra 500 Casino como alternativa crypto, pero BetFury recibe prioridad
+              JugadaMax muestra 500 Casino como alternativa cripto, pero BetFury recibe prioridad
               por la campaña activa y la propuesta de Bonus Cabinet. La posición puede cambiar si
               mejoran términos, tracking, ofertas o confirmación de partner.
             </p>
@@ -1902,7 +1902,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Casino crypto con sportsbook y Rainbet Originals
+                  Casino cripto con sportsbook y Rainbet Originals
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -1916,7 +1916,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                   Ideal para
                 </dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Usuarios que priorizan casino crypto, Originals, sportsbook y rewards activos
+                  Usuarios que priorizan casino cripto, Originals, sportsbook y rewards activos
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -2040,7 +2040,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               Por qué aparece debajo de BetFury, 500 Casino y Gamdom
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-              JugadaMax muestra Rainbet como alternativa crypto sólida para comparar, pero BetFury,
+              JugadaMax muestra Rainbet como alternativa cripto sólida para comparar, pero BetFury,
               500 Casino y Gamdom tienen mayor prioridad editorial en el ranking actual. La posición
               puede cambiar si mejoran términos, tracking, ofertas o confirmación de partner.
             </p>
@@ -2457,7 +2457,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Casino crypto con sportsbook adicional
+                  Casino cripto con sportsbook adicional
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -2587,7 +2587,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
               Mellstroy tiene un enlace de afiliado activo en JugadaMax, pero se mantiene por debajo
-              de BetFury, 500 Casino, Gamdom, Rainbet, Roobet y Stake en el ranking crypto. La
+              de BetFury, 500 Casino, Gamdom, Rainbet, Roobet y Stake en el ranking cripto. La
               posición puede cambiar si mejoran términos, tracking, disponibilidad GEO y
               transparencia del operador. La relación comercial no determina por sí sola la
               calificación editorial.
@@ -2610,7 +2610,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">Tipo</dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Casino crypto con sportsbook, Originals y Rewards
+                  Casino cripto con sportsbook, Originals y Rewards
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -2624,7 +2624,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                   Ideal para
                 </dt>
                 <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Usuarios que buscan casino crypto, sportsbook y recompensas activas
+                  Usuarios que buscan casino cripto, sportsbook y recompensas activas
                 </dd>
               </div>
               <div className="rounded-lg border border-white/10 bg-[#111417] p-3">
@@ -2866,13 +2866,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 Ver bonos BetFury
               </a>
               <a
-                href="/casinos-crypto"
+                href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
                   focusRing,
                 )}
               >
-                Comparar casinos crypto
+                Comparar casinos cripto
               </a>
             </div>
           </section>
@@ -2907,13 +2907,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 Visitar 500 Casino
               </a>
               <a
-                href="/casinos-crypto"
+                href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
                   focusRing,
                 )}
               >
-                Volver al ranking crypto
+                Volver al ranking cripto
               </a>
             </div>
           </section>
@@ -2948,13 +2948,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 Visitar Rainbet
               </a>
               <a
-                href="/casinos-crypto"
+                href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
                   focusRing,
                 )}
               >
-                Volver al ranking crypto
+                Volver al ranking cripto
               </a>
             </div>
           </section>
@@ -2989,13 +2989,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 Visitar Gamdom
               </a>
               <a
-                href="/casinos-crypto"
+                href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-emerald-400/35 px-5 py-2.5 text-sm font-semibold text-emerald-200 transition-colors hover:bg-emerald-500/10",
                   focusRing,
                 )}
               >
-                Volver al ranking crypto
+                Volver al ranking cripto
               </a>
             </div>
           </section>
@@ -3030,13 +3030,13 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 Ver oferta Mellstroy
               </a>
               <a
-                href="/casinos-crypto"
+                href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
                   focusRing,
                 )}
               >
-                Volver al ranking crypto
+                Volver al ranking cripto
               </a>
             </div>
           </section>
@@ -3370,8 +3370,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         compactSecondaryLabel="Comparar"
         primaryLabel="Ver bonos BetFury"
         primaryHref={BETFURY_AFFILIATE_URL}
-        secondaryLabel="Comparar casinos crypto"
-        secondaryHref="/casinos-crypto"
+        secondaryLabel="Comparar casinos cripto"
+        secondaryHref="/casinos-cripto"
       />
     ) : null}
     {review.slug === "500-casino" ? (
@@ -3381,8 +3381,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         compactSecondaryLabel="Comparar"
         primaryLabel="Visitar 500 Casino"
         primaryHref={FIVEHUNDRED_CASINO_GLOBAL_AFFILIATE_URL}
-        secondaryLabel="Ranking crypto"
-        secondaryHref="/casinos-crypto"
+        secondaryLabel="Ranking cripto"
+        secondaryHref="/casinos-cripto"
       />
     ) : null}
     {review.slug === "rainbet" ? (
@@ -3392,8 +3392,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         compactSecondaryLabel="Comparar"
         primaryLabel="Visitar Rainbet"
         primaryHref={RAINBET_REFERRAL_URL}
-        secondaryLabel="Ranking crypto"
-        secondaryHref="/casinos-crypto"
+        secondaryLabel="Ranking cripto"
+        secondaryHref="/casinos-cripto"
       />
     ) : null}
     {review.slug === "gamdom" ? (
@@ -3403,8 +3403,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         compactSecondaryLabel="Comparar"
         primaryLabel="Visitar Gamdom"
         primaryHref={GAMDOM_GLOBAL_AFFILIATE_URL}
-        secondaryLabel="Ranking crypto"
-        secondaryHref="/casinos-crypto"
+        secondaryLabel="Ranking cripto"
+        secondaryHref="/casinos-cripto"
       />
     ) : null}
     {review.slug === "1xbet" ? (
@@ -3436,8 +3436,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         compactSecondaryLabel="Comparar"
         primaryLabel="Ver oferta Mellstroy"
         primaryHref={MELLSTROY_GLOBAL_AFFILIATE_URL}
-        secondaryLabel="Comparar casinos crypto"
-        secondaryHref="/casinos-crypto"
+        secondaryLabel="Comparar casinos cripto"
+        secondaryHref="/casinos-cripto"
       />
     ) : null}
     </>

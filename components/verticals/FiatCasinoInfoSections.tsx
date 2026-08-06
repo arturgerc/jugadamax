@@ -31,7 +31,7 @@ const faqItems = [
       "Algunos operadores pueden ofrecer tarjetas, transferencias, SPEI, OXXO u otros métodos locales. La disponibilidad cambia según el casino y debe verificarse en el sitio oficial.",
   },
   {
-    question: "¿Los bonos de casinos fiat son iguales que los bonos crypto?",
+    question: "¿Los bonos de casinos fiat son iguales que los bonos cripto?",
     answer:
       "No siempre. Los bonos pueden variar según método de pago, país, tipo de cuenta y términos del operador. Revisa siempre las condiciones vigentes antes de registrarte.",
   },
@@ -228,10 +228,10 @@ export function FiatCasinoInfoSections({
             Ver metodología completa
           </Link>
           <Link
-            href="/casinos-crypto"
+            href="/casinos-cripto"
             className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
           >
-            Comparar casinos crypto
+            Comparar casinos cripto
           </Link>
         </div>
       </section>

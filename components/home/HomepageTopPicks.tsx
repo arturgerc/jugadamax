@@ -52,9 +52,9 @@ export function HomepageTopPicks() {
               subBrand="CryptoCasino.CC"
               badge="Mejor opción sin KYC"
               rating={ratingFor("cryptocasino")}
-              valueProposition="Registro con email y contraseña, casino crypto y política pública sin KYC."
+              valueProposition="Registro con email y contraseña, casino cripto y política pública sin KYC."
               features={[
-                "BTC, ETH, USDT, LTC y crypto games",
+                "BTC, ETH, USDT, LTC y juegos cripto",
                 `Valoración editorial JugadaMax: ${ratingFor("cryptocasino").toFixed(1)}/5`,
               ]}
               ctaLabel="Registrarse"
@@ -70,12 +70,12 @@ export function HomepageTopPicks() {
             <HomepageTopPickCard
               operatorId="betfury"
               operatorName="BetFury"
-              badge="Promociones crypto"
+              badge="Promociones cripto"
               rating={ratingFor("betfury")}
               valueProposition="Bonus Cabinet, Free Spins, cashback y recompensas por nivel."
               features={[
                 "Hasta 590% + Free Spins según términos",
-                "BFG, Bitcoin, USDT y promociones crypto",
+                "BFG, Bitcoin, USDT y promociones cripto",
               ]}
               ctaLabel="Ver BetFury"
               ctaHref={BETFURY_AFFILIATE_URL}

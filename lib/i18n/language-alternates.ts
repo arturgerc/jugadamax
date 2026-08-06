@@ -64,8 +64,8 @@ function buildNewsLanguageAlternates(): Record<string, string> {
 const STATIC_PAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   "/": "/en",
   "/en": "/",
-  "/casinos-crypto": "/en/casinos-crypto",
-  "/en/casinos-crypto": "/casinos-crypto",
+  "/casinos-cripto": "/en/casinos-crypto",
+  "/en/casinos-crypto": "/casinos-cripto",
   "/casinos-sin-kyc": "/en/casinos-no-kyc",
   "/en/casinos-no-kyc": "/casinos-sin-kyc",
   "/bonos": "/en/bonuses",

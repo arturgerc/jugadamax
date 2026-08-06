@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { logoBrand } from "@/components/brand/Logo";
 
-export const alt = "JugadaMax — Casinos crypto, casinos fiat y apuestas en México";
+export const alt = "JugadaMax — Casinos cripto, casinos fiat y apuestas en México";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -56,7 +56,7 @@ export default function OpenGraphImage() {
             color: logoBrand.text,
           }}
         >
-          Casinos crypto, casinos fiat y apuestas en México
+          Casinos cripto, casinos fiat y apuestas en México
         </p>
 
         {/* Trust line */}

@@ -48,7 +48,7 @@ export type EnCryptoSecondaryEntry = {
   position: number;
 };
 
-/** Main TOP-6 — same operator order as Spanish /casinos-crypto. */
+/** Main TOP-6 — same operator order as Spanish /casinos-cripto. */
 export const EN_CRYPTO_TOP_SIX: readonly EnCryptoTopEntry[] = [
   {
     operatorId: "cryptocasino",

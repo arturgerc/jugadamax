@@ -122,8 +122,8 @@ export function resolvePartnersCoverage(
     });
   }
   examples.push({
-    href: "/casinos-crypto",
-    title: "Casinos crypto en México",
+    href: "/casinos-cripto",
+    title: "Casinos cripto en México",
     kindLabel: "Vertical",
   });
   examples.push({

@@ -14,7 +14,7 @@ import type { BonusDirectoryGroup } from "@/types/content";
 
 const SECTION_EYEBROWS: Record<BonusDirectoryGroup, string> = {
   "casino-mx": "Casino · México",
-  "crypto-rewards": "Crypto · Rewards",
+  "crypto-rewards": "Cripto · Rewards",
   "sports-mixed": "Apuestas · Mixto",
 };
 

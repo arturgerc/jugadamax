@@ -273,7 +273,7 @@ const REVIEW_HEADER_ACCENTS: Record<string, ReviewHeaderAccent> = {
 };
 
 const VERTICAL_CHIP_LABELS: Record<Vertical, { es: string; en: string }> = {
-  "crypto-casino": { es: "Casino crypto", en: "Crypto casino" },
+  "crypto-casino": { es: "Casino cripto", en: "Crypto casino" },
   "fiat-casino": { es: "Casino fiat", en: "Fiat casino" },
   sportsbook: { es: "Sportsbook", en: "Sportsbook" },
 };

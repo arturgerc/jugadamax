@@ -251,10 +251,10 @@ export function BettingInfoSections({
             Comparar casinos fiat
           </Link>
           <Link
-            href="/casinos-crypto"
+            href="/casinos-cripto"
             className="inline-flex min-h-11 items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/60"
           >
-            Comparar casinos crypto
+            Comparar casinos cripto
           </Link>
         </div>
       </section>

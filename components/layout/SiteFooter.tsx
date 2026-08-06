@@ -66,7 +66,7 @@ export function SiteFooter() {
         </div>
 
         <p className="mt-10 text-xs text-muted-foreground">
-          © {year} JugadaMax. Información sobre casinos crypto, casinos fiat y apuestas deportivas en
+          © {year} JugadaMax. Información sobre casinos cripto, casinos fiat y apuestas deportivas en
           México. Solo para mayores de 18 años. Juega de forma responsable.
         </p>
       </Container>
