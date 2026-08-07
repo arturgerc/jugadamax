@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { EnMobileNav } from "@/components/layout/EnMobileNav";
-import { enDesktopNav } from "@/components/layout/en-nav-links";
+import { enDesktopNav, isEnglishNavActive } from "@/components/layout/en-nav-links";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Logo } from "@/components/brand/Logo";
 import { focusRing, cn } from "@/lib/utils";
@@ -31,18 +31,23 @@ export function EnSiteHeader() {
           aria-label="Main navigation"
           className="hidden min-w-0 flex-1 items-center justify-center gap-3 lg:flex xl:gap-4"
         >
-          {enDesktopNav.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "whitespace-nowrap rounded-sm text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
-                focusRing,
-              )}
-            >
-              {link.label}
-            </a>
-          ))}
+          {enDesktopNav.map((link) => {
+            const active = isEnglishNavActive(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "whitespace-nowrap rounded-sm text-sm font-medium transition-colors hover:text-foreground",
+                  active ? "text-foreground" : "text-muted-foreground",
+                  focusRing,
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">

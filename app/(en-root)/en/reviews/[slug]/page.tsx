@@ -41,6 +41,7 @@ import { EnCalienteReviewContent } from "@/components/review/EnCalienteReviewCon
 import { EnCodereReviewContent } from "@/components/review/EnCodereReviewContent";
 import { EnSportsbetReviewContent } from "@/components/review/EnSportsbetReviewContent";
 import { EnAwinturaReviewContent } from "@/components/review/EnAwinturaReviewContent";
+import { EnBitcasinoReviewContent } from "@/components/review/EnBitcasinoReviewContent";
 import type { Author, Casino, Review } from "@/types/content";
 import type { ReactNode } from "react";
 
@@ -64,6 +65,7 @@ const SPECIALIZED_EN_REVIEW_CONTENT: Record<string, SpecializedReviewContent> = 
   codere: EnCodereReviewContent,
   "sportsbet-io": EnSportsbetReviewContent,
   awintura: EnAwinturaReviewContent,
+  bitcasino: EnBitcasinoReviewContent,
 };
 
 /** Fiat TOP-6 + Mexico local references — must never use the narrow generic fallback. */
@@ -166,6 +168,15 @@ function getEnReviewRelatedLinks(slug: string) {
     return [
       { href: "/en/casinos-crypto", label: "Crypto casinos ranking" },
       { href: "/en/betting", label: "Sports betting coverage" },
+      { href: "/en/how-we-review", label: "How we review" },
+      { href: "/en/responsible-gambling", label: "Responsible gambling" },
+    ];
+  }
+
+  if (slug === "bitcasino") {
+    return [
+      { href: "/en/casinos-crypto", label: "Crypto casinos ranking" },
+      { href: "/en/guides/best-crypto-casinos", label: "Best crypto casinos guide" },
       { href: "/en/how-we-review", label: "How we review" },
       { href: "/en/responsible-gambling", label: "Responsible gambling" },
     ];

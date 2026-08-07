@@ -215,6 +215,34 @@ export const globalCasinos: Casino[] = [
     locale: "en",
   },
   {
+    id: "bitcasino",
+    slug: "bitcasino",
+    name: "Bitcasino.io",
+    logo: {
+      src: "/operators/bitcasino.svg",
+      alt: "Bitcasino.io",
+      width: 120,
+      height: 48,
+    },
+    verticals: ["crypto-casino"],
+    rankByVertical: {},
+    rating: 4.0,
+    payments: [
+      { name: "Bitcoin", kind: "crypto" },
+      { name: "Ethereum", kind: "crypto" },
+      { name: "USDT", kind: "crypto" },
+      { name: "TRX", kind: "crypto" },
+    ],
+    licensing: {
+      licenseName: "Curaçao — OGL/2023/111/0069",
+      notes:
+        "Bitcasino.io is operated by Moon Technologies B.V. under Curaçao Gaming Authority licence OGL/2023/111/0069 according to published official information. This is not local authorisation in every market. Check entity, current licence status, restrictions, KYC and live terms.",
+    },
+    summary:
+      "Bitcasino.io is an international crypto casino with slots, live casino, Originals, jackpots and promotions. The supplied campaign announces up to 5,000 USDT across three deposit bonuses, subject to account, GEO, wagering and official terms.",
+    locale: "en",
+  },
+  {
     id: "betsson",
     slug: "betsson",
     name: "Betsson Mexico",

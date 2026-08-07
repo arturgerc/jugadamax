@@ -165,7 +165,6 @@ export function HomepageCasinoCard({
       <p
         className={cn(
           "mt-1.5 text-[0.8125rem] leading-snug text-muted-foreground sm:mt-2 sm:text-sm",
-          "line-clamp-2",
         )}
       >
         {summary}

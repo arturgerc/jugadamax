@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { enMobileNav } from "@/components/layout/en-nav-links";
+import Link from "next/link";
+import { enMobileNav, isEnglishNavActive } from "@/components/layout/en-nav-links";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { focusRing, cn } from "@/lib/utils";
 
@@ -49,19 +50,24 @@ export function EnMobileNav({ currentPath = "/en" }: { currentPath?: string }) {
             <div className="mb-2 border-b border-border/30 px-2 pb-2">
               <LanguageSwitcher currentPath={currentPath} />
             </div>
-            {enMobileNav.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={cn(
-                  "flex min-h-11 items-center rounded-sm border-b border-border/30 px-2 text-base font-medium text-foreground last:border-b-0",
-                  focusRing,
-                )}
-              >
-                {link.label}
-              </a>
-            ))}
+            {enMobileNav.map((link) => {
+              const active = isEnglishNavActive(currentPath, link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "flex min-h-11 items-center rounded-sm border-b border-border/30 px-2 text-base font-medium last:border-b-0",
+                    active ? "bg-white/5 text-foreground" : "text-foreground",
+                    focusRing,
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
         </>
       )}

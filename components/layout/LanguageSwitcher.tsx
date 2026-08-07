@@ -12,8 +12,13 @@ interface LanguageSwitcherProps {
  * Minimal Español / English switcher.
  * Uses exact alternates only; otherwise falls back to locale home with a clear title.
  */
+/** True only for `/en` and `/en/...` — not `/english`, `/enigma`, etc. */
+export function isEnglishLocalePath(pathname: string): boolean {
+  return pathname === "/en" || pathname.startsWith("/en/");
+}
+
 export function LanguageSwitcher({ currentPath, className }: LanguageSwitcherProps) {
-  const isEnglish = currentPath.startsWith("/en");
+  const isEnglish = isEnglishLocalePath(currentPath);
   const alternate = getLanguageAlternate(currentPath);
 
   const esHref = isEnglish ? (alternate ?? "/") : currentPath;
