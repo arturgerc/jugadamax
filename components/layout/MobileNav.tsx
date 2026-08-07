@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   primaryNav,
@@ -70,7 +71,7 @@ export function MobileNav() {
             {links.map((link) => {
               const active = isSpanishNavActive(pathname, link.href);
               return (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
@@ -82,7 +83,7 @@ export function MobileNav() {
                   )}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </nav>

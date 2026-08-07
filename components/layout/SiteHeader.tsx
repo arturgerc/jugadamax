@@ -34,7 +34,7 @@ export function SiteHeader() {
           {desktopNav.map((link) => {
             const active = isSpanishNavActive(pathname, link.href);
             return (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
@@ -45,7 +45,7 @@ export function SiteHeader() {
                 )}
               >
                 {link.label}
-              </a>
+              </Link>
             );
           })}
         </nav>

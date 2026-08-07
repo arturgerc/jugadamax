@@ -29,7 +29,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {primaryNav.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className={cn(
                       "rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground",
@@ -37,7 +37,7 @@ export function SiteFooter() {
                     )}
                   >
                     {link.footerLabel ?? link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -48,7 +48,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               {legalNav.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className={cn(
                       "rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground",
@@ -56,7 +56,7 @@ export function SiteFooter() {
                     )}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

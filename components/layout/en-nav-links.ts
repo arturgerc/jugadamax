@@ -27,6 +27,12 @@ export const enDesktopNav: NavLink[] = [
 /** Mobile menu — same logical items as desktop (no legal/Spanish links). */
 export const enMobileNav: NavLink[] = enDesktopNav;
 
+/** Returns true when the current pathname matches an English nav destination. */
+export function isEnglishNavActive(pathname: string, href: string): boolean {
+  if (href === "/en") return pathname === "/en";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 /**
  * Footer — Sections column.
  * Mirrors Spanish primaryNav section order (Partners/Contact live in Information).
