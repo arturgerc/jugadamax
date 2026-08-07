@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /**
@@ -21,9 +22,9 @@ export function ResponsibleGamblingNotice({ className }: { className?: string })
       </span>
       <span>
         El juego puede causar adicción. Juega de forma responsable. Solo para mayores de 18 años.{" "}
-        <a href="/juego-responsable" className="font-medium text-primary underline underline-offset-2">
+        <Link href="/juego-responsable" className="font-medium text-primary underline underline-offset-2">
           Juego responsable
-        </a>
+        </Link>
         .
       </span>
     </aside>

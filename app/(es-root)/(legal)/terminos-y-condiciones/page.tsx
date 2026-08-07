@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -70,9 +71,9 @@ export default function TerminosYCondicionesPage() {
           <p className="text-sm text-muted-foreground sm:text-base">
             Promovemos el juego responsable. El juego online debe ser entretenimiento, no una fuente
             de ingresos. Consulta nuestra página de{" "}
-            <a href="/juego-responsable" className="font-medium text-primary underline underline-offset-2">
+            <Link href="/juego-responsable" className="font-medium text-primary underline underline-offset-2">
               juego responsable
-            </a>{" "}
+            </Link>{" "}
             para recomendaciones y señales de riesgo.
           </p>
         </section>
@@ -92,9 +93,9 @@ export default function TerminosYCondicionesPage() {
           <p className="text-sm text-muted-foreground sm:text-base">
             Algunos enlaces son de afiliado. Si te registras a través de ellos y el enlace está
             activo, podemos recibir compensación. Esto no tiene costo adicional para ti. Consulta la{" "}
-            <a href="/divulgacion-afiliados" className="font-medium text-primary underline underline-offset-2">
+            <Link href="/divulgacion-afiliados" className="font-medium text-primary underline underline-offset-2">
               divulgación de afiliados
-            </a>
+            </Link>
             .
           </p>
         </section>

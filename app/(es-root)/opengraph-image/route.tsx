@@ -1,11 +1,10 @@
 import { ImageResponse } from "next/og";
 import { logoBrand } from "@/components/brand/Logo";
 
-export const alt = "JugadaMax — Independent crypto casino reviews and guides";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+const size = { width: 1200, height: 630 };
 
-export default function EnOpenGraphImage() {
+/** Stable /opengraph-image route (avoids hashed metadata-file URLs under multiple root layouts). */
+export async function GET() {
   return new ImageResponse(
     (
       <div
@@ -54,7 +53,7 @@ export default function EnOpenGraphImage() {
             color: logoBrand.text,
           }}
         >
-          Crypto casino reviews, payment guides and responsible gambling
+          Casinos cripto, casinos fiat y apuestas en México
         </p>
 
         <p
@@ -65,7 +64,7 @@ export default function EnOpenGraphImage() {
             letterSpacing: "0.01em",
           }}
         >
-          Independent editorial coverage · 18+ · Play responsibly
+          Rankings editoriales · +18 · Juego responsable
         </p>
       </div>
     ),

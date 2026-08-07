@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { siteConfig } from "@/lib/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
-import { LayoutChrome } from "@/components/layout/LayoutChrome";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -40,18 +40,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function EsRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-  const localeHeader = headersList.get("x-jm-locale");
-  const locale = localeHeader === "en" ? "en" : "es-MX";
-
   return (
     <html
-      lang={locale}
+      lang="es-MX"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -61,9 +57,13 @@ export default async function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd(locale)) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd("es-MX")),
+          }}
         />
-        <LayoutChrome>{children}</LayoutChrome>
+        <SiteHeader />
+        <main className="flex-1">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

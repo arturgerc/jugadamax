@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getAuthorById,
@@ -2364,12 +2365,12 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               </a>
               <p className="text-xs leading-relaxed text-muted-foreground">
                 También puedes comparar operadores en la{" "}
-                <a
+                <Link
                   href="/casinos-fiat"
                   className="font-medium text-primary underline underline-offset-2 hover:text-[var(--jm-gold-strong)]"
                 >
                   sección de casinos fiat
-                </a>{" "}
+                </Link>{" "}
                 de JugadaMax.
               </p>
             </div>
@@ -2865,7 +2866,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               >
                 Ver bonos BetFury
               </a>
-              <a
+              <Link
                 href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
@@ -2873,7 +2874,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 )}
               >
                 Comparar casinos cripto
-              </a>
+              </Link>
             </div>
           </section>
         ) : null}
@@ -2906,7 +2907,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               >
                 Visitar 500 Casino
               </a>
-              <a
+              <Link
                 href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
@@ -2914,7 +2915,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 )}
               >
                 Volver al ranking cripto
-              </a>
+              </Link>
             </div>
           </section>
         ) : null}
@@ -2947,7 +2948,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               >
                 Visitar Rainbet
               </a>
-              <a
+              <Link
                 href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
@@ -2955,7 +2956,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 )}
               >
                 Volver al ranking cripto
-              </a>
+              </Link>
             </div>
           </section>
         ) : null}
@@ -2988,7 +2989,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               >
                 Visitar Gamdom
               </a>
-              <a
+              <Link
                 href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-emerald-400/35 px-5 py-2.5 text-sm font-semibold text-emerald-200 transition-colors hover:bg-emerald-500/10",
@@ -2996,7 +2997,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 )}
               >
                 Volver al ranking cripto
-              </a>
+              </Link>
             </div>
           </section>
         ) : null}
@@ -3029,7 +3030,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
               >
                 Ver oferta Mellstroy
               </a>
-              <a
+              <Link
                 href="/casinos-cripto"
                 className={cn(
                   "inline-flex min-h-11 items-center justify-center rounded-md border border-primary/40 px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10",
@@ -3037,7 +3038,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
                 )}
               >
                 Volver al ranking cripto
-              </a>
+              </Link>
             </div>
           </section>
         ) : null}
