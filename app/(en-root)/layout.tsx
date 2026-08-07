@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { siteConfig } from "@/lib/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
+import { AnalyticsRoot } from "@/components/analytics/AnalyticsRoot";
 import { EnSiteHeader } from "@/components/layout/EnSiteHeader";
 import { EnSiteFooter } from "@/components/layout/EnSiteFooter";
 
@@ -48,6 +49,7 @@ export default function EnRootLayout({
         <EnSiteHeader />
         <main className="flex-1">{children}</main>
         <EnSiteFooter />
+        <AnalyticsRoot locale="en" />
       </body>
     </html>
   );
