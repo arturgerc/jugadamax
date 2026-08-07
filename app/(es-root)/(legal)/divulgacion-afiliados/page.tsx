@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -46,12 +47,12 @@ export default function DivulgacionAfiliadosPage() {
           <p>
             La comisión por afiliación no determina nuestras opiniones ni el orden de nuestros
             rankings. La metodología que seguimos es pública y puedes consultarla en{" "}
-            <a
+            <Link
               href="/como-evaluamos"
               className="font-medium text-primary underline underline-offset-2"
             >
               Cómo evaluamos los casinos
-            </a>
+            </Link>
             .
           </p>
           <p>

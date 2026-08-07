@@ -1,11 +1,10 @@
 import { ImageResponse } from "next/og";
 import { logoBrand } from "@/components/brand/Logo";
 
-export const alt = "JugadaMax — Casinos cripto, casinos fiat y apuestas en México";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+const size = { width: 1200, height: 630 };
 
-export default function OpenGraphImage() {
+/** Stable /en/opengraph-image route (avoids hashed metadata-file URLs under multiple root layouts). */
+export async function GET() {
   return new ImageResponse(
     (
       <div
@@ -20,7 +19,6 @@ export default function OpenGraphImage() {
           fontFamily: "system-ui, sans-serif",
         }}
       >
-        {/* Wordmark row */}
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 40 }}>
           <div
             style={{
@@ -45,7 +43,6 @@ export default function OpenGraphImage() {
           </div>
         </div>
 
-        {/* Headline */}
         <p
           style={{
             margin: 0,
@@ -56,10 +53,9 @@ export default function OpenGraphImage() {
             color: logoBrand.text,
           }}
         >
-          Casinos cripto, casinos fiat y apuestas en México
+          Crypto casino reviews, payment guides and responsible gambling
         </p>
 
-        {/* Trust line */}
         <p
           style={{
             margin: "28px 0 0",
@@ -68,7 +64,7 @@ export default function OpenGraphImage() {
             letterSpacing: "0.01em",
           }}
         >
-          Rankings editoriales · +18 · Juego responsable
+          Independent editorial coverage · 18+ · Play responsibly
         </p>
       </div>
     ),

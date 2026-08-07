@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/jsonld";
 import { Container } from "@/components/layout/Container";
@@ -90,9 +91,9 @@ export default function PoliticaDePrivacidadPage() {
             Algunos enlaces son de afiliado. Cuando un enlace está activo y aprobado, podemos recibir
             una comisión si te registras en un operador. Esto puede implicar parámetros de seguimiento
             en la URL del operador. Consulta nuestra{" "}
-            <a href="/divulgacion-afiliados" className="font-medium text-primary underline underline-offset-2">
+            <Link href="/divulgacion-afiliados" className="font-medium text-primary underline underline-offset-2">
               divulgación de afiliados
-            </a>
+            </Link>
             .
           </p>
         </section>
