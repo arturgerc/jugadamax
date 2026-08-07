@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { siteConfig } from "@/lib/site";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonld";
+import { AnalyticsRoot } from "@/components/analytics/AnalyticsRoot";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
@@ -64,6 +65,7 @@ export default function EsRootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <AnalyticsRoot locale="es-MX" />
       </body>
     </html>
   );

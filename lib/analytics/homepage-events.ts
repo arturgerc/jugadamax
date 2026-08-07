@@ -21,14 +21,9 @@ type AnalyticsEventName =
 
 type AnalyticsEventParams = Record<string, string | number | undefined>;
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
 /**
- * Safe analytics helper. No-ops during SSR and when gtag is absent.
+ * Safe analytics helper. No-ops during SSR and when gtag is absent
+ * (before consent or when GA is not configured).
  * Never throws; never blocks navigation; never sends personal data.
  */
 export function trackHomepageEvent(

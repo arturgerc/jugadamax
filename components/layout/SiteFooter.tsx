@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AnalyticsPreferencesButton } from "@/components/analytics/AnalyticsPreferencesButton";
 import { Container } from "@/components/layout/Container";
 import { primaryNav, legalNav } from "@/components/layout/nav-links";
 import { ResponsibleGamblingNotice } from "@/components/trust/ResponsibleGamblingNotice";
@@ -59,6 +60,9 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <AnalyticsPreferencesButton locale="es-MX" />
+              </li>
             </ul>
           </nav>
 

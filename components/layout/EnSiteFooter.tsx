@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AnalyticsPreferencesButton } from "@/components/analytics/AnalyticsPreferencesButton";
 import { Container } from "@/components/layout/Container";
 import { enFooterInfo, enFooterSections } from "@/components/layout/en-nav-links";
 import { SocialLinks } from "@/components/social/SocialLinks";
@@ -65,6 +66,9 @@ export function EnSiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <AnalyticsPreferencesButton locale="en" />
+              </li>
             </ul>
           </nav>
 
